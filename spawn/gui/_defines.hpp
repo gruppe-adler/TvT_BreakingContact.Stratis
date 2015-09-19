@@ -193,8 +193,8 @@ class RscButton
     y = 0;
     w = 0.055589;
     h = 0.039216;
-    shadow = 2;
-    font = "PuristaLight";
+    shadow = 0;
+    font = "PuristaMedium";
     sizeEx = 0.03921;
     offsetX = 0.003;
     offsetY = 0.003;

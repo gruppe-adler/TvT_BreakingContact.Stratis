@@ -759,7 +759,7 @@ class gui_spawn_blufor
 				colorText[] = {0,0,0,1};
 				colorBackground[] = {0.81,0.55,0.12,1};
 				tooltip = "Warte auf Opfor..."; 
-				onButtonClick = " [] execVM 'mission_setup\teleport.sqf'; closeDialog 0";
+				onButtonClick = "[] execVM 'mission_setup\teleport.sqf'; closeDialog 0";
 			};
 		};
 };
@@ -791,14 +791,53 @@ class gui_spawn_opfor
 			class btn_spawn_opfor: RscButton
 			{
 				idc = 8012;
-				text = "Spawnpunkt aussuchen"; 
+				text = $STR_GRAD_choose_spawn_location;
 				x = 16 * GUI_GRID_W + GUI_GRID_X;
 				y = 2 * GUI_GRID_H + GUI_GRID_Y;
 				w = 12 * GUI_GRID_W;
 				h = 3 * GUI_GRID_H;
 				colorText[] = {0,0,0,1};
 				colorBackground[] = {0.81,0.55,0.12,1};
-				tooltip = "Spawnpunkt aussuchen"; 
+				tooltip = $STR_GRAD_choose_spawn_location;
+				onButtonClick = "[] execVM 'mission_setup\teleport.sqf'; closeDialog 0";
+			};
+		};
+};
+
+class gui_spawn_waitplease
+{
+		idd = 8020;
+		movingenable = 0;
+		enableSimulation = 1;
+		enableDisplay = 1;
+		objects[] = {};
+
+		class ControlsBackground
+		{
+			class dlgBackground: background
+			{
+				idc = 8021;
+				x = 10 * GUI_GRID_W + GUI_GRID_X;
+				y = 0 * GUI_GRID_H + GUI_GRID_Y;
+				w = 20 * GUI_GRID_W;
+				h = 10 * GUI_GRID_H;
+				colorBackground[] = {0,0,0,0.8};
+			};
+		};
+
+		class Controls {		
+
+			class btn_spawn_opfor: RscButton
+			{
+				idc = 8022;
+				text = "localize 'str_GRAD_choose_spawn_location'"; 
+				x = 16 * GUI_GRID_W + GUI_GRID_X;
+				y = 2 * GUI_GRID_H + GUI_GRID_Y;
+				w = 12 * GUI_GRID_W;
+				h = 3 * GUI_GRID_H;
+				colorText[] = {0,0,0,1};
+				colorBackground[] = {0.81,0.55,0.12,1};
+				tooltip = "localize 'str_GRAD_choose_spawn_location'"; 
 				onButtonClick = "[] execVM 'mission_setup\teleport.sqf'; closeDialog 0";
 			};
 		};

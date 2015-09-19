@@ -5,19 +5,18 @@ spawnpoint_mapclick = [];
 cutText ["", "PLAIN", 0];
 
 
-
 if (player == opfor_teamlead && !OPFOR_TELEPORTED) then {
 
-	[localize "str_GRAD_choose_spawn_location"] call EFUNC(common,displayTextStructured);
+	//[localize "str_GRAD_choose_spawn_location"] call EFUNC(common,displayTextStructured);
 
 	openMap [true,false];
-	
+
 	onMapSingleClick "[_pos] call teleportGroup; onMapSingleClick ''; true";
 };
 
 if (player == blufor_teamlead && OPFOR_TELEPORTED) then {
 
-	[localize "str_GRAD_choose_spawn_location"] call EFUNC(common,displayTextStructured);
+	//[localize "str_GRAD_choose_spawn_location"] call EFUNC(common,displayTextStructured);
 
 	openMap [true,false];
 
@@ -68,11 +67,13 @@ bluforTeleporting = {
 
 // teleport command
 teleportGroup = {
+
+	spawnpoint_mapclick = _this select 0;
 	openMap [false,false];
 
-	hintSilent format ["Geklickt : %1",spawnpoint_mapclick];
+	//hintSilent format ["Geklickt : %1",spawnpoint_mapclick];
 	// checks for water
-	if (([spawnpoint_mapclick] call checkWater) == true) exitWith {
+	if ([spawnpoint_mapclick] call checkWater) exitWith {
 		[localize "str_GRAD_spawn_on_water"] call EFUNC(common,displayTextStructured);
 		player execVM "mission_setup\teleport.sqf";
 	};
