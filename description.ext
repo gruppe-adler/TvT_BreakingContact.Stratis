@@ -1,7 +1,10 @@
-OnLoadMission = "TvT_OnTheFly";
+#include "spawn\gui\_defines.hpp"
+#include "spawn\gui\_dialogs.hpp"
+
+OnLoadMission = "TvT_Sputnik";
 author = "Nomisum/XiviD für Gruppe Adler";  //appears as author in overview and loading screen
-overviewText = "Aufständische gegen Bundeswehr"; //appears in overview and loading screen
-onLoadName = "TvT_OnTheFly"; //mission name for loading screen only
+overviewText = "US vs. Russians"; //appears in overview and loading screen
+onLoadName = "TvT_Sputnik"; //mission name for loading screen only
 overviewPicture = ""; //mission picture for loading screen only
 onLoadMissionTime = True;
 respawnDelay = 3; // NOTE: ar3play relies on this being slower than the ar3play loop!
@@ -12,19 +15,14 @@ loadScreen = "pic\loading.jpg";
 //respawnDelay = 9999999; // 9999999 or greater = No Respawn
 //Changes respawn, respawnDialog and respawnTemplates parameters.
 
-// IMPORTANT ABOVE PLANK
-#include "CSSA3\CSSA3_header.hpp"
-
-#include "plank\plank.h"
-//#include "GUI\defines.hpp"  // cant be in, when cssa3_header.hpp is included!
 
 
 
 class Header
 {
 	gameType = Seize;
-	minPlayers = 3;
-	maxPlayers = 24;
+	minPlayers = 15;
+	maxPlayers = 99;
 };
 
 
@@ -46,36 +44,12 @@ class Params
 		default = 0;
     };
 
-	class MBTVSAT
-	{
-		title = "One of those vehicles for each side";
-		values[] = {0, 1};
-		texts[] = {"HEMTT, Littlebird / Transporter, Tactical, Mortar","same but +MBT / same but +At4 Launchers"};
-		default = 0;
-	};
-
-	class BLUFORCE
-	{
-		title = "BLUFOR";
-		values[] = {0,1,2,3};
-		texts[] = {"BW Fleck","BW Tropen","US UCP","US OCP"};
-		default = 1;
-	};
-
-	class OPFORCE
-	{
-		title = "OPFOR";
-		values[] = {0,1,2,3,4};
-		texts[] = {"Taliban/Afghan Militia","Iraqi Terrorists","Eastern Rebels/Nationalists","Russians","African Pirates"};
-		default = 4;
-	};
-
 	class AllowedSpawnDistanceMinimum
 	{
 		title = "Allowed Spawn Distance Minimum BLUFOR";
 		values[] = {1000,2000,3000};
 		texts[] = {"1km","2km","3km"};
-		default = 1000;
+		default = 2000;
 	};
 
 	class AllowedSpawnDistanceMaximum
@@ -83,23 +57,15 @@ class Params
 		title = "Allowed Spawn Distance Maximum BLUFOR";
 		values[] = {4000,5000,6000};
 		texts[] = {"4km","5km","6km"};
-		default = 4000;
+		default = 6000;
 	};
 
 	class Zeitbeschleunigung
 	{
 		title = "Time Acceleration";
-		values[] = {1,2,4,8,12};
-		texts[] = {"normal","2h in 1h","4h in 1h","8h in 1h","12h in 1h"};
-		default = 4;
-	};
-
-	class isVanilla
-	{
-		title = "Play without Gruppe Adler Modset";
-		values[] = {true, false};
-		texts[] = {"YES","NO"};
-		default = false;
+		values[] = {1,2,4};
+		texts[] = {"normal","2h in 1h","4h in 1h"};
+		default = 1;
 	};
 
 	class EnableReplay

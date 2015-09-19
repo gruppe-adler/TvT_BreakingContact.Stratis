@@ -69,7 +69,7 @@ targetPositions = [
 	[ [1300, 3100], [950, 1170], true, 'Gorgona'],
 	[ [7777, 4280], [9200, 4280], true, 'FDF_Isle1_a'],
 	[ [1240, 9450], [1240, 8450], true, 'IsolaDiCapraia'],
-	[ [-500, -500], [-500, -900], false, 'Kunduz'],
+	[ [-2500,-500],[-500,-2500], false, 'Kunduz'],
 	[ [12870, 780], [13830, 780], true, 'pja305'],
 	[ [18080, 18535], [18200, 18060], true, 'Sara'],
 	[ [18080, 18535], [18200, 18060], true, 'Sara_dbe1'],
@@ -79,14 +79,14 @@ targetPositions = [
 	[ [7700, 1600], [8250, 2130], false, 'takistan'],
 	[ [1100, 3200], [1700, 3000], true, 'Thirsk'],
 	[ [4080, 7580], [4860, 7600], true, 'Panthera3'],
-	[ [-850, 700], [-630, 300], false, 'vt5'],
+	[ [-2500,-500],[-500,-2500], false, 'vt5'],
 	[ [7500, 7600], [7500, 7300], false, 'Woodland_ACR'],
 	[ [4000, 4150], [4450, 3830], true, 'xcam_prototype'],
 	[ [3400, 4320], [3400, 3600], false, 'Zargabad']
 ];
 
 // spawn outside of map on flat terrain if possible
-alternativeSpawnsOutsideMap = [[-500,-500],[-500,-900]];
+alternativeSpawnsOutsideMap = [[-2500,-500],[-500,-2500]];
 
 
 if !(isDedicated) then {
@@ -103,27 +103,4 @@ if !(isDedicated) then {
 	};
 	//hintSilent format["%1",playerPosition];
 	[player,playerPosition] execVM "mission_setup\teleportUnitToEmptySpot.sqf";
-};
-
-if ((isDedicated) || (isServer)) then {
-	vehiclePositionsForCurrentWorld = targetPositions select (islands find worldName);
-	if !(vehiclePositionsForCurrentWorld select 2) then { 
-	vehiclePosition_blufor = alternativeSpawnsOutsideMap select 0;
-	vehiclePosition_opfor = alternativeSpawnsOutsideMap select 1;
-	weaponCachePosition_opfor = alternativeSpawnsOutsideMap select 1;
-	} else {
-	vehiclePosition_blufor = vehiclePositionsForCurrentWorld select 0;
-	vehiclePosition_opfor = vehiclePositionsForCurrentWorld select 1;
-	weaponCachePosition_opfor = vehiclePositionsForCurrentWorld select 1;
-	};
-	sleep 0.1;
-	//hintSilent format["%1",vehiclePosition];
-	[whiteboard,vehiclePosition_opfor] execVM "mission_setup\teleportUnitToEmptySpot.sqf";
-	sleep 0.1;
-	[spectator_vehicle,vehiclePosition_opfor] execVM "mission_setup\teleportUnitToEmptySpot.sqf";
-	sleep 0.1;
-	[arsenal_blufor,vehiclePosition_blufor] execVM "mission_setup\teleportUnitToEmptySpot.sqf";
-	sleep 0.1;
-	[arsenal_opfor,weaponCachePosition_opfor] execVM "mission_setup\teleportUnitToEmptySpot.sqf";
-	
 };

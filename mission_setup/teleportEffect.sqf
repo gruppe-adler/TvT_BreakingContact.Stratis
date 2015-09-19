@@ -3,7 +3,7 @@ _posi = _this select 1;
 
 [_posi] spawn {
 _position = _this select 0;
-	if (isServer && !BLUFOR_TELEPORTED && OPFORCE == 3) then {
+	if (isServer && !BLUFOR_TELEPORTED) then {
 		funkwagen = [getPos opfor_teamlead,10,"rhs_gaz66_r142_vv"] call spawnStuff;
 		sleep 2;
 		[funkwagen] call clearInventory;
@@ -27,7 +27,7 @@ _position = _this select 0;
 		[[[funkwagen],"objectives\russianMarker.sqf"],"BIS_fnc_execVM",true,true] spawn BIS_fnc_MP;
 	};
 
-	if (isServer && BLUFOR_TELEPORTED && OPFORCE == 3) then {
+	if (isServer && BLUFOR_TELEPORTED) then {
 		
 		blufor_hmvv =  [_position,10,"rhsusf_m1025_d_m2"] call spawnStuff;
 		sleep 2;

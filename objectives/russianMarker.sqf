@@ -75,7 +75,7 @@ if (isServer || isDedicated) then {
 		};
 		if (_points > _maxPoints) exitWith {
 			[] call bluforSurrendered;
-			 [[[localize "str_GRAD_winmsg_points","all"],"mp_helpers\hint.sqf"],"BIS_fnc_execVM",true,true] spawn BIS_fnc_MP; 
+			 [[[localize "str_GRAD_winmsg_points","all"],"helpers\hint.sqf"],"BIS_fnc_execVM",true,true] spawn BIS_fnc_MP; 
 			};
 		if (
 			(_points == 60) ||
@@ -89,8 +89,8 @@ if (isServer || isDedicated) then {
 			(_points == 4800)
 			) then {
 			_string = "Die Russen haben schon " + str (round((_points/_maxPoints)*100)) + " Prozent gesendet.";
-			//hintSilent format ["%1",_string];
-			 [[[_string,"blufor"],"mp_helpers\hint.sqf"],"BIS_fnc_execVM",true,true] spawn BIS_fnc_MP; 
+			
+			 [[[_string,"blufor"],"helpers\hint.sqf"],"BIS_fnc_execVM",true,true] spawn BIS_fnc_MP; 
 		};
 
 		if (!alive funkwagen) exitWith {

@@ -1,47 +1,19 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<Project name="TvT_OnTheFly_project">
-    <Package name="TvT_OnTheFly_package">
+<Project name="TvT_Sputnik_project">
+    <Package name="TvT_Sputnik_package">
     	 <Container name="mission briefing">
     	 	<Key ID="str_GRAD_story">
-                <Original>The terrorists want to build a dirty bomb and successfully gained a barrel with radioactive material. Secret Service is on their track and have prepared the barrel with a GPS-Logger to find their hideout. Now German Forces are tasked to neutralize the threat.</Original>
-                <English>The terrorists want to build a dirty bomb and successfully gained a barrel with radioactive material. Secret Service is on their track and have prepared the barrel with a GPS-Logger to find their hideout. Now German Forces are tasked to neutralize the threat.</English>
-                <German>Terroristen wollen eine schmutzige Bombe bauen und haben sich radioaktives Material beschafft. Der Geheimdienst ist ihnen aber auf der Spur und konnte das Behältnis mit einem GPS-Logger markieren, um ihren Unterschlupf ausfindig zu machen. Die Bundeswehr hat nun den Auftrag, die Gefahr zu neutralisieren.</German>
+                <Original>tbd story</Original>
+                <English>tbd story</English>
+                <German>tbd story</German>
             </Key>
             <Key ID="str_GRAD_briefing">
-                <Original>In this mission OPFOR and later BLUFOR can choose their spawn point. BLUFOR has to spawn in a certain radius around the objective. Both side can choose a vehicle which they can spawn once. Furthermore OPFOR can build fortifications (Boss + Doc). Mission setup is triggered by the leaders on scrollwheel-menu.</Original>
-                <English>In this mission OPFOR and later BLUFOR can choose their spawn point. BLUFOR has to spawn in a certain radius around the objective. Both side can choose a vehicle which they can spawn once. Furthermore OPFOR can build fortifications (Boss + Doc). Mission setup is triggered by the leaders on scrollwheel-menu.</English>
-                <German>In dieser Mission wählen erst OPFOR, danach BLUFOR ihren beliebigen Startpunkt. BLUFOR hat einen Mindest-und einen Maximalabstand einzuhalten. Beide Seiten können jeweils ein Fahrzeug wählen, das sie einnmalig spawnen lassen. OPFOR kann ausserdem Stellungen errichten (Leader + Medic). Das Missions-Setup wird von den jeweiligen Leadern im Mausradmenü ausgeführt.</German>
-            </Key>
-            <Key ID="str_GRAD_spectatorhelp">
-                <Original>Hint for Spectator Cam &lt;br/&gt;
-"L" to turn off crosshair &lt;br/&gt;
-"Numpad" to activate Freelook&lt;br/&gt;
-"Mousewheel" to switch alive units &lt;br/&gt;
-"N" for Nightvision/Infrared &lt;br/&gt;
-"Space" to toggle camera smoothing
-                </Original>
-                <English>Hint for Spectator Cam &lt;br/&gt;
-"L" to turn off crosshair &lt;br/&gt;
-"Numpad" to activate Freelook&lt;br/&gt;
-"Mousewheel" to switch alive units &lt;br/&gt;
-"N" for Nightvision/Infrared &lt;br/&gt;
-"Space" to toggle camera smoothing
-                </English>
-                <German>Hinweise zur Zuschauerkamera: &lt;br/&gt;
-"L" um den Punkt abzuschalten &lt;br/&gt;
-"*" Ziffernblock für volle Kamerakontrolle &lt;br/&gt;
-"Mausrad" um lebende Einheiten durchzuschalten &lt;br/&gt;
-"N" für Nightvision/Infrarot &lt;br/&gt;
-"Leertaste" um die Kamerabeschleunigung zu ändern
-				</German>
+                <Original>tbd story</Original>
+                <English>tbd story</English>
+                <German>tbd story</German>
             </Key>
         </Container>
         <Container name="mission setup">
-            <Key ID="str_GRAD_openSupplyBox">
-                <Original>Open Fixed Arsenal</Original>
-                <English>Open Fixed Arsenal</English>
-                <German>Fixed Arsenal öffnen</German>
-            </Key>
             <Key ID="str_GRAD_spawn_on_water">
                 <Original>Spawn on water not possible</Original>
                 <English>Spawn on water not possible</English>
@@ -99,31 +71,6 @@
                 <English>End Placement</English>
                 <German>Keine Objekte mehr platzieren</German>
             </Key>
-             <Key ID="str_GRAD_spawnHEMTT">
-                <Original>Spawn HEMTT</Original>
-                <English>Spawn HEMTT</English>
-                <German>Transport-LKW spawnen</German>
-            </Key>
-             <Key ID="str_GRAD_spawnLittlebird">
-                <Original>Spawn Littlebird</Original>
-                <English>Spawn Littlebird</English>
-                <German>Littlebird spawnen</German>
-            </Key>
-             <Key ID="str_GRAD_vehicleSpawned">
-                <Original>Vehicle spawned</Original>
-                <English>Vehicle spawned</English>
-                <German>Fahrzeug gespawned</German>
-            </Key>
-             <Key ID="str_GRAD_mortarSpawned">
-                <Original>Mortar spawned</Original>
-                <English>Mortar spawned</English>
-                <German>Mörser gespawned</German>
-            </Key>
-             <Key ID="str_GRAD_at4Spawned">
-                <Original>AT4 Crate spawned</Original>
-                <English>AT4 Crate spawned</English>
-                <German>AT4 Box gespawned</German>
-            </Key>
         </Container>
         <Container name="mission_end">
             <Key ID="str_GRAD_winmsg">
@@ -152,11 +99,6 @@
                 <English>Thank you for playing.</English>
                 <German>Danke fürs Spielen.</German>
             </Key>
-            <Key ID="str_GRAD_thankyouforplaying3">
-               <Original>You will now be teleported to Debriefing.</Original>
-                <English>You will now be teleported to Debriefing.</English>
-                <German>Du wirst nun zum Debriefing teleportiert.</German>
-            </Key>
             <Key ID="str_GRAD_declareFailedBlufor">
                <Original>Declare Mission failed for BLUFOR</Original>
                 <English>Declare Mission failed for BLUFOR</English>
@@ -182,249 +124,6 @@
                 <English>Replay finished</English>
                 <German>Replay beendet</German>
             </Key>
-
-        </Container>
-         <Container name="spectator">
-            <Key ID="str_GRAD_hint_endspectator">
-            	<Original>Right click exits cam. Start again with Mousewheel.</Original>
-                <English>Right click exits cam. Start again with Mousewheel.</English>
-                <German>Rechtsklick beendet die Cam. Starte sie über Mausrad neu.</German>
-            </Key>
-             <Key ID="str_GRAD_action_beginspectator1">
-            	<Original>Activate Spectator Cam</Original>
-                <English>Activate Spectator Cam</English>
-                <German>Zuschauerkamera aktivieren</German>
-            </Key>
-            <Key ID="str_GRAD_action_beginspectator2">
-            	<Original>(right click to exit)</Original>
-                <English>(right click to exit)</English>
-                <German>(Mit Rechtsklick verlassen)</German>
-            </Key>
-
-
-
-
-
-
-            <Key ID="STR_CSSA3_Spectator">
-            <Original>Spectator</Original>
-            <Italian>Spettatore</Italian>
-        </Key>
-        <Key ID="STR_CSSA3_Init">
-            <Original>CSSA3 Initiated. Press 'F1' for more help. You can hide the HUD at any time by pressing 'H'</Original>
-            <Italian>CSSA3 Inizializzato. Premi 'F1' per aiuto. Puoi nascondere l'HUD quando vuoi premendo 'H'</Italian>
-        </Key>  
-        <Key ID="STR_CSSA3_Free_Camera">
-            <Original>Freecam</Original>
-            <Italian>Visuale libera</Italian>
-        </Key>
-        <Key ID="STR_CSSA3_First_Person">
-            <Original>First Person</Original>
-            <Italian>Prima Persona</Italian>
-        </Key>
-        <Key ID="STR_CSSA3_Third_Person">
-            <Original>Third Person</Original>
-            <Italian>Terza Persona</Italian>
-        </Key>
-        <Key ID="STR_CSSA3_Close">
-            <Original>Close</Original>
-            <Italian>Chiudi</Italian>
-        </Key>
-        <Key ID="STR_CSSA3_Respawn">
-            <Original>Respawn:</Original>
-            <Italian>Respawn:</Italian>
-        </Key>
-        <Key ID="STR_CSSA3_currentlySpectating_Tooltip">
-            <Original>Unit you are currently spectating.</Original>
-            <Italian>L'unita' che stai attualmente guardando</Italian>
-        </Key>
-        <Key ID="STR_CSSA3_TimeUntilRespawn">
-            <Original>Time until respawn</Original>
-            <Italian>Tempo rimanente prima del respawn</Italian>
-        </Key>
-        <Key ID="STR_CSSA3_spectating">
-            <Original>Spectating:</Original>
-            <Italian>Assistendo da spettatore:</Italian>
-        </Key>
-        <Key ID="STR_CSSA3_Favourite">
-            <Original>Favourite</Original>
-            <Italian>Preferito</Italian>
-        </Key>
-        <Key ID="STR_CSSA3_Settings_Tooltip">
-            <Original>Settings [F2]</Original>
-            <Italian>Settaggi [F2]</Italian>
-        </Key>
-        <Key ID="STR_CSSA3_CSSA3Settings">
-            <Original>CSSA3 Settings</Original>
-            <Italian>Settaggi CSSA3</Italian>
-        </Key>
-        <Key ID="STR_CSSA3_HelpTooltip">
-            <Original>Help [F1]</Original>
-            <Italian>Aiuto [F1]</Italian>
-        </Key>
-        <Key ID="STR_CSSA3_QuitMessage">
-            <Original>Do you really want to quit? &lt;br /&gt;  &lt;br /&gt;You will automatically be returned to the spectator script within 5 seconds, unless the escape menu is open.</Original>
-            <Italian>Vuoi veramente uscire? &lt;br /&gt;  &lt;br /&gt;Ritornerai automaticamente allo script spettatore entro 5 secondi, se il men? escape non ? aperto.</Italian>
-        </Key>
-
-        <Key ID="STR_CSSA3_BLUFOR">
-          <Original>BLUFOR</Original>
-          <English>BLUFOR</English>
-          <Czech>BLUFOR</Czech>
-          <French>Ouest</French>
-          <German>BLUFOR</German>
-          <Italian>BLUFOR</Italian>
-          <Polish>BLUFOR</Polish>
-          <Portuguese>FORÇAS AZUIS</Portuguese>
-          <Russian>Синие</Russian>
-          <Spanish>ALIADOS</Spanish>
-        </Key>
-
-        <Key ID="STR_CSSA3_OPFOR">
-          <Original>OPFOR</Original>
-          <English>OPFOR</English>
-          <Czech>OPFOR</Czech>
-          <French>Est</French>
-          <German>OPFOR</German>
-          <Italian>OPFOR</Italian>
-          <Polish>OPFOR</Polish>
-          <Portuguese>Forças Opositoras</Portuguese>
-          <Russian>Красные</Russian>
-          <Spanish>ENEMIGO</Spanish>
-        </Key>
-
-        <Key ID="STR_CSSA3_CIVILIAN">
-          <Original>Civilian</Original>
-          <English>Civilian</English>
-          <Czech>Civilista</Czech>
-          <French>Civil</French>
-          <German>Zivilist</German>
-          <Italian>Civile</Italian>
-          <Polish>Cywil</Polish>
-          <Portuguese>Civil</Portuguese>
-          <Russian>Гражданский</Russian>
-          <Spanish>Civil</Spanish>
-        </Key>
-
-        <Key ID="STR_CSSA3_HelpMessage">
-            <Original>- Move Camera: '&lt;t color='#ff0000'>W, A, S, D&lt;/t&gt;'
-                &lt;br /&gt;- Camera Altitude: '&lt;t color='#ff0000'&gt;Q, Z&lt;/t&gt;'
-                &lt;br /&gt;- Smooth Move: '&lt;t color='#ff0000'&gt;LMB + RMB&lt;/t&gt;'
-                &lt;br /&gt;- Switch View Perspective: '&lt;t color='#ff0000'&gt;1, 2, 3&lt;/t&gt;'
-                &lt;br /&gt;- Object Interact: '&lt;t color='#ff0000'&gt;Hold LMB on object.&lt;/t&gt;'
-                &lt;br /&gt;- Tilt Camera: '&lt;t color='#ff0000'&gt;Ctrl + RMB + Mouse Move&lt;/t&gt;'
-                &lt;br /&gt;- Rotate Camera: '&lt;t color='#ff0000'&gt;RMB + Mouse Move&lt;/t&gt;'
-                &lt;br /&gt;- Reset Camera: '&lt;t color='#ff0000'&gt;Num 5&lt;/t&gt;'
-                &lt;br /&gt;- Toggle Optic Mode: '&lt;t color='#ff0000'&gt;N&lt;/t&gt;'
-                &lt;br /&gt;- Hide units list: '&lt;t color='#ff0000'&gt;Tab&lt;/t&gt;'
-                &lt;br /&gt;- Hide HUD: '&lt;t color='#ff0000'&gt;H&lt;/t&gt;'
-                &lt;br /&gt;- Settings: '&lt;t color='#ff0000'&gt;F2&lt;/t&gt;'
-                &lt;br /&gt;- Help: '&lt;t color='#ff0000'&gt;F1&lt;/t&gt;'
-                &lt;br /&gt;- Map: '&lt;t color='#ff0000'&gt;M&lt;/t&gt;'&lt;br /&gt;
-                &lt;br /&gt;Script by Cyrokrypto
-            </Original>
-            <Italian>- Movimenti della fotocamera: '&lt;t color='#ff0000'>W, A, S, D&lt;/t&gt;'
-                &lt;br /&gt;- Altezza della fotocamera: '&lt;t color='#ff0000'&gt;Q, Z&lt;/t&gt;'
-                &lt;br /&gt;- Movimento fluido: '&lt;t color='#ff0000'&gt;pulsante sinistro mouse + pulsante destro mouse &lt;/t&gt;'
-                &lt;br /&gt;- Cambiare prospettiva di visuale: '&lt;t color='#ff0000'&gt;1, 2, 3&lt;/t&gt;'
-                &lt;br /&gt;- Interazione con gli oggetti: '&lt;t color='#ff0000'&gt;Tieni il pulsante sinistro del mouse sull'oggetto.&lt;/t&gt;'
-                &lt;br /&gt;- Inclina la fotocamera: '&lt;t color='#ff0000'&gt;Ctrl + pulsante destro mouse + muovi il mouse&lt;/t&gt;'
-                &lt;br /&gt;- Ruota la fotocamera: '&lt;t color='#ff0000'&gt;pulsante destro mouse + muovi il mouse&lt;/t&gt;'
-                &lt;br /&gt;- Resetta la fotocamera: '&lt;t color='#ff0000'&gt;Pulsante 5 del Tastierino Numerico &lt;/t&gt;'
-                &lt;br /&gt;- Cambia modalita' di visione: '&lt;t color='#ff0000'&gt;N&lt;/t&gt;'
-                &lt;br /&gt;- Nascondi la lista unita': '&lt;t color='#ff0000'&gt;Tab&lt;/t&gt;'
-                &lt;br /&gt;- Nascondi HUD: '&lt;t color='#ff0000'&gt;H&lt;/t&gt;'
-                &lt;br /&gt;- Settings: '&lt;t color='#ff0000'&gt;F2&lt;/t&gt;'
-                &lt;br /&gt;- Aiuto: '&lt;t color='#ff0000'&gt;F1&lt;/t&gt;'
-                &lt;br /&gt;- Mappa: '&lt;t color='#ff0000'&gt;M&lt;/t&gt;'&lt;br /&gt;
-                &lt;br /&gt;Script by Cyrokrypto
-                &lt;br /&gt;Translation by Nemesi
-            </Italian>
-        </Key>
-    </Package>
-    <Package name="UnitList">
-        <Key ID="STR_CSSA3_addremove">
-            <Original>Add / Remove</Original>
-            <Italian>Aggiungi / Rimuovi</Italian>
-        </Key>  
-        <Key ID="STR_CSSA3_Units">
-            <Original>Units:</Original>
-            <Italian>Units:</Italian>
-        </Key>
-        <Key ID="STR_CSSA3_All">
-            <Original>All</Original>
-            <Italian>Tutti</Italian>
-        </Key>
-        <Key ID="STR_CSSA3_Players">
-            <Original>Players</Original>
-            <Italian>Giocatori</Italian>
-        </Key>
-        <Key ID="STR_CSSA3_Independent">
-            <Original>Independent</Original>
-            <Italian>Indipendenti</Italian>
-        </Key>
-        <Key ID="STR_CSSA3_Favourites">
-            <Original>Favourites</Original>
-            <Italian>Preferiti</Italian>
-        </Key>
-        <Key ID="STR_CSSA3_addremove_Tooltip">
-            <Original>Drag a unit here to add or remove it from your favourites.</Original>
-            <Italian>Trascina un'unita' qui per aggiungerla o rimuoverla dai preferiti</Italian>
-        </Key>
-    </Package>
-
-    <Package name="SettingsMenu">   
-        <Key ID="STR_CSSA3_ShowUnitNames">
-            <Original>Show Unit Names</Original>
-            <Italian>Mostra i nomi delle unit?</Italian>
-        </Key>
-        <Key ID="STR_CSSA3_ShowUnitNames_Tooltip">
-            <Original>Display a unit's name in floating text.</Original>
-            <Italian>Mostra il nome di un'unit? come testo fluttuante</Italian>
-        </Key>
-        <Key ID="STR_CSSA3_ShowUnitTags">
-            <Original>Show Unit Tags</Original>
-            <Italian>Mostra le tag delle unit?</Italian>
-        </Key>
-        <Key ID="STR_CSSA3_ShowUnitTags_Tooltip">
-            <Original>Show floating tags above units.</Original>
-            <Italian>Mostra le tag fluttuanti sopra le unit?.</Italian>
-        </Key>
-        <Key ID="STR_CSSA3_ViewDistance">
-            <Original>View Distance:</Original>
-            <Italian>Distanza visiva</Italian>
-        </Key>
-        <Key ID="STR_CSSA3_ClickToInteract_Tooltip">
-            <Original>Enable Click To Interact: This is an experimental feature, click and hold LMB on a unit or vehicle to interact with it.</Original>
-            <Italian>Abilita il click per l'interazione: questa e' una caratteristica sperimentale, clicca e tieni premuto il tasto sinistro del mouse su un'unita' o su un veicolo per interagire con esso.</Italian>
-        </Key>
-        <Key ID="STR_CSSA3_ClickToInteract">
-            <Original>Enabled Click To Interact</Original>
-            <Italian>"Click per l'interazione" abilitato</Italian>
-        </Key>
-        <Key ID="STR_CSSA3_PreloadCamera">
-            <Original>Preload Camera</Original>
-            <Italian>Precarica la fotocamera</Italian>
-        </Key>
-        <Key ID="STR_CSSA3_PreloadCamera_tooltip">
-            <Original>Enabling this will reduce lag and visual artifacts when selecting a new unit. This comes at the cost of a slight delay before the camera is repositioned.</Original>
-            <Italian>Abilitando questa funzione si ridurranno il lag e gli artefatti visivi quando si seleziona una nuova unita'. Questo viene a scapito di un piccolo ritardo prima che la fotocamera sia riposizionata.</Italian>
-        </Key>
-    </Package>
-
-    <Package name="InteractRose">   
-        <Key ID="STR_CSSA3_freeButtonTip">
-            <Original>Switch to free camera and centre on this unit.</Original>
-            <Italian>Passa alla  fotocamera libera e centra su questa unit?</Italian>
-        </Key>
-        <Key ID="STR_CSSA3_firstButtonTip">
-            <Original>Switch to first person.</Original>
-            <Italian>Passa alla prima persona.</Italian>
-        </Key>
-        <Key ID="STR_CSSA3_thirdButtonTip">
-            <Original>Switch to third person.</Original>
-            <Italian>Passa alla terza persona.</Italian>
-        </Key>
         </Container>
     </Package>
 </Project>

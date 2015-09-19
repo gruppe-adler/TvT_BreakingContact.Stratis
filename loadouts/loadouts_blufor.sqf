@@ -272,47 +272,11 @@ fillBluforLoadouts = {
 
 
 fillBluforVariables = {
-	switch (BLUFORCE) do {
 	
-		// BW Fleck
-		case 0: {
-			customUniformBlufor = randUniformBWFleck call BIS_fnc_selectRandom;
-			customVestBlufor = randVestBWFleck call BIS_fnc_selectRandom;
-			customHeadgearBlufor = randHeadGearBWFleck call BIS_fnc_selectRandom;
-			customBackpackBlufor = randBackpackBWFleck call BIS_fnc_selectRandom;
-
-		}; 
-
-		// BW Tropen
-		case 1: {
-			customUniformBlufor = randUniformBWTropen call BIS_fnc_selectRandom;
-			customVestBlufor = randVestBWTropen call BIS_fnc_selectRandom;
-			customHeadgearBlufor = randHeadGearBWTropen call BIS_fnc_selectRandom;
-			customBackpackBlufor = randBackpackBWTropen call BIS_fnc_selectRandom;
-
-		}; 
-
-		// US Desert
-		case 2: {
-			customUniformBlufor = randUniformUSOCP call BIS_fnc_selectRandom;
-			customVestBlufor = randVestUSOCP call BIS_fnc_selectRandom;
-			customHeadgearBlufor = randHeadGearUSOCP call BIS_fnc_selectRandom;
-			customBackpackBlufor = randBackpackUSOCP call BIS_fnc_selectRandom;
-
-		}; 
-		
-		// US Tropen
-		case 3: {
-			customUniformBlufor = randUniformUSUCP call BIS_fnc_selectRandom;
-			customVestBlufor = randVestUSUCP call BIS_fnc_selectRandom;
-			customHeadgearBlufor = randHeadGearUSUCP call BIS_fnc_selectRandom;
-			customBackpackBlufor = randBackpackUSUCP call BIS_fnc_selectRandom;
-		};
-		default {
-		hintSilent "error in reading faction parameter";
-		};
-		
-	};
+	customUniformBlufor = randUniformUSOCP call BIS_fnc_selectRandom;
+	customVestBlufor = randVestUSOCP call BIS_fnc_selectRandom;
+	customHeadgearBlufor = randHeadGearUSOCP call BIS_fnc_selectRandom;
+	customBackpackBlufor = randBackpackUSOCP call BIS_fnc_selectRandom;
 };
 
 
