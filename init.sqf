@@ -72,27 +72,35 @@ if (isServer) then {
 // ["<t color=""#93E352"">" + localize "str_GRAD_choose_spawn_location",{[[[false], "mission_setup\teleport.sqf"],"BIS_fnc_execVM",true,true] spawn BIS_fnc_MP;  }, _Args, 1, false, true, "","_this == _target && !OPFOR_TELEPORTED"];
 // ["<t color=""#93E352"">" + localize "str_GRAD_choose_spawn_location",{[[[false], "mission_setup\teleport.sqf"],"BIS_fnc_execVM",true,true] spawn BIS_fnc_MP;  }, _Args, 1, false, true, "","_this == _target && !BLUFOR_TELEPORTED && OPFOR_TELEPORTED"];
 
+checkSpawnButton = {
+	[] spawn {
+		waitUntil {!dialog && !visibleMap};
+		0 = [playerside] execVM "spawn\checkIfSpawned.sqf";
+	};
+};
 
 
 if (player == opfor_teamlead) then {
 	[] spawn {
-	waitUntil {!isNull player};
-	0 = createDialog "gui_spawn_opfor";
+		waitUntil {!isNull player && time > 1};
+		[] call checkSpawnButton;
 	};
 };
 
+
 if (player == blufor_teamlead) then {
 	[] spawn {
-	waitUntil {!isNull player};
-	0 = createDialog "gui_spawn_blufor";
-	disableSerialization;
-	ctrlEnable [8002, false];
-	waitUntil {OPFOR_TELEPORTED};
-	ctrlSetText [8002, "Spawnpunkt aussuchen"];
-	8002 ctrlSetTooltip "Jetzt Spawnpunkt aussuchen";
-	ctrlEnable [8002, true];
+
+		waitUntil {!isNull player && time > 1};
+		[] call checkSpawnButton;
+		
+		disableSerialization;
+		ctrlEnable [8002, false];
+		waitUntil {OPFOR_TELEPORTED};
+		ctrlSetText [8002, "Spawnpunkt aussuchen"];
+		8002 ctrlSetTooltip "Jetzt Spawnpunkt aussuchen";
+		ctrlEnable [8002, true];
 	};
-	
 };
 
 

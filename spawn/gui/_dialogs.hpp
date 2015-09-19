@@ -752,14 +752,14 @@ class gui_spawn_blufor
 			{
 				idc = 8002;
 				text = "Warte auf Opfor..."; 
-				x = 16 * GUI_GRID_W + GUI_GRID_X;
-				y = 2 * GUI_GRID_H + GUI_GRID_Y;
+				x = 14 * GUI_GRID_W + GUI_GRID_X;
+				y = 5 * GUI_GRID_H + GUI_GRID_Y;
 				w = 12 * GUI_GRID_W;
 				h = 3 * GUI_GRID_H;
 				colorText[] = {0,0,0,1};
 				colorBackground[] = {0.81,0.55,0.12,1};
 				tooltip = "Warte auf Opfor..."; 
-				onButtonClick = "[] execVM 'mission_setup\teleport.sqf'; closeDialog 0";
+				onButtonClick = "openMap [true,false]; [] execVM 'mission_setup\teleport.sqf'; closeDialog 0";
 			};
 		};
 };
@@ -771,7 +771,6 @@ class gui_spawn_opfor
 		enableSimulation = 1;
 		enableDisplay = 1;
 		objects[] = {};
-		onDestroy = "[] execVM 'spawn\checkIfSpawned.sqf';";
 
 		class ControlsBackground
 		{
@@ -786,20 +785,31 @@ class gui_spawn_opfor
 			};
 		};
 
-		class Controls {		
+		class Controls {	
+
+			class text_spawn_opfor: RscStructuredText
+			{
+				idc = 3202;
+				text = "<t align='center' size='1.3'>TvT Sputnik</t>"; 
+				x = 14 * GUI_GRID_W + GUI_GRID_X;
+				y = 1 * GUI_GRID_H + GUI_GRID_Y;
+				w = 12 * GUI_GRID_W;
+				h = 3 * GUI_GRID_H;
+				colorBackground[] = {-1,-1,-1,0};
+			};	
 
 			class btn_spawn_opfor: RscButton
 			{
 				idc = 8012;
 				text = $STR_GRAD_choose_spawn_location;
-				x = 16 * GUI_GRID_W + GUI_GRID_X;
-				y = 2 * GUI_GRID_H + GUI_GRID_Y;
+				x = 14 * GUI_GRID_W + GUI_GRID_X;
+				y = 5 * GUI_GRID_H + GUI_GRID_Y;
 				w = 12 * GUI_GRID_W;
 				h = 3 * GUI_GRID_H;
 				colorText[] = {0,0,0,1};
 				colorBackground[] = {0.81,0.55,0.12,1};
 				tooltip = $STR_GRAD_choose_spawn_location;
-				onButtonClick = "[] execVM 'mission_setup\teleport.sqf'; closeDialog 0";
+				onButtonClick = "openMap [true,false]; [] execVM 'mission_setup\teleport.sqf'; closeDialog 0";
 			};
 		};
 };
@@ -830,15 +840,15 @@ class gui_spawn_waitplease
 			class btn_spawn_opfor: RscButton
 			{
 				idc = 8022;
-				text = "localize 'str_GRAD_choose_spawn_location'"; 
+				text = $STR_GRAD_choose_spawn_location; 
 				x = 16 * GUI_GRID_W + GUI_GRID_X;
 				y = 2 * GUI_GRID_H + GUI_GRID_Y;
 				w = 12 * GUI_GRID_W;
 				h = 3 * GUI_GRID_H;
 				colorText[] = {0,0,0,1};
 				colorBackground[] = {0.81,0.55,0.12,1};
-				tooltip = "localize 'str_GRAD_choose_spawn_location'"; 
-				onButtonClick = "[] execVM 'mission_setup\teleport.sqf'; closeDialog 0";
+				tooltip = $STR_GRAD_choose_spawn_location; 
+				onButtonClick = "openMap [true,false]; [] execVM 'mission_setup\teleport.sqf'; closeDialog 0";
 			};
 		};
 };

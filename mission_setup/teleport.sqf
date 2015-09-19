@@ -9,16 +9,13 @@ if (player == opfor_teamlead && !OPFOR_TELEPORTED) then {
 
 	//[localize "str_GRAD_choose_spawn_location"] call EFUNC(common,displayTextStructured);
 
-	openMap [true,false];
-
 	onMapSingleClick "[_pos] call teleportGroup; onMapSingleClick ''; true";
+
 };
 
 if (player == blufor_teamlead && OPFOR_TELEPORTED) then {
 
 	//[localize "str_GRAD_choose_spawn_location"] call EFUNC(common,displayTextStructured);
-
-	openMap [true,false];
 
 	onMapSingleClick "[_pos] call teleportGroup; onMapSingleClick ''; true";
 };
@@ -40,6 +37,7 @@ createOpforMarker = {
 };
 
 opforTeleporting = {
+	closeDialog 0;
 
 	OPFOR_TELEPORTED = TRUE; publicVariable "OPFOR_TELEPORTED";
 
@@ -48,6 +46,7 @@ opforTeleporting = {
 };
 
 bluforTeleporting = {
+	closeDialog 0;
 
 	BLUFOR_TELEPORTED = TRUE; publicVariable "BLUFOR_TELEPORTED";
 
