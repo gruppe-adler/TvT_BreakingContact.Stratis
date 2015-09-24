@@ -18,6 +18,17 @@ bluforSurrendered = {
 	BLUFOR_SURRENDERED = true; publicVariable "BLUFOR_SURRENDERED";
 };
 
+funkwagenIsSending = {
+	(funkwagen getVariable ["tf_range",0]) == 50000;
+};
+
+setRussianMarkerStatus = {
+	_previous = RUSSIAN_MARKER_HIDDEN;
+	RUSSIAN_MARKER_HIDDEN = _this select 0;
+	if (RUSSIAN_MARKER_HIDDEN != _previous) then {
+		publicVariable "RUSSIAN_MARKER_HIDDEN";
+	};
+};
 
 
 [_size,_maxSize,_animationSpeed] spawn
@@ -60,14 +71,11 @@ bluforSurrendered = {
 // SERVER ZÄHLT PUNKTE
 if (isServer) then {
 	while {true} do {
-		if ((funkwagen getVariable ["tf_range",0]) == 50000) then {
+		_isSending = call funkwagenIsSending;
+		if (_isSending) then {
 			_points = _points + 1;
-			RUSSIAN_MARKER_HIDDEN = false;
-			publicVariable "RUSSIAN_MARKER_HIDDEN";
-		} else {
-			RUSSIAN_MARKER_HIDDEN = true;
-			publicVariable "RUSSIAN_MARKER_HIDDEN";
 		};
+		!_isSending call setRussianMarkerStatus;
 
 		if (_points > _maxPoints) exitWith {
 			[] call bluforSurrendered;
@@ -94,7 +102,9 @@ if (isServer) then {
 		};
 		sleep 1;
 		_targetPosition = [getPos funkwagen select 0,getPos funkwagen select 1];
-		RUSSIAN_MARKER_POS = _targetPosition; publicVariable "RUSSIAN_MARKER_POS";
+
+		RUSSIAN_MARKER_POS = _targetPosition;
+		publicVariable "RUSSIAN_MARKER_POS";
 	};
 };
 
