@@ -30,6 +30,14 @@ setRussianMarkerStatus = {
 	};
 };
 
+setRussianMarkerPosition = {
+	_prev = RUSSIAN_MARKER_POS;
+	RUSSIAN_MARKER_POS = _this;
+	if ((_prev select 0 != RUSSIAN_MARKER_POS select 0) || (_prev select 1 != RUSSIAN_MARKER_POS select 1)) then { // TODO um arrays zu vergleichen  gibts doch bsetimmt ne schönere funktion
+		publicVariable "RUSSIAN_MARKER_POS";
+	};
+};
+
 
 [_size,_maxSize,_animationSpeed] spawn
 	{
@@ -70,6 +78,7 @@ setRussianMarkerStatus = {
 
 // SERVER ZÄHLT PUNKTE
 if (isServer) then {
+	_tenPercentOfPointsNededForVictory = floor (POINTS_NEEDED_FOR_VICTORY / 10);
 	while {true} do {
 		_isSending = call funkwagenIsSending;
 		if (_isSending) then {
@@ -79,32 +88,23 @@ if (isServer) then {
 
 		if (_points > POINTS_NEEDED_FOR_VICTORY) exitWith {
 			[] call bluforSurrendered;
+			// TODO auch hier: publicVariableEventHandler aufm client -- oder wenn man nur scripte aufm server machen will, kann mans auch lassen mit den globalen variablen, und nur remoteExec verwenden... hm...
 			[[[localize "str_GRAD_winmsg_points","all"],"helpers\hint.sqf"],"BIS_fnc_execVM",true,true] spawn BIS_fnc_MP;
 		};
-		if (
-			(_points == 60) ||
-			(_points == 600) ||
-			(_points == 1200) ||
-			(_points == 1800) ||
-			(_points == 2400) ||
-			(_points == 3000) ||
-			(_points == 3600) ||
-			(_points == 4200) ||
-			(_points == 4800)
-		) then {
-			_string = "Die Russen haben schon " + str (round((_points/POINTS_NEEDED_FOR_VICTORY)*100)) + " Prozent gesendet.";
 
+		// TODO: diese warnung sollte besser vom Client erstellt werden, der sich über einen publicVariable-EventHandler an den Wert von POINTS_NEEDED_FOR_VICTORY hängt :)
+		if ((_points % _tenPercentOfPointsNededForVictory) == 0) then // alle 10% die Warnung
+			_string = "Die Russen haben schon " + str (round((_points/POINTS_NEEDED_FOR_VICTORY)*100)) + " Prozent gesendet.";
 			 [[[_string,"blufor"],"helpers\hint.sqf"],"BIS_fnc_execVM",true,true] spawn BIS_fnc_MP;
 		};
 
 		if (!alive funkwagen) exitWith {
 			[] call bluforCaptured;
 		};
-		sleep 1;
-		_targetPosition = [getPos funkwagen select 0,getPos funkwagen select 1];
 
-		RUSSIAN_MARKER_POS = _targetPosition;
-		publicVariable "RUSSIAN_MARKER_POS";
+		[getPos funkwagen select 0, getPos funkwagen select 1] call setRussianMarkerPosition;
+
+		sleep 1;
 	};
 };
 
