@@ -6,7 +6,7 @@ _animationSpeed = 0.05;
 
 
 _points = 0;
-_maxPoints = 5400; // 1.5h
+POINTS_NEEDED_FOR_VICTORY = 5400; // 1.5h
 hideMarker = false;
 
 // waitUntil { ((OPFOR_TELEPORTED) && (BLUFOR_TELEPORTED)) };
@@ -77,7 +77,7 @@ if (isServer) then {
 		};
 		!_isSending call setRussianMarkerStatus;
 
-		if (_points > _maxPoints) exitWith {
+		if (_points > POINTS_NEEDED_FOR_VICTORY) exitWith {
 			[] call bluforSurrendered;
 			[[[localize "str_GRAD_winmsg_points","all"],"helpers\hint.sqf"],"BIS_fnc_execVM",true,true] spawn BIS_fnc_MP;
 		};
@@ -92,7 +92,7 @@ if (isServer) then {
 			(_points == 4200) ||
 			(_points == 4800)
 		) then {
-			_string = "Die Russen haben schon " + str (round((_points/_maxPoints)*100)) + " Prozent gesendet.";
+			_string = "Die Russen haben schon " + str (round((_points/POINTS_NEEDED_FOR_VICTORY)*100)) + " Prozent gesendet.";
 
 			 [[[_string,"blufor"],"helpers\hint.sqf"],"BIS_fnc_execVM",true,true] spawn BIS_fnc_MP;
 		};
