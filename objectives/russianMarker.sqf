@@ -20,13 +20,13 @@ bluforSurrendered = {
 
 
 
-[_size,_maxSize,_animationSpeed] spawn 
+[_size,_maxSize,_animationSpeed] spawn
 	{
 	private ["_pulsemarker","_pulsesize","_pulseMaxSize"];
 	_pulsesize = _this select 0;
 	_pulseMaxSize = _this select 1;
 	_pulseSpeed = _this select 2;
-	
+
 	_modifier = 1;
 
 	inner_marker = createMarkerLocal ["opfor_marker", [0,0,0]];
@@ -38,45 +38,41 @@ bluforSurrendered = {
 	"opfor_marker" setMarkerBrushLocal "Border";
 
 	while {true} do {
-			if (_pulsesize > _pulseMaxSize) then {
+		if (_pulsesize > _pulseMaxSize) then {
 			_pulsesize = 1;
 			_modifier = 0.3;
-			};
-			_pulsesize = _pulsesize + _modifier;
-			_modifier = _modifier + 0.3;
+		};
+		_pulsesize = _pulsesize + _modifier;
+		_modifier = _modifier + 0.3;
 		if (!RUSSIAN_MARKER_HIDDEN) then {
 			"opfor_marker" setMarkerAlphaLocal _pulsesize/_pulseMaxSize;
-			} else {
+		} else {
 			 "opfor_marker" setMarkerAlphaLocal 0;
 		};
 		"opfor_marker" setMarkerSizeLocal [_pulsesize,_pulsesize];
 		"opfor_marker" setMarkerPosLocal RUSSIAN_MARKER_POS;
 		sleep _pulseSpeed;
-		
-		};
+
+	};
 };
-
-	
-
 
 
 // SERVER ZÄHLT PUNKTE
-if (isServer || isDedicated) then {
+if (isServer) then {
 	while {true} do {
-		if ((funkwagen getVariable ["tf_range",0]) == 50000) then 
-			{
+		if ((funkwagen getVariable ["tf_range",0]) == 50000) then {
 			_points = _points + 1;
 			RUSSIAN_MARKER_HIDDEN = false;
 			publicVariable "RUSSIAN_MARKER_HIDDEN";
-			//hintSilent format ["%1 Minuten gesendet",round (_points/60)];
-			} else {
+		} else {
 			RUSSIAN_MARKER_HIDDEN = true;
 			publicVariable "RUSSIAN_MARKER_HIDDEN";
 		};
+
 		if (_points > _maxPoints) exitWith {
 			[] call bluforSurrendered;
-			 [[[localize "str_GRAD_winmsg_points","all"],"helpers\hint.sqf"],"BIS_fnc_execVM",true,true] spawn BIS_fnc_MP; 
-			};
+			[[[localize "str_GRAD_winmsg_points","all"],"helpers\hint.sqf"],"BIS_fnc_execVM",true,true] spawn BIS_fnc_MP;
+		};
 		if (
 			(_points == 60) ||
 			(_points == 600) ||
@@ -87,10 +83,10 @@ if (isServer || isDedicated) then {
 			(_points == 3600) ||
 			(_points == 4200) ||
 			(_points == 4800)
-			) then {
+		) then {
 			_string = "Die Russen haben schon " + str (round((_points/_maxPoints)*100)) + " Prozent gesendet.";
-			
-			 [[[_string,"blufor"],"helpers\hint.sqf"],"BIS_fnc_execVM",true,true] spawn BIS_fnc_MP; 
+
+			 [[[_string,"blufor"],"helpers\hint.sqf"],"BIS_fnc_execVM",true,true] spawn BIS_fnc_MP;
 		};
 
 		if (!alive funkwagen) exitWith {
