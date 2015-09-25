@@ -60,8 +60,8 @@ RUSSIAN_MARKER_HIDDEN_listener = {
 "RUSSIAN_MARKER_POS" addPublicVariableEventHandler RUSSIAN_MARKER_POS_listener;
 "RUSSIAN_MARKER_HIDDEN" addPublicVariableEventHandler RUSSIAN_MARKER_HIDDEN_listener;
 
-// runs for local testing only!
-if (isServer) then {
+// runs in SP to emulate addPublicVariableEventHandler (which doesnt work in SP)
+if (!isMultiplayer) then {
 	[] spawn {
 		while {true} do {
 			[0, RUSSIAN_MARKER_HIDDEN] call RUSSIAN_MARKER_HIDDEN_listener;

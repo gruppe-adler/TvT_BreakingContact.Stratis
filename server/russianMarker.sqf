@@ -1,5 +1,5 @@
+waitUntil {!isNil "funkwagen"};
 
-// waitUntil { ((OPFOR_TELEPORTED) && (BLUFOR_TELEPORTED)) };
 bluforCaptured = {
 	BLUFOR_CAPTURED = TRUE; publicVariable "BLUFOR_CAPTURED";
 };
@@ -34,9 +34,6 @@ setRussianMarkerPosition = {
 		publicVariable "RUSSIAN_MARKER_POS";
 	};
 };
-
-
-
 
 // SERVER ZÄHLT PUNKTE
 if (isServer) then {

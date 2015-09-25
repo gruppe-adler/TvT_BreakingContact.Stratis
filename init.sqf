@@ -67,6 +67,8 @@ if (isServer) then {
 	publicVariable "RUSSIAN_MARKER_HIDDEN";
 	BLUFOR_AT_BARREL = false;
 	publicVariable "BLUFOR_AT_BARREL";
+
+	[] spawn "server\russianMarker.sqf";
 };
 
 

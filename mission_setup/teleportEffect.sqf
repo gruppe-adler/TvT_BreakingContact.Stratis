@@ -22,9 +22,7 @@ _posi = _this select 1;
 		sleep 2;
 		[russian_brt] call clearInventory;
 
-
-		gaz66 animate ["light_hide",1];
-		[[[], "server\russianMarker.sqf"], "BIS_fnc_execVM",true,true] spawn BIS_fnc_MP;
+		gaz66 animate ["light_hide", 1];
 	};
 
 	if (isServer && BLUFOR_TELEPORTED) then {
