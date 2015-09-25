@@ -6,7 +6,6 @@ _animationSpeed = 0.05;
 
 
 _points = 0;
-POINTS_NEEDED_FOR_VICTORY = 5400; // 1.5h
 hideMarker = false;
 
 // waitUntil { ((OPFOR_TELEPORTED) && (BLUFOR_TELEPORTED)) };

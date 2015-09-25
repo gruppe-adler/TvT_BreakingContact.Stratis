@@ -68,6 +68,14 @@ class Params
 		default = 1;
 	};
 
+	class OpforTimeToSend
+	{
+		title = "How long should OPFOR have to send before they win?";
+		values[] = {300, 600, 900, 1500, 2400, 3900, 6300};
+		texts[] = {"5'","10'", "15'", "25'", "40'", "65'", "1h45'"};
+		default = 1500;
+	};
+
 	class EnableReplay
 	{
 		title = "enable replay";

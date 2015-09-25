@@ -7,8 +7,9 @@ WEATHER_SETTING = paramsArray select 1;
 MINIMAL_BLUFOR_SPAWN_DISTANCE = paramsArray select 2;
 MAXIMAL_BLUFOR_SPAWN_DISTANCE = paramsArray select 3;
 TIME_ACCELERATION = paramsArray select 4;
-AR3PLAY_ENABLE_REPLAY = (paramsArray select 5) == 1;
-AR3PLAY_IS_STREAMABLE = (paramsArray select 6) == 1;
+POINTS_NEEDED_FOR_VICTORY = paramsArray select 5;
+AR3PLAY_ENABLE_REPLAY = (paramsArray select 6) == 1;
+AR3PLAY_IS_STREAMABLE = (paramsArray select 7) == 1;
 
 if (isServer) then { setDate [2015, 2, 2, TIME_OF_DAY, 1]; };	//Zeit
 
@@ -93,7 +94,7 @@ if (player == blufor_teamlead) then {
 
 		waitUntil {!isNull player && time > 1};
 		[] call checkSpawnButton;
-		
+
 		disableSerialization;
 		ctrlEnable [8002, false];
 		waitUntil {OPFOR_TELEPORTED};
@@ -132,14 +133,14 @@ if ((isServer) || (isDedicated)) then {
 if !(isDedicated) then {
 	[] execVM "mission_setup\helpBriefing.sqf";
 	[] execVM "mission_setup\adjustInitialSpawnPosition.sqf";
-	
+
 	switchMoveEverywhere = compileFinal "_this select 0 switchMove (_this select 1);";
-	
+
 	[player] execVM "loadouts\_client.sqf";
-	
+
 	// Intro Gruppe Adler
 	titleCut ["", "BLACK FADED", 999];
-	
+
 	[] Spawn {
 		waitUntil {BLUFOR_TELEPORTED};
 		titleText ["","PLAIN"];
@@ -148,7 +149,7 @@ if !(isDedicated) then {
 
 		titleCut ["", "BLACK IN", 1];
 
-		
+
 		["<img size= '6' shadow='false' image='pic\gruppe-adler.paa'/><br/><t size='.9' color='#FFFFFF'>OnTheFly</t>",0,0,2,2] spawn BIS_fnc_dynamicText;
 	};
 };
