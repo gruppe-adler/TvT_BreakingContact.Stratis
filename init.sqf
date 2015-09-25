@@ -30,8 +30,9 @@ enableSentences false;
 firstspawn = false;
 
 RUSSIAN_MARKER_POS = [0,0];
-
+RUSSIAN_POINTS = 0;
 EDITOR_MODE = false; // check if test is in editor/singleplayer
+RUSSIAN_MARKER_HIDDEN = true;
 
 
 if (!isMultiplayer) then {
