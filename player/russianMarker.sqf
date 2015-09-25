@@ -26,7 +26,7 @@ markerAnimation = {
 		};
 		_pulsesize = _pulsesize + _modifier;
 		_modifier = _modifier + 0.3;
-		"opfor_marker" setMarkerAlphaLocal _pulsesize/_pulseMaxSize;
+		"opfor_marker" setMarkerAlphaLocal 1 - (_pulsesize/_pulseMaxSize);
 		"opfor_marker" setMarkerSizeLocal [_pulsesize, _pulsesize];
 		sleep _pulseSpeed;
 	};
