@@ -78,7 +78,7 @@ setRussianMarkerPosition = {
 
 // SERVER ZÄHLT PUNKTE
 if (isServer) then {
-	_tenPercentOfPointsNededForVictory = floor (POINTS_NEEDED_FOR_VICTORY / 10);
+	_tenPercentOfPointsNeededForVictory = floor (POINTS_NEEDED_FOR_VICTORY / 10);
 	while {true} do {
 		_isSending = call funkwagenIsSending;
 		if (_isSending) then {
@@ -93,7 +93,7 @@ if (isServer) then {
 		};
 
 		// TODO: diese warnung sollte besser vom Client erstellt werden, der sich über einen publicVariable-EventHandler an den Wert von POINTS_NEEDED_FOR_VICTORY hängt :)
-		if ((_points % _tenPercentOfPointsNededForVictory) == 0) then // alle 10% die Warnung
+		if ((_points % _tenPercentOfPointsNeededForVictory) == 0) then // alle 10% die Warnung
 			_string = "Die Russen haben schon " + str (round((_points/POINTS_NEEDED_FOR_VICTORY)*100)) + " Prozent gesendet.";
 			 [[[_string,"blufor"],"helpers\hint.sqf"],"BIS_fnc_execVM",true,true] spawn BIS_fnc_MP;
 		};
