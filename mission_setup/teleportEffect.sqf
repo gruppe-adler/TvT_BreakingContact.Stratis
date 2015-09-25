@@ -2,13 +2,13 @@ _side = _this select 0;
 _posi = _this select 1;
 
 [_posi] spawn {
-_position = _this select 0;
+	_position = _this select 0;
 	if (isServer && !BLUFOR_TELEPORTED) then {
 		funkwagen = [getPos opfor_teamlead,10,"rhs_gaz66_r142_vv"] call spawnStuff;
 		sleep 2;
 		[funkwagen] call clearInventory;
 		funkwagen animate ["light_hide",1];
-			
+
 		[opfor_teamlead, funkwagen, true] call ACE_VehicleLock_fnc_addKeyForVehicle;
 
 		[_position,50,funkwagen] call moveStuff;
@@ -28,7 +28,7 @@ _position = _this select 0;
 	};
 
 	if (isServer && BLUFOR_TELEPORTED) then {
-		
+
 		blufor_hmvv =  [_position,10,"rhsusf_m1025_d_m2"] call spawnStuff;
 		sleep 2;
 		[opfor_teamlead, blufor_hmvv, true] call ACE_VehicleLock_fnc_addKeyForVehicle;
@@ -39,7 +39,7 @@ _position = _this select 0;
 		[blufor_observer_heli] call clearInventory;
 
 		[blufor_observer_heli,["green",1],true] call BIS_fnc_initVehicle;
-		
+
 	};
 };
 
