@@ -68,7 +68,7 @@ if (isServer) then {
 	BLUFOR_AT_BARREL = false;
 	publicVariable "BLUFOR_AT_BARREL";
 
-	[] spawn "server\russianMarker.sqf";
+	[] execVM "server\russianMarker.sqf";
 };
 
 
