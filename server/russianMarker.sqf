@@ -1,10 +1,3 @@
-_target = _this select 0;
-
-_maxSize = 200; //marker precision (radius)
-_size = 1;
-_animationSpeed = 0.05;
-
-hideMarker = false;
 
 // waitUntil { ((OPFOR_TELEPORTED) && (BLUFOR_TELEPORTED)) };
 bluforCaptured = {
@@ -43,41 +36,6 @@ setRussianMarkerPosition = {
 };
 
 
-[_size,_maxSize,_animationSpeed] spawn
-	{
-	private ["_pulsemarker","_pulsesize","_pulseMaxSize"];
-	_pulsesize = _this select 0;
-	_pulseMaxSize = _this select 1;
-	_pulseSpeed = _this select 2;
-
-	_modifier = 1;
-
-	inner_marker = createMarkerLocal ["opfor_marker", [0,0,0]];
-	"opfor_marker" setMarkerShapeLocal "ELLIPSE";
-	"opfor_marker" setMarkerTypeLocal "mil_unknown";
-	"opfor_marker" setMarkerColorLocal "ColorRed";
-	"opfor_marker" setMarkerAlphaLocal 1;
-	"opfor_marker" setMarkerSizeLocal [_pulsesize, _pulsesize];
-	"opfor_marker" setMarkerBrushLocal "Border";
-
-	while {true} do {
-		if (_pulsesize > _pulseMaxSize) then {
-			_pulsesize = 1;
-			_modifier = 0.3;
-		};
-		_pulsesize = _pulsesize + _modifier;
-		_modifier = _modifier + 0.3;
-		if (!RUSSIAN_MARKER_HIDDEN) then {
-			"opfor_marker" setMarkerAlphaLocal _pulsesize/_pulseMaxSize;
-		} else {
-			 "opfor_marker" setMarkerAlphaLocal 0;
-		};
-		"opfor_marker" setMarkerSizeLocal [_pulsesize,_pulsesize];
-		"opfor_marker" setMarkerPosLocal RUSSIAN_MARKER_POS;
-		sleep _pulseSpeed;
-
-	};
-};
 
 
 // SERVER ZÄHLT PUNKTE

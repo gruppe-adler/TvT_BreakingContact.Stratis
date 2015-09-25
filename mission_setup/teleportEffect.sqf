@@ -24,7 +24,7 @@ _posi = _this select 1;
 
 
 		gaz66 animate ["light_hide",1];
-		[[[funkwagen],"objectives\russianMarker.sqf"],"BIS_fnc_execVM",true,true] spawn BIS_fnc_MP;
+		[[[], "server\russianMarker.sqf"], "BIS_fnc_execVM",true,true] spawn BIS_fnc_MP;
 	};
 
 	if (isServer && BLUFOR_TELEPORTED) then {

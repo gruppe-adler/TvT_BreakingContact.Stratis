@@ -129,6 +129,10 @@ if ((isServer) || (isDedicated)) then {
 };
 
 
+if (hasInterface) then {
+	[] execVM "player\russianMarker.sqf";
+};
+
 // loadout call - giving each unit the appropriate sqf file
 
 if !(isDedicated) then {
