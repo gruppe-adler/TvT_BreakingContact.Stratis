@@ -16,7 +16,6 @@ checkBluforSpawndistance = {
 			floor(_distance),
 			MAXIMAL_BLUFOR_SPAWN_DISTANCE
 		];
-		player execVM "mission_setup\teleport.sqf";
 	};
 };
 
