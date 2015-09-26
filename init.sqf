@@ -46,6 +46,11 @@ if (isServer) then {
 	BLUFOR_TELEPORT_TARGET = [0, 0];
 	publicVariable "BLUFOR_TELEPORT_TARGET";
 
+	russianCredits = 5000;
+	USCredits = 5000;
+
+	0 = [russianCredits,USCredits] execVM "spawn\gui\addPublicVariableEventhandler.sqf";
+
 	if (isClass (configFile >> "CfgPatches" >> "task_force_radio")) then {
 		[] execVM "tfarsettings.sqf";
 	};

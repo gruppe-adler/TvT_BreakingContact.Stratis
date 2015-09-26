@@ -81,14 +81,14 @@ findRussianHQPos = {
 
 	if (DEBUG) then { diag_log format ["findRussianHQPos done, russianSpawnPos is %1", russianSpawnPos]; };
 
-	eastSpawnPosition = [westHQSpawnPos] call selectSpawnMarkerMudschahedin;
+	eastSpawnPosition = [westHQSpawnPos] call selectSpawnMarkerUS;
 
 };
 
 
 
 
-findMudschahedinSpawnPos = {
+findUSSpawnPos = {
 
 
 	["eastSpawnPosition gefunden."] call EFUNC(common,displayTextStructured);
@@ -96,7 +96,7 @@ findMudschahedinSpawnPos = {
 
 	if (DEBUG) then { diag_log format ["eastSpawnPosition is %1",eastSpawnPosition]; };
 
-	[eastSpawnPosition] call findMudschahedinHQPos;
+	[eastSpawnPosition] call findUSHQPos;
 
 	// fallback
 	"respawn_east" setMarkerPos [eastSpawnPosition select 0, eastSpawnPosition select 1];	
@@ -108,7 +108,7 @@ findMudschahedinSpawnPos = {
 // add HQ objects
 // find a random position in circle
 
-findMudschahedinHQPos = {
+findUSHQPos = {
 
 	_centerEast = _this select 0;	
 	// find a random position in circle
@@ -119,11 +119,11 @@ findMudschahedinHQPos = {
 
 
 	_muhaActionHelper = createVehicle ["Land_SatellitePhone_F", [eastHQSpawnPos select 0, (eastHQSpawnPos select 1) + 0.5, 0], [], 0, "NONE"];
-	[[_muhaActionHelper,"<t color=""#93E352"">Nachschub anfordern</t>",{0 = createDialog "mudschahedinSupplyGUI"; [mudschahedinSupplies, false, 0, "","",""] call refreshMudschahedinUI;}],"addactionMP",nil,false] spawn BIS_fnc_MP;
-	//_muhaSupplyAction = _muhaActionHelper addAction["<t color=""#93E352"">Nachschub anfordern</t>",{0 = createDialog "mudschahedinSupplyGUI"; [mudschahedinSupplies, false, 0, "","",""] call refreshMudschahedinUI; }, _Args, 1, true, true, "","_target distance _this < 6"];
+	[[_muhaActionHelper,"<t color=""#93E352"">Nachschub anfordern</t>",{0 = createDialog "USSupplyGUI"; [USSupplies, false, 0, "","",""] call refreshUSUI;}],"addactionMP",nil,false] spawn BIS_fnc_MP;
+	//_muhaSupplyAction = _muhaActionHelper addAction["<t color=""#93E352"">Nachschub anfordern</t>",{0 = createDialog "USSupplyGUI"; [USSupplies, false, 0, "","",""] call refreshUSUI; }, _Args, 1, true, true, "","_target distance _this < 6"];
 
-	mudschahedinSpawnPos = eastHQSpawnPos;
-	publicVariable "mudschahedinSpawnPos";
+	USSpawnPos = eastHQSpawnPos;
+	publicVariable "USSpawnPos";
 
 	_muhaGrasscutter = createVehicle ["Land_ClutterCutter_large_F", eastHQSpawnPos, [], 0, "CAN_COLLIDE"];
 
@@ -154,7 +154,7 @@ findMudschahedinHQPos = {
 
 
 [] call findRussianSpawnPos;
-[] call findMudschahedinSpawnPos;
+[] call findUSSpawnPos;
 
 
 

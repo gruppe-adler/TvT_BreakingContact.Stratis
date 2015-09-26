@@ -27,15 +27,15 @@ calculateRussianVehicleCall = {
 
 };
 
-calculateMudschahedinVehicleCall = {
+calculateUSVehicleCall = {
 	_idc = _this select 0;
 	_source_array = _this select 1;
 
-	_displayName = [_idc] call mudschahedin_IDC_to_displayname;
-	_countLeft = [_idc] call mudschahedin_IDC_to_countleft;
-	_price = [_idc] call mudschahedin_IDC_to_price;
-	_priceDisplay = [_idc] call mudschahedin_IDC_to_pricedisplay;
-	_eta = [_idc] call mudschahedin_IDC_to_eta;
+	_displayName = [_idc] call US_IDC_to_displayname;
+	_countLeft = [_idc] call US_IDC_to_countleft;
+	_price = [_idc] call US_IDC_to_price;
+	_priceDisplay = [_idc] call US_IDC_to_pricedisplay;
+	_eta = [_idc] call US_IDC_to_eta;
 
 	if (_countLeft == 0) exitWith {	_target_array = [_idc]; _target_array };
 

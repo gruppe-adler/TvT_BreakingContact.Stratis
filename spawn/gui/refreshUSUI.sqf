@@ -1,4 +1,4 @@
-resetMudschahedinUI = {
+resetUSUI = {
 
 		disableSerialization;
 
@@ -14,18 +14,22 @@ resetMudschahedinUI = {
 		ctrlSetText [3503, _buttonRelease];
 		ctrlSetText [3504, _buttonRelease];
 		ctrlSetText [3505, _buttonRelease];
+		ctrlSetText [3506, _buttonRelease];
+		ctrlSetText [3507, _buttonRelease];
 
 		ctrlEnable [3501, true];
 		ctrlEnable [3502, true];
 		ctrlEnable [3503, true];
 		ctrlEnable [3504, true];
 		ctrlEnable [3505, true];
+		ctrlEnable [3506, true];
+		ctrlEnable [3507, true];
 		VEHICLE_ORDERED_EAST = [false,0];
 		publicVariable "VEHICLE_ORDERED_EAST";
 			
 };
 
-refreshMudschahedinOrder = {
+refreshUSOrder = {
 	_bool = (_this select 0) select 0;
 	_eta = (_this select 0) select 1;
 
@@ -44,24 +48,28 @@ refreshMudschahedinOrder = {
 		ctrlSetText [3503, _refreshPleasewait];
 		ctrlSetText [3504, _refreshPleasewait];
 		ctrlSetText [3505, _refreshPleasewait];
+		ctrlSetText [3506, _refreshPleasewait];
+		ctrlSetText [3507, _refreshPleasewait];
 
 		ctrlEnable [3501, false];
 		ctrlEnable [3502, false];
 		ctrlEnable [3503, false];
 		ctrlEnable [3504, false];
 		ctrlEnable [3505, false];
+		ctrlEnable [3506, false];
+		ctrlEnable [3507, false];
 
 		if (DEBUG) then { diag_log format ["_bool is %1, _eta is %2",_bool, _eta];};
 
 	} else {
 
-		[] call resetmudschahedinUI;
+		[] call resetUSUI;
 	};
 	
 };
 
 
-refreshMudschahedinUI = {
+refreshUSUI = {
 	_array = _this select 0;
 	_outOfMoney = _this select 1;
 	_outOfStockIndicator = _this select 2;
@@ -96,15 +104,17 @@ refreshMudschahedinUI = {
 		ctrlSetText [3503, _pleasewait];
 		ctrlSetText [3504, _pleasewait];
 		ctrlSetText [3505, _pleasewait];
+		ctrlSetText [3506, _pleasewait];
+		ctrlSetText [3507, _pleasewait];
 	};
 
-	[VEHICLE_ORDERED_EAST] call refreshMudschahedinOrder;
+	[VEHICLE_ORDERED_EAST] call refreshUSOrder;
 
 	
 
 
 	if (_outOfMoney) exitWith {
-		[] call resetMudschahedinUI;
+		[] call resetUSUI;
 
 		_brightness = 0;
 		disableSerialization;
@@ -124,10 +134,10 @@ refreshMudschahedinUI = {
 	};
 
 	if (_outOfStockIndicator != 0) exitWith {
-		[] call resetMudschahedinUI;
+		[] call resetUSUI;
 
-		_idc = [_outOfStockIndicator] call mudschahedin_buttonIDC_to_countleftIDC;
-		_countLeft = [_idc] call mudschahedin_IDC_to_countleft;
+		_idc = [_outOfStockIndicator] call US_buttonIDC_to_countleftIDC;
+		_countLeft = [_idc] call US_IDC_to_countleft;
 
 		_brightness = 0;
 
@@ -175,6 +185,16 @@ refreshMudschahedinUI = {
 	_pricedisplay_5 = (_array select 5) select 3;
 	_eta_5 = (_array select 5) select 4;
 
+	_namedisplay_6 = (_array select 6) select 1;
+	_countleft_6 = (_array select 6) select 2;
+	_pricedisplay_6 = (_array select 6) select 3;
+	_eta_6 = (_array select 6) select 4;
+
+	_namedisplay_7 = (_array select 7) select 1;
+	_countleft_7 = (_array select 7) select 2;
+	_pricedisplay_7 = (_array select 7) select 3;
+	_eta_7 = (_array select 7) select 4;
+
 	
 
 	//if (DEBUG) then { diag_log format ["typeName _namedisplay_1: %1",typeName _namedisplay_1]; };
@@ -214,6 +234,15 @@ refreshMudschahedinUI = {
 	_display displayCtrl 3205 ctrlSetStructuredText parseText ([_countleft_5] call centerString);
 	_display displayCtrl 3305 ctrlSetStructuredText parseText ([_pricedisplay_5] call centerString);
 
+	_display displayCtrl 3106 ctrlSetStructuredText parseText ([_namedisplay_6] call centerString);
+	_display displayCtrl 3206 ctrlSetStructuredText parseText ([_countleft_6] call centerString);
+	_display displayCtrl 3306 ctrlSetStructuredText parseText ([_pricedisplay_6] call centerString);
+
+	_display displayCtrl 3107 ctrlSetStructuredText parseText ([_namedisplay_7] call centerString);
+	_display displayCtrl 3207 ctrlSetStructuredText parseText ([_countleft_7] call centerString);
+	_display displayCtrl 3307 ctrlSetStructuredText parseText ([_pricedisplay_7] call centerString);
+
+
 	disableSerialization;
 	
 	_display displayCtrl 3700 ctrlSetStructuredText parseText _moneyLeft;
@@ -222,9 +251,9 @@ refreshMudschahedinUI = {
 
 	// if (DEBUG) then { diag_log format ["end of refresh UI reached"]; };
 
-	mudschahedinSupplies = _array;
+	USSupplies = _array;
 
-	publicVariable "mudschahedinSupplies";
+	publicVariable "USSupplies";
 	
 	// // // // //
 	[_vehicleOrdered,_vehicleExtras,_vehicleCalls,_vehicleEta] spawn {
@@ -239,15 +268,15 @@ refreshMudschahedinUI = {
 		
 			VEHICLE_ORDERED_EAST = [true,_eta];
 			publicVariable "VEHICLE_ORDERED_EAST";
-			[VEHICLE_ORDERED_EAST] call refreshMudschahedinOrder;
+			[VEHICLE_ORDERED_EAST] call refreshUSOrder;
 			sleep 1;
 		};
 
 	
 
-		[] call resetMudschahedinUI;
+		[] call resetUSUI;
 
-		[_vehicle, mudschahedinSpawnPos, _extras, _calls] call spawnSupplyDrop;
+		[_vehicle, USSpawnPos, _extras, _calls] call spawnSupplyDrop;
 	};
 
 };

@@ -1,5 +1,6 @@
 centerString = {
 	_string = _this select 0;
+	
 	_newstring = "<t align='center'>" + (str _string) + "</t>";
 
 	_newstring
@@ -30,12 +31,16 @@ resetRussianUI = {
 		ctrlSetText [1503, _buttonRelease];
 		ctrlSetText [1504, _buttonRelease];
 		ctrlSetText [1505, _buttonRelease];
+		ctrlSetText [1506, _buttonRelease];
+		ctrlSetText [1507, _buttonRelease];
 
 		ctrlEnable [1501, true];
 		ctrlEnable [1502, true];
 		ctrlEnable [1503, true];
 		ctrlEnable [1504, true];
 		ctrlEnable [1505, true];
+		ctrlEnable [1506, true];
+		ctrlEnable [1507, true];
 		VEHICLE_ORDERED_WEST = [false,0];
 		publicVariable "VEHICLE_ORDERED_WEST";
 			
@@ -61,12 +66,16 @@ refreshRussianOrder = {
 		ctrlSetText [1503, _refreshPleasewait];
 		ctrlSetText [1504, _refreshPleasewait];
 		ctrlSetText [1505, _refreshPleasewait];
+		ctrlSetText [1506, _refreshPleasewait];
+		ctrlSetText [1507, _refreshPleasewait];
 
 		ctrlEnable [1501, false];
 		ctrlEnable [1502, false];
 		ctrlEnable [1503, false];
 		ctrlEnable [1504, false];
 		ctrlEnable [1505, false];
+		ctrlEnable [1506, false];
+		ctrlEnable [1507, false];
 
 		if (DEBUG) then { diag_log format ["_bool is %1, _eta is %2",_bool, _eta];};
 
@@ -114,6 +123,8 @@ refreshRussianUI = {
 		ctrlSetText [1503, _pleasewait];
 		ctrlSetText [1504, _pleasewait];
 		ctrlSetText [1505, _pleasewait];
+		ctrlSetText [1506, _pleasewait];
+		ctrlSetText [1507, _pleasewait];
 	};
 	
 	[VEHICLE_ORDERED_WEST] call refreshRussianOrder;
@@ -190,6 +201,16 @@ refreshRussianUI = {
 	_pricedisplay_5 = (_array select 5) select 3;
 	_eta_5 = (_array select 5) select 4;
 
+	_namedisplay_6 = (_array select 6) select 1;
+	_countleft_6 = (_array select 6) select 2;
+	_pricedisplay_6 = (_array select 6) select 3;
+	_eta_6 = (_array select 6) select 4;
+
+	_namedisplay_7 = (_array select 7) select 1;
+	_countleft_7 = (_array select 7) select 2;
+	_pricedisplay_7 = (_array select 7) select 3;
+	_eta_7 = (_array select 7) select 4;
+
 	
 
 	//if (DEBUG) then { diag_log format ["typeName _namedisplay_1: %1",typeName _namedisplay_1]; };
@@ -228,6 +249,14 @@ refreshRussianUI = {
 	_display displayCtrl 1105 ctrlSetStructuredText parseText ([_namedisplay_5] call centerString);
 	_display displayCtrl 1205 ctrlSetStructuredText parseText ([_countleft_5] call centerString);
 	_display displayCtrl 1305 ctrlSetStructuredText parseText ([_pricedisplay_5] call centerString);
+
+	_display displayCtrl 1106 ctrlSetStructuredText parseText ([_namedisplay_6] call centerString);
+	_display displayCtrl 1206 ctrlSetStructuredText parseText ([_countleft_6] call centerString);
+	_display displayCtrl 1306 ctrlSetStructuredText parseText ([_pricedisplay_6] call centerString);
+
+	_display displayCtrl 1107 ctrlSetStructuredText parseText ([_namedisplay_7] call centerString);
+	_display displayCtrl 1207 ctrlSetStructuredText parseText ([_countleft_7] call centerString);
+	_display displayCtrl 1307 ctrlSetStructuredText parseText ([_pricedisplay_7] call centerString);
 
 	disableSerialization;
 	

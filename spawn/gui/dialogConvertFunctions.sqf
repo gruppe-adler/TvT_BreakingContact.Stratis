@@ -24,6 +24,8 @@ russian_IDC_to_selector = {
 		case 1503: { _selector = 3; };
 		case 1504: { _selector = 4; };
 		case 1505: { _selector = 5; };
+		case 1506: { _selector = 6; };
+		case 1507: { _selector = 7; };
 		default {};
 
 	};
@@ -45,6 +47,8 @@ russian_IDC_to_classname = {
 		case 1503: { _classname = ((russianSupplies select 3) select 0); };
 		case 1504: { _classname = ((russianSupplies select 4) select 0); };
 		case 1505: { _classname = ((russianSupplies select 5) select 0); };
+		case 1506: { _classname = ((russianSupplies select 6) select 0); };
+		case 1507: { _classname = ((russianSupplies select 7) select 0); };
 		default {};
 	};
 
@@ -64,6 +68,8 @@ russian_IDC_to_displayname = {
 		case 1503: { _displayname = ((russianSupplies select 3) select 1); };
 		case 1504: { _displayname = ((russianSupplies select 4) select 1); };
 		case 1505: { _displayname = ((russianSupplies select 5) select 1); };
+		case 1506: { _displayname = ((russianSupplies select 6) select 1); };
+		case 1507: { _displayname = ((russianSupplies select 7) select 1); };
 		default {};
 	};
 
@@ -84,6 +90,8 @@ russian_IDC_to_countleft = {
 		case 1503: { _countleft = ((russianSupplies select 3) select 2); };
 		case 1504: { _countleft = ((russianSupplies select 4) select 2); };
 		case 1505: { _countleft = ((russianSupplies select 5) select 2); };
+		case 1506: { _countleft = ((russianSupplies select 6) select 2); };
+		case 1507: { _countleft = ((russianSupplies select 7) select 2); };
 		default {};
 	};
 
@@ -103,6 +111,8 @@ russian_buttonIDC_to_countleftIDC = {
 		case 1503: { _countleftIDC = 1203; };
 		case 1504: { _countleftIDC = 1204; };
 		case 1505: { _countleftIDC = 1205; };
+		case 1506: { _countleftIDC = 1206; };
+		case 1507: { _countleftIDC = 1207; };
 		default {};
 	};
 
@@ -122,6 +132,8 @@ russian_IDC_to_price = {
 		case 1503: { _price = ((russianSupplies select 3) select 3); };
 		case 1504: { _price = ((russianSupplies select 4) select 3); };
 		case 1505: { _price = ((russianSupplies select 5) select 3); };
+		case 1506: { _price = ((russianSupplies select 6) select 3); };
+		case 1507: { _price = ((russianSupplies select 7) select 3); };
 		default {};
 	};
 
@@ -142,6 +154,8 @@ russian_IDC_to_pricedisplay = {
 		case 1503: { _pricedisplay = ((russianSupplies select 3) select 4); };
 		case 1504: { _pricedisplay = ((russianSupplies select 4) select 4); };
 		case 1505: { _pricedisplay = ((russianSupplies select 5) select 4); };
+		case 1506: { _pricedisplay = ((russianSupplies select 6) select 4); };
+		case 1507: { _pricedisplay = ((russianSupplies select 7) select 4); };
 		default {};
 	};
 
@@ -164,6 +178,8 @@ russian_IDC_to_eta = {
 		case 1503: { _eta = ((russianSupplies select 3) select 5); };
 		case 1504: { _eta = ((russianSupplies select 4) select 5); };
 		case 1505: { _eta = ((russianSupplies select 5) select 5); };
+		case 1506: { _eta = ((russianSupplies select 6) select 5); };
+		case 1507: { _eta = ((russianSupplies select 7) select 5); };
 		default {};
 	};
 
@@ -182,6 +198,8 @@ russian_IDC_to_extras = {
 		case 1503: { _extras = ((russianSupplies select 3) select 6); };
 		case 1504: { _extras = ((russianSupplies select 4) select 6); };
 		case 1505: { _extras = ((russianSupplies select 5) select 6); };
+		case 1506: { _extras = ((russianSupplies select 6) select 6); };
+		case 1507: { _extras = ((russianSupplies select 7) select 6); };
 		default {};
 	};
 
@@ -201,6 +219,8 @@ russian_IDC_to_calls = {
 		case 1503: { _calls = ((russianSupplies select 3) select 7); };
 		case 1504: { _calls = ((russianSupplies select 4) select 7); };
 		case 1505: { _calls = ((russianSupplies select 5) select 7); };
+		case 1506: { _calls = ((russianSupplies select 6) select 7); };
+		case 1507: { _calls = ((russianSupplies select 7) select 7); };
 		default {};
 	};
 
@@ -217,10 +237,10 @@ russian_IDC_to_calls = {
 
 
 
-// MUDSCHAHEDIN
+// US
 
 
-mudschahedin_IDC_to_selector = {
+US_IDC_to_selector = {
 	_idc = _this select 0;
 	_selector = 0;
 
@@ -231,6 +251,8 @@ mudschahedin_IDC_to_selector = {
 		case 3503: { _selector = 3; };
 		case 3504: { _selector = 4; };
 		case 3505: { _selector = 5; };
+		case 3506: { _selector = 6; };
+		case 3507: { _selector = 7; };
 		default {};
 
 	};
@@ -241,17 +263,19 @@ mudschahedin_IDC_to_selector = {
 
 
 // takes IDC , gives back classname
-mudschahedin_IDC_to_classname = {
+US_IDC_to_classname = {
 	_idc = _this select 0;
 	_classname = "";
 
 	switch (_idc) do {
 
-		case 3501: { _classname = ((mudschahedinSupplies select 1) select 0); };
-		case 3502: { _classname = ((mudschahedinSupplies select 2) select 0); };
-		case 3503: { _classname = ((mudschahedinSupplies select 3) select 0); };
-		case 3504: { _classname = ((mudschahedinSupplies select 4) select 0); };
-		case 3505: { _classname = ((mudschahedinSupplies select 5) select 0); };
+		case 3501: { _classname = ((USSupplies select 1) select 0); };
+		case 3502: { _classname = ((USSupplies select 2) select 0); };
+		case 3503: { _classname = ((USSupplies select 3) select 0); };
+		case 3504: { _classname = ((USSupplies select 4) select 0); };
+		case 3505: { _classname = ((USSupplies select 5) select 0); };
+		case 3506: { _classname = ((USSupplies select 6) select 0); };
+		case 3507: { _classname = ((USSupplies select 7) select 0); };
 		default {};
 	};
 
@@ -260,17 +284,19 @@ mudschahedin_IDC_to_classname = {
 
 
 // takes IDC , gives back displayname
-mudschahedin_IDC_to_displayname = {
+US_IDC_to_displayname = {
 	_idc = _this select 0;
 	_displayname = "";
 
 	switch (_idc) do {
 
-		case 3501: { _displayname = ((mudschahedinSupplies select 1) select 1); };
-		case 3502: { _displayname = ((mudschahedinSupplies select 2) select 1); };
-		case 3503: { _displayname = ((mudschahedinSupplies select 3) select 1); };
-		case 3504: { _displayname = ((mudschahedinSupplies select 4) select 1); };
-		case 3505: { _displayname = ((mudschahedinSupplies select 5) select 1); };
+		case 3501: { _displayname = ((USSupplies select 1) select 1); };
+		case 3502: { _displayname = ((USSupplies select 2) select 1); };
+		case 3503: { _displayname = ((USSupplies select 3) select 1); };
+		case 3504: { _displayname = ((USSupplies select 4) select 1); };
+		case 3505: { _displayname = ((USSupplies select 5) select 1); };
+		case 3506: { _displayname = ((USSupplies select 6) select 1); };
+		case 3507: { _displayname = ((USSupplies select 7) select 1); };
 		default {};
 	};
 
@@ -280,17 +306,19 @@ mudschahedin_IDC_to_displayname = {
 
 
 // takes IDC , gives back countleft
-mudschahedin_IDC_to_countleft = {
+US_IDC_to_countleft = {
 	_idc = _this select 0;
 	_countleft = 0;
 
 	switch (_idc) do {
 
-		case 3501: { _countleft = ((mudschahedinSupplies select 1) select 2); };
-		case 3502: { _countleft = ((mudschahedinSupplies select 2) select 2); };
-		case 3503: { _countleft = ((mudschahedinSupplies select 3) select 2); };
-		case 3504: { _countleft = ((mudschahedinSupplies select 4) select 2); };
-		case 3505: { _countleft = ((mudschahedinSupplies select 5) select 2); };
+		case 3501: { _countleft = ((USSupplies select 1) select 2); };
+		case 3502: { _countleft = ((USSupplies select 2) select 2); };
+		case 3503: { _countleft = ((USSupplies select 3) select 2); };
+		case 3504: { _countleft = ((USSupplies select 4) select 2); };
+		case 3505: { _countleft = ((USSupplies select 5) select 2); };
+		case 3506: { _countleft = ((USSupplies select 6) select 2); };
+		case 3507: { _countleft = ((USSupplies select 7) select 2); };
 		default {};
 	};
 
@@ -299,7 +327,7 @@ mudschahedin_IDC_to_countleft = {
 };
 
 // takes IDC , gives back countleft IDC
-mudschahedin_buttonIDC_to_countleftIDC = {
+US_buttonIDC_to_countleftIDC = {
 	_idc = _this select 0;
 	_countleftIDC = 0;
 
@@ -310,6 +338,8 @@ mudschahedin_buttonIDC_to_countleftIDC = {
 		case 3503: { _countleftIDC = 3203; };
 		case 3504: { _countleftIDC = 3204; };
 		case 3505: { _countleftIDC = 3205; };
+		case 3506: { _countleftIDC = 3206; };
+		case 3507: { _countleftIDC = 3207; };
 		default {};
 	};
 
@@ -318,17 +348,19 @@ mudschahedin_buttonIDC_to_countleftIDC = {
 };
 
 // takes IDC , gives back price number
-mudschahedin_IDC_to_price = {
+US_IDC_to_price = {
 	_idc = _this select 0;
 	_price = 0;
 
 	switch (_idc) do {
 
-		case 3501: { _price = ((mudschahedinSupplies select 1) select 3); };
-		case 3502: { _price = ((mudschahedinSupplies select 2) select 3); };
-		case 3503: { _price = ((mudschahedinSupplies select 3) select 3); };
-		case 3504: { _price = ((mudschahedinSupplies select 4) select 3); };
-		case 3505: { _price = ((mudschahedinSupplies select 5) select 3); };
+		case 3501: { _price = ((USSupplies select 1) select 3); };
+		case 3502: { _price = ((USSupplies select 2) select 3); };
+		case 3503: { _price = ((USSupplies select 3) select 3); };
+		case 3504: { _price = ((USSupplies select 4) select 3); };
+		case 3505: { _price = ((USSupplies select 5) select 3); };
+		case 3506: { _price = ((USSupplies select 6) select 3); };
+		case 3507: { _price = ((USSupplies select 7) select 3); };
 		default {};
 	};
 
@@ -338,17 +370,19 @@ mudschahedin_IDC_to_price = {
 
 
 // takes IDC , gives back pricedisplay string
-mudschahedin_IDC_to_pricedisplay = {
+US_IDC_to_pricedisplay = {
 	_idc = _this select 0;
 	_pricedisplay = 0;
 
 	switch (_idc) do {
 
-		case 3501: { _pricedisplay = ((mudschahedinSupplies select 1) select 4); };
-		case 3502: { _pricedisplay = ((mudschahedinSupplies select 2) select 4); };
-		case 3503: { _pricedisplay = ((mudschahedinSupplies select 3) select 4); };
-		case 3504: { _pricedisplay = ((mudschahedinSupplies select 4) select 4); };
-		case 3505: { _pricedisplay = ((mudschahedinSupplies select 5) select 4); };
+		case 3501: { _pricedisplay = ((USSupplies select 1) select 4); };
+		case 3502: { _pricedisplay = ((USSupplies select 2) select 4); };
+		case 3503: { _pricedisplay = ((USSupplies select 3) select 4); };
+		case 3504: { _pricedisplay = ((USSupplies select 4) select 4); };
+		case 3505: { _pricedisplay = ((USSupplies select 5) select 4); };
+		case 3506: { _pricedisplay = ((USSupplies select 6) select 4); };
+		case 3507: { _pricedisplay = ((USSupplies select 7) select 4); };
 		default {};
 	};
 
@@ -360,17 +394,19 @@ mudschahedin_IDC_to_pricedisplay = {
 
 
 // takes IDC, gives back ETA
-mudschahedin_IDC_to_eta = {
+US_IDC_to_eta = {
 	_idc = _this select 0;
 	_eta = 0;
 
 	switch (_idc) do {
 
-		case 3501: { _eta = ((mudschahedinSupplies select 1) select 5); };
-		case 3502: { _eta = ((mudschahedinSupplies select 2) select 5); };
-		case 3503: { _eta = ((mudschahedinSupplies select 3) select 5); };
-		case 3504: { _eta = ((mudschahedinSupplies select 4) select 5); };
-		case 3505: { _eta = ((mudschahedinSupplies select 5) select 5); };
+		case 3501: { _eta = ((USSupplies select 1) select 5); };
+		case 3502: { _eta = ((USSupplies select 2) select 5); };
+		case 3503: { _eta = ((USSupplies select 3) select 5); };
+		case 3504: { _eta = ((USSupplies select 4) select 5); };
+		case 3505: { _eta = ((USSupplies select 5) select 5); };
+		case 3506: { _eta = ((USSupplies select 6) select 5); };
+		case 3507: { _eta = ((USSupplies select 7) select 5); };
 		default {};
 	};
 
@@ -378,17 +414,19 @@ mudschahedin_IDC_to_eta = {
 };
 
 // takes IDC, gives back extras
-mudschahedin_IDC_to_extras = {
+US_IDC_to_extras = {
 	_idc = _this select 0;
 	_extras = 0;
 
 	switch (_idc) do {
 
-		case 3501: { _extras = ((mudschahedinSupplies select 1) select 6); };
-		case 3502: { _extras = ((mudschahedinSupplies select 2) select 6); };
-		case 3503: { _extras = ((mudschahedinSupplies select 3) select 6); };
-		case 3504: { _extras = ((mudschahedinSupplies select 4) select 6); };
-		case 3505: { _extras = ((mudschahedinSupplies select 5) select 6); };
+		case 3501: { _extras = ((USSupplies select 1) select 6); };
+		case 3502: { _extras = ((USSupplies select 2) select 6); };
+		case 3503: { _extras = ((USSupplies select 3) select 6); };
+		case 3504: { _extras = ((USSupplies select 4) select 6); };
+		case 3505: { _extras = ((USSupplies select 5) select 6); };
+		case 3506: { _extras = ((USSupplies select 6) select 6); };
+		case 3507: { _extras = ((USSupplies select 7) select 6); };
 		default {};
 	};
 
@@ -396,17 +434,19 @@ mudschahedin_IDC_to_extras = {
 };
 
 // takes IDC, gives back extras
-mudschahedin_IDC_to_calls = {
+US_IDC_to_calls = {
 	_idc = _this select 0;
 	_calls = 0;
 
 	switch (_idc) do {
 
-		case 3501: { _calls = ((mudschahedinSupplies select 1) select 7); };
-		case 3502: { _calls = ((mudschahedinSupplies select 2) select 7); };
-		case 3503: { _calls = ((mudschahedinSupplies select 3) select 7); };
-		case 3504: { _calls = ((mudschahedinSupplies select 4) select 7); };
-		case 3505: { _calls = ((mudschahedinSupplies select 5) select 7); };
+		case 3501: { _calls = ((USSupplies select 1) select 7); };
+		case 3502: { _calls = ((USSupplies select 2) select 7); };
+		case 3503: { _calls = ((USSupplies select 3) select 7); };
+		case 3504: { _calls = ((USSupplies select 4) select 7); };
+		case 3505: { _calls = ((USSupplies select 5) select 7); };
+		case 3506: { _calls = ((USSupplies select 6) select 7); };
+		case 3507: { _calls = ((USSupplies select 7) select 7); };
 		default {};
 	};
 

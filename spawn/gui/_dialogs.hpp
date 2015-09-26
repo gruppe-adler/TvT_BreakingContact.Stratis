@@ -28,9 +28,9 @@ class russianSupplyGUI
 			{
 				idc = 1501;
 				text = "Anfordern";
-				x = 5 * GUI_GRID_W + GUI_GRID_X;
+				x = -3 * GUI_GRID_W + GUI_GRID_X;
 				y = 16 * GUI_GRID_H + GUI_GRID_Y;
-				w = 6 * GUI_GRID_W;
+				w = 6.5 * GUI_GRID_W;
 				h = 2 * GUI_GRID_H;
 				colorText[] = {1,1,1,1};
 				colorBackground[] = {0,0,0,1};
@@ -41,7 +41,7 @@ class russianSupplyGUI
 			{
 				idc = 1502;
 				text = "Anfordern";
-				x = 12 * GUI_GRID_W + GUI_GRID_X;
+				x = 5 * GUI_GRID_W + GUI_GRID_X;
 				y = 16 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6 * GUI_GRID_W;
 				h = 2 * GUI_GRID_H;
@@ -54,7 +54,7 @@ class russianSupplyGUI
 			{
 				idc = 1503;
 				text = "Anfordern";
-				x = 19 * GUI_GRID_W + GUI_GRID_X;
+				x = 12.5 * GUI_GRID_W + GUI_GRID_X;
 				y = 16 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6 * GUI_GRID_W;
 				h = 2 * GUI_GRID_H;
@@ -67,7 +67,7 @@ class russianSupplyGUI
 			{
 				idc = 1504;
 				text = "Anfordern";
-				x = 26 * GUI_GRID_W + GUI_GRID_X;
+				x = 20 * GUI_GRID_W + GUI_GRID_X;
 				y = 16 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6 * GUI_GRID_W;
 				h = 2 * GUI_GRID_H;
@@ -80,7 +80,33 @@ class russianSupplyGUI
 			{
 				idc = 1505;
 				text = "Anfordern";
-				x = 33 * GUI_GRID_W + GUI_GRID_X;
+				x = 27.5 * GUI_GRID_W + GUI_GRID_X;
+				y = 16 * GUI_GRID_H + GUI_GRID_Y;
+				w = 6 * GUI_GRID_W;
+				h = 2 * GUI_GRID_H;
+				colorText[] = {1,1,1,1};
+				colorBackground[] = {0,0,0,1};
+				tooltip = "Fahrzeug anfordern";
+				onButtonClick = "disableSerialization; [_this select 0] execVM 'spawn\gui\orderRussianVehicle.sqf';";
+			};
+			class russian_gui_btn_anfordern_6: RscButton
+			{
+				idc = 1506;
+				text = "Anfordern";
+				x = 35 * GUI_GRID_W + GUI_GRID_X;
+				y = 16 * GUI_GRID_H + GUI_GRID_Y;
+				w = 6 * GUI_GRID_W;
+				h = 2 * GUI_GRID_H;
+				colorText[] = {1,1,1,1};
+				colorBackground[] = {0,0,0,1};
+				tooltip = "Fahrzeug anfordern";
+				onButtonClick = "disableSerialization; [_this select 0] execVM 'spawn\gui\orderRussianVehicle.sqf';";
+			};
+			class russian_gui_btn_anfordern_7: RscButton
+			{
+				idc = 1507;
+				text = "Anfordern";
+				x = 42.5 * GUI_GRID_W + GUI_GRID_X;
 				y = 16 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6 * GUI_GRID_W;
 				h = 2 * GUI_GRID_H;
@@ -92,53 +118,71 @@ class russianSupplyGUI
 			class russian_gui_pic_1: RscPicture
 			{
 				idc = 1001;
-				x = 4 * GUI_GRID_W + GUI_GRID_X;
+				x = -3.5 * GUI_GRID_W + GUI_GRID_X;
 				y = 3.5 * GUI_GRID_H + GUI_GRID_Y;
 				w = 7 * GUI_GRID_W;
 				h = 6 * GUI_GRID_H;
-				text = "spawn\gui\pic\jeep_grunge_small.paa";
+				text = "spawn\gui\pic\rus_gaz66.paa";
 			};
 			class russian_gui_pic_2: RscPicture
 			{
 				idc = 1002;
-				x = 11 * GUI_GRID_W + GUI_GRID_X;
+				x = 4.5 * GUI_GRID_W + GUI_GRID_X;
 				y = 3.5 * GUI_GRID_H + GUI_GRID_Y;
 				w = 7 * GUI_GRID_W;
 				h = 6 * GUI_GRID_H;
-				text = "spawn\gui\pic\gaz66_grunge_small.paa";
+				text = "spawn\gui\pic\rus_gaz66_medic.paa";
 			};
 			class russian_gui_pic_3: RscPicture
 			{
 				idc = 1003;
-				x = 17 * GUI_GRID_W + GUI_GRID_X;
+				x = 12 * GUI_GRID_W + GUI_GRID_X;
 				y = 3.5 * GUI_GRID_H + GUI_GRID_Y;
 				w = 7 * GUI_GRID_W;
 				h = 6 * GUI_GRID_H;
-				text = "spawn\gui\pic\gaz66_ap2_grunge_small.paa";
+				text = "spawn\gui\pic\rus_gaz66_repair.paa";
 			};
 			class russian_gui_pic_4: RscPicture
 			{
 				idc = 1004;
-				x = 24 * GUI_GRID_W + GUI_GRID_X;
+				x = 19.5 * GUI_GRID_W + GUI_GRID_X;
 				y = 3.5 * GUI_GRID_H + GUI_GRID_Y;
 				w = 7 * GUI_GRID_W;
 				h = 6 * GUI_GRID_H;
-				text = "spawn\gui\pic\brm1k_grunge_small.paa";
+				text = "spawn\gui\pic\rus_brm1k.paa";
 			};
 			class russian_gui_pic_5: RscPicture
 			{
 				idc = 1005;
-				x = 31 * GUI_GRID_W + GUI_GRID_X;
+				x = 27 * GUI_GRID_W + GUI_GRID_X;
 				y = 3.5 * GUI_GRID_H + GUI_GRID_Y;
 				w = 7 * GUI_GRID_W;
 				h = 6 * GUI_GRID_H;
-				text = "spawn\gui\pic\mi24_grunge_small.paa";
+				text = "spawn\gui\pic\rus_btr60.paa";
+			};
+			class russian_gui_pic_6: RscPicture
+			{
+				idc = 1006;
+				x = 34.5 * GUI_GRID_W + GUI_GRID_X;
+				y = 3.5 * GUI_GRID_H + GUI_GRID_Y;
+				w = 7 * GUI_GRID_W;
+				h = 6 * GUI_GRID_H;
+				text = "spawn\gui\pic\rus_t72.paa";
+			};
+			class russian_gui_pic_7: RscPicture
+			{
+				idc = 1007;
+				x = 42 * GUI_GRID_W + GUI_GRID_X;
+				y = 3.5 * GUI_GRID_H + GUI_GRID_Y;
+				w = 7 * GUI_GRID_W;
+				h = 6 * GUI_GRID_H;
+				text = "spawn\gui\pic\rus_static_mg.paa";
 			};
 			class russian_gui_text_namedisplay_1: RscStructuredText
 			{
 				idc = 1101;
 				text = "<t align='center'>lade...</t>";
-				x = 5 * GUI_GRID_W + GUI_GRID_X;
+				x = -3 * GUI_GRID_W + GUI_GRID_X;
 				y = 10 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6 * GUI_GRID_W;
 				h = 1 * GUI_GRID_H;
@@ -148,7 +192,7 @@ class russianSupplyGUI
 			{
 				idc = 1102;
 				text = "<t align='center'>lade ...</t>";
-				x = 12 * GUI_GRID_W + GUI_GRID_X;
+				x = 5 * GUI_GRID_W + GUI_GRID_X;
 				y = 10 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6 * GUI_GRID_W;
 				h = 1 * GUI_GRID_H;
@@ -158,7 +202,7 @@ class russianSupplyGUI
 			{
 				idc = 1103;
 				text = "<t align='center'>lade ...</t>";
-				x = 19 * GUI_GRID_W + GUI_GRID_X;
+				x = 12.5 * GUI_GRID_W + GUI_GRID_X;
 				y = 10 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6 * GUI_GRID_W;
 				h = 1 * GUI_GRID_H;
@@ -168,7 +212,7 @@ class russianSupplyGUI
 			{
 				idc = 1104;
 				text = "<t align='center'>lade ...</t>";
-				x = 26 * GUI_GRID_W + GUI_GRID_X;
+				x = 20 * GUI_GRID_W + GUI_GRID_X;
 				y = 10 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6 * GUI_GRID_W;
 				h = 1 * GUI_GRID_H;
@@ -178,7 +222,27 @@ class russianSupplyGUI
 			{
 				idc = 1105;
 				text = "<t align='center'>lade ...</t>";
-				x = 33 * GUI_GRID_W + GUI_GRID_X;
+				x = 27.5 * GUI_GRID_W + GUI_GRID_X;
+				y = 10 * GUI_GRID_H + GUI_GRID_Y;
+				w = 6 * GUI_GRID_W;
+				h = 1 * GUI_GRID_H;
+				colorBackground[] = {-1,-1,-1,0};
+			};
+			class russian_gui_text_namedisplay_6: RscStructuredText
+			{
+				idc = 1106;
+				text = "<t align='center'>lade ...</t>";
+				x = 35 * GUI_GRID_W + GUI_GRID_X;
+				y = 10 * GUI_GRID_H + GUI_GRID_Y;
+				w = 6 * GUI_GRID_W;
+				h = 1 * GUI_GRID_H;
+				colorBackground[] = {-1,-1,-1,0};
+			};
+			class russian_gui_text_namedisplay_7: RscStructuredText
+			{
+				idc = 1107;
+				text = "<t align='center'>lade ...</t>";
+				x = 42.5 * GUI_GRID_W + GUI_GRID_X;
 				y = 10 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6 * GUI_GRID_W;
 				h = 1 * GUI_GRID_H;
@@ -188,7 +252,7 @@ class russianSupplyGUI
 			{
 				idc = 1201;
 				text = "<t align='center'>lade ...</t>";
-				x = 5 * GUI_GRID_W + GUI_GRID_X;
+				x = -3 * GUI_GRID_W + GUI_GRID_X;
 				y = 12 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6 * GUI_GRID_W;
 				h = 1 * GUI_GRID_H;
@@ -198,7 +262,7 @@ class russianSupplyGUI
 			{
 				idc = 1202;
 				text = "<t align='center'>lade ...</t>";
-				x = 12 * GUI_GRID_W + GUI_GRID_X;
+				x = 5 * GUI_GRID_W + GUI_GRID_X;
 				y = 12 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6 * GUI_GRID_W;
 				h = 1 * GUI_GRID_H;
@@ -208,7 +272,7 @@ class russianSupplyGUI
 			{
 				idc = 1203;
 				text = "<t align='center'>lade ...</t>";
-				x = 19 * GUI_GRID_W + GUI_GRID_X;
+				x = 12.5 * GUI_GRID_W + GUI_GRID_X;
 				y = 12 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6 * GUI_GRID_W;
 				h = 1 * GUI_GRID_H;
@@ -218,7 +282,7 @@ class russianSupplyGUI
 			{
 				idc = 1204;
 				text = "<t align='center'>lade ...</t>";
-				x = 26 * GUI_GRID_W + GUI_GRID_X;
+				x = 20 * GUI_GRID_W + GUI_GRID_X;
 				y = 12 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6 * GUI_GRID_W;
 				h = 1 * GUI_GRID_H;
@@ -228,7 +292,27 @@ class russianSupplyGUI
 			{
 				idc = 1205;
 				text = "<t align='center'>lade ...</t>";
-				x = 33 * GUI_GRID_W + GUI_GRID_X;
+				x = 27.5 * GUI_GRID_W + GUI_GRID_X;
+				y = 12 * GUI_GRID_H + GUI_GRID_Y;
+				w = 6 * GUI_GRID_W;
+				h = 1 * GUI_GRID_H;
+				colorBackground[] = {-1,-1,-1,0};
+			};
+			class russian_gui_text_countleft_6: RscStructuredText
+			{
+				idc = 1206;
+				text = "<t align='center'>lade ...</t>";
+				x = 35 * GUI_GRID_W + GUI_GRID_X;
+				y = 12 * GUI_GRID_H + GUI_GRID_Y;
+				w = 6 * GUI_GRID_W;
+				h = 1 * GUI_GRID_H;
+				colorBackground[] = {-1,-1,-1,0};
+			};
+			class russian_gui_text_countleft_7: RscStructuredText
+			{
+				idc = 1207;
+				text = "<t align='center'>lade ...</t>";
+				x = 42.5 * GUI_GRID_W + GUI_GRID_X;
 				y = 12 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6 * GUI_GRID_W;
 				h = 1 * GUI_GRID_H;
@@ -238,7 +322,7 @@ class russianSupplyGUI
 			{
 				idc = 1301;
 				text = "<t align='center'>lade ...</t>";
-				x = 5 * GUI_GRID_W + GUI_GRID_X;
+				x = -3 * GUI_GRID_W + GUI_GRID_X;
 				y = 14 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6 * GUI_GRID_W;
 				h = 1 * GUI_GRID_H;
@@ -248,7 +332,7 @@ class russianSupplyGUI
 			{
 				idc = 1302;
 				text = "<t align='center'>lade ...</t>";
-				x = 12 * GUI_GRID_W + GUI_GRID_X;
+				x = 5 * GUI_GRID_W + GUI_GRID_X;
 				y = 14 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6 * GUI_GRID_W;
 				h = 1 * GUI_GRID_H;
@@ -258,7 +342,7 @@ class russianSupplyGUI
 			{
 				idc = 1303;
 				text = "<t align='center'>lade ...</t>";
-				x = 19 * GUI_GRID_W + GUI_GRID_X;
+				x = 12.5 * GUI_GRID_W + GUI_GRID_X;
 				y = 14 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6 * GUI_GRID_W;
 				h = 1 * GUI_GRID_H;
@@ -268,7 +352,7 @@ class russianSupplyGUI
 			{
 				idc = 1304;
 				text = "<t align='center'>lade ...</t>";
-				x = 26 * GUI_GRID_W + GUI_GRID_X;
+				x = 20 * GUI_GRID_W + GUI_GRID_X;
 				y = 14 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6 * GUI_GRID_W;
 				h = 1 * GUI_GRID_H;
@@ -278,7 +362,27 @@ class russianSupplyGUI
 			{
 				idc = 1305;
 				text = "<t align='center'>lade ...</t>";
-				x = 33 * GUI_GRID_W + GUI_GRID_X;
+				x = 27.5 * GUI_GRID_W + GUI_GRID_X;
+				y = 14 * GUI_GRID_H + GUI_GRID_Y;
+				w = 6 * GUI_GRID_W;
+				h = 1 * GUI_GRID_H;
+				colorBackground[] = {-1,-1,-1,0};
+			};
+			class russian_gui_text_pricedisplay_6: RscStructuredText
+			{
+				idc = 1306;
+				text = "<t align='center'>lade ...</t>";
+				x = 35 * GUI_GRID_W + GUI_GRID_X;
+				y = 14 * GUI_GRID_H + GUI_GRID_Y;
+				w = 6 * GUI_GRID_W;
+				h = 1 * GUI_GRID_H;
+				colorBackground[] = {-1,-1,-1,0};
+			};
+			class russian_gui_text_pricedisplay_7: RscStructuredText
+			{
+				idc = 1307;
+				text = "<t align='center'>lade ...</t>";
+				x = 42.5 * GUI_GRID_W + GUI_GRID_X;
 				y = 14 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6 * GUI_GRID_W;
 				h = 1 * GUI_GRID_H;
@@ -288,7 +392,7 @@ class russianSupplyGUI
 			{
 				idc = -1;
 				text = "<t color='#80ffffff'>Kosten</t>";
-				x = 1.5 * GUI_GRID_W + GUI_GRID_X;
+				x = -9 * GUI_GRID_W + GUI_GRID_X;
 				y = 14 * GUI_GRID_H + GUI_GRID_Y;
 				w = 5 * GUI_GRID_W;
 				h = 1 * GUI_GRID_H;
@@ -299,7 +403,7 @@ class russianSupplyGUI
 			{
 				idc = -1;
 				text = "<t color='#80ffffff'>Anzahl verf.</t>";
-				x = 1.5 * GUI_GRID_W + GUI_GRID_X;
+				x = -9 * GUI_GRID_W + GUI_GRID_X;
 				y = 12 * GUI_GRID_H + GUI_GRID_Y;
 				w = 5 * GUI_GRID_W;
 				h = 1 * GUI_GRID_H;
@@ -310,7 +414,7 @@ class russianSupplyGUI
 			{
 				idc = -1;
 				text = "<t color='#80ffffff'>Fahrzeug</t>";
-				x = 1.5 * GUI_GRID_W + GUI_GRID_X;
+				x = -9 * GUI_GRID_W + GUI_GRID_X;
 				y = 10 * GUI_GRID_H + GUI_GRID_Y;
 				w = 5 * GUI_GRID_W;
 				h = 1 * GUI_GRID_H;
@@ -333,7 +437,7 @@ class russianSupplyGUI
 			{
 				idc = 1700;
 				text = "<t align='left'>3000 cr</t>";
-				x = 1 * GUI_GRID_W + GUI_GRID_X;
+				x = -9 * GUI_GRID_W + GUI_GRID_X;
 				y = 1 * GUI_GRID_H + GUI_GRID_Y;
 				w = 4.5 * GUI_GRID_W;
 				h = 2.5 * GUI_GRID_H;
@@ -345,7 +449,7 @@ class russianSupplyGUI
 			{
 				idc = -1;
 				text = "Schließen";
-				x = 34 * GUI_GRID_W + GUI_GRID_X;
+				x = 43.5 * GUI_GRID_W + GUI_GRID_X;
 				y = 1 * GUI_GRID_H + GUI_GRID_Y;
 				w = 5 * GUI_GRID_W;
 				h = 1.5 * GUI_GRID_H;
@@ -362,7 +466,7 @@ class russianSupplyGUI
 
 
 
-class mudschahedinSupplyGUI
+class USSupplyGUI
 {
 		idd = 3000;
 		movingenable = 0;
@@ -376,9 +480,9 @@ class mudschahedinSupplyGUI
 			class dlgBackground: background
 			{
 				idc = 3999;
-				x = 0 * GUI_GRID_W + GUI_GRID_X;
+				x = -10 * GUI_GRID_W + GUI_GRID_X;
 				y = 0 * GUI_GRID_H + GUI_GRID_Y;
-				w = 40 * GUI_GRID_W;
+				w = 60 * GUI_GRID_W;
 				h = 19 * GUI_GRID_H;
 				colorBackground[] = {0,0,0,0.8};
 			};
@@ -388,219 +492,313 @@ class mudschahedinSupplyGUI
 
 		class Controls {
 
-			class mudschahedin_gui_btn_anfordern_1: RscButton
+			class US_gui_btn_anfordern_1: RscButton
 			{
 				idc = 3501;
 				text = "Anfordern";
-				x = 5 * GUI_GRID_W + GUI_GRID_X;
+				x = -3 * GUI_GRID_W + GUI_GRID_X;
 				y = 16 * GUI_GRID_H + GUI_GRID_Y;
-				w = 6 * GUI_GRID_W;
+				w = 6.5 * GUI_GRID_W;
 				h = 2 * GUI_GRID_H;
 				colorText[] = {1,1,1,1};
 				colorBackground[] = {0,0,0,1};
 				tooltip = "Fahrzeug anfordern";
-				onButtonClick = "disableSerialization; [_this select 0] execVM 'spawn\gui\orderMudschahedinVehicle.sqf';";
+				onButtonClick = "disableSerialization; [_this select 0] execVM 'spawn\gui\orderUSVehicle.sqf';";
 			};
-			class mudschahedin_gui_btn_anfordern_2: RscButton
+			class US_gui_btn_anfordern_2: RscButton
 			{
 				idc = 3502;
 				text = "Anfordern";
-				x = 12 * GUI_GRID_W + GUI_GRID_X;
+				x = 5 * GUI_GRID_W + GUI_GRID_X;
 				y = 16 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6 * GUI_GRID_W;
 				h = 2 * GUI_GRID_H;
 				colorText[] = {1,1,1,1};
 				colorBackground[] = {0,0,0,1};
 				tooltip = "Fahrzeug anfordern";
-				onButtonClick = "disableSerialization; [_this select 0] execVM 'spawn\gui\orderMudschahedinVehicle.sqf';";
+				onButtonClick = "disableSerialization; [_this select 0] execVM 'spawn\gui\orderUSVehicle.sqf';";
 			};
-			class mudschahedin_gui_btn_anfordern_3: RscButton
+			class US_gui_btn_anfordern_3: RscButton
 			{
 				idc = 3503;
 				text = "Anfordern";
-				x = 19 * GUI_GRID_W + GUI_GRID_X;
+				x = 12.5 * GUI_GRID_W + GUI_GRID_X;
 				y = 16 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6 * GUI_GRID_W;
 				h = 2 * GUI_GRID_H;
 				colorText[] = {1,1,1,1};
 				colorBackground[] = {0,0,0,1};
 				tooltip = "Fahrzeug anfordern";
-				onButtonClick = "disableSerialization; [_this select 0] execVM 'spawn\gui\orderMudschahedinVehicle.sqf';";
+				onButtonClick = "disableSerialization; [_this select 0] execVM 'spawn\gui\orderUSVehicle.sqf';";
 			};
-			class mudschahedin_gui_btn_anfordern_4: RscButton
+			class US_gui_btn_anfordern_4: RscButton
 			{
 				idc = 3504;
 				text = "Anfordern";
-				x = 26 * GUI_GRID_W + GUI_GRID_X;
+				x = 20 * GUI_GRID_W + GUI_GRID_X;
 				y = 16 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6 * GUI_GRID_W;
 				h = 2 * GUI_GRID_H;
 				colorText[] = {1,1,1,1};
 				colorBackground[] = {0,0,0,1};
 				tooltip = "Fahrzeug anfordern";
-				onButtonClick = "disableSerialization; [_this select 0] execVM 'spawn\gui\orderMudschahedinVehicle.sqf';";
+				onButtonClick = "disableSerialization; [_this select 0] execVM 'spawn\gui\orderUSVehicle.sqf';";
 			};
-			class mudschahedin_gui_btn_anfordern_5: RscButton
+			class US_gui_btn_anfordern_5: RscButton
 			{
 				idc = 3505;
 				text = "Anfordern";
-				x = 33 * GUI_GRID_W + GUI_GRID_X;
+				x = 27.5 * GUI_GRID_W + GUI_GRID_X;
 				y = 16 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6 * GUI_GRID_W;
 				h = 2 * GUI_GRID_H;
 				colorText[] = {1,1,1,1};
 				colorBackground[] = {0,0,0,1};
 				tooltip = "Fahrzeug anfordern";
-				onButtonClick = "disableSerialization; [_this select 0] execVM 'spawn\gui\orderMudschahedinVehicle.sqf';";
+				onButtonClick = "disableSerialization; [_this select 0] execVM 'spawn\gui\orderUSVehicle.sqf';";
 			};
-			class mudschahedin_gui_pic_1: RscPicture
+			class US_gui_btn_anfordern_6: RscButton
+			{
+				idc = 3506;
+				text = "Anfordern";
+				x = 35 * GUI_GRID_W + GUI_GRID_X;
+				y = 16 * GUI_GRID_H + GUI_GRID_Y;
+				w = 6 * GUI_GRID_W;
+				h = 2 * GUI_GRID_H;
+				colorText[] = {1,1,1,1};
+				colorBackground[] = {0,0,0,1};
+				tooltip = "Fahrzeug anfordern";
+				onButtonClick = "disableSerialization; [_this select 0] execVM 'spawn\gui\orderUSVehicle.sqf';";
+			};
+			class US_gui_btn_anfordern_7: RscButton
+			{
+				idc = 3507;
+				text = "Anfordern";
+				x = 42.5 * GUI_GRID_W + GUI_GRID_X;
+				y = 16 * GUI_GRID_H + GUI_GRID_Y;
+				w = 6 * GUI_GRID_W;
+				h = 2 * GUI_GRID_H;
+				colorText[] = {1,1,1,1};
+				colorBackground[] = {0,0,0,1};
+				tooltip = "Fahrzeug anfordern";
+				onButtonClick = "disableSerialization; [_this select 0] execVM 'spawn\gui\orderUSVehicle.sqf';";
+			};
+			class US_gui_pic_1: RscPicture
 			{
 				idc = 3001;
-				x = 4 * GUI_GRID_W + GUI_GRID_X;
+				x = -3.5 * GUI_GRID_W + GUI_GRID_X;
 				y = 3.5 * GUI_GRID_H + GUI_GRID_Y;
 				w = 7 * GUI_GRID_W;
 				h = 6 * GUI_GRID_H;
-				text = "spawn\gui\pic\muha_jeep_grunge_small.paa";
+				text = "spawn\gui\pic\us_hmmvv_transport.paa";
 			};
-			class mudschahedin_gui_pic_2: RscPicture
+			class US_gui_pic_2: RscPicture
 			{
 				idc = 3002;
-				x = 11 * GUI_GRID_W + GUI_GRID_X;
+				x = 4.5 * GUI_GRID_W + GUI_GRID_X;
 				y = 3.5 * GUI_GRID_H + GUI_GRID_Y;
 				w = 7 * GUI_GRID_W;
 				h = 6 * GUI_GRID_H;
-				text = "spawn\gui\pic\muha_jeep_m2_grunge_small.paa";
+				text = "spawn\gui\pic\us_hmmvv_m2.paa";
 			};
-			class mudschahedin_gui_pic_3: RscPicture
+			class US_gui_pic_3: RscPicture
 			{
 				idc = 3003;
-				x = 17 * GUI_GRID_W + GUI_GRID_X;
+				x = 12 * GUI_GRID_W + GUI_GRID_X;
 				y = 3.5 * GUI_GRID_H + GUI_GRID_Y;
 				w = 7 * GUI_GRID_W;
 				h = 6 * GUI_GRID_H;
-				text = "spawn\gui\pic\muha_rpg_grunge_small.paa";
+				text = "spawn\gui\pic\us_m113_m2.paa";
 			};
-			class mudschahedin_gui_pic_4: RscPicture
+			class US_gui_pic_4: RscPicture
 			{
 				idc = 3004;
-				x = 24 * GUI_GRID_W + GUI_GRID_X;
+				x = 19.5 * GUI_GRID_W + GUI_GRID_X;
 				y = 3.5 * GUI_GRID_H + GUI_GRID_Y;
 				w = 7 * GUI_GRID_W;
 				h = 6 * GUI_GRID_H;
-				text = "spawn\gui\pic\muha_ied_grunge_small.paa";
+				text = "spawn\gui\pic\us_m113_medic.paa";
 			};
-			class mudschahedin_gui_pic_5: RscPicture
+			class US_gui_pic_5: RscPicture
 			{
 				idc = 3005;
-				x = 31 * GUI_GRID_W + GUI_GRID_X;
+				x = 27 * GUI_GRID_W + GUI_GRID_X;
 				y = 3.5 * GUI_GRID_H + GUI_GRID_Y;
 				w = 7 * GUI_GRID_W;
 				h = 6 * GUI_GRID_H;
-				text = "spawn\gui\pic\muha_stinger_grunge_small.paa";
+				text = "spawn\gui\pic\us_javelin.paa";
 			};
-			class mudschahedin_gui_text_namedisplay_1: RscStructuredText
+			class US_gui_pic_6: RscPicture
+			{
+				idc = 3006;
+				x = 34.5 * GUI_GRID_W + GUI_GRID_X;
+				y = 3.5 * GUI_GRID_H + GUI_GRID_Y;
+				w = 7 * GUI_GRID_W;
+				h = 6 * GUI_GRID_H;
+				text = "spawn\gui\pic\us_mh6.paa";
+			};
+			class US_gui_pic_7: RscPicture
+			{
+				idc = 3007;
+				x = 42 * GUI_GRID_W + GUI_GRID_X;
+				y = 3.5 * GUI_GRID_H + GUI_GRID_Y;
+				w = 7 * GUI_GRID_W;
+				h = 6 * GUI_GRID_H;
+				text = "spawn\gui\pic\us_uh60.paa";
+			};
+			class US_gui_text_namedisplay_1: RscStructuredText
 			{
 				idc = 3101;
 				text = "<t align='center'>lade...</t>";
-				x = 5 * GUI_GRID_W + GUI_GRID_X;
+				x = -3 * GUI_GRID_W + GUI_GRID_X;
 				y = 10 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6 * GUI_GRID_W;
 				h = 1 * GUI_GRID_H;
 				colorBackground[] = {-1,-1,-1,0};
 			};
-			class mudschahedin_gui_text_namedisplay_2: RscStructuredText
+			class US_gui_text_namedisplay_2: RscStructuredText
 			{
 				idc = 3102;
 				text = "<t align='center'>lade ...</t>";
-				x = 12 * GUI_GRID_W + GUI_GRID_X;
+				x = 5 * GUI_GRID_W + GUI_GRID_X;
 				y = 10 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6 * GUI_GRID_W;
 				h = 1 * GUI_GRID_H;
 				colorBackground[] = {-1,-1,-1,0};
 			};
-			class mudschahedin_gui_text_namedisplay_3: RscStructuredText
+			class US_gui_text_namedisplay_3: RscStructuredText
 			{
 				idc = 3103;
 				text = "<t align='center'>lade ...</t>";
-				x = 19 * GUI_GRID_W + GUI_GRID_X;
+				x = 12.5 * GUI_GRID_W + GUI_GRID_X;
 				y = 10 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6 * GUI_GRID_W;
 				h = 1 * GUI_GRID_H;
 				colorBackground[] = {-1,-1,-1,0};
 			};
-			class mudschahedin_gui_text_namedisplay_4: RscStructuredText
+			class US_gui_text_namedisplay_4: RscStructuredText
 			{
 				idc = 3104;
 				text = "<t align='center'>lade ...</t>";
-				x = 26 * GUI_GRID_W + GUI_GRID_X;
+				x = 20 * GUI_GRID_W + GUI_GRID_X;
 				y = 10 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6 * GUI_GRID_W;
 				h = 1 * GUI_GRID_H;
 				colorBackground[] = {-1,-1,-1,0};
 			};
-			class mudschahedin_gui_text_namedisplay_5: RscStructuredText
+			class US_gui_text_namedisplay_5: RscStructuredText
 			{
 				idc = 3105;
 				text = "<t align='center'>lade ...</t>";
-				x = 33 * GUI_GRID_W + GUI_GRID_X;
+				x = 27.5 * GUI_GRID_W + GUI_GRID_X;
 				y = 10 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6 * GUI_GRID_W;
 				h = 1 * GUI_GRID_H;
 				colorBackground[] = {-1,-1,-1,0};
 			};
-			class mudschahedin_gui_text_countleft_1: RscStructuredText
+			class US_gui_text_namedisplay_6: RscStructuredText
+			{
+				idc = 3106;
+				text = "<t align='center'>lade ...</t>";
+				x = 35 * GUI_GRID_W + GUI_GRID_X;
+				y = 10 * GUI_GRID_H + GUI_GRID_Y;
+				w = 6 * GUI_GRID_W;
+				h = 1 * GUI_GRID_H;
+				colorBackground[] = {-1,-1,-1,0};
+			};
+			class US_gui_text_namedisplay_7: RscStructuredText
+			{
+				idc = 3107;
+				text = "<t align='center'>lade ...</t>";
+				x = 42.5 * GUI_GRID_W + GUI_GRID_X;
+				y = 10 * GUI_GRID_H + GUI_GRID_Y;
+				w = 6 * GUI_GRID_W;
+				h = 1 * GUI_GRID_H;
+				colorBackground[] = {-1,-1,-1,0};
+			};
+			class US_gui_text_countleft_1: RscStructuredText
 			{
 				idc = 3201;
 				text = "<t align='center'>lade ...</t>";
-				x = 5 * GUI_GRID_W + GUI_GRID_X;
+				x = -3 * GUI_GRID_W + GUI_GRID_X;
 				y = 12 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6 * GUI_GRID_W;
 				h = 1 * GUI_GRID_H;
 				colorBackground[] = {-1,-1,-1,0};
 			};
-			class mudschahedin_gui_text_countleft_2: RscStructuredText
+			class US_gui_text_countleft_2: RscStructuredText
 			{
 				idc = 3202;
 				text = "<t align='center'>lade ...</t>";
-				x = 12 * GUI_GRID_W + GUI_GRID_X;
+				x = 5 * GUI_GRID_W + GUI_GRID_X;
 				y = 12 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6 * GUI_GRID_W;
 				h = 1 * GUI_GRID_H;
 				colorBackground[] = {-1,-1,-1,0};
 			};
-			class mudschahedin_gui_text_countleft_3: RscStructuredText
+			class US_gui_text_countleft_3: RscStructuredText
 			{
 				idc = 3203;
 				text = "<t align='center'>lade ...</t>";
-				x = 19 * GUI_GRID_W + GUI_GRID_X;
+				x = 12.5 * GUI_GRID_W + GUI_GRID_X;
 				y = 12 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6 * GUI_GRID_W;
 				h = 1 * GUI_GRID_H;
 				colorBackground[] = {-1,-1,-1,0};
 			};
-			class mudschahedin_gui_text_countleft_4: RscStructuredText
+			class US_gui_text_countleft_4: RscStructuredText
 			{
 				idc = 3204;
 				text = "<t align='center'>lade ...</t>";
-				x = 26 * GUI_GRID_W + GUI_GRID_X;
+				x = 20 * GUI_GRID_W + GUI_GRID_X;
 				y = 12 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6 * GUI_GRID_W;
 				h = 1 * GUI_GRID_H;
 				colorBackground[] = {-1,-1,-1,0};
 			};
-			class mudschahedin_gui_text_countleft_5: RscStructuredText
+			class US_gui_text_countleft_5: RscStructuredText
 			{
 				idc = 3205;
 				text = "<t align='center'>lade ...</t>";
-				x = 33 * GUI_GRID_W + GUI_GRID_X;
+				x = 27.5 * GUI_GRID_W + GUI_GRID_X;
 				y = 12 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6 * GUI_GRID_W;
 				h = 1 * GUI_GRID_H;
 				colorBackground[] = {-1,-1,-1,0};
 			};
-			class mudschahedin_gui_text_pricedisplay_1: RscStructuredText
+			class US_gui_text_countleft_6: RscStructuredText
+			{
+				idc = 3206;
+				text = "<t align='center'>lade ...</t>";
+				x = 35 * GUI_GRID_W + GUI_GRID_X;
+				y = 12 * GUI_GRID_H + GUI_GRID_Y;
+				w = 6 * GUI_GRID_W;
+				h = 1 * GUI_GRID_H;
+				colorBackground[] = {-1,-1,-1,0};
+			};
+			class US_gui_text_countleft_7: RscStructuredText
+			{
+				idc = 3207;
+				text = "<t align='center'>lade ...</t>";
+				x = 42.5 * GUI_GRID_W + GUI_GRID_X;
+				y = 12 * GUI_GRID_H + GUI_GRID_Y;
+				w = 6 * GUI_GRID_W;
+				h = 1 * GUI_GRID_H;
+				colorBackground[] = {-1,-1,-1,0};
+			};
+			class US_gui_text_pricedisplay_1: RscStructuredText
 			{
 				idc = 3301;
+				text = "<t align='center'>lade ...</t>";
+				x = -3 * GUI_GRID_W + GUI_GRID_X;
+				y = 14 * GUI_GRID_H + GUI_GRID_Y;
+				w = 6 * GUI_GRID_W;
+				h = 1 * GUI_GRID_H;
+				colorBackground[] = {-1,-1,-1,0};
+			};
+			class US_gui_text_pricedisplay_2: RscStructuredText
+			{
+				idc = 3302;
 				text = "<t align='center'>lade ...</t>";
 				x = 5 * GUI_GRID_W + GUI_GRID_X;
 				y = 14 * GUI_GRID_H + GUI_GRID_Y;
@@ -608,73 +806,83 @@ class mudschahedinSupplyGUI
 				h = 1 * GUI_GRID_H;
 				colorBackground[] = {-1,-1,-1,0};
 			};
-			class mudschahedin_gui_text_pricedisplay_2: RscStructuredText
-			{
-				idc = 3302;
-				text = "<t align='center'>lade ...</t>";
-				x = 12 * GUI_GRID_W + GUI_GRID_X;
-				y = 14 * GUI_GRID_H + GUI_GRID_Y;
-				w = 6 * GUI_GRID_W;
-				h = 1 * GUI_GRID_H;
-				colorBackground[] = {-1,-1,-1,0};
-			};
-			class mudschahedin_gui_text_pricedisplay_3: RscStructuredText
+			class US_gui_text_pricedisplay_3: RscStructuredText
 			{
 				idc = 3303;
 				text = "<t align='center'>lade ...</t>";
-				x = 19 * GUI_GRID_W + GUI_GRID_X;
+				x = 12.5 * GUI_GRID_W + GUI_GRID_X;
 				y = 14 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6 * GUI_GRID_W;
 				h = 1 * GUI_GRID_H;
 				colorBackground[] = {-1,-1,-1,0};
 			};
-			class mudschahedin_gui_text_pricedisplay_4: RscStructuredText
+			class US_gui_text_pricedisplay_4: RscStructuredText
 			{
 				idc = 3304;
 				text = "<t align='center'>lade ...</t>";
-				x = 26 * GUI_GRID_W + GUI_GRID_X;
+				x = 20 * GUI_GRID_W + GUI_GRID_X;
 				y = 14 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6 * GUI_GRID_W;
 				h = 1 * GUI_GRID_H;
 				colorBackground[] = {-1,-1,-1,0};
 			};
-			class mudschahedin_gui_text_pricedisplay_5: RscStructuredText
+			class US_gui_text_pricedisplay_5: RscStructuredText
 			{
 				idc = 3305;
 				text = "<t align='center'>lade ...</t>";
-				x = 33 * GUI_GRID_W + GUI_GRID_X;
+				x = 27.5 * GUI_GRID_W + GUI_GRID_X;
 				y = 14 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6 * GUI_GRID_W;
 				h = 1 * GUI_GRID_H;
 				colorBackground[] = {-1,-1,-1,0};
 			};
-			class mudschahedin_gui_text_legend_price: RscStructuredText
+			class US_gui_text_pricedisplay_6: RscStructuredText
+			{
+				idc = 3306;
+				text = "<t align='center'>lade ...</t>";
+				x = 35 * GUI_GRID_W + GUI_GRID_X;
+				y = 14 * GUI_GRID_H + GUI_GRID_Y;
+				w = 6 * GUI_GRID_W;
+				h = 1 * GUI_GRID_H;
+				colorBackground[] = {-1,-1,-1,0};
+			};
+			class US_gui_text_pricedisplay_7: RscStructuredText
+			{
+				idc = 3307;
+				text = "<t align='center'>lade ...</t>";
+				x = 42.5 * GUI_GRID_W + GUI_GRID_X;
+				y = 14 * GUI_GRID_H + GUI_GRID_Y;
+				w = 6 * GUI_GRID_W;
+				h = 1 * GUI_GRID_H;
+				colorBackground[] = {-1,-1,-1,0};
+			};
+			class US_gui_text_legend_price: RscStructuredText
 			{
 				idc = -1;
 				text = "<t color='#80ffffff'>Kosten</t>";
-				x = 1.5 * GUI_GRID_W + GUI_GRID_X;
+				x = -9 * GUI_GRID_W + GUI_GRID_X;
 				y = 14 * GUI_GRID_H + GUI_GRID_Y;
 				w = 5 * GUI_GRID_W;
 				h = 1 * GUI_GRID_H;
 				colorText[] = {1,1,1,0.5};
 				colorBackground[] = {-1,-1,-1,0};
 			};
-			class mudschahedin_gui_text_legend_countleft: RscStructuredText
+			class US_gui_text_legend_countleft: RscStructuredText
 			{
 				idc = -1;
 				text = "<t color='#80ffffff'>Anzahl verf.</t>";
-				x = 1.5 * GUI_GRID_W + GUI_GRID_X;
+				x = -9 * GUI_GRID_W + GUI_GRID_X;
 				y = 12 * GUI_GRID_H + GUI_GRID_Y;
 				w = 5 * GUI_GRID_W;
 				h = 1 * GUI_GRID_H;
 				colorText[] = {1,1,1,0.5};
 				colorBackground[] = {-1,-1,-1,0};
 			};
-			class mudschahedin_gui_text_legend_namedisplay: RscStructuredText
+			class US_gui_text_legend_namedisplay: RscStructuredText
 			{
 				idc = -1;
 				text = "<t color='#80ffffff'>Fahrzeug</t>";
-				x = 1.5 * GUI_GRID_W + GUI_GRID_X;
+				x = -9 * GUI_GRID_W + GUI_GRID_X;
 				y = 10 * GUI_GRID_H + GUI_GRID_Y;
 				w = 5 * GUI_GRID_W;
 				h = 1 * GUI_GRID_H;
@@ -682,7 +890,7 @@ class mudschahedinSupplyGUI
 				colorBackground[] = {-1,-1,-1,0};
 			};
 
-			class mudschahedin_gui_text_headline: RscStructuredTextHeadline
+			class US_gui_text_headline: RscStructuredTextHeadline
 			{
 				idc = 3600;
 				text = "<t size='2' align='center' color='#33ffffff'>Nachschub anfordern</t>";
@@ -693,11 +901,11 @@ class mudschahedinSupplyGUI
 				colorText[] = {0.3,0.3,0.3,0.5};
 
 			};
-			class mudschahedin_gui_text_credits_remaining: RscStructuredText
+			class US_gui_text_credits_remaining: RscStructuredText
 			{
 				idc = 3700;
 				text = "<t align='left'>3000 cr</t>";
-				x = 1 * GUI_GRID_W + GUI_GRID_X;
+				x = -9 * GUI_GRID_W + GUI_GRID_X;
 				y = 1 * GUI_GRID_H + GUI_GRID_Y;
 				w = 4.5 * GUI_GRID_W;
 				h = 2.5 * GUI_GRID_H;
@@ -705,11 +913,11 @@ class mudschahedinSupplyGUI
 				tooltip = "Verbleibende Credits";
 				lineSpacing = 0.4;
 			};
-			class mudschahedin_gui_btn_close: RscButtonSmall
+			class US_gui_btn_close: RscButtonSmall
 			{
 				idc = -1;
 				text = "Schließen";
-				x = 34 * GUI_GRID_W + GUI_GRID_X;
+				x = 43.5 * GUI_GRID_W + GUI_GRID_X;
 				y = 1 * GUI_GRID_H + GUI_GRID_Y;
 				w = 5 * GUI_GRID_W;
 				h = 1.5 * GUI_GRID_H;
