@@ -1,6 +1,6 @@
 createOpforStuff =  {
 	_position = _this;
-	funkwagen = [getPos opfor_teamlead,10,"rhs_gaz66_r142_vv"] call spawnStuff;
+	funkwagen = [getPos opfor_teamlead, 10, "rhs_gaz66_r142_vv"] call spawnStuff;
 
 	sleep 2;
 	[funkwagen] call clearInventory;
@@ -40,14 +40,14 @@ createBluforStuff = {
 
 _OPFOR_TELEPORT_TARGET_listener = {
 	_pos = _this select 1;
-	_pos call createOpforStuff;
+	_pos spawn createOpforStuff;
 	publicVariable "OPFOR_TELEPORT_TARGET";
 };
 
 
 _BLUFOR_TELEPORT_TARGET_listener = {
 	_pos = _this select 1;
-	_pos call createBluforStuff;
+	_pos spawn createBluforStuff;
 	publicVariable "BLUFOR_TELEPORT_TARGET";
 };
 
