@@ -6,6 +6,7 @@ bluforCaptured = {
 
 bluforSurrendered = {
 	BLUFOR_SURRENDERED = true; publicVariable "BLUFOR_SURRENDERED";
+	publicVariable "RUSSIAN_POINTS";
 };
 
 funkwagenIsSending = {
@@ -35,27 +36,25 @@ setRussianMarkerPosition = {
 	};
 };
 
-// SERVER ZÄHLT PUNKTE
-if (isServer) then {
-	_tenPercentOfPointsNeededForVictory = floor (POINTS_NEEDED_FOR_VICTORY / 10);
-	while {true} do { // could be optimized and synced to real time - b/c as it is, there WILL be delays
-		_isSending = call funkwagenIsSending;
-		if (_isSending) then {
-			RUSSIAN_POINTS = RUSSIAN_POINTS + 1;
+while {true} do { // could be optimized and synced to real time - b/c as it is, there WILL be delays
+	_isSending = call funkwagenIsSending;
+	if (_isSending) then {
+		RUSSIAN_POINTS = RUSSIAN_POINTS + 1;
+		if (RUSSIAN_POINTS % 10 == 0) then {
+			publicVariable "RUSSIAN_POINTS";
 		};
-		!_isSending call setRussianMarkerStatus;
-
-		if (RUSSIAN_POINTS > POINTS_NEEDED_FOR_VICTORY) exitWith {
-			[] call bluforSurrendered;
-		};
-
-		if (!alive funkwagen) exitWith {
-			[] call bluforCaptured;
-		};
-
-		[getPos funkwagen select 0, getPos funkwagen select 1] call setRussianMarkerPosition;
-
-		sleep 1;
 	};
-};
+	!_isSending call setRussianMarkerStatus;
 
+	if (RUSSIAN_POINTS > POINTS_NEEDED_FOR_VICTORY) exitWith {
+		[] call bluforSurrendered;
+	};
+
+	if (!alive funkwagen) exitWith {
+		[] call bluforCaptured;
+	};
+
+	[getPos funkwagen select 0, getPos funkwagen select 1] call setRussianMarkerPosition;
+
+	sleep 1;
+};
