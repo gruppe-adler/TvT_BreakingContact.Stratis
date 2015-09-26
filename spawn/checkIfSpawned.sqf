@@ -6,6 +6,7 @@ if ((OPFOR_TELEPORT_TARGET select 0 == 0) && (_this select 0 == east)) exitWith 
 };
 
 if ((BLUFOR_TELEPORT_TARGET select 0 == 0) && (_this select 0 == west)) exitWith {
+	sleep 2;
 	0 = createDialog "gui_spawn_blufor";
 	waitUntil {dialog};
 	[] call checkSpawnButton;

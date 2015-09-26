@@ -1,7 +1,34 @@
 #include "\z\ace\addons\main\script_component.hpp"
 #include "..\missionMacros.h"
 
+checkBluforSpawndistance = {
+	_distance = _this;
+	if (_distance < MINIMAL_BLUFOR_SPAWN_DISTANCE) then {
+		throw format [
+			localize "str_GRAD_spawnTooClose1" + '(%1 m).' + localize "str_GRAD_spawnTooClose2" + ' %2.',
+			floor(_distance),
+			MINIMAL_BLUFOR_SPAWN_DISTANCE
+		];
+	};
+	if (_distance > MAXIMAL_BLUFOR_SPAWN_DISTANCE) then {
+		throw format [
+			localize "str_GRAD_spawnTooFar1" + '(%1 m).' + localize "str_GRAD_spawnTooFar2" + ' %2.',
+			floor(_distance),
+			MAXIMAL_BLUFOR_SPAWN_DISTANCE
+		];
+		player execVM "mission_setup\teleport.sqf";
+	};
+};
+
+checkWater = {
+	if (surfaceIsWater _this) then {
+		throw (str _pos) + " is covered in water :("; // localize "str_GRAD_spawn_on_water" // [] call EFUNC(common,displayTextStructured);
+	};
+};
+
+
 cutText ["", "PLAIN", 0];
+
 
 if (player == opfor_teamlead) then {
 	[
@@ -28,22 +55,18 @@ if (player == blufor_teamlead) then {
 			try {
 				if (OPFOR_TELEPORT_TARGET select 0 == 0) then { throw "opfor not yet teleported" };
 				_pos call checkWater;
+				_distance = _pos distance (getMarkerPos "opfor_marker");
+				_distance call checkBluforSpawndistance;
+
 				["teleportClickBlu", "onMapSingleClick"] call BIS_fnc_removeStackedEventHandler;
+
 				_pos call bluforTeleporting;
-				openMap [false,false];
 			} catch {
 				hint str _exception;
 			};
 		}
 	] call BIS_fnc_addStackedEventHandler;
 };
-
-checkWater = {
-	if (surfaceIsWater _this) then {
-		throw (str _pos) + " is covered in water :("; // localize "str_GRAD_spawn_on_water" // [] call EFUNC(common,displayTextStructured);
-	};
-};
-
 
 opforTeleporting = {
 	OPFOR_TELEPORT_TARGET = _this;
@@ -54,19 +77,8 @@ opforTeleporting = {
 bluforTeleporting = {
 	closeDialog 0;
 
-	BLUFOR_TELEPORT_TARGET = TRUE; publicVariableServer "BLUFOR_TELEPORT_TARGET";
-
-	// entfernung marker zu spawnpunkt zu klein oder groß?
-	_distance = _this distance (getMarkerPos "opfor_marker");
-	if (_distance < MINIMAL_BLUFOR_SPAWN_DISTANCE) exitWith {hintSilent format [localize "str_GRAD_spawnTooClose1" + '(%1 m).' + localize "str_GRAD_spawnTooClose2" + ' %2.', floor(_distance), MINIMAL_BLUFOR_SPAWN_DISTANCE];
-	player execVM "mission_setup\teleport.sqf";};
-	if (_distance > MAXIMAL_BLUFOR_SPAWN_DISTANCE) exitWith {hintSilent format [localize "str_GRAD_spawnTooFar1" + '(%1 m).' + localize "str_GRAD_spawnTooFar2" + ' %2.', floor(_distance), MAXIMAL_BLUFOR_SPAWN_DISTANCE];
-	player execVM "mission_setup\teleport.sqf";
-	};
-
-	// teleport und gucken, ob posi frei ist
-	[[[west,_this],"mission_setup\teleportEffect.sqf"],"BIS_fnc_execVM",true,true] spawn BIS_fnc_MP;
-
+	BLUFOR_TELEPORT_TARGET = _this;
+	publicVariableServer "BLUFOR_TELEPORT_TARGET";
 };
 
 

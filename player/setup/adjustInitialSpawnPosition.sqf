@@ -10,10 +10,9 @@ if !(_playerPositionsForCurrentWorld select 2) then {
 	_playerPositionsForCurrentWorld = _alternativeSpawnsOutsideMap;
 };
 
+_playerPosition = _playerPositionsForCurrentWorld select 1;
 if (side player == blufor) then {
 	_playerPosition = _playerPositionsForCurrentWorld select 0;
-} else {
-	_playerPosition = _playerPositionsForCurrentWorld select 1;
 };
 
 _msg = format["moving player to %1 ...", _playerPosition];

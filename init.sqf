@@ -66,7 +66,6 @@ if (isServer) then {
 
 clearInventory = compile preprocessFile "helpers\clearInventory.sqf";
 spawnStuff = compile preprocessFile "helpers\spawnStuff.sqf";
-moveStuff = compile preprocessFile "helpers\moveStuff.sqf";
 call compile preprocessFile "islandConfig.sqf";
 //SHK POS
 call compile preprocessfile "SHK_pos\shk_pos_init.sqf";
@@ -98,11 +97,15 @@ if (hasInterface) then {
 	[] execVM "player\intro.sqf";
 	[] execVM "player\setup\helpBriefing.sqf";
 	[] execVM "player\setup\adjustInitialSpawnPosition.sqf";
+	[] execVM "player\allXXXSurrenderedListener.sqf";
 	[player] execVM "loadouts\_client.sqf";
+
 
 	// if blufor
 	[] execVM "player\russianMarker.sqf";
-	[] execVM "player\bluforTeleportHelperMarkers.sqf";
+	[] execVM "player\bluforOpforTeleportListener.sqf";
+	[] execVM "player\bluforBluforTeleportListener.sqf";
+	[] execVM "player\bluforRussianPointsListener.sqf";
 
 	// if opfor
 	[] execVM "player\opforBluforTeleportListener.sqf";
