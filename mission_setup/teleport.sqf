@@ -13,7 +13,6 @@ if (player == opfor_teamlead) then {
 				_pos call checkWater;
 				["teleportClickOpf", "onMapSingleClick"] call BIS_fnc_removeStackedEventHandler;
 				_pos call opforTeleporting;
-				openMap [false,false];
 			} catch {
 				hint str _exception;
 			};
