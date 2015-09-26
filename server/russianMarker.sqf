@@ -38,7 +38,7 @@ setRussianMarkerPosition = {
 // SERVER ZÄHLT PUNKTE
 if (isServer) then {
 	_tenPercentOfPointsNeededForVictory = floor (POINTS_NEEDED_FOR_VICTORY / 10);
-	while {true} do {
+	while {true} do { // could be optimized and synced to real time - b/c as it is, there WILL be delays
 		_isSending = call funkwagenIsSending;
 		if (_isSending) then {
 			RUSSIAN_POINTS = RUSSIAN_POINTS + 1;
@@ -47,14 +47,6 @@ if (isServer) then {
 
 		if (RUSSIAN_POINTS > POINTS_NEEDED_FOR_VICTORY) exitWith {
 			[] call bluforSurrendered;
-			// TODO auch hier: publicVariableEventHandler aufm client -- oder wenn man nur scripte aufm server machen will, kann mans auch lassen mit den globalen variablen, und nur remoteExec verwenden... hm...
-			[[[localize "str_GRAD_winmsg_points","all"],"helpers\hint.sqf"],"BIS_fnc_execVM",true,true] spawn BIS_fnc_MP;
-		};
-
-		// TODO: diese warnung sollte besser vom Client erstellt werden, der sich über einen publicVariable-EventHandler an den Wert von POINTS_NEEDED_FOR_VICTORY hängt :)
-		if ((RUSSIAN_POINTS % _tenPercentOfPointsNeededForVictory) == 0) then { // alle 10% die Warnung
-			_string = "Die Russen haben schon " + (str (round((RUSSIAN_POINTS / POINTS_NEEDED_FOR_VICTORY) * 100))) + " Prozent gesendet.";
-			 [[[_string,"blufor"],"helpers\hint.sqf"],"BIS_fnc_execVM",true,true] spawn BIS_fnc_MP;
 		};
 
 		if (!alive funkwagen) exitWith {
