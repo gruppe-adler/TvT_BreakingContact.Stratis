@@ -45,11 +45,11 @@ ensureMarkerAnimation = {
 	};
 };
 
-RUSSIAN_MARKER_POS_listener = {
+_RUSSIAN_MARKER_POS_listener = {
 	"opfor_marker" setMarkerPosLocal (_this select 1);
 };
 
-RUSSIAN_MARKER_HIDDEN_listener = {
+_RUSSIAN_MARKER_HIDDEN_listener = {
 	if (_this select 1) then {
 		"opfor_marker" setMarkerAlphaLocal 0;
 	} else {
@@ -57,15 +57,15 @@ RUSSIAN_MARKER_HIDDEN_listener = {
 	};
 };
 
-"RUSSIAN_MARKER_POS" addPublicVariableEventHandler RUSSIAN_MARKER_POS_listener;
-"RUSSIAN_MARKER_HIDDEN" addPublicVariableEventHandler RUSSIAN_MARKER_HIDDEN_listener;
+"RUSSIAN_MARKER_POS" addPublicVariableEventHandler _RUSSIAN_MARKER_POS_listener;
+"RUSSIAN_MARKER_HIDDEN" addPublicVariableEventHandler _RUSSIAN_MARKER_HIDDEN_listener;
 
 // runs in SP to emulate addPublicVariableEventHandler (which doesnt work in SP)
 if (!isMultiplayer) then {
-	[] spawn {
+	[_RUSSIAN_MARKER_HIDDEN_listener, _RUSSIAN_MARKER_POS_listener] spawn {
 		while {true} do {
-			[0, RUSSIAN_MARKER_HIDDEN] call RUSSIAN_MARKER_HIDDEN_listener;
-			[0, RUSSIAN_MARKER_POS] call RUSSIAN_MARKER_POS_listener;
+			[0, RUSSIAN_MARKER_HIDDEN] call (_this select 0);
+			[0, RUSSIAN_MARKER_POS] call (_this select 1);
 			sleep 2;
 		};
 	};

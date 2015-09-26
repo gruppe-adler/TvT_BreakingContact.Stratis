@@ -1,5 +1,8 @@
 #include "\z\ace\addons\main\script_component.hpp"
 #include "\z\ace\addons\main\script_macros.hpp"
+
+DEBUG_MODE = true;
+
 []execVM "spawn\gui\initGUI.sqf";
 
 TIME_OF_DAY = paramsArray select 0;
@@ -11,43 +14,18 @@ POINTS_NEEDED_FOR_VICTORY = paramsArray select 5;
 AR3PLAY_ENABLE_REPLAY = (paramsArray select 6) == 1;
 AR3PLAY_IS_STREAMABLE = (paramsArray select 7) == 1;
 
-if (isServer) then { setDate [2015, 2, 2, TIME_OF_DAY, 1]; };	//Zeit
-
-if (didJIP) then {
-	if (OPFOR_TELEPORTED) then {
-		[player] execVM "onPlayerRespawn.sqf";
-		if (!IS_VANILLA) then {
-		[localize "str_GRAD_jip"] call EFUNC(common,displayTextStructured);
-		} else {
-		hintSilent "JIP leads to instant spectator";
-		};
-	};
-};
-
-enableSentences false;
-
-
-firstspawn = false;
-
-RUSSIAN_MARKER_POS = [0,0];
-RUSSIAN_POINTS = 0;
-EDITOR_MODE = false; // check if test is in editor/singleplayer
-RUSSIAN_MARKER_HIDDEN = true;
-
-
-if (!isMultiplayer) then {
-	EDITOR_MODE = true;
+if (!isMultiplayer) then { // Editor
 	{_x disableAI "MOVE"} forEach allUnits;
 };
 
 if (isServer) then {
+	setDate [2015, 2, 2, TIME_OF_DAY, 1];
 	setTimeMultiplier TIME_ACCELERATION;
 
-	// spawn teleports done?
-	OPFOR_TELEPORTED = false;
-	BLUFOR_TELEPORTED = false;
 	WINCONDITIONOPFOR = false;
+	publicVariable "WINCONDITIONOPFOR";
 	WINCONDITIONBLUFOR = false;
+	publicVariable "WINCONDITIONBLUFOR";
 
 	BLUFOR_CAPTURED = false;
 	publicVariable "BLUFOR_CAPTURED";
@@ -65,48 +43,27 @@ if (isServer) then {
 	publicVariable "SPECTATOR_LIST";
 	RUSSIAN_MARKER_HIDDEN = true;
 	publicVariable "RUSSIAN_MARKER_HIDDEN";
-	BLUFOR_AT_BARREL = false;
-	publicVariable "BLUFOR_AT_BARREL";
 
+	RUSSIAN_MARKER_POS = [0,0];
+	publicVariable "RUSSIAN_MARKER_POS";
+	RUSSIAN_POINTS = 0;
+	publicVariable "RUSSIAN_POINTS";
+	OPFOR_TELEPORT_TARGET = [0, 0];
+	publicVariable "OPFOR_TELEPORT_TARGET";
+	BLUFOR_TELEPORT_TARGET = [0, 0];
+	publicVariable "BLUFOR_TELEPORT_TARGET";
+
+	if (isClass (configFile >> "CfgPatches" >> "task_force_radio")) then
+		{
+		[] execVM "tfarsettings.sqf";
+	};
+	[] execVM "objectives\detect_all_dead.sqf";
+ 	[] execVM "helpers\medical_settings.sqf";
+
+ 	// events/listeners
 	[] execVM "server\russianMarker.sqf";
+ 	[] execVM "server\teleportListener.sqf";
 };
-
-
-// respawn helper object, will be moved to objective location in teleport.sqf
-// ["<t color=""#93E352"">" + localize "str_GRAD_choose_spawn_location",{[[[false], "mission_setup\teleport.sqf"],"BIS_fnc_execVM",true,true] spawn BIS_fnc_MP;  }, _Args, 1, false, true, "","_this == _target && !OPFOR_TELEPORTED"];
-// ["<t color=""#93E352"">" + localize "str_GRAD_choose_spawn_location",{[[[false], "mission_setup\teleport.sqf"],"BIS_fnc_execVM",true,true] spawn BIS_fnc_MP;  }, _Args, 1, false, true, "","_this == _target && !BLUFOR_TELEPORTED && OPFOR_TELEPORTED"];
-
-checkSpawnButton = {
-	[] spawn {
-		waitUntil {!dialog && !visibleMap};
-		0 = [playerside] execVM "spawn\checkIfSpawned.sqf";
-	};
-};
-
-
-if (player == opfor_teamlead) then {
-	[] spawn {
-		waitUntil {!isNull player && time > 1};
-		[] call checkSpawnButton;
-	};
-};
-
-
-if (player == blufor_teamlead) then {
-	[] spawn {
-
-		waitUntil {!isNull player && time > 1};
-		[] call checkSpawnButton;
-
-		disableSerialization;
-		ctrlEnable [8002, false];
-		waitUntil {OPFOR_TELEPORTED};
-		ctrlSetText [8002, "Spawnpunkt aussuchen"];
-		8002 ctrlSetTooltip "Jetzt Spawnpunkt aussuchen";
-		ctrlEnable [8002, true];
-	};
-};
-
 
 clearInventory = compile preprocessFile "helpers\clearInventory.sqf";
 spawnStuff = compile preprocessFile "helpers\spawnStuff.sqf";
@@ -116,56 +73,43 @@ call compile preprocessfile "SHK_pos\shk_pos_init.sqf";
 // findsimplePos
 call compile preprocessfile "helpers\findSimplePos.sqf";
 
-If(isNil "spawn_help_fnc_compiled")then{call compile preprocessFileLineNumbers "helpers\findPos.sqf"};
-
-enableSentences false; // Autospotten
-
-
-if ((isServer) || (isDedicated)) then {
-	if (isClass (configFile >> "CfgPatches" >> "task_force_radio")) then
-		{
-		[] execVM "tfarsettings.sqf";
-	};
-	[] execVM "objectives\detect_all_dead.sqf";
- 	[] execVM "helpers\medical_settings.sqf";
-};
-
+If(isNil "spawn_help_fnc_compiled") then { call compile preprocessFileLineNumbers "helpers\findPos.sqf"; }; // TODO why the if condition here?
 
 if (hasInterface) then {
-	[] execVM "player\russianMarker.sqf";
-};
 
-// loadout call - giving each unit the appropriate sqf file
+	checkSpawnButton = {
+		[] spawn {
+			waitUntil {!isNull player && time > 1};
+			waitUntil {!dialog && !visibleMap};
+			0 = [playerside] execVM "spawn\checkIfSpawned.sqf";
+		};
+	};
 
-if !(isDedicated) then {
+	if (didJIP) then {
+		if (OPFOR_TELEPORT_TARGET select 0 != 0) then {
+			[player] execVM "onPlayerRespawn.sqf";
+			[localize "str_GRAD_jip"] call EFUNC(common,displayTextStructured);
+		};
+	};
+	// everyone
+	firstspawn = false; // TODO: all of the onPlayerRespawn stuff can be removed, right?
+	enableSentences false;
+	[] execVM "player\intro.sqf";
 	[] execVM "mission_setup\helpBriefing.sqf";
 	[] execVM "mission_setup\adjustInitialSpawnPosition.sqf";
-
-	switchMoveEverywhere = compileFinal "_this select 0 switchMove (_this select 1);";
-
 	[player] execVM "loadouts\_client.sqf";
 
-	// Intro Gruppe Adler
-	titleCut ["", "BLACK FADED", 999];
+	// if blufor
+	[] execVM "player\russianMarker.sqf";
+	[] execVM "player\bluforTeleportHelperMarkers.sqf";
 
-	[] Spawn {
-		waitUntil {BLUFOR_TELEPORTED};
-		titleText ["","PLAIN"];
-		titleFadeOut 1;
-		sleep 2;
+	// if opfor
+	[] execVM "player\opforBluforTeleportListener.sqf";
+	[] execVM "player\opforOpforTeleportListener.sqf";
 
-		titleCut ["", "BLACK IN", 1];
-
-
-		["<img size= '6' shadow='false' image='pic\gruppe-adler.paa'/><br/><t size='.9' color='#FFFFFF'>OnTheFly</t>",0,0,2,2] spawn BIS_fnc_dynamicText;
+	// opfor lead:
+	if (player == opfor_teamlead) then {
+		[] call checkSpawnButton;
 	};
-};
-
-
-//[WEATHER_SETTING] execVM "ga_weather\ga_start_weather.sqf";
-
-if (isServer) then {
-	waitUntil {OPFOR_TELEPORTED && BLUFOR_TELEPORTED};
-
-	[] execVM "after_action_reporter_pimped\movement_vanillamarker.sqf";
+	titleCut ["", "BLACK FADED", 999];
 };
