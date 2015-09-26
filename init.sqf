@@ -94,26 +94,25 @@ if (hasInterface) then {
 	// everyone
 	firstspawn = false; // TODO: all of the onPlayerRespawn stuff can be removed, right?
 	enableSentences false;
+
 	[] execVM "player\intro.sqf";
 	[] execVM "player\setup\helpBriefing.sqf";
 	[] execVM "player\setup\adjustInitialSpawnPosition.sqf";
 	[] execVM "player\allXXXSurrenderedListener.sqf";
 	[player] execVM "loadouts\_client.sqf";
 
-
-	// if blufor
-	[] execVM "player\russianMarker.sqf";
-	[] execVM "player\bluforOpforTeleportListener.sqf";
-	[] execVM "player\bluforBluforTeleportListener.sqf";
-	[] execVM "player\bluforRussianPointsListener.sqf";
-
-	// if opfor
-	[] execVM "player\opforBluforTeleportListener.sqf";
-	[] execVM "player\opforOpforTeleportListener.sqf";
-
-	// opfor lead:
-	if (player == opfor_teamlead) then {
-		[] call checkSpawnButton;
+	if (side player == west) then {
+		[] execVM "player\russianMarker.sqf";
+		[] execVM "player\bluforOpforTeleportListener.sqf";
+		[] execVM "player\bluforBluforTeleportListener.sqf";
+		[] execVM "player\bluforRussianPointsListener.sqf";
 	};
 
+	if (side player == east) then {
+		[] execVM "player\opforBluforTeleportListener.sqf";
+		[] execVM "player\opforOpforTeleportListener.sqf";
+		if (player == opfor_teamlead) then {
+			[] call checkSpawnButton;
+		};
+	};
 };
