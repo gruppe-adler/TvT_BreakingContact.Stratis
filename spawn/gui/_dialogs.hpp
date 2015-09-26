@@ -1,4 +1,4 @@
-class russianSupplyGUI 
+class russianSupplyGUI
 {
 		idd = 1000;
 		movingenable = 0;
@@ -22,71 +22,71 @@ class russianSupplyGUI
 
 		};
 
-		class Controls {		
+		class Controls {
 
 			class russian_gui_btn_anfordern_1: RscButton
 			{
 				idc = 1501;
-				text = "Anfordern"; 
+				text = "Anfordern";
 				x = 5 * GUI_GRID_W + GUI_GRID_X;
 				y = 16 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6 * GUI_GRID_W;
 				h = 2 * GUI_GRID_H;
 				colorText[] = {1,1,1,1};
 				colorBackground[] = {0,0,0,1};
-				tooltip = "Fahrzeug anfordern"; 
+				tooltip = "Fahrzeug anfordern";
 				onButtonClick = "disableSerialization; [_this select 0] execVM 'spawn\gui\orderRussianVehicle.sqf';";
 			};
 			class russian_gui_btn_anfordern_2: RscButton
 			{
 				idc = 1502;
-				text = "Anfordern"; 
+				text = "Anfordern";
 				x = 12 * GUI_GRID_W + GUI_GRID_X;
 				y = 16 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6 * GUI_GRID_W;
 				h = 2 * GUI_GRID_H;
 				colorText[] = {1,1,1,1};
 				colorBackground[] = {0,0,0,1};
-				tooltip = "Fahrzeug anfordern"; 
+				tooltip = "Fahrzeug anfordern";
 				onButtonClick = "disableSerialization; [_this select 0] execVM 'spawn\gui\orderRussianVehicle.sqf';";
 			};
 			class russian_gui_btn_anfordern_3: RscButton
 			{
 				idc = 1503;
-				text = "Anfordern"; 
+				text = "Anfordern";
 				x = 19 * GUI_GRID_W + GUI_GRID_X;
 				y = 16 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6 * GUI_GRID_W;
 				h = 2 * GUI_GRID_H;
 				colorText[] = {1,1,1,1};
 				colorBackground[] = {0,0,0,1};
-				tooltip = "Fahrzeug anfordern"; 
+				tooltip = "Fahrzeug anfordern";
 				onButtonClick = "disableSerialization; [_this select 0] execVM 'spawn\gui\orderRussianVehicle.sqf';";
 			};
 			class russian_gui_btn_anfordern_4: RscButton
 			{
 				idc = 1504;
-				text = "Anfordern"; 
+				text = "Anfordern";
 				x = 26 * GUI_GRID_W + GUI_GRID_X;
 				y = 16 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6 * GUI_GRID_W;
 				h = 2 * GUI_GRID_H;
 				colorText[] = {1,1,1,1};
 				colorBackground[] = {0,0,0,1};
-				tooltip = "Fahrzeug anfordern"; 
+				tooltip = "Fahrzeug anfordern";
 				onButtonClick = "disableSerialization; [_this select 0] execVM 'spawn\gui\orderRussianVehicle.sqf';";
 			};
 			class russian_gui_btn_anfordern_5: RscButton
 			{
 				idc = 1505;
-				text = "Anfordern"; 
+				text = "Anfordern";
 				x = 33 * GUI_GRID_W + GUI_GRID_X;
 				y = 16 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6 * GUI_GRID_W;
 				h = 2 * GUI_GRID_H;
 				colorText[] = {1,1,1,1};
 				colorBackground[] = {0,0,0,1};
-				tooltip = "Fahrzeug anfordern"; 
+				tooltip = "Fahrzeug anfordern";
 				onButtonClick = "disableSerialization; [_this select 0] execVM 'spawn\gui\orderRussianVehicle.sqf';";
 			};
 			class russian_gui_pic_1: RscPicture
@@ -137,7 +137,7 @@ class russianSupplyGUI
 			class russian_gui_text_namedisplay_1: RscStructuredText
 			{
 				idc = 1101;
-				text = "<t align='center'>lade...</t>"; 
+				text = "<t align='center'>lade...</t>";
 				x = 5 * GUI_GRID_W + GUI_GRID_X;
 				y = 10 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6 * GUI_GRID_W;
@@ -147,7 +147,7 @@ class russianSupplyGUI
 			class russian_gui_text_namedisplay_2: RscStructuredText
 			{
 				idc = 1102;
-				text = "<t align='center'>lade ...</t>"; 
+				text = "<t align='center'>lade ...</t>";
 				x = 12 * GUI_GRID_W + GUI_GRID_X;
 				y = 10 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6 * GUI_GRID_W;
@@ -157,7 +157,7 @@ class russianSupplyGUI
 			class russian_gui_text_namedisplay_3: RscStructuredText
 			{
 				idc = 1103;
-				text = "<t align='center'>lade ...</t>"; 
+				text = "<t align='center'>lade ...</t>";
 				x = 19 * GUI_GRID_W + GUI_GRID_X;
 				y = 10 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6 * GUI_GRID_W;
@@ -167,7 +167,7 @@ class russianSupplyGUI
 			class russian_gui_text_namedisplay_4: RscStructuredText
 			{
 				idc = 1104;
-				text = "<t align='center'>lade ...</t>"; 
+				text = "<t align='center'>lade ...</t>";
 				x = 26 * GUI_GRID_W + GUI_GRID_X;
 				y = 10 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6 * GUI_GRID_W;
@@ -177,7 +177,7 @@ class russianSupplyGUI
 			class russian_gui_text_namedisplay_5: RscStructuredText
 			{
 				idc = 1105;
-				text = "<t align='center'>lade ...</t>"; 
+				text = "<t align='center'>lade ...</t>";
 				x = 33 * GUI_GRID_W + GUI_GRID_X;
 				y = 10 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6 * GUI_GRID_W;
@@ -187,7 +187,7 @@ class russianSupplyGUI
 			class russian_gui_text_countleft_1: RscStructuredText
 			{
 				idc = 1201;
-				text = "<t align='center'>lade ...</t>"; 
+				text = "<t align='center'>lade ...</t>";
 				x = 5 * GUI_GRID_W + GUI_GRID_X;
 				y = 12 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6 * GUI_GRID_W;
@@ -197,7 +197,7 @@ class russianSupplyGUI
 			class russian_gui_text_countleft_2: RscStructuredText
 			{
 				idc = 1202;
-				text = "<t align='center'>lade ...</t>"; 
+				text = "<t align='center'>lade ...</t>";
 				x = 12 * GUI_GRID_W + GUI_GRID_X;
 				y = 12 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6 * GUI_GRID_W;
@@ -207,7 +207,7 @@ class russianSupplyGUI
 			class russian_gui_text_countleft_3: RscStructuredText
 			{
 				idc = 1203;
-				text = "<t align='center'>lade ...</t>"; 
+				text = "<t align='center'>lade ...</t>";
 				x = 19 * GUI_GRID_W + GUI_GRID_X;
 				y = 12 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6 * GUI_GRID_W;
@@ -217,7 +217,7 @@ class russianSupplyGUI
 			class russian_gui_text_countleft_4: RscStructuredText
 			{
 				idc = 1204;
-				text = "<t align='center'>lade ...</t>"; 
+				text = "<t align='center'>lade ...</t>";
 				x = 26 * GUI_GRID_W + GUI_GRID_X;
 				y = 12 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6 * GUI_GRID_W;
@@ -227,7 +227,7 @@ class russianSupplyGUI
 			class russian_gui_text_countleft_5: RscStructuredText
 			{
 				idc = 1205;
-				text = "<t align='center'>lade ...</t>"; 
+				text = "<t align='center'>lade ...</t>";
 				x = 33 * GUI_GRID_W + GUI_GRID_X;
 				y = 12 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6 * GUI_GRID_W;
@@ -237,7 +237,7 @@ class russianSupplyGUI
 			class russian_gui_text_pricedisplay_1: RscStructuredText
 			{
 				idc = 1301;
-				text = "<t align='center'>lade ...</t>"; 
+				text = "<t align='center'>lade ...</t>";
 				x = 5 * GUI_GRID_W + GUI_GRID_X;
 				y = 14 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6 * GUI_GRID_W;
@@ -247,7 +247,7 @@ class russianSupplyGUI
 			class russian_gui_text_pricedisplay_2: RscStructuredText
 			{
 				idc = 1302;
-				text = "<t align='center'>lade ...</t>"; 
+				text = "<t align='center'>lade ...</t>";
 				x = 12 * GUI_GRID_W + GUI_GRID_X;
 				y = 14 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6 * GUI_GRID_W;
@@ -257,7 +257,7 @@ class russianSupplyGUI
 			class russian_gui_text_pricedisplay_3: RscStructuredText
 			{
 				idc = 1303;
-				text = "<t align='center'>lade ...</t>"; 
+				text = "<t align='center'>lade ...</t>";
 				x = 19 * GUI_GRID_W + GUI_GRID_X;
 				y = 14 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6 * GUI_GRID_W;
@@ -267,7 +267,7 @@ class russianSupplyGUI
 			class russian_gui_text_pricedisplay_4: RscStructuredText
 			{
 				idc = 1304;
-				text = "<t align='center'>lade ...</t>"; 
+				text = "<t align='center'>lade ...</t>";
 				x = 26 * GUI_GRID_W + GUI_GRID_X;
 				y = 14 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6 * GUI_GRID_W;
@@ -277,7 +277,7 @@ class russianSupplyGUI
 			class russian_gui_text_pricedisplay_5: RscStructuredText
 			{
 				idc = 1305;
-				text = "<t align='center'>lade ...</t>"; 
+				text = "<t align='center'>lade ...</t>";
 				x = 33 * GUI_GRID_W + GUI_GRID_X;
 				y = 14 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6 * GUI_GRID_W;
@@ -287,7 +287,7 @@ class russianSupplyGUI
 			class russian_gui_text_legend_price: RscStructuredText
 			{
 				idc = -1;
-				text = "<t color='#80ffffff'>Kosten</t>"; 
+				text = "<t color='#80ffffff'>Kosten</t>";
 				x = 1.5 * GUI_GRID_W + GUI_GRID_X;
 				y = 14 * GUI_GRID_H + GUI_GRID_Y;
 				w = 5 * GUI_GRID_W;
@@ -298,7 +298,7 @@ class russianSupplyGUI
 			class russian_gui_text_legend_countleft: RscStructuredText
 			{
 				idc = -1;
-				text = "<t color='#80ffffff'>Anzahl verf.</t>"; 
+				text = "<t color='#80ffffff'>Anzahl verf.</t>";
 				x = 1.5 * GUI_GRID_W + GUI_GRID_X;
 				y = 12 * GUI_GRID_H + GUI_GRID_Y;
 				w = 5 * GUI_GRID_W;
@@ -309,7 +309,7 @@ class russianSupplyGUI
 			class russian_gui_text_legend_namedisplay: RscStructuredText
 			{
 				idc = -1;
-				text = "<t color='#80ffffff'>Fahrzeug</t>"; 
+				text = "<t color='#80ffffff'>Fahrzeug</t>";
 				x = 1.5 * GUI_GRID_W + GUI_GRID_X;
 				y = 10 * GUI_GRID_H + GUI_GRID_Y;
 				w = 5 * GUI_GRID_W;
@@ -317,41 +317,41 @@ class russianSupplyGUI
 				colorText[] = {0.5,0.5,0.5,1};
 				colorBackground[] = {-1,-1,-1,0};
 			};
-			
+
 			class russian_gui_text_headline: RscStructuredTextHeadline
 			{
 				idc = 1600;
-				text = "<t size='2' align='center' color='#33ffffff'>Nachschub anfordern</t>"; 
+				text = "<t size='2' align='center' color='#33ffffff'>Nachschub anfordern</t>";
 				x = 2 * GUI_GRID_W + GUI_GRID_X;
 				y = 1.5 * GUI_GRID_H + GUI_GRID_Y;
 				w = 36 * GUI_GRID_W;
 				h = 2.5 * GUI_GRID_H;
 				colorText[] = {0.3,0.3,0.3,0.5};
-				
+
 			};
 			class russian_gui_text_credits_remaining: RscStructuredText
 			{
 				idc = 1700;
-				text = "<t align='left'>3000 cr</t>"; 
+				text = "<t align='left'>3000 cr</t>";
 				x = 1 * GUI_GRID_W + GUI_GRID_X;
 				y = 1 * GUI_GRID_H + GUI_GRID_Y;
 				w = 4.5 * GUI_GRID_W;
 				h = 2.5 * GUI_GRID_H;
 				colorBackground[] = {-1,-1,-1,0};
-				tooltip = "Verbleibende Credits"; 
+				tooltip = "Verbleibende Credits";
 				lineSpacing = 0.4;
 			};
 			class russian_gui_btn_close: RscButtonSmall
 			{
 				idc = -1;
-				text = "Schließen"; 
+				text = "Schließen";
 				x = 34 * GUI_GRID_W + GUI_GRID_X;
 				y = 1 * GUI_GRID_H + GUI_GRID_Y;
 				w = 5 * GUI_GRID_W;
 				h = 1.5 * GUI_GRID_H;
 				colorText[] = {1,1,1,0.5};
 				colorBackground[] = {0,0,0,1};
-				tooltip = "Dialog schließen"; 
+				tooltip = "Dialog schließen";
 				action = "closeDialog 0";
 				onMouseEnter = "(_this select 0) ctrlSetTextColor [1, 1, 1, 1]";
 				onMouseExit = "(_this select 0) ctrlSetTextColor [1, 1, 1, 0.5]";
@@ -362,7 +362,7 @@ class russianSupplyGUI
 
 
 
-class mudschahedinSupplyGUI 
+class mudschahedinSupplyGUI
 {
 		idd = 3000;
 		movingenable = 0;
@@ -386,71 +386,71 @@ class mudschahedinSupplyGUI
 
 		};
 
-		class Controls {		
+		class Controls {
 
 			class mudschahedin_gui_btn_anfordern_1: RscButton
 			{
 				idc = 3501;
-				text = "Anfordern"; 
+				text = "Anfordern";
 				x = 5 * GUI_GRID_W + GUI_GRID_X;
 				y = 16 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6 * GUI_GRID_W;
 				h = 2 * GUI_GRID_H;
 				colorText[] = {1,1,1,1};
 				colorBackground[] = {0,0,0,1};
-				tooltip = "Fahrzeug anfordern"; 
+				tooltip = "Fahrzeug anfordern";
 				onButtonClick = "disableSerialization; [_this select 0] execVM 'spawn\gui\orderMudschahedinVehicle.sqf';";
 			};
 			class mudschahedin_gui_btn_anfordern_2: RscButton
 			{
 				idc = 3502;
-				text = "Anfordern"; 
+				text = "Anfordern";
 				x = 12 * GUI_GRID_W + GUI_GRID_X;
 				y = 16 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6 * GUI_GRID_W;
 				h = 2 * GUI_GRID_H;
 				colorText[] = {1,1,1,1};
 				colorBackground[] = {0,0,0,1};
-				tooltip = "Fahrzeug anfordern"; 
+				tooltip = "Fahrzeug anfordern";
 				onButtonClick = "disableSerialization; [_this select 0] execVM 'spawn\gui\orderMudschahedinVehicle.sqf';";
 			};
 			class mudschahedin_gui_btn_anfordern_3: RscButton
 			{
 				idc = 3503;
-				text = "Anfordern"; 
+				text = "Anfordern";
 				x = 19 * GUI_GRID_W + GUI_GRID_X;
 				y = 16 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6 * GUI_GRID_W;
 				h = 2 * GUI_GRID_H;
 				colorText[] = {1,1,1,1};
 				colorBackground[] = {0,0,0,1};
-				tooltip = "Fahrzeug anfordern"; 
+				tooltip = "Fahrzeug anfordern";
 				onButtonClick = "disableSerialization; [_this select 0] execVM 'spawn\gui\orderMudschahedinVehicle.sqf';";
 			};
 			class mudschahedin_gui_btn_anfordern_4: RscButton
 			{
 				idc = 3504;
-				text = "Anfordern"; 
+				text = "Anfordern";
 				x = 26 * GUI_GRID_W + GUI_GRID_X;
 				y = 16 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6 * GUI_GRID_W;
 				h = 2 * GUI_GRID_H;
 				colorText[] = {1,1,1,1};
 				colorBackground[] = {0,0,0,1};
-				tooltip = "Fahrzeug anfordern"; 
+				tooltip = "Fahrzeug anfordern";
 				onButtonClick = "disableSerialization; [_this select 0] execVM 'spawn\gui\orderMudschahedinVehicle.sqf';";
 			};
 			class mudschahedin_gui_btn_anfordern_5: RscButton
 			{
 				idc = 3505;
-				text = "Anfordern"; 
+				text = "Anfordern";
 				x = 33 * GUI_GRID_W + GUI_GRID_X;
 				y = 16 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6 * GUI_GRID_W;
 				h = 2 * GUI_GRID_H;
 				colorText[] = {1,1,1,1};
 				colorBackground[] = {0,0,0,1};
-				tooltip = "Fahrzeug anfordern"; 
+				tooltip = "Fahrzeug anfordern";
 				onButtonClick = "disableSerialization; [_this select 0] execVM 'spawn\gui\orderMudschahedinVehicle.sqf';";
 			};
 			class mudschahedin_gui_pic_1: RscPicture
@@ -501,7 +501,7 @@ class mudschahedinSupplyGUI
 			class mudschahedin_gui_text_namedisplay_1: RscStructuredText
 			{
 				idc = 3101;
-				text = "<t align='center'>lade...</t>"; 
+				text = "<t align='center'>lade...</t>";
 				x = 5 * GUI_GRID_W + GUI_GRID_X;
 				y = 10 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6 * GUI_GRID_W;
@@ -511,7 +511,7 @@ class mudschahedinSupplyGUI
 			class mudschahedin_gui_text_namedisplay_2: RscStructuredText
 			{
 				idc = 3102;
-				text = "<t align='center'>lade ...</t>"; 
+				text = "<t align='center'>lade ...</t>";
 				x = 12 * GUI_GRID_W + GUI_GRID_X;
 				y = 10 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6 * GUI_GRID_W;
@@ -521,7 +521,7 @@ class mudschahedinSupplyGUI
 			class mudschahedin_gui_text_namedisplay_3: RscStructuredText
 			{
 				idc = 3103;
-				text = "<t align='center'>lade ...</t>"; 
+				text = "<t align='center'>lade ...</t>";
 				x = 19 * GUI_GRID_W + GUI_GRID_X;
 				y = 10 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6 * GUI_GRID_W;
@@ -531,7 +531,7 @@ class mudschahedinSupplyGUI
 			class mudschahedin_gui_text_namedisplay_4: RscStructuredText
 			{
 				idc = 3104;
-				text = "<t align='center'>lade ...</t>"; 
+				text = "<t align='center'>lade ...</t>";
 				x = 26 * GUI_GRID_W + GUI_GRID_X;
 				y = 10 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6 * GUI_GRID_W;
@@ -541,7 +541,7 @@ class mudschahedinSupplyGUI
 			class mudschahedin_gui_text_namedisplay_5: RscStructuredText
 			{
 				idc = 3105;
-				text = "<t align='center'>lade ...</t>"; 
+				text = "<t align='center'>lade ...</t>";
 				x = 33 * GUI_GRID_W + GUI_GRID_X;
 				y = 10 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6 * GUI_GRID_W;
@@ -551,7 +551,7 @@ class mudschahedinSupplyGUI
 			class mudschahedin_gui_text_countleft_1: RscStructuredText
 			{
 				idc = 3201;
-				text = "<t align='center'>lade ...</t>"; 
+				text = "<t align='center'>lade ...</t>";
 				x = 5 * GUI_GRID_W + GUI_GRID_X;
 				y = 12 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6 * GUI_GRID_W;
@@ -561,7 +561,7 @@ class mudschahedinSupplyGUI
 			class mudschahedin_gui_text_countleft_2: RscStructuredText
 			{
 				idc = 3202;
-				text = "<t align='center'>lade ...</t>"; 
+				text = "<t align='center'>lade ...</t>";
 				x = 12 * GUI_GRID_W + GUI_GRID_X;
 				y = 12 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6 * GUI_GRID_W;
@@ -571,7 +571,7 @@ class mudschahedinSupplyGUI
 			class mudschahedin_gui_text_countleft_3: RscStructuredText
 			{
 				idc = 3203;
-				text = "<t align='center'>lade ...</t>"; 
+				text = "<t align='center'>lade ...</t>";
 				x = 19 * GUI_GRID_W + GUI_GRID_X;
 				y = 12 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6 * GUI_GRID_W;
@@ -581,7 +581,7 @@ class mudschahedinSupplyGUI
 			class mudschahedin_gui_text_countleft_4: RscStructuredText
 			{
 				idc = 3204;
-				text = "<t align='center'>lade ...</t>"; 
+				text = "<t align='center'>lade ...</t>";
 				x = 26 * GUI_GRID_W + GUI_GRID_X;
 				y = 12 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6 * GUI_GRID_W;
@@ -591,7 +591,7 @@ class mudschahedinSupplyGUI
 			class mudschahedin_gui_text_countleft_5: RscStructuredText
 			{
 				idc = 3205;
-				text = "<t align='center'>lade ...</t>"; 
+				text = "<t align='center'>lade ...</t>";
 				x = 33 * GUI_GRID_W + GUI_GRID_X;
 				y = 12 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6 * GUI_GRID_W;
@@ -601,7 +601,7 @@ class mudschahedinSupplyGUI
 			class mudschahedin_gui_text_pricedisplay_1: RscStructuredText
 			{
 				idc = 3301;
-				text = "<t align='center'>lade ...</t>"; 
+				text = "<t align='center'>lade ...</t>";
 				x = 5 * GUI_GRID_W + GUI_GRID_X;
 				y = 14 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6 * GUI_GRID_W;
@@ -611,7 +611,7 @@ class mudschahedinSupplyGUI
 			class mudschahedin_gui_text_pricedisplay_2: RscStructuredText
 			{
 				idc = 3302;
-				text = "<t align='center'>lade ...</t>"; 
+				text = "<t align='center'>lade ...</t>";
 				x = 12 * GUI_GRID_W + GUI_GRID_X;
 				y = 14 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6 * GUI_GRID_W;
@@ -621,7 +621,7 @@ class mudschahedinSupplyGUI
 			class mudschahedin_gui_text_pricedisplay_3: RscStructuredText
 			{
 				idc = 3303;
-				text = "<t align='center'>lade ...</t>"; 
+				text = "<t align='center'>lade ...</t>";
 				x = 19 * GUI_GRID_W + GUI_GRID_X;
 				y = 14 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6 * GUI_GRID_W;
@@ -631,7 +631,7 @@ class mudschahedinSupplyGUI
 			class mudschahedin_gui_text_pricedisplay_4: RscStructuredText
 			{
 				idc = 3304;
-				text = "<t align='center'>lade ...</t>"; 
+				text = "<t align='center'>lade ...</t>";
 				x = 26 * GUI_GRID_W + GUI_GRID_X;
 				y = 14 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6 * GUI_GRID_W;
@@ -641,7 +641,7 @@ class mudschahedinSupplyGUI
 			class mudschahedin_gui_text_pricedisplay_5: RscStructuredText
 			{
 				idc = 3305;
-				text = "<t align='center'>lade ...</t>"; 
+				text = "<t align='center'>lade ...</t>";
 				x = 33 * GUI_GRID_W + GUI_GRID_X;
 				y = 14 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6 * GUI_GRID_W;
@@ -651,7 +651,7 @@ class mudschahedinSupplyGUI
 			class mudschahedin_gui_text_legend_price: RscStructuredText
 			{
 				idc = -1;
-				text = "<t color='#80ffffff'>Kosten</t>"; 
+				text = "<t color='#80ffffff'>Kosten</t>";
 				x = 1.5 * GUI_GRID_W + GUI_GRID_X;
 				y = 14 * GUI_GRID_H + GUI_GRID_Y;
 				w = 5 * GUI_GRID_W;
@@ -662,7 +662,7 @@ class mudschahedinSupplyGUI
 			class mudschahedin_gui_text_legend_countleft: RscStructuredText
 			{
 				idc = -1;
-				text = "<t color='#80ffffff'>Anzahl verf.</t>"; 
+				text = "<t color='#80ffffff'>Anzahl verf.</t>";
 				x = 1.5 * GUI_GRID_W + GUI_GRID_X;
 				y = 12 * GUI_GRID_H + GUI_GRID_Y;
 				w = 5 * GUI_GRID_W;
@@ -673,7 +673,7 @@ class mudschahedinSupplyGUI
 			class mudschahedin_gui_text_legend_namedisplay: RscStructuredText
 			{
 				idc = -1;
-				text = "<t color='#80ffffff'>Fahrzeug</t>"; 
+				text = "<t color='#80ffffff'>Fahrzeug</t>";
 				x = 1.5 * GUI_GRID_W + GUI_GRID_X;
 				y = 10 * GUI_GRID_H + GUI_GRID_Y;
 				w = 5 * GUI_GRID_W;
@@ -681,41 +681,41 @@ class mudschahedinSupplyGUI
 				colorText[] = {0.5,0.5,0.5,1};
 				colorBackground[] = {-1,-1,-1,0};
 			};
-			
+
 			class mudschahedin_gui_text_headline: RscStructuredTextHeadline
 			{
 				idc = 3600;
-				text = "<t size='2' align='center' color='#33ffffff'>Nachschub anfordern</t>"; 
+				text = "<t size='2' align='center' color='#33ffffff'>Nachschub anfordern</t>";
 				x = 2 * GUI_GRID_W + GUI_GRID_X;
 				y = 1.5 * GUI_GRID_H + GUI_GRID_Y;
 				w = 36 * GUI_GRID_W;
 				h = 2.5 * GUI_GRID_H;
 				colorText[] = {0.3,0.3,0.3,0.5};
-				
+
 			};
 			class mudschahedin_gui_text_credits_remaining: RscStructuredText
 			{
 				idc = 3700;
-				text = "<t align='left'>3000 cr</t>"; 
+				text = "<t align='left'>3000 cr</t>";
 				x = 1 * GUI_GRID_W + GUI_GRID_X;
 				y = 1 * GUI_GRID_H + GUI_GRID_Y;
 				w = 4.5 * GUI_GRID_W;
 				h = 2.5 * GUI_GRID_H;
 				colorBackground[] = {-1,-1,-1,0};
-				tooltip = "Verbleibende Credits"; 
+				tooltip = "Verbleibende Credits";
 				lineSpacing = 0.4;
 			};
 			class mudschahedin_gui_btn_close: RscButtonSmall
 			{
 				idc = -1;
-				text = "Schließen"; 
+				text = "Schließen";
 				x = 34 * GUI_GRID_W + GUI_GRID_X;
 				y = 1 * GUI_GRID_H + GUI_GRID_Y;
 				w = 5 * GUI_GRID_W;
 				h = 1.5 * GUI_GRID_H;
 				colorText[] = {1,1,1,0.5};
 				colorBackground[] = {0,0,0,1};
-				tooltip = "Dialog schließen"; 
+				tooltip = "Dialog schließen";
 				action = "closeDialog 0";
 				onMouseEnter = "(_this select 0) ctrlSetTextColor [1, 1, 1, 1]";
 				onMouseExit = "(_this select 0) ctrlSetTextColor [1, 1, 1, 0.5]";
@@ -746,19 +746,19 @@ class gui_spawn_blufor
 			};
 		};
 
-		class Controls {		
+		class Controls {
 
 			class btn_spawn_blufor: RscButton
 			{
 				idc = 8002;
-				text = "Warte auf Opfor..."; 
+				text = "Warte auf Opfor...";
 				x = 14 * GUI_GRID_W + GUI_GRID_X;
 				y = 5 * GUI_GRID_H + GUI_GRID_Y;
 				w = 12 * GUI_GRID_W;
 				h = 3 * GUI_GRID_H;
 				colorText[] = {0,0,0,1};
 				colorBackground[] = {0.81,0.55,0.12,1};
-				tooltip = "Warte auf Opfor..."; 
+				tooltip = "Warte auf Opfor...";
 				onButtonClick = "openMap [true,false]; [] execVM 'mission_setup\teleport.sqf'; closeDialog 0";
 			};
 		};
@@ -785,18 +785,18 @@ class gui_spawn_opfor
 			};
 		};
 
-		class Controls {	
+		class Controls {
 
 			class text_spawn_opfor: RscStructuredText
 			{
 				idc = 3202;
-				text = "<t align='center' size='1.3'>TvT Sputnik</t>"; 
+				text = "<t align='center' size='1.3'>TvT Breaking Contact</t>";
 				x = 14 * GUI_GRID_W + GUI_GRID_X;
 				y = 1 * GUI_GRID_H + GUI_GRID_Y;
 				w = 12 * GUI_GRID_W;
 				h = 3 * GUI_GRID_H;
 				colorBackground[] = {-1,-1,-1,0};
-			};	
+			};
 
 			class btn_spawn_opfor: RscButton
 			{
@@ -835,19 +835,19 @@ class gui_spawn_waitplease
 			};
 		};
 
-		class Controls {		
+		class Controls {
 
 			class btn_spawn_opfor: RscButton
 			{
 				idc = 8022;
-				text = $STR_GRAD_choose_spawn_location; 
+				text = $STR_GRAD_choose_spawn_location;
 				x = 16 * GUI_GRID_W + GUI_GRID_X;
 				y = 2 * GUI_GRID_H + GUI_GRID_Y;
 				w = 12 * GUI_GRID_W;
 				h = 3 * GUI_GRID_H;
 				colorText[] = {0,0,0,1};
 				colorBackground[] = {0.81,0.55,0.12,1};
-				tooltip = $STR_GRAD_choose_spawn_location; 
+				tooltip = $STR_GRAD_choose_spawn_location;
 				onButtonClick = "openMap [true,false]; [] execVM 'mission_setup\teleport.sqf'; closeDialog 0";
 			};
 		};
