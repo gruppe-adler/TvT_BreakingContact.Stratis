@@ -2940,7 +2940,7 @@ class Mission
 			timeoutMax=4;
 			type="END1";
 			age="UNKNOWN";
-			expCond="END_MISSION_TRIGGERED";
+			expCond="false";
 			class Effects
 			{
 			};

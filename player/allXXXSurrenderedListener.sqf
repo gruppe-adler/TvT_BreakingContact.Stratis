@@ -15,21 +15,22 @@ _BLUFOR_CAPTURED_listener = {
 	[west] execVM "objectives\endmission.sqf";
 };
 
-_MISSION_COMPLETED_listener = {
-	adminLog("mission_complete");
-	execVM "objectives\endmission.sqf";
+_BLUFOR_ELIMINATED_listener = {
+	adminLog("mission_complete: blufor loses  by elimination");
+	[east] execVM "objectives\endmission.sqf";
 
-	if (WINCONDITIONBLUFOR) then {
-		[west] execVM "objectives\endmission.sqf";
-	};
-	if (WINCONDITIONOPFOR) then {
-		[east] execVM "objectives\endmission.sqf";
-	};
+};
+
+_OPFOR_ELIMINATED_listener = {
+	adminLog("mission_complete: opfor loses  by elimination");
+	[west] execVM "objectives\endmission.sqf";
+
 };
 
 "BLUFOR_SURRENDERED" addPublicVariableEventHandler _BLUFOR_SURRENDERED_listener;
 "BLUFOR_CAPTURED" addPublicVariableEventHandler _BLUFOR_CAPTURED_listener;
-"MISSION_COMPLETED" addPublicVariableEventHandler _MISSION_COMPLETED_listener;
+"BLUFOR_ELIMINATED" addPublicVariableEventHandler _BLUFOR_ELIMINATED_listener;
+"OPFOR_ELIMINATED" addPublicVariableEventHandler _OPFOR_ELIMINATED_listener;
 
 // runs in SP to emulate addPublicVariableEventHandler (which doesnt work in SP)
 if (!isMultiplayer) then {
@@ -40,6 +41,14 @@ if (!isMultiplayer) then {
 	_BLUFOR_CAPTURED_listener spawn {
 		waitUntil {BLUFOR_CAPTURED};
 		[0, BLUFOR_CAPTURED] call _this;
+	};
+	_BLUFOR_ELIMINATED_listener spawn {
+		waitUntil {BLUFOR_ELIMINATED};
+		[0, BLUFOR_ELIMINATED] call _this;
+	};
+	_OPFOR_ELIMINATED_listener spawn {
+		waitUntil {OPFOR_ELIMINATED};
+		[0, OPFOR_ELIMINATED] call _this;
 	};
 };
 

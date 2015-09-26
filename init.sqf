@@ -22,23 +22,16 @@ if (isServer) then {
 	setDate [2015, 2, 2, TIME_OF_DAY, 1];
 	setTimeMultiplier TIME_ACCELERATION;
 
-	WINCONDITIONOPFOR = false;
-	publicVariable "WINCONDITIONOPFOR";
-	WINCONDITIONBLUFOR = false;
-	publicVariable "WINCONDITIONBLUFOR";
+	BLUFOR_ELIMINATED = false;
+	publicVariable "BLUFOR_ELIMINATED";
+	OPFOR_ELIMINATED = false;
+	publicVariable "OPFOR_ELIMINATED";
 
 	BLUFOR_CAPTURED = false;
 	publicVariable "BLUFOR_CAPTURED";
-	MISSION_COMPLETED = false;
-	publicVariable "MISSION_COMPLETED";
-
-	bluforMarkerDrawn = false;
-	publicVariable "bluforMarkerDrawn";
-
 	BLUFOR_SURRENDERED = false;
 	publicVariable "BLUFOR_SURRENDERED";
-	END_MISSION_TRIGGERED = false;
-	publicVariable "END_MISSION_TRIGGERED";
+
 	SPECTATOR_LIST = [];
 	publicVariable "SPECTATOR_LIST";
 	RUSSIAN_MARKER_HIDDEN = true;
