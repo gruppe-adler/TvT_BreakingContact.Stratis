@@ -12,9 +12,9 @@ class russianSupplyGUI
 			class dlgBackground: background
 			{
 				idc = 1999;
-				x = 0 * GUI_GRID_W + GUI_GRID_X;
+				x = -10 * GUI_GRID_W + GUI_GRID_X;
 				y = 0 * GUI_GRID_H + GUI_GRID_Y;
-				w = 40 * GUI_GRID_W;
+				w = 60 * GUI_GRID_W;
 				h = 19 * GUI_GRID_H;
 				colorBackground[] = {0,0,0,0.8};
 			};
