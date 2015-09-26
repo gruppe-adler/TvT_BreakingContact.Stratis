@@ -1,10 +1,10 @@
 #include "spawn\gui\_defines.hpp"
 #include "spawn\gui\_dialogs.hpp"
 
-OnLoadMission = "TvT_Sputnik";
-author = "Nomisum/XiviD für Gruppe Adler";  //appears as author in overview and loading screen
+OnLoadMission = "A mobile radio station is trying to get a message sent - their adversaries try to stop them from completing the broadcast";
+author = "Nomisum, XiviD, Fusselwurm für Gruppe Adler";  //appears as author in overview and loading screen
 overviewText = "US vs. Russians"; //appears in overview and loading screen
-onLoadName = "TvT_Sputnik"; //mission name for loading screen only
+onLoadName = "Breaking Contact"; //mission name for loading screen only
 overviewPicture = ""; //mission picture for loading screen only
 onLoadMissionTime = True;
 respawnDelay = 3; // NOTE: ar3play relies on this being slower than the ar3play loop!

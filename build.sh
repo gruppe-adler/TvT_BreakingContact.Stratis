@@ -2,7 +2,7 @@
 
 # change this to your local cpbo path, in case cpbo.exe is not in the current dir
 cpbo_path="$1"
-missionname="TvT_Sputnik"
+missionname="TvT_Breaking_Contact"
 
 islands=(
 	Altis
