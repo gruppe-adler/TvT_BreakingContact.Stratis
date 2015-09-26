@@ -12,7 +12,7 @@ _BLUFOR_CAPTURED_listener = {
 };
 
 "BLUFOR_SURRENDERED" addPublicVariableEventHandler _BLUFOR_SURRENDERED_listener;
-"BLUFOR_CAPTURED" addPublicVariableEventHandler _BLUFOR_CAPTURED_listener
+"BLUFOR_CAPTURED" addPublicVariableEventHandler _BLUFOR_CAPTURED_listener;
 
 // runs in SP to emulate addPublicVariableEventHandler (which doesnt work in SP)
 if (!isMultiplayer) then {
