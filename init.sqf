@@ -3,7 +3,7 @@
 
 DEBUG_MODE = true;
 
-[]execVM "spawn\gui\initGUI.sqf";
+[] execVM "spawn\gui\initGUI.sqf";
 
 TIME_OF_DAY = paramsArray select 0;
 WEATHER_SETTING = paramsArray select 1;
@@ -84,15 +84,6 @@ if (hasInterface) then {
 		};
 	};
 
-	if (didJIP) then {
-		if (OPFOR_TELEPORT_TARGET select 0 != 0) then {
-			[player] execVM "onPlayerRespawn.sqf";
-			[localize "str_GRAD_jip"] call EFUNC(common,displayTextStructured);
-		};
-	};
-
-	// everyone
-	firstspawn = false; // TODO: all of the onPlayerRespawn stuff can be removed, right?
 	enableSentences false;
 
 	[] execVM "player\intro.sqf";
