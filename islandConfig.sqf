@@ -1,8 +1,7 @@
-private ['_islands', '_targetPositions', '_positionsForCurrentWorld', '_targetPosition'];
 
 // Please insert new islands alphabetically by file name extension!
 
-// Readable List: 
+// Readable List:
 // Altis,
 // Bornholm,
 // Chernarus
@@ -15,21 +14,21 @@ private ['_islands', '_targetPositions', '_positionsForCurrentWorld', '_targetPo
 // Podagorsk,
 // Capraia,
 // Kunduz
-// N'Ziwasogo  
-// Sarahni, 
-// Sarugao, 
-// Shapur, 
-// Stratis, 
-// Takistan, 
-// Thirsk, 
-// Panthera, 
-// Bystrica, 
+// N'Ziwasogo
+// Sarahni,
+// Sarugao,
+// Shapur,
+// Stratis,
+// Takistan,
+// Thirsk,
+// Panthera,
+// Bystrica,
 // vt5
 // X-Cam Prototype
 // Zargabad
 
 
-islands = [
+ISLANDS = [
 	'Altis',
 	'Bornholm',
 	'Chernarus',
@@ -57,9 +56,9 @@ islands = [
 	'Zargabad'
 ];
 // pos blufor, pos opfor, water around map?, name
-targetPositions = [
+ISLAND_TARGET_POSITIONS = [
 	[ [14300,16200], [14600, 16700], true, 'Altis'],
-	[ [3000, 5400], [3900, 4900], true, 'Bornholm' ], 
+	[ [3000, 5400], [3900, 4900], true, 'Bornholm' ],
 	[ [4100,11000], [4860, 9740], true, 'Chernarus'],
 	[ [4100,11000], [4860, 9740], true, 'Chernarus_Summer'],
 	[ [15550,920], [15850, 370], false, 'clafghan'],
@@ -84,23 +83,3 @@ targetPositions = [
 	[ [4000, 4150], [4450, 3830], true, 'xcam_prototype'],
 	[ [3400, 4320], [3400, 3600], false, 'Zargabad']
 ];
-
-// spawn outside of map on flat terrain if possible
-alternativeSpawnsOutsideMap = [[-2500,-500],[-500,-2500]];
-
-
-if !(isDedicated) then {
-	waitUntil {player == player}; 
-	playerPositionsForCurrentWorld = targetPositions select (islands find worldName);
-	if !(playerPositionsForCurrentWorld select 2) then {
-	playerPositionsForCurrentWorld = alternativeSpawnsOutsideMap;
-	};
-
-	if (side player == blufor) then {
-		playerPosition = playerPositionsForCurrentWorld select 0;
-	} else {
-		playerPosition = playerPositionsForCurrentWorld select 1;
-	};
-	//hintSilent format["%1",playerPosition];
-	[player,playerPosition] execVM "mission_setup\teleportUnitToEmptySpot.sqf";
-};

@@ -53,8 +53,7 @@ if (isServer) then {
 	BLUFOR_TELEPORT_TARGET = [0, 0];
 	publicVariable "BLUFOR_TELEPORT_TARGET";
 
-	if (isClass (configFile >> "CfgPatches" >> "task_force_radio")) then
-		{
+	if (isClass (configFile >> "CfgPatches" >> "task_force_radio")) then {
 		[] execVM "tfarsettings.sqf";
 	};
 	[] execVM "objectives\detect_all_dead.sqf";
@@ -68,6 +67,7 @@ if (isServer) then {
 clearInventory = compile preprocessFile "helpers\clearInventory.sqf";
 spawnStuff = compile preprocessFile "helpers\spawnStuff.sqf";
 moveStuff = compile preprocessFile "helpers\moveStuff.sqf";
+call compile preprocessFile "islandConfig.sqf";
 //SHK POS
 call compile preprocessfile "SHK_pos\shk_pos_init.sqf";
 // findsimplePos
@@ -91,12 +91,13 @@ if (hasInterface) then {
 			[localize "str_GRAD_jip"] call EFUNC(common,displayTextStructured);
 		};
 	};
+
 	// everyone
 	firstspawn = false; // TODO: all of the onPlayerRespawn stuff can be removed, right?
 	enableSentences false;
 	[] execVM "player\intro.sqf";
-	[] execVM "mission_setup\helpBriefing.sqf";
-	[] execVM "mission_setup\adjustInitialSpawnPosition.sqf";
+	[] execVM "player\setup\helpBriefing.sqf";
+	[] execVM "player\setup\adjustInitialSpawnPosition.sqf";
 	[player] execVM "loadouts\_client.sqf";
 
 	// if blufor
