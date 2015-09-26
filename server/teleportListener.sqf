@@ -8,8 +8,8 @@ createOpforStuff =  {
 
 	[opfor_teamlead, funkwagen, true] call ACE_VehicleLock_fnc_addKeyForVehicle;
 
-	[_position, 50, funkwagen] call moveStuff;
-
+	_spawn = [opfor_teamlead, 50, typeOf funkwagen] call findSimplePos;
+	_nul = funkwagen setPos _spawn;
 
 	russian_brt = [_position, 10, "rhs_btr60_vv"] call spawnStuff;
 

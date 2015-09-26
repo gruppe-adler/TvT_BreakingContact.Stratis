@@ -112,5 +112,5 @@ if (hasInterface) then {
 	if (player == opfor_teamlead) then {
 		[] call checkSpawnButton;
 	};
-	titleCut ["", "BLACK FADED", 999];
+
 };
