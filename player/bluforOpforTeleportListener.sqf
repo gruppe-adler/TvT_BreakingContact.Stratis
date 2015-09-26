@@ -1,6 +1,6 @@
 createBluforSpawnLimitsMarkers = {
 	_pos = _this;
-		_inner_marker = createMarkerLocal ["inner_marker", _pos];
+	_inner_marker = createMarkerLocal ["inner_marker", _pos];
 	_inner_marker setMarkerTypeLocal "mil_unknown";
 	_inner_marker setMarkerColorLocal "ColorEast";
 	_inner_marker setMarkerShapeLocal "ELLIPSE";
@@ -15,18 +15,12 @@ createBluforSpawnLimitsMarkers = {
 	_outer_marker setMarkerBrushLocal "Border";
 };
 
-openBluforLeaderTeleportPrompt = {
-	ctrlSetText [8002, "Spawnpunkt aussuchen"];
-	8002 ctrlSetTooltip "Jetzt Spawnpunkt aussuchen";
-	ctrlEnable [8002, true];
-};
-
 _OPFOR_TELEPORT_TARGET_listener = {
 	_pos = _this select 1;
 
 	_pos call createBluforSpawnLimitsMarkers;
 	if (player == blufor_teamlead) then {
-		call openBluforLeaderTeleportPrompt;
+		hintSilent "Jetzt Spawnpunkt aussuchen!";
 	}
 
 };
@@ -38,15 +32,5 @@ if (!isMultiplayer) then {
 	_OPFOR_TELEPORT_TARGET_listener spawn {
 		waitUntil {OPFOR_TELEPORT_TARGET select 0 != 0};
 		[0, OPFOR_TELEPORT_TARGET] call _this;
-	};
-};
-
-if (player == blufor_teamlead) then {
-	[] spawn {
-		waitUntil {!isNull player && time > 1};
-		[] call checkSpawnButton;
-
-		disableSerialization;
-		ctrlEnable [8002, false];
 	};
 };

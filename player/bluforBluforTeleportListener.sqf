@@ -11,9 +11,6 @@ deleteBluforSpawnLimitMarkers = {
 	deleteMarker "outer_marker";
 };
 
-
-
-
 _BLUFOR_TELEPORT_TARGET_listener = {
 	_pos = _this select 1;
 
@@ -31,15 +28,5 @@ if (!isMultiplayer) then {
 	_BLUFOR_TELEPORT_TARGET_listener spawn {
 		waitUntil {BLUFOR_TELEPORT_TARGET select 0 != 0};
 		[0, BLUFOR_TELEPORT_TARGET] call _this;
-	};
-};
-
-if (player == blufor_teamlead) then {
-	[] spawn {
-		waitUntil {!isNull player && time > 1};
-		[] call checkSpawnButton;
-
-		disableSerialization;
-		ctrlEnable [8002, false];
 	};
 };

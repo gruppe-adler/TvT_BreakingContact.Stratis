@@ -69,12 +69,9 @@ If(isNil "spawn_help_fnc_compiled") then { call compile preprocessFileLineNumber
 
 if (hasInterface) then {
 
-	checkSpawnButton = {
-		[] spawn {
-			waitUntil {!isNull player && time > 1};
-			waitUntil {!dialog && !visibleMap};
-			0 = [playerside] execVM "spawn\checkIfSpawned.sqf";
-		};
+	createSpawnButton = {
+		waitUntil {time > 1};
+		0 = createDialog _this;
 	};
 
 	enableSentences false;
@@ -85,18 +82,21 @@ if (hasInterface) then {
 	[] execVM "player\allXXXSurrenderedListener.sqf";
 	[player] execVM "loadouts\_client.sqf";
 
-	if (side player == west) then {
+	if (playerSide == west) then {
 		[] execVM "player\russianMarker.sqf";
 		[] execVM "player\bluforOpforTeleportListener.sqf";
 		[] execVM "player\bluforBluforTeleportListener.sqf";
 		[] execVM "player\bluforRussianPointsListener.sqf";
+		if (player == blufor_teamlead) then {
+			"gui_spawn_blufor" call createSpawnButton;
+		};
 	};
 
-	if (side player == east) then {
+	if (playerSide == east) then {
 		[] execVM "player\opforBluforTeleportListener.sqf";
 		[] execVM "player\opforOpforTeleportListener.sqf";
 		if (player == opfor_teamlead) then {
-			[] call checkSpawnButton;
+			"gui_spawn_opfor" spawn createSpawnButton;
 		};
 	};
 };
