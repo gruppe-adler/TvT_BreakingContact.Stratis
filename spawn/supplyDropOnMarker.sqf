@@ -17,58 +17,7 @@
 	        _init = _this select 2;
 	        _calls = _this select 3;
 
-	       if (DEBUG) then {diag_log format ["%1",_calls];};
-
-
-	        
-	        if (_vehicleType == "RHS_Mi24Vt_vvs") exitWith {
-
-	        	_vehicle = createVehicle [_vehicleType, [_pos select 0, _pos select 1, 800], [], 0, "FLY"];
-
-	        	createVehicleCrew _vehicle;
-
-	        	_vehicle setPos [(getPos _vehicle select 0),(getPos _vehicle select 1),800];
-
-	        	waypoint1 = (group _vehicle) addwaypoint [getpos _vehicle,0];
-
-	        	_pilotGroupNew = createGroup west;
-	        	{
-					[_x] joinSilent _pilotGroupNew;} forEach crew _vehicle;
-
-	        	while {(getPos _vehicle) select 2 > 5} do {
-				_vehicle land "LAND";
-				sleep 3;
-				};
-
-	    		_vehicle setObjectTextureGlobal [0, "\rhsafrf\addons\rhs_a2port_air\mi35\data\camo\mi24p_001_camo2_co.paa"];
-				_vehicle setObjectTextureGlobal [1, "\rhsafrf\addons\rhs_a2port_air\mi35\data\camo\mi24p_002_camo2_co.paa"];
-				_vehicle setObjectTextureGlobal [2, "rhsafrf\addons\rhs_a2port_air\Mi17\data\camo\mi8_det_g_camo1_co.paa"];
-				
-				if (count _init > 0) then {
-					     		[_vehicle,nil, _init] call BIS_fnc_initVehicle;
-	    		};
-
-	    		waitUntil {
-	    		  position _vehicle select 2 < 0.2
-	    		};
-
-	    		_pilotGroupNew leaveVehicle _vehicle;
-
-	    		{_x doMove westHQSpawnPos;} forEach units _pilotGroupNew; 
-
-	    		sleep (5 + random 10);
-
-	    		{_x action ["sitDown", _x];
-	    		_x disableAI "move";
-	    		_x setBehaviour "careless";
-	    		_x disableAI "target";
-	    		} foreach units _pilotGroupNew;
-
-	    	};
-
-
-
-	        if (DEBUG) then { diag_log format ["Init Vehicle Spawn is %1",_init];};
+	    
 
 	        _origWind = wind;
 	        _origWindForce = windStr;
@@ -77,7 +26,7 @@
 	        setWind [0, 0, true];
 	        0 setWindForce 0;
 
-			if (DEBUG) then {diag_log format ["%1",_pos]; };
+			//if (DEBUG) then {diag_log format ["%1",_pos]; };
 
 			_chute = createVehicle [_chuteType, [100, 100, 200], [], 0, "FLY"];
 			

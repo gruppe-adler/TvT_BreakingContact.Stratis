@@ -77,7 +77,7 @@ refreshRussianOrder = {
 		ctrlEnable [1506, false];
 		ctrlEnable [1507, false];
 
-		if (DEBUG) then { diag_log format ["_bool is %1, _eta is %2",_bool, _eta];};
+		//if (DEBUG) then { diag_log format ["_bool is %1, _eta is %2",_bool, _eta];};
 
 
 	} else {
@@ -103,7 +103,7 @@ refreshRussianUI = {
 	//_disabledButtons = [[1501,1502,1503,1504],_array] call checkForDisabledButtons;
 
 	
-	if (DEBUG) then {diag_log format ["_outOfStockIndicator is %1",_outOfStockIndicator]; };
+	//if (DEBUG) then {diag_log format ["_outOfStockIndicator is %1",_outOfStockIndicator]; };
 
 	_pleasewait = "Bitte warten";
 	_headlineBlocked = "Anforderung läuft";
@@ -290,7 +290,7 @@ refreshRussianUI = {
 
 		[] call resetRussianUI;
 
-		[_vehicle, russianSpawnPos, _extras, _calls] call spawnSupplyDrop;
+		[_vehicle, RUS_VEHICLE_SPAWN, _extras, _calls] call spawnSupplyDrop;
 	};
 
 };

@@ -21,7 +21,7 @@ checkBluforSpawndistance = {
 
 checkWater = {
 	if (surfaceIsWater _this) then {
-		throw (str _pos) + " is covered in water :("; // localize "str_GRAD_spawn_on_water" // [] call EFUNC(common,displayTextStructured);
+		throw ((str _pos) + " is covered in water :("); // localize "str_GRAD_spawn_on_water" // [] call EFUNC(common,displayTextStructured);
 	};
 };
 

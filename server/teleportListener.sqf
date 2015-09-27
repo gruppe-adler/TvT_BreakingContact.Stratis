@@ -1,6 +1,6 @@
 createOpforStuff =  {
 	_position = _this;
-	funkwagen = [getPos opfor_teamlead, 10, "rhs_gaz66_r142_vv"] call spawnStuff;
+	funkwagen = [_position, 50, "rhs_gaz66_r142_vv"] call spawnStuff;
 
 	sleep 2;
 	[funkwagen] call clearInventory;
@@ -8,19 +8,16 @@ createOpforStuff =  {
 
 	[opfor_teamlead, funkwagen, true] call ACE_VehicleLock_fnc_addKeyForVehicle;
 
-	_spawn = [opfor_teamlead, 50, typeOf funkwagen] call findSimplePos;
-	_nul = funkwagen setPos _spawn;
+	RUS_base = [_position, 10, "TK_WarfareBUAVterminal_Base_EP1"] call spawnStuff;
+	RUS_base addAction["<t color=""#93E352"">" + localize "str_GRAD_choose_spawn_location",{0 = createDialog "russianSupplyGUI"; [russianSupplies, false, 0, "","",""] call refreshRussianUI;}, _Args, 1, false, true, "","_this distance _target < 5"];
 
-	russian_brt = [_position, 10, "rhs_btr60_vv"] call spawnStuff;
+	sleep 0.1;
+	_spawn = [_position, 25, "TK_WarfareBUAVterminal_Base_EP1"] call findSimplePos;
 
-	sleep 2;
-	[opfor_teamlead, russian_brt, true] call ACE_VehicleLock_fnc_addKeyForVehicle;
-	gaz66 = [_position,10,"rhs_gaz66o_vdv"] call spawnStuff;
-	[opfor_teamlead, gaz66, true] call ACE_VehicleLock_fnc_addKeyForVehicle;
-	sleep 2;
-	[russian_brt] call clearInventory;
+	RUS_VEHICLE_SPAWN = _spawn;
+	publicVariable "RUS_VEHICLE_SPAWN";
+	_RUS_spawnPad = createVehicle ["Land_HelipadCivil_F",RUS_VEHICLE_SPAWN,[],0,"NONE"];
 
-	gaz66 animate ["light_hide", 1];
 };
 
 createBluforStuff = {
@@ -36,6 +33,17 @@ createBluforStuff = {
 	[blufor_observer_heli] call clearInventory;
 
 	[blufor_observer_heli,["green",1],true] call BIS_fnc_initVehicle;
+
+	
+
+	US_base = [_position, 10, "US_WarfareBUAVterminal_Base_EP1"] call spawnStuff;
+	US_base addAction["<t color=""#93E352"">" + localize "str_GRAD_choose_spawn_location",{0 = createDialog "USSupplyGUI"; [USSupplies, false, 0, "","",""] call refreshUSUI;}, _Args, 1, false, true, "","_this distance _target < 5"];
+
+	_spawn = [_position, 25, "TK_WarfareBUAVterminal_Base_EP1"] call findSimplePos;
+
+	US_VEHICLE_SPAWN = _spawn;
+	publicVariable "US_VEHICLE_SPAWN";
+	_US_spawnPad = createVehicle ["Land_HelipadCivil_F",US_VEHICLE_SPAWN,[],0,"NONE"];
 };
 
 _OPFOR_TELEPORT_TARGET_listener = {

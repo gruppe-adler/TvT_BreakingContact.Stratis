@@ -59,7 +59,7 @@ refreshUSOrder = {
 		ctrlEnable [3506, false];
 		ctrlEnable [3507, false];
 
-		if (DEBUG) then { diag_log format ["_bool is %1, _eta is %2",_bool, _eta];};
+		//if (DEBUG) then { diag_log format ["_bool is %1, _eta is %2",_bool, _eta];};
 
 	} else {
 
@@ -84,7 +84,7 @@ refreshUSUI = {
 	//_disabledButtons = [[3501,3502,3503,3504],_array] call checkForDisabledButtons;
 
 	
-	if (DEBUG) then {diag_log format ["_outOfStockIndicator is %1",_outOfStockIndicator]; };
+	//if (DEBUG) then {diag_log format ["_outOfStockIndicator is %1",_outOfStockIndicator]; };
 
 	_pleasewait = "Bitte warten";
 	_headlineBlocked = "Anforderung läuft";
@@ -276,7 +276,7 @@ refreshUSUI = {
 
 		[] call resetUSUI;
 
-		[_vehicle, USSpawnPos, _extras, _calls] call spawnSupplyDrop;
+		[_vehicle, US_VEHICLE_SPAWN, _extras, _calls] call spawnSupplyDrop;
 	};
 
 };
