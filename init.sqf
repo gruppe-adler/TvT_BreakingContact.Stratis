@@ -51,6 +51,11 @@ if (isServer) then {
 	VEHICLE_ORDERED_EAST = [false,0];
 	publicVariable "VEHICLE_ORDERED_EAST";
 
+	OPFOR_TELEPORTED = false;
+	publicVariable "OPFOR_TELEPORTED";
+	BLUFOR_TELEPORTED = false;
+	publicVariable "BLUFOR_TELEPORTED";
+
 	russianCredits = 5000;
 	USCredits = 5000;
 
@@ -82,9 +87,16 @@ If(isNil "spawn_help_fnc_compiled") then { call compile preprocessFileLineNumber
 
 if (hasInterface) then {
 
+	checkSpawnButton = {
+		[] spawn {
+			waitUntil {!dialog && !visibleMap};
+			0 = [playerside] execVM "spawn\checkIfSpawned.sqf";
+		};
+	};
+
 	createSpawnButton = {
 		waitUntil {time > 1};
-		0 = createDialog _this;
+		[] call checkSpawnButton;
 	};
 
 	enableSentences false;
@@ -101,7 +113,7 @@ if (hasInterface) then {
 		[] execVM "player\bluforBluforTeleportListener.sqf";
 		[] execVM "player\bluforRussianPointsListener.sqf";
 		if (player == blufor_teamlead) then {
-			"gui_spawn_blufor" call createSpawnButton;
+			[] call createSpawnButton;
 		};
 	};
 
@@ -109,7 +121,7 @@ if (hasInterface) then {
 		[] execVM "player\opforBluforTeleportListener.sqf";
 		[] execVM "player\opforOpforTeleportListener.sqf";
 		if (player == opfor_teamlead) then {
-			"gui_spawn_opfor" spawn createSpawnButton;
+			[] spawn createSpawnButton;
 		};
 	};
 };

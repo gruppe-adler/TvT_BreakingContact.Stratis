@@ -71,6 +71,9 @@ opforTeleporting = {
 	OPFOR_TELEPORT_TARGET = _this;
 	publicVariableServer "OPFOR_TELEPORT_TARGET";
 	debugLog("opfor published target");
+
+	OPFOR_TELEPORTED = true;
+	publicVariable "OPFOR_TELEPORTED";
 };
 
 bluforTeleporting = {
@@ -78,6 +81,9 @@ bluforTeleporting = {
 
 	BLUFOR_TELEPORT_TARGET = _this;
 	publicVariableServer "BLUFOR_TELEPORT_TARGET";
+
+	BLUFOR_TELEPORTED = true;
+	publicVariable "BLUFOR_TELEPORTED";
 };
 
 
