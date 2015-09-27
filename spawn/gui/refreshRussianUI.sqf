@@ -41,8 +41,8 @@ resetRussianUI = {
 		ctrlEnable [1505, true];
 		ctrlEnable [1506, true];
 		ctrlEnable [1507, true];
-		VEHICLE_ORDERED_WEST = [false,0];
-		publicVariable "VEHICLE_ORDERED_WEST";
+		VEHICLE_ORDERED_EAST = [false,0];
+		publicVariable "VEHICLE_ORDERED_EAST";
 			
 };
 
@@ -114,8 +114,8 @@ refreshRussianUI = {
 	_display = findDisplay 1000;
 
 	if (!(_vehicleOrdered == "")) then {
-		VEHICLE_ORDERED_WEST = [true,_vehicleEta];
-		publicVariable "VEHICLE_ORDERED_WEST";
+		VEHICLE_ORDERED_EAST = [true,_vehicleEta];
+		publicVariable "VEHICLE_ORDERED_EAST";
 
 		_display displayCtrl 1600 ctrlSetStructuredText parseText ([_headlineBlocked] call headlineString);
 		ctrlSetText [1501, _pleasewait];
@@ -127,7 +127,7 @@ refreshRussianUI = {
 		ctrlSetText [1507, _pleasewait];
 	};
 	
-	[VEHICLE_ORDERED_WEST] call refreshRussianOrder;
+	[VEHICLE_ORDERED_EAST] call refreshRussianOrder;
 
 	if (_outOfMoney) exitWith {
 		[] call resetRussianUI;
@@ -282,15 +282,15 @@ refreshRussianUI = {
 		{
 			_eta = _eta - 1;
 		
-			VEHICLE_ORDERED_WEST = [true,_eta];
-			publicVariable "VEHICLE_ORDERED_WEST";
-			[VEHICLE_ORDERED_WEST] call refreshRussianOrder;
+			VEHICLE_ORDERED_EAST = [true,_eta];
+			publicVariable "VEHICLE_ORDERED_EAST";
+			[VEHICLE_ORDERED_EAST] call refreshRussianOrder;
 			sleep 1;
 		};
-
+		[_vehicle, RUS_VEHICLE_SPAWN, _extras, _calls] call spawnSupplyDrop;
 		[] call resetRussianUI;
 
-		[_vehicle, RUS_VEHICLE_SPAWN, _extras, _calls] call spawnSupplyDrop;
+		
 	};
 
 };

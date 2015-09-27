@@ -27,7 +27,7 @@ fillRussianSupplies = {
             30,
             100,
             "<t align='center'>100 cr</t>",
-            10,
+            1,
             ["light_hide", 0 ],
             {
             clearWeaponCargoGlobal (_this select 0); 
@@ -42,7 +42,7 @@ fillRussianSupplies = {
             2,
             500,
             "<t align='center'>500 cr</t>",
-            10,
+            1,
             ["light_hide", 0 ],
             {
             clearWeaponCargoGlobal (_this select 0); 
@@ -57,7 +57,7 @@ fillRussianSupplies = {
             2,
             700,
             "<t align='center'>700 cr</t>",
-            10,
+            1,
             ["light_hide", 0 ],
             {
             clearWeaponCargoGlobal (_this select 0); 
@@ -72,7 +72,7 @@ fillRussianSupplies = {
             2,
             2500,
             "<t align='center'>2500 cr</t>",
-            10,
+            1,
             [[]],
             {
             clearWeaponCargoGlobal (_this select 0); 
@@ -87,7 +87,7 @@ fillRussianSupplies = {
             2,
             2000,
             "<t align='center'>2000 cr</t>",
-            10,
+            1,
             [[]],
             {
             clearWeaponCargoGlobal (_this select 0); 
@@ -102,7 +102,7 @@ fillRussianSupplies = {
             2,
             4000,
             "<t align='center'>4000 cr</t>",
-            10,
+            1,
             [[]],
             {
             clearWeaponCargoGlobal (_this select 0); 
@@ -117,7 +117,7 @@ fillRussianSupplies = {
             3,
             700,
             "<t align='center'>700 cr</t>",
-            10,
+            1,
             [[]],
             {
             clearWeaponCargoGlobal (_this select 0); 
@@ -164,7 +164,7 @@ fillUSSupplies = {
             30,
             100,
             "<t align='center'>100 cr</t>",
-            10,
+            1,
             ["hide_backTop", 0, "hide_frontTop", 0 ],
             {
             clearWeaponCargoGlobal (_this select 0); 
@@ -179,7 +179,7 @@ fillUSSupplies = {
             10,
             800,
             "<t align='center'>800 cr</t>",
-            10,
+            1,
             ["light_hide", 0 ],
             {
             clearWeaponCargoGlobal (_this select 0); 
@@ -194,7 +194,7 @@ fillUSSupplies = {
             2,
             1500,
             "<t align='center'>1500 cr</t>",
-            10,
+            1,
             [[]],
             {
             clearWeaponCargoGlobal (_this select 0); 
@@ -209,7 +209,7 @@ fillUSSupplies = {
             1,
             1000,
             "<t align='center'>1000 cr</t>",
-            10,
+            1,
             [[]],
             {
             clearWeaponCargoGlobal (_this select 0); 
@@ -224,7 +224,7 @@ fillUSSupplies = {
             1,
             3000,
             "<t align='center'>3000 cr</t>",
-            10,
+            1,
             [[]],
             {
             clearWeaponCargoGlobal (_this select 0); 
@@ -241,7 +241,7 @@ fillUSSupplies = {
             2,
             2000,
             "<t align='center'>2000 cr</t>",
-            10,
+            1,
             [[]],
             {
             clearWeaponCargoGlobal (_this select 0); 
@@ -256,7 +256,7 @@ fillUSSupplies = {
             1,
             3000,
             "<t align='center'>3000 cr</t>",
-            10,
+            1,
             [[]],
             {
             clearWeaponCargoGlobal (_this select 0); 

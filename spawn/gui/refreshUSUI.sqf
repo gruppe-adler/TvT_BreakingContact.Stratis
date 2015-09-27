@@ -24,8 +24,8 @@ resetUSUI = {
 		ctrlEnable [3505, true];
 		ctrlEnable [3506, true];
 		ctrlEnable [3507, true];
-		VEHICLE_ORDERED_EAST = [false,0];
-		publicVariable "VEHICLE_ORDERED_EAST";
+		VEHICLE_ORDERED_WEST = [false,0];
+		publicVariable "VEHICLE_ORDERED_WEST";
 			
 };
 
@@ -95,8 +95,8 @@ refreshUSUI = {
 	_display = findDisplay 3000;
 
 	if (!(_vehicleOrdered == "")) then {
-		VEHICLE_ORDERED_EAST = [true,_vehicleEta];
-		publicVariable "VEHICLE_ORDERED_EAST";
+		VEHICLE_ORDERED_WEST = [true,_vehicleEta];
+		publicVariable "VEHICLE_ORDERED_WEST";
 
 		_display displayCtrl 3600 ctrlSetStructuredText parseText ([_headlineBlocked] call headlineString);
 		ctrlSetText [3501, _pleasewait];
@@ -108,7 +108,7 @@ refreshUSUI = {
 		ctrlSetText [3507, _pleasewait];
 	};
 
-	[VEHICLE_ORDERED_EAST] call refreshUSOrder;
+	[VEHICLE_ORDERED_WEST] call refreshUSOrder;
 
 	
 
@@ -266,17 +266,18 @@ refreshUSUI = {
 		{
 			_eta = _eta - 1;
 		
-			VEHICLE_ORDERED_EAST = [true,_eta];
-			publicVariable "VEHICLE_ORDERED_EAST";
-			[VEHICLE_ORDERED_EAST] call refreshUSOrder;
+			VEHICLE_ORDERED_WEST = [true,_eta];
+			publicVariable "VEHICLE_ORDERED_WEST";
+			[VEHICLE_ORDERED_WEST] call refreshUSOrder;
 			sleep 1;
 		};
 
 	
 
+		
+		[_vehicle, US_VEHICLE_SPAWN, _extras, _calls] call spawnSupplyDrop;
 		[] call resetUSUI;
 
-		[_vehicle, US_VEHICLE_SPAWN, _extras, _calls] call spawnSupplyDrop;
 	};
 
 };

@@ -3,7 +3,7 @@
 
 DEBUG_MODE = true;
 
-[] execVM "spawn\gui\initGUI.sqf";
+[] execVM "spawn\initGUI.sqf";
 
 TIME_OF_DAY = paramsArray select 0;
 WEATHER_SETTING = paramsArray select 1;
@@ -45,6 +45,11 @@ if (isServer) then {
 	publicVariable "OPFOR_TELEPORT_TARGET";
 	BLUFOR_TELEPORT_TARGET = [0, 0];
 	publicVariable "BLUFOR_TELEPORT_TARGET";
+
+	VEHICLE_ORDERED_WEST = [false,0];
+	publicVariable "VEHICLE_ORDERED_WEST";
+	VEHICLE_ORDERED_EAST = [false,0];
+	publicVariable "VEHICLE_ORDERED_EAST";
 
 	russianCredits = 5000;
 	USCredits = 5000;
