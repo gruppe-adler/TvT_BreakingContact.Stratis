@@ -65,6 +65,9 @@ if (isServer) then {
  	// events/listeners
 	[] execVM "server\russianMarker.sqf";
  	[] execVM "server\teleportListener.sqf";
+
+ 	{if (!isPlayer _x) then {[_x] execVM "loadouts\_client.sqf";};} forEach allUnits;
+ 	
 };
 
 clearInventory = compile preprocessFile "helpers\clearInventory.sqf";

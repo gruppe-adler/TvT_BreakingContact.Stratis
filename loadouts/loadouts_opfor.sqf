@@ -1,86 +1,29 @@
-fillOpforLoadouts = {
-
-	// Russian (emr summer)
-
-	randUniformRussian = 
-	[
-	"rhs_uniform_emr_patchless"
-	];
-
-	randVestRussian = 
-	[
-	"rhs_6b23_digi",
-	"rhs_6b23_digi_6sh92",
-	"rhs_6b23_digi_6sh92_headset_mapcase",
-	"rhs_6b23_digi_6sh92_radio",
-	"rhs_6b23_digi_6sh92_vog",
-	"rhs_6b23_digi_6sh92_vog_headset",
-	"rhs_6b23_digi_crewofficer",
-	"rhs_6b23_digi_crew",
-	"rhs_6b23_digi_engineer",
-	"rhs_6b23_digi_medic",
-	"rhs_6b23_digi_rifleman",
-	"rhs_6b23_digi_sniper"
-	];
-
-	randHeadGearRussian =
-	[
-	"rhs_6b27m_digi",
-	"rhs_6b27m_digi_bala",
-	"rhs_6b27m_digi_ess",
-	"rhs_6b27m_digi_ess_bala"
-	];
-
-	randHeadGearRussianOfficer =
-	[
-	"rhs_fieldcap_digi",
-	"rhs_fieldcap_helm_digi"
-	];
-
-	randBackPackRussian = [
-	"rhs_sidor",
-	"B_Carryall_oli",
-	"rhs_assault_umbts",
-	"rhs_assault_umbts_demo",
-	"rhs_rpg_empty"
-	];
-
-	randWeaponRussian = 
-	[
-	"rhs_weap_M590_8RD",
-	"rhs_weap_pkm",
-	"rhs_weap_pkp",
-	"rhs_weap_ak74m_2mag_camo",
-	"rhs_weap_ak74m_2mag_npz",
-	"rhs_weap_ak74m_camo_npz",
-	"rhs_weap_ak74m_npz",
-	"rhs_weap_ak103_npz",
-	"hgun_P07_F"
-	];
-
-	randLauncherRussian = 
-	[
-	"rhs_weap_rpg7"
-	];
-
-
-	randLauncherTerrorists = 
-	[
-	"rhs_weap_rpg7"
-	];
-
-
-	loadoutInitOpforFinished = true;
+addItemsToUniform = {
+    _unit = _this select 0;
+    _class = _this select 1;
+    _amount = _this select 2;
+    for "_i" from 1 to _amount do {
+        _unit addItemToUniform _class;
+    };
 };
 
-fillOpforVariables = {
-
-	customUniformOpfor = randUniformRussian call BIS_fnc_selectRandom;
-	customVestOpfor = randVestRussian call BIS_fnc_selectRandom;
-	customHeadgearOpfor = randHeadGearRussian call BIS_fnc_selectRandom;
-	customBackpackOpfor = randBackPackRussian call BIS_fnc_selectRandom;
+addMagazinesToVest = {
+    _unit = _this select 0;
+    _class = _this select 1;
+    _amount = _this select 2;
+    for "_i" from 1 to _amount do {
+        _unit addItemToVest _class;
+    };
 };
 
+addMagazinesToBackpack = {
+    _unit = _this select 0;
+    _class = _this select 1;
+    _amount = _this select 2;
+    for "_i" from 1 to _amount do {
+        _unit addItemToBackpack _class;
+    };
+};
 
 opfor_default = {
 	
@@ -98,14 +41,31 @@ opfor_default = {
 
 	comment "Add containers";
 	
-	this forceAddUniform customUniformOpfor;
-	this addVest customVestOpfor;
-	this addHeadgear customHeadgearOpfor;
-	this addBackpack customBackpackOpfor;
+	this forceAddUniform "rhs_uniform_flora_patchless_alt";
+	this addVest "rhs_6b23_ML";
+	this addHeadgear "H_Hat_HelmetT";
+	this addBackpack "rhs_sidor";
 
-	if (OPFORCE == 4) then {
-		this setFace customHeadOpfor;
-	};
+	[this, "ACE_Earplugs", 1] call addItemsToUniform;
+	[this, "ACE_fieldDressing", 6] call addItemsToUniform;
+	[this, "ACE_Morphine", 2] call addItemsToUniform;
+	[this, "ACE_epinephrine", 1] call addItemsToUniform;
+
+	[this, "16Rnd_9x21_Mag", 3] call addItemsToUniform;
+
+	[this, "rhs_30Rnd_762x39mm", 6] call addMagazinesToVest;
+	
+	[this, "SmokeShell", 4] call addMagazinesToVest;
+	[this, "SmokeShellRed", 2] call addMagazinesToVest;
+
+	[this, "rhs_30Rnd_762x39mm_tracer", 3] call addMagazinesToBackpack;
+
+	this addWeapon "Binocular";
+	this addWeapon "rhs_weap_akm";
+	this addWeapon "hgun_Rook40_F";
+	this addPrimaryWeaponItem "optic_Aco";
+	this addPrimaryWeaponItem "acc_flashlight";
+
 	
 	comment "Add items";
 	this linkItem "ItemMap";
@@ -115,7 +75,6 @@ opfor_default = {
 
 };
 
-// below currently not used
 opfor_officer = {
 	
 	this = _this select 0;
@@ -132,10 +91,31 @@ opfor_officer = {
 
 	comment "Add containers";
 	
-	this forceAddUniform customUniformOpfor;
-	this addVest customVestOpfor;
-	this addHeadgear customHeadgearOpfor;
-	this addBackpack customBackpackOpfor;
+	this forceAddUniform "rhs_uniform_flora_patchless_alt";
+	this addVest "rhs_6b23_ML_crewofficer";
+	this addHeadgear "rhs_fieldcap_ml";
+	this addBackpack "tf_rt1523g_big";
+
+	[this, "ACE_Earplugs", 1] call addItemsToUniform;
+	[this, "ACE_fieldDressing", 6] call addItemsToUniform;
+	[this, "ACE_Morphine", 2] call addItemsToUniform;
+	[this, "ACE_epinephrine", 1] call addItemsToUniform;
+
+	[this, "16Rnd_9x21_Mag", 3] call addItemsToUniform;
+
+	[this, "rhs_30Rnd_762x39mm", 6] call addMagazinesToVest;
+	
+	[this, "SmokeShell", 4] call addMagazinesToVest;
+	[this, "SmokeShellRed", 2] call addMagazinesToVest;
+
+	[this, "rhs_30Rnd_762x39mm_tracer", 3] call addMagazinesToBackpack;
+
+	this addWeapon "Binocular";
+	this addWeapon "rhs_weap_akm";
+	this addWeapon "hgun_Rook40_F";
+	this addPrimaryWeaponItem "optic_Aco";
+	this addPrimaryWeaponItem "acc_flashlight";
+
 	
 	comment "Add items";
 	this linkItem "ItemMap";
@@ -161,10 +141,34 @@ opfor_medic = {
 
 	comment "Add containers";
 	
-	this forceAddUniform customUniformOpfor;
-	this addVest customVestOpfor;
-	this addHeadgear customHeadgearOpfor;
-	this addBackpack customBackpackOpfor;
+	this forceAddUniform "rhs_uniform_flora_patchless_alt";
+	this addVest "rhs_6b23_ML_medic";
+	this addHeadgear "H_Hat_HelmetT";
+	this addBackpack "rhs_sidor";
+
+	[this, "ACE_Earplugs", 1] call addItemsToUniform;
+	
+	[this, "ACE_Morphine", 2] call addItemsToUniform;
+	[this, "ACE_epinephrine", 1] call addItemsToUniform;
+
+	[this, "16Rnd_9x21_Mag", 3] call addItemsToUniform;
+
+	[this, "rhs_30Rnd_762x39mm", 6] call addMagazinesToVest;
+	
+	[this, "SmokeShell", 4] call addMagazinesToVest;
+	[this, "SmokeShellRed", 2] call addMagazinesToVest;
+
+	[this, "rhs_30Rnd_762x39mm_tracer", 3] call addMagazinesToBackpack;
+	[this, "ACE_fieldDressing", 24] call addMagazinesToBackpack;
+	[this, "ACE_Morphine", 12] call addMagazinesToBackpack;
+	[this, "ACE_epinephrine", 9] call addMagazinesToBackpack;
+
+	this addWeapon "Binocular";
+	this addWeapon "rhs_weap_akm";
+	this addWeapon "hgun_Rook40_F";
+	this addPrimaryWeaponItem "optic_Aco";
+	this addPrimaryWeaponItem "acc_flashlight";
+
 	
 	comment "Add items";
 	this linkItem "ItemMap";
@@ -174,7 +178,261 @@ opfor_medic = {
 
 };
 
-[] call fillOpforLoadouts;
+opfor_marksman = {
+	
+	this = _this select 0;
 
-waitUntil {loadoutInitOpforFinished};
-[] call fillOpforVariables;
+	comment "Remove existing items";
+	removeAllWeapons this;
+	removeAllItems this;
+	removeAllAssignedItems this;
+	removeUniform this;
+	removeVest this;
+	removeBackpack this;
+	removeHeadgear this;
+	removeGoggles this;
+
+	comment "Add containers";
+	
+	this forceAddUniform "rhs_uniform_flora_patchless_alt";
+	this addVest "rhs_6b23_ML_sniper";
+	this addHeadgear "H_Hat_HelmetT";
+	this addBackpack "rhs_sidor";
+
+	[this, "ACE_Earplugs", 1] call addItemsToUniform;
+	
+	[this, "ACE_fieldDressing", 6] call addItemsToUniform;
+	[this, "ACE_Morphine", 2] call addItemsToUniform;
+	[this, "ACE_epinephrine", 1] call addItemsToUniform;
+
+	[this, "16Rnd_9x21_Mag", 3] call addItemsToUniform;
+
+	[this, "rhs_10Rnd_762x54mmR_7N1", 9] call addMagazinesToBackpack;
+	
+	[this, "SmokeShell", 4] call addMagazinesToVest;
+	[this, "SmokeShellRed", 2] call addMagazinesToVest;
+
+	[this, "rhs_30Rnd_762x39mm_tracer", 3] call addMagazinesToBackpack;
+	
+
+	this addWeapon "Binocular";
+	this addWeapon "rhs_weap_svdp_wd";
+	this addWeapon "hgun_Rook40_F";
+	this addPrimaryWeaponItem "rhsusf_acc_ACOG_d";
+	this addPrimaryWeaponItem "acc_flashlight";
+
+	
+	comment "Add items";
+	this linkItem "ItemMap";
+	this linkItem "ItemCompass";
+	this linkItem "ItemWatch";
+	this linkItem "tf_fadak";
+	this linkItem "rhs_balaclava";
+
+};
+
+opfor_AT = {
+	
+	this = _this select 0;
+
+	comment "Remove existing items";
+	removeAllWeapons this;
+	removeAllItems this;
+	removeAllAssignedItems this;
+	removeUniform this;
+	removeVest this;
+	removeBackpack this;
+	removeHeadgear this;
+	removeGoggles this;
+
+	comment "Add containers";
+	
+	this forceAddUniform "rhs_uniform_flora_patchless_alt";
+	this addVest "rhs_6b23_ML_engineer";
+	this addHeadgear "H_Hat_HelmetT";
+	this addBackpack "rhs_rpg_empty";
+
+	[this, "ACE_Earplugs", 1] call addItemsToUniform;
+	
+	[this, "ACE_fieldDressing", 6] call addItemsToUniform;
+	[this, "ACE_Morphine", 2] call addItemsToUniform;
+	[this, "ACE_epinephrine", 1] call addItemsToUniform;
+
+	[this, "16Rnd_9x21_Mag", 3] call addItemsToUniform;
+
+	[this, "rhs_30Rnd_762x39mm", 6] call addMagazinesToBackpack;
+	[this, "rhs_30Rnd_762x39mm_tracer", 3] call addMagazinesToBackpack;
+	
+	[this, "SmokeShell", 4] call addMagazinesToVest;
+	[this, "SmokeShellRed", 2] call addMagazinesToVest;
+
+	[this, "rhs_rpg7_PG7VL_mag", 3] call addMagazinesToBackpack;
+	
+
+	this addWeapon "Binocular";
+	this addWeapon "rhs_weap_akm";
+	this addWeapon "hgun_Rook40_F";
+	this addWeapon "rhs_weap_rpg7";
+	this addPrimaryWeaponItem "acc_flashlight";
+
+	
+	comment "Add items";
+	this linkItem "ItemMap";
+	this linkItem "ItemCompass";
+	this linkItem "ItemWatch";
+	this linkItem "tf_fadak";
+
+};
+
+opfor_MG = {
+	
+	this = _this select 0;
+
+	comment "Remove existing items";
+	removeAllWeapons this;
+	removeAllItems this;
+	removeAllAssignedItems this;
+	removeUniform this;
+	removeVest this;
+	removeBackpack this;
+	removeHeadgear this;
+	removeGoggles this;
+
+	comment "Add containers";
+	
+	this forceAddUniform "rhs_uniform_flora_patchless_alt";
+	this addVest "rhs_6b23_ML_6sh92_vog";
+	this addHeadgear "H_Hat_HelmetT";
+	this addBackpack "rhs_sidor";
+
+	[this, "ACE_Earplugs", 1] call addItemsToUniform;
+	
+	[this, "ACE_fieldDressing", 6] call addItemsToUniform;
+	[this, "ACE_Morphine", 2] call addItemsToUniform;
+	[this, "ACE_epinephrine", 1] call addItemsToUniform;
+
+	[this, "16Rnd_9x21_Mag", 3] call addItemsToUniform;
+
+	[this, "rhs_100Rnd_762x54mmR_green", 2] call addMagazinesToBackpack;
+	[this, "rhs_100Rnd_762x54mmR", 6] call addMagazinesToBackpack;
+	
+	[this, "SmokeShell", 4] call addMagazinesToVest;
+	[this, "SmokeShellRed", 2] call addMagazinesToVest;
+
+	
+	
+
+	this addWeapon "Binocular";
+	this addWeapon "rhs_weap_pkm";
+	this addWeapon "hgun_Rook40_F";
+	this addPrimaryWeaponItem "acc_flashlight";
+
+	
+	comment "Add items";
+	this linkItem "ItemMap";
+	this linkItem "ItemCompass";
+	this linkItem "ItemWatch";
+	this linkItem "tf_fadak";
+
+};
+
+
+opfor_repair = {
+	
+	this = _this select 0;
+
+	comment "Remove existing items";
+	removeAllWeapons this;
+	removeAllItems this;
+	removeAllAssignedItems this;
+	removeUniform this;
+	removeVest this;
+	removeBackpack this;
+	removeHeadgear this;
+	removeGoggles this;
+
+	comment "Add containers";
+	
+	this forceAddUniform "rhs_uniform_flora_patchless_alt";
+	this addVest "rhs_6b23_ML_6sh92_headset";
+	this addHeadgear "H_Hat_HelmetT";
+	this addBackpack "rhs_sidor";
+
+	[this, "ACE_Earplugs", 1] call addItemsToUniform;
+	[this, "ACE_fieldDressing", 6] call addItemsToUniform;
+	[this, "ACE_Morphine", 2] call addItemsToUniform;
+	[this, "ACE_epinephrine", 1] call addItemsToUniform;
+
+	[this, "16Rnd_9x21_Mag", 3] call addItemsToUniform;
+
+	[this, "rhs_30Rnd_762x39mm", 6] call addMagazinesToVest;
+	
+	[this, "SmokeShell", 4] call addMagazinesToVest;
+	[this, "SmokeShellRed", 2] call addMagazinesToVest;
+
+	[this, "rhs_30Rnd_762x39mm_tracer", 3] call addMagazinesToBackpack;
+
+	this addWeapon "Binocular";
+	this addWeapon "rhs_weap_akm";
+	this addWeapon "hgun_Rook40_F";
+	this addPrimaryWeaponItem "optic_Aco";
+	this addPrimaryWeaponItem "acc_flashlight";
+
+	
+	comment "Add items";
+	this linkItem "ItemMap";
+	this linkItem "ItemCompass";
+	this linkItem "ItemWatch";
+	this linkItem "tf_fadak";
+
+};
+
+opfor_crew = {
+	
+	this = _this select 0;
+
+	comment "Remove existing items";
+	removeAllWeapons this;
+	removeAllItems this;
+	removeAllAssignedItems this;
+	removeUniform this;
+	removeVest this;
+	removeBackpack this;
+	removeHeadgear this;
+	removeGoggles this;
+
+	comment "Add containers";
+	
+	this forceAddUniform "rhs_uniform_flora_patchless_alt";
+	this addVest "rhs_6b23_ML_6sh92_headset";
+	this addHeadgear "H_Hat_HelmetT";
+	this addBackpack "rhs_sidor";
+
+	[this, "ACE_Earplugs", 1] call addItemsToUniform;
+	[this, "ACE_fieldDressing", 6] call addItemsToUniform;
+	[this, "ACE_Morphine", 2] call addItemsToUniform;
+	[this, "ACE_epinephrine", 1] call addItemsToUniform;
+
+	[this, "16Rnd_9x21_Mag", 3] call addItemsToUniform;
+
+	[this, "rhs_30Rnd_762x39mm", 6] call addMagazinesToVest;
+	
+	[this, "SmokeShell", 4] call addMagazinesToVest;
+	[this, "SmokeShellRed", 2] call addMagazinesToVest;
+
+	[this, "rhs_30Rnd_762x39mm_tracer", 3] call addMagazinesToBackpack;
+
+	this addWeapon "Binocular";
+	this addWeapon "rhs_weap_akm";
+	this addWeapon "hgun_Rook40_F";
+	this addPrimaryWeaponItem "optic_Aco";
+	this addPrimaryWeaponItem "acc_flashlight";
+
+	
+	comment "Add items";
+	this linkItem "ItemMap";
+	this linkItem "ItemCompass";
+	this linkItem "ItemWatch";
+	this linkItem "tf_fadak";
+
+};

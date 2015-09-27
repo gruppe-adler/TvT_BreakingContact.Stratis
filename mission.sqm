@@ -1387,7 +1387,7 @@ class Mission
 					special="NONE";
 					id=39;
 					side="EAST";
-					vehicle="O_soldier_repair_F";
+					vehicle="O_soldier_exp_F";
 					player="PLAY CDG";
 					rank="SERGEANT";
 					skill=0.5;
@@ -1822,7 +1822,7 @@ class Mission
 					special="NONE";
 					id=69;
 					side="EAST";
-					vehicle="O_soldier_repair_F";
+					vehicle="O_soldier_exp_F";
 					player="PLAY CDG";
 					rank="SERGEANT";
 					skill=0.5;
@@ -2606,7 +2606,7 @@ class Mission
 					special="NONE";
 					id=124;
 					side="WEST";
-					vehicle="B_soldier_repair_F";
+					vehicle="B_soldier_M_F";
 					player="PLAY CDG";
 					skill=0.40000001;
 					description="Repair Specialist";
@@ -2689,7 +2689,7 @@ class Mission
 					special="NONE";
 					id=130;
 					side="WEST";
-					vehicle="B_soldier_repair_F";
+					vehicle="B_soldier_M_F";
 					player="PLAY CDG";
 					skill=0.40000001;
 					description="Repair Specialist";
