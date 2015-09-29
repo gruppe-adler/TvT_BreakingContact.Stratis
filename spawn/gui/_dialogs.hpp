@@ -956,7 +956,7 @@ class gui_spawn_blufor
 
 		class Controls {
 
-			class btn_spawn_blufor: RscButton
+			class btn_spawn_blufor: RscStructuredText
 			{
 				idc = 8002;
 				text = "Warte auf Opfor...";
@@ -964,10 +964,7 @@ class gui_spawn_blufor
 				y = 5 * GUI_GRID_H + GUI_GRID_Y;
 				w = 12 * GUI_GRID_W;
 				h = 3 * GUI_GRID_H;
-				colorText[] = {0,0,0,1};
-				colorBackground[] = {0.81,0.55,0.12,1};
-				tooltip = "Warte auf Opfor...";
-				onButtonClick = "openMap [true,false]; [] execVM 'mission_setup\teleport.sqf'; closeDialog 0";
+				colorBackground[] = {0,0,0,1};
 			};
 		};
 };
@@ -998,7 +995,7 @@ class gui_spawn_opfor
 			class text_spawn_opfor: RscStructuredText
 			{
 				idc = 3202;
-				text = "<t align='center' size='1.3'>TvT Breaking Contact</t>";
+				text = "<t align='center' size='1.2'>TvT Breaking Contact</t>";
 				x = 14 * GUI_GRID_W + GUI_GRID_X;
 				y = 1 * GUI_GRID_H + GUI_GRID_Y;
 				w = 12 * GUI_GRID_W;
@@ -1045,7 +1042,7 @@ class gui_spawn_waitplease
 
 		class Controls {
 
-			class btn_spawn_opfor: RscButton
+			class btn_spawn_opfor: RscStructuredText
 			{
 				idc = 8022;
 				text = $STR_GRAD_choose_spawn_location;
@@ -1053,10 +1050,8 @@ class gui_spawn_waitplease
 				y = 2 * GUI_GRID_H + GUI_GRID_Y;
 				w = 12 * GUI_GRID_W;
 				h = 3 * GUI_GRID_H;
-				colorText[] = {0,0,0,1};
-				colorBackground[] = {0.81,0.55,0.12,1};
-				tooltip = $STR_GRAD_choose_spawn_location;
-				onButtonClick = "openMap [true,false]; [] execVM 'mission_setup\teleport.sqf'; closeDialog 0";
+				colorBackground[] = {0,0,0,1};
+				
 			};
 		};
 };

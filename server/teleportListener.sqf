@@ -22,25 +22,11 @@ createOpforStuff =  {
 
 createBluforStuff = {
 	_position = _this;
-	blufor_hmvv =  [_position, 10, "rhsusf_m1025_d_m2"] call spawnStuff;
-
-	sleep 2;
-	[opfor_teamlead, blufor_hmvv, true] call ACE_VehicleLock_fnc_addKeyForVehicle;
-	blufor_observer_heli = [_position, 10, "I_Heli_light_03_unarmed_F"] call spawnStuff;
-
-	sleep 2;
-	[opfor_teamlead, blufor_observer_heli, true] call ACE_VehicleLock_fnc_addKeyForVehicle;
-	[blufor_observer_heli] call clearInventory;
-
-	[blufor_observer_heli,["green",1],true] call BIS_fnc_initVehicle;
-
 	
+	_spawn = [_position, "TK_WarfareBUAVterminal_Base_EP1"] call findBluforPos;
 
-	US_base = [_position, 10, "US_WarfareBUAVterminal_Base_EP1"] call spawnStuff;
-	US_base addAction["<t color=""#93E352"">" + localize "str_GRAD_choose_spawn_location",{0 = createDialog "USSupplyGUI"; [USSupplies, false, 0, "","",""] call refreshUSUI;}, _Args, 1, false, true, "","_this distance _target < 5"];
-
-	_spawn = [_position, 25, "TK_WarfareBUAVterminal_Base_EP1"] call findSimplePos;
-
+	_spawn call bluforTeleporting;
+	
 	US_VEHICLE_SPAWN = _spawn;
 	publicVariable "US_VEHICLE_SPAWN";
 	_US_spawnPad = createVehicle ["Land_HelipadCivil_F",US_VEHICLE_SPAWN,[],0,"NONE"];
@@ -50,18 +36,19 @@ _OPFOR_TELEPORT_TARGET_listener = {
 	_pos = _this select 1;
 	_pos spawn createOpforStuff;
 	publicVariable "OPFOR_TELEPORT_TARGET";
+	//_pos spawn createBluforStuff;
 };
 
-
+/*
 _BLUFOR_TELEPORT_TARGET_listener = {
 	_pos = _this select 1;
 	_pos spawn createBluforStuff;
 	publicVariable "BLUFOR_TELEPORT_TARGET";
-};
+};*/
 
 
 "OPFOR_TELEPORT_TARGET" addPublicVariableEventHandler _OPFOR_TELEPORT_TARGET_listener;
-"BLUFOR_TELEPORT_TARGET" addPublicVariableEventHandler _BLUFOR_TELEPORT_TARGET_listener;
+/*"BLUFOR_TELEPORT_TARGET" addPublicVariableEventHandler _BLUFOR_TELEPORT_TARGET_listener;*/
 
 // runs in SP to emulate addPublicVariableEventHandler (which doesnt work in SP)
 if (!isMultiplayer) then {
@@ -70,12 +57,13 @@ if (!isMultiplayer) then {
 		[0, OPFOR_TELEPORT_TARGET] call _this;
 	};
 };
+/*
 if (!isMultiplayer) then {
 	_BLUFOR_TELEPORT_TARGET_listener spawn {
 		waitUntil {BLUFOR_TELEPORT_TARGET select 0 != 0};
 		[0, OPFOR_TELEPORT_TARGET] call _this;
 	};
-};
+};*/
 
 
 

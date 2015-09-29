@@ -13,6 +13,20 @@ TIME_ACCELERATION = paramsArray select 4;
 POINTS_NEEDED_FOR_VICTORY = paramsArray select 5;
 AR3PLAY_ENABLE_REPLAY = (paramsArray select 6) == 1;
 AR3PLAY_IS_STREAMABLE = (paramsArray select 7) == 1;
+custom_overcast = 1;
+
+setCustomWeather = {
+	skipTime -24; 86400 setOvercast (_this select 0); skipTime 24;
+};
+
+switch (WEATHER_SETTING) do {
+	case 0: {[0] call setCustomWeather;};
+	case 1: {[0.5] call setCustomWeather;};
+	case 2: {[1] call setCustomWeather;};
+	case 3: {[random 1] call setCustomWeather;};
+	default {[random 1] call setCustomWeather;};
+};
+
 
 if (!isMultiplayer) then { // Editor
 	{_x disableAI "MOVE"} forEach allUnits;
@@ -56,8 +70,12 @@ if (isServer) then {
 	BLUFOR_TELEPORTED = false;
 	publicVariable "BLUFOR_TELEPORTED";
 
-	russianCredits = 5000;
-	USCredits = 5000;
+
+	//_playercount = count allPlayers;
+	//_bonusPerPlayer = _playercount * 100;
+
+	russianCredits = 5000; // + _bonusPerPlayer;
+	USCredits = 5000; // + _bonusPerPlayer;
 
 	0 = [russianCredits,USCredits] execVM "spawn\gui\addPublicVariableEventhandler.sqf";
 
@@ -82,6 +100,7 @@ call compile preprocessFile "islandConfig.sqf";
 call compile preprocessfile "SHK_pos\shk_pos_init.sqf";
 // findsimplePos
 call compile preprocessfile "helpers\findSimplePos.sqf";
+call compile preprocessfile "helpers\findBluforPos.sqf";
 
 If(isNil "spawn_help_fnc_compiled") then { call compile preprocessFileLineNumbers "helpers\findPos.sqf"; }; // TODO why the if condition here?
 
@@ -107,21 +126,19 @@ if (hasInterface) then {
 	[] execVM "player\allXXXSurrenderedListener.sqf";
 	[player] execVM "loadouts\_client.sqf";
 
+	/*
 	if (playerSide == west) then {
 		[] execVM "player\russianMarker.sqf";
 		[] execVM "player\bluforOpforTeleportListener.sqf";
 		[] execVM "player\bluforBluforTeleportListener.sqf";
 		[] execVM "player\bluforRussianPointsListener.sqf";
-		if (player == blufor_teamlead) then {
-			[] call createSpawnButton;
-		};
+		[] call createSpawnButton;
 	};
 
 	if (playerSide == east) then {
+		[] execVM "player\russianMarker.sqf";
 		[] execVM "player\opforBluforTeleportListener.sqf";
 		[] execVM "player\opforOpforTeleportListener.sqf";
-		if (player == opfor_teamlead) then {
-			[] spawn createSpawnButton;
-		};
-	};
+		[] call createSpawnButton;		
+	};*/
 };

@@ -1,15 +1,14 @@
-findSimplePos = {
+findBluforPos = {
 
 	_nearestPosition = [];
 	_center = _this select 0;
-	_max_distance = _this select 1;
-	_unitType = _this select 2;
+	_unitType = _this select 1;
 
 
 	_distanceToSearch = 10;
 
 	while {count _nearestPosition < 1} do {
-		_nearestPosition = [[_center,[0,_max_distance], random 360,0,[1,300],[_distanceToSearch,_unitType]] call SHK_pos];
+		_nearestPosition = [[_center,[MINIMAL_BLUFOR_SPAWN_DISTANCE,MAXIMAL_BLUFOR_SPAWN_DISTANCE], random 360,0,[1,400],[_distanceToSearch,_unitType]] call SHK_pos];
 		_distanceToSearch = _distanceToSearch + 10;
 		_tempPos = _nearestPosition select 0;
 

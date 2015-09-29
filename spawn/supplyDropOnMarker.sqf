@@ -9,16 +9,26 @@
 
 
 		
-		spawnSupplyDrop = {
-			_vehicleType = _this select 0;	//ammocrate class for blufor, feel free to change to whichever box you desire
-			_pos = _this select 1;
-	        _chuteType = "B_Parachute_02_F";	//parachute for blufor, for opfor and greenfor replace the 'B' with 'O' or 'G' respectively
+spawnSupplyDrop = {
+	_vehicleType = _this select 0;	//ammocrate class for blufor, feel free to change to whichever box you desire
+	_pos = _this select 1;
+    _chuteType = "B_Parachute_02_F";	//parachute for blufor, for opfor and greenfor replace the 'B' with 'O' or 'G' respectively
 
-	        _init = _this select 2;
-	        _calls = _this select 3;
+    _init = _this select 2;
+    _calls = _this select 3;
 
-	    
+    _vehicle = createVehicle [_vehicleType, _pos, [], 0, "NONE"];
 
+	[_vehicle] call _calls;
+	sleep 0.1;
+
+	// adjust vehicle (remove lamp covers and stuff)
+	if (count _init > 0) then {
+ 		[_vehicle, nil, _init] call BIS_fnc_initVehicle;
+	};
+	sleep 0.1;
+};
+	        /*
 	        _origWind = wind;
 	        _origWindForce = windStr;
 
@@ -64,4 +74,4 @@
 
 	        0 setWindForce _origWindForce;
 	        setWind [_origWind select 0, _origWind select 1, true];
-		};
+		};*/

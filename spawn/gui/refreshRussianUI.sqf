@@ -109,6 +109,7 @@ refreshRussianUI = {
 	_headlineBlocked = "Anforderung läuft";
 	_moneyLeft = "<t align='left'>" + str (_array select 0) + "</t>";
 
+	diag_log format ["_array is %1, _moneyLeft is %2",_array,_moneyLeft];
 
 	disableSerialization;
 	_display = findDisplay 1000;
