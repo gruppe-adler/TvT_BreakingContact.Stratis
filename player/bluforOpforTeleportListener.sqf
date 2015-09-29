@@ -18,10 +18,11 @@ createBluforSpawnLimitsMarkers = {
 _OPFOR_TELEPORT_TARGET_listener = {
 	_pos = _this select 1;
 
+	/*
 	_pos call createBluforSpawnLimitsMarkers;
 	if (player == blufor_teamlead) then {
 		hintSilent "Jetzt Spawnpunkt aussuchen!";
-	}
+	};*/
 
 };
 

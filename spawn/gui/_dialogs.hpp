@@ -943,7 +943,7 @@ class gui_spawn_blufor
 
 		class ControlsBackground
 		{
-			class dlgBackground: background
+			class gui_spawn_blufor_bg: background
 			{
 				idc = 8001;
 				x = 10 * GUI_GRID_W + GUI_GRID_X;
@@ -979,7 +979,7 @@ class gui_spawn_opfor
 
 		class ControlsBackground
 		{
-			class dlgBackground: background
+			class gui_spawn_opfor_bg: background
 			{
 				idc = 8011;
 				x = 10 * GUI_GRID_W + GUI_GRID_X;
@@ -1029,7 +1029,7 @@ class gui_spawn_waitplease
 
 		class ControlsBackground
 		{
-			class dlgBackground: background
+			class gui_spawn_waitplease_bg: background
 			{
 				idc = 8021;
 				x = 10 * GUI_GRID_W + GUI_GRID_X;
@@ -1042,7 +1042,7 @@ class gui_spawn_waitplease
 
 		class Controls {
 
-			class btn_spawn_opfor: RscStructuredText
+			class btn_wait_opfor: RscStructuredText
 			{
 				idc = 8022;
 				text = $STR_GRAD_choose_spawn_location;

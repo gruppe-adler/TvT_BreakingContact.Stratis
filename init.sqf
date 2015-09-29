@@ -18,14 +18,14 @@ custom_overcast = 1;
 setCustomWeather = {
 	skipTime -24; 86400 setOvercast (_this select 0); skipTime 24;
 };
-
+/*
 switch (WEATHER_SETTING) do {
 	case 0: {[0] call setCustomWeather;};
 	case 1: {[0.5] call setCustomWeather;};
 	case 2: {[1] call setCustomWeather;};
 	case 3: {[random 1] call setCustomWeather;};
 	default {[random 1] call setCustomWeather;};
-};
+};*/
 
 
 if (!isMultiplayer) then { // Editor
@@ -93,6 +93,7 @@ if (isServer) then {
  	
 };
 
+
 clearInventory = compile preprocessFile "helpers\clearInventory.sqf";
 spawnStuff = compile preprocessFile "helpers\spawnStuff.sqf";
 call compile preprocessFile "islandConfig.sqf";
@@ -104,6 +105,7 @@ call compile preprocessfile "helpers\findBluforPos.sqf";
 
 If(isNil "spawn_help_fnc_compiled") then { call compile preprocessFileLineNumbers "helpers\findPos.sqf"; }; // TODO why the if condition here?
 
+
 if (hasInterface) then {
 
 	checkSpawnButton = {
@@ -114,8 +116,9 @@ if (hasInterface) then {
 	};
 
 	createSpawnButton = {
-		waitUntil {time > 1};
-		[] call checkSpawnButton;
+		waitUntil {!isNull player && time > 1};
+		diag_log format ["createspawnbutton executed"];
+		// [] call checkSpawnButton;
 	};
 
 	enableSentences false;
@@ -126,19 +129,19 @@ if (hasInterface) then {
 	[] execVM "player\allXXXSurrenderedListener.sqf";
 	[player] execVM "loadouts\_client.sqf";
 
-	/*
+	
 	if (playerSide == west) then {
 		[] execVM "player\russianMarker.sqf";
 		[] execVM "player\bluforOpforTeleportListener.sqf";
 		[] execVM "player\bluforBluforTeleportListener.sqf";
 		[] execVM "player\bluforRussianPointsListener.sqf";
-		[] call createSpawnButton;
+		//[] spawn createSpawnButton;
 	};
 
 	if (playerSide == east) then {
 		[] execVM "player\russianMarker.sqf";
 		[] execVM "player\opforBluforTeleportListener.sqf";
 		[] execVM "player\opforOpforTeleportListener.sqf";
-		[] call createSpawnButton;		
-	};*/
+		//[] spawn createSpawnButton;
+	};
 };

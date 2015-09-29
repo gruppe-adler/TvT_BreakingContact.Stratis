@@ -1,3 +1,7 @@
+
+
+diag_log format ["checkifspawned executed"];
+
 if (!OPFOR_TELEPORTED && (_this select 0 == east)) exitWith {
 	if (player == opfor_teamlead) then {
 		0 = createDialog "gui_spawn_opfor";
@@ -19,5 +23,3 @@ if (!BLUFOR_TELEPORTED && (_this select 0 == west)) exitWith {
 	titleCut ["Mission Setup", "BLACK", 999];
 	[] call checkSpawnButton;
 };
-
-cutText ["", "BLACK IN", 1];
