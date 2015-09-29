@@ -49,7 +49,7 @@ class Params
 		title = "Allowed Spawn Distance Minimum BLUFOR";
 		values[] = {1000,2000,3000};
 		texts[] = {"1km","2km","3km"};
-		default = 2000;
+		default = 3000;
 	};
 
 	class AllowedSpawnDistanceMaximum
@@ -57,7 +57,7 @@ class Params
 		title = "Allowed Spawn Distance Maximum BLUFOR";
 		values[] = {4000,5000,6000};
 		texts[] = {"4km","5km","6km"};
-		default = 6000;
+		default = 4000;
 	};
 
 	class Zeitbeschleunigung

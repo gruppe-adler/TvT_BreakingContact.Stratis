@@ -18,14 +18,15 @@ custom_overcast = 1;
 setCustomWeather = {
 	skipTime -24; 86400 setOvercast (_this select 0); skipTime 24;
 };
-/*
+
+
 switch (WEATHER_SETTING) do {
 	case 0: {[0] call setCustomWeather;};
 	case 1: {[0.5] call setCustomWeather;};
 	case 2: {[1] call setCustomWeather;};
 	case 3: {[random 1] call setCustomWeather;};
 	default {[random 1] call setCustomWeather;};
-};*/
+};
 
 
 if (!isMultiplayer) then { // Editor
@@ -92,7 +93,7 @@ if (isServer) then {
  	{if (!isPlayer _x) then {[_x] execVM "loadouts\_client.sqf";};} forEach allUnits;
  	
 };
-
+diag_log format ["setup: server done"];
 
 clearInventory = compile preprocessFile "helpers\clearInventory.sqf";
 spawnStuff = compile preprocessFile "helpers\spawnStuff.sqf";
@@ -105,33 +106,38 @@ call compile preprocessfile "helpers\findBluforPos.sqf";
 
 If(isNil "spawn_help_fnc_compiled") then { call compile preprocessFileLineNumbers "helpers\findPos.sqf"; }; // TODO why the if condition here?
 
+diag_log format ["setup: clientandserver done"];
 
 if (hasInterface) then {
 
 	checkSpawnButton = {
-		[] spawn {
-			waitUntil {!dialog && !visibleMap};
-			0 = [playerside] execVM "spawn\checkIfSpawned.sqf";
-		};
+		waitUntil {!dialog && !visibleMap};
+		if (BLUFOR_TELEPORTED) exitWith {cutText ["", "BLACK IN", 1];};
+		0 = [playerside] execVM "spawn\checkIfSpawned.sqf";
 	};
 
 	createSpawnButton = {
 		waitUntil {!isNull player && time > 1};
 		diag_log format ["createspawnbutton executed"];
-		// [] call checkSpawnButton;
+		[] spawn checkSpawnButton;
 	};
 
 	enableSentences false;
 
-	[] execVM "player\intro.sqf";
-	[] execVM "player\setup\helpBriefing.sqf";
-	[] execVM "player\setup\adjustInitialSpawnPosition.sqf";
-	[] execVM "player\allXXXSurrenderedListener.sqf";
-	[player] execVM "loadouts\_client.sqf";
+	
+	[] execVM "player\intro.sqf"; diag_log format ["setup: intro initiated"];
+
+	[] execVM "player\setup\helpBriefing.sqf"; diag_log format ["setup: briefing initiated"];
+
+	[] execVM "player\setup\adjustInitialSpawnPosition.sqf"; diag_log format ["setup: initial spawn position initiated"];
+
+	
+	[] execVM "player\allXXXSurrenderedListener.sqf"; diag_log format ["setup: surrenderlistener initiated"];
+	[player] execVM "loadouts\_client.sqf"; diag_log format ["setup: loadouts initiated"];
 
 	
 	if (playerSide == west) then {
-		[] execVM "player\russianMarker.sqf";
+		[] execVM "player\russianMarker.sqf"; 
 		[] execVM "player\bluforOpforTeleportListener.sqf";
 		[] execVM "player\bluforBluforTeleportListener.sqf";
 		[] execVM "player\bluforRussianPointsListener.sqf";
@@ -139,9 +145,9 @@ if (hasInterface) then {
 	};
 
 	if (playerSide == east) then {
-		[] execVM "player\russianMarker.sqf";
-		[] execVM "player\opforBluforTeleportListener.sqf";
-		[] execVM "player\opforOpforTeleportListener.sqf";
-		//[] spawn createSpawnButton;
+		[] execVM "player\russianMarker.sqf"; diag_log format ["setup: russianmarker initiated"];
+		[] execVM "player\opforBluforTeleportListener.sqf"; diag_log format ["setup: opforBluforTeleportListener initiated"];
+		[] execVM "player\opforOpforTeleportListener.sqf"; diag_log format ["setup: opforOpforTeleportListener initiated"];
+		[] spawn createSpawnButton; diag_log format ["setup: createSpawnButton initiated"];
 	};
 };

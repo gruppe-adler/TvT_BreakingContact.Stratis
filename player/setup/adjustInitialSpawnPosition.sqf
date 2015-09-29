@@ -18,4 +18,4 @@ if (side player == blufor) then {
 _msg = format["moving player to %1 ...", _playerPosition];
 debugLog(_msg);
 
-[player, _playerPosition] execVM "mission_setup\teleportUnitToEmptySpot.sqf";
+//[player, _playerPosition] execVM "mission_setup\teleportUnitToEmptySpot.sqf";

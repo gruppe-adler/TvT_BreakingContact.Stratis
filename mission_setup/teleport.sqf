@@ -7,10 +7,6 @@ checkWater = {
 	};
 };
 
-
-cutText ["", "PLAIN", 0];
-
-
 if (player == opfor_teamlead) then {
 	[
 		"teleportClickOpf",
@@ -27,7 +23,7 @@ if (player == opfor_teamlead) then {
 		}
 	] call BIS_fnc_addStackedEventHandler ;
 };
-/*
+
 if (player == blufor_teamlead) then {
 	[
 		"teleportClickBlu",
@@ -47,7 +43,7 @@ if (player == blufor_teamlead) then {
 			};
 		}
 	] call BIS_fnc_addStackedEventHandler;
-};*/
+};
 
 opforTeleporting = {
 	OPFOR_TELEPORT_TARGET = _this;

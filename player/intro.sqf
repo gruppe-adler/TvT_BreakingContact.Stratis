@@ -1,4 +1,4 @@
-cutText ["", "BLACK FADED"];
+/* cutText ["", "BLACK FADED"]; */
 
 _BLUFOR_TELEPORT_TARGET_listener = {
 	_pos = _this select 1;

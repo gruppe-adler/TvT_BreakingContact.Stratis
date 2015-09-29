@@ -2,7 +2,7 @@
 xxx = createMarkerLocal ["opfor_marker", [0, 0, 0]];
 "opfor_marker" setMarkerShapeLocal "ELLIPSE";
 "opfor_marker" setMarkerTypeLocal "mil_unknown";
-"opfor_marker" setMarkerColorLocal "ColorRed";
+"opfor_marker" setMarkerColorLocal "ColorOpfor";
 "opfor_marker" setMarkerAlphaLocal 1;
 "opfor_marker" setMarkerSizeLocal [1, 1];
 "opfor_marker" setMarkerBrushLocal "Border";
@@ -35,9 +35,9 @@ markerAnimation = {
 };
 
 ensureMarkerAnimation = {
-	_maxSize = 200; //marker precision (radius)
+	_maxSize = 250; //marker precision (radius)
 	_size = 1;
-	_animationSpeed = 0.05;
+	_animationSpeed = 0.01;
 
 	if (!markerAnimationIsRunning) then {
 
