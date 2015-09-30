@@ -5,12 +5,15 @@ xxx = createMarkerLocal ["opfor_marker", [0, 0, 0]];
 "opfor_marker" setMarkerColorLocal "ColorOpfor";
 "opfor_marker" setMarkerAlphaLocal 1;
 "opfor_marker" setMarkerSizeLocal [1, 1];
-"opfor_marker" setMarkerBrushLocal "Border";
+"opfor_marker" setMarkerBrushLocal "SolidFull";
 
 markerAnimationIsRunning = false;
 
 markerAnimation = {
 	private ["_pulseSpeed","_pulsesize","_pulseMaxSize", "_modifier"];
+
+	playSound "beep";
+	cutRsc ["gui_intel_paper","PLAIN",0];
 
 	markerAnimationIsRunning = true;
 	_pulsesize = _this select 0;
@@ -25,7 +28,7 @@ markerAnimation = {
 			_modifier = 0.3;
 		};
 		_pulsesize = _pulsesize + _modifier;
-		_modifier = _modifier + 0.3;
+		_modifier = _modifier + 0.1;
 		"opfor_marker" setMarkerAlphaLocal 1 - (_pulsesize/_pulseMaxSize);
 		"opfor_marker" setMarkerSizeLocal [_pulsesize, _pulsesize];
 		sleep _pulseSpeed;
@@ -37,7 +40,7 @@ markerAnimation = {
 ensureMarkerAnimation = {
 	_maxSize = 250; //marker precision (radius)
 	_size = 1;
-	_animationSpeed = 0.01;
+	_animationSpeed = 0.02;
 
 	if (!markerAnimationIsRunning) then {
 

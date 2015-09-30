@@ -21,7 +21,7 @@ if (player == opfor_teamlead) then {
 				hint str _exception;
 			};
 		}
-	] call BIS_fnc_addStackedEventHandler ;
+	] call BIS_fnc_addStackedEventHandler;
 };
 
 if (player == blufor_teamlead) then {
@@ -31,13 +31,10 @@ if (player == blufor_teamlead) then {
 		{
 			try {
 				if (OPFOR_TELEPORT_TARGET select 0 == 0) then { throw "opfor not yet teleported" };
-				_pos call checkWater;
-				_distance = _pos distance (getMarkerPos "opfor_marker");
-				_distance call checkBluforSpawndistance;
 
 				["teleportClickBlu", "onMapSingleClick"] call BIS_fnc_removeStackedEventHandler;
 
-				_pos call bluforTeleporting;
+				//_pos call bluforTeleporting;
 			} catch {
 				hint str _exception;
 			};

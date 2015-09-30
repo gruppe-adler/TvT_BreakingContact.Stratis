@@ -7,7 +7,7 @@ DEBUG_MODE = true;
 
 TIME_OF_DAY = paramsArray select 0;
 WEATHER_SETTING = paramsArray select 1;
-BLUFOR_SPAWN_DISTANCE = paramsArray select 2;
+BLUFOR_SPAWN_DISTANCE = (paramsArray select 2) * 2;
 TIME_ACCELERATION = paramsArray select 3;
 POINTS_NEEDED_FOR_VICTORY = paramsArray select 4;
 AR3PLAY_ENABLE_REPLAY = (paramsArray select 5) == 1;
@@ -109,6 +109,8 @@ diag_log format ["setup: clientandserver done"];
 
 if (hasInterface) then {
 
+
+
 	checkSpawnButton = {
 		waitUntil {!dialog && !visibleMap};
 		if (BLUFOR_TELEPORTED) exitWith {cutText ["", "BLACK IN", 1];};
@@ -147,4 +149,5 @@ if (hasInterface) then {
 		[] execVM "player\opforOpforTeleportListener.sqf"; diag_log format ["setup: opforOpforTeleportListener initiated"];
 		[] spawn createSpawnButton; diag_log format ["setup: createSpawnButton initiated"];
 	};
+	waitUntil {!isNull player};
 };

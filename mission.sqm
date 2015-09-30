@@ -6,7 +6,6 @@ class Mission
 		"A3_Characters_F_BLUFOR",
 		"a3_characters_f",
 		"A3_Characters_F_OPFOR",
-		"A3_Supplies_F_Heli_CargoNets",
 		"a3_map_stratis",
 		"ace_common",
 		"ace_nametags",
@@ -58,7 +57,6 @@ class Mission
 		"ace_respawn",
 		"ace_medical",
 		"A3_Characters_F_OPFOR",
-		"A3_Supplies_F_Heli_CargoNets",
 		"a3_map_stratis"
 	};
 	randomSeed=7556201;
@@ -2885,30 +2883,6 @@ class Mission
 					description="Rifleman";
 				};
 			};
-		};
-	};
-	class Vehicles
-	{
-		items=2;
-		class Item0
-		{
-			position[]={1515.3201,5.5,5015.7935};
-			id=145;
-			side="EMPTY";
-			vehicle="B_CargoNet_01_ammo_F";
-			skill=0.60000002;
-			text="arsenal_blufor";
-			init="this allowDamage false;      clearItemCargoGlobal this;      clearWeaponCargoGlobal this;      clearBackpackCargoGlobal this;      clearMagazineCargoGlobal this;";
-		};
-		class Item1
-		{
-			position[]={1850.7795,5.3208466,6121.436};
-			id=146;
-			side="EMPTY";
-			vehicle="B_CargoNet_01_ammo_F";
-			skill=0.60000002;
-			text="arsenal_opfor";
-			init="this allowDamage false; clearItemCargoGlobal this;      clearWeaponCargoGlobal this;      clearBackpackCargoGlobal this;      clearMagazineCargoGlobal this;";
 		};
 	};
 	class Markers

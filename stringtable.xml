@@ -25,11 +25,11 @@
                 <German>Spawnpunkt wählen</German>
 				<French>Choisir le point de spawn</French>
             </Key>
-            <Key ID="str_GRAD_choose_vehicle">
-                 <Original>Choose Upgrade</Original>
-                <English>Choose Upgrade</English>
-                <German>Upgrade wählen</German>
-				<French>Sélectionner un upgrade</French>
+            <Key ID="str_GRAD_buy_vehicles">
+                 <Original>Buy Vehicles</Original>
+                <English>Buy Vehicles</English>
+                <German>Fahrzeuge kaufen</German>
+				<French>Sélectionner des voitures</French>
             </Key>
             <Key ID="str_GRAD_jip">
             	<Original>Sorry, you joined too late. Spectate and enjoy!</Original>

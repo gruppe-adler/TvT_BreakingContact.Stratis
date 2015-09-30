@@ -13,6 +13,7 @@ _OPFOR_TELEPORT_TARGET_listener = {
 	_pos = _this select 1;
 
 	[_pos, 50] execVM "helpers\teleportPlayer.sqf";
+	
 	_pos call createOpforMarker;
 
 	closeDialog 0;

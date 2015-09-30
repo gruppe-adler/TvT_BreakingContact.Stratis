@@ -7,12 +7,14 @@ findSimplePos = {
 	_unitType = _this select 3;
 
 
-	_distanceToSearch = 15;
+	_distanceToSearch = _max_distance;
 
 	while {count _nearestPosition < 1} do {
-		_nearestPosition = [[_center,[_min_distance,_distanceToSearch], random 360,0,[1,200],[0,_unitType]] call SHK_pos];
+		_tempPosition = [_center,[_min_distance,_distanceToSearch], random 360,0,[1,200],[0,_unitType]] call SHK_pos;
 		_distanceToSearch = _distanceToSearch + 10;
 		
+		if (count _tempPosition > 0) then { _nearestPosition = _nearestPosition + _tempPosition;};
+
 		diag_log format ["%1",_distanceToSearch];	
 	};
 
@@ -25,5 +27,7 @@ findSimplePos = {
 	//if (DEBUG) then { diag_log format ["findSpawnPos found: %1",_nearestPosition]; };
 
 	// return
-	_nearestPosition select 0
+
+	diag_log format ["_simplePos select 0: %1",_nearestPosition];	
+	_nearestPosition
 };

@@ -3,7 +3,7 @@ createOpforStuff =  {
 
 	diag_log format ["creating opfor stuff on position: %1",_position];
 
-	funkwagen = [_position, 0, 10, "rhs_gaz66_r142_vv"] call spawnStuff;
+	funkwagen = [_position, 0, 1, "rhs_gaz66_r142_vv"] call spawnStuff;
 
 	sleep 1;
 	[funkwagen] call clearInventory;
@@ -11,15 +11,21 @@ createOpforStuff =  {
 
 	[opfor_teamlead, funkwagen, true] call ACE_VehicleLock_fnc_addKeyForVehicle;
 
-	RUS_base = [_position, 10, 20, "TK_WarfareBUAVterminal_Base_EP1"] call spawnStuff;
-	RUS_base addAction["<t color=""#93E352"">" + localize "str_GRAD_choose_spawn_location",{0 = createDialog "russianSupplyGUI"; [russianSupplies, false, 0, "","",""] call refreshRussianUI;}, _Args, 1, true, true, "","_this distance _target < 6"];
+	RUS_base = [_position, 15, 16, "TK_WarfareBUAVterminal_Base_EP1"] call spawnStuff;
+	RUS_base addAction["<t color=""#93E352"">" + localize "str_GRAD_buy_vehicles",{0 = createDialog "russianSupplyGUI"; [russianSupplies, false, 0, "","",""] call refreshRussianUI;}, _Args, 1, true, true, "","_this distance _target < 6"];
 
 	sleep 1;
-	_spawn = [_position, 20, 30, "TK_WarfareBUAVterminal_Base_EP1"] call findSimplePos;
+	_spawn = [_position, 30, 31, "TK_WarfareBUAVterminal_Base_EP1"] call findSimplePos;
 
 	RUS_VEHICLE_SPAWN = _spawn;
 	publicVariable "RUS_VEHICLE_SPAWN";
 	_RUS_spawnPad = createVehicle ["Land_HelipadCivil_F",RUS_VEHICLE_SPAWN,[],0,"NONE"];
+
+	if (!isMultiplayer) then {
+		_opfor_marker_start = createMarker ["debug_opfor_marker_start", RUS_VEHICLE_SPAWN];
+		_opfor_marker_start setMarkerType "hd_start";
+		_opfor_marker_start setMarkerColor "ColorOpfor";
+	};
 
 };
 
@@ -33,11 +39,11 @@ createBluforStuff = {
 	diag_log format ["creating blufor stuff on position: %1",_bluforposition];
 
 
-	US_base = [_bluforposition, 15, 25, "US_WarfareBUAVterminal_Base_EP1"] call spawnStuff;
-	US_base addAction["<t color=""#93E352"">" + localize "str_GRAD_choose_spawn_location",{0 = createDialog "USSupplyGUI"; [USSupplies, false, 0, "","",""] call refreshUSUI;}, _Args, 1, true, true, "","_this distance _target < 6"];
+	US_base = [_bluforposition, 0, 1, "US_WarfareBUAVterminal_Base_EP1"] call spawnStuff;
+	US_base addAction["<t color=""#93E352"">" + localize "str_GRAD_buy_vehicles",{0 = createDialog "USSupplyGUI"; [USSupplies, false, 0, "","",""] call refreshUSUI;}, _Args, 1, true, true, "","_this distance _target < 6"];
 
 	sleep 1;
-	_spawn = [_bluforposition, 5, 10, "US_WarfareBUAVterminal_Base_EP1"] call findSimplePos;
+	_spawn = [_bluforposition, 16, 25, "US_WarfareBUAVterminal_Base_EP1"] call findSimplePos;
 	sleep 1;
 	//_spawn call bluforTeleporting;
 	
@@ -45,7 +51,11 @@ createBluforStuff = {
 	publicVariable "US_VEHICLE_SPAWN";
 	_US_spawnPad = createVehicle ["Land_HelipadCivil_F",US_VEHICLE_SPAWN,[],0,"NONE"];
 
-
+	if (!isMultiplayer) then {
+		_blufor_marker_start = createMarker ["debug_blufor_marker_start", US_VEHICLE_SPAWN];
+		_blufor_marker_start setMarkerType "hd_start";
+		_blufor_marker_start setMarkerColor "ColorBlufor";
+	};
 };
 
 _OPFOR_TELEPORT_TARGET_listener = {
