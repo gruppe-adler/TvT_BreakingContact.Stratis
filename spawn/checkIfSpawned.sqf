@@ -3,7 +3,7 @@ if (!OPFOR_TELEPORTED && (_this select 0 == east)) exitWith {
 		0 = createDialog "gui_spawn_opfor";
 		waitUntil {dialog};
 		titleCut ["Mission Setup", "BLACK", 999];
-		[] spawn checkSpawnButton;
+		[] call checkSpawnButton;
 	} else {
 		0 = createDialog "gui_spawn_waitplease";
 		titleCut ["Mission Setup", "BLACK", 999];
@@ -17,5 +17,5 @@ if (!BLUFOR_TELEPORTED && (_this select 0 == west)) exitWith {
 	waitUntil {dialog};
 	if (BLUFOR_TELEPORTED) exitWith {cutText ["", "BLACK IN", 1];};
 	titleCut ["Mission Setup", "BLACK", 999];
-	[] spawn checkSpawnButton;
+	[] call checkSpawnButton;
 };

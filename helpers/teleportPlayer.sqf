@@ -4,7 +4,7 @@
 _location = _this select 0;
 _distance = _this select 1;
 
-_spawn = [_location,_distance, player] call findSimplePos;
+_spawn = [_location,_distance,_distance, player] call findSimplePos;
 playSound "beam";
 cutText ["", "BLACK OUT", 1];
 sleep 1.2;

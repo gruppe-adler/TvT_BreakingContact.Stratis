@@ -1055,3 +1055,25 @@ class gui_spawn_waitplease
 			};
 		};
 };
+
+class RscTitles {
+
+	class gui_intel_paper
+	{
+		idd = -1;
+		duration = 10;
+		name = "gui_intel_paper";
+
+	 	class controls {
+			class russian_gui_pic_1: RscPicture
+			{
+				idc = -1;
+				x = safeZoneX + safeZoneW - 0.3;  
+				y = safeZoneY + safeZoneH - 0.3;
+				w = 0.3;
+				h = 0.3;
+				text = "pic\satellite_badge.paa";
+			};
+		};
+	};
+};

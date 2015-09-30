@@ -1,21 +1,21 @@
 createOpforStuff =  {
 	_position = _this;
 
-	diag_log format ["creating blufor stuff on position: %1",_position];
+	diag_log format ["creating opfor stuff on position: %1",_position];
 
-	funkwagen = [_position, 50, "rhs_gaz66_r142_vv"] call spawnStuff;
+	funkwagen = [_position, 0, 10, "rhs_gaz66_r142_vv"] call spawnStuff;
 
-	sleep 2;
+	sleep 1;
 	[funkwagen] call clearInventory;
 	funkwagen animate ["light_hide",1];
 
 	[opfor_teamlead, funkwagen, true] call ACE_VehicleLock_fnc_addKeyForVehicle;
 
-	RUS_base = [_position, 10, "TK_WarfareBUAVterminal_Base_EP1"] call spawnStuff;
+	RUS_base = [_position, 10, 20, "TK_WarfareBUAVterminal_Base_EP1"] call spawnStuff;
 	RUS_base addAction["<t color=""#93E352"">" + localize "str_GRAD_choose_spawn_location",{0 = createDialog "russianSupplyGUI"; [russianSupplies, false, 0, "","",""] call refreshRussianUI;}, _Args, 1, true, true, "","_this distance _target < 6"];
 
-	sleep 0.1;
-	_spawn = [_position, 25, "TK_WarfareBUAVterminal_Base_EP1"] call findSimplePos;
+	sleep 1;
+	_spawn = [_position, 20, 30, "TK_WarfareBUAVterminal_Base_EP1"] call findSimplePos;
 
 	RUS_VEHICLE_SPAWN = _spawn;
 	publicVariable "RUS_VEHICLE_SPAWN";
@@ -24,16 +24,21 @@ createOpforStuff =  {
 };
 
 createBluforStuff = {
-	_bluforposition = _this;
+	_opforposition = _this;
+	_bluforposition = [_opforposition, "US_WarfareBUAVterminal_Base_EP1"] call findBluforPos;
+
+	BLUFOR_TELEPORT_TARGET = _bluforposition;
+	publicVariable "BLUFOR_TELEPORT_TARGET";
 
 	diag_log format ["creating blufor stuff on position: %1",_bluforposition];
 
-	US_base = [_bluforposition, 25, "US_WarfareBUAVterminal_Base_EP1"] call spawnStuff;
+
+	US_base = [_bluforposition, 15, 25, "US_WarfareBUAVterminal_Base_EP1"] call spawnStuff;
 	US_base addAction["<t color=""#93E352"">" + localize "str_GRAD_choose_spawn_location",{0 = createDialog "USSupplyGUI"; [USSupplies, false, 0, "","",""] call refreshUSUI;}, _Args, 1, true, true, "","_this distance _target < 6"];
 
-	
-	_spawn = [_bluforposition, "US_WarfareBUAVterminal_Base_EP1"] call findBluforPos;
-
+	sleep 1;
+	_spawn = [_bluforposition, 5, 10, "US_WarfareBUAVterminal_Base_EP1"] call findSimplePos;
+	sleep 1;
 	//_spawn call bluforTeleporting;
 	
 	US_VEHICLE_SPAWN = _spawn;

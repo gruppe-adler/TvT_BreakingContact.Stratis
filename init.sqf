@@ -7,12 +7,11 @@ DEBUG_MODE = true;
 
 TIME_OF_DAY = paramsArray select 0;
 WEATHER_SETTING = paramsArray select 1;
-MINIMAL_BLUFOR_SPAWN_DISTANCE = paramsArray select 2;
-MAXIMAL_BLUFOR_SPAWN_DISTANCE = paramsArray select 3;
-TIME_ACCELERATION = paramsArray select 4;
-POINTS_NEEDED_FOR_VICTORY = paramsArray select 5;
-AR3PLAY_ENABLE_REPLAY = (paramsArray select 6) == 1;
-AR3PLAY_IS_STREAMABLE = (paramsArray select 7) == 1;
+BLUFOR_SPAWN_DISTANCE = paramsArray select 2;
+TIME_ACCELERATION = paramsArray select 3;
+POINTS_NEEDED_FOR_VICTORY = paramsArray select 4;
+AR3PLAY_ENABLE_REPLAY = (paramsArray select 5) == 1;
+AR3PLAY_IS_STREAMABLE = (paramsArray select 6) == 1;
 custom_overcast = 1;
 
 setCustomWeather = {
@@ -117,8 +116,6 @@ if (hasInterface) then {
 	};
 
 	createSpawnButton = {
-		waitUntil {!isNull player && time > 1};
-		diag_log format ["createspawnbutton executed"];
 		[] spawn checkSpawnButton;
 	};
 
