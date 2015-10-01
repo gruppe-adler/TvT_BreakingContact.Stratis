@@ -204,43 +204,43 @@ refreshUSUI = {
 	
 
 	_display displayCtrl 3101 ctrlSetStructuredText parseText ([_namedisplay_1] call centerString);
-	_display displayCtrl 3201 ctrlSetStructuredText parseText ([_countleft_1] call centerString);
-	_display displayCtrl 3301 ctrlSetStructuredText parseText ([_pricedisplay_1] call centerString);
+	_display displayCtrl 3201 ctrlSetStructuredText parseText ([_countleft_1] call centerAndConvertToString);
+	_display displayCtrl 3301 ctrlSetStructuredText parseText ([_pricedisplay_1] call centerAndConvertToString);
 	//_display displayCtrl 1401 ctrlSetStructuredText parseText _eta_1;
 	// ctrlSetText [3501, _pleasewait];
 
 	
 	_display displayCtrl 3102 ctrlSetStructuredText parseText ([_namedisplay_2] call centerString);
-	_display displayCtrl 3202 ctrlSetStructuredText parseText ([_countleft_2] call centerString);
-	_display displayCtrl 3302 ctrlSetStructuredText parseText ([_pricedisplay_2] call centerString);
+	_display displayCtrl 3202 ctrlSetStructuredText parseText ([_countleft_2] call centerAndConvertToString);
+	_display displayCtrl 3302 ctrlSetStructuredText parseText ([_pricedisplay_2] call centerAndConvertToString);
 	//_display displayCtrl 1402 ctrlSetStructuredText parseText _eta_2;
 	// ctrlSetText [3502, _pleasewait];
 
 	
 	_display displayCtrl 3103 ctrlSetStructuredText parseText ([_namedisplay_3] call centerString);
-	_display displayCtrl 3203 ctrlSetStructuredText parseText ([_countleft_3] call centerString);
-	_display displayCtrl 3303 ctrlSetStructuredText parseText ([_pricedisplay_3] call centerString);
+	_display displayCtrl 3203 ctrlSetStructuredText parseText ([_countleft_3] call centerAndConvertToString);
+	_display displayCtrl 3303 ctrlSetStructuredText parseText ([_pricedisplay_3] call centerAndConvertToString);
 	//_display displayCtrl 1403 ctrlSetStructuredText parseText _eta_3;
 	// ctrlSetText [3503, _pleasewait];
 
 	
 	_display displayCtrl 3104 ctrlSetStructuredText parseText ([_namedisplay_4] call centerString);
-	_display displayCtrl 3204 ctrlSetStructuredText parseText ([_countleft_4] call centerString);
-	_display displayCtrl 3304 ctrlSetStructuredText parseText ([_pricedisplay_4] call centerString);
+	_display displayCtrl 3204 ctrlSetStructuredText parseText ([_countleft_4] call centerAndConvertToString);
+	_display displayCtrl 3304 ctrlSetStructuredText parseText ([_pricedisplay_4] call centerAndConvertToString);
 	//_display displayCtrl 1404 ctrlSetStructuredText parseText _eta_4;
 	// ctrlSetText [3504, _pleasewait];
 
 	_display displayCtrl 3105 ctrlSetStructuredText parseText ([_namedisplay_5] call centerString);
-	_display displayCtrl 3205 ctrlSetStructuredText parseText ([_countleft_5] call centerString);
-	_display displayCtrl 3305 ctrlSetStructuredText parseText ([_pricedisplay_5] call centerString);
+	_display displayCtrl 3205 ctrlSetStructuredText parseText ([_countleft_5] call centerAndConvertToString);
+	_display displayCtrl 3305 ctrlSetStructuredText parseText ([_pricedisplay_5] call centerAndConvertToString);
 
 	_display displayCtrl 3106 ctrlSetStructuredText parseText ([_namedisplay_6] call centerString);
-	_display displayCtrl 3206 ctrlSetStructuredText parseText ([_countleft_6] call centerString);
-	_display displayCtrl 3306 ctrlSetStructuredText parseText ([_pricedisplay_6] call centerString);
+	_display displayCtrl 3206 ctrlSetStructuredText parseText ([_countleft_6] call centerAndConvertToString);
+	_display displayCtrl 3306 ctrlSetStructuredText parseText ([_pricedisplay_6] call centerAndConvertToString);
 
 	_display displayCtrl 3107 ctrlSetStructuredText parseText ([_namedisplay_7] call centerString);
-	_display displayCtrl 3207 ctrlSetStructuredText parseText ([_countleft_7] call centerString);
-	_display displayCtrl 3307 ctrlSetStructuredText parseText ([_pricedisplay_7] call centerString);
+	_display displayCtrl 3207 ctrlSetStructuredText parseText ([_countleft_7] call centerAndConvertToString);
+	_display displayCtrl 3307 ctrlSetStructuredText parseText ([_pricedisplay_7] call centerAndConvertToString);
 
 
 	disableSerialization;
@@ -270,14 +270,8 @@ refreshUSUI = {
 			publicVariable "VEHICLE_ORDERED_WEST";
 			[VEHICLE_ORDERED_WEST] call refreshUSOrder;
 			sleep 1;
-		};
-
-	
-
-		
+		};		
 		[_vehicle, US_VEHICLE_SPAWN, _extras, _calls] call spawnSupplyDrop;
 		[] call resetUSUI;
-
 	};
-
 };

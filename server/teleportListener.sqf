@@ -12,12 +12,11 @@ createOpforStuff =  {
 	[opfor_teamlead, funkwagen, true] call ACE_VehicleLock_fnc_addKeyForVehicle;
 
 	RUS_base = [_position, 15, 16, "TK_WarfareBUAVterminal_Base_EP1"] call spawnStuff;
-	RUS_base addAction["<t color=""#93E352"">" + localize "str_GRAD_buy_vehicles",{0 = createDialog "russianSupplyGUI"; [russianSupplies, false, 0, "","",""] call refreshRussianUI;}, _Args, 1, true, true, "","_this distance _target < 6"];
+	RUS_base addAction["<t color=""#93E352"">" + localize "str_GRAD_buy_vehicles",{0 = createDialog "russianSupplyGUI"; [russianSupplies, false, 0, "","",""] call refreshRussianUI;}, _Args, 1, true, true, "","_this distance _target < 6  && side _this == east"];
 
 	sleep 1;
-	_spawn = [_position, 30, 31, "TK_WarfareBUAVterminal_Base_EP1"] call findSimplePos;
 
-	RUS_VEHICLE_SPAWN = _spawn;
+	RUS_VEHICLE_SPAWN = [_position, 5, 50, 8, 0, 0.2, 0] call BIS_fnc_findSafePos;
 	publicVariable "RUS_VEHICLE_SPAWN";
 	_RUS_spawnPad = createVehicle ["Land_HelipadCivil_F",RUS_VEHICLE_SPAWN,[],0,"NONE"];
 
@@ -39,11 +38,11 @@ createBluforStuff = {
 	diag_log format ["creating blufor stuff on position: %1",_bluforposition];
 
 
-	US_base = [_bluforposition, 0, 1, "US_WarfareBUAVterminal_Base_EP1"] call spawnStuff;
-	US_base addAction["<t color=""#93E352"">" + localize "str_GRAD_buy_vehicles",{0 = createDialog "USSupplyGUI"; [USSupplies, false, 0, "","",""] call refreshUSUI;}, _Args, 1, true, true, "","_this distance _target < 6"];
+	US_base = [_bluforposition, 0, 5, "US_WarfareBUAVterminal_Base_EP1"] call spawnStuff;
+	US_base addAction["<t color=""#93E352"">" + localize "str_GRAD_buy_vehicles",{0 = createDialog "USSupplyGUI"; [USSupplies, false, 0, "","",""] call refreshUSUI;}, _Args, 1, true, true, "","_this distance _target < 6 && side _this == west"];
 
 	sleep 1;
-	_spawn = [_bluforposition, 16, 25, "US_WarfareBUAVterminal_Base_EP1"] call findSimplePos;
+	_spawn = [_bluforposition, 5, 50, 8, 0, 0.2, 0] call BIS_fnc_findSafePos;
 	sleep 1;
 	//_spawn call bluforTeleporting;
 	

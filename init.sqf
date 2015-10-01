@@ -8,10 +8,12 @@ DEBUG_MODE = true;
 TIME_OF_DAY = paramsArray select 0;
 WEATHER_SETTING = paramsArray select 1;
 BLUFOR_SPAWN_DISTANCE = (paramsArray select 2) * 2;
-TIME_ACCELERATION = paramsArray select 3;
-POINTS_NEEDED_FOR_VICTORY = paramsArray select 4;
-AR3PLAY_ENABLE_REPLAY = (paramsArray select 5) == 1;
-AR3PLAY_IS_STREAMABLE = (paramsArray select 6) == 1;
+OPFOR_MONEY = paramsArray select 3;
+BLUFOR_MONEY = paramsArray select 4;
+POINTS_NEEDED_FOR_VICTORY = paramsArray select 5;
+TIME_ACCELERATION = paramsArray select 6;
+AR3PLAY_ENABLE_REPLAY = (paramsArray select 7) == 1;
+AR3PLAY_IS_STREAMABLE = (paramsArray select 8) == 1;
 custom_overcast = 1;
 
 setCustomWeather = {
@@ -71,11 +73,11 @@ if (isServer) then {
 	publicVariable "BLUFOR_TELEPORTED";
 
 
-	//_playercount = count allPlayers;
-	//_bonusPerPlayer = _playercount * 100;
+	_playercount = count allPlayers;
+	_bonusPerPlayer = _playercount * 100;
 
-	russianCredits = 5000; // + _bonusPerPlayer;
-	USCredits = 5000; // + _bonusPerPlayer;
+	russianCredits = OPFOR_MONEY + _bonusPerPlayer;
+	USCredits = BLUFOR_MONEY + _bonusPerPlayer;
 
 	0 = [russianCredits,USCredits] execVM "spawn\gui\addPublicVariableEventhandler.sqf";
 

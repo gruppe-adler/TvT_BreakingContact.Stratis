@@ -52,20 +52,36 @@ class Params
 		default = 3000;
 	};
 
+	class OpforMoney
+	{
+		title = "Finances OPFOR";
+		values[] = {1000, 2000, 3000, 4000, 5000, 6000};
+		texts[] = {"1000k","2000k","3000k","4000k","5000k","6000k"};
+		default = 3000;
+	};
+
+	class BluforMoney
+	{
+		title = "Finances BLUFOR";
+		values[] = {1000, 2000, 3000, 4000, 5000, 6000};
+		texts[] = {"1000k","2000k","3000k","4000k","5000k","6000k"};
+		default = 3000;
+	};
+
+	class OpforTimeToSend
+	{
+		title = "How long should OPFOR have to send before they win?";
+		values[] = {300, 600, 900, 1800, 2700, 3600, 4500, 5400, 6300};
+		texts[] = {"5'","10'", "15'", "30'", "45'", "1h'", "1h15'","1h30'","1h45'"};
+		default = 1500;
+	};
+
 	class Zeitbeschleunigung
 	{
 		title = "Time Acceleration";
 		values[] = {1,2,4};
 		texts[] = {"normal","2h in 1h","4h in 1h"};
 		default = 1;
-	};
-
-	class OpforTimeToSend
-	{
-		title = "How long should OPFOR have to send before they win?";
-		values[] = {300, 600, 900, 1500, 2400, 3900, 6300};
-		texts[] = {"5'","10'", "15'", "25'", "40'", "65'", "1h45'"};
-		default = 1500;
 	};
 
 	class EnableReplay

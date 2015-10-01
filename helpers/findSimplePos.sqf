@@ -13,7 +13,7 @@ findSimplePos = {
 		_tempPosition = [_center,[_min_distance,_distanceToSearch], random 360,0,[1,200],[0,_unitType]] call SHK_pos;
 		_distanceToSearch = _distanceToSearch + 10;
 		
-		if (count _tempPosition > 0) then { _nearestPosition = _nearestPosition + _tempPosition;};
+		if (count _tempPosition > 0) then { _nearestPosition = _tempPosition;};
 
 		diag_log format ["%1",_distanceToSearch];	
 	};

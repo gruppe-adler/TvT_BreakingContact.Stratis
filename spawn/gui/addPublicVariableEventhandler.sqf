@@ -49,6 +49,10 @@ fillRussianSupplies = {
             clearItemCargoGlobal (_this select 0); 
             clearBackpackCargoGlobal (_this select 0); 
             clearMagazineCargoGlobal (_this select 0);
+            (_this select 0) addItemCargoGlobal ['ACE_Earplugs',15];
+            (_this select 0) addItemCargoGlobal ['ACE_Morphine',40];
+            (_this select 0) addItemCargoGlobal ['ACE_epinephrine',40];
+            (_this select 0) addItemCargoGlobal ['ACE_fieldDressing',100];
             }
         ],
         [
@@ -64,6 +68,16 @@ fillRussianSupplies = {
             clearItemCargoGlobal (_this select 0); 
             clearBackpackCargoGlobal (_this select 0); 
             clearMagazineCargoGlobal (_this select 0);
+            (_this select 0) addMagazineCargoGlobal ['SmokeShell',20];
+            (_this select 0) addMagazineCargoGlobal ['SmokeShellRed',20];
+            (_this select 0) addMagazineCargoGlobal ['rhs_30Rnd_762x39mm_tracer',20];
+            (_this select 0) addMagazineCargoGlobal ['rhs_30Rnd_762x39mm',20];
+            (_this select 0) addMagazineCargoGlobal ['16Rnd_9x21_Mag',20];
+            (_this select 0) addMagazineCargoGlobal ['rhs_rpg7_PG7VL_mag',5];
+            (_this select 0) addMagazineCargoGlobal ['rhs_rpg7_PG7VR_mag',5];
+            (_this select 0) addMagazineCargoGlobal ['rhs_100Rnd_762x54mmR_green',10];
+            (_this select 0) addMagazineCargoGlobal ['rhs_100Rnd_762x54mmR',10];
+            (_this select 0) addMagazineCargoGlobal ['rhs_mag_rgd5',15]; 
             }
         ],
         [
@@ -112,8 +126,8 @@ fillRussianSupplies = {
             }
         ],
         [
-            "B_supplyCrate_O",
-            "Static MG",
+            "B_CargoNet_01_Ammo_F",
+            "2 Static MG",
             3,
             700,
             "<t align='center'>700 cr</t>",
@@ -124,6 +138,8 @@ fillRussianSupplies = {
             clearItemCargoGlobal (_this select 0); 
             clearBackpackCargoGlobal (_this select 0); 
             clearMagazineCargoGlobal (_this select 0);
+            (_this select 0) addBackpackCargoGlobal ['RHS_NSV_Gun_Bag',2];
+            (_this select 0) addBackpackCargoGlobal ['RHS_NSV_Tripod_Bag',2];
             }
         ]
     ];
@@ -201,6 +217,15 @@ fillUSSupplies = {
             clearItemCargoGlobal (_this select 0); 
             clearBackpackCargoGlobal (_this select 0); 
             clearMagazineCargoGlobal (_this select 0);
+            (_this select 0) addMagazineCargoGlobal ['SmokeShell',20];
+            (_this select 0) addMagazineCargoGlobal ['SmokeShellRed',20];
+            (_this select 0) addMagazineCargoGlobal ['rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Yellow',20];
+            (_this select 0) addMagazineCargoGlobal ['rhs_mag_30Rnd_556x45_M855A1_Stanag',20];
+            (_this select 0) addMagazineCargoGlobal ['16Rnd_9x21_Mag',20];
+            (_this select 0) addWeaponCargoGlobal ['rhs_weap_M136_hedp',5];
+            (_this select 0) addMagazineCargoGlobal ['rhs_200rnd_556x45_T_SAW',10];
+            (_this select 0) addMagazineCargoGlobal ['rhs_200rnd_556x45_M_SAW',10];
+            (_this select 0) addMagazineCargoGlobal ['HandGrenade',15]; 
             }
         ],
         [
@@ -219,11 +244,11 @@ fillUSSupplies = {
             }
         ],
         [
-            "B_supplyCrate_B",
-            "Javelin Pack (3)",
-            1,
-            3000,
-            "<t align='center'>3000 cr</t>",
+            "B_CargoNet_01_Ammo_F",
+            "Javelin",
+            2,
+            2000,
+            "<t align='center'>2000 cr</t>",
             1,
             [[]],
             {
@@ -231,12 +256,12 @@ fillUSSupplies = {
             clearItemCargoGlobal (_this select 0); 
             clearBackpackCargoGlobal (_this select 0); 
             clearMagazineCargoGlobal (_this select 0);
-            (_this select 0) addWeaponCargoGlobal ['rhs_weap_fim92',2];
-            (_this select 0) addWeaponCargoGlobal ['rhs_fim92_mag',4];
+            (_this select 0) addWeaponCargoGlobal ['rhs_weap_fgm148',1];
+            (_this select 0) addWeaponCargoGlobal ['rhs_fgm148_magazine_AT',1];
             }
         ],
         [
-            "Box_East_WpsSpecial_F",
+            "B_Heli_Light_01_F",
             "MH-6",
             2,
             2000,
