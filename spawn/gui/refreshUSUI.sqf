@@ -119,7 +119,7 @@ refreshUSUI = {
 	[VEHICLE_ORDERED_WEST] call refreshUSOrder;
 
 	
-	if (player getVariable "canBuy") then {
+	if (!(player getVariable ["canBuy",false])) then {
 		_display displayCtrl 3600 ctrlSetStructuredText parseText ([_headlineBlocked] call headlineString);
 		ctrlEnable [3501, false];
 		ctrlEnable [3502, false];

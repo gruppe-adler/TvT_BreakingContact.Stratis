@@ -15,8 +15,8 @@ createOpforStuff =  {
 	// RUS_base addAction["<t color=""#93E352"">" + localize "str_GRAD_buy_vehicles",{0 = createDialog "russianSupplyGUI"; [russianSupplies, false, 0, "","",""] call refreshRussianUI;}, _Args, 1, true, true, "","_this distance _target < 6  && side _this == east"];
 
 
-	_mainAction = ["ACE_MainActions", (localize "str_GRAD_buy_vehicles"), "", {0 = createDialog "russianSupplyGUI"; [russianSupplies, false, 0, "","",""] call refreshRussianUI;},  {side player == east},{},[],[1,0,0],5] call ace_interact_menu_fnc_createAction;
-	[RUS_base, 0, [], _mainAction] call ace_interact_menu_fnc_addActionToObject;
+	/*_mainAction = ["ACE_MainActions", (localize "str_GRAD_buy_vehicles"), "", {0 = createDialog "russianSupplyGUI"; [russianSupplies, false, 0, "","",""] call refreshRussianUI;},  {side player == east},{},[],[1,0,0],5] call ace_interact_menu_fnc_createAction;
+	[RUS_base, 0, [], _mainAction] call ace_interact_menu_fnc_addActionToObject;*/
 
 
 	//create action append to main menu
@@ -50,9 +50,7 @@ createBluforStuff = {
 	US_base = [_bluforposition, 0, 5, "US_WarfareBUAVterminal_Base_EP1"] call spawnStuff;
 	//US_base addAction["<t color=""#93E352"">" + localize "str_GRAD_buy_vehicles",{0 = createDialog "USSupplyGUI"; [USSupplies, false, 0, "","",""] call refreshUSUI;}, _Args, 1, true, true, "","_this distance _target < 6 && side _this == west"];
 
-	_mainAction = ["ACE_MainActions", (localize "str_GRAD_buy_vehicles"), "", {0 = createDialog "USSupplyGUI"; [USSupplies, false, 0, "","",""] call refreshUSUI;}, {side player == east},{},[],[1,0,0],5] call ace_interact_menu_fnc_createAction;
-	[US_base, 0, [], _mainAction] call ace_interact_menu_fnc_addActionToObject;
-
+	
 
 
 	/*_actionBuy = ["buy_objects",localize "str_GRAD_buy_vehicles", "", {0 = createDialog "USSupplyGUI"; [USSupplies, false, 0, "","",""] call refreshUSUI;}, {side player == west}] call ace_interact_menu_fnc_createAction;

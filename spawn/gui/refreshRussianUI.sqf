@@ -138,7 +138,7 @@ refreshRussianUI = {
 	
 	[VEHICLE_ORDERED_EAST] call refreshRussianOrder;
 
-	if (player getVariable "canBuy") then {
+	if (!(player getVariable ["canBuy",false])) then {
 		_display displayCtrl 1600 ctrlSetStructuredText parseText ([_headlineBlocked] call headlineString);
 		ctrlEnable [1501, false];
 		ctrlEnable [1502, false];

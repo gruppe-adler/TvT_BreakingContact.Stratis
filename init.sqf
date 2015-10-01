@@ -137,6 +137,7 @@ if (hasInterface) then {
 	[] execVM "player\allXXXSurrenderedListener.sqf"; diag_log format ["setup: surrenderlistener initiated"];
 	[player] execVM "loadouts\_client.sqf"; diag_log format ["setup: loadouts initiated"];
 
+	[] execVM "spawn\addBuyInteraction.sqf";
 	
 	if (playerSide == west) then {
 		[] execVM "player\russianMarker.sqf"; 
@@ -154,6 +155,7 @@ if (hasInterface) then {
 		[] execVM "player\opforBluforTeleportListener.sqf"; diag_log format ["setup: opforBluforTeleportListener initiated"];
 		[] execVM "player\opforOpforTeleportListener.sqf"; diag_log format ["setup: opforOpforTeleportListener initiated"];
 		[] spawn createSpawnButton; diag_log format ["setup: createSpawnButton initiated"];
+		
 		if (player == opfor_teamlead) then {
 			player setVariable ["canBuy", true];
 		};
