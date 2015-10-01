@@ -39,6 +39,12 @@ waitUntil { !isNull _unit };
 
             case "B_G_Soldier_exp_F": {[_unit] call blufor_marksman;};
             case "B_soldier_exp_F": {[_unit] call blufor_marksman;};
+            case "B_soldier_M_F": {[_unit] call blufor_marksman;};
+            case "B_recon_M_F": {[_unit] call blufor_marksman;};
+            case "B_G_Soldier_M_F": {[_unit] call blufor_marksman;};
+            
+            
+            
 
             case "B_Soldier_04_F": {[_unit] call blufor_default;};
             case "B_Soldier_03_F": {[_unit] call blufor_default;};
