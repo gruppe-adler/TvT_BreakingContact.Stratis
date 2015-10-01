@@ -106,12 +106,44 @@ refreshUSUI = {
 		ctrlSetText [3505, _pleasewait];
 		ctrlSetText [3506, _pleasewait];
 		ctrlSetText [3507, _pleasewait];
+
+		ctrlEnable [3501, false];
+		ctrlEnable [3502, false];
+		ctrlEnable [3503, false];
+		ctrlEnable [3504, false];
+		ctrlEnable [3505, false];
+		ctrlEnable [3506, false];
+		ctrlEnable [3507, false];
 	};
 
 	[VEHICLE_ORDERED_WEST] call refreshUSOrder;
 
 	
+	if (player getVariable "canBuy") then {
+		_display displayCtrl 3600 ctrlSetStructuredText parseText ([_headlineBlocked] call headlineString);
+		ctrlEnable [3501, false];
+		ctrlEnable [3502, false];
+		ctrlEnable [3503, false];
+		ctrlEnable [3504, false];
+		ctrlEnable [3505, false];
+		ctrlEnable [3506, false];
+		ctrlEnable [3507, false];
 
+		_display displayCtrl 3501 ctrlSetFade 1;
+		_display displayCtrl 3501 ctrlCommit 0;
+		_display displayCtrl 3502 ctrlSetFade 1;
+		_display displayCtrl 3502 ctrlCommit 0;
+		_display displayCtrl 3503 ctrlSetFade 1;
+		_display displayCtrl 3503 ctrlCommit 0;
+		_display displayCtrl 3504 ctrlSetFade 1;
+		_display displayCtrl 3504 ctrlCommit 0;
+		_display displayCtrl 3505 ctrlSetFade 1;
+		_display displayCtrl 3505 ctrlCommit 0;
+		_display displayCtrl 3506 ctrlSetFade 1;
+		_display displayCtrl 3506 ctrlCommit 0;
+		_display displayCtrl 3507 ctrlSetFade 1;
+		_display displayCtrl 3507 ctrlCommit 0;
+	};
 
 	if (_outOfMoney) exitWith {
 		[] call resetUSUI;

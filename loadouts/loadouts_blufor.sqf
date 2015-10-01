@@ -1,26 +1,42 @@
-blufor_random_helmet = [
-"rhsusf_mich_helmet_marpatd",
-"rhsusf_mich_helmet_marpatd_alt",
-"rhsusf_mich_helmet_marpatd_alt",
-"rhsusf_mich_helmet_marpatd_norotos_arc",
-"rhsusf_mich_bare_norotos_arc_tan"
-];
+blufor_uniform_d = "rhs_uniform_FROG01_d";
+blufor_uniform_w = "rhs_uniform_FROG01_wd";
 
-blufor_random_primaryweapon = [
-"rhs_weap_m4a1_carryhandle_grip2",
-"rhs_weap_m4a1_carryhandle",
-"rhs_weap_m4a1_carryhandle_pmag",
-"rhs_weap_m4a1_carryhandle_grip"
-];
+// woodland camo?
+if ((ISLAND_TARGET_POSITIONS select (ISLANDS find worldName)) select 3) then {
+	blufor_uniform = blufor_uniform_d;
 
-blufor_random_mg = [
-"rhs_weap_m249_pip_L",
-"rhs_weap_m249_pip_L_para",
-"rhs_weap_m249_pip_L_vfg",
-"rhs_weap_m249_pip_S",
-"rhs_weap_m249_pip_S_para",
-"rhs_weap_m249_pip_S_vfg"
-];
+	blufor_random_helmet = [
+	"rhsusf_lwh_helmet_marpatwd"
+	];
+} else {
+	blufor_uniform = blufor_uniform_w;
+
+	blufor_random_helmet = [
+	"rhsusf_mich_helmet_marpatd",
+	"rhsusf_mich_helmet_marpatd_alt",
+	"rhsusf_mich_helmet_marpatd_alt",
+	"rhsusf_mich_helmet_marpatd_norotos_arc",
+	"rhsusf_mich_bare_norotos_arc_tan"
+	];
+	
+};
+
+
+	blufor_random_primaryweapon = [
+	"rhs_weap_m4a1_carryhandle_grip2",
+	"rhs_weap_m4a1_carryhandle",
+	"rhs_weap_m4a1_carryhandle_pmag",
+	"rhs_weap_m4a1_carryhandle_grip"
+	];
+
+	blufor_random_mg = [
+	"rhs_weap_m249_pip_L",
+	"rhs_weap_m249_pip_L_para",
+	"rhs_weap_m249_pip_L_vfg",
+	"rhs_weap_m249_pip_S",
+	"rhs_weap_m249_pip_S_para",
+	"rhs_weap_m249_pip_S_vfg"
+	];
 
 blufor_default = {
 	
@@ -38,7 +54,7 @@ blufor_default = {
 
 	comment "Add containers";
 	
-	this forceAddUniform "rhs_uniform_FROG01_d";
+	this forceAddUniform blufor_uniform;
 	this addVest "rhsusf_spc";
 	this addHeadgear (blufor_random_helmet call BIS_fnc_selectRandom);
 	this addBackpack "rhsusf_assault_eagleaiii_coy";
@@ -88,7 +104,7 @@ blufor_officer = {
 
 	comment "Add containers";
 	
-	this forceAddUniform "rhs_uniform_FROG01_d";
+	this forceAddUniform blufor_uniform;
 	this addVest "rhsusf_spc_teamleader";
 	this addHeadgear (blufor_random_helmet call BIS_fnc_selectRandom);
 	this addBackpack "tf_rt1523g_big_bwmod_tropen";
@@ -138,7 +154,7 @@ blufor_medic = {
 
 	comment "Add containers";
 	
-	this forceAddUniform "rhs_uniform_FROG01_d";
+	this forceAddUniform blufor_uniform;
 	this addVest "rhsusf_spc_corpsman";
 	this addHeadgear (blufor_random_helmet call BIS_fnc_selectRandom);
 	this addBackpack "rhsusf_assault_eagleaiii_coy";
@@ -191,7 +207,7 @@ blufor_marksman = {
 
 	comment "Add containers";
 	
-	this forceAddUniform "rhs_uniform_FROG01_d";
+	this forceAddUniform blufor_uniform;
 	this addVest "rhsusf_spc_marksman";
 	this addHeadgear (blufor_random_helmet call BIS_fnc_selectRandom);
 	this addBackpack "rhsusf_assault_eagleaiii_coy";
@@ -242,7 +258,7 @@ blufor_AT = {
 
 	comment "Add containers";
 	
-	this forceAddUniform "rhs_uniform_FROG01_d";
+	this forceAddUniform blufor_uniform;
 	this addVest "rhsusf_spc_iar";
 	this addHeadgear (blufor_random_helmet call BIS_fnc_selectRandom);
 	this addBackpack "rhsusf_assault_eagleaiii_coy";
@@ -293,7 +309,7 @@ blufor_MG = {
 
 	comment "Add containers";
 	
-	this forceAddUniform "rhs_uniform_FROG01_d";
+	this forceAddUniform blufor_uniform;
 	this addVest "rhsusf_spc_mg";
 	this addHeadgear (blufor_random_helmet call BIS_fnc_selectRandom);
 	this addBackpack "rhsusf_assault_eagleaiii_coy";
@@ -346,7 +362,7 @@ blufor_repair = {
 
 	comment "Add containers";
 	
-	this forceAddUniform "rhs_uniform_FROG01_d";
+	this forceAddUniform blufor_uniform;
 	this addVest "rhsusf_spc_crewman";
 	this addHeadgear (blufor_random_helmet call BIS_fnc_selectRandom);
 	this addBackpack "rhsusf_assault_eagleaiii_coy";
@@ -396,7 +412,7 @@ blufor_crew = {
 
 	comment "Add containers";
 	
-	this forceAddUniform "rhs_uniform_FROG01_d";
+	this forceAddUniform blufor_uniform;
 	this addVest "rhsusf_spc_crewman";
 	this addHeadgear (blufor_random_helmet call BIS_fnc_selectRandom);
 	this addBackpack "rhsusf_assault_eagleaiii_coy";

@@ -171,17 +171,30 @@ fillRussianSupplies = {
 
 fillUSSupplies = {
 
+    // woodland camo?
+    if ((ISLAND_TARGET_POSITIONS select (ISLANDS find worldName)) select 3) then {
+        hmmwv_transport = "rhsusf_m998_d_2dr_fulltop";
+        hmmwv_m2 = "rhsusf_m998_d_4dr";
+        m113_m2 = "rhsusf_m113d_usarmy";
+        m113_amb = "rhsusf_m113d_usarmy_medical";
+    } else {
+        hmmwv_transport = "rhsusf_m998_w_2dr_fulltop";
+        hmmwv_m2 = "rhsusf_m998_w_4dr";
+        m113_m2 = "rhsusf_m113_usarmy";
+        m113_amb = "rhsusf_m113_usarmy_medical";
+    };
+
      USSupplies = [
 
         _this select 0,
         [
-            "rhsusf_m998_d_2dr_fulltop",
+            hmmwv_transport,
             "HMMWV Transport",
             30,
             100,
             "<t align='center'>100 cr</t>",
             1,
-            ["hide_backTop", 0, "hide_frontTop", 0 ],
+            ["light_hide", 0 , "hide_backTop", 0, "hide_frontTop", 0 ],
             {
             clearWeaponCargoGlobal (_this select 0); 
             clearItemCargoGlobal (_this select 0); 
@@ -190,13 +203,13 @@ fillUSSupplies = {
             }
         ],
         [
-            "rhsusf_m998_d_4dr",
+            hmmwv_m2,
             "HMMWV M2",
             10,
             800,
             "<t align='center'>800 cr</t>",
             1,
-            ["light_hide", 0 ],
+            ["light_hide", 0 , "hide_backTop", 0, "hide_frontTop", 0 ],
             {
             clearWeaponCargoGlobal (_this select 0); 
             clearItemCargoGlobal (_this select 0); 
@@ -205,7 +218,7 @@ fillUSSupplies = {
             }
         ],
         [
-            "rhsusf_m113d_usarmy",
+            m113_m2,
             "M113 M2",
             2,
             1500,
@@ -229,7 +242,7 @@ fillUSSupplies = {
             }
         ],
         [
-            "rhsusf_m113d_usarmy_medical",
+            m113_amb,
             "M113 Ambulance",
             1,
             1000,

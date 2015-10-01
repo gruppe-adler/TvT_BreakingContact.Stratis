@@ -3,6 +3,8 @@
 
 DEBUG_MODE = true;
 
+// islandconfig must be before initgui!
+call compile preprocessFile "islandConfig.sqf";
 [] execVM "spawn\initGUI.sqf";
 
 TIME_OF_DAY = paramsArray select 0;
@@ -98,7 +100,6 @@ diag_log format ["setup: server done"];
 
 clearInventory = compile preprocessFile "helpers\clearInventory.sqf";
 spawnStuff = compile preprocessFile "helpers\spawnStuff.sqf";
-call compile preprocessFile "islandConfig.sqf";
 //SHK POS
 call compile preprocessfile "SHK_pos\shk_pos_init.sqf";
 // findsimplePos
@@ -111,7 +112,7 @@ diag_log format ["setup: clientandserver done"];
 
 if (hasInterface) then {
 
-
+	player setVariable ["canBuy", false];
 
 	checkSpawnButton = {
 		waitUntil {!dialog && !visibleMap};
@@ -142,7 +143,10 @@ if (hasInterface) then {
 		[] execVM "player\bluforOpforTeleportListener.sqf";
 		[] execVM "player\bluforBluforTeleportListener.sqf";
 		[] execVM "player\bluforRussianPointsListener.sqf";
-		//[] spawn createSpawnButton;
+		[] spawn createSpawnButton;
+		if (player == teamlead_blufor) then {
+			player setVariable ["canBuy", true];
+		};
 	};
 
 	if (playerSide == east) then {
@@ -150,6 +154,9 @@ if (hasInterface) then {
 		[] execVM "player\opforBluforTeleportListener.sqf"; diag_log format ["setup: opforBluforTeleportListener initiated"];
 		[] execVM "player\opforOpforTeleportListener.sqf"; diag_log format ["setup: opforOpforTeleportListener initiated"];
 		[] spawn createSpawnButton; diag_log format ["setup: createSpawnButton initiated"];
+		if (player == teamlead_opfor) then {
+			player setVariable ["canBuy", true];
+		};
 	};
 	waitUntil {!isNull player};
 };

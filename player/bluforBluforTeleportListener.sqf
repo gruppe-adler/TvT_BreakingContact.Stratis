@@ -2,14 +2,14 @@ addBluforSpawnMarker = {
 	_pos = _this;
 
 	
-	_blufor_marker_start = createMarkerLocal ["blufor_marker_start", _pos];
+	/*_blufor_marker_start = createMarkerLocal ["blufor_marker_start", _pos];
 	_blufor_marker_start setMarkerTypeLocal "hd_start";
-	_blufor_marker_start setMarkerColorLocal "ColorWEST";
+	_blufor_marker_start setMarkerColorLocal "ColorWEST";*/
 };
 
 deleteBluforSpawnLimitMarkers = {
-	deleteMarker "inner_marker";
-	deleteMarker "outer_marker";
+	/*deleteMarker "inner_marker";
+	deleteMarker "outer_marker";*/
 };
 
 _BLUFOR_TELEPORT_TARGET_listener = {

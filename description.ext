@@ -73,7 +73,7 @@ class Params
 		title = "How long should OPFOR have to send before they win?";
 		values[] = {300, 600, 900, 1800, 2700, 3600, 4500, 5400, 6300};
 		texts[] = {"5'","10'", "15'", "30'", "45'", "1h'", "1h15'","1h30'","1h45'"};
-		default = 1500;
+		default = 1800;
 	};
 
 	class Zeitbeschleunigung

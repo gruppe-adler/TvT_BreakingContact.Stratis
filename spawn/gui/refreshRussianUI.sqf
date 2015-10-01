@@ -138,6 +138,32 @@ refreshRussianUI = {
 	
 	[VEHICLE_ORDERED_EAST] call refreshRussianOrder;
 
+	if (player getVariable "canBuy") then {
+		_display displayCtrl 1600 ctrlSetStructuredText parseText ([_headlineBlocked] call headlineString);
+		ctrlEnable [1501, false];
+		ctrlEnable [1502, false];
+		ctrlEnable [1503, false];
+		ctrlEnable [1504, false];
+		ctrlEnable [1505, false];
+		ctrlEnable [1506, false];
+		ctrlEnable [1507, false];
+
+		_display displayCtrl 1501 ctrlSetFade 1;
+		_display displayCtrl 1501 ctrlCommit 0;
+		_display displayCtrl 1502 ctrlSetFade 1;
+		_display displayCtrl 1502 ctrlCommit 0;
+		_display displayCtrl 1503 ctrlSetFade 1;
+		_display displayCtrl 1503 ctrlCommit 0;
+		_display displayCtrl 1504 ctrlSetFade 1;
+		_display displayCtrl 1504 ctrlCommit 0;
+		_display displayCtrl 1505 ctrlSetFade 1;
+		_display displayCtrl 1505 ctrlCommit 0;
+		_display displayCtrl 1506 ctrlSetFade 1;
+		_display displayCtrl 1506 ctrlCommit 0;
+		_display displayCtrl 1507 ctrlSetFade 1;
+		_display displayCtrl 1507 ctrlCommit 0;
+	};
+
 	if (_outOfMoney) exitWith {
 		[] call resetRussianUI;
 
