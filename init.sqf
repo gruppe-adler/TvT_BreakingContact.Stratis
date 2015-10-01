@@ -143,8 +143,8 @@ if (hasInterface) then {
 		[] execVM "player\bluforOpforTeleportListener.sqf";
 		[] execVM "player\bluforBluforTeleportListener.sqf";
 		[] execVM "player\bluforRussianPointsListener.sqf";
-		[] spawn createSpawnButton;
-		if (player == teamlead_blufor) then {
+		//[] spawn createSpawnButton;
+		if (player == blufor_teamlead) then {
 			player setVariable ["canBuy", true];
 		};
 	};
@@ -154,7 +154,7 @@ if (hasInterface) then {
 		[] execVM "player\opforBluforTeleportListener.sqf"; diag_log format ["setup: opforBluforTeleportListener initiated"];
 		[] execVM "player\opforOpforTeleportListener.sqf"; diag_log format ["setup: opforOpforTeleportListener initiated"];
 		[] spawn createSpawnButton; diag_log format ["setup: createSpawnButton initiated"];
-		if (player == teamlead_opfor) then {
+		if (player == opfor_teamlead) then {
 			player setVariable ["canBuy", true];
 		};
 	};
