@@ -3,13 +3,13 @@ blufor_uniform_w = "rhs_uniform_FROG01_wd";
 
 // woodland camo?
 if ((ISLAND_TARGET_POSITIONS select (ISLANDS find worldName)) select 3) then {
-	blufor_uniform = blufor_uniform_d;
+	blufor_uniform = blufor_uniform_w;
 
 	blufor_random_helmet = [
 	"rhsusf_lwh_helmet_marpatwd"
 	];
 } else {
-	blufor_uniform = blufor_uniform_w;
+	blufor_uniform = blufor_uniform_d;
 
 	blufor_random_helmet = [
 	"rhsusf_mich_helmet_marpatd",

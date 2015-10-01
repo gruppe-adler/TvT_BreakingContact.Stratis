@@ -74,7 +74,7 @@ ISLAND_TARGET_POSITIONS = [
 	[ [18080, 18535], [18200, 18060], true, false,'Sara_dbe1'],
 	[ [9800, 4700], [9800, 3800], true, false,'saru'],
 	[ [160, 640], [800, 135], true, false,'Shapur_BAF'],
-	[ [1540, 5015], [1800, 6000], true, false,'Stratis'],
+	[ [1540, 5015], [1800, 6000], true, true,'Stratis'],
 	[ [7700, 1600], [8250, 2130], false, false,'takistan'],
 	[ [1100, 3200], [1700, 3000], true, true,'Thirsk'],
 	[ [4080, 7580], [4860, 7600], true, false,'Panthera3'],
