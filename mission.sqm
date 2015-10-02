@@ -82,7 +82,7 @@ class Mission
 	};
 	class Groups
 	{
-		items=46;
+		items=48;
 		class Item0
 		{
 			side="LOGIC";
@@ -2017,7 +2017,7 @@ class Mission
 					leader=1;
 					rank="LIEUTENANT";
 					skill=0.5;
-					description="Crewman";
+					description="Crewman-Commander";
 				};
 				class Item1
 				{
@@ -2030,7 +2030,7 @@ class Mission
 					player="PLAY CDG";
 					rank="SERGEANT";
 					skill=0.5;
-					description="Crewman";
+					description="Crewman-Driver";
 				};
 				class Item2
 				{
@@ -2043,7 +2043,7 @@ class Mission
 					player="PLAY CDG";
 					rank="SERGEANT";
 					skill=0.5;
-					description="Crewman";
+					description="Crewman-Gunner";
 				};
 			};
 		};
@@ -2065,7 +2065,7 @@ class Mission
 					leader=1;
 					rank="LIEUTENANT";
 					skill=0.5;
-					description="Crewman";
+					description="Crewman-Commander";
 				};
 				class Item1
 				{
@@ -2078,7 +2078,7 @@ class Mission
 					player="PLAY CDG";
 					rank="SERGEANT";
 					skill=0.5;
-					description="Crewman";
+					description="Crewman-Driver";
 				};
 				class Item2
 				{
@@ -2091,7 +2091,7 @@ class Mission
 					player="PLAY CDG";
 					rank="SERGEANT";
 					skill=0.5;
-					description="Crewman";
+					description="Crewman-Gunner";
 				};
 			};
 		};
@@ -2113,7 +2113,7 @@ class Mission
 					leader=1;
 					rank="LIEUTENANT";
 					skill=0.5;
-					description="Crewman";
+					description="Crewman-Commander";
 				};
 				class Item1
 				{
@@ -2126,7 +2126,7 @@ class Mission
 					player="PLAY CDG";
 					rank="SERGEANT";
 					skill=0.5;
-					description="Crewman";
+					description="Crewman-Driver";
 				};
 				class Item2
 				{
@@ -2139,7 +2139,7 @@ class Mission
 					player="PLAY CDG";
 					rank="SERGEANT";
 					skill=0.5;
-					description="Crewman";
+					description="Crewman-Gunner";
 				};
 			};
 		};
@@ -2151,25 +2151,10 @@ class Mission
 				items=2;
 				class Item0
 				{
-					position[]={1535.1211,5.5,5048.5571};
-					azimut=-44.2911;
-					special="NONE";
-					id=82;
-					side="WEST";
-					vehicle="B_Soldier_SL_F";
-					player="PLAY CDG";
-					rank="CAPTAIN";
-					skill=0.5;
-					text="blufor_assistant";
-					init="this setVariable [""canBuy"", true];";
-					description="Assistant Commander";
-				};
-				class Item1
-				{
 					position[]={1530.0372,5.5,5046.7407};
 					azimut=-44.2911;
 					special="NONE";
-					id=83;
+					id=82;
 					side="WEST";
 					vehicle="B_officer_F";
 					player="PLAY CDG";
@@ -2179,6 +2164,20 @@ class Mission
 					text="blufor_teamlead";
 					init="this setVariable [""canBuy"", true];";
 					description="Commander (must be selected)";
+				};
+				class Item1
+				{
+					position[]={1532.3961,5.5,5046.2803};
+					special="NONE";
+					id=83;
+					side="WEST";
+					vehicle="B_Soldier_SL_F";
+					player="PLAY CDG";
+					rank="CAPTAIN";
+					skill=0.5;
+					text="blufor_assistant";
+					init="this setVariable [""canBuy"", true];";
+					description="Assistant Commander";
 				};
 			};
 		};
@@ -2294,7 +2293,7 @@ class Mission
 				};
 				class Item8
 				{
-					position[]={1533.9702,5.5,5073.4053};
+					position[]={1533.5591,5.5,5073.4878};
 					azimut=-203.455;
 					special="NONE";
 					id=92;
@@ -2303,7 +2302,7 @@ class Mission
 					player="PLAY CDG";
 					rank="LIEUTENANT";
 					skill=0.5;
-					description="Rifleman";
+					description="Team Leader";
 				};
 				class Item9
 				{
@@ -2492,7 +2491,7 @@ class Mission
 					player="PLAY CDG";
 					rank="LIEUTENANT";
 					skill=0.5;
-					description="Rifleman";
+					description="Team Leader";
 				};
 				class Item9
 				{
@@ -2672,7 +2671,7 @@ class Mission
 				};
 				class Item8
 				{
-					position[]={1552.6204,5.5,5099.3198};
+					position[]={1552.0448,5.5,5098.8262};
 					azimut=-203.455;
 					special="NONE";
 					id=120;
@@ -2681,7 +2680,7 @@ class Mission
 					player="PLAY CDG";
 					rank="LIEUTENANT";
 					skill=0.5;
-					description="Rifleman";
+					description="Team Leader";
 				};
 				class Item9
 				{
@@ -2766,12 +2765,12 @@ class Mission
 					player="PLAY CDG";
 					rank="SERGEANT";
 					skill=0.5;
-					description="Crewman";
+					description="Crewman-Gunner";
 				};
 				class Item1
 				{
 					position[]={1573.6791,5.5,5090.917};
-					azimut=-169.06197;
+					azimut=-169.062;
 					special="NONE";
 					id=127;
 					side="WEST";
@@ -2780,7 +2779,7 @@ class Mission
 					leader=1;
 					rank="LIEUTENANT";
 					skill=0.5;
-					description="Crewman";
+					description="Crewman-Commander";
 				};
 				class Item2
 				{
@@ -2793,7 +2792,7 @@ class Mission
 					player="PLAY CDG";
 					rank="SERGEANT";
 					skill=0.5;
-					description="Crewman";
+					description="Crewman-Driver";
 				};
 			};
 		};
@@ -2805,7 +2804,7 @@ class Mission
 				items=3;
 				class Item0
 				{
-					position[]={1586.8842,5.5,5100.0415};
+					position[]={1586.2086,5.5,5098.9438};
 					azimut=-169.062;
 					special="NONE";
 					id=129;
@@ -2814,11 +2813,11 @@ class Mission
 					player="PLAY CDG";
 					rank="SERGEANT";
 					skill=0.5;
-					description="Crewman";
+					description="Crewman-Gunner";
 				};
 				class Item1
 				{
-					position[]={1582.5897,5.5,5099.3979};
+					position[]={1581.9142,5.5,5098.3003};
 					azimut=-169.062;
 					special="NONE";
 					id=130;
@@ -2828,11 +2827,11 @@ class Mission
 					leader=1;
 					rank="LIEUTENANT";
 					skill=0.5;
-					description="Crewman";
+					description="Crewman-Commander";
 				};
 				class Item2
 				{
-					position[]={1583.7705,5.5,5104.0142};
+					position[]={1583.095,5.5,5102.9165};
 					azimut=-169.062;
 					special="NONE";
 					id=131;
@@ -2841,7 +2840,7 @@ class Mission
 					player="PLAY CDG";
 					rank="SERGEANT";
 					skill=0.5;
-					description="Crewman";
+					description="Crewman-Driver";
 				};
 			};
 		};
@@ -2862,7 +2861,7 @@ class Mission
 					player="PLAY CDG";
 					rank="SERGEANT";
 					skill=0.5;
-					description="Crewman";
+					description="Crewman-Gunner";
 				};
 				class Item1
 				{
@@ -2876,7 +2875,7 @@ class Mission
 					leader=1;
 					rank="LIEUTENANT";
 					skill=0.5;
-					description="Crewman";
+					description="Crewman-Commander";
 				};
 				class Item2
 				{
@@ -2889,7 +2888,7 @@ class Mission
 					player="PLAY CDG";
 					rank="SERGEANT";
 					skill=0.5;
-					description="Crewman";
+					description="Crewman-Driver";
 				};
 			};
 		};
@@ -2992,6 +2991,102 @@ class Mission
 					leader=1;
 					lock="UNLOCKED";
 					skill=0.60000002;
+				};
+			};
+		};
+		class Item46
+		{
+			side="WEST";
+			class Vehicles
+			{
+				items=3;
+				class Item0
+				{
+					position[]={1575.8337,5.5,5109.2783};
+					azimut=-169.062;
+					special="NONE";
+					id=138;
+					side="WEST";
+					vehicle="B_Helipilot_F";
+					player="PLAY CDG";
+					leader=1;
+					rank="LIEUTENANT";
+					skill=0.5;
+					description="Helicopter Pilot";
+				};
+				class Item1
+				{
+					position[]={1570.1632,5.5,5110.0918};
+					azimut=-169.062;
+					special="NONE";
+					id=139;
+					side="WEST";
+					vehicle="B_crew_F";
+					player="PLAY CDG";
+					rank="SERGEANT";
+					skill=0.5;
+					description="Helicopter Pilot";
+				};
+				class Item2
+				{
+					position[]={1573.7744,5.5,5112.9985};
+					azimut=-169.062;
+					special="NONE";
+					id=140;
+					side="WEST";
+					vehicle="B_Helipilot_F";
+					player="PLAY CDG";
+					rank="LIEUTENANT";
+					skill=0.5;
+					description="Helicopter Pilot";
+				};
+			};
+		};
+		class Item47
+		{
+			side="EAST";
+			class Vehicles
+			{
+				items=3;
+				class Item0
+				{
+					position[]={1824.5792,5.5,6020.4722};
+					azimut=163.319;
+					special="NONE";
+					id=141;
+					side="EAST";
+					vehicle="O_crew_F";
+					player="PLAY CDG";
+					leader=1;
+					rank="LIEUTENANT";
+					skill=0.5;
+					description="Crewman-Commander";
+				};
+				class Item1
+				{
+					position[]={1821.9238,5.5,6022.9819};
+					azimut=163.319;
+					special="NONE";
+					id=142;
+					side="EAST";
+					vehicle="O_crew_F";
+					player="PLAY CDG";
+					rank="SERGEANT";
+					skill=0.5;
+					description="Crewman-Driver";
+				};
+				class Item2
+				{
+					position[]={1820.6045,5.5,6019.2383};
+					azimut=163.319;
+					special="NONE";
+					id=143;
+					side="EAST";
+					vehicle="O_crew_F";
+					player="PLAY CDG";
+					rank="SERGEANT";
+					skill=0.5;
+					description="Crewman-Gunner";
 				};
 			};
 		};
