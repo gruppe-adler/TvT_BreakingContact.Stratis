@@ -112,8 +112,6 @@ diag_log format ["setup: clientandserver done"];
 
 if (hasInterface) then {
 
-	player setVariable ["canBuy", false];
-
 	checkSpawnButton = {
 		waitUntil {!dialog && !visibleMap};
 		if (BLUFOR_TELEPORTED) exitWith {cutText ["", "BLACK IN", 1];};
@@ -145,9 +143,7 @@ if (hasInterface) then {
 		[] execVM "player\bluforBluforTeleportListener.sqf";
 		[] execVM "player\bluforRussianPointsListener.sqf";
 		//[] spawn createSpawnButton;
-		if (player == blufor_teamlead) then {
-			player setVariable ["canBuy", true];
-		};
+		
 	};
 
 	if (playerSide == east) then {
@@ -156,9 +152,7 @@ if (hasInterface) then {
 		[] execVM "player\opforOpforTeleportListener.sqf"; diag_log format ["setup: opforOpforTeleportListener initiated"];
 		[] spawn createSpawnButton; diag_log format ["setup: createSpawnButton initiated"];
 		
-		if (player == opfor_teamlead) then {
-			player setVariable ["canBuy", true];
-		};
+		
 	};
 	waitUntil {!isNull player};
 };

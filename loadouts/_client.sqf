@@ -1,8 +1,8 @@
 _unit = _this select 0;
 
-call compile preprocessFile "loadouts\loadouts_blufor.sqf";
+call compile preprocessFile "loadouts\loadout_fillfunctions.sqf";
 call compile preprocessFile "loadouts\loadouts_opfor.sqf";
-
+call compile preprocessFile "loadouts\loadouts_blufor.sqf";
 
 waitUntil { !isNull _unit };
 
@@ -16,18 +16,20 @@ waitUntil { !isNull _unit };
             
             switch (typeOf _unit) do {
 
-            case "B_G_officer_F": {[_unit] call blufor_officer;};
-            case "B_officer_F": {[_unit] call blufor_officer;};
+            case "B_G_officer_F": {[_unit] call blufor_sql;};
+            case "B_officer_F": {[_unit] call blufor_sql;};
 
-            case "B_Soldier_TL_F": {[_unit] call blufor_officer;};
-            case "B_G_Soldier_TL_F": {[_unit] call blufor_officer;};
-            case "B_recon_TL_F": {[_unit] call blufor_officer;};
-            case "B_Soldier_SL_F": {[_unit] call blufor_officer;};
-            case "B_G_Soldier_SL_F": {[_unit] call blufor_officer;};
+            case "B_Soldier_TL_F": {[_unit] call blufor_ftl;};
+            case "B_G_Soldier_TL_F": {[_unit] call blufor_ftl;};
+            case "B_recon_TL_F": {[_unit] call blufor_ftl;};
+            case "B_Soldier_SL_F": {[_unit] call blufor_sql;};
+            case "B_G_Soldier_SL_F": {[_unit] call blufor_sql;};
             
 
             case "B_G_Soldier_GL_F": {[_unit] call blufor_default;};
             case "B_Soldier_GL_F": {[_unit] call blufor_default;};
+
+            case "B_Soldier_A_F": {[_unit] call blufor_ammobearer;};
 
             case "B_medic_F": {[_unit] call blufor_medic;};
             case "B_recon_medic_F": {[_unit] call blufor_medic;};
@@ -55,8 +57,8 @@ waitUntil { !isNull _unit };
 
             case "B_soldier_AT_F": {[_unit] call blufor_AT;};
 
-            case "B_engineer_F": {[_unit] call blufor_repair;};
-            case "B_soldier_repair_F": {[_unit] call blufor_repair;};
+            case "B_engineer_F": {[_unit] call blufor_engineer;};
+            case "B_soldier_repair_F": {[_unit] call blufor_engineer;};
 
             case "B_crew_F": {[_unit] call blufor_crew;};
 
@@ -82,16 +84,18 @@ waitUntil { !isNull _unit };
             case "O_Soldier_AAR_F": {[_unit] call opfor_MG;};
             case "O_soldierU_AAR_F": {[_unit] call opfor_MG;};
 
-            case "O_G_Soldier_TL_F": {[_unit] call opfor_officer;};
-            case "O_soldierU_F": {[_unit] call opfor_officer;};
-            case "O_Soldier_TL_F": {[_unit] call opfor_officer;};
-            case "O_recon_TL_F": {[_unit] call opfor_officer;};
-            case "O_soldierU_TL_F": {[_unit] call opfor_officer;};
-            case "O_G_officer_F": {[_unit] call opfor_officer;};
-            case "O_officer_F": {[_unit] call opfor_officer;};
-            case "O_Soldier_TL_F": {[_unit] call opfor_officer;};
-            case "O_recon_TL_F": {[_unit] call opfor_officer;};
-            case "O_soldierU_TL_F": {[_unit] call opfor_officer;};
+            case "O_G_Soldier_TL_F": {[_unit] call opfor_ftl;};
+            case "O_soldierU_F": {[_unit] call opfor_ftl;};
+            case "O_Soldier_TL_F": {[_unit] call opfor_ftl;};
+            case "O_recon_TL_F": {[_unit] call opfor_ftl;};
+            case "O_soldierU_TL_F": {[_unit] call opfor_ftl;};
+            case "O_G_officer_F": {[_unit] call opfor_ftl;};
+            case "O_officer_F": {[_unit] call opfor_ftl;};
+            case "O_Soldier_TL_F": {[_unit] call opfor_ftl;};
+            case "O_recon_TL_F": {[_unit] call opfor_ftl;};
+            case "O_soldierU_TL_F": {[_unit] call opfor_ftl;};
+
+            case "O_Soldier_SL_F": {[_unit] call opfor_sql;};
 
             case "O_G_Soldier_GL_F": {[_unit] call opfor_default;};
             case "O_Soldier_GL_F": {[_unit] call opfor_default;};
@@ -103,12 +107,12 @@ waitUntil { !isNull _unit };
             case "O_soldierU_F": {[_unit] call opfor_default;};
             case "O_soldierU_A_F": {[_unit] call opfor_default;};
             case "O_G_Soldier_A_F": {[_unit] call opfor_default;};
-            case "O_Soldier_A_F": {[_unit] call opfor_default;};
+            case "O_Soldier_A_F": {[_unit] call opfor_ammobearer;};
 
-            case "O_soldier_AT_F": {[_unit] call opfor_AT;};
+            case "O_Soldier_AT_F": {[_unit] call opfor_AT;};
 
-            case "O_engineer_F": {[_unit] call opfor_repair;};
-            case "O_soldier_repair_F": {[_unit] call opfor_repair;};
+            case "O_engineer_F": {[_unit] call opfor_engineer;};
+            case "O_soldier_repair_F": {[_unit] call opfor_engineer;};
 
             case "O_crew_F": {[_unit] call opfor_crew;};
 
