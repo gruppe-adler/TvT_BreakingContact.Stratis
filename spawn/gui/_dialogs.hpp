@@ -1067,7 +1067,7 @@ class RscTitles {
 		fadeOut = 5;
 
 	 	class controls {
-			class russian_gui_pic_1: RscPicture
+			class gui_intel_paper_pic: RscPicture
 			{
 				idc = -1;
 				x = safeZoneX + safeZoneW - 0.3;  
@@ -1075,6 +1075,44 @@ class RscTitles {
 				w = 0.3;
 				h = 0.4;
 				text = "pic\satellite_badge.paa";
+			};
+		};
+	};
+	class gui_blufor_pleasewait
+	{
+		idd = -1;
+		duration = 10e10;
+		name = "gui_blufor_pleasewait";
+		fadeIn = 1;
+
+	 	class controls {
+			class gui_blufor_pleasewait_pic: RscPicture
+			{
+				idc = -1;
+				x = 10 * GUI_GRID_W + GUI_GRID_X;
+				y = 10 * GUI_GRID_H + GUI_GRID_Y;
+				w = 16 * GUI_GRID_W;
+				h = 8 * GUI_GRID_H;
+				text = "pic\blufor_please_wait.paa";
+			};
+		};
+	};
+	class gui_opfor_pleasewait
+	{
+		idd = -1;
+		duration = 10e10;
+		name = "gui_opfor_pleasewait";
+		fadeIn = 1;
+
+	 	class controls {
+			class gui_opfor_pleasewait_pic: RscPicture
+			{
+				idc = -1;
+				x = 10 * GUI_GRID_W + GUI_GRID_X;
+				y = 10 * GUI_GRID_H + GUI_GRID_Y;
+				w = 18 * GUI_GRID_W;
+				h = 8 * GUI_GRID_H;
+				text = "pic\opfor_please_wait.paa";
 			};
 		};
 	};

@@ -33,6 +33,8 @@ createOpforStuff =  {
 		_opfor_marker_start = createMarker ["debug_opfor_marker_start", RUS_VEHICLE_SPAWN];
 		_opfor_marker_start setMarkerType "hd_start";
 		_opfor_marker_start setMarkerColor "ColorOpfor";
+	} else {
+
 	};
 
 };
@@ -42,9 +44,10 @@ createBluforStuff = {
 	_bluforposition = [_opforposition, "US_WarfareBUAVterminal_Base_EP1"] call findBluforPos;
 
 	BLUFOR_TELEPORT_TARGET = _bluforposition;
-	publicVariable "BLUFOR_TELEPORT_TARGET";
+	publicVariableServer "OPFOR_TELEPORT_TARGET";
+	debugLog("blufor published target");
 
-	diag_log format ["creating blufor stuff on position: %1",_bluforposition];
+	// diag_log format ["creating blufor stuff on position: %1",_bluforposition];
 
 
 	US_base = [_bluforposition, 0, 5, "US_WarfareBUAVterminal_Base_EP1"] call spawnStuff;

@@ -7,6 +7,7 @@ DEBUG_MODE = true;
 call compile preprocessFile "islandConfig.sqf";
 [] execVM "spawn\initGUI.sqf";
 
+// read parameters
 TIME_OF_DAY = paramsArray select 0;
 WEATHER_SETTING = paramsArray select 1;
 BLUFOR_SPAWN_DISTANCE = (paramsArray select 2) * 2;
@@ -18,14 +19,16 @@ AR3PLAY_ENABLE_REPLAY = (paramsArray select 7) == 1;
 AR3PLAY_IS_STREAMABLE = (paramsArray select 8) == 1;
 custom_overcast = 1;
 
+// optimize for PVP
+disableRemoteSensors true;
+
 setCustomWeather = {
 	skipTime -24; 86400 setOvercast (_this select 0); skipTime 24;
 };
 
-
 switch (WEATHER_SETTING) do {
 	case 0: {[0] call setCustomWeather;};
-	case 1: {[0.5] call setCustomWeather;};
+	case 1: {[0.4] call setCustomWeather;};
 	case 2: {[1] call setCustomWeather;};
 	case 3: {[random 1] call setCustomWeather;};
 	default {[random 1] call setCustomWeather;};
@@ -36,6 +39,7 @@ if (!isMultiplayer) then { // Editor
 	{_x disableAI "MOVE"} forEach allUnits;
 };
 
+// set to full moon date
 if (isServer) then {
 	setDate [2015, 2, 2, TIME_OF_DAY, 1];
 	setTimeMultiplier TIME_ACCELERATION;
@@ -118,7 +122,7 @@ if (hasInterface) then {
 		0 = [playerside] execVM "spawn\checkIfSpawned.sqf";
 	};
 
-	createSpawnButton = {
+	createStartHints = {
 		[] spawn checkSpawnButton;
 	};
 
@@ -142,7 +146,7 @@ if (hasInterface) then {
 		[] execVM "player\bluforOpforTeleportListener.sqf";
 		[] execVM "player\bluforBluforTeleportListener.sqf";
 		[] execVM "player\bluforRussianPointsListener.sqf";
-		//[] spawn createSpawnButton;
+		[] spawn createStartHints;
 		
 	};
 
@@ -150,7 +154,7 @@ if (hasInterface) then {
 		[] execVM "player\russianMarker.sqf"; diag_log format ["setup: russianmarker initiated"];
 		[] execVM "player\opforBluforTeleportListener.sqf"; diag_log format ["setup: opforBluforTeleportListener initiated"];
 		[] execVM "player\opforOpforTeleportListener.sqf"; diag_log format ["setup: opforOpforTeleportListener initiated"];
-		[] spawn createSpawnButton; diag_log format ["setup: createSpawnButton initiated"];
+		[] spawn createStartHints; diag_log format ["setup: createStartHints initiated"];
 		
 		
 	};

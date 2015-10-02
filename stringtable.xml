@@ -3,14 +3,14 @@
     <Package name="TvT_Sputnik_package">
     	 <Container name="mission briefing">
     	 	<Key ID="str_GRAD_story">
-                <Original>tbd story</Original>
-                <English>tbd story</English>
-                <German>tbd story</German>
+                <Original>You want to know the full story? Check back later</Original>
+                <English>You want to know the full story? Check back later</English>
+                <German>Du willst die ganze Wahrheit wissen? Schau später nochmal rein.</German>
             </Key>
             <Key ID="str_GRAD_briefing">
-                <Original>tbd story</Original>
-                <English>tbd story</English>
-                <German>tbd story</German>
+                <Original>US has to find and destroy the Russian radio truck before it ends it transmission. Russians have to protect their truck for </Original>
+                <English>US has to find and destroy the Russian radio truck before it ends it transmission. Russians have to protect their truck for </English>
+                <German>Die Amerikaner müssen den Funkwagen der Russen finden und zerstören, bevor er seine Übertragung abschließen kann. Die Russen müssen ihn davor bewahren. Eingestellte Dauer: </German>
             </Key>
         </Container>
         <Container name="mission setup">

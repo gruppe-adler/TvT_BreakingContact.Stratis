@@ -1,24 +1,26 @@
 if (!OPFOR_TELEPORTED && (_this select 0 == east)) exitWith {
 	if (player == opfor_teamlead) then {
-		titleCut ["Mission Setup", "BLACK", 999];
-		0 = createDialog "gui_spawn_opfor";
 		waitUntil {dialog};
-		titleCut ["Mission Setup", "BLACK", 999];
 		[] call checkSpawnButton;
 	} else {
-		titleCut ["Mission Setup", "BLACK", 999];
-		0 = createDialog "gui_spawn_waitplease";
-		titleCut ["Mission Setup", "BLACK", 999];
-		waitUntil {BLUFOR_TELEPORTED};
-		cutText ["", "BLACK IN", 1];
+		openMap [true,false];
+		cutRsc ["gui_opfor_pleasewait","PLAIN",0];
+		waitUntil {!visibleMap};
+		if (OPFOR_TELEPORT_TARGET select 0 != 0) exitWith {};
+		hintsilent "Please dont move. Showing map...";
+		sleep 3;
+		if (BLUFOR_TELEPORT_TARGET select 0 != 0) exitWith {};
+		[] call checkSpawnButton;
 	};
 };
 
 if (!BLUFOR_TELEPORTED && (_this select 0 == west)) exitWith {
-	titleCut ["Mission Setup", "BLACK", 999];
-	0 = createDialog "gui_spawn_waitplease";
-	waitUntil {dialog};
-	if (BLUFOR_TELEPORTED) exitWith {cutText ["", "BLACK IN", 1];};
-	titleCut ["Mission Setup", "BLACK", 999];
+	openMap [true,false];
+	cutRsc ["gui_blufor_pleasewait","PLAIN",0];
+	waitUntil {!visibleMap};
+	if (BLUFOR_TELEPORT_TARGET select 0 != 0) exitWith {};
+	hintsilent "Please dont move. Showing map...";
+	sleep 3;
+	if (BLUFOR_TELEPORT_TARGET select 0 != 0) exitWith {};
 	[] call checkSpawnButton;
 };
