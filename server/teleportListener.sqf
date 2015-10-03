@@ -41,9 +41,9 @@ createOpforStuff =  {
 
 createBluforStuff = {
 	_opforposition = _this;
-	_result = [];
-	while {_result < 1} do {
-	_result = [_opforposition, 1, 150, 10, 0, 20, 0] call findBISPos;
+	_result = nil;
+	while {!isNil _result} do {
+		_result = [_opforposition, 1, 150, 10, 0, 20, 0] call findBISPos;
 	};
 
 	US_VEHICLE_SPAWN = _result;
