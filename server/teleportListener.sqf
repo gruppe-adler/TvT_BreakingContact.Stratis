@@ -25,7 +25,7 @@ createOpforStuff =  {
 
 	sleep 1;
 
-	RUS_VEHICLE_SPAWN = _position findEmptyPosition [8, 50, "Land_HelipadCivil_F"];
+	RUS_VEHICLE_SPAWN = _position findEmptyPosition [0, 50, "Land_HelipadCivil_F"];
 	publicVariable "RUS_VEHICLE_SPAWN";
 	_RUS_spawnPad = createVehicle ["Land_HelipadCivil_F",RUS_VEHICLE_SPAWN,[],0,"NONE"];
 
@@ -41,33 +41,33 @@ createOpforStuff =  {
 
 createBluforStuff = {
 	_opforposition = _this;
-	_bluforposition = [_opforposition, "TK_GUE_WarfareBAntiAirRadar_Base_EP1"] call findBluforPos;
+	_result = [];
+	while {_result < 1} do {
+	_result = [_opforposition, 1, 150, 10, 0, 20, 0] call findBISPos;
+	};
 
-	BLUFOR_TELEPORT_TARGET = _bluforposition;
+	US_VEHICLE_SPAWN = _result;
+	publicVariable "US_VEHICLE_SPAWN";
+	_US_spawnPad = createVehicle ["Land_HelipadCivil_F",US_VEHICLE_SPAWN,[],0,"NONE"];
+
+	BLUFOR_TELEPORT_TARGET = _result;
 	publicVariableServer "BLUFOR_TELEPORT_TARGET";
 	debugLog("blufor published target");
 
-	diag_log format ["creating blufor stuff on position: %1",_bluforposition];
+	diag_log format ["creating blufor stuff on position: %1",_result];
 
+	sleep 1;
 
-	US_base = [_bluforposition, 0, 5, "US_WarfareBUAVterminal_Base_EP1"] call spawnStuff;
+	US_base = [_result, 15, 50, "US_WarfareBUAVterminal_Base_EP1"] call spawnStuff;
 	//US_base addAction["<t color=""#93E352"">" + localize "str_GRAD_buy_vehicles",{0 = createDialog "USSupplyGUI"; [USSupplies, false, 0, "","",""] call refreshUSUI;}, _Args, 1, true, true, "","_this distance _target < 6 && side _this == west"];
 
 	
-
-
 	/*_actionBuy = ["buy_objects",localize "str_GRAD_buy_vehicles", "", {0 = createDialog "USSupplyGUI"; [USSupplies, false, 0, "","",""] call refreshUSUI;}, {side player == west}] call ace_interact_menu_fnc_createAction;
 	[US_base, 0, ["ACE_MainActions"], _actionBuy] call ace_interact_menu_fnc_addActionToObject;*/
 
-	sleep 1;
-	_spawn = _bluforposition findEmptyPosition [8, 50, "Land_HelipadCivil_F"];
-	
-	sleep 1;
 	//_spawn call bluforTeleporting;
 	
-	US_VEHICLE_SPAWN = _spawn;
-	publicVariable "US_VEHICLE_SPAWN";
-	_US_spawnPad = createVehicle ["Land_HelipadCivil_F",US_VEHICLE_SPAWN,[],0,"NONE"];
+	
 
 	if (!isMultiplayer) then {
 		_blufor_marker_start = createMarker ["debug_blufor_marker_start", US_VEHICLE_SPAWN];
