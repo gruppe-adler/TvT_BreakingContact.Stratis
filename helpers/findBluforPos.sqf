@@ -6,7 +6,7 @@ createBluforDebugSpawnMarker = {
 	//diag_log format ["created debug marker at %1", _this select 0];
 };
 
-checkOutsideMap = {
+checkInsideMap = {
 	_maximumX = _this select 0;
 	_maximumY = _this select 0;
 	_positionX = (_this select 1) select 0;
@@ -43,10 +43,10 @@ findBluforPos = {
 		diag_log format ["%1",_count];
 		if (count _tempPosition > 0) then {
 		// [_tempPosition] call createBluforDebugSpawnMarker;
-		if ([_mapSize, _tempPosition] call checkOutsideMap) then {
-			_tempPosition = []; diag_log format ["Outside Map: %1",_tempPosition];
+		if ([_mapSize, _tempPosition] call checkInsideMap) then {
+			_nearestPosition = _tempPosition; diag_log format ["Inside Map: %1",_tempPosition];
 			} else {
-				_nearestPosition = _tempPosition;
+			_tempPosition = []; diag_log format ["Outside Map: %1",_tempPosition];
 			};
 		};
 	};
