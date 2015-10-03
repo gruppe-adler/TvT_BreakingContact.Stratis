@@ -254,6 +254,10 @@ fillUSSupplies = {
             clearItemCargoGlobal (_this select 0); 
             clearBackpackCargoGlobal (_this select 0); 
             clearMagazineCargoGlobal (_this select 0);
+            (_this select 0) addItemCargoGlobal ['ACE_Earplugs',15];
+            (_this select 0) addItemCargoGlobal ['ACE_Morphine',40];
+            (_this select 0) addItemCargoGlobal ['ACE_epinephrine',40];
+            (_this select 0) addItemCargoGlobal ['ACE_fieldDressing',100];
             }
         ],
         [

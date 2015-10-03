@@ -18,7 +18,7 @@ findBluforPos = {
 
 	while {count _nearestPosition < 1} do {
 		_tempPosition = [_center,[BLUFOR_SPAWN_DISTANCE, _distanceToSearch], random 360,0,[2,400],[0,_unitType]] call SHK_pos;
-		_distanceToSearch = _distanceToSearch + 10;
+		//_distanceToSearch = _distanceToSearch + 10;
 		
 		diag_log format ["%1",_distanceToSearch];
 		if (count _tempPosition > 0) then {

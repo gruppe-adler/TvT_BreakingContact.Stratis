@@ -1,7 +1,7 @@
 opfor_basic = {
 	this = _this select 0;
 
-	//[this, "ACE_Earplugs", 1] call addItemsToUniform;
+	[this, "ACE_Earplugs", 1] call addItemsToUniform;
 	[this, "ACE_fieldDressing", 6] call addItemsToUniform;
 	[this, "ACE_Morphine", 2] call addItemsToUniform;
 	[this, "ACE_epinephrine", 1] call addItemsToUniform;
