@@ -10,7 +10,7 @@ findSimplePos = {
 	_distanceToSearch = _max_distance;
 
 	while {count _nearestPosition < 1} do {
-		_tempPosition = [_center,[_min_distance,_distanceToSearch], random 360,0,[1,200],[0,_unitType]] call SHK_pos;
+		_tempPosition = [_center,[_min_distance,_distanceToSearch], random 360,0,[1,200],[200,_unitType]] call SHK_pos;
 		_distanceToSearch = _distanceToSearch + 10;
 		
 		if (count _tempPosition > 0) then { _nearestPosition = _tempPosition;};
