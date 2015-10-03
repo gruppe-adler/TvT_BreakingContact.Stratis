@@ -1,24 +1,19 @@
 createOpforStuff =  {
 	_position = _this;
 
-	diag_log format ["creating opfor stuff on position: %1",_position];
-
 	funkwagen = [_position, 0, 1, "rhs_gaz66_r142_vv"] call spawnStuff;
 
 	sleep 1;
 	[funkwagen] call clearInventory;
 	funkwagen animate ["light_hide",1];
 
-	[_position, 1] call spawnOpforHQ;
+	[_position, 150] call spawnOpforHQ;
 
 	if (!isMultiplayer) then {
 		_opfor_marker_start = createMarker ["debug_opfor_marker_start", RUS_VEHICLE_SPAWN];
 		_opfor_marker_start setMarkerType "hd_start";
 		_opfor_marker_start setMarkerColor "ColorOpfor";
-	} else {
-
 	};
-
 };
 
 createBluforStuff = {

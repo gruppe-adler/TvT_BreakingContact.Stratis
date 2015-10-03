@@ -24,15 +24,15 @@ testSpawnPositions = {
 	// put something very big in there, just to be sure there is enough room
 	_testPos1 = [_center,[_distance,_distance], random 360,0,[1,500]] call SHK_pos;
 	if (count _testPos1 < 1) exitWith {_result = [1,nil,nil];};	
-	if ([_testPos1, 10] call get_slope > 0.3) exitWith {_result = [1,nil,nil]; debugLog("Calculating Spawnposis: Not flat enough."); _result };
+	if ([_testPos1, 10] call get_slope > 0.6) exitWith {_result = [1,nil,nil]; diag_log format ["Calculating Spawnposis: Not flat enough."]; _result };
 
 	_testVehicle1 = (_items select 0) createVehicle _testPos1;
 
 
 	_testPos2 = [_testPos1,[30,50], random 360,0,[1,500]] call SHK_pos;
-	if (count _testPos2 < 1) exitWith {_result = [1,nil,nil]; debugLog("Calculating Spawnposis: No matching second pos."); };	
-	if (_testPos1 distance _testPos2 < 10) exitWith {deleteVehicle _testVehicle1; _result = [1,nil,nil]; debugLog("Calculating Spawnposis: HQ too close on marker."); _result};
-	if ([_testPos2, 10] call get_slope > 0.3) exitWith {deleteVehicle _testVehicle1;_result = [1,nil,nil]; debugLog("Calculating Spawnposis: Not flat enough."); _result};
+	if (count _testPos2 < 1) exitWith {_result = [1,nil,nil]; diag_log format ["Calculating Spawnposis: No matching second pos."]; _result};	
+	if (_testPos1 distance _testPos2 < 10) exitWith {deleteVehicle _testVehicle1; _result = [1,nil,nil]; diag_log format ["Calculating Spawnposis: HQ too close on marker."]; _result};
+	if ([_testPos2, 10] call get_slope > 0.6) exitWith {deleteVehicle _testVehicle1;_result = [1,nil,nil]; diag_log format ["Calculating Spawnposis: Not flat enough."]; _result};
 
 	_testVehicle2 = (_items select 1) createVehicle _testPos2;
 
@@ -43,18 +43,18 @@ testSpawnPositions = {
 
 
 spawnBluforHQ = {
-	_centerPosition = _this select 0;
-	_distance = _this select 1;
-	_waitingForSpawn = true;
+	_bluforCenterPosition = _this select 0;
+	_bluforDistance = _this select 1;
+	_waitingForBluforSpawn = true;
 	
 
-	while {_waitingForSpawn} do {
+	while {_waitingForBluforSpawn} do {
 		_bluforSpawnSuccess = [0,nil,nil];
-		_bluforSpawnSuccess = [_centerPosition, ["US_WarfareBUAVterminal_Base_EP1","Land_HelipadCivil_F"], _distance] call testSpawnPositions;
+		_bluforSpawnSuccess = [_bluforCenterPosition, ["US_WarfareBUAVterminal_Base_EP1","Land_HelipadCivil_F"], _bluforDistance] call testSpawnPositions;
 		waitUntil {(_bluforSpawnSuccess select 0) > 0};
 
 		if ((_bluforSpawnSuccess select 0) > 1) exitWith {
-			_waitingForSpawn = false;
+			_waitingForBluforSpawn = false;
 
 			US_VEHICLE_SPAWN = getPos (_bluforSpawnSuccess select 2);
 			publicVariable "US_VEHICLE_SPAWN";
@@ -72,18 +72,18 @@ spawnBluforHQ = {
 };
 
 spawnOpforHQ = {
-	_centerPosition = _this select 0;
-	_distance = _this select 1;
-	_waitingForSpawn = true;
+	_opforCenterPosition = _this select 0;
+	_opforDistance = _this select 1;
+	_waitingForOpforSpawn = true;
 	
 
-	while {_waitingForSpawn} do {
+	while {_waitingForOpforSpawn} do {
 		_opforSpawnSuccess = [0,nil,nil];
-		_opforSpawnSuccess = [_centerPosition, ["TK_WarfareBUAVterminal_Base_EP1","Land_HelipadCivil_F"], _distance] call testSpawnPositions;
+		_opforSpawnSuccess = [_opforCenterPosition, ["TK_WarfareBUAVterminal_Base_EP1","Land_HelipadCivil_F"], _opforDistance] call testSpawnPositions;
 		waitUntil {(_opforSpawnSuccess select 0) > 0};
 
 		if ((_opforSpawnSuccess select 0) > 1) exitWith {
-			_waitingForSpawn = false;
+			_waitingForOpforSpawn = false;
 
 			RUS_VEHICLE_SPAWN = getPos (_opforSpawnSuccess select 2);
 			publicVariable "RUS_VEHICLE_SPAWN";
@@ -91,8 +91,7 @@ spawnOpforHQ = {
 			/* OPFOR_TELEPORT_TARGET = getPos (_opforSpawnSuccess select 2);
 			publicVariableServer "OPFOR_TELEPORT_TARGET"; */
 
-			debugLog("opfor published target");
-			diag_log format ["creating blufor stuff on position: %1",RUS_VEHICLE_SPAWN];
+			diag_log format ["creating opfor stuff on position: %1",RUS_VEHICLE_SPAWN];
 		};
 
 		sleep 0.01;
