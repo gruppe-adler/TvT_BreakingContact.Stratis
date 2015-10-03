@@ -11,16 +11,20 @@ findBluforPos = {
 	_nearestPosition = [];
 	_center = _this select 0;
 	_unitType = _this select 1;
-	
+	_count = 0;
 
 	_distanceToSearch = BLUFOR_SPAWN_DISTANCE + 100;
 	
 
 	while {count _nearestPosition < 1} do {
-		_tempPosition = [_center,[BLUFOR_SPAWN_DISTANCE, _distanceToSearch], random 360,0,[2,400],[0,_unitType]] call SHK_pos;
+		_tempPosition = [_center,[BLUFOR_SPAWN_DISTANCE, _distanceToSearch], random 360,0,[2,200],[200,_unitType]] call SHK_pos;
 		//_distanceToSearch = _distanceToSearch + 10;
-		
-		diag_log format ["%1",_distanceToSearch];
+		_count = _count + 1;
+		if (_count > 20) then {
+		_tempPosition = [_center,[BLUFOR_SPAWN_DISTANCE, _distanceToSearch], random 360,0,[1,500],[500,_unitType]] call SHK_pos;
+		};
+
+		diag_log format ["%1",_count];
 		if (count _tempPosition > 0) then {
 		// [_tempPosition] call createBluforDebugSpawnMarker;
 		_nearestPosition = _tempPosition;
