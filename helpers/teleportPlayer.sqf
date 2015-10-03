@@ -4,7 +4,7 @@
 _location = _this select 0;
 _distance = _this select 1;
 
-_spawn = [_location, 1, 20, "B_Soldier_F"] call findSimplePos;
+_spawn = _location findEmptyPosition[1, 20, "B_Soldier_F"];
 diag_log format ["teleporting %1 to %2.", player, _location];
 playSound "beam";
 cutText ["", "BLACK OUT", 0.1];
