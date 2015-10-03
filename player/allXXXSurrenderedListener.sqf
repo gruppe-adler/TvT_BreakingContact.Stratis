@@ -2,25 +2,33 @@
 #include "..\missionMacros.h"
 
 _BLUFOR_SURRENDERED_listener = {
-	adminLog("blufor surrendered");
-	_string = localize "str_GRAD_winmsg_points";
-	[_string] call EFUNC(common,displayTextStructured);
-	[east] execVM "player\endmission.sqf";
+	if (_this select 1) then {
+		adminLog("blufor surrendered");
+		_string = localize "str_GRAD_winmsg_points";
+		[_string] call EFUNC(common,displayTextStructured);
+		[east] execVM "player\endmission.sqf";
+	};
 };
 
 _BLUFOR_CAPTURED_listener = {
-	adminLog("blufor captured");
-	[west] execVM "player\endmission.sqf";
+	if (_this select 1) then {
+		adminLog("blufor captured");
+		[west] execVM "player\endmission.sqf";
+	};
 };
 
 _BLUFOR_ELIMINATED_listener = {
-	adminLog("mission_complete: blufor loses  by elimination");
-	[east] execVM "player\endmission.sqf";
+	if (_this select 1) then {
+		adminLog("mission_complete: blufor loses  by elimination");
+		[east] execVM "player\endmission.sqf";
+	};
 };
 
 _OPFOR_ELIMINATED_listener = {
-	adminLog("mission_complete: opfor loses  by elimination");
-	[west] execVM "player\endmission.sqf";
+	if (_this select 1) then {
+		adminLog("mission_complete: opfor loses  by elimination");
+		[west] execVM "player\endmission.sqf";
+	};
 };
 
 "BLUFOR_SURRENDERED" addPublicVariableEventHandler _BLUFOR_SURRENDERED_listener;

@@ -101,6 +101,14 @@ class Params
 		default = 0;
 		isGlobal = 0;
 	};
+	
+	class Debug_Mode
+	{
+		title = "Enable Debug Log";
+		values[] = {false, true};
+		texts[] = {"no","yes"};
+		default = 0;
+	};
 };
 
 class CfgSounds
