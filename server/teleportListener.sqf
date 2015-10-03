@@ -47,7 +47,7 @@ createBluforStuff = {
 	publicVariableServer "OPFOR_TELEPORT_TARGET";
 	debugLog("blufor published target");
 
-	// diag_log format ["creating blufor stuff on position: %1",_bluforposition];
+	diag_log format ["creating blufor stuff on position: %1",_bluforposition];
 
 
 	US_base = [_bluforposition, 0, 5, "US_WarfareBUAVterminal_Base_EP1"] call spawnStuff;

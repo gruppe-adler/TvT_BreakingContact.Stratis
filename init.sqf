@@ -118,7 +118,7 @@ if (hasInterface) then {
 
 	checkSpawnButton = {
 		waitUntil {!dialog && !visibleMap};
-		if (BLUFOR_TELEPORTED) exitWith {cutText ["", "BLACK IN", 1];};
+		if (BLUFOR_TELEPORTED) exitWith {};
 		0 = [playerside] execVM "spawn\checkIfSpawned.sqf";
 	};
 

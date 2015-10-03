@@ -23,7 +23,7 @@ findBluforPos = {
 		diag_log format ["%1",_distanceToSearch];
 		if (count _tempPosition > 0) then {
 		// [_tempPosition] call createBluforDebugSpawnMarker;
-		_nearestPosition = _nearestPosition + _tempPosition;
+		_nearestPosition = _tempPosition;
 		};
 	};
 

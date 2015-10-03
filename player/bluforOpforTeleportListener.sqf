@@ -1,6 +1,6 @@
 createBluforSpawnLimitsMarkers = {
 	_pos = _this;
-	_inner_marker = createMarkerLocal ["inner_marker", _pos];
+	/*_inner_marker = createMarkerLocal ["inner_marker", _pos];
 	_inner_marker setMarkerTypeLocal "mil_unknown";
 	_inner_marker setMarkerColorLocal "ColorEast";
 	_inner_marker setMarkerShapeLocal "ELLIPSE";
@@ -12,7 +12,7 @@ createBluforSpawnLimitsMarkers = {
 	_outer_marker setMarkerColorLocal "ColorEast";
 	_outer_marker setMarkerShapeLocal "ELLIPSE";
 	_outer_marker setMarkerSizeLocal [BLUFOR_SPAWN_DISTANCE, BLUFOR_SPAWN_DISTANCE];
-	_outer_marker setMarkerBrushLocal "Border";
+	_outer_marker setMarkerBrushLocal "Border";*/
 };
 
 _OPFOR_TELEPORT_TARGET_listener = {
