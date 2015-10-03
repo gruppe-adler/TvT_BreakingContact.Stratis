@@ -10,7 +10,7 @@ call compile preprocessFile "islandConfig.sqf";
 // read parameters
 TIME_OF_DAY = paramsArray select 0;
 WEATHER_SETTING = paramsArray select 1;
-BLUFOR_SPAWN_DISTANCE = (paramsArray select 2) * 2;
+BLUFOR_SPAWN_DISTANCE = (paramsArray select 2);
 OPFOR_MONEY = paramsArray select 3;
 BLUFOR_MONEY = paramsArray select 4;
 POINTS_NEEDED_FOR_VICTORY = paramsArray select 5;
@@ -108,8 +108,8 @@ spawnStuff = compile preprocessFile "helpers\spawnStuff.sqf";
 call compile preprocessfile "SHK_pos\shk_pos_init.sqf";
 // findsimplePos
 call compile preprocessFileLineNumbers "helpers\findSimplePos.sqf";
+call compile preprocessFileLineNumbers "helpers\spawnBluforHQ.sqf";
 call compile preprocessFileLineNumbers "helpers\findBluforPos.sqf";
-findBISPos = call compile preprocessFileLineNumbers "helpers\findSafePos.sqf";
 
 If(isNil "spawn_help_fnc_compiled") then { call compile preprocessFileLineNumbers "helpers\findPos.sqf"; }; // TODO why the if condition here?
 
