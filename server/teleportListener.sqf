@@ -25,7 +25,7 @@ createOpforStuff =  {
 
 	sleep 1;
 
-	RUS_VEHICLE_SPAWN = _position findEmptyPosition [8, 50, "Land_HelipadCivil_F"];
+	RUS_VEHICLE_SPAWN = _position findEmptyPosition [8, 50, "TK_GUE_WarfareBAntiAirRadar_Base_EP1"];
 	publicVariable "RUS_VEHICLE_SPAWN";
 	_RUS_spawnPad = createVehicle ["Land_HelipadCivil_F",RUS_VEHICLE_SPAWN,[],0,"NONE"];
 
@@ -60,7 +60,7 @@ createBluforStuff = {
 	[US_base, 0, ["ACE_MainActions"], _actionBuy] call ace_interact_menu_fnc_addActionToObject;*/
 
 	sleep 1;
-	_spawn = _bluforposition findEmptyPosition [8, 50, "Land_HelipadCivil_F"];
+	_spawn = _bluforposition findEmptyPosition [8, 50, "TK_GUE_WarfareBAntiAirRadar_Base_EP1"];
 	
 	sleep 1;
 	//_spawn call bluforTeleporting;
