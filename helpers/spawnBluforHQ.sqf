@@ -88,8 +88,8 @@ spawnOpforHQ = {
 			RUS_VEHICLE_SPAWN = getPos (_opforSpawnSuccess select 2);
 			publicVariable "RUS_VEHICLE_SPAWN";
 
-			OPFOR_TELEPORT_TARGET = getPos (_opforSpawnSuccess select 2);
-			publicVariableServer "OPFOR_TELEPORT_TARGET";
+			/* OPFOR_TELEPORT_TARGET = getPos (_opforSpawnSuccess select 2);
+			publicVariableServer "OPFOR_TELEPORT_TARGET"; */
 
 			debugLog("opfor published target");
 			diag_log format ["creating blufor stuff on position: %1",RUS_VEHICLE_SPAWN];
