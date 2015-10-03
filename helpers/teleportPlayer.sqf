@@ -5,7 +5,9 @@ _location = _this select 0;
 _distance = _this select 1;
 
 
-_spawn = [_location, 0, 10, 0.5, 0, 1, 0] call BIS_fnc_findSafePos;
+_spawn = [_location, 1, 10, 0.5, 0, 1, 0] call BIS_fnc_findSafePos;
+if (_spawn select 2 > 0) then {_spawn = [_spawn select 0, _spawn select 1, 0];};
+diag_log format ["teleporting %1 to %2.", player, _location];
 playSound "beam";
 cutText ["", "BLACK OUT", 0.1];
 sleep 1.2;
