@@ -44,7 +44,7 @@ createBluforStuff = {
 	_bluforposition = [_opforposition, "US_WarfareBUAVterminal_Base_EP1"] call findBluforPos;
 
 	BLUFOR_TELEPORT_TARGET = _bluforposition;
-	publicVariableServer "OPFOR_TELEPORT_TARGET";
+	publicVariableServer "BLUFOR_TELEPORT_TARGET";
 	debugLog("blufor published target");
 
 	diag_log format ["creating blufor stuff on position: %1",_bluforposition];
