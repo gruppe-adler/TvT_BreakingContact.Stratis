@@ -14,7 +14,7 @@ loadScreen = "pic\loading.jpg";
 //respawnDelay = 9999999; // 9999999 or greater = No Respawn
 //Changes respawn, respawnDialog and respawnTemplates parameters.
 respawn = 3;
-respawnDelay = 3;
+respawnDelay = 9999999;
 respawnTemplates[] = {"ace_spectator"};
 
 
