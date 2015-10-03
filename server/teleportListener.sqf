@@ -60,7 +60,8 @@ createBluforStuff = {
 	[US_base, 0, ["ACE_MainActions"], _actionBuy] call ace_interact_menu_fnc_addActionToObject;*/
 
 	sleep 1;
-	_spawn = [_bluforposition, 5, 50, 8, 0, 0.2, 0] call BIS_fnc_findSafePos;
+	_spawn = [_bluforposition, 1, 50, "Land_HelipadCivil_F"] call findSimplePos;
+	
 	sleep 1;
 	//_spawn call bluforTeleporting;
 	
