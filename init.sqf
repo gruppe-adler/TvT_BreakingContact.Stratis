@@ -118,7 +118,7 @@ if (hasInterface) then {
 
 	checkJIP = {
 		if ((OPFOR_TELEPORT_TARGET select 0 != 0) && didJIP) then {
-			[player, true] call ace_spectator_fnc_stageSpectator;
+			forcerespawn player;
 		} else {
 			[] spawn checkSpawnButton;
 		};

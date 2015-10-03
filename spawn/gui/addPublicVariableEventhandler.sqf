@@ -28,7 +28,7 @@ fillRussianSupplies = {
             100,
             "<t align='center'>100 cr</t>",
             1,
-            ["light_hide", 0 ],
+            ["light_hide", 1],
             {
             clearWeaponCargoGlobal (_this select 0); 
             clearItemCargoGlobal (_this select 0); 
@@ -43,7 +43,7 @@ fillRussianSupplies = {
             500,
             "<t align='center'>500 cr</t>",
             1,
-            ["light_hide", 0 ],
+            ["light_hide", 1],
             {
             clearWeaponCargoGlobal (_this select 0); 
             clearItemCargoGlobal (_this select 0); 
@@ -62,7 +62,7 @@ fillRussianSupplies = {
             700,
             "<t align='center'>700 cr</t>",
             1,
-            ["light_hide", 0 ],
+            ["light_hide", 1],
             {
             clearWeaponCargoGlobal (_this select 0); 
             clearItemCargoGlobal (_this select 0); 
@@ -81,11 +81,11 @@ fillRussianSupplies = {
             }
         ],
         [
-            "rhs_brm1k_vdv",
-            "BRM1K",
+            "rhs_btr60_vv",
+            "BTR-60",
             2,
-            2500,
-            "<t align='center'>2500 cr</t>",
+            2000,
+            "<t align='center'>2000 cr</t>",
             1,
             [[]],
             {
@@ -96,11 +96,11 @@ fillRussianSupplies = {
             }
         ],
         [
-            "rhs_btr60_vv",
-            "BTR-60",
+            "rhs_brm1k_vdv",
+            "BRM1K",
             2,
-            2000,
-            "<t align='center'>2000 cr</t>",
+            2500,
+            "<t align='center'>2500 cr</t>",
             1,
             [[]],
             {
@@ -194,7 +194,7 @@ fillUSSupplies = {
             100,
             "<t align='center'>100 cr</t>",
             1,
-            ["light_hide", 0 , "hide_backTop", 0, "hide_frontTop", 0 ],
+            ["light_hide", 1 , "hide_backTop", 0, "hide_frontTop", 0 ],
             {
             clearWeaponCargoGlobal (_this select 0); 
             clearItemCargoGlobal (_this select 0); 
@@ -209,7 +209,7 @@ fillUSSupplies = {
             800,
             "<t align='center'>800 cr</t>",
             1,
-            ["light_hide", 0 , "hide_backTop", 0, "hide_frontTop", 0 ],
+            ["light_hide", 1 , "hide_backTop", 0, "hide_frontTop", 0 ],
             {
             clearWeaponCargoGlobal (_this select 0); 
             clearItemCargoGlobal (_this select 0); 

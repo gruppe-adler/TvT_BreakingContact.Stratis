@@ -13,7 +13,11 @@ markerAnimation = {
 	private ["_pulseSpeed","_pulsesize","_pulseMaxSize", "_modifier"];
 
 	playSound "beep";
-	cutRsc ["gui_intel_paper","PLAIN",0];
+	if (playerSide == west) then {
+		cutRsc ["gui_intel_paper_us","PLAIN",0];
+	} else {
+		cutRsc ["gui_intel_paper_rus","PLAIN",0];
+	};
 
 	markerAnimationIsRunning = true;
 	_pulsesize = _this select 0;

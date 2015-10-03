@@ -149,7 +149,7 @@ class russianSupplyGUI
 				y = 3.5 * GUI_GRID_H + GUI_GRID_Y;
 				w = 7 * GUI_GRID_W;
 				h = 6 * GUI_GRID_H;
-				text = "spawn\gui\pic\rus_brm1k.paa";
+				text = "spawn\gui\pic\rus_btr60.paa";
 			};
 			class russian_gui_pic_5: RscPicture
 			{
@@ -158,7 +158,7 @@ class russianSupplyGUI
 				y = 3.5 * GUI_GRID_H + GUI_GRID_Y;
 				w = 7 * GUI_GRID_W;
 				h = 6 * GUI_GRID_H;
-				text = "spawn\gui\pic\rus_btr60.paa";
+				text = "spawn\gui\pic\rus_brm1k.paa";
 			};
 			class russian_gui_pic_6: RscPicture
 			{
@@ -1059,11 +1059,11 @@ class gui_spawn_waitplease
 
 class RscTitles {
 
-	class gui_intel_paper
+	class gui_intel_paper_us
 	{
 		idd = -1;
 		duration = 10;
-		name = "gui_intel_paper";
+		name = "gui_intel_paper_us";
 		fadeOut = 5;
 
 	 	class controls {
@@ -1074,10 +1074,31 @@ class RscTitles {
 				y = safeZoneY + safeZoneH - 1.5;
 				w = 0.3;
 				h = 0.4;
-				text = "pic\satellite_badge.paa";
+				text = "pic\us_satellite_badge.paa";
 			};
 		};
 	};
+
+	class gui_intel_paper_rus
+	{
+		idd = -1;
+		duration = 10;
+		name = "gui_intel_paper_rus";
+		fadeOut = 5;
+
+	 	class controls {
+			class gui_intel_paper_pic: RscPicture
+			{
+				idc = -1;
+				x = safeZoneX + safeZoneW - 0.3;  
+				y = safeZoneY + safeZoneH - 1.5;
+				w = 0.3;
+				h = 0.4;
+				text = "pic\rus_satellite_badge.paa";
+			};
+		};
+	};
+
 	class gui_blufor_pleasewait
 	{
 		idd = -1;
@@ -1097,6 +1118,7 @@ class RscTitles {
 			};
 		};
 	};
+
 	class gui_opfor_pleasewait
 	{
 		idd = -1;
