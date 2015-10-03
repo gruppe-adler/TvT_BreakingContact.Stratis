@@ -11,7 +11,6 @@ _BLUFOR_SURRENDERED_listener = {
 
 _BLUFOR_CAPTURED_listener = {
 	adminLog("blufor captured");
-	execVM "objectives\endmission.sqf";
 	sleep 60;
 	[west] execVM "objectives\endmission.sqf";
 };
