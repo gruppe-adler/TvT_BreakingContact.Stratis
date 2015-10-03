@@ -116,6 +116,16 @@ diag_log format ["setup: clientandserver done"];
 
 if (hasInterface) then {
 
+	checkJIP = {
+		if ((OPFOR_TELEPORT_TARGET select 0 != 0) && didJIP) then {
+			[player, true] call ace_spectator_fnc_stageSpectator;
+		} else {
+			[] spawn checkSpawnButton;
+		};
+	};
+
+	
+
 	checkSpawnButton = {
 		waitUntil {!dialog && !visibleMap};
 		if (BLUFOR_TELEPORTED) exitWith {};
@@ -123,7 +133,7 @@ if (hasInterface) then {
 	};
 
 	createStartHints = {
-		[] spawn checkSpawnButton;
+		[] call checkJIP;
 	};
 
 	enableSentences false;

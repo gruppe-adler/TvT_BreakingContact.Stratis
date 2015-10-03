@@ -1155,8 +1155,9 @@ class Mission
 					id=23;
 					side="EAST";
 					vehicle="O_officer_F";
-					player="PLAY CDG";
-					rank="SERGEANT";
+					player="PLAYER COMMANDER";
+					leader=1;
+					rank="MAJOR";
 					skill=0.5;
 					text="opfor_teamlead";
 					init="this setVariable [""canBuy"", true];";
@@ -1171,7 +1172,6 @@ class Mission
 					side="EAST";
 					vehicle="O_Soldier_SL_F";
 					player="PLAY CDG";
-					leader=1;
 					rank="CAPTAIN";
 					skill=0.5;
 					text="opfor_assistant";
@@ -2157,7 +2157,7 @@ class Mission
 					id=82;
 					side="WEST";
 					vehicle="B_officer_F";
-					player="PLAYER COMMANDER";
+					player="PLAY CDG";
 					leader=1;
 					rank="MAJOR";
 					skill=0.5;

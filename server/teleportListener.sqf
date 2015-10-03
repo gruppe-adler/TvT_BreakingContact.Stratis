@@ -85,7 +85,6 @@ _OPFOR_TELEPORT_TARGET_listener = {
 
 _BLUFOR_TELEPORT_TARGET_listener = {
 	_pos = _this select 1;
-	_pos spawn createBluforStuff;
 	publicVariable "BLUFOR_TELEPORT_TARGET";
 };
 
