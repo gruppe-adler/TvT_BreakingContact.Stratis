@@ -25,7 +25,7 @@ createOpforStuff =  {
 
 	sleep 1;
 
-	RUS_VEHICLE_SPAWN = _position findEmptyPosition [8, 50, "TK_GUE_WarfareBAntiAirRadar_Base_EP1"];
+	RUS_VEHICLE_SPAWN = _position findEmptyPosition [8, 50, "Land_HelipadCivil_F"];
 	publicVariable "RUS_VEHICLE_SPAWN";
 	_RUS_spawnPad = createVehicle ["Land_HelipadCivil_F",RUS_VEHICLE_SPAWN,[],0,"NONE"];
 
@@ -41,7 +41,7 @@ createOpforStuff =  {
 
 createBluforStuff = {
 	_opforposition = _this;
-	_bluforposition = [_opforposition, "US_WarfareBUAVterminal_Base_EP1"] call findBluforPos;
+	_bluforposition = [_opforposition, "TK_GUE_WarfareBAntiAirRadar_Base_EP1"] call findBluforPos;
 
 	BLUFOR_TELEPORT_TARGET = _bluforposition;
 	publicVariableServer "BLUFOR_TELEPORT_TARGET";
@@ -60,7 +60,7 @@ createBluforStuff = {
 	[US_base, 0, ["ACE_MainActions"], _actionBuy] call ace_interact_menu_fnc_addActionToObject;*/
 
 	sleep 1;
-	_spawn = _bluforposition findEmptyPosition [8, 50, "TK_GUE_WarfareBAntiAirRadar_Base_EP1"];
+	_spawn = _bluforposition findEmptyPosition [8, 50, "Land_HelipadCivil_F"];
 	
 	sleep 1;
 	//_spawn call bluforTeleporting;
