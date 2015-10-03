@@ -5,28 +5,22 @@ _BLUFOR_SURRENDERED_listener = {
 	adminLog("blufor surrendered");
 	_string = localize "str_GRAD_winmsg_points";
 	[_string] call EFUNC(common,displayTextStructured);
-	sleep 60;
 	[east] execVM "objectives\endmission.sqf";
 };
 
 _BLUFOR_CAPTURED_listener = {
 	adminLog("blufor captured");
-	sleep 60;
 	[west] execVM "objectives\endmission.sqf";
 };
 
 _BLUFOR_ELIMINATED_listener = {
 	adminLog("mission_complete: blufor loses  by elimination");
-	sleep 60;
 	[east] execVM "objectives\endmission.sqf";
-
 };
 
 _OPFOR_ELIMINATED_listener = {
 	adminLog("mission_complete: opfor loses  by elimination");
-	sleep 60;
 	[west] execVM "objectives\endmission.sqf";
-
 };
 
 "BLUFOR_SURRENDERED" addPublicVariableEventHandler _BLUFOR_SURRENDERED_listener;

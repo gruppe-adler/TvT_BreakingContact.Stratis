@@ -1,3 +1,5 @@
+sleep 3;
+
 _winningSide = (_this select 0);
 
 if (_winningSide == opfor) then {
@@ -10,6 +12,4 @@ if (_winningSide == blufor) then {
 
 sleep 3;
 
-_playerSide = side player;
-
-["end1", _playerSide == _winningSide] call BIS_fnc_endMission; // TODO have nice endings
+["end1", playerSide == _winningSide] call BIS_fnc_endMission; // TODO have nice endings
