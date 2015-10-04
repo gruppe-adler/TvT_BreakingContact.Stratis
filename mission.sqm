@@ -385,7 +385,7 @@ class Mission
 						};
 						class Item1
 						{
-							value="1";
+							value="0";
 							parentCls="ace_weather_ModuleSettings";
 							typeName="useACEWeather";
 						};

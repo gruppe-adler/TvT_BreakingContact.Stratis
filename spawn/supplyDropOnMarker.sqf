@@ -24,7 +24,10 @@ spawnSupplyDrop = {
 	sleep 0.1;
 	_road = [getPos _vehicle] call BIS_fnc_nearestRoad;
 	if (!isNull _road) then {
-		_vehicle setDir ((getDir _road) + 90);
+		_roadConnectedTo = roadsConnectedTo _road;  
+	 	_connectedRoad = _roadConnectedTo select 0;  
+	 	_direction = [_road, _connectedRoad] call BIS_fnc_DirTo; 
+	 	_vehicle setDir _direction;
 	};
 
 	 _vehicle allowDamage true;

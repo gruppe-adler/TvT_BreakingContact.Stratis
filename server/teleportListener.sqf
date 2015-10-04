@@ -7,9 +7,12 @@ createOpforStuff =  {
 	[funkwagen] call clearInventory;
 
 	_road = [getPos funkwagen] call BIS_fnc_nearestRoad;
-	if (!isNull _road) then {
-		funkwagen setDir ((getDir _road) + 90);
-	};
+	if (!isNull _road) then {   
+	 	_roadConnectedTo = roadsConnectedTo _road;  
+	 	_connectedRoad = _roadConnectedTo select 0;  
+	 	_direction = [_road, _connectedRoad] call BIS_fnc_DirTo; 
+	 	funkwagen setDir _direction;
+	 };
 
 	funkwagen animate ["light_hide",1];
 

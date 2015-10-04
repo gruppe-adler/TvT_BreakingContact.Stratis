@@ -62,10 +62,16 @@ testSpawnPositions = {
 	_road1 = [getPos _testVehicle1] call BIS_fnc_nearestRoad;
 	_road2 = [getPos _testVehicle2] call BIS_fnc_nearestRoad;
 	if (!isNull _road1) then {
-		_testVehicle1 setDir ((getDir _road1) + 90);
+		_roadConnectedTo1 = roadsConnectedTo _road1;  
+	 	_connectedRoad1 = _roadConnectedTo1 select 0;  
+	 	_direction1 = [_road1, _connectedRoad1] call BIS_fnc_DirTo; 
+	 	_testVehicle1 setDir _direction1;
 	};
 	if (!isNull _road2) then {
-		_testVehicle2 setDir ((getDir _road2) + 90);
+		_roadConnectedTo2 = roadsConnectedTo _road2;  
+	 	_connectedRoad2 = _roadConnectedTo2 select 0;  
+	 	_direction2 = [_road2, _connectedRoad2] call BIS_fnc_DirTo; 
+	 	_testVehicle2 setDir _direction2;
 	};
 
 	_result
