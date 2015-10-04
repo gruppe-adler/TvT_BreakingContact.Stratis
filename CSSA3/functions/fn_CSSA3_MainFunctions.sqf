@@ -220,7 +220,7 @@ switch _mode do {
 		_ctrlInteractbutton ctrlSetTextColor  [0, 0, 0, 0.5];
 
 		//Destroy underwater PP effects.
-		ppEffectDestroy [BIS_SuffRadialBlur, BIS_SuffBlur, BIS_SuffCC];
+		//ppEffectDestroy [BIS_SuffRadialBlur, BIS_SuffBlur, BIS_SuffCC];
 
 		//--- Disable menu chromatic aberration
 		[] call bis_fnc_guiEffectTiles;
@@ -754,7 +754,7 @@ switch _mode do {
 		false SetCamUseTi 0;
 
 		//Reapply underwater PP effects.
-		_null = [] spawn {
+		/*_null = [] spawn {
 			//suffocating
 			BIS_SuffCC = ppEffectCreate ["ColorCorrections", 1610];
 
@@ -763,7 +763,7 @@ switch _mode do {
 
 			BIS_SuffRadialBlur = ppEffectCreate ["RadialBlur", 270];
 			BIS_SuffBlur = ppEffectCreate ["DynamicBlur", 170];
-		};
+		};*/
 
 		cuttext ["","plain"];
 		deleteVehicle CSSA3_placeHolder;
