@@ -38,11 +38,12 @@ testSpawnPositions = {
 
 	_mapSize = getNumber(configFile >> "CfgWorlds" >> worldName >> "MapSize");
 
-	if (!([_mapSize, _tempPosition] call checkInsideMap)) exitWith {_result = [1,nil,nil]; diag_log format ["Calculating Spawnposis: Outside Map."]; _result };
+
 
 	// put something very big in there, just to be sure there is enough room
 	_testPos1 = [_center,[_distance,_distance], random 360,0,[1,500]] call SHK_pos;
 	if (count _testPos1 < 1) exitWith {_result = [1,nil,nil];};	
+	if (!([_mapSize, _testPos1] call checkInsideMap)) exitWith {_result = [1,nil,nil]; diag_log format ["Calculating Spawnposis: Outside Map."]; _result };
 	if ([_testPos1, 10] call get_slope > 0.6) exitWith {_result = [1,nil,nil]; diag_log format ["Calculating Spawnposis: Not flat enough."]; _result };
 
 
@@ -57,6 +58,12 @@ testSpawnPositions = {
 	_testVehicle2 = (_items select 1) createVehicle _testPos2;
 
 	_result = [2, _testVehicle1, _testVehicle2];
+
+	_road = [getPos _testVehicle1,20] call BIS_fnc_nearestRoad;
+	if (!isNull _road) then {
+		_testVehicle1 setDir ((getDir _road) + 90);
+		_testVehicle2 setDir ((getDir _road) + 90);
+	};
 
 	_result
 };
