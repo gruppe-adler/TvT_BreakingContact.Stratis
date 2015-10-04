@@ -123,6 +123,7 @@ if (hasInterface) then {
 
 	checkJIP = {
 		if ((OPFOR_TELEPORT_TARGET select 0 != 0) && didJIP) then {
+			player setDamage 1;
 			["forced"] spawn CSSA3_fnc_createSpectateDialog;
 		} else {
 			[] spawn checkSpawnButton;
@@ -140,8 +141,9 @@ if (hasInterface) then {
 	createStartHints = {
 		[] call checkJIP;
 	};
-	[] execVM "CSSA3\CSSA3_init.sqf";
 	
+	[] execVM "CSSA3\CSSA3_init.sqf";
+
 	enableSentences false;
 
 	
