@@ -140,7 +140,8 @@ if (hasInterface) then {
 	createStartHints = {
 		[] call checkJIP;
 	};
-
+	[] execVM "CSSA3\CSSA3_init.sqf";
+	
 	enableSentences false;
 
 	

@@ -1,3 +1,18 @@
+checkInsideMap = {
+	_maximumX = _this select 0;
+	_maximumY = _this select 0;
+	_positionX = (_this select 1) select 0;
+	_positionY = (_this select 1) select 1;
+	_resultInsideMap = true;
+
+	diag_log format ["MapsizeX: %1, MapsizeY: %2, PositionX: %3, PositionY: %4",_maximumX,_maximumY,_positionX,_positionY];
+
+	if (_positionX < 0 || _positionX > _maximumX) then {_resultInsideMap = false;};
+	if (_positionY < 0 || _positionY > _maximumY) then {_resultInsideMap = false;};
+
+	_resultInsideMap
+};
+
 // ripped from fry
 get_slope = {
 	private ["_position", "_radius", "_slopeObject", "_centerHeight", "_height", "_direction", "_count"];
@@ -21,10 +36,15 @@ testSpawnPositions = {
 	_distance = _this select 2;
 	_result = [2,nil,nil];
 
+	_mapSize = getNumber(configFile >> "CfgWorlds" >> worldName >> "MapSize");
+
+	if !([_mapSize, _tempPosition] call checkInsideMap) exitWith {_result = [1,nil,nil]; diag_log format ["Calculating Spawnposis: Outside Map."]; _result };
+
 	// put something very big in there, just to be sure there is enough room
 	_testPos1 = [_center,[_distance,_distance], random 360,0,[1,500]] call SHK_pos;
 	if (count _testPos1 < 1) exitWith {_result = [1,nil,nil];};	
 	if ([_testPos1, 10] call get_slope > 0.6) exitWith {_result = [1,nil,nil]; diag_log format ["Calculating Spawnposis: Not flat enough."]; _result };
+
 
 	_testVehicle1 = (_items select 0) createVehicle _testPos1;
 
@@ -47,6 +67,7 @@ spawnBluforHQ = {
 	_bluforDistance = _this select 1;
 	_waitingForBluforSpawn = true;
 	
+
 
 	while {_waitingForBluforSpawn} do {
 		_bluforSpawnSuccess = [0,nil,nil];
