@@ -70,14 +70,17 @@ fillRussianSupplies = {
             clearMagazineCargoGlobal (_this select 0);
             (_this select 0) addMagazineCargoGlobal ['SmokeShell',20];
             (_this select 0) addMagazineCargoGlobal ['SmokeShellRed',20];
-            (_this select 0) addMagazineCargoGlobal ['rhs_30Rnd_762x39mm_tracer',20];
-            (_this select 0) addMagazineCargoGlobal ['rhs_30Rnd_762x39mm',20];
+            (_this select 0) addMagazineCargoGlobal ['rhs_30Rnd_762x39mm_tracer',30];
+            (_this select 0) addMagazineCargoGlobal ['rhs_30Rnd_762x39mm',30];
             (_this select 0) addMagazineCargoGlobal ['16Rnd_9x21_Mag',20];
             (_this select 0) addMagazineCargoGlobal ['rhs_rpg7_PG7VL_mag',5];
             (_this select 0) addMagazineCargoGlobal ['rhs_rpg7_PG7VR_mag',5];
             (_this select 0) addMagazineCargoGlobal ['rhs_100Rnd_762x54mmR_green',10];
             (_this select 0) addMagazineCargoGlobal ['rhs_100Rnd_762x54mmR',10];
-            (_this select 0) addMagazineCargoGlobal ['rhs_mag_rgd5',15]; 
+            (_this select 0) addMagazineCargoGlobal ['rhs_mag_rgd5',20]; 
+            (_this select 0) addMagazineCargoGlobal ['rhs_GRD40_White',10];
+            (_this select 0) addMagazineCargoGlobal ['rhs_GRD40_Green',10];
+            (_this select 0) addMagazineCargoGlobal ['rhs_GRD40_Red',10];
             }
         ],
         [
@@ -232,13 +235,16 @@ fillUSSupplies = {
             clearMagazineCargoGlobal (_this select 0);
             (_this select 0) addMagazineCargoGlobal ['SmokeShell',20];
             (_this select 0) addMagazineCargoGlobal ['SmokeShellRed',20];
-            (_this select 0) addMagazineCargoGlobal ['rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Yellow',20];
-            (_this select 0) addMagazineCargoGlobal ['rhs_mag_30Rnd_556x45_M855A1_Stanag',20];
+            (_this select 0) addMagazineCargoGlobal ['rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Yellow',30];
+            (_this select 0) addMagazineCargoGlobal ['rhs_mag_30Rnd_556x45_M855A1_Stanag',30];
             (_this select 0) addMagazineCargoGlobal ['16Rnd_9x21_Mag',20];
-            (_this select 0) addWeaponCargoGlobal ['rhs_weap_M136_hedp',5];
+            (_this select 0) addWeaponCargoGlobal ['rhs_weap_M136_hedp',10];
             (_this select 0) addMagazineCargoGlobal ['rhs_200rnd_556x45_T_SAW',10];
             (_this select 0) addMagazineCargoGlobal ['rhs_200rnd_556x45_M_SAW',10];
-            (_this select 0) addMagazineCargoGlobal ['HandGrenade',15]; 
+            (_this select 0) addMagazineCargoGlobal ['HandGrenade',20]; 
+            (_this select 0) addMagazineCargoGlobal ['rhs_mag_M585_white',15]; 
+            (_this select 0) addMagazineCargoGlobal ['rhs_mag_m662_red',15]; 
+            (_this select 0) addMagazineCargoGlobal ['rhs_mag_m661_green',15];           
             }
         ],
         [

@@ -39,9 +39,13 @@ if (!isMultiplayer) then { // Editor
 	{_x disableAI "MOVE"} forEach allUnits;
 };
 
-// set to full moon date
+
 if (isServer) then {
+	// allow view distance to be up to 10k
+	setViewDistance 10000;
+	// set to full moon date
 	setDate [2015, 2, 2, TIME_OF_DAY, 1];
+	// set time acceleration
 	setTimeMultiplier TIME_ACCELERATION;
 
 	BLUFOR_ELIMINATED = false;
