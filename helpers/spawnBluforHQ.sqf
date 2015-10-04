@@ -59,10 +59,13 @@ testSpawnPositions = {
 
 	_result = [2, _testVehicle1, _testVehicle2];
 
-	_road = [getPos _testVehicle1,20] call BIS_fnc_nearestRoad;
-	if (!isNull _road) then {
-		_testVehicle1 setDir ((getDir _road) + 90);
-		_testVehicle2 setDir ((getDir _road) + 90);
+	_road1 = [getPos _testVehicle1] call BIS_fnc_nearestRoad;
+	_road2 = [getPos _testVehicle2] call BIS_fnc_nearestRoad;
+	if (!isNull _road1) then {
+		_testVehicle1 setDir ((getDir _road1) + 90);
+	};
+	if (!isNull _road2) then {
+		_testVehicle2 setDir ((getDir _road2) + 90);
 	};
 
 	_result

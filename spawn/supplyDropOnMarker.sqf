@@ -22,7 +22,7 @@ spawnSupplyDrop = {
 
 	[_vehicle] call _calls;
 	sleep 0.1;
-	_road = [getPos _vehicle,20] call BIS_fnc_nearestRoad;
+	_road = [getPos _vehicle] call BIS_fnc_nearestRoad;
 	if (!isNull _road) then {
 		_vehicle setDir ((getDir _road) + 90);
 	};

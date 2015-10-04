@@ -6,7 +6,7 @@ createOpforStuff =  {
 	sleep 1;
 	[funkwagen] call clearInventory;
 
-	_road = [getPos funkwagen,20] call BIS_fnc_nearestRoad;
+	_road = [getPos funkwagen] call BIS_fnc_nearestRoad;
 	if (!isNull _road) then {
 		funkwagen setDir ((getDir _road) + 90);
 	};
