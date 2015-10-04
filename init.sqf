@@ -123,7 +123,7 @@ if (hasInterface) then {
 
 	checkJIP = {
 		if ((OPFOR_TELEPORT_TARGET select 0 != 0) && didJIP) then {
-			forcerespawn player;
+			["forced"] spawn CSSA3_fnc_createSpectateDialog;
 		} else {
 			[] spawn checkSpawnButton;
 		};
