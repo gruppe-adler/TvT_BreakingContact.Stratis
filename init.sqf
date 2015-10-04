@@ -106,6 +106,8 @@ if (isServer) then {
 };
 diag_log format ["setup: server done"];
 
+[] execVM "CSSA3\CSSA3_init.sqf";
+
 clearInventory = compile preprocessFile "helpers\clearInventory.sqf";
 spawnStuff = compile preprocessFile "helpers\spawnStuff.sqf";
 //SHK POS
@@ -142,7 +144,7 @@ if (hasInterface) then {
 		[] call checkJIP;
 	};
 	
-	[] execVM "CSSA3\CSSA3_init.sqf";
+	
 
 	enableSentences false;
 

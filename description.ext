@@ -10,9 +10,9 @@ onLoadMissionTime = True;
 disabledAI = 0; //1
 enableDebugConsole = 1;
 loadScreen = "pic\loading.jpg";
+respawnDelay = 9999999; 
 
 #include "CSSA3\CSSA3_header.hpp"
-respawnDelay = 3;
 
 //respawnDelay = 9999999; // 9999999 or greater = No Respawn
 //Changes respawn, respawnDialog and respawnTemplates parameters.
