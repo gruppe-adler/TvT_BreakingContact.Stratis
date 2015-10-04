@@ -38,7 +38,7 @@ testSpawnPositions = {
 
 	_mapSize = getNumber(configFile >> "CfgWorlds" >> worldName >> "MapSize");
 
-	if !([_mapSize, _tempPosition] call checkInsideMap) exitWith {_result = [1,nil,nil]; diag_log format ["Calculating Spawnposis: Outside Map."]; _result };
+	if (!([_mapSize, _tempPosition] call checkInsideMap)) exitWith {_result = [1,nil,nil]; diag_log format ["Calculating Spawnposis: Outside Map."]; _result };
 
 	// put something very big in there, just to be sure there is enough room
 	_testPos1 = [_center,[_distance,_distance], random 360,0,[1,500]] call SHK_pos;

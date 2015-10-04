@@ -1,4 +1,4 @@
-createBluforDebugSpawnMarker = {
+/*createBluforDebugSpawnMarker = {
 	_n = format["_tempmarker_%1", _this select 0];
 	_tempmarker_blufor = createMarker [_n, _this select 0];
 	_tempmarker_blufor setMarkerType "mil_dot";
@@ -61,4 +61,4 @@ findBluforPos = {
 
 	// return
 	_nearestPosition
-};
+};*/
