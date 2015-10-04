@@ -18,10 +18,16 @@ spawnSupplyDrop = {
     _calls = _this select 3;
 
     _vehicle = createVehicle [_vehicleType, _pos, [], 0, "NONE"];
+    _vehicle allowDamage false;
 
 	[_vehicle] call _calls;
 	sleep 0.1;
+	_road = [getPos _vehicle] call BIS_fnc_nearestRoad;
+	if (!isNull _road) then {
+		_vehicle setDir (getDir _road);
+	};
 
+	 _vehicle allowDamage true;
 	// adjust vehicle (remove lamp covers and stuff)
 	if (count _init > 0) then {
  		[_vehicle, nil, _init] call BIS_fnc_initVehicle;

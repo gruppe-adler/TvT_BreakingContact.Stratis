@@ -5,6 +5,12 @@ createOpforStuff =  {
 
 	sleep 1;
 	[funkwagen] call clearInventory;
+
+	_road = [getPos funkwagen] call BIS_fnc_nearestRoad;
+	if (!isNull _road) then {
+		funkwagen setDir (getDir _road);
+	};
+
 	funkwagen animate ["light_hide",1];
 
 	[_position, 150] call spawnOpforHQ;
