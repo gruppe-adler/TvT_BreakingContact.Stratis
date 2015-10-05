@@ -1450,7 +1450,7 @@ class Mission
 					leader=1;
 					rank="CAPTAIN";
 					skill=0.5;
-					description="Squad Leader (AK)";
+					description="Squad Leader";
 				};
 				class Item1
 				{
@@ -1639,7 +1639,7 @@ class Mission
 					leader=1;
 					rank="CAPTAIN";
 					skill=0.5;
-					description="Squad Leader (AK)";
+					description="Squad Leader";
 				};
 				class Item1
 				{
@@ -1828,7 +1828,7 @@ class Mission
 					leader=1;
 					rank="CAPTAIN";
 					skill=0.5;
-					description="Squad Leader (AK)";
+					description="Squad Leader";
 				};
 				class Item1
 				{
@@ -2251,7 +2251,7 @@ class Mission
 					player="PLAY CDG";
 					rank="SERGEANT";
 					skill=0.5;
-					description="AT Specialist";
+					description="AT-Specialist";
 				};
 				class Item5
 				{
@@ -2440,7 +2440,7 @@ class Mission
 					player="PLAY CDG";
 					rank="SERGEANT";
 					skill=0.5;
-					description="AT Specialist";
+					description="AT-Specialist";
 				};
 				class Item5
 				{
@@ -2629,7 +2629,7 @@ class Mission
 					player="PLAY CDG";
 					rank="SERGEANT";
 					skill=0.5;
-					description="AT Specialist";
+					description="AT-Specialist";
 				};
 				class Item5
 				{
