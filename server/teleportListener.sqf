@@ -16,7 +16,7 @@ createOpforStuff =  {
 
 	funkwagen animate ["light_hide",1];
 
-	[_position, 50] call spawnOpforHQ;
+	[getPos funkwagen, 50] call spawnOpforHQ;
 
 	if (!isMultiplayer) then {
 		_opfor_marker_start = createMarker ["debug_opfor_marker_start", RUS_VEHICLE_SPAWN];
