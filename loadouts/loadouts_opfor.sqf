@@ -1,3 +1,10 @@
+set_akm_ammo = {
+	this = _this select 0;
+	[this, "rhs_30Rnd_762x39mm", 5] call addMagazinesToVest;
+	[this, "rhs_30Rnd_762x39mm_tracer", 5] call addMagazinesToVest;
+};
+
+
 opfor_basic = {
 	this = _this select 0;
 
@@ -41,11 +48,11 @@ opfor_default = {
 	comment "Add containers";
 	
 	this forceAddUniform "rhs_uniform_flora_patchless_alt";
-	this addVest "rhs_6b23_ML";
+	this addVest "rhs_6b23_ML_rifleman";
 	this addHeadgear "H_Hat_HelmetT";
 	
 
-	[this, "rhs_30Rnd_762x39mm", 6] call addMagazinesToVest;
+	[this] call set_akm_ammo;
 	
 	[this, "SmokeShell", 1] call addMagazinesToVest;
 	[this, "SmokeShellRed", 1] call addMagazinesToVest;
@@ -80,14 +87,13 @@ opfor_sql = {
 	this addHeadgear "rhs_fieldcap_ml";
 	this addBackpack "tf_rt1523g_big";
 
-	[this, "rhs_30Rnd_762x39mm", 6] call addMagazinesToVest;
+	[this] call set_akm_ammo;
 	
 	[this, "SmokeShell", 4] call addMagazinesToVest;
 	[this, "SmokeShellRed", 2] call addMagazinesToVest;
 
 	[this, "rhs_mag_rgd5", 2] call addMagazinesToBackpack;
 
-	[this, "rhs_30Rnd_762x39mm_tracer", 3] call addMagazinesToBackpack;
 	[this, "rhs_GRD40_White", 4] call addMagazinesToBackpack;
 	[this, "rhs_GRD40_Green", 3] call addMagazinesToBackpack;
 	[this, "rhs_GRD40_Red", 3] call addMagazinesToBackpack;
@@ -125,14 +131,12 @@ opfor_ftl = {
 	this addHeadgear "rhs_fieldcap_ml";
 	this addBackpack "tf_rt1523g_big";
 
-	[this, "rhs_30Rnd_762x39mm", 6] call addMagazinesToVest;
+	[this] call set_akm_ammo;
 	
 	[this, "SmokeShell", 4] call addMagazinesToVest;
 	[this, "SmokeShellRed", 2] call addMagazinesToVest;
 
 	[this, "rhs_mag_rgd5", 2] call addMagazinesToBackpack;
-
-	[this, "rhs_30Rnd_762x39mm_tracer", 3] call addMagazinesToBackpack;
 
 	this addWeapon "Binocular";
 	this addWeapon "rhs_weap_akm";
@@ -163,15 +167,14 @@ opfor_medic = {
 	this addHeadgear "H_Hat_HelmetT";
 	this addBackpack "rhs_sidor";
 
-	[this, "rhs_30Rnd_762x39mm", 6] call addMagazinesToVest;
+	[this] call set_akm_ammo;
 	
 	[this, "SmokeShell", 4] call addMagazinesToVest;
 	[this, "SmokeShellRed", 2] call addMagazinesToVest;
 
-	[this, "rhs_30Rnd_762x39mm_tracer", 3] call addMagazinesToBackpack;
-	[this, "ACE_fieldDressing", 25] call addMagazinesToBackpack;
-	[this, "ACE_Morphine", 15] call addMagazinesToBackpack;
-	[this, "ACE_epinephrine", 10] call addMagazinesToBackpack;
+	[this, "ACE_fieldDressing", 40] call addMagazinesToBackpack;
+	[this, "ACE_Morphine", 20] call addMagazinesToBackpack;
+	[this, "ACE_epinephrine", 20] call addMagazinesToBackpack;
 
 	[this, "rhs_mag_rgd5", 2] call addMagazinesToBackpack;
 
@@ -240,8 +243,7 @@ opfor_AT = {
 	this addHeadgear "H_Hat_HelmetT";
 	this addBackpack "rhs_rpg_empty";
 
-	[this, "rhs_30Rnd_762x39mm", 6] call addMagazinesToBackpack;
-	[this, "rhs_30Rnd_762x39mm_tracer", 3] call addMagazinesToBackpack;
+	[this] call set_akm_ammo;
 	
 	[this, "SmokeShell", 2] call addMagazinesToVest;
 	[this, "SmokeShellRed", 2] call addMagazinesToVest;
@@ -317,13 +319,11 @@ opfor_engineer = {
 	this addHeadgear "H_Hat_HelmetT";
 	this addBackpack "rhs_sidor";
 
-	[this, "rhs_30Rnd_762x39mm", 6] call addMagazinesToVest;
+	[this] call set_akm_ammo;
 	
 	[this, "SmokeShell", 2] call addMagazinesToVest;
 	[this, "SmokeShellRed", 2] call addMagazinesToVest;
 	[this, "rhs_mag_rgd5", 1] call addMagazinesToVest;
-
-	[this, "rhs_30Rnd_762x39mm_tracer", 3] call addMagazinesToBackpack;
 
 	this addWeapon "Binocular";
 	this addWeapon "rhs_weap_akm";
@@ -354,13 +354,11 @@ opfor_crew = {
 	this addHeadgear "rhs_tsh4";
 	this addBackpack "rhs_sidor";
 
-	[this, "rhs_30Rnd_762x39mm", 6] call addMagazinesToVest;
+	[this] call set_akm_ammo;
 	
 	[this, "SmokeShell", 2] call addMagazinesToVest;
 	[this, "SmokeShellRed", 2] call addMagazinesToVest;
 	[this, "rhs_mag_rgd5", 1] call addMagazinesToVest;
-
-	[this, "rhs_30Rnd_762x39mm_tracer", 3] call addMagazinesToBackpack;
 
 	this addWeapon "Binocular";
 	this addWeapon "rhs_weap_akm";
@@ -390,7 +388,7 @@ opfor_ammobearer = {
 	this addHeadgear "H_Hat_HelmetT";
 	this addBackpack "rhs_sidor";
 
-	[this, "rhs_30Rnd_762x39mm", 6] call addMagazinesToVest;
+	[this] call set_akm_ammo;
 	
 	[this, "SmokeShell", 2] call addMagazinesToVest;
 	[this, "SmokeShellRed", 2] call addMagazinesToVest;

@@ -36,6 +36,12 @@ blufor_random_primaryweapon = [
 	"rhs_weap_m4a1_carryhandle_grip"
 ];
 
+set_m4a1_ammo = {
+	this = _this select 0;
+	[this, "rhs_mag_30Rnd_556x45_M855A1_Stanag", 6] call addMagazinesToVest;
+	[this, "rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Yellow", 6] call addMagazinesToVest;
+};
+
 blufor_random_mg = [
 	"rhs_weap_m249_pip_L",
 	"rhs_weap_m249_pip_L_para",
@@ -91,7 +97,7 @@ blufor_default = {
 	this addVest "rhsusf_spc";
 	this addHeadgear (blufor_random_helmet call BIS_fnc_selectRandom);
 	
-	[this, "rhs_mag_30Rnd_556x45_M855A1_Stanag", 6] call addMagazinesToVest;
+	[this] call set_m4a1_ammo;
 	
 	[this, "SmokeShell", 1] call addMagazinesToVest;
 	[this, "SmokeShellRed", 1] call addMagazinesToVest;
@@ -134,15 +140,15 @@ blufor_sql = {
 	[this, "SmokeShell", 4] call addMagazinesToVest;
 	[this, "SmokeShellRed", 2] call addMagazinesToVest;
 
-	[this, "HandGrenade", 2] call addMagazinesToBackpack;
-	[this, "HandGrenade", 2] call addMagazinesToBackpack;
+	[this, "HandGrenade", 2] call addMagazinesToVest;
+
+	[this] call set_m4a1_ammo;
 
 	[this, "rhs_mag_M585_white", 4] call addMagazinesToBackpack;
 	[this, "rhs_mag_m662_red", 3] call addMagazinesToBackpack;
 	[this, "rhs_mag_m661_green", 3] call addMagazinesToBackpack;
 	
 
-	[this, "rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Yellow", 3] call addMagazinesToBackpack;
 
 	this addWeapon "Binocular";
 	this addWeapon "rhs_weap_m4a1_m203";
@@ -175,15 +181,12 @@ blufor_ftl = {
 	this addHeadgear (blufor_random_helmet call BIS_fnc_selectRandom);
 	this addBackpack "tf_rt1523g_big_bwmod_tropen";
 
-	[this, "rhs_mag_30Rnd_556x45_M855A1_Stanag", 6] call addMagazinesToVest;
+	[this] call set_m4a1_ammo;
 	
 	[this, "SmokeShell", 4] call addMagazinesToVest;
 	[this, "SmokeShellRed", 2] call addMagazinesToVest;
 
-	[this, "HandGrenade", 2] call addMagazinesToBackpack;
-	[this, "HandGrenade", 2] call addMagazinesToBackpack;
-
-	[this, "rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Yellow", 3] call addMagazinesToBackpack;
+	[this, "HandGrenade", 2] call addMagazinesToVest;
 
 	this addWeapon "Binocular";
 	this addWeapon "rhs_weap_m4a1_m203s";
@@ -216,17 +219,17 @@ blufor_medic = {
 	this addHeadgear (blufor_random_helmet call BIS_fnc_selectRandom);
 	this addBackpack "rhsusf_assault_eagleaiii_coy";
 
-	[this, "rhs_mag_30Rnd_556x45_M855A1_Stanag", 6] call addMagazinesToVest;
+	[this] call set_m4a1_ammo;
 	
 	[this, "SmokeShell", 4] call addMagazinesToVest;
 	[this, "SmokeShellRed", 2] call addMagazinesToVest;
 
 	[this, "HandGrenade", 2] call addMagazinesToBackpack;
 
-	[this, "rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Yellow", 3] call addMagazinesToBackpack;
-	[this, "ACE_fieldDressing", 25] call addMagazinesToBackpack;
-	[this, "ACE_Morphine", 15] call addMagazinesToBackpack;
-	[this, "ACE_epinephrine", 10] call addMagazinesToBackpack;
+	
+	[this, "ACE_fieldDressing", 40] call addMagazinesToBackpack;
+	[this, "ACE_Morphine", 20] call addMagazinesToBackpack;
+	[this, "ACE_epinephrine", 20] call addMagazinesToBackpack;
 
 
 
@@ -295,9 +298,8 @@ blufor_AT = {
 	this addHeadgear (blufor_random_helmet call BIS_fnc_selectRandom);
 	this addBackpack "rhsusf_assault_eagleaiii_coy";
 
-	[this, "rhs_mag_30Rnd_556x45_M855A1_Stanag", 6] call addMagazinesToBackpack;
-	[this, "rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Yellow", 3] call addMagazinesToBackpack;
-	
+	[this] call set_m4a1_ammo;
+
 	[this, "SmokeShell", 2] call addMagazinesToVest;
 	[this, "SmokeShellRed", 2] call addMagazinesToVest;
 	[this, "HandGrenade", 1] call addMagazinesToVest;
@@ -373,13 +375,13 @@ blufor_engineer = {
 	this addBackpack "rhsusf_assault_eagleaiii_coy";
 
 	
-	[this, "rhs_mag_30Rnd_556x45_M855A1_Stanag", 6] call addMagazinesToVest;
+	[this] call set_m4a1_ammo;
 	
 	[this, "SmokeShell", 2] call addMagazinesToVest;
 	[this, "SmokeShellRed", 2] call addMagazinesToVest;
 	[this, "HandGrenade", 1] call addMagazinesToVest;
 
-	[this, "rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Yellow", 3] call addMagazinesToBackpack;
+
 	[this, "ACE_wirecutter", 1] call addMagazinesToBackpack;
 
 	this addWeapon "Binocular";
@@ -411,13 +413,11 @@ blufor_crew = {
 	this addHeadgear blufor_crew_helmet;
 	this addBackpack "rhsusf_assault_eagleaiii_coy";
 
-	[this, "rhs_mag_30Rnd_556x45_M855A1_Stanag", 6] call addMagazinesToVest;
+	[this] call set_m4a1_ammo;
 	
 	[this, "SmokeShell", 2] call addMagazinesToVest;
 	[this, "SmokeShellRed", 2] call addMagazinesToVest;
 	[this, "HandGrenade", 1] call addMagazinesToVest;
-
-	[this, "rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Yellow", 3] call addMagazinesToBackpack;
 
 	this addWeapon "Binocular";
 	this addWeapon (blufor_random_primaryweapon call BIS_fnc_selectRandom);
@@ -450,7 +450,7 @@ blufor_ammobearer = {
 	this addBackpack "rhsusf_assault_eagleaiii_coy";
 
 	
-	[this, "rhs_mag_30Rnd_556x45_M855A1_Stanag", 6] call addMagazinesToVest;
+	[this] call set_m4a1_ammo;
 	
 	[this, "SmokeShell", 2] call addMagazinesToVest;
 	[this, "SmokeShellRed", 2] call addMagazinesToVest;

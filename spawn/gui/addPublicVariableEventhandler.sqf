@@ -1,4 +1,4 @@
-
+#include "\z\ace\addons\main\script_component.hpp"
 /*
 parameter
 
@@ -18,6 +18,14 @@ _USCredits = _this select 1;
 
 fillRussianSupplies = {
 
+      // woodland camo?
+    if ((ISLAND_TARGET_POSITIONS select (ISLANDS find worldName)) select 3) then {
+       tigr = "rhs_tigr_ffv_3camo_vdv";
+    } else {
+        tigr = "rhs_tigr_ffv_vdv";
+    };
+    
+
      russianSupplies = [
 
         _this select 0,
@@ -25,8 +33,8 @@ fillRussianSupplies = {
             "rhs_gaz66o_vdv",
             "GAZ-66 Transport",
             30,
-            100,
-            "<t align='center'>100 cr</t>",
+            200,
+            "<t align='center'>200 cr</t>",
             1,
             ["light_hide", 1],
             {
@@ -37,11 +45,11 @@ fillRussianSupplies = {
             }
         ],
         [
-            "rhs_gaz66_ap2_vdv",
-            "GAZ-66 Ambulance",
+            tigr,
+            "GAZ Tigr",
             2,
-            500,
-            "<t align='center'>500 cr</t>",
+            800,
+            "<t align='center'>800 cr</t>",
             1,
             ["light_hide", 1],
             {
@@ -49,18 +57,14 @@ fillRussianSupplies = {
             clearItemCargoGlobal (_this select 0); 
             clearBackpackCargoGlobal (_this select 0); 
             clearMagazineCargoGlobal (_this select 0);
-            (_this select 0) addItemCargoGlobal ['ACE_Earplugs',15];
-            (_this select 0) addItemCargoGlobal ['ACE_Morphine',40];
-            (_this select 0) addItemCargoGlobal ['ACE_epinephrine',40];
-            (_this select 0) addItemCargoGlobal ['ACE_fieldDressing',100];
             }
         ],
         [
             "rhs_gaz66_repair_vdv",
-            "GAZ-66 Repair",
+            "GAZ-66 Supply",
             2,
-            700,
-            "<t align='center'>700 cr</t>",
+            1000,
+            "<t align='center'>1000 cr</t>",
             1,
             ["light_hide", 1],
             {
@@ -81,12 +85,19 @@ fillRussianSupplies = {
             (_this select 0) addMagazineCargoGlobal ['rhs_GRD40_White',10];
             (_this select 0) addMagazineCargoGlobal ['rhs_GRD40_Green',10];
             (_this select 0) addMagazineCargoGlobal ['rhs_GRD40_Red',10];
+            (_this select 0) addItemCargoGlobal ['ACE_Earplugs',15];
+            (_this select 0) addItemCargoGlobal ['ACE_Morphine',40];
+            (_this select 0) addItemCargoGlobal ['ACE_epinephrine',40];
+            (_this select 0) addItemCargoGlobal ['ACE_fieldDressing',100];
+            (_this select 0) addItemCargoGlobal ['ItemGPS',5];
+            ["AddCargoByClass", _this select 0, ["ACE_wheel", _this select 0, 2]] call ace_common_fnc_targetEvent;
+            ["AddCargoByClass", _this select 0, ["ACE_Track", _this select 0, 1]] call ace_common_fnc_targetEvent;
             }
         ],
         [
             "rhs_btr60_vv",
             "BTR-60",
-            2,
+            3,
             2000,
             "<t align='center'>2000 cr</t>",
             1,
@@ -117,8 +128,8 @@ fillRussianSupplies = {
             "rhs_t72ba_tv",
             "T-72",
             2,
-            4000,
-            "<t align='center'>4000 cr</t>",
+            4500,
+            "<t align='center'>4500 cr</t>",
             1,
             [[]],
             {
@@ -177,14 +188,14 @@ fillUSSupplies = {
     // woodland camo?
     if ((ISLAND_TARGET_POSITIONS select (ISLANDS find worldName)) select 3) then {
        hmmwv_transport = "rhsusf_m998_w_2dr_fulltop";
-        hmmwv_m2 = "rhsusf_m998_w_4dr";
+        hmmwv_m2 = "rhsusf_m1025_w_m2";
         m113_m2 = "rhsusf_m113_usarmy";
-        m113_amb = "rhsusf_m113_usarmy_medical";
+        m113_ammo = "rhsusf_m113_usarmy_supply";
     } else {
         hmmwv_transport = "rhsusf_m998_d_2dr_fulltop";
-        hmmwv_m2 = "rhsusf_m998_d_4dr";
+        hmmwv_m2 = "rhsusf_m1025_d_m2";
         m113_m2 = "rhsusf_m113d_usarmy";
-        m113_amb = "rhsusf_m113d_usarmy_medical";
+        m113_ammo = "rhsusf_m113d_usarmy_supply";
     };
 
      USSupplies = [
@@ -194,8 +205,8 @@ fillUSSupplies = {
             hmmwv_transport,
             "HMMWV Transport",
             30,
-            100,
-            "<t align='center'>100 cr</t>",
+            200,
+            "<t align='center'>200 cr</t>",
             1,
             ["light_hide", 1 , "hide_backTop", 0, "hide_frontTop", 0 ],
             {
@@ -224,8 +235,23 @@ fillUSSupplies = {
             m113_m2,
             "M113 M2",
             2,
-            1500,
-            "<t align='center'>1500 cr</t>",
+            1200,
+            "<t align='center'>1200 cr</t>",
+            1,
+            [[]],
+            {
+            clearWeaponCargoGlobal (_this select 0); 
+            clearItemCargoGlobal (_this select 0); 
+            clearBackpackCargoGlobal (_this select 0); 
+            clearMagazineCargoGlobal (_this select 0);
+            }
+        ],
+        [
+            m113_ammo,
+            "M113 Supplies",
+            1,
+            1200,
+            "<t align='center'>1200 cr</t>",
             1,
             [[]],
             {
@@ -245,25 +271,13 @@ fillUSSupplies = {
             (_this select 0) addMagazineCargoGlobal ['rhs_mag_M585_white',15]; 
             (_this select 0) addMagazineCargoGlobal ['rhs_mag_m662_red',15]; 
             (_this select 0) addMagazineCargoGlobal ['rhs_mag_m661_green',15];           
-            }
-        ],
-        [
-            m113_amb,
-            "M113 Ambulance",
-            1,
-            1000,
-            "<t align='center'>1000 cr</t>",
-            1,
-            [[]],
-            {
-            clearWeaponCargoGlobal (_this select 0); 
-            clearItemCargoGlobal (_this select 0); 
-            clearBackpackCargoGlobal (_this select 0); 
-            clearMagazineCargoGlobal (_this select 0);
             (_this select 0) addItemCargoGlobal ['ACE_Earplugs',15];
             (_this select 0) addItemCargoGlobal ['ACE_Morphine',40];
             (_this select 0) addItemCargoGlobal ['ACE_epinephrine',40];
             (_this select 0) addItemCargoGlobal ['ACE_fieldDressing',100];
+            (_this select 0) addItemCargoGlobal ['ItemGPS',5];
+            ["AddCargoByClass", _this select 0, ["ACE_wheel", _this select 0, 2]] call ace_common_fnc_targetEvent;
+            ["AddCargoByClass", _this select 0, ["ACE_Track", _this select 0, 1]] call ace_common_fnc_targetEvent;
             }
         ],
         [
@@ -302,8 +316,8 @@ fillUSSupplies = {
             "RHS_UH60M",
             "UH-60M",
             1,
-            3000,
-            "<t align='center'>3000 cr</t>",
+            3500,
+            "<t align='center'>3500 cr</t>",
             1,
             [[]],
             {
@@ -311,6 +325,7 @@ fillUSSupplies = {
             clearItemCargoGlobal (_this select 0); 
             clearBackpackCargoGlobal (_this select 0); 
             clearMagazineCargoGlobal (_this select 0);
+            (_this select 0) setVehicleAmmo 0.4;
             }
         ]
     ];

@@ -19,10 +19,7 @@ spawnSupplyDrop = {
 
     _vehicle = createVehicle [_vehicleType, _pos, [], 0, "NONE"];
     _vehicle allowDamage false;
-
-	[_vehicle] call _calls;
-	sleep 0.1;
-	_road = [getPos _vehicle] call BIS_fnc_nearestRoad;
+    _road = [getPos _vehicle] call BIS_fnc_nearestRoad;
 	if (!isNull _road) then {
 		_roadConnectedTo = roadsConnectedTo _road;  
 	 	_connectedRoad = _roadConnectedTo select 0;  
@@ -30,6 +27,10 @@ spawnSupplyDrop = {
 	 	_vehicle setDir _direction;
 	};
 
+	[_vehicle] call _calls;
+	
+	
+	sleep 0.1;
 	 _vehicle allowDamage true;
 	// adjust vehicle (remove lamp covers and stuff)
 	if (count _init > 0) then {
