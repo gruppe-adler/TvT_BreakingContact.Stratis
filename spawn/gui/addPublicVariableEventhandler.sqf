@@ -31,7 +31,7 @@ fillRussianSupplies = {
         _this select 0,
         [
             "rhs_gaz66o_vdv",
-            "GAZ-66 Transport",
+            "GAZ-66",
             30,
             200,
             "<t align='center'>200 cr</t>",
@@ -248,7 +248,7 @@ fillUSSupplies = {
         ],
         [
             m113_ammo,
-            "M113 Supplies",
+            "M113 Ammo",
             1,
             1200,
             "<t align='center'>1200 cr</t>",

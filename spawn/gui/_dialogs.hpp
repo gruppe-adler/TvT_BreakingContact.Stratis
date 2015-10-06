@@ -182,9 +182,9 @@ class russianSupplyGUI
 			{
 				idc = 1101;
 				text = "<t align='center'>lade...</t>";
-				x = -3 * GUI_GRID_W + GUI_GRID_X;
-				y = 10 * GUI_GRID_H + GUI_GRID_Y;
-				w = 6 * GUI_GRID_W;
+				x = -3.5 * GUI_GRID_W + GUI_GRID_X;
+				y = 11 * GUI_GRID_H + GUI_GRID_Y;
+				w = 6.5 * GUI_GRID_W;
 				h = 1 * GUI_GRID_H;
 				colorBackground[] = {-1,-1,-1,0};
 			};
@@ -192,9 +192,9 @@ class russianSupplyGUI
 			{
 				idc = 1102;
 				text = "<t align='center'>lade ...</t>";
-				x = 5 * GUI_GRID_W + GUI_GRID_X;
+				x = 4.5 * GUI_GRID_W + GUI_GRID_X;
 				y = 10 * GUI_GRID_H + GUI_GRID_Y;
-				w = 6 * GUI_GRID_W;
+				w = 6.5 * GUI_GRID_W;
 				h = 1 * GUI_GRID_H;
 				colorBackground[] = {-1,-1,-1,0};
 			};
@@ -202,9 +202,9 @@ class russianSupplyGUI
 			{
 				idc = 1103;
 				text = "<t align='center'>lade ...</t>";
-				x = 12.5 * GUI_GRID_W + GUI_GRID_X;
+				x = 12 * GUI_GRID_W + GUI_GRID_X;
 				y = 10 * GUI_GRID_H + GUI_GRID_Y;
-				w = 6 * GUI_GRID_W;
+				w = 6.5 * GUI_GRID_W;
 				h = 1 * GUI_GRID_H;
 				colorBackground[] = {-1,-1,-1,0};
 			};
@@ -212,9 +212,9 @@ class russianSupplyGUI
 			{
 				idc = 1104;
 				text = "<t align='center'>lade ...</t>";
-				x = 20 * GUI_GRID_W + GUI_GRID_X;
+				x = 19.5 * GUI_GRID_W + GUI_GRID_X;
 				y = 10 * GUI_GRID_H + GUI_GRID_Y;
-				w = 6 * GUI_GRID_W;
+				w = 6.5 * GUI_GRID_W;
 				h = 1 * GUI_GRID_H;
 				colorBackground[] = {-1,-1,-1,0};
 			};
@@ -222,9 +222,9 @@ class russianSupplyGUI
 			{
 				idc = 1105;
 				text = "<t align='center'>lade ...</t>";
-				x = 27.5 * GUI_GRID_W + GUI_GRID_X;
+				x = 27 * GUI_GRID_W + GUI_GRID_X;
 				y = 10 * GUI_GRID_H + GUI_GRID_Y;
-				w = 6 * GUI_GRID_W;
+				w = 6.5 * GUI_GRID_W;
 				h = 1 * GUI_GRID_H;
 				colorBackground[] = {-1,-1,-1,0};
 			};
@@ -232,9 +232,9 @@ class russianSupplyGUI
 			{
 				idc = 1106;
 				text = "<t align='center'>lade ...</t>";
-				x = 35 * GUI_GRID_W + GUI_GRID_X;
+				x = 34.5 * GUI_GRID_W + GUI_GRID_X;
 				y = 10 * GUI_GRID_H + GUI_GRID_Y;
-				w = 6 * GUI_GRID_W;
+				w = 6.5 * GUI_GRID_W;
 				h = 1 * GUI_GRID_H;
 				colorBackground[] = {-1,-1,-1,0};
 			};
@@ -242,9 +242,9 @@ class russianSupplyGUI
 			{
 				idc = 1107;
 				text = "<t align='center'>lade ...</t>";
-				x = 42.5 * GUI_GRID_W + GUI_GRID_X;
+				x = 42 * GUI_GRID_W + GUI_GRID_X;
 				y = 10 * GUI_GRID_H + GUI_GRID_Y;
-				w = 6 * GUI_GRID_W;
+				w = 6.5 * GUI_GRID_W;
 				h = 1 * GUI_GRID_H;
 				colorBackground[] = {-1,-1,-1,0};
 			};
@@ -617,7 +617,7 @@ class USSupplyGUI
 				y = 3.5 * GUI_GRID_H + GUI_GRID_Y;
 				w = 7 * GUI_GRID_W;
 				h = 6 * GUI_GRID_H;
-				text = "spawn\gui\pic\us_m113_medic.paa";
+				text = "spawn\gui\pic\us_m113_ammo.paa";
 			};
 			class US_gui_pic_5: RscPicture
 			{
@@ -650,9 +650,9 @@ class USSupplyGUI
 			{
 				idc = 3101;
 				text = "<t align='center'>lade...</t>";
-				x = -3 * GUI_GRID_W + GUI_GRID_X;
+				x = -3.5 * GUI_GRID_W + GUI_GRID_X;
 				y = 10 * GUI_GRID_H + GUI_GRID_Y;
-				w = 6 * GUI_GRID_W;
+				w = 6.5 * GUI_GRID_W;
 				h = 1 * GUI_GRID_H;
 				colorBackground[] = {-1,-1,-1,0};
 			};
@@ -660,9 +660,9 @@ class USSupplyGUI
 			{
 				idc = 3102;
 				text = "<t align='center'>lade ...</t>";
-				x = 5 * GUI_GRID_W + GUI_GRID_X;
+				x = 4.5 * GUI_GRID_W + GUI_GRID_X;
 				y = 10 * GUI_GRID_H + GUI_GRID_Y;
-				w = 6 * GUI_GRID_W;
+				w = 6.5 * GUI_GRID_W;
 				h = 1 * GUI_GRID_H;
 				colorBackground[] = {-1,-1,-1,0};
 			};
@@ -670,9 +670,9 @@ class USSupplyGUI
 			{
 				idc = 3103;
 				text = "<t align='center'>lade ...</t>";
-				x = 12.5 * GUI_GRID_W + GUI_GRID_X;
+				x = 12 * GUI_GRID_W + GUI_GRID_X;
 				y = 10 * GUI_GRID_H + GUI_GRID_Y;
-				w = 6 * GUI_GRID_W;
+				w = 6.5 * GUI_GRID_W;
 				h = 1 * GUI_GRID_H;
 				colorBackground[] = {-1,-1,-1,0};
 			};
@@ -680,9 +680,9 @@ class USSupplyGUI
 			{
 				idc = 3104;
 				text = "<t align='center'>lade ...</t>";
-				x = 20 * GUI_GRID_W + GUI_GRID_X;
+				x = 19.5 * GUI_GRID_W + GUI_GRID_X;
 				y = 10 * GUI_GRID_H + GUI_GRID_Y;
-				w = 6 * GUI_GRID_W;
+				w = 6.5 * GUI_GRID_W;
 				h = 1 * GUI_GRID_H;
 				colorBackground[] = {-1,-1,-1,0};
 			};
@@ -690,9 +690,9 @@ class USSupplyGUI
 			{
 				idc = 3105;
 				text = "<t align='center'>lade ...</t>";
-				x = 27.5 * GUI_GRID_W + GUI_GRID_X;
+				x = 27 * GUI_GRID_W + GUI_GRID_X;
 				y = 10 * GUI_GRID_H + GUI_GRID_Y;
-				w = 6 * GUI_GRID_W;
+				w = 6.5 * GUI_GRID_W;
 				h = 1 * GUI_GRID_H;
 				colorBackground[] = {-1,-1,-1,0};
 			};
@@ -700,9 +700,9 @@ class USSupplyGUI
 			{
 				idc = 3106;
 				text = "<t align='center'>lade ...</t>";
-				x = 35 * GUI_GRID_W + GUI_GRID_X;
+				x = 34.5 * GUI_GRID_W + GUI_GRID_X;
 				y = 10 * GUI_GRID_H + GUI_GRID_Y;
-				w = 6 * GUI_GRID_W;
+				w = 6.5 * GUI_GRID_W;
 				h = 1 * GUI_GRID_H;
 				colorBackground[] = {-1,-1,-1,0};
 			};
@@ -710,9 +710,9 @@ class USSupplyGUI
 			{
 				idc = 3107;
 				text = "<t align='center'>lade ...</t>";
-				x = 42.5 * GUI_GRID_W + GUI_GRID_X;
+				x = 42 * GUI_GRID_W + GUI_GRID_X;
 				y = 10 * GUI_GRID_H + GUI_GRID_Y;
-				w = 6 * GUI_GRID_W;
+				w = 6.5 * GUI_GRID_W;
 				h = 1 * GUI_GRID_H;
 				colorBackground[] = {-1,-1,-1,0};
 			};
