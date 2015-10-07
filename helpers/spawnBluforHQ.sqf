@@ -69,9 +69,9 @@ testSpawnPositions = {
 	_result = [2,nil,nil];
 	_mapsizeknown = false;
 
-	_mapSize = getNumber(configFile >> "CfgWorlds" >> worldName >> "MapSize");
+	_mapSize = worldSize;
 	if (_mapSize < 2000) then {
-		_mapSizeKnown = false; diag_log format ["Calculating Spawnposis: No Map Size known."];
+		_mapSizeKnown = false; diag_log format ["Calculating Spawnposis: Map Size < 2000 or unknown."];
 	} else {_mapSizeKnown = true;};
 
 
