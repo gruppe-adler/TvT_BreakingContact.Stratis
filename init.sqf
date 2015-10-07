@@ -116,7 +116,8 @@ call compile preprocessfile "SHK_pos\shk_pos_init.sqf";
 // findsimplePos
 call compile preprocessFileLineNumbers "helpers\findSimplePos.sqf";
 call compile preprocessFileLineNumbers "helpers\spawnBluforHQ.sqf";
-call compile preprocessFileLineNumbers "helpers\findBluforPos.sqf";
+
+
 
 If(isNil "spawn_help_fnc_compiled") then { call compile preprocessFileLineNumbers "helpers\findPos.sqf"; }; // TODO why the if condition here?
 

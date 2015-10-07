@@ -92,6 +92,10 @@ fillRussianSupplies = {
             (_this select 0) addItemCargoGlobal ['ItemGPS',5];
             ["AddCargoByClass", _this select 0, ["ACE_wheel", _this select 0, 2]] call ace_common_fnc_targetEvent;
             ["AddCargoByClass", _this select 0, ["ACE_Track", _this select 0, 1]] call ace_common_fnc_targetEvent;
+            _hedgehog = "Hedgehog" createVehicle (getpos (_this select 0));
+            [_hedgehog, true, [0,1.1,0.092], 180] call ace_dragging_fnc_setDraggable;
+            _hedgehog setVariable ["ace_cargo_size", 1, true];
+            [_hedgehog, _this select 0] call ace_cargo_fnc_loadItem;
             }
         ],
         [
