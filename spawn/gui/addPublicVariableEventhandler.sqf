@@ -92,6 +92,7 @@ fillRussianSupplies = {
             (_this select 0) addItemCargoGlobal ['ItemGPS',5];
             ["AddCargoByClass", _this select 0, ["ACE_wheel", _this select 0, 2]] call ace_common_fnc_targetEvent;
             ["AddCargoByClass", _this select 0, ["ACE_Track", _this select 0, 1]] call ace_common_fnc_targetEvent;
+            ["AddCargoByClass", _this select 0, ["ACE_ConcertinaWireCoil", _this select 0, 1]] call ace_common_fnc_targetEvent;
             }
         ],
         [
@@ -155,7 +156,6 @@ fillRussianSupplies = {
             (_this select 0) addBackpackCargoGlobal ['RHS_M2_Gun_Bag',1];
             (_this select 0) addBackpackCargoGlobal ['RHS_M2_Tripod_Bag',1];
             (_this select 0) addItemCargoGlobal ['ACE_Sandbag_empty',100];
-            (_this select 0) addBackpackCargoGlobal ['ACE_ConcertinaWireCoil',1];
             _box = createVehicle ["ACE_Box_Misc", position (_this select 0), [], 1, "NONE"];
             clearWeaponCargoGlobal _box; 
             clearItemCargoGlobal _box; 
@@ -290,8 +290,7 @@ fillUSSupplies = {
             (_this select 0) addItemCargoGlobal ['ItemGPS',5];
             ["AddCargoByClass", _this select 0, ["ACE_wheel", _this select 0, 2]] call ace_common_fnc_targetEvent;
             ["AddCargoByClass", _this select 0, ["ACE_Track", _this select 0, 1]] call ace_common_fnc_targetEvent;
-            [_this select 0] call createInitialBox;
-            [_this select 0] call createInitialBox;
+            ["AddCargoByClass", _this select 0, ["ACE_ConcertinaWireCoil", _this select 0, 1]] call ace_common_fnc_targetEvent;
             }
         ],
         [
@@ -310,7 +309,6 @@ fillUSSupplies = {
             (_this select 0) addBackpackCargoGlobal ['RHS_M2_Gun_Bag',1];
             (_this select 0) addBackpackCargoGlobal ['RHS_M2_Tripod_Bag',1];
             (_this select 0) addItemCargoGlobal ['ACE_Sandbag_empty',100];
-            (_this select 0) addBackpackCargoGlobal ['ACE_ConcertinaWireCoil',1];
             _box = createVehicle ["ACE_Box_Misc", position (_this select 0), [], 1, "NONE"];
             clearWeaponCargoGlobal _box; 
             clearItemCargoGlobal _box; 
