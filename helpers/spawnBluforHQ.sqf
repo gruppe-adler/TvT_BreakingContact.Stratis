@@ -42,12 +42,14 @@ setSpawnedDirection = {
 
 	if (!isNull _road1) then {
 	_roadConnectedTo1 = roadsConnectedTo _road1;  
+	if (count _roadConnectedTo1 < 1) exitWith {};
  	_connectedRoad1 = _roadConnectedTo1 select 0;  
- 	_direction1 = [_road1, _connectedRoad1] call BIS_fnc_DirTo; 
+ 	_direction1 = [_road1, _connectedRoad1] call BIS_fnc_DirTo;
  	};
 
  	if (!isNull _road2) then {
 	_roadConnectedTo2 = roadsConnectedTo _road2;  
+	if (count _roadConnectedTo1 < 1) exitWith {};
  	_connectedRoad2 = _roadConnectedTo2 select 0;  
  	_direction2 = [_road2, _connectedRoad2] call BIS_fnc_DirTo; 
 	};

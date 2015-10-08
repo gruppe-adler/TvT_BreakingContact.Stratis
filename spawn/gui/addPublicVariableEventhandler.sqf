@@ -92,10 +92,6 @@ fillRussianSupplies = {
             (_this select 0) addItemCargoGlobal ['ItemGPS',5];
             ["AddCargoByClass", _this select 0, ["ACE_wheel", _this select 0, 2]] call ace_common_fnc_targetEvent;
             ["AddCargoByClass", _this select 0, ["ACE_Track", _this select 0, 1]] call ace_common_fnc_targetEvent;
-            _hedgehog = "Hedgehog" createVehicle (getpos (_this select 0));
-            [_hedgehog, true, [0,1.1,0.092], 180] call ace_dragging_fnc_setDraggable;
-            _hedgehog setVariable ["ace_cargo_size", 1, true];
-            [_hedgehog, _this select 0] call ace_cargo_fnc_loadItem;
             }
         ],
         [
@@ -144,8 +140,8 @@ fillRussianSupplies = {
             }
         ],
         [
-            "B_CargoNet_01_Ammo_F",
-            "2 Static MG",
+            "Ace_Box_Ammo",
+            "Defense Pack",
             3,
             700,
             "<t align='center'>700 cr</t>",
@@ -156,8 +152,20 @@ fillRussianSupplies = {
             clearItemCargoGlobal (_this select 0); 
             clearBackpackCargoGlobal (_this select 0); 
             clearMagazineCargoGlobal (_this select 0);
-            (_this select 0) addBackpackCargoGlobal ['RHS_NSV_Gun_Bag',2];
-            (_this select 0) addBackpackCargoGlobal ['RHS_NSV_Tripod_Bag',2];
+            (_this select 0) addBackpackCargoGlobal ['RHS_M2_Gun_Bag',1];
+            (_this select 0) addBackpackCargoGlobal ['RHS_M2_Tripod_Bag',1];
+            (_this select 0) addItemCargoGlobal ['ACE_Sandbag_empty',100];
+            (_this select 0) addBackpackCargoGlobal ['ACE_ConcertinaWireCoil',1];
+            _box = createVehicle ["ACE_Box_Misc", position (_this select 0), [], 1, "NONE"];
+            clearWeaponCargoGlobal _box; 
+            clearItemCargoGlobal _box; 
+            clearBackpackCargoGlobal _box; 
+            clearMagazineCargoGlobal _box;
+            _box = createVehicle ["ACE_Box_Misc", position (_this select 0), [], 1, "NONE"];
+            clearWeaponCargoGlobal _box; 
+            clearItemCargoGlobal _box; 
+            clearBackpackCargoGlobal _box; 
+            clearMagazineCargoGlobal _box;
             }
         ]
     ];
@@ -282,14 +290,16 @@ fillUSSupplies = {
             (_this select 0) addItemCargoGlobal ['ItemGPS',5];
             ["AddCargoByClass", _this select 0, ["ACE_wheel", _this select 0, 2]] call ace_common_fnc_targetEvent;
             ["AddCargoByClass", _this select 0, ["ACE_Track", _this select 0, 1]] call ace_common_fnc_targetEvent;
+            [_this select 0] call createInitialBox;
+            [_this select 0] call createInitialBox;
             }
         ],
         [
-            "B_CargoNet_01_Ammo_F",
-            "Javelin",
-            2,
-            2000,
-            "<t align='center'>2000 cr</t>",
+            "Ace_Box_Ammo",
+            "Defense Pack",
+            3,
+            700,
+            "<t align='center'>700 cr</t>",
             1,
             [[]],
             {
@@ -297,8 +307,20 @@ fillUSSupplies = {
             clearItemCargoGlobal (_this select 0); 
             clearBackpackCargoGlobal (_this select 0); 
             clearMagazineCargoGlobal (_this select 0);
-            (_this select 0) addWeaponCargoGlobal ['rhs_weap_fgm148',1];
-            (_this select 0) addWeaponCargoGlobal ['rhs_fgm148_magazine_AT',1];
+            (_this select 0) addBackpackCargoGlobal ['RHS_M2_Gun_Bag',1];
+            (_this select 0) addBackpackCargoGlobal ['RHS_M2_Tripod_Bag',1];
+            (_this select 0) addItemCargoGlobal ['ACE_Sandbag_empty',100];
+            (_this select 0) addBackpackCargoGlobal ['ACE_ConcertinaWireCoil',1];
+            _box = createVehicle ["ACE_Box_Misc", position (_this select 0), [], 1, "NONE"];
+            clearWeaponCargoGlobal _box; 
+            clearItemCargoGlobal _box; 
+            clearBackpackCargoGlobal _box; 
+            clearMagazineCargoGlobal _box;
+            _box = createVehicle ["ACE_Box_Misc", position (_this select 0), [], 1, "NONE"];
+            clearWeaponCargoGlobal _box; 
+            clearItemCargoGlobal _box; 
+            clearBackpackCargoGlobal _box; 
+            clearMagazineCargoGlobal _box;
             }
         ],
         [

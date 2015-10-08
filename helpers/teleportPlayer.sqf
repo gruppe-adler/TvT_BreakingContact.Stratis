@@ -13,3 +13,4 @@ _nul = player setPos _spawn;
 openMap [false, false];
 hintSilent "";
 cutText ["", "BLACK IN", 1];
+1 call fn_sthud_usermenu_changeMode;
