@@ -853,7 +853,7 @@ class Mission
 						};
 						class Item1
 						{
-							value="5000";
+							value="10000";
 							parentCls="ace_viewdistance_ModuleSettings";
 							typeName="moduleViewDistanceLimit";
 						};
@@ -3006,7 +3006,7 @@ class Mission
 				items=1;
 				class Item0
 				{
-					position[]={1613.1201,0,6163.5313};
+					position[]={1629.8856,-0.1216637,6101.4536};
 					class args
 					{
 						items=4;
@@ -3052,7 +3052,7 @@ class Mission
 				items=1;
 				class Item0
 				{
-					position[]={1661.5276,0,6163.5313};
+					position[]={1650.6526,0.13575001,6102.3599};
 					class args
 					{
 						items=4;

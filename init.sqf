@@ -32,7 +32,7 @@ disableRemoteSensors true;
 setCustomWeather = {
 	// skipTime -24; 
 	0 setOvercast (_this select 0); 
-	setViewDistance 5000;
+	setViewDistance 7000;
 	// skipTime 24;
 };
 
@@ -120,7 +120,7 @@ if (isServer) then {
 diag_log format ["setup: server done"];
 
 [] execVM "CSSA3\CSSA3_init.sqf";
-// [] execVM "GRAD_replay\GRAD_replay_init.sqf";
+[] execVM "GRAD_replay\GRAD_replay_init.sqf";
 
 clearInventory = compile preprocessFile "helpers\clearInventory.sqf";
 spawnStuff = compile preprocessFile "helpers\spawnStuff.sqf";

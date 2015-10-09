@@ -90,10 +90,11 @@ if (isServer || isDedicated) then {
 
 		if (_tempCurrentPlayerCount != ((local_recording) select local_recording_counter) select 1) then {
 			[] call refreshMarkers;
-			_tempCurrentPlayerCount = count current_markers;
+			_tempCurrentPlayerCount = (((local_recording) select local_recording_counter) select 1);
 			diag_log format ["Replay: refreshing Markers."];
 		};
 			for [{_i=0}, {_i < count current_markers}, {_i=_i+1}] do {
+			if (count current_markers < 1) exitWith {};
 			_curMarker = current_markers select _i;
 			_unit = (((((local_recording) select local_recording_counter) select 2) select _i) select 0);
 			_pos = [((((((local_recording) select local_recording_counter) select 2) select _i) select 2) select 0),((((((local_recording) select local_recording_counter) select 2) select _i) select 2) select 1)];
@@ -114,7 +115,7 @@ if (isServer || isDedicated) then {
 					_marker_kia setMarkerColor ([(((((local_recording) select local_recording_counter) select 2) select _a) select 1)] call getSideMarkerColor);
 					deadUnitMarkers = deadUnitMarkers + [_unit];
 				};
-			sleep 0.01;
+			
 			};
 		
 		local_recording_counter = local_recording_counter + local_recording_playback_speed;
@@ -123,7 +124,7 @@ if (isServer || isDedicated) then {
 			[{["Replay finished."] call EFUNC(common,displayTextStructured);},"BIS_fnc_spawn",true,true] call BIS_fnc_MP;
 		};
 		
-		sleep 0.01; // debug slower
+		sleep 0.05; // debug slower
 		};
 	};
 };
