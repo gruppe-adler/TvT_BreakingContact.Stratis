@@ -17,6 +17,7 @@ while{true} do
 
 	if (MISSION_COMPLETED) exitWith {};
 
+		allDeadAndAliveUnits = playableUnits + switchableUnits + allDeadMen;
 	{	_unit = _x;
 		_veh = vehicle _unit;
 		_pos = getpos _unit;
@@ -86,8 +87,8 @@ while{true} do
 		all_current_values = all_current_values + [single_current_values];
 		};
 		
-	} forEach [playableUnits,switchableUnits,allDeadMen];
-	local_recording = local_recording + [[current_daytime,count playableUnits + count switchableUnits,all_current_values]];
+	} forEach allDeadAndAliveUnits;
+	local_recording = local_recording + [[current_daytime,"",all_current_values]];
 	all_current_values = [];
 
 	
