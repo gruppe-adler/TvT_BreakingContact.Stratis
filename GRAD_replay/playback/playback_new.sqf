@@ -1,8 +1,5 @@
 #include "\z\ace\addons\main\script_component.hpp"
 
-_speed = _this select 0;
-
-
 [{["Starting Replay."] call EFUNC(common,displayTextStructured);},"BIS_fnc_spawn",true,true] call BIS_fnc_MP;
 [{openMap [true,false];},"BIS_fnc_spawn",true,true] call BIS_fnc_MP;
 
@@ -167,7 +164,7 @@ if (isServer || isDedicated) then {
 			REPLAY_FINISHED = true; publicVariable "REPLAY_FINISHED";
 		};
 		
-		sleep 0.25;
+		sleep REPLAY_SPEED;
 
 		};
 	};

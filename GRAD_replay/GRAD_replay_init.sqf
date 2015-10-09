@@ -3,7 +3,6 @@
 
 ////// SETUP
 _recording_precision = 1; // smaller is more precise (delay between snapshots)
-_playback_speed = 0.1; // smaller is faster (delay between playback steps)
 
 GRAD_startRecording = compile preprocessFile "GRAD_replay\recording\recording.sqf";
 GRAD_startPlayback = compile preprocessFile "GRAD_replay\playback\playback_new.sqf";
@@ -12,4 +11,4 @@ GRAD_startPlayback = compile preprocessFile "GRAD_replay\playback\playback_new.s
 
 waitUntil {MISSION_COMPLETED};
 
-[_playback_speed] call GRAD_startPlayback;
+[] call GRAD_startPlayback;

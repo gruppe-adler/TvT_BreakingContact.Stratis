@@ -98,6 +98,9 @@ if (isServer) then {
 	REPLAY_FINISHED = false;
 	publicVariable "REPLAY_FINISHED";
 
+	REPLAY_SPEED = 0.01;
+	publicVariable "REPLAY_SPEED";
+
 
 	_playercount = count allPlayers;
 	_bonusPerPlayer = _playercount * 100;
