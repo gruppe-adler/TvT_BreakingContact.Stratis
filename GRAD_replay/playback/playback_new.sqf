@@ -167,7 +167,7 @@ if (isServer || isDedicated) then {
 			REPLAY_FINISHED = true; publicVariable "REPLAY_FINISHED";
 		};
 		
-		sleep 0.02;
+		sleep 0.25;
 
 		};
 	};
