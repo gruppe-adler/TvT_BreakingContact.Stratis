@@ -62,6 +62,7 @@ while{true} do
 			_kindof =  _side_prefix + "naval";
 			};
 		};
+
 		if(vehicle _unit isKindOf "StaticMortar") then 
 		{
 			_kindof =  _side_prefix + "mortar";
@@ -70,7 +71,8 @@ while{true} do
 		if (_unit getVariable ["ACE_isUnconscious", false]) then {
 			_kindof = "loc_Hospital";
 		};
-		if(!alive _unit) then {
+
+		if (!alive _unit) then {
 			_kindof = "KIA";
 		};
 
@@ -79,12 +81,12 @@ while{true} do
 		single_current_values = [_unit,_side,_pos,_dir,_kindof,_veh];
 		//diag_log format ["%1",single_current_values];
 		// prevent markers to render double on the same position (e.g. full team in vehicle)
-		if (!(_pos in all_current_values) && !(_veh in all_current_values)) then {
+		if (!(_veh in all_current_values)) then {
 			
 		all_current_values = all_current_values + [single_current_values];
 		};
 		
-	} forEach switchableUnits;
+	} forEach switchableUnits + allDeadMen;
 	local_recording = local_recording + [[current_daytime,count switchableUnits,all_current_values]];
 	all_current_values = [];
 

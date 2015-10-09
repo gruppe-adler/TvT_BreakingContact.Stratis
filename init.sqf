@@ -129,7 +129,6 @@ call compile preprocessfile "SHK_pos\shk_pos_init.sqf";
 // findsimplePos
 call compile preprocessFileLineNumbers "helpers\findSimplePos.sqf";
 call compile preprocessFileLineNumbers "helpers\spawnBluforHQ.sqf";
-// establishingShot = call compile preprocessFileLineNumbers "helpers\establishingShot.sqf";
 
 
 If(isNil "spawn_help_fnc_compiled") then { call compile preprocessFileLineNumbers "helpers\findPos.sqf"; }; // TODO why the if condition here?
@@ -137,8 +136,6 @@ If(isNil "spawn_help_fnc_compiled") then { call compile preprocessFileLineNumber
 diag_log format ["setup: clientandserver done"];
 
 if (hasInterface) then {
-
-
 
 	checkJIP = {
 		if ((OPFOR_TELEPORT_TARGET select 0 != 0) && didJIP && time > jipTime) then {
@@ -151,7 +148,6 @@ if (hasInterface) then {
 
 
 	checkSpawnButton = {
-		// waitUntil {!dialog && !visibleMap};
 		if (didJIP) exitWith {};
 		if (player != opfor_teamlead) then {
 			0 = [[worldSize/2,worldSize/2,0],"Breaking Contact - Waiting for Spawn."] execVM "helpers\establishingShot.sqf";
@@ -175,9 +171,6 @@ if (hasInterface) then {
 			waitUntil {(OPFOR_TELEPORT_TARGET select 0 != 0)};
 			([] call BIS_fnc_displayMission) displayRemoveEventHandler ['KeyDown', cheffeKeyEH];
 		};
-		
-		// if (BLUFOR_TELEPORTED) exitWith {};
-		// 0 = [playerside] execVM "spawn\checkIfSpawned.sqf";
 	};
 
 	

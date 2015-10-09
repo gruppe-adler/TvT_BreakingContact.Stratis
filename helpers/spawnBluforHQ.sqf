@@ -35,21 +35,24 @@ setSpawnedDirection = {
 	_veh1 = _this select 0;
 	_veh2 = _this select 1;
 
+	_roadconnectedto1 = nil;
+	_roadconnectedto1 = nil;
+
 	_road1 = [getPos _veh1] call BIS_fnc_nearestRoad;
 	_road2 = [getPos _veh2] call BIS_fnc_nearestRoad;
 
 	diag_log format ["Calculating Spawnposis: Roads %1 and %2 found.",_road1, _road2];
 
-	if (!isNull _road1) then {
+	if (!isNil "_road1") then {
 	_roadConnectedTo1 = roadsConnectedTo _road1;  
-	if (count _roadConnectedTo1 < 1) exitWith {};
+	if (isNil "_roadconnectedto1") exitWith {};
  	_connectedRoad1 = _roadConnectedTo1 select 0;  
  	_direction1 = [_road1, _connectedRoad1] call BIS_fnc_DirTo;
  	};
 
- 	if (!isNull _road2) then {
+ 	if (!isNil "_road2") then {
 	_roadConnectedTo2 = roadsConnectedTo _road2;  
-	if (count _roadConnectedTo1 < 1) exitWith {};
+	if (isNil "_roadconnectedto2") exitWith {};
  	_connectedRoad2 = _roadConnectedTo2 select 0;  
  	_direction2 = [_road2, _connectedRoad2] call BIS_fnc_DirTo; 
 	};

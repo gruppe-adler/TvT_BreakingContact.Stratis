@@ -8,6 +8,13 @@ _speed = _this select 0;
 
 if (isServer || isDedicated) then {
 
+	local_recording_length = count local_recording;
+	local_recording_counter = 0;
+	current_markers = [];
+	deadUnitMarkers = [];
+	local_recording_playback_speed = 1;
+	tempCurrentPlayerCount = 0;
+
 	getDayTimeConverted = {
 		_getdaytime = _this select 0;
 		//daytime = 1.66046
@@ -45,86 +52,124 @@ if (isServer || isDedicated) then {
 		  case (_mySide == west):{_result = "ColorBLUFOR";};
 		  case (_mySide == resistance):{_result = "ColorIndependent";};
 		  case (_mySide == east):{_result = "ColorOPFOR";};
+		  default {};
 		};
 		_result
 	};
 
-	refreshMarkers = {
-			{deleteMarker _x;} forEach current_markers;
-
-		for [{_k=0}, {_k < (((local_recording) select local_recording_counter) select 1)}, {_k=_k+1}] do {
-			_prepare_unit = (((((local_recording) select 0) select 2) select _k) select 0);
-			_prepare_side = (((((local_recording) select 0) select 2) select _k) select 1);
-			_prepare_pos = (((((local_recording) select 0) select 2) select _k) select 2);
-			_prepare_dir = (((((local_recording) select 0) select 2) select _k) select 3);
-			_prepare_kindof = (((((local_recording) select 0) select 2) select _k) select 4);
-			_prepare_veh = (((((local_recording) select 0) select 2) select _k) select 5);
-			
-			if (!(_prepare_unit in deadUnitMarkers)) then {
-			//diag_log format ["marker for %1 created",_prepare_unit];
-				_marker = createMarker [format["%1",_prepare_unit],_prepare_pos];
-				_marker setMarkerShape "ICON";
-				_marker setMarkerType _prepare_kindof;
-				_marker setMarkerAlpha 1;
-				_marker setMarkerDir _prepare_dir;
-				_marker setMarkerColor ([_prepare_side] call getSideMarkerColor);
-				current_markers = current_markers + [_marker];
-			};
-		};
+	countCurrentUnits = {
+		_entry = _this select 0;
+		_units = count (((local_recording) select _entry) select 2);
+		// diag_log format ["Replay: countCurrentUnits: %1", _units];
+		_units
 	};
 
-	[] spawn {
-		local_recording_length = count local_recording;
-		local_recording_counter = 0;
-		current_markers = [];
-		deadUnitMarkers = [];
-		local_recording_playback_speed = 1;
-		_tempCurrentPlayerCount = 0;
+	getRecordingUnit = {
+		_stepentry = _this select 0;
+		_unitentry = _this select 1;
+		_unit = (((((local_recording) select _stepentry) select 2) select _unitentry) select 0);
+		// diag_log format ["Replay: stepEntry: %1, unitEntry: %2, getRecordingUnit: %3", _stepentry,_unitentry,_unit];
+		_unit
+	};
 
+	getRecordingSide = {
+		_stepentry = _this select 0;
+		_unitentry = _this select 1;
+		_side = (((((local_recording) select _stepentry) select 2) select _unitentry) select 1);
+		// diag_log format ["Replay: stepEntry: %1, unitEntry: %2, _side: %3", _stepentry,_unitentry,_side];
+		_side
+	};
 
-		// CREATE EVERY UNIT MARKER ONLY ONCE// **** change : ((count players) - 1)
-		
-		sleep 1; //debug
+	getRecordingPos = {
+		_stepentry = _this select 0;
+		_unitentry = _this select 1;
+		_pos = (((((local_recording) select _stepentry) select 2) select _unitentry) select 2);
+		_pos
+	};
+
+	getRecordingDir = {
+		_stepentry = _this select 0;
+		_unitentry = _this select 1;
+		_dir = (((((local_recording) select _stepentry) select 2) select _unitentry) select 3);
+		_dir
+	};
+
+	getRecordingKindof = {
+		_stepentry = _this select 0;
+		_unitentry = _this select 1;
+		_kindof = (((((local_recording) select _stepentry) select 2) select _unitentry) select 4);
+		_kindof
+	};
+
+	getRecordingVehicle = {
+		_stepentry = _this select 0;
+		_unitentry = _this select 1;
+		_vehicle = (((((local_recording) select _stepentry) select 2) select _unitentry) select 5);
+		_vehicle
+	};
+
+	createNewMarker = {
+		_unit = _this select 0;
+		_side = _this select 1;
+		_pos = _this select 2;
+		_dir = _this select 3;
+		_kindof = _this select 4;
+		_veh = _this select 5;
+
+		_marker = createMarker [format["%1",_unit],_pos];
+		diag_log format ["Replay: Marker %1 created", _marker];
+		_marker setMarkerShape "ICON";
+		_marker setMarkerType _kindof;
+		_marker setMarkerAlpha 1;
+		_marker setMarkerDir _dir;
+		_marker setMarkerColor ([_side] call getSideMarkerColor);
+		current_markers = current_markers + [_unit];
+		/* if (_kindof == "KIA") then {
+			deadUnitMarkers = deadUnitMarkers + [_unit];
+		} else {
+			current_markers = current_markers + [_unit];
+		}; */
+	};
+
+	checkIfMarkerExists = {
+		_return = false;
+		if (([_this select 0,_this select 1] call getRecordingUnit) in current_markers) then {
+			_return = true;
+		};
+		_return
+	};
+
+	iterateRecording = {
 		while {true} do
 		{
+			for [{_k=0}, {_k < ([local_recording_counter] call countCurrentUnits)}, {_k=_k+1}] do {
+				_unit = [local_recording_counter,_k] call getRecordingUnit;
+				_side = [local_recording_counter,_k] call getRecordingSide;
+				_pos = [local_recording_counter,_k] call getRecordingPos;
+				_dir = [local_recording_counter,_k] call getRecordingDir;
+				_kindof = [local_recording_counter,_k] call getRecordingKindof;
+				_veh = [local_recording_counter,_k] call getRecordingVehicle;
 
-		if (_tempCurrentPlayerCount != ((local_recording) select local_recording_counter) select 1) then {
-			[] call refreshMarkers;
-			_tempCurrentPlayerCount = (((local_recording) select local_recording_counter) select 1);
-			diag_log format ["Replay: refreshing Markers."];
-		};
-			for [{_i=0}, {_i < count current_markers}, {_i=_i+1}] do {
-			if (count current_markers < 1) exitWith {};
-			_curMarker = current_markers select _i;
-			_unit = (((((local_recording) select local_recording_counter) select 2) select _i) select 0);
-			_pos = [((((((local_recording) select local_recording_counter) select 2) select _i) select 2) select 0),((((((local_recording) select local_recording_counter) select 2) select _i) select 2) select 1)];
-			_dir = (((((local_recording) select local_recording_counter) select 2) select _i) select 3);
-			_kindof = (((((local_recording) select local_recording_counter) select 2) select _i) select 4);
-			_veh= (((((local_recording) select local_recording_counter) select 2) select _i) select 5);
-		
-			_curMarker setMarkerPos _pos;
-			_curMarker setMarkerDir _dir;
-			_curMarker setMarkerType _kindof;
-			
-				if (_kindof == "KIA" && !(_unit in deadUnitMarkers)) then {
-					_marker_kia = createMarker [format["kia_%1",_unit],_pos];
-					_marker_kia setMarkerShape "ICON";
-					_marker_kia setMarkerType _kindof;
-					_marker_kia setMarkerAlpha 1;        //**** change : new Command added
-					_marker_kia setMarkerDir _dir;
-					_marker_kia setMarkerColor ([(((((local_recording) select local_recording_counter) select 2) select _a) select 1)] call getSideMarkerColor);
-					deadUnitMarkers = deadUnitMarkers + [_unit];
+					if ([local_recording_counter,_k] call checkIfMarkerExists) then {
+						(str _unit) setMarkerPos _pos;
+						(str _unit) setMarkerDir _dir;
+						(str _unit) setMarkerType _kindof;
+					} else {
+						[_unit,_side,_pos,_dir,_kindof,_veh] call createNewMarker;
+					};
 				};
-			
-			};
-		
+
+
 		local_recording_counter = local_recording_counter + local_recording_playback_speed;
 
-		if (local_recording_counter > local_recording_length) exitWith {
+		if (!(local_recording_counter < local_recording_length)) exitWith {
 			[{["Replay finished."] call EFUNC(common,displayTextStructured);},"BIS_fnc_spawn",true,true] call BIS_fnc_MP;
 		};
 		
-		sleep 0.05; // debug slower
+		sleep 0.02;
+
 		};
 	};
+	
+	[] spawn iterateRecording;
 };
