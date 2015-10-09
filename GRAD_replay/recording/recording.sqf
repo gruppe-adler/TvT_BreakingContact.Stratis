@@ -86,8 +86,8 @@ while{true} do
 		all_current_values = all_current_values + [single_current_values];
 		};
 		
-	} forEach switchableUnits + allDeadMen;
-	local_recording = local_recording + [[current_daytime,count switchableUnits,all_current_values]];
+	} forEach [playableUnits,switchableUnits,allDeadMen];
+	local_recording = local_recording + [[current_daytime,count playableUnits + count switchableUnits,all_current_values]];
 	all_current_values = [];
 
 	
