@@ -90,9 +90,8 @@ fillRussianSupplies = {
             (_this select 0) addItemCargoGlobal ['ACE_epinephrine',40];
             (_this select 0) addItemCargoGlobal ['ACE_fieldDressing',100];
             (_this select 0) addItemCargoGlobal ['ItemGPS',5];
-            ["AddCargoByClass", _this select 0, ["ACE_wheel", _this select 0, 2]] call ace_common_fnc_targetEvent;
+            ["AddCargoByClass", _this select 0, ["ACE_wheel", _this select 0, 3]] call ace_common_fnc_targetEvent;
             ["AddCargoByClass", _this select 0, ["ACE_Track", _this select 0, 1]] call ace_common_fnc_targetEvent;
-            ["AddCargoByClass", _this select 0, ["ACE_ConcertinaWireCoil", _this select 0, 1]] call ace_common_fnc_targetEvent;
             }
         ],
         [
@@ -288,9 +287,8 @@ fillUSSupplies = {
             (_this select 0) addItemCargoGlobal ['ACE_epinephrine',40];
             (_this select 0) addItemCargoGlobal ['ACE_fieldDressing',100];
             (_this select 0) addItemCargoGlobal ['ItemGPS',5];
-            ["AddCargoByClass", _this select 0, ["ACE_wheel", _this select 0, 2]] call ace_common_fnc_targetEvent;
+            ["AddCargoByClass", _this select 0, ["ACE_wheel", _this select 0, 3]] call ace_common_fnc_targetEvent;
             ["AddCargoByClass", _this select 0, ["ACE_Track", _this select 0, 1]] call ace_common_fnc_targetEvent;
-            ["AddCargoByClass", _this select 0, ["ACE_ConcertinaWireCoil", _this select 0, 1]] call ace_common_fnc_targetEvent;
             }
         ],
         [

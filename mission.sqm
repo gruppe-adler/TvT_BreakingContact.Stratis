@@ -1131,7 +1131,7 @@ class Mission
 					id=22;
 					side="EAST";
 					vehicle="O_officer_F";
-					player="PLAY CDG";
+					player="PLAYER COMMANDER";
 					leader=1;
 					rank="MAJOR";
 					skill=0.5;
@@ -1147,7 +1147,7 @@ class Mission
 					id=23;
 					side="EAST";
 					vehicle="O_Soldier_SL_F";
-					player="PLAYER COMMANDER";
+					player="PLAY CDG";
 					rank="CAPTAIN";
 					skill=0.5;
 					text="opfor_assistant";

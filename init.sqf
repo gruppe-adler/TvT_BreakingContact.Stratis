@@ -1,7 +1,12 @@
 #include "\z\ace\addons\main\script_component.hpp"
 #include "\z\ace\addons\main\script_macros.hpp"
 
-if (paramsArray select 9 == 1) then {DEBUG_MODE = true;} else {DEBUG_MODE = false;};
+if (paramsArray select 9 == 1 || !isMultiplayer) then {
+	DEBUG_MODE = true;
+	[] execVM "bulletTracing.sqf";
+} else {
+	DEBUG_MODE = false;
+};
 
 // islandconfig must be before initgui!
 call compile preprocessFile "islandConfig.sqf";
