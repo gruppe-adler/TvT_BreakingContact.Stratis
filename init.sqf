@@ -46,7 +46,7 @@ switch (WEATHER_SETTING) do {
 
 
 if (!isMultiplayer) then { // Editor
-	{_x disableAI "MOVE"} forEach allUnits;
+	/* {_x disableAI "MOVE"} forEach allUnits;*/
 };
 
 
@@ -67,6 +67,9 @@ if (isServer) then {
 	publicVariable "BLUFOR_CAPTURED";
 	BLUFOR_SURRENDERED = false;
 	publicVariable "BLUFOR_SURRENDERED";
+
+	MISSION_COMPLETED = false;
+	publicVariable "MISSION_COMPLETED";
 
 	SPECTATOR_LIST = [];
 	publicVariable "SPECTATOR_LIST";
@@ -117,6 +120,7 @@ if (isServer) then {
 diag_log format ["setup: server done"];
 
 [] execVM "CSSA3\CSSA3_init.sqf";
+// [] execVM "GRAD_replay\GRAD_replay_init.sqf";
 
 clearInventory = compile preprocessFile "helpers\clearInventory.sqf";
 spawnStuff = compile preprocessFile "helpers\spawnStuff.sqf";
@@ -212,7 +216,7 @@ if (hasInterface) then {
 		
 		
 	};
-	waitUntil {!isNull player && ST_STHud_ToRestart};
+	waitUntil {!isNull player && !isNil "ST_STHud_ToRestart"};
 	// disable sthud for intro
 	0 call fn_sthud_usermenu_changeMode;
 };
