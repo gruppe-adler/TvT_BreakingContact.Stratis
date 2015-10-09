@@ -95,6 +95,9 @@ if (isServer) then {
 	BLUFOR_TELEPORTED = false;
 	publicVariable "BLUFOR_TELEPORTED";
 
+	REPLAY_FINISHED = false;
+	publicVariable "REPLAY_FINISHED";
+
 
 	_playercount = count allPlayers;
 	_bonusPerPlayer = _playercount * 100;
