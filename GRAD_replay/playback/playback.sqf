@@ -9,7 +9,6 @@ if (isServer || isDedicated) then {
 	local_recording_counter = 0;
 	current_markers = [];
 	deadUnitMarkers = [];
-	local_recording_playback_speed = 1;
 	tempCurrentPlayerCount = 0;
 
 	getDayTimeConverted = {
@@ -157,7 +156,7 @@ if (isServer || isDedicated) then {
 				};
 
 
-		local_recording_counter = local_recording_counter + local_recording_playback_speed;
+		local_recording_counter = local_recording_counter + REPLAY_STEPS_PER_TICK;
 
 		if (!(local_recording_counter < local_recording_length)) exitWith {
 			[{["Replay finished."] call EFUNC(common,displayTextStructured);},"BIS_fnc_spawn",true,true] call BIS_fnc_MP;

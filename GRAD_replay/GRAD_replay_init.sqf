@@ -5,7 +5,7 @@
 _recording_precision = 1; // smaller is more precise (delay between snapshots)
 
 GRAD_startRecording = compile preprocessFile "GRAD_replay\recording\recording.sqf";
-GRAD_startPlayback = compile preprocessFile "GRAD_replay\playback\playback_new.sqf";
+GRAD_startPlayback = compile preprocessFile "GRAD_replay\playback\playback.sqf";
 
 [_recording_precision] call GRAD_startRecording;
 
