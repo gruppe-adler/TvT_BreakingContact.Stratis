@@ -34,7 +34,12 @@ while{true} do
 		_dir = (getDir _unit);
 
 
-		if (typeOf _unit == "WeaponHolderSimulated") exitWith {};
+		if (_unit isKindOf "WeaponHolderSimulated") exitWith {};
+
+		if (_unit isKindOf "vehicle") then {
+			// dont render another marker for the vehicle
+			if (count (crew _unit) > 0) exitWith {};
+		};
 
 		if(vehicle _unit == _unit) then 
 		{
@@ -44,11 +49,11 @@ while{true} do
 		{
 			_kindof =  _side_prefix + "motor_inf";
 		};
-		if(vehicle _unit isKindOf "Plane") then 
+		if(vehicle _unit isKindOf "Plane") (_side != civilian)) then 
 		{
 			_kindof =  _side_prefix + "plane";
 		};
-		if(vehicle _unit isKindOf "Helicopter") then 
+		if(vehicle _unit isKindOf "Helicopter") && (_side != civilian)) then 
 		{
 			_kindof =  _side_prefix + "air";
 		};
@@ -74,12 +79,12 @@ while{true} do
 			_kindof = "loc_Tree";
 		};
 
-		if (typeOf _unit == "TK_WarfareBUAVterminal_Base_EP1") then {
+		if (_unit isKindOf "TK_WarfareBUAVterminal_Base_EP1") then {
 			_side = east;
 			_kindof = "mil_start";
 		};
 
-		if (typeOf _unit == "US_WarfareBUAVterminal_Base_EP1") then {
+		if (_unit isKindOf "US_WarfareBUAVterminal_Base_EP1") then {
 			_side = west;
 			_kindof = "mil_start";
 		};
