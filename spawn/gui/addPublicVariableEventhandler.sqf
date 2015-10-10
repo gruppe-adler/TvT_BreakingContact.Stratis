@@ -293,10 +293,10 @@ fillUSSupplies = {
         ],
         [
             "Ace_Box_Ammo",
-            "Defense Pack",
-            3,
-            700,
-            "<t align='center'>700 cr</t>",
+            "Parachutes",
+            2,
+            1400,
+            "<t align='center'>1400 cr</t>",
             1,
             [[]],
             {
@@ -304,19 +304,7 @@ fillUSSupplies = {
             clearItemCargoGlobal (_this select 0); 
             clearBackpackCargoGlobal (_this select 0); 
             clearMagazineCargoGlobal (_this select 0);
-            (_this select 0) addBackpackCargoGlobal ['RHS_M2_Gun_Bag',1];
-            (_this select 0) addBackpackCargoGlobal ['RHS_M2_Tripod_Bag',1];
-            (_this select 0) addItemCargoGlobal ['ACE_Sandbag_empty',100];
-            _box = createVehicle ["ACE_Box_Misc", position (_this select 0), [], 1, "NONE"];
-            clearWeaponCargoGlobal _box; 
-            clearItemCargoGlobal _box; 
-            clearBackpackCargoGlobal _box; 
-            clearMagazineCargoGlobal _box;
-            _box = createVehicle ["ACE_Box_Misc", position (_this select 0), [], 1, "NONE"];
-            clearWeaponCargoGlobal _box; 
-            clearItemCargoGlobal _box; 
-            clearBackpackCargoGlobal _box; 
-            clearMagazineCargoGlobal _box;
+            (_this select 0) addBackpackCargoGlobal ['B_Parachute',14]; 
             }
         ],
         [
