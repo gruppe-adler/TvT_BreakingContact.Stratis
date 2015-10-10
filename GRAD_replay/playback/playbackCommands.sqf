@@ -1,8 +1,7 @@
 #include "\z\ace\addons\main\script_component.hpp"
 
 broadcastSpeed = {
-	_speedtext = localize 'str_GRAD_hint_playback_speed_hint' + (_this select 0);
-	[{[_speedtext] call EFUNC(common,displayTextStructured);},"BIS_fnc_spawn",true,true] call BIS_fnc_MP;
+	[{[_this select 0] call EFUNC(common,displayTextStructured);},"BIS_fnc_spawn",true,true] call BIS_fnc_MP;
 };
 
 if (serverCommandAvailable "#logout" || !isMultiplayer) then {
@@ -17,8 +16,8 @@ if (serverCommandAvailable "#logout" || !isMultiplayer) then {
 	            case 207: {_value = REPLAY_STEPS_PER_TICK +1;};
 	            default {};
 	        };
-	      
-	    [str _value + " x"] call broadcastSpeed;
+	    if (_value < 1) then {_value = 1;};
+	    [(str _value) + " x"] call broadcastSpeed;
 	    REPLAY_STEPS_PER_TICK = _value;
 	    publicVariable "REPLAY_STEPS_PER_TICK";
 	    

@@ -71,7 +71,17 @@ while{true} do
 		};
 
 		if (_unit getVariable ["ACE_isUnconscious", false]) then {
-			_kindof = "loc_Hospital";
+			_kindof = "loc_Tree";
+		};
+
+		if (typeOf _unit == "TK_WarfareBUAVterminal_Base_EP1") then {
+			_side = east;
+			_kindof = "mil_start";
+		};
+
+		if (typeOf _unit == "US_WarfareBUAVterminal_Base_EP1") then {
+			_side = west;
+			_kindof = "mil_start";
 		};
 
 		if (!alive _unit) then {
