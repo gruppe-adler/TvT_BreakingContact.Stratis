@@ -30,16 +30,18 @@ while{true} do
 		if (_side == east) then { _side_prefix = "o_";};
 		if (_side == independent) then { _side_prefix = "n_";};
 		if (_side == civilian) then { _side_prefix = "c_";};
-		_kindof = _side_prefix + "motor_inf";
+		_kindof = _side_prefix + "unknown";
 		_dir = (getDir _unit);
 
-
+		
 		if (_unit isKindOf "WeaponHolderSimulated") exitWith {};
 
-		if (_unit isKindOf "vehicle") then {
+		if (!(_unit isKindOf "Man")) then {
 			// dont render another marker for the vehicle
 			if (count (crew _unit) > 0) exitWith {};
 		};
+
+		
 
 		if(vehicle _unit == _unit) then 
 		{
@@ -49,11 +51,11 @@ while{true} do
 		{
 			_kindof =  _side_prefix + "motor_inf";
 		};
-		if(vehicle _unit isKindOf "Plane") (_side != civilian)) then 
+		if((vehicle _unit isKindOf "Plane") && (_side != civilian)) then 
 		{
 			_kindof =  _side_prefix + "plane";
 		};
-		if(vehicle _unit isKindOf "Helicopter") && (_side != civilian)) then 
+		if((vehicle _unit isKindOf "Helicopter") && (_side != civilian)) then 
 		{
 			_kindof =  _side_prefix + "air";
 		};

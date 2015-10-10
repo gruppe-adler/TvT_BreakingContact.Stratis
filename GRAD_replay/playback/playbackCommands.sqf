@@ -1,5 +1,5 @@
 #include "\z\ace\addons\main\script_component.hpp"
-
+/*
 broadcastSpeed = {
 	[{[_this select 0] call EFUNC(common,displayTextStructured);},"BIS_fnc_spawn",true,true] call BIS_fnc_MP;
 };
@@ -26,4 +26,4 @@ if (serverCommandAvailable "#logout" || !isMultiplayer) then {
 replayKeyDown = (finddisplay 46) displayaddeventhandler ["keydown","	[_this select 1] call checkSpeedKey;"];
 } else {
 	// do nothing at all
-};
+};*/
