@@ -17,7 +17,7 @@ while{true} do
 
 	if (MISSION_COMPLETED) exitWith {};
 
-		allDeadAndAliveUnits = playableUnits + switchableUnits + allDeadMen;
+		allDeadAndAliveUnits = allUnits + allDeadMen + vehicles;
 	{	_unit = _x;
 		_veh = vehicle _unit;
 		_pos = getpos _unit;
@@ -34,7 +34,8 @@ while{true} do
 		_dir = (getDir _unit);
 
 
-		
+		if (typeOf _unit == "WeaponHolderSimulated") exitWith {};
+
 		if(vehicle _unit == _unit) then 
 		{
 			_kindof =  "mil_triangle";
@@ -75,6 +76,17 @@ while{true} do
 
 		if (!alive _unit) then {
 			_kindof = "KIA";
+		};
+
+		if(_unit == funkwagen) then 
+		{
+			_isSending = call funkwagenIsSending;
+
+			if (_isSending) then {
+				_kindof =  "loc_Transmitter";
+			} else {
+				_kindof = "loc_BusStop";
+			};
 		};
 
 

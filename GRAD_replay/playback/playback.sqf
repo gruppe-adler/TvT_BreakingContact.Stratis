@@ -5,6 +5,10 @@
 
 if (isServer || isDedicated) then {
 
+	{deleteMarker _x;} forEach allMapMarkers;
+
+	[{[] execVM "GRAD_replay\playback\playbackCommands.sqf";},"BIS_fnc_spawn",true,true] call BIS_fnc_MP;
+
 	local_recording_length = count local_recording;
 	local_recording_counter = 0;
 	current_markers = [];
