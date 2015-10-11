@@ -10,7 +10,7 @@ current_daytime = 0;
 
 
 waitUntil {(BLUFOR_TELEPORT_TARGET select 0 != 0)};
-
+waitUntil {!isNil "funkwagen"};
 
 while{true} do
 {
