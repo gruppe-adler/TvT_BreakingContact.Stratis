@@ -293,7 +293,7 @@ fillUSSupplies = {
         ],
         [
             "Ace_Box_Ammo",
-            "14 Parachutes",
+            "14 Chutes",
             2,
             1400,
             "<t align='center'>1400 cr</t>",
