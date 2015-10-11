@@ -1254,7 +1254,7 @@ class Mission
 						};
 						class Item3
 						{
-							value="format [""Send radio signals for %1"",""bla""];";
+							value="Send radio signals until transmission is complete. Transmission can be interrupted, you dont have to stay at one place.";
 							parentCls="ModuleTaskCreate_F";
 							typeName="Description";
 						};
