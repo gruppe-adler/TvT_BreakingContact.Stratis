@@ -152,8 +152,8 @@ fillRussianSupplies = {
             clearItemCargoGlobal (_this select 0); 
             clearBackpackCargoGlobal (_this select 0); 
             clearMagazineCargoGlobal (_this select 0);
-            (_this select 0) addBackpackCargoGlobal ['RHS_M2_Gun_Bag',1];
-            (_this select 0) addBackpackCargoGlobal ['RHS_M2_Tripod_Bag',1];
+            (_this select 0) addBackpackCargoGlobal ['RHS_NSV_Gun_Bag',1];
+            (_this select 0) addBackpackCargoGlobal ['RHS_NSV_Tripod_Bag',1];
             (_this select 0) addItemCargoGlobal ['ACE_Sandbag_empty',100];
             _box = createVehicle ["ACE_Box_Misc", position (_this select 0), [], 1, "NONE"];
             clearWeaponCargoGlobal _box; 
@@ -293,7 +293,7 @@ fillUSSupplies = {
         ],
         [
             "Ace_Box_Ammo",
-            "Parachutes",
+            "14 Parachutes",
             2,
             1400,
             "<t align='center'>1400 cr</t>",
@@ -304,7 +304,7 @@ fillUSSupplies = {
             clearItemCargoGlobal (_this select 0); 
             clearBackpackCargoGlobal (_this select 0); 
             clearMagazineCargoGlobal (_this select 0);
-            (_this select 0) addBackpackCargoGlobal ['B_Parachute',14]; 
+            (_this select 0) addBackpackCargoGlobal ['B_Parachute',14];
             }
         ],
         [

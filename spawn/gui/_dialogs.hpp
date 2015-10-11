@@ -626,7 +626,7 @@ class USSupplyGUI
 				y = 3.5 * GUI_GRID_H + GUI_GRID_Y;
 				w = 7 * GUI_GRID_W;
 				h = 6 * GUI_GRID_H;
-				text = "spawn\gui\pic\rus_static_mg.paa";
+				text = "spawn\gui\pic\us_parachutes.paa";
 			};
 			class US_gui_pic_6: RscPicture
 			{
