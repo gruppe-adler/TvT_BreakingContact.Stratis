@@ -23,9 +23,10 @@ TIME_ACCELERATION = paramsArray select 6;
 REPLAY_ACCURACY = paramsArray select 7;
 AR3PLAY_ENABLE_REPLAY = (paramsArray select 8) == 1;
 AR3PLAY_IS_STREAMABLE = (paramsArray select 9) == 1;
+JIP_TIME_ALLOWED = paramsArray select 11;
 custom_overcast = 1;
 
-jipTime = 600;
+jipTime = JIP_TIME_ALLOWED;
 
 // optimize for PVP
 disableRemoteSensors true;
@@ -149,13 +150,17 @@ if (hasInterface) then {
 			player setDamage 1;
 			["forced"] spawn CSSA3_fnc_createSpectateDialog;
 		} else {
-			[] spawn checkSpawnButton;
+			if (playerSide == east) then {
+			[RUS_VEHICLE_SPAWN, 50] execVM "helpers\teleportPlayer.sqf";
+			} else {
+			[US_VEHICLE_SPAWN, 50] execVM "helpers\teleportPlayer.sqf";
+			};
 		};
 	};
 
 
 	checkSpawnButton = {
-		if (didJIP) exitWith {};
+		
 		if (player != opfor_teamlead) then {
 			0 = [[worldSize/2,worldSize/2,0],"Breaking Contact - Waiting for Spawn."] execVM "helpers\establishingShot.sqf";
 		} else {

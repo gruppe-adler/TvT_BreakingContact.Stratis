@@ -118,6 +118,14 @@ class Params
 		texts[] = {"no","yes"};
 		default = 0;
 	};
+
+	class JIPtime
+	{
+		title = "JIP allowed for";
+		values[] = {60, 180, 600, 1800, 999999};
+		texts[] = {"1min","3min","10min","30min","always (16h)"};
+		default = 1800;
+	};
 };
 
 class CfgSounds
