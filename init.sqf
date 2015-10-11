@@ -1,7 +1,7 @@
 #include "\z\ace\addons\main\script_component.hpp"
 #include "\z\ace\addons\main\script_macros.hpp"
 
-if (paramsArray select 9 == 1 || !isMultiplayer) then {
+if (paramsArray select 10 == 1 || !isMultiplayer) then {
 	DEBUG_MODE = true;
 	[] execVM "bulletTracing.sqf";
 } else {
@@ -20,8 +20,9 @@ OPFOR_MONEY = paramsArray select 3;
 BLUFOR_MONEY = paramsArray select 4;
 POINTS_NEEDED_FOR_VICTORY = paramsArray select 5;
 TIME_ACCELERATION = paramsArray select 6;
-AR3PLAY_ENABLE_REPLAY = (paramsArray select 7) == 1;
-AR3PLAY_IS_STREAMABLE = (paramsArray select 8) == 1;
+REPLAY_ACCURACY = paramsArray select 7;
+AR3PLAY_ENABLE_REPLAY = (paramsArray select 8) == 1;
+AR3PLAY_IS_STREAMABLE = (paramsArray select 9) == 1;
 custom_overcast = 1;
 
 jipTime = 600;
@@ -126,7 +127,7 @@ if (isServer) then {
 diag_log format ["setup: server done"];
 
 [] execVM "CSSA3\CSSA3_init.sqf";
-[] execVM "GRAD_replay\GRAD_replay_init.sqf";
+[REPLAY_ACCURACY] execVM "GRAD_replay\GRAD_replay_init.sqf";
 
 clearInventory = compile preprocessFile "helpers\clearInventory.sqf";
 spawnStuff = compile preprocessFile "helpers\spawnStuff.sqf";

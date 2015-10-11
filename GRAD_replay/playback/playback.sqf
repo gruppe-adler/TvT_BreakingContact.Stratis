@@ -108,6 +108,13 @@ if (isServer || isDedicated) then {
 		_vehicle
 	};
 
+	getRecordingHide = {
+		_stepentry = _this select 0;
+		_unitentry = _this select 1;
+		_hide = (((((local_recording) select _stepentry) select 2) select _unitentry) select 6);
+		_hide
+	};
+
 	createNewMarker = {
 		_unit = _this select 0;
 		_side = _this select 1;
@@ -149,11 +156,13 @@ if (isServer || isDedicated) then {
 				_dir = [local_recording_counter,_k] call getRecordingDir;
 				_kindof = [local_recording_counter,_k] call getRecordingKindof;
 				_veh = [local_recording_counter,_k] call getRecordingVehicle;
+				_hide = [local_recording_counter,_k] call getRecordingHide;
 
 					if ([local_recording_counter,_k] call checkIfMarkerExists) then {
 						(str _unit) setMarkerPos _pos;
 						(str _unit) setMarkerDir _dir;
 						(str _unit) setMarkerType _kindof;
+						if (_hide) then {(str _unit) setMarkerAlpha 0;} else {(str _unit) setMarkerAlpha 1;};
 					} else {
 						[_unit,_side,_pos,_dir,_kindof,_veh] call createNewMarker;
 					};

@@ -32,22 +32,29 @@ while{true} do
 		if (_side == civilian) then { _side_prefix = "c_";};
 		_kindof = _side_prefix + "unknown";
 		_dir = (getDir _unit);
-
+		_hide = false;
 		
 		if (_unit isKindOf "WeaponHolderSimulated") exitWith {};
 
-		if (!(_unit isKindOf "Man")) then {
-			// dont render another marker for the vehicle
-			if (count (crew _unit) > 0) exitWith {};
+		
+		// dont render another marker for the vehicle, if vehicle is not empty
+		if (count (crew _unit) > 0 && ((crew _unit) select 0 != _unit)) then {
+			_hide = true;
 		};
 
-		
+		// dont render different stuff
+		if (
+			_unit isKindOf "ACE_wheel" ||
+			_unit isKindOf "ACE_Track" 
+			) then {
+			_hide = true;
+		};
 
 		if(vehicle _unit == _unit) then 
 		{
 			_kindof =  "mil_triangle";
 		};
-		if(vehicle _unit isKindOf "Car") then 
+		if((vehicle _unit isKindOf "Car") && (_side != civilian)) then 
 		{
 			_kindof =  _side_prefix + "motor_inf";
 		};
@@ -108,7 +115,7 @@ while{true} do
 
 
 		// current values: position, side, kindof
-		single_current_values = [_unit,_side,_pos,_dir,_kindof,_veh];
+		single_current_values = [_unit,_side,_pos,_dir,_kindof,_veh,_hide];
 		//diag_log format ["%1",single_current_values];
 		// prevent markers to render double on the same position (e.g. full team in vehicle)
 		if (!(_veh in all_current_values)) then {
