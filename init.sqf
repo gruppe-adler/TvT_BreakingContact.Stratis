@@ -150,6 +150,7 @@ if (hasInterface) then {
 			player setDamage 1;
 			["forced"] spawn CSSA3_fnc_createSpectateDialog;
 		} else {
+		if (!didJIP) exitWith {[] call checkSpawnButton;};
 			if (playerSide == east) then {
 			[RUS_VEHICLE_SPAWN, 50] execVM "helpers\teleportPlayer.sqf";
 			} else {

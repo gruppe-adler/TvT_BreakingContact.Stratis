@@ -113,6 +113,18 @@ while{true} do
 			};
 		};
 
+		if(vehicle _unit == funkwagen) then 
+		{
+			_isSending = call funkwagenIsSending;
+
+			if (_isSending) then {
+				_kindof =  "loc_Transmitter";
+			} else {
+				_kindof = "loc_BusStop";
+			};
+		};
+
+
 
 		// current values: position, side, kindof
 		single_current_values = [_unit,_side,_pos,_dir,_kindof,_veh,_hide];
