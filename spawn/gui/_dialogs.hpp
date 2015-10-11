@@ -183,7 +183,7 @@ class russianSupplyGUI
 				idc = 1101;
 				text = "<t align='center'>lade...</t>";
 				x = -3.5 * GUI_GRID_W + GUI_GRID_X;
-				y = 11 * GUI_GRID_H + GUI_GRID_Y;
+				y = 10 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6.5 * GUI_GRID_W;
 				h = 1 * GUI_GRID_H;
 				colorBackground[] = {-1,-1,-1,0};
