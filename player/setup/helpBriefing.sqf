@@ -1,5 +1,5 @@
 // Create Diary Record - HINWEISE -
-_c1 = "<font color='#c0c0c0'>";
+/*_c1 = "<font color='#c0c0c0'>";
 _c2 = "</font>";
 _br ="<br/>";
 
@@ -25,7 +25,7 @@ _br + _br +
 _stringSendingTime + 
 _br + _br + 
 _stringTimeAcc
-]];
+]];*/
 
 player createDiaryRecord ["Diary", ["Mission","<font size='20' color='#c0c0c0'>Mission</font><br/><br/>" + localize "str_GRAD_briefing_1" + "<br/><br/><br/><font size='20' color='#c0c0c0'>Vehicles</font><br/><br/>" + localize "str_GRAD_briefing_2"]];
 
