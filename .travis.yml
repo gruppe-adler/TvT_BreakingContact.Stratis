@@ -1,0 +1,10 @@
+language: python
+python:
+- '3.4'
+before_script:
+- mkdir -p tools
+- wget https://raw.githubusercontent.com/acemod/ACE3/master/tools/sqf_validator.py
+- sed -i -e 's/addons//g' sqf_validator.py
+- mv sqf_validator.py tools/
+script:
+- python3 tools/sqf_validator.py
