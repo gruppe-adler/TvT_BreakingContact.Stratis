@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/gruppe-adler/TvT_BreakingContact.Stratis.svg)](https://travis-ci.org/gruppe-adler/TvT_BreakingContact.Stratis)
+
 # Breaking Contact
 
 **Arma3 TvT scenario**
