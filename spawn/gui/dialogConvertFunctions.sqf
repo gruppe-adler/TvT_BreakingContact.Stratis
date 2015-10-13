@@ -8,6 +8,14 @@ creditString = {
     _string
 };
 
+pricedisplayString = {
+    _price = _this select 0;
+
+    _string = "<t align='center'>" + _price + " cr </t>";
+
+    _string
+};
+
 
 // RUSSIANS
 
@@ -149,17 +157,17 @@ russian_IDC_to_pricedisplay = {
 
 	switch (_idc) do {
 
-		case 1501: { _pricedisplay = ((russianSupplies select 1) select 4); };
-		case 1502: { _pricedisplay = ((russianSupplies select 2) select 4); };
-		case 1503: { _pricedisplay = ((russianSupplies select 3) select 4); };
-		case 1504: { _pricedisplay = ((russianSupplies select 4) select 4); };
-		case 1505: { _pricedisplay = ((russianSupplies select 5) select 4); };
-		case 1506: { _pricedisplay = ((russianSupplies select 6) select 4); };
-		case 1507: { _pricedisplay = ((russianSupplies select 7) select 4); };
+		case 1501: { _pricedisplay = ((russianSupplies select 1) select 3); };
+		case 1502: { _pricedisplay = ((russianSupplies select 2) select 3); };
+		case 1503: { _pricedisplay = ((russianSupplies select 3) select 3); };
+		case 1504: { _pricedisplay = ((russianSupplies select 4) select 3); };
+		case 1505: { _pricedisplay = ((russianSupplies select 5) select 3); };
+		case 1506: { _pricedisplay = ((russianSupplies select 6) select 3); };
+		case 1507: { _pricedisplay = ((russianSupplies select 7) select 3); };
 		default {};
 	};
 
-	_pricedisplaystring = [_pricedisplay] call creditString;
+	_pricedisplaystring = [_pricedisplay] call pricedisplayString;
 
 	_pricedisplaystring
 	
@@ -376,17 +384,17 @@ US_IDC_to_pricedisplay = {
 
 	switch (_idc) do {
 
-		case 3501: { _pricedisplay = ((USSupplies select 1) select 4); };
-		case 3502: { _pricedisplay = ((USSupplies select 2) select 4); };
-		case 3503: { _pricedisplay = ((USSupplies select 3) select 4); };
-		case 3504: { _pricedisplay = ((USSupplies select 4) select 4); };
-		case 3505: { _pricedisplay = ((USSupplies select 5) select 4); };
-		case 3506: { _pricedisplay = ((USSupplies select 6) select 4); };
-		case 3507: { _pricedisplay = ((USSupplies select 7) select 4); };
+		case 3501: { _pricedisplay = ((USSupplies select 1) select 3); };
+		case 3502: { _pricedisplay = ((USSupplies select 2) select 3); };
+		case 3503: { _pricedisplay = ((USSupplies select 3) select 3); };
+		case 3504: { _pricedisplay = ((USSupplies select 4) select 3); };
+		case 3505: { _pricedisplay = ((USSupplies select 5) select 3); };
+		case 3506: { _pricedisplay = ((USSupplies select 6) select 3); };
+		case 3507: { _pricedisplay = ((USSupplies select 7) select 3); };
 		default {};
 	};
 
-	_pricedisplaystring = [_pricedisplay] call creditString;
+	_pricedisplaystring = [_pricedisplay] call pricedisplayString;
 
 	_pricedisplaystring
 	

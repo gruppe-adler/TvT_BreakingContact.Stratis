@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<Project name="TvT_Sputnik_project">
-    <Package name="TvT_Sputnik_package">
+<Project name="TvT_BreakingContact_project">
+    <Package name="TvT_BreakingContact_package">
     	 <Container name="mission briefing">
     	 	<Key ID="str_GRAD_story">
-                <Original>You want to know the full story? Check back later</Original>
-                <English>You want to know the full story? Check back later</English>
-                <German>Du willst die ganze Wahrheit wissen? Schau später nochmal rein.</German>
+                <Original>Cold war is at the brink of turning hot. CIA has gathered information about so called 'nationalist separatists of Russian origin' who became hold of an military radio truck. They plan to transmit control commands to obsolete russian satellites, spinning them into GPS-satellites, thus disabling NATOs eyes and ears. Even though Moscow denies to have a part in this, uniforms and equipment of the rebels speak another language. Stationed US troops have to strike hard and fast before its too late.</Original>
+                <English>Cold war is at the brink of turning hot. CIA has gathered information about so called 'nationalist separatists of Russian origin' who became hold of an military radio truck. They plan to transmit control commands to obsolete russian satellites, spinning them into GPS-satellites, thus disabling NATOs eyes and ears. Even though Moscow denies to have a part in this, uniforms and equipment of the rebels speak another language. Stationed US troops have to strike hard and fast before its too late.</English>
+                <German>Der Kalte Krieg ist kurz davor, heiß zu werden. Die CIA hat Informationen über sogenannte 'natonalistische Separatisten russischer Herkunft', die in Besitz eines militärischen Kommunikations-LKW gekommen sind. Mit dessen Hilfe planen sie, Steuerungskommandos an ausgediente russische Satelliten zu senden, diese auf Kollisionskurs zu GPS-Satelliten zu lenken und so der NATO Augen und Ohren zu nehmen. Auch wenn Moskau eine Beteiligung zurückweist, sprechen Uniformen und Ausrüstung der Rebellen eine andere Sprache. Stationierte US-Truppen müssen jetzt hart und schnell zuschlagen, bevor es zu spät ist.</German>
             </Key>
             <Key ID="str_GRAD_briefing_1">
                 <Original>
@@ -20,13 +20,13 @@
             </Key>
              <Key ID="str_GRAD_briefing_2">
                 <Original>
-                Both sides can choose from a selection of vehicles to buy at their base (ACE-Interaction). Buying is only possible for Commanders though. While US troops rely on mobile light vehicles and air superiority, Russians have more heavily armored toys to play with. 
+                Both sides can choose from a selection of vehicles to buy at their base (ACE-Interaction). Buying is only possible for Commanders though. While US troops rely on mobile light vehicles and air superiority, Russians have more heavily armored toys to play with. For each player on the server there is a small bonus in money.
                 </Original>
                 <English>
-                Both sides can choose from a selection of vehicles to buy at their base (ACE-Interaction). Buying is only possible for Commanders though. While US troops rely on mobile light vehicles and air superiority, Russians have more heavily armored toys to play with. 
+                Both sides can choose from a selection of vehicles to buy at their base (ACE-Interaction). Buying is only possible for Commanders though. While US troops rely on mobile light vehicles and air superiority, Russians have more heavily armored toys to play with. For each player on the server there is a small bonus in money.
                 </English>
                 <German>
-                Beide Seiten können eine Auswahl von Fahrzeugen an ihrer Basis kaufen (ACE-Interaktion). Kaufen ist nur für die Commander möglich. Während die Amerikaner sich auf leichte, mobile Fahrzeuge und Luftüberlegenheit verlassen, haben die Russen stärker gepanzerte Fahrzeuge zur Verfügung.
+                Beide Seiten können eine Auswahl von Fahrzeugen an ihrer Basis kaufen (ACE-Interaktion). Kaufen ist nur für die Commander möglich. Während die Amerikaner sich auf leichte, mobile Fahrzeuge und Luftüberlegenheit verlassen, haben die Russen stärker gepanzerte Fahrzeuge zur Verfügung. Für jeden Spieler auf dem Server gibt es einen kleinen Geldbonus.
                 </German>
             </Key>
         </Container>
@@ -146,6 +146,67 @@
             <Original>Spectator</Original>
             <Italian>Spettatore</Italian>
         </Key>
+        </Container>
+         <Container name="GUI_buy_menu">
+            <Key ID="str_GRAD_buy_order">
+               <Original>Order</Original>
+                <English>Order</English>
+                <German>Anfordern</German>
+            </Key>
+            <Key ID="str_GRAD_buy_order">
+               <Original>Order</Original>
+                <English>Order</English>
+                <German>Anfordern</German>
+            </Key>
+            <Key ID="str_GRAD_buy_order_hint">
+               <Original>Order vehicle</Original>
+                <English>Order vehicle</English>
+                <German>Fahrzeug anfordern</German>
+            </Key>
+            <Key ID="str_GRAD_buy_exit">
+               <Original>Close</Original>
+                <English>Close</English>
+                <German>Schließen</German>
+            </Key>
+             <Key ID="str_GRAD_buy_credits_hint">
+               <Original>Remaining credits</Original>
+                <English>Remaining credits</English>
+                <German>Verbleibende Credits</German>
+            </Key>
+            <Key ID="str_GRAD_buy_legend_price">
+               <Original><t color='#80ffffff'>Price</t></Original>
+                <English><t color='#80ffffff'>Price</t></English>
+                <German><t color='#80ffffff'>Preis</t></German>
+            </Key>
+             <Key ID="str_GRAD_buy_legend_count">
+               <Original><t color='#80ffffff'>Count left</t></Original>
+                <English><t color='#80ffffff'>Count left</t></English>
+                <German><t color='#80ffffff'>Anz. verf.</t></German>
+            </Key>
+             <Key ID="str_GRAD_buy_legend_vehicle">
+               <Original><t color='#80ffffff'>Type</t></Original>
+                <English><t color='#80ffffff'>Type</t></English>
+                <German><t color='#80ffffff'>Typ</t></German>
+            </Key>
+            <Key ID="str_GRAD_buy_headline">
+               <Original>Call reinforcements</Original>
+                <English>Call reinforcements</English>
+                <German>Nachschub anfordern</German>
+            </Key>
+             <Key ID="str_GRAD_buy_calling">
+               <Original>Calling...</Original>
+                <English>Calling...</English>
+                <German>Anforderung läuft...</German>
+            </Key>
+             <Key ID="str_GRAD_buy_plswait">
+               <Original>Please wait.</Original>
+                <English>Please wait.</English>
+                <German>Bitte warten.</German>
+            </Key>
+             
+        </Key>
+        </Container>
+         <Package name="CSSA3_StandardStuff">
         <Key ID="STR_CSSA3_Init">
             <Original>CSSA3 Initiated. Press 'F1' for more help. You can hide the HUD at any time by pressing 'H'</Original>
             <Italian>CSSA3 Inizializzato. Premi 'F1' per aiuto. Puoi nascondere l'HUD quando vuoi premendo 'H'</Italian>
@@ -361,6 +422,5 @@
             <Original>Switch to third person.</Original>
             <Italian>Passa alla terza persona.</Italian>
         </Key>
-        </Container>
     </Package>
 </Project>

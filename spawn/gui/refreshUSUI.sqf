@@ -2,8 +2,8 @@ resetUSUI = {
 
 		disableSerialization;
 
-		_buttonRelease = "Anfordern";
-		_headlineRelease = ["Nachschub anfordern"] call headlineString;
+		_buttonRelease = localize "str_GRAD_buy_order";
+		_headlineString = localize "str_GRAD_buy_headline";
 
 		disableSerialization;
 		_display = findDisplay 3000;
@@ -35,8 +35,8 @@ refreshUSOrder = {
 
 	//if (DEBUG) then { diag_log format ["_bool is %1, _eta is %2",_bool, _eta];};
 
-	_headlineBlocked = "Anforderung läuft";
-	_refreshPleasewait = format ["noch %1 s",_eta];
+	_headlineBlocked = localize "str_GRAD_buy_calling";
+	_refreshPleasewait = format ["ETA %1 s",_eta];
 
 	if (_bool) then {
 
@@ -86,9 +86,9 @@ refreshUSUI = {
 	
 	//if (DEBUG) then {diag_log format ["_outOfStockIndicator is %1",_outOfStockIndicator]; };
 
-	_pleasewait = "Bitte warten";
-	_headlineBlocked = "Anforderung läuft";
-	_moneyLeft = "<t align='left'>" + str (_array select 0) + "</t>";
+	_pleasewait = localize "str_GRAD_buy_plswait";
+	_headlineBlocked = localize "str_GRAD_buy_calling";
+	_moneyLeft = "<t align='left'>" + str (_array select 0) + " cr </t>";
 
 
 	disableSerialization;
@@ -194,85 +194,90 @@ refreshUSUI = {
 
 	_namedisplay_1 = (_array select 1) select 1;
 	_countleft_1 = (_array select 1) select 2;
-	_pricedisplay_1 = (_array select 1) select 3;
-	_eta_1 = (_array select 1) select 4;
+	_pricedisplay_1 = (_array select 1) select 4;
+	//_eta_1 = (_array select 1) select 4;
 
 	_namedisplay_2 = (_array select 2) select 1;
 	_countleft_2 = (_array select 2) select 2;
-	_pricedisplay_2 = (_array select 2) select 3;
-	_eta_2 = (_array select 2) select 4;
+	_pricedisplay_2 = (_array select 2) select 4;
+	//_eta_2 = (_array select 2) select 4;
 
 	_namedisplay_3 = (_array select 3) select 1;
 	_countleft_3 = (_array select 3) select 2;
-	_pricedisplay_3 = (_array select 3) select 3;
-	_eta_3 = (_array select 3) select 4;
+	_pricedisplay_3 = (_array select 3) select 4;
+	//_eta_3 = (_array select 3) select 4;
 
 	_namedisplay_4 = (_array select 4) select 1;
 	_countleft_4 = (_array select 4) select 2;
-	_pricedisplay_4 = (_array select 4) select 3;
-	_eta_4 = (_array select 4) select 4;
+	_pricedisplay_4 = (_array select 4) select 4;
+	//_eta_4 = (_array select 4) select 4;
 
 	_namedisplay_5 = (_array select 5) select 1;
 	_countleft_5 = (_array select 5) select 2;
-	_pricedisplay_5 = (_array select 5) select 3;
-	_eta_5 = (_array select 5) select 4;
+	_pricedisplay_5 = (_array select 5) select 4;
+	//_eta_5 = (_array select 5) select 4;
 
 	_namedisplay_6 = (_array select 6) select 1;
 	_countleft_6 = (_array select 6) select 2;
-	_pricedisplay_6 = (_array select 6) select 3;
-	_eta_6 = (_array select 6) select 4;
+	_pricedisplay_6 = (_array select 6) select 4;
+	//_eta_6 = (_array select 6) select 4;
 
 	_namedisplay_7 = (_array select 7) select 1;
 	_countleft_7 = (_array select 7) select 2;
-	_pricedisplay_7 = (_array select 7) select 3;
-	_eta_7 = (_array select 7) select 4;
+	_pricedisplay_7 = (_array select 7) select 4;
+	//_eta_7 = (_array select 7) select 4;
 
 	
 
 	//if (DEBUG) then { diag_log format ["typeName _namedisplay_1: %1",typeName _namedisplay_1]; };
 
 	
-
+	_name = "<t align='left' color='#33ffffff'>" + localize "str_GRAD_buy_legend_vehicle" + "</t>";
+	_price = "<t align='left' color='#33ffffff'>" + localize "str_GRAD_buy_legend_price" + "</t>";
+	_count = "<t align='left' color='#33ffffff'>" + localize "str_GRAD_buy_legend_count" + "</t>";
+	_display displayCtrl 3401 ctrlSetStructuredText parsetext _name;
+	_display displayCtrl 3402 ctrlSetStructuredText parsetext _price;
+	_display displayCtrl 3403 ctrlSetStructuredText parsetext _count;
 	
 
 	_display displayCtrl 3101 ctrlSetStructuredText parseText ([_namedisplay_1] call centerString);
 	_display displayCtrl 3201 ctrlSetStructuredText parseText ([_countleft_1] call centerAndConvertToString);
-	_display displayCtrl 3301 ctrlSetStructuredText parseText ([_pricedisplay_1] call centerAndConvertToString);
+	_display displayCtrl 3301 ctrlSetStructuredText parseText ([_pricedisplay_1] call centerString);
 	//_display displayCtrl 1401 ctrlSetStructuredText parseText _eta_1;
 	// ctrlSetText [3501, _pleasewait];
 
 	
 	_display displayCtrl 3102 ctrlSetStructuredText parseText ([_namedisplay_2] call centerString);
 	_display displayCtrl 3202 ctrlSetStructuredText parseText ([_countleft_2] call centerAndConvertToString);
-	_display displayCtrl 3302 ctrlSetStructuredText parseText ([_pricedisplay_2] call centerAndConvertToString);
+	_display displayCtrl 3302 ctrlSetStructuredText parseText ([_pricedisplay_2] call centerString);
 	//_display displayCtrl 1402 ctrlSetStructuredText parseText _eta_2;
 	// ctrlSetText [3502, _pleasewait];
 
 	
 	_display displayCtrl 3103 ctrlSetStructuredText parseText ([_namedisplay_3] call centerString);
 	_display displayCtrl 3203 ctrlSetStructuredText parseText ([_countleft_3] call centerAndConvertToString);
-	_display displayCtrl 3303 ctrlSetStructuredText parseText ([_pricedisplay_3] call centerAndConvertToString);
+	_display displayCtrl 3303 ctrlSetStructuredText parseText ([_pricedisplay_3] call centerString);
 	//_display displayCtrl 1403 ctrlSetStructuredText parseText _eta_3;
 	// ctrlSetText [3503, _pleasewait];
 
 	
 	_display displayCtrl 3104 ctrlSetStructuredText parseText ([_namedisplay_4] call centerString);
 	_display displayCtrl 3204 ctrlSetStructuredText parseText ([_countleft_4] call centerAndConvertToString);
-	_display displayCtrl 3304 ctrlSetStructuredText parseText ([_pricedisplay_4] call centerAndConvertToString);
+	_display displayCtrl 3304 ctrlSetStructuredText parseText ([_pricedisplay_4] call centerString);
 	//_display displayCtrl 1404 ctrlSetStructuredText parseText _eta_4;
 	// ctrlSetText [3504, _pleasewait];
 
 	_display displayCtrl 3105 ctrlSetStructuredText parseText ([_namedisplay_5] call centerString);
 	_display displayCtrl 3205 ctrlSetStructuredText parseText ([_countleft_5] call centerAndConvertToString);
-	_display displayCtrl 3305 ctrlSetStructuredText parseText ([_pricedisplay_5] call centerAndConvertToString);
+	_display displayCtrl 3305 ctrlSetStructuredText parseText ([_pricedisplay_5] call centerString);
 
 	_display displayCtrl 3106 ctrlSetStructuredText parseText ([_namedisplay_6] call centerString);
 	_display displayCtrl 3206 ctrlSetStructuredText parseText ([_countleft_6] call centerAndConvertToString);
-	_display displayCtrl 3306 ctrlSetStructuredText parseText ([_pricedisplay_6] call centerAndConvertToString);
+	_display displayCtrl 3306 ctrlSetStructuredText parseText ([_pricedisplay_6] call centerString);
 
 	_display displayCtrl 3107 ctrlSetStructuredText parseText ([_namedisplay_7] call centerString);
 	_display displayCtrl 3207 ctrlSetStructuredText parseText ([_countleft_7] call centerAndConvertToString);
-	_display displayCtrl 3307 ctrlSetStructuredText parseText ([_pricedisplay_7] call centerAndConvertToString);
+	_display displayCtrl 3307 ctrlSetStructuredText parseText ([_pricedisplay_7] call centerString);
 
 
 	disableSerialization;

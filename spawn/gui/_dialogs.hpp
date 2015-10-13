@@ -27,92 +27,92 @@ class russianSupplyGUI
 			class russian_gui_btn_anfordern_1: RscButton
 			{
 				idc = 1501;
-				text = "Anfordern";
+				text = $STR_GRAD_buy_order;
 				x = -3 * GUI_GRID_W + GUI_GRID_X;
 				y = 16 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6.5 * GUI_GRID_W;
 				h = 2 * GUI_GRID_H;
 				colorText[] = {1,1,1,1};
 				colorBackground[] = {0,0,0,1};
-				tooltip = "Fahrzeug anfordern";
+				tooltip = $STR_GRAD_buy_order_hint;
 				onButtonClick = "disableSerialization; [_this select 0] execVM 'spawn\gui\orderRussianVehicle.sqf';";
 			};
 			class russian_gui_btn_anfordern_2: RscButton
 			{
 				idc = 1502;
-				text = "Anfordern";
+				text = $STR_GRAD_buy_order;
 				x = 5 * GUI_GRID_W + GUI_GRID_X;
 				y = 16 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6 * GUI_GRID_W;
 				h = 2 * GUI_GRID_H;
 				colorText[] = {1,1,1,1};
 				colorBackground[] = {0,0,0,1};
-				tooltip = "Fahrzeug anfordern";
+				tooltip = $STR_GRAD_buy_order_hint;
 				onButtonClick = "disableSerialization; [_this select 0] execVM 'spawn\gui\orderRussianVehicle.sqf';";
 			};
 			class russian_gui_btn_anfordern_3: RscButton
 			{
 				idc = 1503;
-				text = "Anfordern";
+				text = $STR_GRAD_buy_order;
 				x = 12.5 * GUI_GRID_W + GUI_GRID_X;
 				y = 16 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6 * GUI_GRID_W;
 				h = 2 * GUI_GRID_H;
 				colorText[] = {1,1,1,1};
 				colorBackground[] = {0,0,0,1};
-				tooltip = "Fahrzeug anfordern";
+				tooltip = $STR_GRAD_buy_order_hint;
 				onButtonClick = "disableSerialization; [_this select 0] execVM 'spawn\gui\orderRussianVehicle.sqf';";
 			};
 			class russian_gui_btn_anfordern_4: RscButton
 			{
 				idc = 1504;
-				text = "Anfordern";
+				text = $STR_GRAD_buy_order;
 				x = 20 * GUI_GRID_W + GUI_GRID_X;
 				y = 16 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6 * GUI_GRID_W;
 				h = 2 * GUI_GRID_H;
 				colorText[] = {1,1,1,1};
 				colorBackground[] = {0,0,0,1};
-				tooltip = "Fahrzeug anfordern";
+				tooltip = $STR_GRAD_buy_order_hint;
 				onButtonClick = "disableSerialization; [_this select 0] execVM 'spawn\gui\orderRussianVehicle.sqf';";
 			};
 			class russian_gui_btn_anfordern_5: RscButton
 			{
 				idc = 1505;
-				text = "Anfordern";
+				text = $STR_GRAD_buy_order;
 				x = 27.5 * GUI_GRID_W + GUI_GRID_X;
 				y = 16 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6 * GUI_GRID_W;
 				h = 2 * GUI_GRID_H;
 				colorText[] = {1,1,1,1};
 				colorBackground[] = {0,0,0,1};
-				tooltip = "Fahrzeug anfordern";
+				tooltip = $STR_GRAD_buy_order_hint;
 				onButtonClick = "disableSerialization; [_this select 0] execVM 'spawn\gui\orderRussianVehicle.sqf';";
 			};
 			class russian_gui_btn_anfordern_6: RscButton
 			{
 				idc = 1506;
-				text = "Anfordern";
+				text = $STR_GRAD_buy_order;
 				x = 35 * GUI_GRID_W + GUI_GRID_X;
 				y = 16 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6 * GUI_GRID_W;
 				h = 2 * GUI_GRID_H;
 				colorText[] = {1,1,1,1};
 				colorBackground[] = {0,0,0,1};
-				tooltip = "Fahrzeug anfordern";
+				tooltip = $STR_GRAD_buy_order_hint;
 				onButtonClick = "disableSerialization; [_this select 0] execVM 'spawn\gui\orderRussianVehicle.sqf';";
 			};
 			class russian_gui_btn_anfordern_7: RscButton
 			{
 				idc = 1507;
-				text = "Anfordern";
+				text = $STR_GRAD_buy_order;
 				x = 42.5 * GUI_GRID_W + GUI_GRID_X;
 				y = 16 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6 * GUI_GRID_W;
 				h = 2 * GUI_GRID_H;
 				colorText[] = {1,1,1,1};
 				colorBackground[] = {0,0,0,1};
-				tooltip = "Fahrzeug anfordern";
+				tooltip = $STR_GRAD_buy_order_hint;
 				onButtonClick = "disableSerialization; [_this select 0] execVM 'spawn\gui\orderRussianVehicle.sqf';";
 			};
 			class russian_gui_pic_1: RscPicture
@@ -322,9 +322,9 @@ class russianSupplyGUI
 			{
 				idc = 1301;
 				text = "<t align='center'>lade ...</t>";
-				x = -3 * GUI_GRID_W + GUI_GRID_X;
+				x = -3.5 * GUI_GRID_W + GUI_GRID_X;
 				y = 14 * GUI_GRID_H + GUI_GRID_Y;
-				w = 6 * GUI_GRID_W;
+				w = 7 * GUI_GRID_W;
 				h = 1 * GUI_GRID_H;
 				colorBackground[] = {-1,-1,-1,0};
 			};
@@ -332,9 +332,9 @@ class russianSupplyGUI
 			{
 				idc = 1302;
 				text = "<t align='center'>lade ...</t>";
-				x = 5 * GUI_GRID_W + GUI_GRID_X;
+				x = 4.5 * GUI_GRID_W + GUI_GRID_X;
 				y = 14 * GUI_GRID_H + GUI_GRID_Y;
-				w = 6 * GUI_GRID_W;
+				w = 7 * GUI_GRID_W;
 				h = 1 * GUI_GRID_H;
 				colorBackground[] = {-1,-1,-1,0};
 			};
@@ -342,9 +342,9 @@ class russianSupplyGUI
 			{
 				idc = 1303;
 				text = "<t align='center'>lade ...</t>";
-				x = 12.5 * GUI_GRID_W + GUI_GRID_X;
+				x = 12 * GUI_GRID_W + GUI_GRID_X;
 				y = 14 * GUI_GRID_H + GUI_GRID_Y;
-				w = 6 * GUI_GRID_W;
+				w = 7 * GUI_GRID_W;
 				h = 1 * GUI_GRID_H;
 				colorBackground[] = {-1,-1,-1,0};
 			};
@@ -352,9 +352,9 @@ class russianSupplyGUI
 			{
 				idc = 1304;
 				text = "<t align='center'>lade ...</t>";
-				x = 20 * GUI_GRID_W + GUI_GRID_X;
+				x = 19.5 * GUI_GRID_W + GUI_GRID_X;
 				y = 14 * GUI_GRID_H + GUI_GRID_Y;
-				w = 6 * GUI_GRID_W;
+				w = 7 * GUI_GRID_W;
 				h = 1 * GUI_GRID_H;
 				colorBackground[] = {-1,-1,-1,0};
 			};
@@ -362,9 +362,9 @@ class russianSupplyGUI
 			{
 				idc = 1305;
 				text = "<t align='center'>lade ...</t>";
-				x = 27.5 * GUI_GRID_W + GUI_GRID_X;
+				x = 27 * GUI_GRID_W + GUI_GRID_X;
 				y = 14 * GUI_GRID_H + GUI_GRID_Y;
-				w = 6 * GUI_GRID_W;
+				w = 7 * GUI_GRID_W;
 				h = 1 * GUI_GRID_H;
 				colorBackground[] = {-1,-1,-1,0};
 			};
@@ -372,9 +372,9 @@ class russianSupplyGUI
 			{
 				idc = 1306;
 				text = "<t align='center'>lade ...</t>";
-				x = 35 * GUI_GRID_W + GUI_GRID_X;
+				x = 34.5 * GUI_GRID_W + GUI_GRID_X;
 				y = 14 * GUI_GRID_H + GUI_GRID_Y;
-				w = 6 * GUI_GRID_W;
+				w = 7 * GUI_GRID_W;
 				h = 1 * GUI_GRID_H;
 				colorBackground[] = {-1,-1,-1,0};
 			};
@@ -382,16 +382,27 @@ class russianSupplyGUI
 			{
 				idc = 1307;
 				text = "<t align='center'>lade ...</t>";
-				x = 42.5 * GUI_GRID_W + GUI_GRID_X;
+				x = 42 * GUI_GRID_W + GUI_GRID_X;
 				y = 14 * GUI_GRID_H + GUI_GRID_Y;
-				w = 6 * GUI_GRID_W;
+				w = 7 * GUI_GRID_W;
 				h = 1 * GUI_GRID_H;
+				colorBackground[] = {-1,-1,-1,0};
+			};
+			class russian_gui_text_legend_namedisplay: RscStructuredText
+			{
+				idc = 1401;
+				text = $STR_GRAD_buy_legend_vehicle;
+				x = -9 * GUI_GRID_W + GUI_GRID_X;
+				y = 10 * GUI_GRID_H + GUI_GRID_Y;
+				w = 5 * GUI_GRID_W;
+				h = 1 * GUI_GRID_H;
+				colorText[] = {0.5,0.5,0.5,1};
 				colorBackground[] = {-1,-1,-1,0};
 			};
 			class russian_gui_text_legend_price: RscStructuredText
 			{
-				idc = -1;
-				text = "<t color='#80ffffff'>Kosten</t>";
+				idc = 1402;
+				text = $STR_GRAD_buy_legend_price;
 				x = -9 * GUI_GRID_W + GUI_GRID_X;
 				y = 14 * GUI_GRID_H + GUI_GRID_Y;
 				w = 5 * GUI_GRID_W;
@@ -401,8 +412,8 @@ class russianSupplyGUI
 			};
 			class russian_gui_text_legend_countleft: RscStructuredText
 			{
-				idc = -1;
-				text = "<t color='#80ffffff'>Anzahl verf.</t>";
+				idc = 1403;
+				text = $STR_GRAD_buy_legend_count;
 				x = -9 * GUI_GRID_W + GUI_GRID_X;
 				y = 12 * GUI_GRID_H + GUI_GRID_Y;
 				w = 5 * GUI_GRID_W;
@@ -410,18 +421,6 @@ class russianSupplyGUI
 				colorText[] = {1,1,1,0.5};
 				colorBackground[] = {-1,-1,-1,0};
 			};
-			class russian_gui_text_legend_namedisplay: RscStructuredText
-			{
-				idc = -1;
-				text = "<t color='#80ffffff'>Fahrzeug</t>";
-				x = -9 * GUI_GRID_W + GUI_GRID_X;
-				y = 10 * GUI_GRID_H + GUI_GRID_Y;
-				w = 5 * GUI_GRID_W;
-				h = 1 * GUI_GRID_H;
-				colorText[] = {0.5,0.5,0.5,1};
-				colorBackground[] = {-1,-1,-1,0};
-			};
-
 			class russian_gui_text_headline: RscStructuredTextHeadline
 			{
 				idc = 1600;
@@ -442,13 +441,13 @@ class russianSupplyGUI
 				w = 4.5 * GUI_GRID_W;
 				h = 2.5 * GUI_GRID_H;
 				colorBackground[] = {-1,-1,-1,0};
-				tooltip = "Verbleibende Credits";
+				tooltip = $STR_GRAD_buy_credits_hint;
 				lineSpacing = 0.4;
 			};
 			class russian_gui_btn_close: RscButtonSmall
 			{
 				idc = -1;
-				text = "Schließen";
+				text = $STR_GRAD_buy_exit;
 				x = 43.5 * GUI_GRID_W + GUI_GRID_X;
 				y = 1 * GUI_GRID_H + GUI_GRID_Y;
 				w = 5 * GUI_GRID_W;
@@ -495,92 +494,92 @@ class USSupplyGUI
 			class US_gui_btn_anfordern_1: RscButton
 			{
 				idc = 3501;
-				text = "Anfordern";
+				text = $STR_GRAD_buy_order;
 				x = -3 * GUI_GRID_W + GUI_GRID_X;
 				y = 16 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6.5 * GUI_GRID_W;
 				h = 2 * GUI_GRID_H;
 				colorText[] = {1,1,1,1};
 				colorBackground[] = {0,0,0,1};
-				tooltip = "Fahrzeug anfordern";
+				tooltip = $STR_GRAD_buy_order_hint;
 				onButtonClick = "disableSerialization; [_this select 0] execVM 'spawn\gui\orderUSVehicle.sqf';";
 			};
 			class US_gui_btn_anfordern_2: RscButton
 			{
 				idc = 3502;
-				text = "Anfordern";
+				text = $STR_GRAD_buy_order;
 				x = 5 * GUI_GRID_W + GUI_GRID_X;
 				y = 16 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6 * GUI_GRID_W;
 				h = 2 * GUI_GRID_H;
 				colorText[] = {1,1,1,1};
 				colorBackground[] = {0,0,0,1};
-				tooltip = "Fahrzeug anfordern";
+				tooltip = $STR_GRAD_buy_order_hint;
 				onButtonClick = "disableSerialization; [_this select 0] execVM 'spawn\gui\orderUSVehicle.sqf';";
 			};
 			class US_gui_btn_anfordern_3: RscButton
 			{
 				idc = 3503;
-				text = "Anfordern";
+				text = $STR_GRAD_buy_order;
 				x = 12.5 * GUI_GRID_W + GUI_GRID_X;
 				y = 16 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6 * GUI_GRID_W;
 				h = 2 * GUI_GRID_H;
 				colorText[] = {1,1,1,1};
 				colorBackground[] = {0,0,0,1};
-				tooltip = "Fahrzeug anfordern";
+				tooltip = $STR_GRAD_buy_order_hint;
 				onButtonClick = "disableSerialization; [_this select 0] execVM 'spawn\gui\orderUSVehicle.sqf';";
 			};
 			class US_gui_btn_anfordern_4: RscButton
 			{
 				idc = 3504;
-				text = "Anfordern";
+				text = $STR_GRAD_buy_order;
 				x = 20 * GUI_GRID_W + GUI_GRID_X;
 				y = 16 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6 * GUI_GRID_W;
 				h = 2 * GUI_GRID_H;
 				colorText[] = {1,1,1,1};
 				colorBackground[] = {0,0,0,1};
-				tooltip = "Fahrzeug anfordern";
+				tooltip = $STR_GRAD_buy_order_hint;
 				onButtonClick = "disableSerialization; [_this select 0] execVM 'spawn\gui\orderUSVehicle.sqf';";
 			};
 			class US_gui_btn_anfordern_5: RscButton
 			{
 				idc = 3505;
-				text = "Anfordern";
+				text = $STR_GRAD_buy_order;
 				x = 27.5 * GUI_GRID_W + GUI_GRID_X;
 				y = 16 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6 * GUI_GRID_W;
 				h = 2 * GUI_GRID_H;
 				colorText[] = {1,1,1,1};
 				colorBackground[] = {0,0,0,1};
-				tooltip = "Fahrzeug anfordern";
+				tooltip = $STR_GRAD_buy_order_hint;
 				onButtonClick = "disableSerialization; [_this select 0] execVM 'spawn\gui\orderUSVehicle.sqf';";
 			};
 			class US_gui_btn_anfordern_6: RscButton
 			{
 				idc = 3506;
-				text = "Anfordern";
+				text = $STR_GRAD_buy_order;
 				x = 35 * GUI_GRID_W + GUI_GRID_X;
 				y = 16 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6 * GUI_GRID_W;
 				h = 2 * GUI_GRID_H;
 				colorText[] = {1,1,1,1};
 				colorBackground[] = {0,0,0,1};
-				tooltip = "Fahrzeug anfordern";
+				tooltip = $STR_GRAD_buy_order_hint;
 				onButtonClick = "disableSerialization; [_this select 0] execVM 'spawn\gui\orderUSVehicle.sqf';";
 			};
 			class US_gui_btn_anfordern_7: RscButton
 			{
 				idc = 3507;
-				text = "Anfordern";
+				text = $STR_GRAD_buy_order;
 				x = 42.5 * GUI_GRID_W + GUI_GRID_X;
 				y = 16 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6 * GUI_GRID_W;
 				h = 2 * GUI_GRID_H;
 				colorText[] = {1,1,1,1};
 				colorBackground[] = {0,0,0,1};
-				tooltip = "Fahrzeug anfordern";
+				tooltip = $STR_GRAD_buy_order_hint;
 				onButtonClick = "disableSerialization; [_this select 0] execVM 'spawn\gui\orderUSVehicle.sqf';";
 			};
 			class US_gui_pic_1: RscPicture
@@ -790,9 +789,9 @@ class USSupplyGUI
 			{
 				idc = 3301;
 				text = "<t align='center'>lade ...</t>";
-				x = -3 * GUI_GRID_W + GUI_GRID_X;
+				x = -3.5 * GUI_GRID_W + GUI_GRID_X;
 				y = 14 * GUI_GRID_H + GUI_GRID_Y;
-				w = 6 * GUI_GRID_W;
+				w = 7 * GUI_GRID_W;
 				h = 1 * GUI_GRID_H;
 				colorBackground[] = {-1,-1,-1,0};
 			};
@@ -800,9 +799,9 @@ class USSupplyGUI
 			{
 				idc = 3302;
 				text = "<t align='center'>lade ...</t>";
-				x = 5 * GUI_GRID_W + GUI_GRID_X;
+				x = 3.5 * GUI_GRID_W + GUI_GRID_X;
 				y = 14 * GUI_GRID_H + GUI_GRID_Y;
-				w = 6 * GUI_GRID_W;
+				w = 7 * GUI_GRID_W;
 				h = 1 * GUI_GRID_H;
 				colorBackground[] = {-1,-1,-1,0};
 			};
@@ -810,9 +809,9 @@ class USSupplyGUI
 			{
 				idc = 3303;
 				text = "<t align='center'>lade ...</t>";
-				x = 12.5 * GUI_GRID_W + GUI_GRID_X;
+				x = 12 * GUI_GRID_W + GUI_GRID_X;
 				y = 14 * GUI_GRID_H + GUI_GRID_Y;
-				w = 6 * GUI_GRID_W;
+				w = 7 * GUI_GRID_W;
 				h = 1 * GUI_GRID_H;
 				colorBackground[] = {-1,-1,-1,0};
 			};
@@ -820,9 +819,9 @@ class USSupplyGUI
 			{
 				idc = 3304;
 				text = "<t align='center'>lade ...</t>";
-				x = 20 * GUI_GRID_W + GUI_GRID_X;
+				x = 19.5 * GUI_GRID_W + GUI_GRID_X;
 				y = 14 * GUI_GRID_H + GUI_GRID_Y;
-				w = 6 * GUI_GRID_W;
+				w = 7 * GUI_GRID_W;
 				h = 1 * GUI_GRID_H;
 				colorBackground[] = {-1,-1,-1,0};
 			};
@@ -830,9 +829,9 @@ class USSupplyGUI
 			{
 				idc = 3305;
 				text = "<t align='center'>lade ...</t>";
-				x = 27.5 * GUI_GRID_W + GUI_GRID_X;
+				x = 27 * GUI_GRID_W + GUI_GRID_X;
 				y = 14 * GUI_GRID_H + GUI_GRID_Y;
-				w = 6 * GUI_GRID_W;
+				w = 7 * GUI_GRID_W;
 				h = 1 * GUI_GRID_H;
 				colorBackground[] = {-1,-1,-1,0};
 			};
@@ -840,9 +839,9 @@ class USSupplyGUI
 			{
 				idc = 3306;
 				text = "<t align='center'>lade ...</t>";
-				x = 35 * GUI_GRID_W + GUI_GRID_X;
+				x = 34.5 * GUI_GRID_W + GUI_GRID_X;
 				y = 14 * GUI_GRID_H + GUI_GRID_Y;
-				w = 6 * GUI_GRID_W;
+				w = 7 * GUI_GRID_W;
 				h = 1 * GUI_GRID_H;
 				colorBackground[] = {-1,-1,-1,0};
 			};
@@ -850,15 +849,26 @@ class USSupplyGUI
 			{
 				idc = 3307;
 				text = "<t align='center'>lade ...</t>";
-				x = 42.5 * GUI_GRID_W + GUI_GRID_X;
+				x = 42 * GUI_GRID_W + GUI_GRID_X;
 				y = 14 * GUI_GRID_H + GUI_GRID_Y;
-				w = 6 * GUI_GRID_W;
+				w = 7 * GUI_GRID_W;
 				h = 1 * GUI_GRID_H;
+				colorBackground[] = {-1,-1,-1,0};
+			};
+			class US_gui_text_legend_namedisplay: RscStructuredText
+			{
+				idc = 3401;
+				text = "<t color='#80ffffff'>Fahrzeug</t>";
+				x = -9 * GUI_GRID_W + GUI_GRID_X;
+				y = 10 * GUI_GRID_H + GUI_GRID_Y;
+				w = 5 * GUI_GRID_W;
+				h = 1 * GUI_GRID_H;
+				colorText[] = {0.5,0.5,0.5,1};
 				colorBackground[] = {-1,-1,-1,0};
 			};
 			class US_gui_text_legend_price: RscStructuredText
 			{
-				idc = -1;
+				idc = 3402;
 				text = "<t color='#80ffffff'>Kosten</t>";
 				x = -9 * GUI_GRID_W + GUI_GRID_X;
 				y = 14 * GUI_GRID_H + GUI_GRID_Y;
@@ -869,7 +879,7 @@ class USSupplyGUI
 			};
 			class US_gui_text_legend_countleft: RscStructuredText
 			{
-				idc = -1;
+				idc = 3403;
 				text = "<t color='#80ffffff'>Anzahl verf.</t>";
 				x = -9 * GUI_GRID_W + GUI_GRID_X;
 				y = 12 * GUI_GRID_H + GUI_GRID_Y;
@@ -878,18 +888,6 @@ class USSupplyGUI
 				colorText[] = {1,1,1,0.5};
 				colorBackground[] = {-1,-1,-1,0};
 			};
-			class US_gui_text_legend_namedisplay: RscStructuredText
-			{
-				idc = -1;
-				text = "<t color='#80ffffff'>Fahrzeug</t>";
-				x = -9 * GUI_GRID_W + GUI_GRID_X;
-				y = 10 * GUI_GRID_H + GUI_GRID_Y;
-				w = 5 * GUI_GRID_W;
-				h = 1 * GUI_GRID_H;
-				colorText[] = {0.5,0.5,0.5,1};
-				colorBackground[] = {-1,-1,-1,0};
-			};
-
 			class US_gui_text_headline: RscStructuredTextHeadline
 			{
 				idc = 3600;
@@ -910,13 +908,13 @@ class USSupplyGUI
 				w = 4.5 * GUI_GRID_W;
 				h = 2.5 * GUI_GRID_H;
 				colorBackground[] = {-1,-1,-1,0};
-				tooltip = "Verbleibende Credits";
+				tooltip = $STR_GRAD_buy_credits_hint;
 				lineSpacing = 0.4;
 			};
 			class US_gui_btn_close: RscButtonSmall
 			{
 				idc = -1;
-				text = "Schließen";
+				text = $STR_GRAD_buy_exit;
 				x = 43.5 * GUI_GRID_W + GUI_GRID_X;
 				y = 1 * GUI_GRID_H + GUI_GRID_Y;
 				w = 5 * GUI_GRID_W;

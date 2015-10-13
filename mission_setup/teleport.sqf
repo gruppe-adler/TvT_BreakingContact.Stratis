@@ -3,7 +3,8 @@
 
 checkWater = {
 	if (surfaceIsWater _this) then {
-		throw ((str _pos) + " is covered in water :("); // localize "str_GRAD_spawn_on_water" // [] call EFUNC(common,displayTextStructured);
+		_string = localize "str_GRAD_spawn_on_water";
+		[_string] call EFUNC(common,displayTextStructured); // 
 	};
 };
 
