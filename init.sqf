@@ -28,6 +28,7 @@ custom_overcast = 1;
 
 jipTime = JIP_TIME_ALLOWED;
 
+
 // optimize for PVP
 disableRemoteSensors true;
 
