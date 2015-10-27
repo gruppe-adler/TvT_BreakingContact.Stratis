@@ -50,27 +50,27 @@ while{true} do
 			_hide = true;
 		};
 
-		if(vehicle _unit == _unit) then 
+		if(vehicle _unit == _unit && _side_prefix != "") then 
 		{
 			_kindof =  "mil_triangle";
 		};
-		if((vehicle _unit isKindOf "Car") && (_side != civilian)) then 
+		if((vehicle _unit isKindOf "Car") && (_side != civilian) && _side_prefix != "") then 
 		{
 			_kindof =  _side_prefix + "motor_inf";
 		};
-		if((vehicle _unit isKindOf "Plane") && (_side != civilian)) then 
+		if((vehicle _unit isKindOf "Plane") && (_side != civilian) && _side_prefix != "") then 
 		{
 			_kindof =  _side_prefix + "plane";
 		};
-		if((vehicle _unit isKindOf "Helicopter") && (_side != civilian)) then 
+		if((vehicle _unit isKindOf "Helicopter") && (_side != civilian) && _side_prefix != "") then 
 		{
 			_kindof =  _side_prefix + "air";
 		};
-		if((vehicle _unit isKindOf "Tank") && (_side != civilian)) then 
+		if((vehicle _unit isKindOf "Tank") && (_side != civilian) && _side_prefix != "") then 
 		{
 			_kindof =  _side_prefix + "armor";
 		};
-		if(vehicle _unit isKindOf "Ship") then 
+		if(vehicle _unit isKindOf "Ship" && _side_prefix != "") then 
 		{	
 			if (side _unit == civilian) then {
 			 _kindof =  _side_prefix + "ship";
@@ -79,7 +79,7 @@ while{true} do
 			};
 		};
 
-		if(vehicle _unit isKindOf "StaticMortar") then 
+		if(vehicle _unit isKindOf "StaticMortar" && _side_prefix != "") then 
 		{
 			_kindof =  _side_prefix + "mortar";
 		};
