@@ -36,7 +36,7 @@ setSpawnedDirection = {
 	_veh2 = _this select 1;
 
 	private ["_roadconnectedto1","_roadconnectedto2","_connectedRoad1","_connectedRoad2"];
-
+	/*
 	_road1 = [getPos _veh1] call BIS_fnc_nearestRoad;
 	_road2 = [getPos _veh2] call BIS_fnc_nearestRoad;
 
@@ -64,6 +64,7 @@ setSpawnedDirection = {
 	if (!isNil "_direction2") then {
 		_veh2 setDir (_direction2);
 	};
+	*/
 };
 
 testSpawnPositions = {

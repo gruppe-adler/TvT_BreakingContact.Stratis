@@ -11,7 +11,7 @@ creditString = {
 pricedisplayString = {
     _price = _this select 0;
 
-    _string = "<t align='center'>" + _price + " cr </t>";
+    _string = "<t align='center'>" + (str _price) + " cr </t>";
 
     _string
 };

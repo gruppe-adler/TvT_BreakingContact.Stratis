@@ -90,8 +90,8 @@ fillRussianSupplies = {
             (_this select 0) addItemCargoGlobal ['ACE_epinephrine',40];
             (_this select 0) addItemCargoGlobal ['ACE_fieldDressing',100];
             (_this select 0) addItemCargoGlobal ['ItemGPS',5];
-            ["AddCargoByClass", _this select 0, ["ACE_wheel", _this select 0, 3]] call ace_common_fnc_targetEvent;
-            ["AddCargoByClass", _this select 0, ["ACE_Track", _this select 0, 1]] call ace_common_fnc_targetEvent;
+            ['AddCargoByClass', _this select 0, ['ACE_wheel', _this select 0, 3]] call ace_common_fnc_targetEvent;
+            ['AddCargoByClass', _this select 0, ['ACE_Track', _this select 0, 1]] call ace_common_fnc_targetEvent;
             }
         ],
         [
@@ -155,12 +155,12 @@ fillRussianSupplies = {
             (_this select 0) addBackpackCargoGlobal ['RHS_NSV_Gun_Bag',1];
             (_this select 0) addBackpackCargoGlobal ['RHS_NSV_Tripod_Bag',1];
             (_this select 0) addItemCargoGlobal ['ACE_Sandbag_empty',100];
-            _box = createVehicle ["ACE_Box_Misc", position (_this select 0), [], 1, "NONE"];
+            _box = createVehicle ['ACE_Box_Misc', position (_this select 0), [], 1, 'NONE'];
             clearWeaponCargoGlobal _box; 
             clearItemCargoGlobal _box; 
             clearBackpackCargoGlobal _box; 
             clearMagazineCargoGlobal _box;
-            _box = createVehicle ["ACE_Box_Misc", position (_this select 0), [], 1, "NONE"];
+            _box = createVehicle ['ACE_Box_Misc', position (_this select 0), [], 1, 'NONE'];
             clearWeaponCargoGlobal _box; 
             clearItemCargoGlobal _box; 
             clearBackpackCargoGlobal _box; 
@@ -287,8 +287,8 @@ fillUSSupplies = {
             (_this select 0) addItemCargoGlobal ['ACE_epinephrine',40];
             (_this select 0) addItemCargoGlobal ['ACE_fieldDressing',100];
             (_this select 0) addItemCargoGlobal ['ItemGPS',5];
-            ["AddCargoByClass", _this select 0, ["ACE_wheel", _this select 0, 3]] call ace_common_fnc_targetEvent;
-            ["AddCargoByClass", _this select 0, ["ACE_Track", _this select 0, 1]] call ace_common_fnc_targetEvent;
+            ['AddCargoByClass', _this select 0, ['ACE_wheel', _this select 0, 3]] call ace_common_fnc_targetEvent;
+            ['AddCargoByClass', _this select 0, ['ACE_Track', _this select 0, 1]] call ace_common_fnc_targetEvent;
             }
         ],
         [

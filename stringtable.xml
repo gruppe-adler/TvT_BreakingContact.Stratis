@@ -174,19 +174,19 @@
                 <German>Verbleibende Credits</German>
             </Key>
             <Key ID="str_GRAD_buy_legend_price">
-               <Original><t color='#80ffffff'>Price</t></Original>
-                <English><t color='#80ffffff'>Price</t></English>
-                <German><t color='#80ffffff'>Preis</t></German>
+               <Original><t color='#80ffffff'>Price</Original>
+                <English><t color='#80ffffff'>Price</English>
+                <German><t color='#80ffffff'>Preis</German>
             </Key>
              <Key ID="str_GRAD_buy_legend_count">
-               <Original><t color='#80ffffff'>Count left</t></Original>
-                <English><t color='#80ffffff'>Count left</t></English>
-                <German><t color='#80ffffff'>Anz. verf.</t></German>
+               <Original><t color='#80ffffff'>Count left</Original>
+                <English><t color='#80ffffff'>Count left</English>
+                <German><t color='#80ffffff'>Anz. verf.</German>
             </Key>
              <Key ID="str_GRAD_buy_legend_vehicle">
-               <Original><t color='#80ffffff'>Type</t></Original>
-                <English><t color='#80ffffff'>Type</t></English>
-                <German><t color='#80ffffff'>Typ</t></German>
+               <Original><t color='#80ffffff'>Type</Original>
+                <English><t color='#80ffffff'>Type</English>
+                <German><t color='#80ffffff'>Typ</German>
             </Key>
             <Key ID="str_GRAD_buy_headline">
                <Original>Call reinforcements</Original>
