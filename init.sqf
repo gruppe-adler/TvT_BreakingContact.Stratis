@@ -147,6 +147,8 @@ diag_log format ["setup: clientandserver done"];
 
 if (hasInterface) then {
 
+	player allowDamage false;
+
 	checkJIP = {
 		if ((OPFOR_TELEPORT_TARGET select 0 != 0) && didJIP && time > jipTime) then {
 			player setDamage 1;
@@ -166,7 +168,7 @@ if (hasInterface) then {
 		[] execVM "helpers\enforceNoSwim.sqf";
 		
 		if (player != opfor_teamlead) then {
-			0 = [[worldSize/2,worldSize/2,0],""] execVM "helpers\establishingShot.sqf";
+			0 = [[worldSize/2,worldSize/2,0],"",3000] execVM "helpers\establishingShot.sqf";
 		} else {
 		disableSerialization;
 		waitUntil {!(isNull ([] call BIS_fnc_displayMission))};

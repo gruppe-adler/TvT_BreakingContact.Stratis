@@ -365,13 +365,14 @@ if (isNil "BIS_fnc_establishingShot_skip") then {
 						];
 
 						private ["_skipText"];
-						_skipText = format [
+						/*_skipText = format [
 							localize "STR_A3_BIS_fnc_titlecard_pressSpace",
 							"<t size = '0.75'>",
 							_keyColor,
 							"</t>",
 							"</t>"
-						];
+						];*/
+						_skipText = "";
 
 						_ctrlText ctrlSetStructuredText parseText _skipText;
 						_ctrlText ctrlSetFade 1;

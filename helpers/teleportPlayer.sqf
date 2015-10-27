@@ -13,5 +13,8 @@ _nul = player setPos _spawn;
 openMap [false, false];
 hintSilent "";
 cutText ["", "BLACK IN", 1];
+
+// make player vulnerable again
+player allowDamage true;
 [] execVM "helpers\enforceNoSwim.sqf";
 3 call fn_sthud_usermenu_changeMode;
