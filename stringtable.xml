@@ -203,6 +203,7 @@
                 <English>Please wait.</English>
                 <German>Bitte warten.</German>
             </Key>
+            </Package>
         </Container>
          <Package name="CSSA3_StandardStuff">
         <Key ID="STR_CSSA3_Init">
