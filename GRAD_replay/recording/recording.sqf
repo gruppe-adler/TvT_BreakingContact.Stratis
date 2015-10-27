@@ -30,7 +30,9 @@ while{true} do
 		if (_side == east) then { _side_prefix = "o_";};
 		if (_side == independent) then { _side_prefix = "n_";};
 		if (_side == civilian) then { _side_prefix = "c_";};
-		_kindof = _side_prefix + "unknown";
+		
+		_kindof = "c_unknown";
+
 		_dir = (getDir _unit);
 		_hide = false;
 		
