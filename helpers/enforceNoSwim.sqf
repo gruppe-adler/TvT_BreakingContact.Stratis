@@ -1,4 +1,7 @@
-_SwimAnims = ["aswmpercmwlksnonwnondf", "aswmpercmsprsnonwnondf", "aswmpercmrunsnonwnondf", "aswmpercmstpsnonwnondnon", "aswmpercmrunsnonwnondf_aswmpercmstpsnonwnondnon", "aswmpercmstpsnonwnondnon_aswmpercmrunsnonwnondf", "aswmpercmstpdnon", "aswmpercmstpdnon_aswmpercmstpdf", "aswmpercmstpdf_aswmpercmstpdnon", "aswmpercmstpsnonwnondf"];
-if ((animationState player) in _SwimAnims) then {
-	player switchmove "AmovPercMstpSnonWnonDnon";
-};
+_spawn = _this select 0;
+_tempBike = "C_Quadbike_01_black_F" createVehicleLocal [_spawn select 0, _spawn select 1, 500];
+player moveInCargo _tempBike;
+sleep 0.1;
+moveOut player;
+deleteVehicle _tempBike;
+player setPos _spawn;
