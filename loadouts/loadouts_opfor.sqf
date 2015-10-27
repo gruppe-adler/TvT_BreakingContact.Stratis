@@ -1,7 +1,7 @@
 set_akm_ammo = {
 	this = _this select 0;
-	[this, "rhs_30Rnd_762x39mm", 5] call addMagazinesToVest;
-	[this, "rhs_30Rnd_762x39mm_tracer", 5] call addMagazinesToVest;
+	[this, "rhs_30Rnd_762x39mm", 5] call addMagazinesToVest; // 5 (1 in der waffe)
+	[this, "rhs_30Rnd_762x39mm_tracer", 5] call addMagazinesToVest; // 3
 };
 
 
@@ -89,10 +89,10 @@ opfor_sql = {
 
 	[this] call set_akm_ammo;
 	
-	[this, "SmokeShell", 4] call addMagazinesToVest;
+	[this, "SmokeShell", 4] call addMagazinesToVest; // 1 weiß angekommen
 	[this, "SmokeShellRed", 2] call addMagazinesToVest;
 
-	[this, "rhs_mag_rgd5", 2] call addMagazinesToBackpack;
+	[this, "rhs_mag_rgd5", 2] call addMagazinesToBackpack; // beide angekommen
 
 	[this, "rhs_GRD40_White", 4] call addMagazinesToBackpack;
 	[this, "rhs_GRD40_Green", 3] call addMagazinesToBackpack;

@@ -424,7 +424,7 @@ class russianSupplyGUI
 			class russian_gui_text_headline: RscStructuredTextHeadline
 			{
 				idc = 1600;
-				text = "<t size='2' align='center' color='#33ffffff'>Nachschub anfordern</t>";
+				text = $STR_GRAD_buy_headline;
 				x = 2 * GUI_GRID_W + GUI_GRID_X;
 				y = 1.5 * GUI_GRID_H + GUI_GRID_Y;
 				w = 36 * GUI_GRID_W;
@@ -891,7 +891,7 @@ class USSupplyGUI
 			class US_gui_text_headline: RscStructuredTextHeadline
 			{
 				idc = 3600;
-				text = "<t size='2' align='center' color='#33ffffff'>Nachschub anfordern</t>";
+				text = $STR_GRAD_buy_headline;
 				x = 2 * GUI_GRID_W + GUI_GRID_X;
 				y = 1.5 * GUI_GRID_H + GUI_GRID_Y;
 				w = 36 * GUI_GRID_W;
