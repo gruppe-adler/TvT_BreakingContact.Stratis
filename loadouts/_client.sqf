@@ -84,13 +84,14 @@ waitUntil { !isNull _unit };
             case "O_Soldier_AAR_F": {[_unit] call opfor_MG;};
             case "O_soldierU_AAR_F": {[_unit] call opfor_MG;};
 
+            case "O_officer_F": {[_unit] call opfor_sql;};
+
             case "O_G_Soldier_TL_F": {[_unit] call opfor_ftl;};
             case "O_soldierU_F": {[_unit] call opfor_ftl;};
             case "O_Soldier_TL_F": {[_unit] call opfor_ftl;};
             case "O_recon_TL_F": {[_unit] call opfor_ftl;};
             case "O_soldierU_TL_F": {[_unit] call opfor_ftl;};
             case "O_G_officer_F": {[_unit] call opfor_ftl;};
-            case "O_officer_F": {[_unit] call opfor_ftl;};
             case "O_Soldier_TL_F": {[_unit] call opfor_ftl;};
             case "O_recon_TL_F": {[_unit] call opfor_ftl;};
             case "O_soldierU_TL_F": {[_unit] call opfor_ftl;};
