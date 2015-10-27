@@ -203,8 +203,8 @@
                 <English>Please wait.</English>
                 <German>Bitte warten.</German>
             </Key>
+            </Container>
             </Package>
-        </Container>
          <Package name="CSSA3_StandardStuff">
         <Key ID="STR_CSSA3_Init">
             <Original>CSSA3 Initiated. Press 'F1' for more help. You can hide the HUD at any time by pressing 'H'</Original>
