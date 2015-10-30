@@ -119,7 +119,7 @@ spawnBluforHQ = {
 
 	while {_waitingForBluforSpawn} do {
 		_bluforSpawnSuccess = [0,nil,nil];
-		_bluforSpawnSuccess = [_bluforCenterPosition, ["US_WarfareBUAVterminal_Base_EP1","Land_HelipadCivil_F"], _bluforDistance] call testSpawnPositions;
+		_bluforSpawnSuccess = [_bluforCenterPosition, ["Land_Cargo_House_V3_F","Land_HelipadCivil_F"], _bluforDistance] call testSpawnPositions;
 		waitUntil {(_bluforSpawnSuccess select 0) > 0};
 
 		if ((_bluforSpawnSuccess select 0) > 1) exitWith {
@@ -154,7 +154,7 @@ spawnOpforHQ = {
 
 	while {_waitingForOpforSpawn} do {
 		_opforSpawnSuccess = [0,nil,nil];
-		_opforSpawnSuccess = [_opforCenterPosition, ["TK_WarfareBUAVterminal_Base_EP1","Land_HelipadCivil_F"], _opforDistance] call testSpawnPositions;
+		_opforSpawnSuccess = [_opforCenterPosition, ["Land_Cargo_House_V1_F","Land_HelipadCivil_F"], _opforDistance] call testSpawnPositions;
 		waitUntil {(_opforSpawnSuccess select 0) > 0};
 
 		if ((_opforSpawnSuccess select 0) > 1) exitWith {

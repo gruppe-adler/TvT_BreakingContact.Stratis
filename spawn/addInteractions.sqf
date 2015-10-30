@@ -1,15 +1,15 @@
-_rusAction = ["ACE_MainActions", (localize "str_GRAD_buy_vehicles"), "",
+_usAction = ["ACE_MainActions", (localize "str_GRAD_buy_vehicles"), "",
  {0 = createDialog "USSupplyGUI"; disableSerialization; [USSupplies, false, 0, "","",""] call refreshUSUI;},
   {side player == west},{},[],[1,0,0],5] call ace_interact_menu_fnc_createAction;
 
-["US_WarfareBUAVterminal_Base_EP1", 0, [], _rusAction] call ace_interact_menu_fnc_addActionToClass;
+["Land_Cargo_House_V3_F", 0, [], _usAction] call ace_interact_menu_fnc_addActionToClass;
 
 
-_usAction = ["ACE_MainActions", (localize "str_GRAD_buy_vehicles"), "",
+_rusAction = ["ACE_MainActions", (localize "str_GRAD_buy_vehicles"), "",
  {0 = createDialog "RussianSupplyGUI"; disableSerialization; [RussianSupplies, false, 0, "","",""] call refreshRussianUI;},
   {side player == east},{},[],[1,0,0],5] call ace_interact_menu_fnc_createAction;
 
-["TK_WarfareBUAVterminal_Base_EP1", 0, [], _usAction] call ace_interact_menu_fnc_addActionToClass;
+["Land_Cargo_House_V1_F", 0, [], _rusAction] call ace_interact_menu_fnc_addActionToClass;
 
 
 

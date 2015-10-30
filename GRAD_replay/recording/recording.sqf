@@ -90,12 +90,12 @@ while{true} do
 			_kindof = "loc_Tree";
 		};
 
-		if (_unit isKindOf "TK_WarfareBUAVterminal_Base_EP1") then {
+		if (_unit isKindOf "Land_Cargo_House_V1_F") then {
 			_side = east;
 			_kindof = "mil_start";
 		};
 
-		if (_unit isKindOf "US_WarfareBUAVterminal_Base_EP1") then {
+		if (_unit isKindOf "Land_Cargo_House_V3_F") then {
 			_side = west;
 			_kindof = "mil_start";
 		};
