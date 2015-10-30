@@ -233,7 +233,7 @@ fillUSSupplies = {
             clearBackpackCargoGlobal (_this select 0); 
             clearMagazineCargoGlobal (_this select 0);
             },
-            format['%1<br/>%2<br/>%3<br/>%4','My Multi-line Tool-tip:','Line 1','Line 2','Line 3','Line 4']
+            format['%1<br/>%2<br/>%3<br/>%4<br/>%5','Crew: 1','Seats: 5','Speed: 109','','']
         ],
         [
             hmmwv_m2,
@@ -249,7 +249,7 @@ fillUSSupplies = {
             clearBackpackCargoGlobal (_this select 0); 
             clearMagazineCargoGlobal (_this select 0);
             },
-            format['%1<br/>%2<br/>%3<br/>%4','My Multi-line Tool-tip:','Line 1','Line 2','Line 3','Line 4']
+            format['%1<br/>%2<br/>%3<br/>%4<br/>%5','Crew: 1','Seats: 3','Speed: 109','','']
         ],
         [
             m113_m2,
@@ -265,7 +265,7 @@ fillUSSupplies = {
             clearBackpackCargoGlobal (_this select 0); 
             clearMagazineCargoGlobal (_this select 0);
             },
-            format['%1<br/>%2<br/>%3<br/>%4','My Multi-line Tool-tip:','Line 1','Line 2','Line 3','Line 4']
+            format['%1<br/>%2<br/>%3<br/>%4<br/>%5','Crew: 2','Seats: 11','Speed: 67','','']
         ],
         [
             m113_ammo,
@@ -300,7 +300,7 @@ fillUSSupplies = {
             ['AddCargoByClass', _this select 0, ['ACE_wheel', _this select 0, 3]] call ace_common_fnc_targetEvent;
             ['AddCargoByClass', _this select 0, ['ACE_Track', _this select 0, 1]] call ace_common_fnc_targetEvent;
             },
-            format['%1<br/>%2<br/>%3<br/>%4','My Multi-line Tool-tip:','Line 1','Line 2','Line 3','Line 4']
+            format['%1<br/>%2<br/>%3<br/>%4<br/>%5<br/>%6<br/>%7<br/>%8<br/>%9<br/>%10<br/>%11<br/>%12<br/>%13','Crew: 2','Seats: 11','Speed: 67','','Cargo:','40 Smokes','60 AK Mags','20 MG Mags','20 Grenades','30 Flares','Medical Stuff','5 GPS','3 Repair Wheels','1 Repair Track']
         ],
         [
             "Ace_Box_Ammo",
@@ -317,7 +317,7 @@ fillUSSupplies = {
             clearMagazineCargoGlobal (_this select 0);
             (_this select 0) addBackpackCargoGlobal ['B_Parachute',14];
             },
-            format['%1<br/>%2<br/>%3<br/>%4','My Multi-line Tool-tip:','Line 1','Line 2','Line 3','Line 4']
+            format['%1','14 Parachutes in a Box']
         ],
         [
             "B_Heli_Light_01_F",
@@ -333,7 +333,7 @@ fillUSSupplies = {
             clearBackpackCargoGlobal (_this select 0); 
             clearMagazineCargoGlobal (_this select 0);
             },
-            format['%1<br/>%2<br/>%3<br/>%4','My Multi-line Tool-tip:','Line 1','Line 2','Line 3','Line 4']
+            format['%1<br/>%2<br/>%3<br/>%4<br/>%5','Crew: 1','Seats: 7','Speed: 245','','']
         ],
         [
             "RHS_UH60M",
@@ -350,7 +350,7 @@ fillUSSupplies = {
             clearMagazineCargoGlobal (_this select 0);
             (_this select 0) setVehicleAmmo 0.4;
             },
-            format['%1<br/>%2<br/>%3<br/>%4','My Multi-line Tool-tip:','Line 1','Line 2','Line 3','Line 4']
+            format['%1<br/>%2<br/>%3<br/>%4<br/>%5','Crew: 3','Seats: 13','Speed: 295','','']
         ]
     ];
 

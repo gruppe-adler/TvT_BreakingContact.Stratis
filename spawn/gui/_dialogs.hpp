@@ -575,6 +575,7 @@ class USSupplyGUI
 		enableSimulation = 1;
 		enableDisplay = 1;
 		objects[] = {};
+		onLoad = "disableSerialization; [3000,[3801,3802,3803,3804,3805,3806,3807]] execVM 'spawn\gui\hideControl.sqf';";
 
 		class ControlsBackground
 		{
@@ -990,6 +991,99 @@ class USSupplyGUI
 				colorText[] = {1,1,1,0.5};
 				colorBackground[] = {-1,-1,-1,0};
 			};
+
+			class US_gui_tooltip_1: RscStructuredTextTooltip
+			{
+				idc = 3801;
+				x = -3.5 * GUI_GRID_W + GUI_GRID_X;
+				y = 3.5 * GUI_GRID_H + GUI_GRID_Y;
+				w = 7 * GUI_GRID_W;
+				h = 12 * GUI_GRID_H;
+				colorBackground[] = {0,0,0,0.8}; 
+				text = "loading";
+				size = 0.028;
+				onMouseEnter = "disableSerialization; [3000,3801] execVM 'spawn\gui\showControl.sqf';";
+				onMouseExit = "disableSerialization; [3000,[3801]] execVM 'spawn\gui\hideControl.sqf';";
+			};
+			class US_gui_tooltip_2: RscStructuredTextTooltip
+			{
+				idc = 3802;
+				x = 4.5 * GUI_GRID_W + GUI_GRID_X;
+				y = 3.5 * GUI_GRID_H + GUI_GRID_Y;
+				w = 7 * GUI_GRID_W;
+				h = 12 * GUI_GRID_H;
+				colorBackground[] = {0,0,0,0.8}; 
+				text = "loading";
+				size = 0.028;
+				onMouseEnter = "disableSerialization; [3000,3802] execVM 'spawn\gui\showControl.sqf';";
+				onMouseExit = "disableSerialization; [3000,[3802]] execVM 'spawn\gui\hideControl.sqf';";
+			};
+			class US_gui_tooltip_3: RscStructuredTextTooltip
+			{
+				idc = 3803;
+				x = 12 * GUI_GRID_W + GUI_GRID_X;
+				y = 3.5 * GUI_GRID_H + GUI_GRID_Y;
+				w = 7 * GUI_GRID_W;
+				h = 12 * GUI_GRID_H;
+				colorBackground[] = {0,0,0,0.8}; 
+				text = "loading";
+				size = 0.028;
+				onMouseEnter = "disableSerialization; [3000,3803] execVM 'spawn\gui\showControl.sqf';";
+				onMouseExit = "disableSerialization; [3000,[3803]] execVM 'spawn\gui\hideControl.sqf';";
+			};
+			class US_gui_tooltip_4: RscStructuredTextTooltip
+			{
+				idc = 3804;
+				x = 19.5 * GUI_GRID_W + GUI_GRID_X;
+				y = 3.5 * GUI_GRID_H + GUI_GRID_Y;
+				w = 7 * GUI_GRID_W;
+				h = 12 * GUI_GRID_H;
+				colorBackground[] = {0,0,0,0.8}; 
+				text = "loading";
+				size = 0.028;
+				onMouseEnter = "disableSerialization; [3000,3804] execVM 'spawn\gui\showControl.sqf';";
+				onMouseExit = "disableSerialization; [3000,[3804]] execVM 'spawn\gui\hideControl.sqf';";
+			};
+			class US_gui_tooltip_5: RscStructuredTextTooltip
+			{
+				idc = 3805;
+				x = 27 * GUI_GRID_W + GUI_GRID_X;
+				y = 3.5 * GUI_GRID_H + GUI_GRID_Y;
+				w = 7 * GUI_GRID_W;
+				h = 12 * GUI_GRID_H;
+				colorBackground[] = {0,0,0,0.8}; 
+				text = "loading";
+				size = 0.028;
+				onMouseEnter = "disableSerialization; [3000,3805] execVM 'spawn\gui\showControl.sqf';";
+				onMouseExit = "disableSerialization; [3000,[3805]] execVM 'spawn\gui\hideControl.sqf';";
+			};
+			class US_gui_tooltip_6: RscStructuredTextTooltip
+			{
+				idc = 3806;
+				x = 34.5 * GUI_GRID_W + GUI_GRID_X;
+				y = 3.5 * GUI_GRID_H + GUI_GRID_Y;
+				w = 7 * GUI_GRID_W;
+				h = 12 * GUI_GRID_H;
+				colorBackground[] = {0,0,0,0.8}; 
+				text = "loading";
+				size = 0.028;
+				onMouseEnter = "disableSerialization; [3000,3806] execVM 'spawn\gui\showControl.sqf';";
+				onMouseExit = "disableSerialization; [3000,[3806]] execVM 'spawn\gui\hideControl.sqf';";
+			};
+			class US_gui_tooltip_7: RscStructuredTextTooltip
+			{
+				idc = 3807;
+				x = 42 * GUI_GRID_W + GUI_GRID_X;
+				y = 3.5 * GUI_GRID_H + GUI_GRID_Y;
+				w = 7 * GUI_GRID_W;
+				h = 12 * GUI_GRID_H;
+				colorBackground[] = {0,0,0,0.8}; 
+				text = "loading";
+				size = 0.028;
+				onMouseEnter = "disableSerialization; [3000,3807] execVM 'spawn\gui\showControl.sqf';";
+				onMouseExit = "disableSerialization; [3000,[3807]] execVM 'spawn\gui\hideControl.sqf';";
+			};
+
 			class US_gui_text_headline: RscStructuredTextHeadline
 			{
 				idc = 3600;

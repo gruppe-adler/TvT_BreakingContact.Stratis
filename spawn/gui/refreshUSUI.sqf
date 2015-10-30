@@ -94,6 +94,14 @@ refreshUSUI = {
 	disableSerialization;
 	_display = findDisplay 3000;
 
+	_display displayCtrl 3801 ctrlSetStructuredText parseText ((_array select 1) select 8);
+	_display displayCtrl 3802 ctrlSetStructuredText parseText ((_array select 2) select 8);
+	_display displayCtrl 3803 ctrlSetStructuredText parseText ((_array select 3) select 8);
+	_display displayCtrl 3804 ctrlSetStructuredText parseText ((_array select 4) select 8);
+	_display displayCtrl 3805 ctrlSetStructuredText parseText ((_array select 5) select 8);
+	_display displayCtrl 3806 ctrlSetStructuredText parseText ((_array select 6) select 8);
+	_display displayCtrl 3807 ctrlSetStructuredText parseText ((_array select 7) select 8);
+
 	if (!(_vehicleOrdered == "")) then {
 		VEHICLE_ORDERED_WEST = [true,_vehicleEta];
 		publicVariable "VEHICLE_ORDERED_WEST";
