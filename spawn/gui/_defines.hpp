@@ -109,6 +109,27 @@ class RscStructuredText
   };
 };
 
+class RscStructuredTextTooltip
+{
+    access = 0;
+    idc = -1;
+    type =  CT_STRUCTURED_TEXT; 
+    style = ST_MULTI;
+    lineSpacing = 0.5;
+    colorBackground[] = {-1,-1,-1,0};
+    colorText[] = {1,1,1,0.7};
+    size = 0.028;
+    text = "";
+    fixedWidth = 0;
+    x = 0;
+    y = 0;
+    h = 0;
+    w = 0;
+    class Attributes {
+        align = "left";      
+  };
+};
+
 class RscStructuredTextHeadline
 {
     access = 0;

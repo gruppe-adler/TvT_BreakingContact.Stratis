@@ -42,7 +42,8 @@ fillRussianSupplies = {
             clearItemCargoGlobal (_this select 0); 
             clearBackpackCargoGlobal (_this select 0); 
             clearMagazineCargoGlobal (_this select 0);
-            }
+            },
+            format['%1<br/>%2<br/>%3<br/>%4<br/>%5','Crew: 1','Seats: 11','Speed: 90','','']
         ],
         [
             tigr,
@@ -57,7 +58,8 @@ fillRussianSupplies = {
             clearItemCargoGlobal (_this select 0); 
             clearBackpackCargoGlobal (_this select 0); 
             clearMagazineCargoGlobal (_this select 0);
-            }
+            },
+            format['%1<br/>%2<br/>%3<br/>%4<br/>%5','Crew: 1','Seats: 7','Speed: 140','','']
         ],
         [
             "rhs_gaz66_repair_vdv",
@@ -92,7 +94,8 @@ fillRussianSupplies = {
             (_this select 0) addItemCargoGlobal ['ItemGPS',5];
             ['AddCargoByClass', _this select 0, ['ACE_wheel', _this select 0, 3]] call ace_common_fnc_targetEvent;
             ['AddCargoByClass', _this select 0, ['ACE_Track', _this select 0, 1]] call ace_common_fnc_targetEvent;
-            }
+            },
+            format['%1<br/>%2<br/>%3<br/>%4<br/>%5<br/>%6<br/>%7<br/>%8<br/>%9<br/>%10<br/>%11<br/>%12<br/>%13','Crew: 1','Seats: 1','Speed: 90','','Cargo:','40 Smokes','60 AK Mags','20 MG Mags','20 Grenades','30 Flares','Medical Stuff','5 GPS','3 Repair Wheels','1 Repair Track']
         ],
         [
             "rhs_btr60_vv",
@@ -107,7 +110,8 @@ fillRussianSupplies = {
             clearItemCargoGlobal (_this select 0); 
             clearBackpackCargoGlobal (_this select 0); 
             clearMagazineCargoGlobal (_this select 0);
-            }
+            },
+            format['%1<br/>%2<br/>%3<br/>%4<br/>%5<br/>%6<br/>%7','Crew: 3','Seats: 15 (8 on top)','Speed: 83','','Weapons:','50x9 14.5mm','250x5 7.62mm']
         ],
         [
             "rhs_brm1k_vdv",
@@ -122,7 +126,8 @@ fillRussianSupplies = {
             clearItemCargoGlobal (_this select 0); 
             clearBackpackCargoGlobal (_this select 0); 
             clearMagazineCargoGlobal (_this select 0);
-            }
+            },
+            format['%1<br/>%2<br/>%3<br/>%4<br/>%5<br/>%6<br/>%7,<br/>%8','Crew: 4','Seats: 2','Speed: 60','','Weapons:','20 PG15V (Cannon)','250x7 7.62mm','6 Smoke']
         ],
         [
             "rhs_t72ba_tv",
@@ -137,7 +142,8 @@ fillRussianSupplies = {
             clearItemCargoGlobal (_this select 0); 
             clearBackpackCargoGlobal (_this select 0); 
             clearMagazineCargoGlobal (_this select 0);
-            }
+            },
+            format['%1<br/>%2<br/>%3<br/>%4<br/>%5<br/>%6<br/>%7,<br/>%8<br/>%9,<br/>%10','Crew: 3','Speed: 60','','Weapons:','4x3 9M119','4x7 3BM42 KE','6x3 3BK18M HEAT','5x3 30F26 HE','250x7 7.62mm','8 Smoke']
         ],
         [
             "Ace_Box_Ammo",
@@ -165,7 +171,8 @@ fillRussianSupplies = {
             clearItemCargoGlobal _box; 
             clearBackpackCargoGlobal _box; 
             clearMagazineCargoGlobal _box;
-            }
+            },
+            format['%1<br/>%2<br/>%3<br/>%4','2 mobile Tanktraps','100 Sandbags','2 Static PKM','(4 Backpacks)']
         ]
     ];
 
@@ -225,7 +232,8 @@ fillUSSupplies = {
             clearItemCargoGlobal (_this select 0); 
             clearBackpackCargoGlobal (_this select 0); 
             clearMagazineCargoGlobal (_this select 0);
-            }
+            },
+            format['%1<br/>%2<br/>%3<br/>%4','My Multi-line Tool-tip:','Line 1','Line 2','Line 3','Line 4']
         ],
         [
             hmmwv_m2,
@@ -240,7 +248,8 @@ fillUSSupplies = {
             clearItemCargoGlobal (_this select 0); 
             clearBackpackCargoGlobal (_this select 0); 
             clearMagazineCargoGlobal (_this select 0);
-            }
+            },
+            format['%1<br/>%2<br/>%3<br/>%4','My Multi-line Tool-tip:','Line 1','Line 2','Line 3','Line 4']
         ],
         [
             m113_m2,
@@ -255,7 +264,8 @@ fillUSSupplies = {
             clearItemCargoGlobal (_this select 0); 
             clearBackpackCargoGlobal (_this select 0); 
             clearMagazineCargoGlobal (_this select 0);
-            }
+            },
+            format['%1<br/>%2<br/>%3<br/>%4','My Multi-line Tool-tip:','Line 1','Line 2','Line 3','Line 4']
         ],
         [
             m113_ammo,
@@ -289,7 +299,8 @@ fillUSSupplies = {
             (_this select 0) addItemCargoGlobal ['ItemGPS',5];
             ['AddCargoByClass', _this select 0, ['ACE_wheel', _this select 0, 3]] call ace_common_fnc_targetEvent;
             ['AddCargoByClass', _this select 0, ['ACE_Track', _this select 0, 1]] call ace_common_fnc_targetEvent;
-            }
+            },
+            format['%1<br/>%2<br/>%3<br/>%4','My Multi-line Tool-tip:','Line 1','Line 2','Line 3','Line 4']
         ],
         [
             "Ace_Box_Ammo",
@@ -305,7 +316,8 @@ fillUSSupplies = {
             clearBackpackCargoGlobal (_this select 0); 
             clearMagazineCargoGlobal (_this select 0);
             (_this select 0) addBackpackCargoGlobal ['B_Parachute',14];
-            }
+            },
+            format['%1<br/>%2<br/>%3<br/>%4','My Multi-line Tool-tip:','Line 1','Line 2','Line 3','Line 4']
         ],
         [
             "B_Heli_Light_01_F",
@@ -320,7 +332,8 @@ fillUSSupplies = {
             clearItemCargoGlobal (_this select 0); 
             clearBackpackCargoGlobal (_this select 0); 
             clearMagazineCargoGlobal (_this select 0);
-            }
+            },
+            format['%1<br/>%2<br/>%3<br/>%4','My Multi-line Tool-tip:','Line 1','Line 2','Line 3','Line 4']
         ],
         [
             "RHS_UH60M",
@@ -336,7 +349,8 @@ fillUSSupplies = {
             clearBackpackCargoGlobal (_this select 0); 
             clearMagazineCargoGlobal (_this select 0);
             (_this select 0) setVehicleAmmo 0.4;
-            }
+            },
+            format['%1<br/>%2<br/>%3<br/>%4','My Multi-line Tool-tip:','Line 1','Line 2','Line 3','Line 4']
         ]
     ];
 

@@ -15,7 +15,7 @@ createOpforStuff =  {
 	 };
 
 	funkwagen animate ["light_hide",1];
-
+	sleep 0.1;
 	[getPos funkwagen, 50] call spawnOpforHQ;
 
 	if (!isMultiplayer) then {

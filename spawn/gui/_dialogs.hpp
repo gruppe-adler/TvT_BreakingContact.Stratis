@@ -6,6 +6,8 @@ class russianSupplyGUI
 		enableSimulation = 1;
 		enableDisplay = 1;
 		objects[] = {};
+		onLoad = "disableSerialization; [1000,[1801,1802,1803,1804,1805,1806,1807]] execVM 'spawn\gui\hideControl.sqf';";
+
 
 		class ControlsBackground
 		{
@@ -124,6 +126,7 @@ class russianSupplyGUI
 				h = 6 * GUI_GRID_H;
 				text = "spawn\gui\pic\rus_gaz66.paa";
 			};
+
 			class russian_gui_pic_2: RscPicture
 			{
 				idc = 1002;
@@ -133,6 +136,7 @@ class russianSupplyGUI
 				h = 6 * GUI_GRID_H;
 				text = "spawn\gui\pic\rus_tigr.paa";
 			};
+
 			class russian_gui_pic_3: RscPicture
 			{
 				idc = 1003;
@@ -142,6 +146,7 @@ class russianSupplyGUI
 				h = 6 * GUI_GRID_H;
 				text = "spawn\gui\pic\rus_gaz66_repair.paa";
 			};
+
 			class russian_gui_pic_4: RscPicture
 			{
 				idc = 1004;
@@ -151,6 +156,7 @@ class russianSupplyGUI
 				h = 6 * GUI_GRID_H;
 				text = "spawn\gui\pic\rus_btr60.paa";
 			};
+
 			class russian_gui_pic_5: RscPicture
 			{
 				idc = 1005;
@@ -160,6 +166,7 @@ class russianSupplyGUI
 				h = 6 * GUI_GRID_H;
 				text = "spawn\gui\pic\rus_brm1k.paa";
 			};
+
 			class russian_gui_pic_6: RscPicture
 			{
 				idc = 1006;
@@ -169,6 +176,7 @@ class russianSupplyGUI
 				h = 6 * GUI_GRID_H;
 				text = "spawn\gui\pic\rus_t72.paa";
 			};
+
 			class russian_gui_pic_7: RscPicture
 			{
 				idc = 1007;
@@ -178,6 +186,7 @@ class russianSupplyGUI
 				h = 6 * GUI_GRID_H;
 				text = "spawn\gui\pic\rus_static_mg.paa";
 			};
+			
 			class russian_gui_text_namedisplay_1: RscStructuredText
 			{
 				idc = 1101;
@@ -421,6 +430,99 @@ class russianSupplyGUI
 				colorText[] = {1,1,1,0.5};
 				colorBackground[] = {-1,-1,-1,0};
 			};
+
+			class russian_gui_tooltip_1: RscStructuredTextTooltip
+			{
+				idc = 1801;
+				x = -3.5 * GUI_GRID_W + GUI_GRID_X;
+				y = 3.5 * GUI_GRID_H + GUI_GRID_Y;
+				w = 7 * GUI_GRID_W;
+				h = 12 * GUI_GRID_H;
+				colorBackground[] = {0,0,0,0.8}; 
+				text = "loading";
+				size = 0.028;
+				onMouseEnter = "disableSerialization; [1000,1801] execVM 'spawn\gui\showControl.sqf';";
+				onMouseExit = "disableSerialization; [1000,[1801]] execVM 'spawn\gui\hideControl.sqf';";
+			};
+			class russian_gui_tooltip_2: RscStructuredTextTooltip
+			{
+				idc = 1802;
+				x = 4.5 * GUI_GRID_W + GUI_GRID_X;
+				y = 3.5 * GUI_GRID_H + GUI_GRID_Y;
+				w = 7 * GUI_GRID_W;
+				h = 12 * GUI_GRID_H;
+				colorBackground[] = {0,0,0,0.8}; 
+				text = "loading";
+				size = 0.028;
+				onMouseEnter = "disableSerialization; [1000,1802] execVM 'spawn\gui\showControl.sqf';";
+				onMouseExit = "disableSerialization; [1000,[1802]] execVM 'spawn\gui\hideControl.sqf';";
+			};
+			class russian_gui_tooltip_3: RscStructuredTextTooltip
+			{
+				idc = 1803;
+				x = 12 * GUI_GRID_W + GUI_GRID_X;
+				y = 3.5 * GUI_GRID_H + GUI_GRID_Y;
+				w = 7 * GUI_GRID_W;
+				h = 12 * GUI_GRID_H;
+				colorBackground[] = {0,0,0,0.8}; 
+				text = "loading";
+				size = 0.028;
+				onMouseEnter = "disableSerialization; [1000,1803] execVM 'spawn\gui\showControl.sqf';";
+				onMouseExit = "disableSerialization; [1000,[1803]] execVM 'spawn\gui\hideControl.sqf';";
+			};
+			class russian_gui_tooltip_4: RscStructuredTextTooltip
+			{
+				idc = 1804;
+				x = 19.5 * GUI_GRID_W + GUI_GRID_X;
+				y = 3.5 * GUI_GRID_H + GUI_GRID_Y;
+				w = 7 * GUI_GRID_W;
+				h = 12 * GUI_GRID_H;
+				colorBackground[] = {0,0,0,0.8}; 
+				text = "loading";
+				size = 0.028;
+				onMouseEnter = "disableSerialization; [1000,1804] execVM 'spawn\gui\showControl.sqf';";
+				onMouseExit = "disableSerialization; [1000,[1804]] execVM 'spawn\gui\hideControl.sqf';";
+			};
+			class russian_gui_tooltip_5: RscStructuredTextTooltip
+			{
+				idc = 1805;
+				x = 27 * GUI_GRID_W + GUI_GRID_X;
+				y = 3.5 * GUI_GRID_H + GUI_GRID_Y;
+				w = 7 * GUI_GRID_W;
+				h = 12 * GUI_GRID_H;
+				colorBackground[] = {0,0,0,0.8}; 
+				text = "loading";
+				size = 0.028;
+				onMouseEnter = "disableSerialization; [1000,1805] execVM 'spawn\gui\showControl.sqf';";
+				onMouseExit = "disableSerialization; [1000,[1805]] execVM 'spawn\gui\hideControl.sqf';";
+			};
+			class russian_gui_tooltip_6: RscStructuredTextTooltip
+			{
+				idc = 1806;
+				x = 34.5 * GUI_GRID_W + GUI_GRID_X;
+				y = 3.5 * GUI_GRID_H + GUI_GRID_Y;
+				w = 7 * GUI_GRID_W;
+				h = 12 * GUI_GRID_H;
+				colorBackground[] = {0,0,0,0.8}; 
+				text = "loading";
+				size = 0.028;
+				onMouseEnter = "disableSerialization; [1000,1806] execVM 'spawn\gui\showControl.sqf';";
+				onMouseExit = "disableSerialization; [1000,[1806]] execVM 'spawn\gui\hideControl.sqf';";
+			};
+			class russian_gui_tooltip_7: RscStructuredTextTooltip
+			{
+				idc = 1807;
+				x = 42 * GUI_GRID_W + GUI_GRID_X;
+				y = 3.5 * GUI_GRID_H + GUI_GRID_Y;
+				w = 7 * GUI_GRID_W;
+				h = 12 * GUI_GRID_H;
+				colorBackground[] = {0,0,0,0.8}; 
+				text = "loading";
+				size = 0.028;
+				onMouseEnter = "disableSerialization; [1000,1807] execVM 'spawn\gui\showControl.sqf';";
+				onMouseExit = "disableSerialization; [1000,[1807]] execVM 'spawn\gui\hideControl.sqf';";
+			};
+
 			class russian_gui_text_headline: RscStructuredTextHeadline
 			{
 				idc = 1600;
