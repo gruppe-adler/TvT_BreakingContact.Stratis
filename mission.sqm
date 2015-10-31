@@ -1125,13 +1125,13 @@ class Mission
 				items=2;
 				class Item0
 				{
-					position[]={1787.2002,5.5,5984.0518};
+					position[]={1683.2991,0,6188.4277};
 					azimut=39.639999;
 					special="NONE";
 					id=22;
 					side="EAST";
 					vehicle="O_officer_F";
-					player="PLAY CDG";
+					player="PLAYER COMMANDER";
 					leader=1;
 					rank="MAJOR";
 					skill=0.5;
@@ -2132,7 +2132,7 @@ class Mission
 					id=81;
 					side="WEST";
 					vehicle="B_officer_F";
-					player="PLAYER COMMANDER";
+					player="PLAY CDG";
 					leader=1;
 					rank="MAJOR";
 					skill=0.5;

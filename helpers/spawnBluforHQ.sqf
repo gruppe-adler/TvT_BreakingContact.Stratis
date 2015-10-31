@@ -136,8 +136,8 @@ spawnBluforHQ = {
 			BLUFOR_TELEPORT_TARGET = getPos (_bluforSpawnSuccess select 2);
 			publicVariableServer "BLUFOR_TELEPORT_TARGET";
 
-			_usActionHelper = createVehicle ["Land_SatellitePhone_F", [(getPos _vehicle1 select 0) -1, (getPos _vehicle1 select 1) - 1, 1.5], [], 0, "NONE"];
-			
+			_usActionHelper = createVehicle ["Land_SatellitePhone_F", [(getPos _vehicle1 select 0) + 2, (getPos _vehicle1 select 1) - 1, 0.5], [], 0, "NONE"];
+			_usActionHelper attachTo [_vehicle1, [2,3.5,0.4]];			
 
 			debugLog("blufor published target");
 			diag_log format ["creating blufor stuff on position: %1",US_VEHICLE_SPAWN];
@@ -171,8 +171,8 @@ spawnOpforHQ = {
 			RUS_VEHICLE_SPAWN = getPos (_opforSpawnSuccess select 2);
 			publicVariable "RUS_VEHICLE_SPAWN";
 
-			_rusActionHelper = createVehicle ["Land_SatellitePhone_F", [(getPos _vehicle1 select 0) -1, (getPos _vehicle1 select 1) - 1, 1.5], [], 0, "NONE"];
-			
+			_rusActionHelper = createVehicle ["Land_SatellitePhone_F", [(getPos _vehicle1 select 0) + 2, (getPos _vehicle1 select 1) - 1, 0.5], [], 0, "NONE"];
+			_rusActionHelper attachTo [_vehicle1, [2,3.5,0.4]];
 
 			/* OPFOR_TELEPORT_TARGET = getPos (_opforSpawnSuccess select 2);
 			publicVariableServer "OPFOR_TELEPORT_TARGET"; */

@@ -148,6 +148,7 @@ diag_log format ["setup: clientandserver done"];
 if (hasInterface) then {
 
 	player allowDamage false;
+	[] execVM "player\setup\adjustInitialSpawnPosition.sqf"; diag_log format ["setup: initial spawn position initiated"];
 
 	checkJIP = {
 		if ((OPFOR_TELEPORT_TARGET select 0 != 0) && didJIP && time > jipTime) then {
@@ -201,7 +202,7 @@ if (hasInterface) then {
 
 	[] execVM "player\setup\helpBriefing.sqf"; diag_log format ["setup: briefing initiated"];
 
-	[] execVM "player\setup\adjustInitialSpawnPosition.sqf"; diag_log format ["setup: initial spawn position initiated"];
+	
 
 	
 	[] execVM "player\allXXXSurrenderedListener.sqf"; diag_log format ["setup: surrenderlistener initiated"];
@@ -216,7 +217,6 @@ if (hasInterface) then {
 		[] execVM "player\bluforBluforTeleportListener.sqf";
 		[] execVM "player\bluforRussianPointsListener.sqf";
 		[] spawn checkJIP;
-		
 	};
 
 	if (playerSide == east) then {
@@ -224,8 +224,6 @@ if (hasInterface) then {
 		[] execVM "player\opforBluforTeleportListener.sqf"; diag_log format ["setup: opforBluforTeleportListener initiated"];
 		[] execVM "player\opforOpforTeleportListener.sqf"; diag_log format ["setup: opforOpforTeleportListener initiated"];
 		[] spawn checkJIP; diag_log format ["setup: createStartHints initiated"];
-		
-		
 	};
 	waitUntil {!isNull player && !isNil "ST_STHud_ToRestart"};
 	// disable sthud for intro
