@@ -107,7 +107,7 @@ refreshRussianUI = {
 	_vehicleEta = _this select 6;
 
 
-	waitUntil {dialog};
+	
 
 	//_disabledButtons = [[1501,1502,1503,1504],_array] call checkForDisabledButtons;
 

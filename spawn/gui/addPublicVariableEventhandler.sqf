@@ -249,7 +249,7 @@ fillUSSupplies = {
             clearBackpackCargoGlobal (_this select 0); 
             clearMagazineCargoGlobal (_this select 0);
             },
-            format['%1<br/>%2<br/>%3<br/>%4<br/>%5','Crew: 1','Seats: 3','Speed: 109','','']
+            format['%1<br/>%2<br/>%3<br/>%4<br/>%5<br/>%6','Crew: 1','Seats: 3','Speed: 109','','Weapons:','100x6 7.62']
         ],
         [
             m113_m2,
@@ -350,7 +350,7 @@ fillUSSupplies = {
             clearMagazineCargoGlobal (_this select 0);
             (_this select 0) setVehicleAmmo 0.4;
             },
-            format['%1<br/>%2<br/>%3<br/>%4<br/>%5','Crew: 3','Seats: 13','Speed: 295','','']
+            format['%1<br/>%2<br/>%3<br/>%4<br/>%5<br/>%6','Crew: 3','Seats: 13','Speed: 295','','Weapons:','2x2000 7.62']
         ]
     ];
 

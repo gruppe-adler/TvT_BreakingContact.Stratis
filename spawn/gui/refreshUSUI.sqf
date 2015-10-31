@@ -78,7 +78,7 @@ refreshUSUI = {
 	_vehicleCalls = _this select 5;
 	_vehicleEta = _this select 6;
 
-	waitUntil {dialog};
+	
 
 
 	//_disabledButtons = [[3501,3502,3503,3504],_array] call checkForDisabledButtons;
