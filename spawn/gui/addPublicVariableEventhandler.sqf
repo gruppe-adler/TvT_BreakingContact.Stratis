@@ -149,8 +149,8 @@ fillRussianSupplies = {
             "Ace_Box_Ammo",
             "Defense Pack",
             3,
-            700,
-            "<t align='center'>700 cr</t>",
+            500,
+            "<t align='center'>500 cr</t>",
             1,
             [[]],
             {
@@ -162,7 +162,7 @@ fillRussianSupplies = {
             (_this select 0) addBackpackCargoGlobal ['RHS_NSV_Tripod_Bag',1];
             (_this select 0) addItemCargoGlobal ['ACE_Sandbag_empty',100];
             },
-            format['%1<br/>%2<br/>%3<br/>%4','100 Sandbags','2 Static PKM','(4 Backpacks)']
+            format['%1<br/>%2<br/>%3','100 Sandbags','2 Static PKM','(4 Backpacks)']
         ]
     ];
 
