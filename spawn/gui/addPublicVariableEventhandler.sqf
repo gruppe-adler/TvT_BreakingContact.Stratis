@@ -161,18 +161,8 @@ fillRussianSupplies = {
             (_this select 0) addBackpackCargoGlobal ['RHS_NSV_Gun_Bag',1];
             (_this select 0) addBackpackCargoGlobal ['RHS_NSV_Tripod_Bag',1];
             (_this select 0) addItemCargoGlobal ['ACE_Sandbag_empty',100];
-            _box = createVehicle ['ACE_Box_Misc', position (_this select 0), [], 1, 'NONE'];
-            clearWeaponCargoGlobal _box; 
-            clearItemCargoGlobal _box; 
-            clearBackpackCargoGlobal _box; 
-            clearMagazineCargoGlobal _box;
-            _box = createVehicle ['ACE_Box_Misc', position (_this select 0), [], 1, 'NONE'];
-            clearWeaponCargoGlobal _box; 
-            clearItemCargoGlobal _box; 
-            clearBackpackCargoGlobal _box; 
-            clearMagazineCargoGlobal _box;
             },
-            format['%1<br/>%2<br/>%3<br/>%4','2 mobile Tanktraps','100 Sandbags','2 Static PKM','(4 Backpacks)']
+            format['%1<br/>%2<br/>%3<br/>%4','100 Sandbags','2 Static PKM','(4 Backpacks)']
         ]
     ];
 
