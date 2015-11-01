@@ -7,7 +7,6 @@ _tempRussian_4 = (russianSupplies select 4);
 _tempRussian_5 = (russianSupplies select 5);
 _tempRussian_6 = (russianSupplies select 6);
 _tempRussian_7 = (russianSupplies select 7);
-_tempRussian_8 = (russianSupplies select 8);
 
 _oldMoney = (russianSupplies select 0);
 _price = [_idc] call russian_IDC_to_price;
@@ -93,8 +92,7 @@ _tempSupplies =
         _tempRussian_4,
         _tempRussian_5,
         _tempRussian_6,
-        _tempRussian_7,
-        _tempRussian_8
+        _tempRussian_7
     ];
 
 [_tempSupplies,false,0,_vehicleOrdered,_vehicleExtras,_vehicleCalls,_vehicleEta] call refreshRussianUI;
