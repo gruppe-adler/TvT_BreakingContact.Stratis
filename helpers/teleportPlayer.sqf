@@ -10,7 +10,6 @@ playSound "beam";
 cutText ["", "BLACK OUT", 0.1];
 
 _nul = player setPos _spawn;
-[getPos player] execVM "helpers\enforceNoSwim.sqf";
 sleep 2;
 openMap [false, false];
 hintSilent "";
