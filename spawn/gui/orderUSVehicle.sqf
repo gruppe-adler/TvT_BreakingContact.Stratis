@@ -7,6 +7,7 @@ _tempUS_4 = (USSupplies select 4);
 _tempUS_5 = (USSupplies select 5);
 _tempUS_6 = (USSupplies select 6);
 _tempUS_7 = (USSupplies select 7);
+_tempUS_8 = (USSupplies select 8);
 
 _oldMoney = (USSupplies select 0);
 _price = [_idc] call US_IDC_to_price;
@@ -92,7 +93,8 @@ _tempSupplies =
         _tempUS_4,
         _tempUS_5,
         _tempUS_6,
-        _tempUS_7
+        _tempUS_7,
+        _tempUS_8
     ];
 
 [_tempSupplies,false,0,_vehicleOrdered,_vehicleExtras,_vehicleCalls,_vehicleEta] call refreshUSUI;
