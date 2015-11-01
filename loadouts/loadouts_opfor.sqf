@@ -49,7 +49,7 @@ opfor_default = {
 	
 	this forceAddUniform "rhs_uniform_flora_patchless_alt";
 	this addVest "rhs_6b23_ML_rifleman";
-	this addHeadgear "H_Hat_HelmetT";
+	this addHeadgear "rhs_6b27m_ml";
 	
 
 	[this] call set_akm_ammo;
@@ -61,7 +61,7 @@ opfor_default = {
 	this addWeapon "Binocular";
 	this addWeapon "rhs_weap_akm";
 	this addWeapon "hgun_Rook40_F";
-	this addPrimaryWeaponItem "optic_Aco";
+	
 	[this] call opfor_basic;
 
 };
@@ -102,7 +102,7 @@ opfor_sql = {
 	this addWeapon "Binocular";
 	this addWeapon "rhs_weap_akm_gp25";
 	this addWeapon "hgun_Rook40_F";
-	this addPrimaryWeaponItem "optic_Aco";
+	
 
 	this linkItem "ItemGPS";
 	this linkItem "ItemMap";
@@ -141,7 +141,7 @@ opfor_ftl = {
 	this addWeapon "Binocular";
 	this addWeapon "rhs_weap_akm";
 	this addWeapon "hgun_Rook40_F";
-	this addPrimaryWeaponItem "optic_Aco";
+	
 	[this] call opfor_basic;
 
 };
@@ -164,7 +164,7 @@ opfor_medic = {
 	
 	this forceAddUniform "rhs_uniform_flora_patchless_alt";
 	this addVest "rhs_6b23_ML_medic";
-	this addHeadgear "H_Hat_HelmetT";
+	this addHeadgear "rhs_6b27m_ml";
 	this addBackpack "rhs_sidor";
 
 	[this] call set_akm_ammo;
@@ -181,7 +181,7 @@ opfor_medic = {
 	this addWeapon "Binocular";
 	this addWeapon "rhs_weap_akm";
 	this addWeapon "hgun_Rook40_F";
-	this addPrimaryWeaponItem "optic_Aco";
+	
 	[this] call opfor_basic;
 
 };
@@ -204,7 +204,7 @@ opfor_marksman = {
 	
 	this forceAddUniform "rhs_uniform_flora_patchless_alt";
 	this addVest "rhs_6b23_ML_sniper";
-	this addHeadgear "H_Hat_HelmetT";
+	this addHeadgear "rhs_6b27m_ml";
 
 	[this, "rhs_10Rnd_762x54mmR_7N1", 9] call addMagazinesToBackpack;
 	
@@ -240,7 +240,7 @@ opfor_AT = {
 	
 	this forceAddUniform "rhs_uniform_flora_patchless_alt";
 	this addVest "rhs_6b23_ML_engineer";
-	this addHeadgear "H_Hat_HelmetT";
+	this addHeadgear "rhs_6b27m_ml";
 	this addBackpack "rhs_rpg_empty";
 
 	[this] call set_akm_ammo;
@@ -277,7 +277,7 @@ opfor_MG = {
 	
 	this forceAddUniform "rhs_uniform_flora_patchless_alt";
 	this addVest "rhs_6b23_ML_6sh92_vog";
-	this addHeadgear "H_Hat_HelmetT";
+	this addHeadgear "rhs_6b27m_ml";
 	this addBackpack "rhs_sidor";
 
 	[this, "rhs_100Rnd_762x54mmR_green", 2] call addMagazinesToBackpack;
@@ -316,7 +316,7 @@ opfor_engineer = {
 	
 	this forceAddUniform "rhs_uniform_flora_patchless_alt";
 	this addVest "rhs_6b23_ML_6sh92_headset";
-	this addHeadgear "H_Hat_HelmetT";
+	this addHeadgear "rhs_6b27m_ml";
 	this addBackpack "rhs_sidor";
 
 	[this] call set_akm_ammo;
@@ -328,7 +328,7 @@ opfor_engineer = {
 	this addWeapon "Binocular";
 	this addWeapon "rhs_weap_akm";
 	this addWeapon "hgun_Rook40_F";
-	this addPrimaryWeaponItem "optic_Aco";
+	
 	[this] call opfor_basic;
 
 };
@@ -363,7 +363,7 @@ opfor_crew = {
 	this addWeapon "Binocular";
 	this addWeapon "rhs_weap_akm";
 	this addWeapon "hgun_Rook40_F";
-	this addPrimaryWeaponItem "optic_Aco";
+	
 	[this] call opfor_basic;
 
 };
@@ -385,7 +385,7 @@ opfor_ammobearer = {
 	
 	this forceAddUniform "rhs_uniform_flora_patchless_alt";
 	this addVest "rhs_6b23_ML_6sh92_headset";
-	this addHeadgear "H_Hat_HelmetT";
+	this addHeadgear "rhs_6b27m_ml";
 	this addBackpack "rhs_sidor";
 
 	[this] call set_akm_ammo;
@@ -400,6 +400,6 @@ opfor_ammobearer = {
 	this addWeapon "Binocular";
 	this addWeapon "rhs_weap_akm";
 	this addWeapon "hgun_Rook40_F";
-	this addPrimaryWeaponItem "optic_Aco";
+	
 	[this] call opfor_basic;
 };

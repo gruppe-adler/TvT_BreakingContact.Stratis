@@ -18,6 +18,6 @@ cutText ["", "BLACK IN", 1];
 
 // make player vulnerable again
 player allowDamage true;
-3 call fn_sthud_usermenu_changeMode;
+// 3 call fn_sthud_usermenu_changeMode;
 sleep 1;
 cutText ["", "PLAIN"];

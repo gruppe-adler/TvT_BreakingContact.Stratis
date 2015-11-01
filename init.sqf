@@ -225,7 +225,8 @@ if (hasInterface) then {
 		[] execVM "player\opforOpforTeleportListener.sqf"; diag_log format ["setup: opforOpforTeleportListener initiated"];
 		[] spawn checkJIP; diag_log format ["setup: createStartHints initiated"];
 	};
-	waitUntil {!isNull player && !isNil "ST_STHud_ToRestart"};
+
+	/*waitUntil {!isNull player && !isNil "ST_STHud_ToRestart"};
 	// disable sthud for intro
-	0 call fn_sthud_usermenu_changeMode;
+	0 call fn_sthud_usermenu_changeMode;*/
 };
