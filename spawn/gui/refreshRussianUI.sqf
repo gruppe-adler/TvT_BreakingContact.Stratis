@@ -212,7 +212,7 @@ refreshRussianUI = {
 		};
 	};
 
-
+	if (count _array > 0) then {
 	_display displayCtrl 1801 ctrlSetStructuredText parseText ((_array select 1) select 8);
 	_display displayCtrl 1802 ctrlSetStructuredText parseText ((_array select 2) select 8);
 	_display displayCtrl 1803 ctrlSetStructuredText parseText ((_array select 3) select 8);
@@ -220,6 +220,7 @@ refreshRussianUI = {
 	_display displayCtrl 1805 ctrlSetStructuredText parseText ((_array select 5) select 8);
 	_display displayCtrl 1806 ctrlSetStructuredText parseText ((_array select 6) select 8);
 	_display displayCtrl 1807 ctrlSetStructuredText parseText ((_array select 7) select 8);
+	};
 
 
 	_namedisplay_1 = (_array select 1) select 1;

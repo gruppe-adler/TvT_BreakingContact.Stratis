@@ -22,3 +22,5 @@ debugLog(_msg);
 _tmpPos = [_playerPosition,[0,10], random 360,0,[1,50]] call SHK_pos;
 
 player setPos _tmpPos;
+
+player switchmove "AmovPercMstpSnonWnonDnon";

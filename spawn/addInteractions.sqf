@@ -6,7 +6,7 @@ _usAction = ["ACE_MainActions", (localize "str_GRAD_buy_vehicles"), "",
 
 
 _rusAction = ["ACE_MainActions", (localize "str_GRAD_buy_vehicles"), "",
- {0 = createDialog "RussianSupplyGUI"; disableSerialization; [RussianSupplies, false, 0, "","",""] call refreshRussianUI;},
+ {0 = createDialog "RussianSupplyGUI"; disableSerialization; [russianSupplies, false, 0, "","",""] call refreshRussianUI;},
   {side player == east},{},[],[2,3.5,0],5] call ace_interact_menu_fnc_createAction;
 
 ["Land_Cargo_House_V1_F", 0, [], _rusAction] call ace_interact_menu_fnc_addActionToClass;
