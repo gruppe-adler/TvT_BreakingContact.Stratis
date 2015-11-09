@@ -164,7 +164,7 @@ class russianSupplyGUI
 				y = 3.5 * GUI_GRID_H + GUI_GRID_Y;
 				w = 7 * GUI_GRID_W;
 				h = 6 * GUI_GRID_H;
-				text = "spawn\gui\pic\rus_brm1k.paa";
+				text = "spawn\gui\pic\rus_prp3.paa";
 			};
 
 			class russian_gui_pic_6: RscPicture

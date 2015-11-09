@@ -12,7 +12,7 @@ waitUntil { !isNull _unit };
             //["loadouts processed for _unit %1",typeOf _unit] call BIS_fnc_logFormat;
            
 
-          
+            
             
             switch (typeOf _unit) do {
 

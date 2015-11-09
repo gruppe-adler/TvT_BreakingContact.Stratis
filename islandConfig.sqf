@@ -57,7 +57,7 @@ ISLANDS = [
 ];
 // pos blufor, pos opfor, water around map?, woodcamo, name
 ISLAND_TARGET_POSITIONS = [
-	[ [14300,16200], [14600, 16700], true, false, 'Altis'],
+	[ [14300,16200], [14600, 16700], true, true, 'Altis'],
 	[ [3000, 5400], [3900, 4900], true, true,'Bornholm' ],
 	[ [4100,11000], [4860, 9740], true, true,'Chernarus'],
 	[ [4100,11000], [4860, 9740], true, true,'Chernarus_Summer'],

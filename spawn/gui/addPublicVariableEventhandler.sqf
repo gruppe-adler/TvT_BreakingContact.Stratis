@@ -114,8 +114,8 @@ fillRussianSupplies = {
             format['%1<br/>%2<br/>%3<br/>%4<br/>%5<br/>%6<br/>%7','Crew: 3','Seats: 15 (8 on top)','Speed: 83','','Weapons:','50x9 14.5mm','250x5 7.62mm']
         ],
         [
-            "rhs_brm1k_vdv",
-            "BRM1K",
+            "rhs_prp3_vdv",
+            "PRP-3",
             2,
             2500,
             "<t align='center'>2500 cr</t>",
@@ -127,7 +127,7 @@ fillRussianSupplies = {
             clearBackpackCargoGlobal (_this select 0); 
             clearMagazineCargoGlobal (_this select 0);
             },
-            format['%1<br/>%2<br/>%3<br/>%4<br/>%5<br/>%6<br/>%7,<br/>%8','Crew: 4','Seats: 2','Speed: 60','','Weapons:','20 PG15V (Cannon)','250x7 7.62mm','6 Smoke']
+            format['%1<br/>%2<br/>%3<br/>%4<br/>%5<br/>%6<br/>%7,<br/>%8','Crew: 4','Seats: 0','Speed: 60','','Weapons:','250x7 7.62mm','6 Smoke','Illumination Mortar']
         ],
         [
             "rhs_t72ba_tv",
@@ -142,8 +142,9 @@ fillRussianSupplies = {
             clearItemCargoGlobal (_this select 0); 
             clearBackpackCargoGlobal (_this select 0); 
             clearMagazineCargoGlobal (_this select 0);
+            (_this select 0) removemagazinesturret ["rhs_mag_3of26_5",[0]];
             },
-            format['%1<br/>%2<br/>%3<br/>%4<br/>%5<br/>%6<br/>%7,<br/>%8<br/>%9,<br/>%10','Crew: 3','Speed: 60','','Weapons:','4x3 9M119','4x7 3BM42 KE','6x3 3BK18M HEAT','5x3 30F26 HE','250x7 7.62mm','8 Smoke']
+            format['%1<br/>%2<br/>%3<br/>%4<br/>%5<br/>%6<br/>%7,<br/>%8<br/>%9,<br/>%10','Crew: 3','Speed: 60','','Weapons:','4x3 9M119','4x7 3BM42 KE','6x3 3BK18M HEAT','no HE!','250x7 7.62mm','8 Smoke']
         ],
         [
             "Ace_Box_Ammo",

@@ -54,6 +54,7 @@ if (!isMultiplayer) then { // Editor
 };
 
 
+
 if (isServer) then {
 	// allow view distance to be up to 10k
 	
@@ -124,7 +125,9 @@ if (isServer) then {
 	[] execVM "server\russianMarker.sqf";
  	[] execVM "server\teleportListener.sqf";
 
- 	{if (!isPlayer _x) then {[_x] execVM "loadouts\_client.sqf";};} forEach allUnits;
+ 	[] spawn {
+ 		{if (!isPlayer _x) then {sleep 0.5; [_x] execVM "loadouts\_client.sqf"};} forEach allUnits;
+ 	};
  	
 };
 diag_log format ["setup: server done"];
@@ -157,9 +160,9 @@ if (hasInterface) then {
 		} else {
 		if (!didJIP) exitWith {[] call checkSpawnButton;};
 			if (playerSide == east) then {
-			[RUS_VEHICLE_SPAWN, 50] execVM "helpers\teleportPlayer.sqf";
+			[OPFOR_TELEPORT_TARGET, 50] execVM "helpers\teleportPlayer.sqf";
 			} else {
-			[US_VEHICLE_SPAWN, 50] execVM "helpers\teleportPlayer.sqf";
+			[BLUFOR_TELEPORT_TARGET, 50] execVM "helpers\teleportPlayer.sqf";
 			};
 		};
 	};
@@ -206,7 +209,12 @@ if (hasInterface) then {
 
 	
 	[] execVM "player\allXXXSurrenderedListener.sqf"; diag_log format ["setup: surrenderlistener initiated"];
-	[player] execVM "loadouts\_client.sqf"; diag_log format ["setup: loadouts initiated"];
+	// [player] execVM "loadouts\_client.sqf"; 
+	[] spawn {
+		sleep (random 10);
+		[player] execVM "loadouts\_client.sqf"; diag_log format ["setup: loadout %1 initiated",player];
+	};
+	
 
 	[] execVM "spawn\hedgehogAssemblingSystem.sqf";
 	[] execVM "spawn\addInteractions.sqf";

@@ -1,4 +1,5 @@
 #include "\z\ace\addons\main\script_component.hpp"
+[] execVM "CSSA3\exitCSSA3.sqf";
 
 [{["Starting Replay."] call EFUNC(common,displayTextStructured);},"BIS_fnc_spawn",true,true] call BIS_fnc_MP;
 [{openMap [true,false];},"BIS_fnc_spawn",true,true] call BIS_fnc_MP;
