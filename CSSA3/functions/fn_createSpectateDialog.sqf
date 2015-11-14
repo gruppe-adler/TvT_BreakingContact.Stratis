@@ -18,6 +18,15 @@ private ["_mode","_cam"];
 
 _mode = _this select 0;
 
+if (MISSION_COMPLETED) exitWith {
+	if (!isNull (findDisplay 7810)) then {closeDialog 0};
+
+	if (!isNil {CSSA3_LMB}) then {
+		['Exit'] call CSSA3_fnc_mainSpectateFunctions;
+	};
+	openMap [true,true];
+};
+
 //On player killed.
 if (_mode == "killed") exitWith
 {

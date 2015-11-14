@@ -3,7 +3,7 @@
 
 [{["Starting Replay."] call EFUNC(common,displayTextStructured);},"BIS_fnc_spawn",true,true] call BIS_fnc_MP;
 
-forceRespawn player;
+// forceRespawn player;
 [] call CSSA3_fnc_forceClose;
 
 [{openMap [true,true];},"BIS_fnc_spawn",true,true] call BIS_fnc_MP;

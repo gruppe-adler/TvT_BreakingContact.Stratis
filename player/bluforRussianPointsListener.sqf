@@ -6,7 +6,7 @@ showPointsWarning = {
 	_points = _this;
 	_pointsRatio = _points / POINTS_NEEDED_FOR_VICTORY;
 	if (_pointsRatio >= showPointsNextWarning) then { // alle 10% die Warnung
-		_string = localize "str_GRAD_transmissionTime_1" + (str (round(_pointsRatio * 100))) + localize "str_GRAD_transmissionTime_2";
+		_string = localize "str_GRAD_transmissionTime_1" + " " + (str (round(_pointsRatio * 100))) + " " + localize "str_GRAD_transmissionTime_2";
 		[_string] call EFUNC(common,displayTextStructured);
 		showPointsNextWarning = showPointsNextWarning + 0.1;
 	};
@@ -15,7 +15,7 @@ showPointsWarning = {
 showPointsInstant = {
 	if (playerSide == east) then {
 		_pointsRatio = RUSSIAN_POINTS / POINTS_NEEDED_FOR_VICTORY;
-		_string = localize "str_GRAD_transmissionTime_1" + (str (round(_pointsRatio * 100))) + localize "str_GRAD_transmissionTime_2";
+		_string = localize "str_GRAD_transmissionTime_1" + " " + (str (round(_pointsRatio * 100))) + " " + localize "str_GRAD_transmissionTime_2";
 		[_string] call EFUNC(common,displayTextStructured);
 	};
 };
