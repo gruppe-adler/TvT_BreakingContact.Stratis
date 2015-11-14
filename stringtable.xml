@@ -90,9 +90,9 @@
 				<German>Sorry, Spawnpunkt zu dicht</German>
 			</Key>
 			<Key ID="str_GRAD_spawnTooClose2">
-				<Original>Must be at least</Original>
-				<English>Must be at least</English>
-				<German>Muss mindestens sein:</German>
+				<Original>Must be at least </Original>
+				<English>Must be at least </English>
+				<German>Muss mindestens sein: </German>
 			</Key>
 			<Key ID="str_GRAD_spawnTooFar1">
 				<Original>Sorry, Spawn too far away from objective</Original>
@@ -100,9 +100,9 @@
 				<German>Sorry, Spawnpunkt zu weit weg vom Ziel</German>
 			</Key>
 			<Key ID="str_GRAD_spawnTooFar2">
-				<Original>Must be at max</Original>
-				<English>Must be at max</English>
-				<German>Darf höchstens sein:</German>
+				<Original>Must be at max </Original>
+				<English>Must be at max </English>
+				<German>Darf höchstens sein: </German>
 			</Key>
 			<Key ID="str_GRAD_hint_bluforSpawned">
 				<Original>BLUFOR spawned. OPFOR may now spawn vehicle.</Original>
@@ -116,13 +116,13 @@
 			</Key>
 			<Key ID="str_GRAD_transmissionTime_1">
 				<Original>The Russians already sent </Original>
-				<English>The Russians already sent</English>
+				<English>The Russians already sent </English>
 				<German>Die Russen haben schon </German>
 			</Key>
 			<Key ID="str_GRAD_transmissionTime_2">
-				<Original>percent.</Original>
-				<English>percent.</English>
-				<German>Prozent gesendet.</German>
+				<Original> %.</Original>
+				<English> %.</English>
+				<German> % gesendet.</German>
 			</Key>
 			<Key ID="str_GRAD_endPlacement">
 				<Original>End Placement</Original>
