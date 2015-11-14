@@ -12,8 +12,6 @@ _rusAction = ["ACE_MainActions", (localize "str_GRAD_buy_vehicles"), "",
 ["Land_Cargo_House_V1_F", 0, [], _rusAction] call ace_interact_menu_fnc_addActionToClass;
 
 
-
-
 /*_assembleTankTrap = ["ACE_MainActions", "Assemble Tank Trap", "",
  {[this] call assembleTankTrap;},
   {},{},[],[1,0,0],1] call ace_interact_menu_fnc_createAction;*/
@@ -34,3 +32,10 @@ _disassembleTankTrap = ["TankTrapSystem", "Disassemble Tank Trap", "",
   {true}] call ace_interact_menu_fnc_createAction;
 
 ["Hedgehog", 0, ["ACE_MainActions"],_disassembleTankTrap] call ace_interact_menu_fnc_addActionToClass;
+
+
+_transmissionProgressAction = ["TransmissionProgress", "Check Transmission Progress", "",
+ {[] call showPointsInstant;},"BIS_fnc_spawn",true,true] call BIS_fnc_MP;},
+  {side player == east}] call ace_interact_menu_fnc_createAction;
+
+["rhs_gaz66_r142_vv", 0, ["ACE_MainActions"],_transmissionProgressAction] call ace_interact_menu_fnc_addActionToClass;
