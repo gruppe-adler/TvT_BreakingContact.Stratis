@@ -6,7 +6,7 @@ bluforShowPointsWarning = {
 	_points = _this;
 	_pointsRatio = _points / POINTS_NEEDED_FOR_VICTORY;
 	if (_pointsRatio >= bluforShowPointsNextWarning) then { // alle 10% die Warnung
-		_string = "Die Russen haben schon " + (str (round(_pointsRatio * 100))) + " Prozent gesendet.";
+		_string = localize "str_GRAD_transmissionTime_1" + (str (round(_pointsRatio * 100))) + localize "str_GRAD_transmissionTime_2";
 		[_string] call EFUNC(common,displayTextStructured);
 		bluforShowPointsNextWarning = bluforShowPointsNextWarning + 0.1;
 	};

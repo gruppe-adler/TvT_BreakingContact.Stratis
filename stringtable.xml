@@ -114,6 +114,16 @@
 				<English>OPFOR spawned. BLUFOR may spawn now.</English>
 				<German>OPFOR ist gespawned. BLUFOR kann jetzt spawnen.</German>
 			</Key>
+			<Key ID="str_GRAD_transmissionTime_1">
+				<Original>The Russians already sent </Original>
+				<English>The Russians already sent</English>
+				<German>Die Russen haben schon </German>
+			</Key>
+			<Key ID="str_GRAD_transmissionTime_2">
+				<Original>percent.</Original>
+				<English>percent.</English>
+				<German>Prozent gesendet.</German>
+			</Key>
 			<Key ID="str_GRAD_endPlacement">
 				<Original>End Placement</Original>
 				<English>End Placement</English>

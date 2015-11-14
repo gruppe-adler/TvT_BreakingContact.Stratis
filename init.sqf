@@ -231,6 +231,7 @@ if (hasInterface) then {
 		[] execVM "player\russianMarker.sqf"; diag_log format ["setup: russianmarker initiated"];
 		[] execVM "player\opforBluforTeleportListener.sqf"; diag_log format ["setup: opforBluforTeleportListener initiated"];
 		[] execVM "player\opforOpforTeleportListener.sqf"; diag_log format ["setup: opforOpforTeleportListener initiated"];
+		[] execVM "player\bluforRussianPointsListener.sqf";
 		[] spawn checkJIP; diag_log format ["setup: createStartHints initiated"];
 	};
 

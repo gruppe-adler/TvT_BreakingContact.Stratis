@@ -39,6 +39,7 @@ markerAnimation = {
 	};
 
 	markerAnimationIsRunning = false;
+	call endTransmissionEffects;
 };
 
 ensureMarkerAnimation = {
@@ -50,6 +51,16 @@ ensureMarkerAnimation = {
 
 		[_size, _maxSize, _animationSpeed] spawn markerAnimation;
 	};
+};
+
+endTransmissionEffects = {
+	playSound "signal_lost";
+	if (playerSide == west) then {
+		cutRsc ["gui_intel_paper_us_lost","PLAIN",0];
+	} else {
+		cutRsc ["gui_intel_paper_rus_lost","PLAIN",0];
+	};
+
 };
 
 _RUSSIAN_MARKER_POS_listener = {

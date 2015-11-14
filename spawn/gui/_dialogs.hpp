@@ -1273,6 +1273,26 @@ class RscTitles {
 		};
 	};
 
+	class gui_intel_paper_us_lost
+	{
+		idd = -1;
+		duration = 10;
+		name = "gui_intel_paper_us_lost";
+		fadeOut = 5;
+
+	 	class controls {
+			class gui_intel_paper_pic: RscPicture
+			{
+				idc = -1;
+				x = safeZoneX + safeZoneW - 0.3;  
+				y = safeZoneY + safeZoneH - 1.5;
+				w = 0.3;
+				h = 0.4;
+				text = "pic\us_satellite_badge_lost.paa";
+			};
+		};
+	};
+
 	class gui_intel_paper_rus
 	{
 		idd = -1;
@@ -1289,6 +1309,26 @@ class RscTitles {
 				w = 0.3;
 				h = 0.4;
 				text = "pic\rus_satellite_badge.paa";
+			};
+		};
+	};
+
+	class gui_intel_paper_rus_lost
+	{
+		idd = -1;
+		duration = 10;
+		name = "gui_intel_paper_rus_lost";
+		fadeOut = 5;
+
+	 	class controls {
+			class gui_intel_paper_pic: RscPicture
+			{
+				idc = -1;
+				x = safeZoneX + safeZoneW - 0.3;  
+				y = safeZoneY + safeZoneH - 1.5;
+				w = 0.3;
+				h = 0.4;
+				text = "pic\rus_satellite_badge_lost.paa";
 			};
 		};
 	};
