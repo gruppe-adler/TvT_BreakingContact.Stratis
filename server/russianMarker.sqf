@@ -23,6 +23,7 @@ booleanEqual = {
 setRussianMarkerStatus = {
 	_previous = RUSSIAN_MARKER_HIDDEN;
 	RUSSIAN_MARKER_HIDDEN = _this;
+	if (MISSION_COMPLETED) then {RUSSIAN_MARKER_HIDDEN = true;};
 	if (!([RUSSIAN_MARKER_HIDDEN, _previous] call booleanEqual)) then {
 		publicVariable "RUSSIAN_MARKER_HIDDEN";
 	};

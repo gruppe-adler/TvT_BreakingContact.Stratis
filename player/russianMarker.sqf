@@ -40,6 +40,7 @@ markerAnimation = {
 
 	markerAnimationIsRunning = false;
 	call endTransmissionEffects;
+	
 };
 
 ensureMarkerAnimation = {
@@ -71,7 +72,7 @@ _RUSSIAN_MARKER_HIDDEN_listener = {
 	if (_this select 1) then {
 		"opfor_marker" setMarkerAlphaLocal 0;
 	} else {
-		call ensureMarkerAnimation;
+		call ensureMarkerAnimation;	
 	};
 };
 
