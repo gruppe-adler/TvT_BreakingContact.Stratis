@@ -173,6 +173,8 @@ if (isServer || isDedicated) then {
 
 		if (!(local_recording_counter < local_recording_length)) exitWith {
 			[{["Replay finished."] call EFUNC(common,displayTextStructured);},"BIS_fnc_spawn",true,true] call BIS_fnc_MP;
+			[{openMap [false,true];},"BIS_fnc_spawn",true,true] call BIS_fnc_MP;
+
 			REPLAY_FINISHED = true; publicVariable "REPLAY_FINISHED";
 		};
 		
