@@ -1,7 +1,7 @@
 #include "\z\ace\addons\main\script_component.hpp"
 [] execVM "CSSA3\exitCSSA3.sqf";
 
-[{[] execVM "GRAD_replay\playback\preparePlayback.sqf";},"BIS_fnc_spawn",true,true] call BIS_fnc_MP;
+[] execVM "GRAD_replay\playback\preparePlayback.sqf";
 
 if (isServer || isDedicated) then {
 
