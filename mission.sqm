@@ -30,7 +30,6 @@ class Mission
 		"ace_respawn",
 		"ace_medical",
 		"A3_Modules_F_Intel",
-		"3DEN",
 		"a3_modules_f_curator_curator"
 	};
 	addOnsAuto[]=
@@ -60,7 +59,6 @@ class Mission
 		"a3_characters_f",
 		"A3_Modules_F_Intel",
 		"A3_Characters_F_BLUFOR",
-		"3DEN",
 		"a3_modules_f_curator_curator",
 		"ace_cargo",
 		"a3_map_stratis"
