@@ -72,7 +72,7 @@ ISLAND_TARGET_POSITIONS = [
 	[ [1240, 9450], [1240, 8450], true, false,'IsolaDiCapraia'],
 	[ [-2500,-500],[-500,-2500], false, false,'Kunduz'],
 	[ [12870, 780], [13830, 780], true, false,'pja305'],
-	[ [5235, 5415], [5235, 5720], true, true, 'namalsk'],
+	[ [6235, 9200], [6235, 9528], true, true, 'namalsk'],
 	[ [18080, 18535], [18200, 18060], true, false,'Sara'],
 	[ [18080, 18535], [18200, 18060], true, false,'Sara_dbe1'],
 	[ [9800, 4700], [9800, 3800], true, false,'saru'],
