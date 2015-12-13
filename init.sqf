@@ -169,7 +169,6 @@ if (hasInterface) then {
 
 
 	checkSpawnButton = {
-		[getPos player] execVM "helpers\enforceNoSwim.sqf";
 		
 		if (player != opfor_teamlead) then {
 			0 = [[worldSize/2,worldSize/2,0],"",3000] execVM "helpers\establishingShot.sqf";
