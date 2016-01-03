@@ -12,5 +12,3 @@ if (isServer) then
    // {[[ _x, "GRAD_heli"], "BIS_fnc_setUnitInsignia", nil, true, true] call BIS_fnc_MP;sleep 0.1;} forEach units _group;
    // {[ _x] spawn "dynamicGroups\createInsignias.sqf"; sleep 0.1;} forEach units _group;
 };
-
-{[_x,"grad_heli"] call BIS_fnc_setUnitInsignia;} forEach units _groupThis;

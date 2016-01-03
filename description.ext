@@ -127,7 +127,7 @@ class Params
 		default = 1800;
 	};
 
-	class ace_map_bft_enabled { //This ia a "BOOL"
+	class ace_map_BFT_Enabled { //This ia a "BOOL"
         title = "Bluforce-Tracking active"; //You can use ACE's stringtables
         ACE_setting = 1;
         values[] = {0, 1}; //setting is a BOOL, but values still need to be numbers, so 0 is false, 1 is true
@@ -136,6 +136,25 @@ class Params
         force = 1;
     };
 };
+
+class ACE_Settings {
+    class ace_map_BFT_Interval {
+    value = 1;
+    typeName = "SCALAR";
+    force = 1;
+	};
+class ace_map_BFT_Enabled {
+    value = 0;
+    typeName = "BOOL";
+    force = 1;
+	};
+class ace_map_BFT_HideAiGroups {
+    value = 0;
+    typeName = "BOOL";
+    force = 1;
+	};
+};
+
 
 class CfgSounds
 {

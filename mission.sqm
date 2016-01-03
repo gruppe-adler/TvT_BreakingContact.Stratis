@@ -31,7 +31,8 @@ class Mission
 		"ace_medical",
 		"A3_Modules_F_Intel",
 		"a3_modules_f_curator_curator",
-		"3DEN"
+		"3DEN",
+		"ace_optionsmenu"
 	};
 	addOnsAuto[]=
 	{
@@ -63,6 +64,7 @@ class Mission
 		"3DEN",
 		"a3_modules_f_curator_curator",
 		"ace_cargo",
+		"ace_optionsmenu",
 		"a3_map_stratis"
 	};
 	randomSeed=7556201;
@@ -86,7 +88,7 @@ class Mission
 	};
 	class Groups
 	{
-		items=48;
+		items=49;
 		class Item0
 		{
 			side="LOGIC";
@@ -3116,6 +3118,34 @@ class Mission
 					id=143;
 					side="LOGIC";
 					vehicle="ACE_moduleCargoSettings";
+					leader=1;
+					lock="UNLOCKED";
+					skill=0.60000002;
+				};
+			};
+		};
+		class Item48
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={1632.3019,-10.578876,5930.7139};
+					class args
+					{
+						items=1;
+						class Item0
+						{
+							value="1";
+							parentCls="ACE_moduleAllowConfigExport";
+							typeName="allowconfigurationExport";
+						};
+					};
+					id=144;
+					side="LOGIC";
+					vehicle="ACE_moduleAllowConfigExport";
 					leader=1;
 					lock="UNLOCKED";
 					skill=0.60000002;
