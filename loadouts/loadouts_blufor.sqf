@@ -297,7 +297,7 @@ blufor_AT = {
 	this forceAddUniform blufor_uniform;
 	this addVest "rhsusf_spc_iar";
 	this addHeadgear (blufor_random_helmet call BIS_fnc_selectRandom);
-	this addBackpack "rhsusf_assault_eagleaiii_coy";
+	this addBackpack "B_Carryall_khk";
 
 	[this] call set_m4a1_ammo;
 
@@ -308,7 +308,10 @@ blufor_AT = {
 
 	this addWeapon "Binocular";
 	this addWeapon (blufor_random_primaryweapon call BIS_fnc_selectRandom);
-	this addWeapon "rhs_weap_M136_hedp";
+	this addWeapon "rhs_weap_smaw";
+	for "_i" from 1 to 7 do {this addItemToBackpack "rhs_mag_smaw_SR";};
+	this addItemToBackpack "rhs_mag_smaw_HEAA";
+	this addItemToBackpack "rhs_mag_smaw_HEAA";
 
 	
 	[this] call blufor_basic;

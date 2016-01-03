@@ -239,6 +239,7 @@ fillUSSupplies = {
             clearItemCargoGlobal (_this select 0); 
             clearBackpackCargoGlobal (_this select 0); 
             clearMagazineCargoGlobal (_this select 0);
+            (_this select 0) addItemCargoGlobal ['ItemGPS',1];
             },
             format['%1<br/>%2<br/>%3<br/>%4<br/>%5<br/>%6','Crew: 1','Seats: 3','Speed: 109','','Weapons:','100x6 7.62']
         ],
@@ -255,6 +256,7 @@ fillUSSupplies = {
             clearItemCargoGlobal (_this select 0); 
             clearBackpackCargoGlobal (_this select 0); 
             clearMagazineCargoGlobal (_this select 0);
+            (_this select 0) addItemCargoGlobal ['ItemGPS',1];
             },
             format['%1<br/>%2<br/>%3<br/>%4<br/>%5','Crew: 2','Seats: 11','Speed: 67','','']
         ],
@@ -276,7 +278,7 @@ fillUSSupplies = {
             (_this select 0) addMagazineCargoGlobal ['rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Yellow',30];
             (_this select 0) addMagazineCargoGlobal ['rhs_mag_30Rnd_556x45_M855A1_Stanag',30];
             (_this select 0) addMagazineCargoGlobal ['16Rnd_9x21_Mag',20];
-            (_this select 0) addWeaponCargoGlobal ['rhs_weap_M136_hedp',10];
+            (_this select 0) addWeaponCargoGlobal ['rhs_weap_M136_hedp',5];
             (_this select 0) addMagazineCargoGlobal ['rhs_200rnd_556x45_T_SAW',10];
             (_this select 0) addMagazineCargoGlobal ['rhs_200rnd_556x45_M_SAW',10];
             (_this select 0) addMagazineCargoGlobal ['HandGrenade',20];
@@ -291,7 +293,7 @@ fillUSSupplies = {
             ['AddCargoByClass', _this select 0, ['ACE_wheel', _this select 0, 3]] call ace_common_fnc_targetEvent;
             ['AddCargoByClass', _this select 0, ['ACE_Track', _this select 0, 1]] call ace_common_fnc_targetEvent;
             },
-            format['%1<br/>%2<br/>%3<br/>%4<br/>%5<br/>%6<br/>%7<br/>%8<br/>%9<br/>%10<br/>%11<br/>%12<br/>%13<br/>%14<br/>%15','Crew: 2','Seats: 11','Speed: 67','','Cargo:','10 AT M136','40 Smokes','60 AK Mags','20 MG Mags','20 Grenades','30 Flares','Medical Stuff','5 GPS','3 Repair Wheels','1 Repair Track']
+            format['%1<br/>%2<br/>%3<br/>%4<br/>%5<br/>%6<br/>%7<br/>%8<br/>%9<br/>%10<br/>%11<br/>%12<br/>%13<br/>%14<br/>%15','Crew: 2','Seats: 11','Speed: 67','','Cargo:','5 AT M136','40 Smokes','60 AK Mags','20 MG Mags','20 Grenades','30 Flares','Medical Stuff','5 GPS','3 Repair Wheels','1 Repair Track']
         ],
         [
             "Ace_Box_Ammo",
@@ -339,9 +341,9 @@ fillUSSupplies = {
             clearItemCargoGlobal (_this select 0); 
             clearBackpackCargoGlobal (_this select 0); 
             clearMagazineCargoGlobal (_this select 0);
-            (_this select 0) setVehicleAmmo 0.4;
+            (_this select 0) setVehicleAmmo 0.25;
             },
-            format['%1<br/>%2<br/>%3<br/>%4<br/>%5<br/>%6','Crew: 3','Seats: 13','Speed: 295','','Weapons:','2x2000 7.62']
+            format['%1<br/>%2<br/>%3<br/>%4<br/>%5<br/>%6','Crew: 3','Seats: 13','Speed: 295','','Weapons:','2x1250 7.62']
         ]
     ];
 
