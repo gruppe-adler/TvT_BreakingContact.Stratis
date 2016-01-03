@@ -3130,20 +3130,20 @@ class Mission
 				items=1;
 				class Item0
 				{
-					presenceCondition="(paramsArray select 12) == 0;";
+					presenceCondition="((paramsArray select 12) == 1)";
 					position[]={1642.304,0.26354566,6019.8154};
 					class args
 					{
 						items=3;
 						class Item0
 						{
-							value="1";
+							value="0";
 							parentCls="ACE_ModuleBlueForceTracking";
 							typeName="Enabled";
 						};
 						class Item1
 						{
-							value="10";
+							value="999999999";
 							parentCls="ACE_ModuleBlueForceTracking";
 							typeName="Interval";
 						};
@@ -3171,16 +3171,16 @@ class Mission
 				items=1;
 				class Item0
 				{
-					presenceCondition="(paramsArray select 12) == 1;";
+					presenceCondition="((paramsArray select 12) == 0)";
 					position[]={1658.6405,-0.21136644,6019.1929};
 					class args
 					{
 						items=3;
 						class Item0
 						{
-							value="0";
+							value="1";
 							parentCls="ACE_ModuleBlueForceTracking";
-							typeName="Disabled";
+							typeName="Enabled";
 						};
 						class Item1
 						{
