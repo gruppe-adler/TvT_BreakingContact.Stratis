@@ -3180,7 +3180,7 @@ class Mission
 						{
 							value="0";
 							parentCls="ACE_ModuleBlueForceTracking";
-							typeName="Enabled";
+							typeName="Disabled";
 						};
 						class Item1
 						{
