@@ -24,6 +24,12 @@ REPLAY_ACCURACY = paramsArray select 7;
 AR3PLAY_ENABLE_REPLAY = (paramsArray select 8) == 1;
 AR3PLAY_IS_STREAMABLE = (paramsArray select 9) == 1;
 JIP_TIME_ALLOWED = paramsArray select 11;
+
+if ((paramsArray select 12) == 1) then {
+	ace_map_bft_enabled = false;
+} else {
+	ace_map_bft_enabled = true;	
+};
 // paramsarray select 12 is BFT module in editor
 custom_overcast = 1;
 
