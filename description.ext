@@ -90,7 +90,7 @@ class Params
 		title = "InGame Replay Accuracy";
 		values[] = {1,2,3,4,5};
 		texts[] = {"every 1s","every 2s","every 3s","every 4s","every 5s"};
-		default = 2;
+		default = 4;
 	};
 
 	class EnableReplay
@@ -125,6 +125,14 @@ class Params
 		values[] = {60, 180, 600, 1800, 999999};
 		texts[] = {"1min","3min","10min","30min","always (16h)"};
 		default = 1800;
+	};
+
+	class BluforceTracking
+	{
+		title = "Bluforce-Tracking active (both sides / 10s updates)";
+		values[] = {0,1};
+		texts[] = {"BFT enabled","BFT disabled"};
+		default = 1;
 	};
 };
 

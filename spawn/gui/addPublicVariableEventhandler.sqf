@@ -20,9 +20,9 @@ fillRussianSupplies = {
 
       // woodland camo?
     if ((ISLAND_TARGET_POSITIONS select (ISLANDS find worldName)) select 3) then {
-       tigr = "rhs_tigr_ffv_3camo_vdv";
+       tigr = "rhs_tigr_m_vdv";
     } else {
-        tigr = "rhs_tigr_ffv_vdv";
+        tigr = "rhs_tigr_m_3camo_vdv";
     };
     
 
@@ -47,7 +47,7 @@ fillRussianSupplies = {
         ],
         [
             tigr,
-            "GAZ Tigr",
+            "GAZ Tigr-M",
             2,
             800,
             "<t align='center'>800 cr</t>",
@@ -98,8 +98,8 @@ fillRussianSupplies = {
             format['%1<br/>%2<br/>%3<br/>%4<br/>%5<br/>%6<br/>%7<br/>%8<br/>%9<br/>%10<br/>%11<br/>%12<br/>%13<br/>%14','Crew: 1','Seats: 1','Speed: 90','','Cargo:','40 Smokes','60 AK Mags','20 MG Mags','20 Grenades','30 Flares','Medical Stuff','5 GPS','3 Repair Wheels','1 Repair Track']
         ],
         [
-            "rhs_btr60_vv",
-            "BTR-60",
+            "rhs_btr70_vdv",
+            "BTR-70",
             3,
             2000,
             "<t align='center'>2000 cr</t>",
@@ -111,7 +111,7 @@ fillRussianSupplies = {
             clearBackpackCargoGlobal (_this select 0); 
             clearMagazineCargoGlobal (_this select 0);
             },
-            format['%1<br/>%2<br/>%3<br/>%4<br/>%5<br/>%6<br/>%7','Crew: 3','Seats: 15 (8 on top)','Speed: 83','','Weapons:','50x9 14.5mm','250x5 7.62mm']
+            format['%1<br/>%2<br/>%3<br/>%4<br/>%5<br/>%6<br/>%7','Crew: 3','Seats: 15 (8 on top)','Speed: 80','','Weapons:','50x9 14.5mm','250x5 7.62mm']
         ],
         [
             "rhs_prp3_vdv",
@@ -291,7 +291,7 @@ fillUSSupplies = {
             ['AddCargoByClass', _this select 0, ['ACE_wheel', _this select 0, 3]] call ace_common_fnc_targetEvent;
             ['AddCargoByClass', _this select 0, ['ACE_Track', _this select 0, 1]] call ace_common_fnc_targetEvent;
             },
-            format['%1<br/>%2<br/>%3<br/>%4<br/>%5<br/>%6<br/>%7<br/>%8<br/>%9<br/>%10<br/>%11<br/>%12<br/>%13<br/>%14','Crew: 2','Seats: 11','Speed: 67','','Cargo:','40 Smokes','60 AK Mags','20 MG Mags','20 Grenades','30 Flares','Medical Stuff','5 GPS','3 Repair Wheels','1 Repair Track']
+            format['%1<br/>%2<br/>%3<br/>%4<br/>%5<br/>%6<br/>%7<br/>%8<br/>%9<br/>%10<br/>%11<br/>%12<br/>%13<br/>%14<br/>%15','Crew: 2','Seats: 11','Speed: 67','','Cargo:','10 AT M136','40 Smokes','60 AK Mags','20 MG Mags','20 Grenades','30 Flares','Medical Stuff','5 GPS','3 Repair Wheels','1 Repair Track']
         ],
         [
             "Ace_Box_Ammo",

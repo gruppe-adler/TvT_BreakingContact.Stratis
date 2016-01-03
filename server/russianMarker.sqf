@@ -44,6 +44,8 @@ setRussianMarkerPosition = {
 	};
 };
 
+sleep 2; // give it time, boy - possible fix for "Undefined variable in expression: funkwagenissending"
+
 [] spawn {
 	while {true} do { // could be optimized and synced to real time - b/c as it is, there WILL be delays
 		_isSending = call funkwagenIsSending;

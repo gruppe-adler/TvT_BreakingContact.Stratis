@@ -30,7 +30,8 @@ class Mission
 		"ace_respawn",
 		"ace_medical",
 		"A3_Modules_F_Intel",
-		"a3_modules_f_curator_curator"
+		"a3_modules_f_curator_curator",
+		"3DEN"
 	};
 	addOnsAuto[]=
 	{
@@ -59,6 +60,7 @@ class Mission
 		"a3_characters_f",
 		"A3_Modules_F_Intel",
 		"A3_Characters_F_BLUFOR",
+		"3DEN",
 		"a3_modules_f_curator_curator",
 		"ace_cargo",
 		"a3_map_stratis"
@@ -84,7 +86,7 @@ class Mission
 	};
 	class Groups
 	{
-		items=48;
+		items=50;
 		class Item0
 		{
 			side="LOGIC";
@@ -845,7 +847,7 @@ class Mission
 						items=2;
 						class Item0
 						{
-							value="1";
+							value="0";
 							parentCls="ace_viewdistance_ModuleSettings";
 							typeName="moduleViewDistanceEnabled";
 						};
@@ -1123,7 +1125,7 @@ class Mission
 				items=2;
 				class Item0
 				{
-					position[]={1683.2991,0,6188.4277};
+					position[]={1794.2628,5.5,5978.7598};
 					azimut=39.639999;
 					special="NONE";
 					id=22;
@@ -1134,7 +1136,7 @@ class Mission
 					rank="MAJOR";
 					skill=0.5;
 					text="opfor_teamlead";
-					init="this setVariable [""canBuy"", true];";
+					init="this setVariable [""canBuy"", true]; 0 = [this] execVM ""dynamicGroups\createCommand.sqf"";";
 					description="Commander (must be selected)";
 				};
 				class Item1
@@ -1414,7 +1416,7 @@ class Mission
 				class Item0
 				{
 					position[]={1790.4622,5.5,5989.7271};
-					azimut=17.481445;
+					azimut=17.4814;
 					special="NONE";
 					id=30;
 					side="EAST";
@@ -1423,7 +1425,8 @@ class Mission
 					leader=1;
 					rank="CAPTAIN";
 					skill=0.5;
-					description="Squad Leader (AK)";
+					init="0 = [this] execVM ""dynamicGroups\createAlpha.sqf"";";
+					description="Squad Leader (Alpha)";
 				};
 				class Item1
 				{
@@ -1612,7 +1615,8 @@ class Mission
 					leader=1;
 					rank="CAPTAIN";
 					skill=0.5;
-					description="Squad Leader (AK)";
+					init="0 = [this] execVM ""dynamicGroups\createBravo.sqf"";";
+					description="Squad Leader (Bravo)";
 				};
 				class Item1
 				{
@@ -1801,7 +1805,8 @@ class Mission
 					leader=1;
 					rank="CAPTAIN";
 					skill=0.5;
-					description="Squad Leader (AK)";
+					init="0 = [this] execVM ""dynamicGroups\createCharlie.sqf"";";
+					description="Squad Leader (Charlie)";
 				};
 				class Item1
 				{
@@ -2135,7 +2140,7 @@ class Mission
 					rank="MAJOR";
 					skill=0.5;
 					text="blufor_teamlead";
-					init="this setVariable [""canBuy"", true];";
+					init="this setVariable [""canBuy"", true]; 0 = [this] execVM ""dynamicGroups\createCommand.sqf"";";
 					description="Commander (must be selected)";
 				};
 				class Item1
@@ -2171,7 +2176,8 @@ class Mission
 					leader=1;
 					rank="LIEUTENANT";
 					skill=0.5;
-					description="Squad Leader";
+					init="0 = [this] execVM ""dynamicGroups\createAlpha.sqf"";";
+					description="Squad Leader (Alpha)";
 				};
 				class Item1
 				{
@@ -2360,7 +2366,8 @@ class Mission
 					leader=1;
 					rank="LIEUTENANT";
 					skill=0.5;
-					description="Squad Leader";
+					init="0 = [this] execVM ""dynamicGroups\createBravo.sqf"";";
+					description="Squad Leader (Bravo)";
 				};
 				class Item1
 				{
@@ -2549,7 +2556,8 @@ class Mission
 					leader=1;
 					rank="LIEUTENANT";
 					skill=0.5;
-					description="Squad Leader";
+					init="0 = [this] execVM ""dynamicGroups\createCharlie.sqf"";";
+					description="Squad Leader (Charlie)";
 				};
 				class Item1
 				{
@@ -3108,6 +3116,88 @@ class Mission
 					id=143;
 					side="LOGIC";
 					vehicle="ACE_moduleCargoSettings";
+					leader=1;
+					lock="UNLOCKED";
+					skill=0.60000002;
+				};
+			};
+		};
+		class Item48
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					presenceCondition="(paramsArray select 12) == 0;";
+					position[]={1642.304,0.26354566,6019.8154};
+					class args
+					{
+						items=3;
+						class Item0
+						{
+							value="1";
+							parentCls="ACE_ModuleBlueForceTracking";
+							typeName="Enabled";
+						};
+						class Item1
+						{
+							value="10";
+							parentCls="ACE_ModuleBlueForceTracking";
+							typeName="Interval";
+						};
+						class Item2
+						{
+							value="0";
+							parentCls="ACE_ModuleBlueForceTracking";
+							typeName="HideAiGroups";
+						};
+					};
+					id=144;
+					side="LOGIC";
+					vehicle="ACE_ModuleBlueForceTracking";
+					leader=1;
+					lock="UNLOCKED";
+					skill=0.60000002;
+				};
+			};
+		};
+		class Item49
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					presenceCondition="(paramsArray select 12) == 1;";
+					position[]={1658.6405,-0.21136644,6019.1929};
+					class args
+					{
+						items=3;
+						class Item0
+						{
+							value="0";
+							parentCls="ACE_ModuleBlueForceTracking";
+							typeName="Enabled";
+						};
+						class Item1
+						{
+							value="10";
+							parentCls="ACE_ModuleBlueForceTracking";
+							typeName="Interval";
+						};
+						class Item2
+						{
+							value="0";
+							parentCls="ACE_ModuleBlueForceTracking";
+							typeName="HideAiGroups";
+						};
+					};
+					id=145;
+					side="LOGIC";
+					vehicle="ACE_ModuleBlueForceTracking";
 					leader=1;
 					lock="UNLOCKED";
 					skill=0.60000002;

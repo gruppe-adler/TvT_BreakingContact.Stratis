@@ -24,6 +24,7 @@ REPLAY_ACCURACY = paramsArray select 7;
 AR3PLAY_ENABLE_REPLAY = (paramsArray select 8) == 1;
 AR3PLAY_IS_STREAMABLE = (paramsArray select 9) == 1;
 JIP_TIME_ALLOWED = paramsArray select 11;
+// paramsarray select 12 is BFT module in editor
 custom_overcast = 1;
 
 jipTime = JIP_TIME_ALLOWED;
@@ -36,7 +37,7 @@ disableRemoteSensors true;
 setCustomWeather = {
 	// skipTime -24; 
 	0 setOvercast (_this select 0); 
-	setViewDistance 7000;
+	setViewDistance 6000;
 	// skipTime 24;
 };
 
@@ -62,6 +63,8 @@ if (isServer) then {
 	setDate [2015, 2, 2, TIME_OF_DAY, 1];
 	// set time acceleration
 	setTimeMultiplier TIME_ACCELERATION;
+
+	["Initialize"] call BIS_fnc_dynamicGroups;
 
 	BLUFOR_ELIMINATED = false;
 	publicVariable "BLUFOR_ELIMINATED";
@@ -150,6 +153,8 @@ diag_log format ["setup: clientandserver done"];
 
 if (hasInterface) then {
 
+	["InitializePlayer", [player]] call BIS_fnc_dynamicGroups;
+
 	player allowDamage false;
 	[] execVM "player\setup\adjustInitialSpawnPosition.sqf"; diag_log format ["setup: initial spawn position initiated"];
 
@@ -185,7 +190,7 @@ if (hasInterface) then {
 
 						};
 
-						if (_this select 1 != 1) then {0 = createDialog 'gui_spawn_opfor'; true};
+						if (_this select 1 == 57) then {0 = createDialog 'gui_spawn_opfor'; true};
 					"]
 			];
 			0 = createDialog "gui_spawn_opfor";
