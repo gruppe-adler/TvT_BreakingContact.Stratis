@@ -3166,13 +3166,13 @@ class Mission
 						items=3;
 						class Item0
 						{
-							value="0";
+							value="1";
 							parentCls="ACE_ModuleBlueForceTracking";
 							typeName="Enabled";
 						};
 						class Item1
 						{
-							value="1";
+							value="10";
 							parentCls="ACE_ModuleBlueForceTracking";
 							typeName="Interval";
 						};

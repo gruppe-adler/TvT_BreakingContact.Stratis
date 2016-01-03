@@ -133,7 +133,6 @@ class Params
         values[] = {0, 1}; //setting is a BOOL, but values still need to be numbers, so 0 is false, 1 is true
         texts[] =  {"False", "True"};
         default = 0;
-        force = 1;
     };
 };
 
@@ -141,17 +140,14 @@ class ACE_Settings {
     class ace_map_BFT_Interval {
     value = 1;
     typeName = "SCALAR";
-    force = 1;
 	};
 class ace_map_BFT_Enabled {
     value = 0;
     typeName = "BOOL";
-    force = 1;
 	};
 class ace_map_BFT_HideAiGroups {
     value = 0;
     typeName = "BOOL";
-    force = 1;
 	};
 };
 
