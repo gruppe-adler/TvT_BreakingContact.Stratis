@@ -133,6 +133,7 @@ class Params
         values[] = {0, 1}; //setting is a BOOL, but values still need to be numbers, so 0 is false, 1 is true
         texts[] =  {"False", "True"};
         default = 0;
+        force = 1;
     };
 };
 
