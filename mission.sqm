@@ -88,7 +88,7 @@ class Mission
 	};
 	class Groups
 	{
-		items=50;
+		items=49;
 		class Item0
 		{
 			side="LOGIC";
@@ -3146,46 +3146,6 @@ class Mission
 					id=144;
 					side="LOGIC";
 					vehicle="ACE_moduleAllowConfigExport";
-					leader=1;
-					lock="UNLOCKED";
-					skill=0.60000002;
-				};
-			};
-		};
-		class Item49
-		{
-			side="LOGIC";
-			class Vehicles
-			{
-				items=1;
-				class Item0
-				{
-					position[]={1632.9915,-11.42641,5896};
-					class args
-					{
-						items=3;
-						class Item0
-						{
-							value="1";
-							parentCls="ACE_ModuleBlueForceTracking";
-							typeName="Enabled";
-						};
-						class Item1
-						{
-							value="10";
-							parentCls="ACE_ModuleBlueForceTracking";
-							typeName="Interval";
-						};
-						class Item2
-						{
-							value="0";
-							parentCls="ACE_ModuleBlueForceTracking";
-							typeName="HideAiGroups";
-						};
-					};
-					id=145;
-					side="LOGIC";
-					vehicle="ACE_ModuleBlueForceTracking";
 					leader=1;
 					lock="UNLOCKED";
 					skill=0.60000002;
