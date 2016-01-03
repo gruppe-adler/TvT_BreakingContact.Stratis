@@ -50,6 +50,7 @@ opfor_default = {
 	this forceAddUniform "rhs_uniform_flora_patchless_alt";
 	this addVest "rhs_6b23_ML_rifleman";
 	this addHeadgear "rhs_6b27m_ml";
+	this addBackpack "rhs_sidor";
 	
 
 	[this] call set_akm_ammo;

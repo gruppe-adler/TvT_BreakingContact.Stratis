@@ -96,6 +96,7 @@ blufor_default = {
 	this forceAddUniform blufor_uniform;
 	this addVest "rhsusf_spc";
 	this addHeadgear (blufor_random_helmet call BIS_fnc_selectRandom);
+	this addBackpack "rhsusf_assault_eagleaiii_coy";
 	
 	[this] call set_m4a1_ammo;
 	
