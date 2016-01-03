@@ -127,13 +127,13 @@ class Params
 		default = 1800;
 	};
 
-	class BluforceTracking
-	{
-		title = "Bluforce-Tracking active (both sides / 10s updates)";
-		values[] = {0,1};
-		texts[] = {"BFT enabled","BFT disabled"};
-		default = 1;
-	};
+	class ace_map_bft_enabled { //This ia a "BOOL"
+        title = "Bluforce-Tracking active"; //You can use ACE's stringtables
+        ACE_setting = 1;
+        values[] = {0, 1}; //setting is a BOOL, but values still need to be numbers, so 0 is false, 1 is true
+        texts[] =  {"False", "True"};
+        default = 0;
+    };
 };
 
 class CfgSounds
