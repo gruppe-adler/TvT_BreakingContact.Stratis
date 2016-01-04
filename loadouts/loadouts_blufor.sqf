@@ -193,7 +193,7 @@ blufor_ftl = {
 	this addWeapon "rhs_weap_m4a1_m203s";
 	this addPrimaryWeaponItem "optic_Aco";
 	this addPrimaryWeaponItem "acc_flashlight";
-
+	this linkItem "ItemGPS";
 	
 	[this] call blufor_basic;
 

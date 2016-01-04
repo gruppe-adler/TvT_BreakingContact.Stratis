@@ -142,6 +142,7 @@ opfor_ftl = {
 	this addWeapon "Binocular";
 	this addWeapon "rhs_weap_akm";
 	this addWeapon "hgun_Rook40_F";
+	this linkItem "ItemGPS";
 	
 	[this] call opfor_basic;
 

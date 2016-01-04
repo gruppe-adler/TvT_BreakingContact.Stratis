@@ -42,15 +42,16 @@ fillRussianSupplies = {
             clearItemCargoGlobal (_this select 0); 
             clearBackpackCargoGlobal (_this select 0); 
             clearMagazineCargoGlobal (_this select 0);
+            (_this select 0) addItemCargoGlobal ['ItemGPS',1];
             },
             format['%1<br/>%2<br/>%3<br/>%4<br/>%5','Crew: 1','Seats: 11','Speed: 90','','']
         ],
         [
             tigr,
             "GAZ Tigr-M",
-            2,
-            800,
-            "<t align='center'>800 cr</t>",
+            5,
+            700,
+            "<t align='center'>700 cr</t>",
             1,
             ["light_hide", 1],
             {
@@ -58,6 +59,7 @@ fillRussianSupplies = {
             clearItemCargoGlobal (_this select 0); 
             clearBackpackCargoGlobal (_this select 0); 
             clearMagazineCargoGlobal (_this select 0);
+            (_this select 0) addItemCargoGlobal ['ItemGPS',1];
             },
             format['%1<br/>%2<br/>%3<br/>%4<br/>%5','Crew: 1','Seats: 7','Speed: 140','','']
         ],
@@ -98,6 +100,23 @@ fillRussianSupplies = {
             format['%1<br/>%2<br/>%3<br/>%4<br/>%5<br/>%6<br/>%7<br/>%8<br/>%9<br/>%10<br/>%11<br/>%12<br/>%13<br/>%14','Crew: 1','Seats: 1','Speed: 90','','Cargo:','40 Smokes','60 AK Mags','20 MG Mags','20 Grenades','30 Flares','Medical Stuff','5 GPS','3 Repair Wheels','1 Repair Track']
         ],
         [
+            "rhs_uaz_dshkm_chdkz",
+            "UAZ-DshKm",
+            5,
+            900,
+            "<t align='center'>900 cr</t>",
+            1,
+            [[]],
+            {
+            clearWeaponCargoGlobal (_this select 0); 
+            clearItemCargoGlobal (_this select 0); 
+            clearBackpackCargoGlobal (_this select 0); 
+            clearMagazineCargoGlobal (_this select 0);
+            (_this select 0) addItemCargoGlobal ['ItemGPS',1];
+            },
+            format['%1<br/>%2<br/>%3<br/>%4<br/>%5<br/>%6<br/>%7','Crew: 2','Seats: 1','Speed: 121','','Weapons:','50x4 12.7mm']
+        ],
+        [
             "rhs_btr70_vdv",
             "BTR-70",
             3,
@@ -110,31 +129,16 @@ fillRussianSupplies = {
             clearItemCargoGlobal (_this select 0); 
             clearBackpackCargoGlobal (_this select 0); 
             clearMagazineCargoGlobal (_this select 0);
+            (_this select 0) addItemCargoGlobal ['ItemGPS',1];
             },
             format['%1<br/>%2<br/>%3<br/>%4<br/>%5<br/>%6<br/>%7','Crew: 3','Seats: 15 (8 on top)','Speed: 80','','Weapons:','50x9 14.5mm','250x5 7.62mm']
-        ],
-        [
-            "rhs_prp3_vdv",
-            "PRP-3",
-            2,
-            2500,
-            "<t align='center'>2500 cr</t>",
-            1,
-            [[]],
-            {
-            clearWeaponCargoGlobal (_this select 0); 
-            clearItemCargoGlobal (_this select 0); 
-            clearBackpackCargoGlobal (_this select 0); 
-            clearMagazineCargoGlobal (_this select 0);
-            },
-            format['%1<br/>%2<br/>%3<br/>%4<br/>%5<br/>%6<br/>%7,<br/>%8','Crew: 4','Seats: 0','Speed: 60','','Weapons:','250x7 7.62mm','6 Smoke','Illumination Mortar']
         ],
         [
             "rhs_t72ba_tv",
             "T-72",
             2,
-            4500,
-            "<t align='center'>4500 cr</t>",
+            4800,
+            "<t align='center'>4800 cr</t>",
             1,
             [[]],
             {
@@ -142,6 +146,7 @@ fillRussianSupplies = {
             clearItemCargoGlobal (_this select 0); 
             clearBackpackCargoGlobal (_this select 0); 
             clearMagazineCargoGlobal (_this select 0);
+            (_this select 0) addItemCargoGlobal ['ItemGPS',1];
             (_this select 0) removemagazinesturret ["rhs_mag_3of26_5",[0]];
             },
             format['%1<br/>%2<br/>%3<br/>%4<br/>%5<br/>%6<br/>%7,<br/>%8<br/>%9,<br/>%10','Crew: 3','Speed: 60','','Weapons:','4x3 9M119','4x7 3BM42 KE','6x3 3BK18M HEAT','no HE!','250x7 7.62mm','8 Smoke']
@@ -223,6 +228,7 @@ fillUSSupplies = {
             clearItemCargoGlobal (_this select 0); 
             clearBackpackCargoGlobal (_this select 0); 
             clearMagazineCargoGlobal (_this select 0);
+            (_this select 0) addItemCargoGlobal ['ItemGPS',1];
             },
             format['%1<br/>%2<br/>%3<br/>%4<br/>%5','Crew: 1','Seats: 5','Speed: 109','','']
         ],
