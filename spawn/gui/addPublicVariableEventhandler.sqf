@@ -106,13 +106,15 @@ fillRussianSupplies = {
             900,
             "<t align='center'>900 cr</t>",
             1,
-            [[]],
+            ["light_hide", 1],
             {
             clearWeaponCargoGlobal (_this select 0); 
             clearItemCargoGlobal (_this select 0); 
             clearBackpackCargoGlobal (_this select 0); 
             clearMagazineCargoGlobal (_this select 0);
             (_this select 0) addItemCargoGlobal ['ItemGPS',1];
+            (_this select 0) setObjectTextureGlobal [0,"rhsafrf\addons\rhs_a2port_car\uaz\data\uaz_main_ind_co.paa"];
+            (_this select 0) setObjectTextureGlobal [1,"rhsafrf\addons\rhs_a2port_car\uaz\data\uaz_mount_co.paa"];
             },
             format['%1<br/>%2<br/>%3<br/>%4<br/>%5<br/>%6<br/>%7<br/>%8<br/>%9','Crew: 2','Seats: 1','Speed: 121','','Weapons:','50x4 12.7mm','','1 GPS']
         ],
