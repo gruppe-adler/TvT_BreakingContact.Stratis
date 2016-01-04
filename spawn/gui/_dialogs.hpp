@@ -840,7 +840,7 @@ class USSupplyGUI
 			};
 			class US_gui_text_countleft_3: RscStructuredText
 			{
-				idc = 3203;
+				idc = -1;
 				text = "<t align='center'>lade ...</t>";
 				x = 12.5 * GUI_GRID_W + GUI_GRID_X;
 				y = 12 * GUI_GRID_H + GUI_GRID_Y;
@@ -1186,10 +1186,10 @@ class gui_spawn_opfor
 
 		class Controls {
 
-			class text_spawn_opfor: RscStructuredText
+			class text_spawn_opfor1: RscStructuredText
 			{
-				idc = 3202;
-				text = "<t align='center' size='1.2'>TvT Breaking Contact</t>";
+				idc = -1;
+				text = "<t align='center' size='1.2'>Hello Commander!</t>";
 				x = 14 * GUI_GRID_W + GUI_GRID_X;
 				y = 1 * GUI_GRID_H + GUI_GRID_Y;
 				w = 12 * GUI_GRID_W;
@@ -1197,9 +1197,20 @@ class gui_spawn_opfor
 				colorBackground[] = {-1,-1,-1,0};
 			};
 
-			class btn_spawn_opfor: RscButton
+			class text_spawn_opfor2: RscStructuredText
 			{
-				idc = 8012;
+				idc = -1;
+				text = "<t align='center' size='0.6'>In case you close this dialog by accident, reopen with [SPACE]</t>";
+				x = 14 * GUI_GRID_W + GUI_GRID_X;
+				y = 3 * GUI_GRID_H + GUI_GRID_Y;
+				w = 12 * GUI_GRID_W;
+				h = 3 * GUI_GRID_H;
+				colorBackground[] = {-1,-1,-1,0};
+			};
+
+			class btn_spawn_opfor3: RscButton
+			{
+				idc = -1;
 				text = $STR_GRAD_choose_spawn_location;
 				x = 14 * GUI_GRID_W + GUI_GRID_X;
 				y = 5 * GUI_GRID_H + GUI_GRID_Y;

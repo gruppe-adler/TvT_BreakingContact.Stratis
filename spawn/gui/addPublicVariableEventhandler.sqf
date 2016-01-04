@@ -44,7 +44,7 @@ fillRussianSupplies = {
             clearMagazineCargoGlobal (_this select 0);
             (_this select 0) addItemCargoGlobal ['ItemGPS',1];
             },
-            format['%1<br/>%2<br/>%3<br/>%4<br/>%5','Crew: 1','Seats: 11','Speed: 90','','']
+            format['%1<br/>%2<br/>%3<br/>%4<br/>%5','Crew: 1','Seats: 11','Speed: 90','','1 GPS']
         ],
         [
             tigr,
@@ -61,7 +61,7 @@ fillRussianSupplies = {
             clearMagazineCargoGlobal (_this select 0);
             (_this select 0) addItemCargoGlobal ['ItemGPS',1];
             },
-            format['%1<br/>%2<br/>%3<br/>%4<br/>%5','Crew: 1','Seats: 7','Speed: 140','','']
+            format['%1<br/>%2<br/>%3<br/>%4<br/>%5','Crew: 1','Seats: 7','Speed: 140','','1 GPS']
         ],
         [
             "rhs_gaz66_repair_vdv",
@@ -114,7 +114,7 @@ fillRussianSupplies = {
             clearMagazineCargoGlobal (_this select 0);
             (_this select 0) addItemCargoGlobal ['ItemGPS',1];
             },
-            format['%1<br/>%2<br/>%3<br/>%4<br/>%5<br/>%6<br/>%7','Crew: 2','Seats: 1','Speed: 121','','Weapons:','50x4 12.7mm']
+            format['%1<br/>%2<br/>%3<br/>%4<br/>%5<br/>%6<br/>%7<br/>%8<br/>%9','Crew: 2','Seats: 1','Speed: 121','','Weapons:','50x4 12.7mm','','1 GPS']
         ],
         [
             "rhs_btr70_vdv",
@@ -229,8 +229,13 @@ fillUSSupplies = {
             clearBackpackCargoGlobal (_this select 0); 
             clearMagazineCargoGlobal (_this select 0);
             (_this select 0) addItemCargoGlobal ['ItemGPS',1];
+            _box = createVehicle ['ACE_Box_Misc', position (_this select 0), [], 1, 'NONE'];
+            clearWeaponCargoGlobal _box; 
+            clearItemCargoGlobal _box; 
+            clearBackpackCargoGlobal _box; 
+            clearMagazineCargoGlobal _box;
             },
-            format['%1<br/>%2<br/>%3<br/>%4<br/>%5','Crew: 1','Seats: 5','Speed: 109','','']
+            format['%1<br/>%2<br/>%3<br/>%4<br/>%5','Crew: 1','Seats: 5','Speed: 109','1 Assault Boat','1 GPS']
         ],
         [
             hmmwv_m2,
@@ -247,7 +252,7 @@ fillUSSupplies = {
             clearMagazineCargoGlobal (_this select 0);
             (_this select 0) addItemCargoGlobal ['ItemGPS',1];
             },
-            format['%1<br/>%2<br/>%3<br/>%4<br/>%5<br/>%6','Crew: 1','Seats: 3','Speed: 109','','Weapons:','100x6 7.62']
+            format['%1<br/>%2<br/>%3<br/>%4<br/>%5<br/>%6<br/>%7<br/>%8','Crew: 1','Seats: 3','Speed: 109','','Weapons:','100x6 7.62','','1 GPS']
         ],
         [
             m113_m2,
@@ -264,7 +269,7 @@ fillUSSupplies = {
             clearMagazineCargoGlobal (_this select 0);
             (_this select 0) addItemCargoGlobal ['ItemGPS',1];
             },
-            format['%1<br/>%2<br/>%3<br/>%4<br/>%5','Crew: 2','Seats: 11','Speed: 67','','']
+            format['%1<br/>%2<br/>%3<br/>%4<br/>%5','Crew: 2','Seats: 11','Speed: 67','','1 GPS']
         ],
         [
             m113_ammo,

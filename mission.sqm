@@ -1997,7 +1997,8 @@ class Mission
 					leader=1;
 					rank="LIEUTENANT";
 					skill=0.5;
-					description="Crewman-Commander";
+					init="0 = [this] execVM ""dynamicGroups\createFoxtrot.sqf"";";
+					description="Crewman-Commander (Foxtrot)";
 				};
 				class Item1
 				{
@@ -2045,7 +2046,8 @@ class Mission
 					leader=1;
 					rank="LIEUTENANT";
 					skill=0.5;
-					description="Crewman-Commander";
+					init="0 = [this] execVM ""dynamicGroups\createGolf.sqf"";";
+					description="Crewman-Commander (Golf)";
 				};
 				class Item1
 				{
@@ -2093,7 +2095,8 @@ class Mission
 					leader=1;
 					rank="LIEUTENANT";
 					skill=0.5;
-					description="Crewman-Commander";
+					init="0 = [this] execVM ""dynamicGroups\createHotel.sqf"";";
+					description="Crewman-Commander (Hotel)";
 				};
 				class Item1
 				{
@@ -2761,7 +2764,8 @@ class Mission
 					leader=1;
 					rank="LIEUTENANT";
 					skill=0.5;
-					description="Crewman-Commander";
+					init="0 = [this] execVM ""dynamicGroups\createFoxtrot.sqf"";";
+					description="Crewman-Commander (Foxtrot)";
 				};
 				class Item2
 				{
@@ -2809,7 +2813,8 @@ class Mission
 					leader=1;
 					rank="LIEUTENANT";
 					skill=0.5;
-					description="Crewman-Commander";
+					init="0 = [this] execVM ""dynamicGroups\createGolf.sqf"";";
+					description="Crewman-Commander (Golf)";
 				};
 				class Item2
 				{
@@ -2857,7 +2862,8 @@ class Mission
 					leader=1;
 					rank="LIEUTENANT";
 					skill=0.5;
-					description="Crewman-Commander";
+					init="0 = [this] execVM ""dynamicGroups\createHotel.sqf"";";
+					description="Crewman-Commander (Hotel)";
 				};
 				class Item2
 				{
@@ -2926,7 +2932,8 @@ class Mission
 					leader=1;
 					rank="LIEUTENANT";
 					skill=0.5;
-					description="Helicopter Pilot";
+					init="0 = [this] execVM ""dynamicGroups\createAir.sqf"";";
+					description="Helicopter Pilot (Air)";
 				};
 				class Item1
 				{
@@ -2974,7 +2981,8 @@ class Mission
 					leader=1;
 					rank="LIEUTENANT";
 					skill=0.5;
-					description="Crewman-Commander";
+					init="0 = [this] execVM ""dynamicGroups\createIndia.sqf"";";
+					description="Crewman-Commander (India)";
 				};
 				class Item1
 				{

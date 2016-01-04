@@ -223,6 +223,7 @@ if (hasInterface) then {
 	
 
 	[] execVM "spawn\hedgehogAssemblingSystem.sqf";
+	[] execVM "spawn\assaultBoatAssemblingSystem.sqf";
 	[] execVM "spawn\addInteractions.sqf";
 	
 	if (playerSide == west) then {
