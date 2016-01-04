@@ -154,7 +154,7 @@ fillRussianSupplies = {
         [
             "Ace_Box_Ammo",
             "Defense Pack",
-            3,
+            2,
             500,
             "<t align='center'>500 cr</t>",
             1,
@@ -164,11 +164,11 @@ fillRussianSupplies = {
             clearItemCargoGlobal (_this select 0); 
             clearBackpackCargoGlobal (_this select 0); 
             clearMagazineCargoGlobal (_this select 0);
-            (_this select 0) addBackpackCargoGlobal ['RHS_NSV_Gun_Bag',1];
-            (_this select 0) addBackpackCargoGlobal ['RHS_NSV_Tripod_Bag',1];
+            (_this select 0) addBackpackCargoGlobal ['RHS_DShkM_Gun_Bag',2];
+            (_this select 0) addBackpackCargoGlobal ['RHS_DShkM_TripodHigh_Bag',2];
             (_this select 0) addItemCargoGlobal ['ACE_Sandbag_empty',100];
             },
-            format['%1<br/>%2<br/>%3','100 Sandbags','2 Static PKM','(4 Backpacks)']
+            format['%1<br/>%2<br/>%3','100 Sandbags','2 Static Dshkm','(4 Backpacks)']
         ]
     ];
 
