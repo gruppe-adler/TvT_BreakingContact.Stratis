@@ -94,6 +94,7 @@ fillRussianSupplies = {
             (_this select 0) addItemCargoGlobal ['ACE_epinephrine',40];
             (_this select 0) addItemCargoGlobal ['ACE_fieldDressing',100];
             (_this select 0) addItemCargoGlobal ['ItemGPS',5];
+            (_this select 0) addItemCargoGlobal ['ACE_bloodIV_250',20];
             ['AddCargoByClass', _this select 0, ['ACE_wheel', _this select 0, 3]] call ace_common_fnc_targetEvent;
             ['AddCargoByClass', _this select 0, ['ACE_Track', _this select 0, 1]] call ace_common_fnc_targetEvent;
             },
@@ -298,10 +299,12 @@ fillUSSupplies = {
             (_this select 0) addMagazineCargoGlobal ['rhs_mag_M585_white',15];
             (_this select 0) addMagazineCargoGlobal ['rhs_mag_m662_red',15];
             (_this select 0) addMagazineCargoGlobal ['rhs_mag_m661_green',15];
+            (_this select 0) addMagazineCargoGlobal ["rhs_mag_smaw_HEAA",5];
             (_this select 0) addItemCargoGlobal ['ACE_Earplugs',15];
             (_this select 0) addItemCargoGlobal ['ACE_Morphine',40];
             (_this select 0) addItemCargoGlobal ['ACE_epinephrine',40];
             (_this select 0) addItemCargoGlobal ['ACE_fieldDressing',100];
+            (_this select 0) addItemCargoGlobal ['ACE_bloodIV_250',20];
             (_this select 0) addItemCargoGlobal ['ItemGPS',5];
             ['AddCargoByClass', _this select 0, ['ACE_wheel', _this select 0, 3]] call ace_common_fnc_targetEvent;
             ['AddCargoByClass', _this select 0, ['ACE_Track', _this select 0, 1]] call ace_common_fnc_targetEvent;

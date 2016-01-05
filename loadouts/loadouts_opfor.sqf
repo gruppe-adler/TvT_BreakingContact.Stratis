@@ -53,7 +53,7 @@ opfor_default = {
 	this addBackpack "rhs_sidor";
 	
 
-	[this] call set_akm_ammo;
+	[this, "rhs_30Rnd_762x39mm", 14] call addMagazinesToBackpack;
 	
 	[this, "SmokeShell", 1] call addMagazinesToVest;
 	[this, "SmokeShellRed", 1] call addMagazinesToVest;
@@ -177,6 +177,7 @@ opfor_medic = {
 	[this, "ACE_fieldDressing", 40] call addMagazinesToBackpack;
 	[this, "ACE_Morphine", 20] call addMagazinesToBackpack;
 	[this, "ACE_epinephrine", 20] call addMagazinesToBackpack;
+	[this, "ACE_bloodIV_250", 12] call addMagazinesToBackpack;
 
 	[this, "rhs_mag_rgd5", 2] call addMagazinesToBackpack;
 
@@ -282,8 +283,8 @@ opfor_MG = {
 	this addHeadgear "rhs_6b27m_ml";
 	this addBackpack "rhs_sidor";
 
-	[this, "rhs_100Rnd_762x54mmR_green", 2] call addMagazinesToBackpack;
-	[this, "rhs_100Rnd_762x54mmR", 6] call addMagazinesToBackpack;
+	[this, "rhs_100Rnd_762x54mmR_green", 1] call addMagazinesToVest;
+	[this, "rhs_100Rnd_762x54mmR", 2] call addMagazinesToBackpack;
 	
 	[this, "SmokeShell", 2] call addMagazinesToVest;
 	[this, "SmokeShellRed", 2] call addMagazinesToVest;
@@ -295,6 +296,9 @@ opfor_MG = {
 	this addWeapon "Binocular";
 	this addWeapon "rhs_weap_pkm";
 	this addWeapon "hgun_Rook40_F";
+
+	[this, "rhs_100Rnd_762x54mmR_green", 1] call addMagazinesToBackpack;
+
 	[this] call opfor_basic;
 
 };

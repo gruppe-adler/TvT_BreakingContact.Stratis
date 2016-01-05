@@ -98,7 +98,8 @@ blufor_default = {
 	this addHeadgear (blufor_random_helmet call BIS_fnc_selectRandom);
 	this addBackpack "rhsusf_assault_eagleaiii_coy";
 	
-	[this] call set_m4a1_ammo;
+	[this, "rhs_mag_30Rnd_556x45_M855A1_Stanag", 7] call addMagazinesToBackpack;
+	[this, "rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Yellow", 7] call addMagazinesToBackpack;
 	
 	[this, "SmokeShell", 1] call addMagazinesToVest;
 	[this, "SmokeShellRed", 1] call addMagazinesToVest;
@@ -231,6 +232,7 @@ blufor_medic = {
 	[this, "ACE_fieldDressing", 40] call addMagazinesToBackpack;
 	[this, "ACE_Morphine", 20] call addMagazinesToBackpack;
 	[this, "ACE_epinephrine", 20] call addMagazinesToBackpack;
+	[this, "ACE_bloodIV_250", 12] call addMagazinesToBackpack;
 
 
 
@@ -340,8 +342,8 @@ blufor_MG = {
 	this addBackpack "rhsusf_assault_eagleaiii_coy";
 
 
-	[this, "rhs_200rnd_556x45_T_SAW", 2] call addMagazinesToBackpack;
-	[this, "rhs_200rnd_556x45_M_SAW", 6] call addMagazinesToBackpack;
+	[this, "rhs_200rnd_556x45_T_SAW", 1] call addMagazinesToVest;
+	[this, "rhs_200rnd_556x45_M_SAW", 2] call addMagazinesToBackpack;
 	
 	[this, "SmokeShell", 2] call addMagazinesToVest;
 	[this, "SmokeShellRed", 2] call addMagazinesToVest;
@@ -350,6 +352,8 @@ blufor_MG = {
 
 	this addWeapon "Binocular";
 	this addWeapon (blufor_random_mg call BIS_fnc_selectRandom);
+
+	[this, "rhs_200rnd_556x45_T_SAW", 1] call addMagazinesToBackpack;
 
 	[this] call blufor_basic;
 
@@ -451,7 +455,7 @@ blufor_ammobearer = {
 	this forceAddUniform blufor_uniform;
 	this addVest "rhsusf_spc_crewman";
 	this addHeadgear (blufor_random_helmet call BIS_fnc_selectRandom);
-	this addBackpack "rhsusf_assault_eagleaiii_coy";
+	this addBackpack "B_Carryall_khk";
 
 	
 	[this] call set_m4a1_ammo;
