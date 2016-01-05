@@ -840,7 +840,7 @@ class USSupplyGUI
 			};
 			class US_gui_text_countleft_3: RscStructuredText
 			{
-				idc = -1;
+				idc = 3203;
 				text = "<t align='center'>lade ...</t>";
 				x = 12.5 * GUI_GRID_W + GUI_GRID_X;
 				y = 12 * GUI_GRID_H + GUI_GRID_Y;
