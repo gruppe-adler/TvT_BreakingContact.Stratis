@@ -242,6 +242,8 @@ if (hasInterface) then {
 		[] spawn checkJIP; diag_log format ["setup: createStartHints initiated"];
 	};
 
+	player addEventHandler ["WeaponAssembled", {[_this select 1] execVM "helpers\nerfDrone.sqf"}];
+
 	/*waitUntil {!isNull player && !isNil "ST_STHud_ToRestart"};
 	// disable sthud for intro
 	0 call fn_sthud_usermenu_changeMode;*/

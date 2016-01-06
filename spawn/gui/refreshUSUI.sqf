@@ -16,6 +16,7 @@ resetUSUI = {
 		ctrlSetText [3505, _buttonRelease];
 		ctrlSetText [3506, _buttonRelease];
 		ctrlSetText [3507, _buttonRelease];
+		ctrlSetText [3508, _buttonRelease];
 
 		ctrlEnable [3501, true];
 		ctrlEnable [3502, true];
@@ -24,6 +25,7 @@ resetUSUI = {
 		ctrlEnable [3505, true];
 		ctrlEnable [3506, true];
 		ctrlEnable [3507, true];
+		ctrlEnable [3508, true];
 		VEHICLE_ORDERED_WEST = [false,0];
 		publicVariable "VEHICLE_ORDERED_WEST";
 			
@@ -50,6 +52,7 @@ refreshUSOrder = {
 		ctrlSetText [3505, _refreshPleasewait];
 		ctrlSetText [3506, _refreshPleasewait];
 		ctrlSetText [3507, _refreshPleasewait];
+		ctrlSetText [3508, _refreshPleasewait];
 
 		ctrlEnable [3501, false];
 		ctrlEnable [3502, false];
@@ -58,6 +61,7 @@ refreshUSOrder = {
 		ctrlEnable [3505, false];
 		ctrlEnable [3506, false];
 		ctrlEnable [3507, false];
+		ctrlEnable [3508, false];
 
 		//if (DEBUG) then { diag_log format ["_bool is %1, _eta is %2",_bool, _eta];};
 
@@ -108,6 +112,7 @@ refreshUSUI = {
 		ctrlSetText [3505, _pleasewait];
 		ctrlSetText [3506, _pleasewait];
 		ctrlSetText [3507, _pleasewait];
+		ctrlSetText [3508, _pleasewait];
 
 		ctrlEnable [3501, false];
 		ctrlEnable [3502, false];
@@ -116,6 +121,7 @@ refreshUSUI = {
 		ctrlEnable [3505, false];
 		ctrlEnable [3506, false];
 		ctrlEnable [3507, false];
+		ctrlEnable [3508, false];
 	};
 
 	[VEHICLE_ORDERED_WEST] call refreshUSOrder;
@@ -130,6 +136,7 @@ refreshUSUI = {
 		ctrlEnable [3505, false];
 		ctrlEnable [3506, false];
 		ctrlEnable [3507, false];
+		ctrlEnable [3508, false];
 
 		_display displayCtrl 3501 ctrlSetFade 1;
 		_display displayCtrl 3501 ctrlCommit 0;
@@ -145,6 +152,8 @@ refreshUSUI = {
 		_display displayCtrl 3506 ctrlCommit 0;
 		_display displayCtrl 3507 ctrlSetFade 1;
 		_display displayCtrl 3507 ctrlCommit 0;
+		_display displayCtrl 3508 ctrlSetFade 1;
+		_display displayCtrl 3508 ctrlCommit 0;
 	};
 
 	if (_outOfMoney) exitWith {
@@ -201,6 +210,7 @@ refreshUSUI = {
 	_display displayCtrl 3805 ctrlSetStructuredText parseText ((_array select 5) select 8);
 	_display displayCtrl 3806 ctrlSetStructuredText parseText ((_array select 6) select 8);
 	_display displayCtrl 3807 ctrlSetStructuredText parseText ((_array select 7) select 8);
+	_display displayCtrl 3808 ctrlSetStructuredText parseText ((_array select 8) select 8);
 	};
 
 	_namedisplay_1 = (_array select 1) select 1;
@@ -236,6 +246,11 @@ refreshUSUI = {
 	_namedisplay_7 = (_array select 7) select 1;
 	_countleft_7 = (_array select 7) select 2;
 	_pricedisplay_7 = (_array select 7) select 4;
+	//_eta_7 = (_array select 7) select 4;
+
+	_namedisplay_8 = (_array select 8) select 1;
+	_countleft_8 = (_array select 8) select 2;
+	_pricedisplay_8 = (_array select 8) select 4;
 	//_eta_7 = (_array select 7) select 4;
 
 	
@@ -289,6 +304,10 @@ refreshUSUI = {
 	_display displayCtrl 3107 ctrlSetStructuredText parseText ([_namedisplay_7] call centerString);
 	_display displayCtrl 3207 ctrlSetStructuredText parseText ([_countleft_7] call centerAndConvertToString);
 	_display displayCtrl 3307 ctrlSetStructuredText parseText ([_pricedisplay_7] call centerString);
+
+	_display displayCtrl 3108 ctrlSetStructuredText parseText ([_namedisplay_8] call centerString);
+	_display displayCtrl 3208 ctrlSetStructuredText parseText ([_countleft_8] call centerAndConvertToString);
+	_display displayCtrl 3308 ctrlSetStructuredText parseText ([_pricedisplay_8] call centerString);
 
 
 	disableSerialization;

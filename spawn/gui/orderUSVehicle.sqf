@@ -7,6 +7,7 @@ _tempUS_4 = (USSupplies select 4);
 _tempUS_5 = (USSupplies select 5);
 _tempUS_6 = (USSupplies select 6);
 _tempUS_7 = (USSupplies select 7);
+_tempUS_8 = (USSupplies select 8);
 
 _oldMoney = (USSupplies select 0);
 _price = [_idc] call US_IDC_to_price;
@@ -34,12 +35,13 @@ switch (_selector) do {
     case 5: { _tempUS_5 = [_idc,_tempUS_5] call calculateUSVehicleCall; };
     case 6: { _tempUS_6 = [_idc,_tempUS_6] call calculateUSVehicleCall; };
     case 7: { _tempUS_7 = [_idc,_tempUS_7] call calculateUSVehicleCall; };
+    case 8: { _tempUS_8 = [_idc,_tempUS_8] call calculateUSVehicleCall; };
 
     default {};
 };
 
 // dont fucking buy without stock dude -> exit with hint
-if (count _tempUS_1 == 1 || count _tempUS_2 == 1 || count _tempUS_3 == 1 || count _tempUS_4 == 1 || count _tempUS_5 == 1 || count _tempUS_6 == 1 || count _tempUS_7 == 1) exitWith { 
+if (count _tempUS_1 == 1 || count _tempUS_2 == 1 || count _tempUS_3 == 1 || count _tempUS_4 == 1 || count _tempUS_5 == 1 || count _tempUS_6 == 1 || count _tempUS_7 == 1 || count _tempUS_8 == 1) exitWith { 
     [USSupplies,false,_idc,"","",""] call refreshUSUI;
     player say3D "rhs_usa_land_rc_1";
 };
@@ -93,7 +95,8 @@ _tempSupplies =
         _tempUS_5,
         _tempUS_6,
         _tempUS_7,
-        _tempUS_8
+        _tempUS_8,
+        _tempUS_9
     ];
 
 [_tempSupplies,false,0,_vehicleOrdered,_vehicleExtras,_vehicleCalls,_vehicleEta] call refreshUSUI;

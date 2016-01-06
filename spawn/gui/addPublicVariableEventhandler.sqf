@@ -357,6 +357,26 @@ fillUSSupplies = {
             (_this select 0) setVehicleAmmo 0.25;
             },
             format['%1<br/>%2<br/>%3<br/>%4<br/>%5<br/>%6','Crew: 3','Seats: 13','Speed: 295','','Weapons:','2x1250 7.62']
+        ],
+        [
+            "Ace_Box_Ammo",
+            "Recon Pack",
+            2,
+            1000,
+            "<t align='center'>1000 cr</t>",
+            1,
+            [[]],
+            {
+            clearWeaponCargoGlobal (_this select 0); 
+            clearItemCargoGlobal (_this select 0); 
+            clearBackpackCargoGlobal (_this select 0); 
+            clearMagazineCargoGlobal (_this select 0);
+            (_this select 0) addBackpackCargoGlobal ['B_UAV_01_backpack_F',1];
+            (_this select 0) addItemCargoGlobal ['B_UAVTerminal',2];
+            (_this select 0) addItemCargoGlobal ['ACE_HuntIR_monitor',3];
+            (_this select 0) addMagazineCargoGlobal ['ACE_HuntIR_M203',3];
+            },
+            format['%1<br/>%2<br/>%3<br/>%4','1 AR-2 Darter','2 AR-2 terminals','3 HuntIR rounds','3 HuntIR monitors']
         ]
     ];
 
