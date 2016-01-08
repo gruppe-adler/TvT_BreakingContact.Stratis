@@ -261,6 +261,7 @@ US_IDC_to_selector = {
 		case 3505: { _selector = 5; };
 		case 3506: { _selector = 6; };
 		case 3507: { _selector = 7; };
+		case 3508: { _selector = 8; };
 		default {};
 
 	};
@@ -284,6 +285,7 @@ US_IDC_to_classname = {
 		case 3505: { _classname = ((USSupplies select 5) select 0); };
 		case 3506: { _classname = ((USSupplies select 6) select 0); };
 		case 3507: { _classname = ((USSupplies select 7) select 0); };
+		case 3508: { _classname = ((USSupplies select 8) select 0); };
 		default {};
 	};
 
@@ -305,6 +307,7 @@ US_IDC_to_displayname = {
 		case 3505: { _displayname = ((USSupplies select 5) select 1); };
 		case 3506: { _displayname = ((USSupplies select 6) select 1); };
 		case 3507: { _displayname = ((USSupplies select 7) select 1); };
+		case 3508: { _displayname = ((USSupplies select 8) select 1); };
 		default {};
 	};
 
@@ -327,6 +330,7 @@ US_IDC_to_countleft = {
 		case 3505: { _countleft = ((USSupplies select 5) select 2); };
 		case 3506: { _countleft = ((USSupplies select 6) select 2); };
 		case 3507: { _countleft = ((USSupplies select 7) select 2); };
+		case 3508: { _countleft = ((USSupplies select 8) select 2); };
 		default {};
 	};
 
@@ -348,6 +352,7 @@ US_buttonIDC_to_countleftIDC = {
 		case 3505: { _countleftIDC = 3205; };
 		case 3506: { _countleftIDC = 3206; };
 		case 3507: { _countleftIDC = 3207; };
+		case 3508: { _countleftIDC = 3208; };
 		default {};
 	};
 
@@ -369,6 +374,7 @@ US_IDC_to_price = {
 		case 3505: { _price = ((USSupplies select 5) select 3); };
 		case 3506: { _price = ((USSupplies select 6) select 3); };
 		case 3507: { _price = ((USSupplies select 7) select 3); };
+		case 3508: { _price = ((USSupplies select 8) select 3); };
 		default {};
 	};
 
@@ -391,6 +397,7 @@ US_IDC_to_pricedisplay = {
 		case 3505: { _pricedisplay = ((USSupplies select 5) select 3); };
 		case 3506: { _pricedisplay = ((USSupplies select 6) select 3); };
 		case 3507: { _pricedisplay = ((USSupplies select 7) select 3); };
+		case 3508: { _pricedisplay = ((USSupplies select 8) select 3); };
 		default {};
 	};
 
@@ -415,6 +422,7 @@ US_IDC_to_eta = {
 		case 3505: { _eta = ((USSupplies select 5) select 5); };
 		case 3506: { _eta = ((USSupplies select 6) select 5); };
 		case 3507: { _eta = ((USSupplies select 7) select 5); };
+		case 3508: { _eta = ((USSupplies select 8) select 5); };
 		default {};
 	};
 
@@ -435,6 +443,7 @@ US_IDC_to_extras = {
 		case 3505: { _extras = ((USSupplies select 5) select 6); };
 		case 3506: { _extras = ((USSupplies select 6) select 6); };
 		case 3507: { _extras = ((USSupplies select 7) select 6); };
+		case 3508: { _extras = ((USSupplies select 8) select 6); };
 		default {};
 	};
 
@@ -455,6 +464,7 @@ US_IDC_to_calls = {
 		case 3505: { _calls = ((USSupplies select 5) select 7); };
 		case 3506: { _calls = ((USSupplies select 6) select 7); };
 		case 3507: { _calls = ((USSupplies select 7) select 7); };
+		case 3508: { _calls = ((USSupplies select 8) select 7); };
 		default {};
 	};
 
