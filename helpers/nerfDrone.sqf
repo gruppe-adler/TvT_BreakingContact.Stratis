@@ -1,4 +1,4 @@
-/* Disabled thermal imaging of drones
+/* Disables thermal imaging of drones
 *
 */
 

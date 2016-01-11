@@ -242,7 +242,10 @@ if (hasInterface) then {
 		[] spawn checkJIP; diag_log format ["setup: createStartHints initiated"];
 	};
 
-	player addEventHandler ["WeaponAssembled", {[_this select 1] execVM "helpers\nerfDrone.sqf"}];
+
+	//player addEventHandler ["WeaponAssembled", {[_this select 1] execVM "helpers\nerfDrone.sqf"}];		//Darter
+	[] execVM "helpers\nerfRaven.sqf";																		//Raven
+
 
 	/*waitUntil {!isNull player && !isNil "ST_STHud_ToRestart"};
 	// disable sthud for intro
