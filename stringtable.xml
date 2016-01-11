@@ -60,6 +60,67 @@
 					Spieler auf dem Server gibt es einen kleinen Geldbonus.
 				</German>
 			</Key>
+			<Key ID="str_GRAD_ravenTitle">
+				<Original>Operation</Original>
+				<English>Operation</English>
+				<German>Bedienung</German>
+			</Key>
+			<Key ID="str_GRAD_ravenUsage">
+				<Original>					
+					&lt;font size='20' color='#c0c0c0'&gt;Launch&lt;/font&gt;&lt;br/&gt;
+					&lt;br/&gt;1. Place backpack on the ground.&lt;br/&gt;2. Assemble RQ-11 Raven.&lt;br/&gt;3. Pick up the drone and launch it.
+					&lt;br/&gt;4. Use the GCS or pick it up. Anyone can carry it, but only the soldier who launched the drone can use it.
+					&lt;br/&gt;&lt;br/&gt;&lt;font size='20' color='#c0c0c0'&gt;Operation&lt;/font&gt;&lt;br/&gt;
+					&lt;br/&gt;Use the Ground Control System (GCS) to:
+					&lt;br/&gt;* Set a new target. The drone will move to it and circle it autonomously.
+					&lt;br/&gt;* Turn on the Minicam. The minicam displays the camera feed even when you are carrying the GCS.
+					&lt;br/&gt;* Autoland. The drone will automatically return to the GCS location and land.
+					&lt;br/&gt;* View the camera feed. See 'Controls'.
+					&lt;br/&gt;* Adjust the orbit radius and altitude.
+					&lt;br/&gt;* Automatically track and follow a target.
+					&lt;br/&gt;* Mark target on the map (side channel).
+					&lt;br/&gt;&lt;br/&gt;&lt;font size='20' color='#c0c0c0'&gt;Controls&lt;/font&gt;&lt;br/&gt;
+					&lt;br/&gt;Camera feed controls:
+					&lt;br/&gt;* J   - display controls on-screen
+					&lt;br/&gt;* G   - close camera feed
+				</Original>
+				<English>
+					&lt;font size='20' color='#c0c0c0'&gt;Launch&lt;/font&gt;&lt;br/&gt;
+					&lt;br/&gt;1. Place backpack on the ground.&lt;br/&gt;2. Assemble RQ-11 Raven.&lt;br/&gt;3. Pick up the drone and launch it.
+					&lt;br/&gt;4. Use the GCS or pick it up. Anyone can carry it, but only the soldier who launched the drone can use it.
+					&lt;br/&gt;&lt;br/&gt;&lt;font size='20' color='#c0c0c0'&gt;Operation&lt;/font&gt;&lt;br/&gt;
+					&lt;br/&gt;Use the Ground Control System (GCS) to:
+					&lt;br/&gt;* Set a new target. The drone will move to it and circle it autonomously.
+					&lt;br/&gt;* Turn on the Minicam. The minicam displays the camera feed even when you are carrying the GCS.
+					&lt;br/&gt;* Autoland. The drone will automatically return to the GCS location and land.
+					&lt;br/&gt;* View the camera feed. See 'Controls'.
+					&lt;br/&gt;* Adjust the orbit radius and altitude.
+					&lt;br/&gt;* Automatically track and follow a target.
+					&lt;br/&gt;* Mark target on the map (side channel).
+					&lt;br/&gt;&lt;br/&gt;&lt;font size='20' color='#c0c0c0'&gt;Controls&lt;/font&gt;&lt;br/&gt;
+					&lt;br/&gt;Camera feed controls:
+					&lt;br/&gt;* J   - display controls on-screen
+					&lt;br/&gt;* G   - close camera feed
+				</English>
+				<German>					
+					&lt;font size='20' color='#c0c0c0'&gt;Start&lt;/font&gt;&lt;br/&gt;
+					&lt;br/&gt;1. Rucksack auf den Boden legen.&lt;br/&gt;2. RQ-11 Raven zusammenbauen.&lt;br/&gt;3. Drohne aufheben und starten.
+					&lt;br/&gt;4. GCS benutzen oder mitnehmen. Jeder kann das GCS tragen, aber nur wer die Drohne gestartet hat kann es benutzen.
+					&lt;br/&gt;&lt;br/&gt;&lt;font size='20' color='#c0c0c0'&gt;Bedienung&lt;/font&gt;&lt;br/&gt;
+					&lt;br/&gt;Benutzen Sie das Ground Control System (GCS) um:
+					&lt;br/&gt;* Ein neues Ziel zu setzen. Die Drohne wird autonom zu ihrem neuen Ziel fliegen und es umkreisen.
+					&lt;br/&gt;* Die Minicam einzuschalten. Die Minicam zeigt die Übertragung auch während Sie das GCS tragen.
+					&lt;br/&gt;* Automatisch zu landen. Die Drohne fliegt automatisch die Position des GCS an und landet.
+					&lt;br/&gt;* Die Übertragung anzuzeigen. Siehe Steuerung.
+					&lt;br/&gt;* Den Radius und die Flughöhe anzupassen.
+					&lt;br/&gt;* Automatisch das Ziel zu verfolgen.
+					&lt;br/&gt;* Das Ziel auf der Karte zu markieren (side channel).
+					&lt;br/&gt;&lt;br/&gt;&lt;font size='20' color='#c0c0c0'&gt;Controls&lt;/font&gt;&lt;br/&gt;
+					&lt;br/&gt;Camera Feed Steuerung:
+					&lt;br/&gt;* J   - Steuerung auf dem Bildschirm anzeigen
+					&lt;br/&gt;* G   - Übertragung schließen
+				</German>
+			</Key>
 		</Container>
 		<Container name="mission setup">
 			<Key ID="str_GRAD_spawn_on_water">
@@ -128,6 +189,16 @@
 				<Original>End Placement</Original>
 				<English>End Placement</English>
 				<German>Keine Objekte mehr platzieren</German>
+			</Key>
+			<Key ID="str_GRAD_ravenError1">
+				<Original>Thermal imaging not available. Please reopen camera feed.</Original>
+				<English>Thermal imaging not available. Please reopen camera feed.</English>
+				<German>Wärmebildmodus nicht verfügbar. Bitte Übertragung erneut öffnen.</German>
+			</Key>
+			<Key ID="str_GRAD_ravenError2">
+				<Original>No other viewmodes available.</Original>
+				<English>No other viewmodes available.</English>
+				<German>Keine weiteren Anzeigemodi verfügbar.</German>
 			</Key>
 		</Container>
 		<Container name="mission_end">
