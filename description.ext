@@ -236,6 +236,14 @@ class grad_foxtrot
 		textureVehicle = ""; // Does nothing currently, reserved for future use
 	};
 
+class grad_golf
+	{
+		displayName = "GRAD Golf"; // Name displayed in Arsenal
+		author = "Gruppe Adler"; // Author displayed in Arsenal
+		texture = "pic\insignia\golf.paa"; // Image path
+		textureVehicle = ""; // Does nothing currently, reserved for future use
+	};
+
 class grad_hotel
 	{
 		displayName = "GRAD Hotel"; // Name displayed in Arsenal
