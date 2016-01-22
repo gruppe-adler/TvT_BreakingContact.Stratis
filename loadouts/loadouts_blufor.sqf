@@ -1,7 +1,7 @@
-blufor_uniform_d = "rhs_uniform_FROG01_d";
+blufor_uniform_d = "rhs_uniform_cu_ocp";
 blufor_uniform_w = "rhs_uniform_FROG01_wd";
 
-crew_helmet_d = "rhsusf_cvc_helmet";
+crew_helmet_d = "rhsusf_ach_helmet_headset_ess_ocp";
 crew_helmet_w = "rhsusf_cvc_green_helmet";
 
 // woodland camo?
@@ -17,11 +17,9 @@ if ((ISLAND_TARGET_POSITIONS select (ISLANDS find worldName)) select 3) then {
 	blufor_uniform = blufor_uniform_d;
 
 	blufor_random_helmet = [
-	"rhsusf_mich_helmet_marpatd",
-	"rhsusf_mich_helmet_marpatd_alt",
-	"rhsusf_mich_helmet_marpatd_alt",
-	"rhsusf_mich_helmet_marpatd_norotos_arc",
-	"rhsusf_mich_bare_norotos_arc_tan"
+	"rhsusf_ach_helmet_ocp",
+	"rhsusf_ach_helmet_headset_ocp",
+	"rhsusf_ach_helmet_ocp_norotos"
 	];
 
 	blufor_crew_helmet = crew_helmet_d;
@@ -94,7 +92,7 @@ blufor_default = {
 	comment "Add containers";
 	
 	this forceAddUniform blufor_uniform;
-	this addVest "rhsusf_spc";
+	this addVest "rhsusf_iotv_ocp_Squadleader";
 	this addHeadgear (blufor_random_helmet call BIS_fnc_selectRandom);
 	this addBackpack "rhsusf_assault_eagleaiii_coy";
 	
@@ -131,7 +129,7 @@ blufor_sql = {
 	comment "Add containers";
 	
 	this forceAddUniform blufor_uniform;
-	this addVest "rhsusf_spc_squadleader";
+	this addVest "rhsusf_iotv_ocp_Grenadier";
 	this addHeadgear (blufor_random_helmet call BIS_fnc_selectRandom);
 	this addBackpack "tf_rt1523g_big_bwmod_tropen";
 
@@ -179,7 +177,7 @@ blufor_ftl = {
 	comment "Add containers";
 	
 	this forceAddUniform blufor_uniform;
-	this addVest "rhsusf_spc_teamleader";
+	this addVest "rhsusf_iotv_ocp_Teamleader";
 	this addHeadgear (blufor_random_helmet call BIS_fnc_selectRandom);
 	this addBackpack "tf_rt1523g_big_bwmod_tropen";
 
@@ -217,7 +215,7 @@ blufor_medic = {
 	comment "Add containers";
 	
 	this forceAddUniform blufor_uniform;
-	this addVest "rhsusf_spc_corpsman";
+	this addVest "rhsusf_iotv_ocp_Medic";
 	this addHeadgear (blufor_random_helmet call BIS_fnc_selectRandom);
 	this addBackpack "rhsusf_assault_eagleaiii_coy";
 
@@ -262,7 +260,7 @@ blufor_marksman = {
 	comment "Add containers";
 	
 	this forceAddUniform blufor_uniform;
-	this addVest "rhsusf_spc_marksman";
+	this addVest "rhsusf_iotv_ocp_Rifleman";
 	this addHeadgear (blufor_random_helmet call BIS_fnc_selectRandom);
 	
 	[this, "SmokeShell", 1] call addMagazinesToVest;
@@ -297,7 +295,7 @@ blufor_AT = {
 	comment "Add containers";
 	
 	this forceAddUniform blufor_uniform;
-	this addVest "rhsusf_spc_iar";
+	this addVest "rhsusf_iotv_ocp_Repair";
 	this addHeadgear (blufor_random_helmet call BIS_fnc_selectRandom);
 	this addBackpack "B_Carryall_khk";
 
@@ -337,7 +335,7 @@ blufor_MG = {
 	comment "Add containers";
 	
 	this forceAddUniform blufor_uniform;
-	this addVest "rhsusf_spc_mg";
+	this addVest "rhsusf_iotv_ocp_Repair";
 	this addHeadgear (blufor_random_helmet call BIS_fnc_selectRandom);
 	this addBackpack "rhsusf_assault_eagleaiii_coy";
 
@@ -378,7 +376,7 @@ blufor_engineer = {
 	comment "Add containers";
 	
 	this forceAddUniform blufor_uniform;
-	this addVest "rhsusf_spc_crewman";
+	this addVest "rhsusf_iotv_ocp_Repair";
 	this addHeadgear (blufor_random_helmet call BIS_fnc_selectRandom);
 	this addBackpack "rhsusf_assault_eagleaiii_coy";
 
@@ -417,7 +415,7 @@ blufor_crew = {
 	comment "Add containers";
 	
 	this forceAddUniform blufor_uniform;
-	this addVest "rhsusf_spc_crewman";
+	this addVest "rhsusf_iotv_ocp";
 	this addHeadgear blufor_crew_helmet;
 	this addBackpack "rhsusf_assault_eagleaiii_coy";
 
@@ -453,7 +451,7 @@ blufor_ammobearer = {
 	comment "Add containers";
 	
 	this forceAddUniform blufor_uniform;
-	this addVest "rhsusf_spc_crewman";
+	this addVest "rhsusf_iotv_ocp_Repair";
 	this addHeadgear (blufor_random_helmet call BIS_fnc_selectRandom);
 	this addBackpack "B_Carryall_khk";
 
