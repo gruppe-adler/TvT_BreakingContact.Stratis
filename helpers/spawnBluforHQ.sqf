@@ -73,10 +73,25 @@ testSpawnPositions = {
 	_distance = _this select 2;
 	_result = [2,nil,nil];
 	_mapsizeknown = false;
-
+	
+	// check for arma3 map size
 	_mapSize = worldSize;
 	if (_mapSize < 2000) then {
-		_mapSizeKnown = false; diag_log format ["Calculating Spawnposis: Map Size < 2000 or unknown."];
+		
+		// check for utes/chernarus
+		_mapSize = getNumber (configFile>>"CfgWorlds">>worldName>>"grid">>"zoom1">>"stepX")*(parseNumber mapGridPosition [0,0,0]);
+
+		// check for OA terrains / takistan
+		if (_mapSize < 2000) then {
+			_mapSize = getNumber (configFile>>"CfgWorlds">>worldName>>"grid">>"offsety");
+		};
+
+		// now im out of functions to get map size correctly
+		if (_mapSize < 2000) then {
+			_mapSizeKnown = false; diag_log format ["Calculating Spawnposis: Map Size < 2000 or unknown."];
+		};
+
+
 	} else {_mapSizeKnown = true;};
 
 
