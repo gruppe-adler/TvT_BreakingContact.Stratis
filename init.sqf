@@ -112,13 +112,24 @@ if (isServer) then {
 	REPLAY_STEPS_PER_TICK = 1;
 
 
-	_playercount = count allPlayers;
-	_bonusPerPlayer = _playercount * 100;
+	
 
-	russianCredits = OPFOR_MONEY + _bonusPerPlayer;
-	USCredits = BLUFOR_MONEY + _bonusPerPlayer;
+	russianCredits = OPFOR_MONEY;
+	USCredits = BLUFOR_MONEY;
 
 	0 = [russianCredits,USCredits] execVM "spawn\gui\addPublicVariableEventhandler.sqf";
+	
+	[] spawn {
+		waitUntil {count allPlayers > 0};
+		_playercount = count allPlayers;
+		_bonusPerPlayer = _playercount * 100;
+		
+		russianCredits = OPFOR_MONEY + _bonusPerPlayer;
+		USCredits = BLUFOR_MONEY + _bonusPerPlayer;
+
+		0 = [russianCredits,USCredits] execVM "spawn\gui\addPublicVariableEventhandler.sqf";
+		
+	};
 
 	if (isClass (configFile >> "CfgPatches" >> "task_force_radio")) then {
 		[] execVM "tfarsettings.sqf";
