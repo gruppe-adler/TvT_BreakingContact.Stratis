@@ -1,4 +1,6 @@
 checkInsideMap = {
+	// 0 = mapsize
+	// 1 = spawnpos
 	_maximumX = _this select 0;
 	_maximumY = _this select 0;
 	_positionX = (_this select 1) select 0;
@@ -103,9 +105,8 @@ testSpawnPositions = {
 	if (count _testPos1 < 1) exitWith {_result = [1,nil,nil];};
 
 	// if map size is known and spawn position is outside map, result is 1 
-	if (_mapSizeKnown) then {
-		if (!([_mapSize, _testPos1] call checkInsideMap)) exitWith {_result = [1,nil,nil]; diag_log format ["Calculating Spawnpos: Outside Map."]; _result };
-	};
+	if (!([_mapSize, _testPos1] call checkInsideMap) && _mapSizeKnown) exitWith {_result = [1,nil,nil]; diag_log format ["Calculating Spawnpos: Outside Map."]; _result };
+	
 
 	if ([_testPos1, 5] call get_slope > 0.5) exitWith {_result = [1,nil,nil]; diag_log format ["Calculating Spawnpos: Not flat enough."]; _result };
 
