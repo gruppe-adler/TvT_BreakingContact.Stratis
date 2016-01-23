@@ -76,42 +76,47 @@ testSpawnPositions = {
 	
 	// check for arma3 map size
 	_mapSize = worldSize;
-	if (_mapSize < 2000) then {
 		
-		// check for utes/chernarus
-		_mapSize = getNumber (configFile>>"CfgWorlds">>worldName>>"grid">>"zoom1">>"stepX")*(parseNumber mapGridPosition [0,0,0]);
+	// check for utes/chernarus
+	if (_mapSize < 2000) then {
+	_mapSize = getNumber (configFile>>"CfgWorlds">>worldName>>"grid">>"zoom1">>"stepX")*(parseNumber mapGridPosition [0,0,0]);
+	diag_log format ["Calculating Spawnpos: Map doesnt seem to be Arma3 native. Checking for Chernarus/Utes.",_mapSize];
+	};
 
-		// check for OA terrains / takistan
-		if (_mapSize < 2000) then {
-			_mapSize = getNumber (configFile>>"CfgWorlds">>worldName>>"grid">>"offsety");
-		};
+	// check for OA terrains / takistan
+	if (_mapSize < 2000) then {
+		_mapSize = getNumber (configFile>>"CfgWorlds">>worldName>>"grid">>"offsety");
+		diag_log format ["Calculating Spawnpos: Checking for OA Terrain.",_mapSize];
+	};
 
-		// now im out of functions to get map size correctly
-		if (_mapSize < 2000) then {
-			_mapSizeKnown = false; diag_log format ["Calculating Spawnposis: Map Size < 2000 or unknown."];
-		};
-
-
-	} else {_mapSizeKnown = true;};
+	// now im out of functions to get map size correctly
+	if (_mapSize < 2000) then {
+		_mapSizeKnown = false; diag_log format ["Calculating Spawnpos: Map Size < 2000 or unknown."];
+	} else {
+		_mapSizeKnown = true; diag_log format ["Calculating Spawnpos: Map Size is  %1.",_mapSize];
+	};
 
 
 
 	// put something very big in there, just to be sure there is enough room
 	_testPos1 = [_center,[_distance,_distance], random 360,0,[1,500]] call SHK_pos;
 	if (count _testPos1 < 1) exitWith {_result = [1,nil,nil];};
+
+	// if map size is known and spawn position is outside map, result is 1 
 	if (_mapSizeKnown) then {
-		if (!([_mapSize, _testPos1] call checkInsideMap)) exitWith {_result = [1,nil,nil]; diag_log format ["Calculating Spawnposis: Outside Map."]; _result };
+		if (!([_mapSize, _testPos1] call checkInsideMap)) exitWith {_result = [1,nil,nil]; diag_log format ["Calculating Spawnpos: Outside Map."]; _result };
 	};
-	if ([_testPos1, 5] call get_slope > 0.5) exitWith {_result = [1,nil,nil]; diag_log format ["Calculating Spawnposis: Not flat enough."]; _result };
+
+	if ([_testPos1, 5] call get_slope > 0.5) exitWith {_result = [1,nil,nil]; diag_log format ["Calculating Spawnpos: Not flat enough."]; _result };
 
 
 	_testVehicle1 = (_items select 0) createVehicleLocal _testPos1;
 
 
 	_testPos2 = [_testPos1,[30,50], random 360,0,[1,500]] call SHK_pos;
-	if (count _testPos2 < 1) exitWith {_result = [1,nil,nil]; diag_log format ["Calculating Spawnposis: No matching second pos."]; _result};	
-	if (_testPos1 distance _testPos2 < 10) exitWith {deleteVehicle _testVehicle1; _result = [1,nil,nil]; diag_log format ["Calculating Spawnposis: HQ too close on marker."]; _result};
-	if ([_testPos2, 5] call get_slope > 0.5) exitWith {deleteVehicle _testVehicle1;_result = [1,nil,nil]; diag_log format ["Calculating Spawnposis: Not flat enough."]; _result};
+	if (count _testPos2 < 1) exitWith {_result = [1,nil,nil]; diag_log format ["Calculating Spawnpos: No matching second pos."]; _result};	
+	if (_testPos1 distance _testPos2 < 10) exitWith {deleteVehicle _testVehicle1; _result = [1,nil,nil]; diag_log format ["Calculating Spawnpos: HQ too close on marker."]; _result};
+	if ([_testPos2, 5] call get_slope > 0.5) exitWith {deleteVehicle _testVehicle1;_result = [1,nil,nil]; diag_log format ["Calculating Spawnpos: Not flat enough."]; _result};
 
 	_testVehicle2 = (_items select 1) createVehicleLocal _testPos2;
 
