@@ -41,7 +41,14 @@ setCustomWeather = {
 	10 setOvercast (_this select 0); 
 	if (_this select 1) then {
 		10 setRain 1;
-		10 setFog [1, 0.01, 0];
+		_fogDensity = random 1;
+		_fogFalloff = random 0.1;
+		10 setFog [_fogDensity, _fogFalloff, 0];
+	};
+	if ((_this select 0) > 0.5) then {
+		_fogDensity = random 0.2;
+		_fogFalloff = random 0.01;
+		10 setFog [_fogDensity, _fogFalloff, 0];
 	};
 	setViewDistance 6000;
 	forceWeatherChange;
@@ -65,7 +72,7 @@ if (isServer) then {
 
 	switch (WEATHER_SETTING) do {
 	case 0: {[0,false] call setCustomWeather;};
-	case 1: {[0.4,false] call setCustomWeather;};
+	case 1: {[0.6,false] call setCustomWeather;};
 	case 2: {[1,true] call setCustomWeather;};
 	case 3: {[random 1,true] call setCustomWeather;};
 	default {[0,false] call setCustomWeather;};

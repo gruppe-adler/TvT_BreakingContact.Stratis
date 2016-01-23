@@ -41,7 +41,7 @@ class Params
     {
 		title = "Weather Settings";
 		values[] = {0,1,2,3};
-		texts[] = {"SUNNY DAY","RAINY DAY","CLOUDY DAY","RANDOM WEATHER"};
+		texts[] = {"SUNNY DAY","CLOUDY DAY","RAINY DAY","RANDOM WEATHER"};
 		default = 0;
     };
 
