@@ -271,6 +271,11 @@
 				<English>Order vehicle</English>
 				<German>Fahrzeug anfordern</German>
 			</Key>
+			<Key ID="str_GRAD_buy_disable">
+				<Original>Efface Spawn Pad</Original>
+				<English>Efface Spawn Pad</English>
+				<German>Spawn Pad verwischen</German>
+			</Key>
 			<Key ID="str_GRAD_buy_exit">
 				<Original>Close</Original>
 				<English>Close</English>

@@ -2,7 +2,7 @@
 #include "spawn\gui\_dialogs.hpp"
 
 OnLoadMission = "A mobile radio station is trying to get a message sent - their adversaries try to stop them from completing the broadcast";
-author = "Nomisum, XiviD, Fusselwurm & McDiod für Gruppe Adler";  //appears as author in overview and loading screen
+author = "Fusselwurm, McDiod & Nomisum for Gruppe Adler";  //appears as author in overview and loading screen
 overviewText = "US vs. Russians"; //appears in overview and loading screen
 onLoadName = "Breaking Contact"; //mission name for loading screen only
 overviewPicture = ""; //mission picture for loading screen only

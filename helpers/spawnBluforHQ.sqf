@@ -178,7 +178,9 @@ spawnOpforHQ = {
 
 	while {_waitingForOpforSpawn} do {
 		_opforSpawnSuccess = [0,nil,nil];
-		_opforSpawnSuccess = [_opforCenterPosition, ["Land_Cargo_House_V1_F","Land_HelipadCivil_F"], _opforDistance] call testSpawnPositions;
+
+		// landclutter instead of building - dummy object
+		_opforSpawnSuccess = [_opforCenterPosition, ["Land_ClutterCutter_small_F","Land_HelipadCivil_F"], _opforDistance] call testSpawnPositions;
 		waitUntil {(_opforSpawnSuccess select 0) > 0};
 
 		if ((_opforSpawnSuccess select 0) > 1) exitWith {
@@ -189,11 +191,12 @@ spawnOpforHQ = {
 
 			[_vehicle1, _vehicle2] call setSpawnedDirection;
 
+			RUS_SPAWN_PAD = (_opforSpawnSuccess select 2);
+
 			RUS_VEHICLE_SPAWN = getPos (_opforSpawnSuccess select 2);
 			publicVariable "RUS_VEHICLE_SPAWN";
 
-			_rusActionHelper = createVehicle ["Land_SatellitePhone_F", [(getPos _vehicle1 select 0) + 2, (getPos _vehicle1 select 1) - 1, 0.5], [], 0, "NONE"];
-			_rusActionHelper attachTo [_vehicle1, [2,3.5,0.4]];
+			
 
 			/* OPFOR_TELEPORT_TARGET = getPos (_opforSpawnSuccess select 2);
 			publicVariableServer "OPFOR_TELEPORT_TARGET"; */
