@@ -113,7 +113,7 @@ testSpawnPositions = {
 	_testVehicle1 = (_items select 0) createVehicleLocal _testPos1;
 
 
-	_testPos2 = [_testPos1,[30,50], random 360,0,[1,500]] call SHK_pos;
+	_testPos2 = [_testPos1,[30,50], random 360,0,[1,150]] call SHK_pos;
 	if (count _testPos2 < 1) exitWith {_result = [1,nil,nil]; diag_log format ["Calculating Spawnpos: No matching second pos."]; _result};	
 	if (_testPos1 distance _testPos2 < 10) exitWith {deleteVehicle _testVehicle1; _result = [1,nil,nil]; diag_log format ["Calculating Spawnpos: HQ too close on marker."]; _result};
 	if ([_testPos2, 5] call get_slope > 0.5) exitWith {deleteVehicle _testVehicle1;_result = [1,nil,nil]; diag_log format ["Calculating Spawnpos: Not flat enough."]; _result};

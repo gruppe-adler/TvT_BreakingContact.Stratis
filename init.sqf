@@ -38,18 +38,17 @@ disableRemoteSensors true;
 
 setCustomWeather = {
 	// skipTime -24; 
-	0 setOvercast (_this select 0); 
+	10 setOvercast (_this select 0); 
+	if (_this select 1) then {
+		10 setRain 1;
+		10 setFog [1, 0.01, 0];
+	};
 	setViewDistance 6000;
+	forceWeatherChange;
 	// skipTime 24;
 };
 
-switch (WEATHER_SETTING) do {
-	case 0: {[0] call setCustomWeather;};
-	case 1: {[0.4] call setCustomWeather;};
-	case 2: {[1] call setCustomWeather;};
-	case 3: {[random 1] call setCustomWeather;};
-	default {[0] call setCustomWeather;};
-};
+
 
 
 if (!isMultiplayer) then { // Editor
@@ -63,6 +62,14 @@ if (isServer) then {
 	
 	// set to full moon date
 	setDate [2015, 2, 2, TIME_OF_DAY, 1];
+
+	switch (WEATHER_SETTING) do {
+	case 0: {[0,false] call setCustomWeather;};
+	case 1: {[0.4,false] call setCustomWeather;};
+	case 2: {[1,true] call setCustomWeather;};
+	case 3: {[random 1,true] call setCustomWeather;};
+	default {[0,false] call setCustomWeather;};
+};
 	// set time acceleration
 	setTimeMultiplier TIME_ACCELERATION;
 

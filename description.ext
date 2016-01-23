@@ -260,9 +260,9 @@ class grad_india
 		textureVehicle = ""; // Does nothing currently, reserved for future use
 	};
 
-	class grad_heli
+	class grad_air
 	{
-		displayName = "GRAD Heli"; // Name displayed in Arsenal
+		displayName = "GRAD Air"; // Name displayed in Arsenal
 		author = "Gruppe Adler"; // Author displayed in Arsenal
 		texture = "pic\insignia\air.paa"; // Image path
 		textureVehicle = ""; // Does nothing currently, reserved for future use
