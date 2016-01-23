@@ -137,6 +137,7 @@ refreshUSUI = {
 		ctrlEnable [3506, false];
 		ctrlEnable [3507, false];
 		ctrlEnable [3508, false];
+		
 
 		_display displayCtrl 3501 ctrlSetFade 1;
 		_display displayCtrl 3501 ctrlCommit 0;

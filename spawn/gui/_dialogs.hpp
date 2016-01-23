@@ -548,7 +548,7 @@ class russianSupplyGUI
 			};
 			class russian_gui_btn_disable: RscButtonSmall
 			{
-				idc = -1;
+				idc = 1701;
 				text = $STR_GRAD_buy_disable;
 				x = 32.5 * GUI_GRID_W + GUI_GRID_X;
 				y = 1 * GUI_GRID_H + GUI_GRID_Y;
