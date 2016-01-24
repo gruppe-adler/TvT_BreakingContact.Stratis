@@ -39,6 +39,7 @@ disableRemoteSensors true;
 setCustomWeather = {
 	// skipTime -24; 
 	10 setOvercast (_this select 0);
+	10 setRain 0;
 	if ((_this select 0) > 0.5) then {
 		_fogDensity = random 0.2;
 		_fogFalloff = random 0.01;
