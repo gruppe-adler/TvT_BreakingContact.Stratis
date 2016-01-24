@@ -167,6 +167,7 @@ spawnBluforHQ = {
 			[_vehicle1,	nil, ["hide_middleTop",1]] call BIS_fnc_initVehicle;
 
 			US_SPAWN_PAD = (_bluforSpawnSuccess select 2);
+			publicVariable "US_SPAWN_PAD";
 
 			US_VEHICLE_SPAWN = getPos (_bluforSpawnSuccess select 2);
 			publicVariable "US_VEHICLE_SPAWN";
@@ -213,6 +214,7 @@ spawnOpforHQ = {
 			[_vehicle1, _vehicle2] call setSpawnedDirection;
 
 			RUS_SPAWN_PAD = (_opforSpawnSuccess select 2);
+			publicVariable "RUS_SPAWN_PAD";
 
 			RUS_VEHICLE_SPAWN = getPos (_opforSpawnSuccess select 2);
 			publicVariable "RUS_VEHICLE_SPAWN";

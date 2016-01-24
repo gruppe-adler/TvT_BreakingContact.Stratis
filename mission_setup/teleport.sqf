@@ -26,6 +26,7 @@ if (player == opfor_teamlead) then {
 
 	[] spawn {
 		while {visibleMap} do {
+		disableSerialization;
 		_mapDisplay = findDisplay 12;
 		_mapCntrl = _mapDisplay displayCtrl 51;
 		_center = _mapCntrl ctrlMapScreenToWorld [0.5, 0.5];
