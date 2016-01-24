@@ -69,34 +69,41 @@ setSpawnedDirection = {
 	*/
 };
 
+getMapSize = {
+	// check for arma3 map size
+	_mapSizeDetected = worldSize;
+	_mapSizeDetectedKnown = true;
+		
+	// check for utes/chernarus
+	if (_mapSizeDetected < 2000) then {
+	_mapSizeDetected = getNumber (configFile>>"CfgWorlds">>worldName>>"grid">>"zoom1">>"stepX")*(parseNumber mapGridPosition [0,0,0]);
+	diag_log format ["Calculating Spawnpos: Map doesnt seem to be Arma3 native. Checking for Chernarus/Utes.",_mapSizeDetected];
+	};
+
+	// check for OA terrains / takistan
+	if (_mapSizeDetected < 2000) then {
+		_mapSizeDetected = getNumber (configFile>>"CfgWorlds">>worldName>>"grid">>"offsety");
+		diag_log format ["Calculating Spawnpos: Checking for OA Terrain.",_mapSizeDetected];
+	};
+
+	// now im out of functions to get map size correctly
+	if (_mapSizeDetected < 2000) then {
+		_mapSizeDetectedKnown = false; diag_log format ["Calculating Spawnpos: Map Size < 2000 or unknown."];
+	} else {
+		_mapSizeDetectedKnown = true; diag_log format ["Calculating Spawnpos: Map Size is  %1.",_mapSizeDetected];
+	};
+	[_mapSizeDetected,_mapSizeDetectedKnown]
+};
+
 testSpawnPositions = {
 	_center = _this select 0;
 	_items = _this select 1;
 	_distance = _this select 2;
 	_result = [2,nil,nil];
-	_mapsizeknown = false;
 	
-	// check for arma3 map size
-	_mapSize = worldSize;
-		
-	// check for utes/chernarus
-	if (_mapSize < 2000) then {
-	_mapSize = getNumber (configFile>>"CfgWorlds">>worldName>>"grid">>"zoom1">>"stepX")*(parseNumber mapGridPosition [0,0,0]);
-	diag_log format ["Calculating Spawnpos: Map doesnt seem to be Arma3 native. Checking for Chernarus/Utes.",_mapSize];
-	};
-
-	// check for OA terrains / takistan
-	if (_mapSize < 2000) then {
-		_mapSize = getNumber (configFile>>"CfgWorlds">>worldName>>"grid">>"offsety");
-		diag_log format ["Calculating Spawnpos: Checking for OA Terrain.",_mapSize];
-	};
-
-	// now im out of functions to get map size correctly
-	if (_mapSize < 2000) then {
-		_mapSizeKnown = false; diag_log format ["Calculating Spawnpos: Map Size < 2000 or unknown."];
-	} else {
-		_mapSizeKnown = true; diag_log format ["Calculating Spawnpos: Map Size is  %1.",_mapSize];
-	};
+	_mapSizeArray = [] call getMapSize;
+	_mapSize = _mapSizeArray select 0;
+	_mapSizeKnown = _mapSizeArray select 1;
 
 
 
@@ -108,7 +115,7 @@ testSpawnPositions = {
 	if (!([_mapSize, _testPos1] call checkInsideMap) && _mapSizeKnown) exitWith {_result = [1,nil,nil]; diag_log format ["Calculating Spawnpos: Outside Map."]; _result };
 	
 
-	if ([_testPos1, 5] call get_slope > 0.5) exitWith {_result = [1,nil,nil]; diag_log format ["Calculating Spawnpos: Not flat enough."]; _result };
+	if ([_testPos1, 5] call get_slope > 0.5) exitWith {_result = [1,nil,nil]; diag_log format ["Calculating SpawnposHQ: Not flat enough."]; _result };
 
 
 	_testVehicle1 = (_items select 0) createVehicleLocal _testPos1;
@@ -117,13 +124,14 @@ testSpawnPositions = {
 	_testPos2 = [_testPos1,[30,50], random 360,0,[1,150]] call SHK_pos;
 	if (count _testPos2 < 1) exitWith {_result = [1,nil,nil]; diag_log format ["Calculating Spawnpos: No matching second pos."]; _result};	
 	if (_testPos1 distance _testPos2 < 10) exitWith {deleteVehicle _testVehicle1; _result = [1,nil,nil]; diag_log format ["Calculating Spawnpos: HQ too close on marker."]; _result};
-	if ([_testPos2, 5] call get_slope > 0.5) exitWith {deleteVehicle _testVehicle1;_result = [1,nil,nil]; diag_log format ["Calculating Spawnpos: Not flat enough."]; _result};
+	if (_testPos1 distance OPFOR_TELEPORT_TARGET < _distance) exitWith {deleteVehicle _testVehicle1; _result = [1,nil,nil]; diag_log format ["Calculating Spawnpos: HQ too close to OPFOR."]; _result};
+	if ([_testPos2, 5] call get_slope > 0.5) exitWith {deleteVehicle _testVehicle1;_result = [1,nil,nil]; diag_log format ["Calculating SpawnposPad: Not flat enough."]; _result};
 
 	_testVehicle2 = (_items select 1) createVehicleLocal _testPos2;
 
 	deleteVehicle _testVehicle1; deleteVehicle _testVehicle2; // delete position dummies
-	_vehicle1 = (_items select 0) createVehicle _testPos1;
-	_vehicle2 = (_items select 1) createVehicle _testPos2;
+	_vehicle1 = createVehicle [(_items select 0), _testPos1, [], 2, "NONE"];
+	_vehicle2 = createVehicle [(_items select 1), _testPos2, [], 0, "NONE"];
 
 	_result = [2, _vehicle1, _vehicle2];
 
@@ -136,11 +144,17 @@ spawnBluforHQ = {
 	_bluforDistance = _this select 1;
 	_waitingForBluforSpawn = true;
 	
-
+	// woodland camo?
+    if ((ISLAND_TARGET_POSITIONS select (ISLANDS find worldName)) select 3) then {
+       hmmwv_hq = "rhsusf_m998_w_4dr";     
+    } else {
+       hmmwv_hq = "rhsusf_m998_d_4dr";
+    };
 
 	while {_waitingForBluforSpawn} do {
 		_bluforSpawnSuccess = [0,nil,nil];
-		_bluforSpawnSuccess = [_bluforCenterPosition, ["Land_Cargo_House_V3_F","Land_HelipadCivil_F"], _bluforDistance] call testSpawnPositions;
+
+		_bluforSpawnSuccess = [_bluforCenterPosition, [hmmwv_hq,"Land_HelipadCivil_F"], _bluforDistance] call testSpawnPositions;
 		waitUntil {(_bluforSpawnSuccess select 0) > 0};
 
 		if ((_bluforSpawnSuccess select 0) > 1) exitWith {
@@ -150,6 +164,9 @@ spawnBluforHQ = {
 			_vehicle2 = (_bluforSpawnSuccess select 2);
 
 			[_vehicle1, _vehicle2] call setSpawnedDirection;
+			[_vehicle1,	nil, ["hide_middleTop",1]] call BIS_fnc_initVehicle;
+
+			US_SPAWN_PAD = (_bluforSpawnSuccess select 2);
 
 			US_VEHICLE_SPAWN = getPos (_bluforSpawnSuccess select 2);
 			publicVariable "US_VEHICLE_SPAWN";
@@ -157,11 +174,15 @@ spawnBluforHQ = {
 			BLUFOR_TELEPORT_TARGET = getPos (_bluforSpawnSuccess select 2);
 			publicVariableServer "BLUFOR_TELEPORT_TARGET";
 
-			_usActionHelper = createVehicle ["Land_SatellitePhone_F", [(getPos _vehicle1 select 0) + 2, (getPos _vehicle1 select 1) - 1, 0.5], [], 0, "NONE"];
-			_usActionHelper attachTo [_vehicle1, [2,3.5,0.4]];			
+
+
+			usActionHelper = createVehicle ["Land_SatellitePhone_F", [(getPos _vehicle1 select 0) + 2, (getPos _vehicle1 select 1) - 1, 0.5], [], 0, "NONE"];
+			usActionHelper attachTo [_vehicle1, [0,-0.3,1.1]];
+
 
 			debugLog("blufor published target");
 			diag_log format ["creating blufor stuff on position: %1",US_VEHICLE_SPAWN];
+
 		};
 
 

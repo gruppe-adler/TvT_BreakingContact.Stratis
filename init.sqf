@@ -126,8 +126,8 @@ if (isServer) then {
 	REPLAY_SPEED = 0.02;
 	REPLAY_STEPS_PER_TICK = 1;
 
-
-	
+	OPFOR_MAPCENTER = [0,0];
+	publicVariable "OPFOR_MAPCENTER";
 
 	russianCredits = OPFOR_MONEY;
 	USCredits = BLUFOR_MONEY;
@@ -135,8 +135,8 @@ if (isServer) then {
 	0 = [russianCredits,USCredits] execVM "spawn\gui\addPublicVariableEventhandler.sqf";
 	
 	[] spawn {
-		waitUntil {count allPlayers > 0};
-		_playercount = count allPlayers;
+		_connectedPlayers = call CBA_fnc_players;
+		_playercount = count _connectedPlayers;
 		_bonusPerPlayer = _playercount * 100;
 		
 		russianCredits = OPFOR_MONEY + _bonusPerPlayer;

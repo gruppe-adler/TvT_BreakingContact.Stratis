@@ -23,6 +23,17 @@ if (player == opfor_teamlead) then {
 			};
 		}
 	] call BIS_fnc_addStackedEventHandler;
+
+	[] spawn {
+		while {visibleMap} do {
+		_mapDisplay = findDisplay 12;
+		_mapCntrl = _mapDisplay displayCtrl 51;
+		_center = _mapCntrl ctrlMapScreenToWorld [0.5, 0.5];
+		OPFOR_MAPCENTER = _centre;
+		publicVariable "OPFOR_MAPCENTER";
+		sleep 0.5;
+		};
+	};
 };
 
 if (player == blufor_teamlead) then {

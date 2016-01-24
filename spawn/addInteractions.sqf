@@ -1,9 +1,9 @@
 // buy actions
 _usAction = ["ACE_MainActions", (localize "str_GRAD_buy_vehicles"), "",
  {0 = createDialog "USSupplyGUI"; disableSerialization; [USSupplies, false, 0, "","",""] call refreshUSUI;},
-  {side player == west},{},[],[2,3.5,0],5] call ace_interact_menu_fnc_createAction;
+  {side player == west},{},[],[0,0,0],5] call ace_interact_menu_fnc_createAction;
 
-["Land_Cargo_House_V3_F", 0, [], _usAction] call ace_interact_menu_fnc_addActionToClass;
+["Land_SatellitePhone_F", 0, [], _usAction] call ace_interact_menu_fnc_addActionToClass;
 
 
 _rusAction = ["ACE_MainActions", (localize "str_GRAD_buy_vehicles"), "",
