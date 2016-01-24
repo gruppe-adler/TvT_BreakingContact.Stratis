@@ -237,11 +237,9 @@ if (isNil "BIS_fnc_establishingShot_skip") then {
 
 		while {isNil "BIS_missionStarted"} do {
 			private ["_coords"];
-			if (side player == east) then {
-			_coords = [OPFOR_MAPCENTER, _rad, _ang] call BIS_fnc_relPos;
-			} else {
+			
 			_coords = [_pos, _rad, _ang] call BIS_fnc_relPos;
-			};
+			
 			_coords set [2, _alt];
 
 			BIS_fnc_establishingShot_fakeUAV camPreparePos _coords;

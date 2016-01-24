@@ -151,9 +151,6 @@ if (isServer) then {
 	REPLAY_SPEED = 0.02;
 	REPLAY_STEPS_PER_TICK = 1;
 
-	OPFOR_MAPCENTER = [0,0];
-	publicVariable "OPFOR_MAPCENTER";
-
 	russianCredits = OPFOR_MONEY;
 	USCredits = BLUFOR_MONEY;
 
