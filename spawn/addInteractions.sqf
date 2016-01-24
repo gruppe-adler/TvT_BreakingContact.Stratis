@@ -1,17 +1,23 @@
 // buy actions
-_usAction = ["ACE_MainActions", (localize "str_GRAD_buy_vehicles"), "",
+_usAction1 = ["ACE_MainActions", (localize "str_GRAD_buy_vehicles"), "",
  {0 = createDialog "USSupplyGUI"; disableSerialization; [USSupplies, false, 0, "","",""] call refreshUSUI;},
-  {side player == west},{},[],[0,0,0],5] call ace_interact_menu_fnc_createAction;
+  {side player == west}] call ace_interact_menu_fnc_createAction;
 
-["Land_SatellitePhone_F", 0, [], _usAction] call ace_interact_menu_fnc_addActionToClass;
+["rhsusf_m998_w_4dr", 0, ["ACE_MainActions"], _usAction1] call ace_interact_menu_fnc_addActionToClass;
+
+_usAction2 = ["ACE_MainActions", (localize "str_GRAD_buy_vehicles"), "",
+ {0 = createDialog "USSupplyGUI"; disableSerialization; [USSupplies, false, 0, "","",""] call refreshUSUI;},
+  {side player == west}] call ace_interact_menu_fnc_createAction;
+
+["rhsusf_m998_d_4dr", 0, ["ACE_MainActions"], _usAction2] call ace_interact_menu_fnc_addActionToClass;
 
 
-_rusAction = ["ACE_MainActions", (localize "str_GRAD_buy_vehicles"), "",
+
+_rusAction = ["RusBuyMenu", (localize "str_GRAD_buy_vehicles"), "",
  {0 = createDialog "RussianSupplyGUI"; disableSerialization; [russianSupplies, false, 0, "","",""] call refreshRussianUI;},
-  {side player == east},{},[],[0,0,0],5] call ace_interact_menu_fnc_createAction;
+  {side player == east}] call ace_interact_menu_fnc_createAction;
 
-["Land_SatellitePhone_F", 0, [], _rusAction] call ace_interact_menu_fnc_addActionToClass;
-
+["rhs_gaz66_r142_vv", 0, ["ACE_MainActions"],_rusAction] call ace_interact_menu_fnc_addActionToClass;
 
 
 
