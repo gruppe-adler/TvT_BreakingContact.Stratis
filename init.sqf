@@ -157,6 +157,7 @@ if (isServer) then {
 	USCredits = BLUFOR_MONEY;
 
 	0 = [russianCredits,USCredits] execVM "spawn\gui\addPublicVariableEventhandler.sqf";
+
 	
 	[] spawn {
 		_connectedPlayers = call CBA_fnc_players;

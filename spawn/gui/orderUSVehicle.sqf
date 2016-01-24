@@ -95,8 +95,7 @@ _tempSupplies =
         _tempUS_5,
         _tempUS_6,
         _tempUS_7,
-        _tempUS_8,
-        _tempUS_9
+        _tempUS_8
     ];
 
 [_tempSupplies,false,0,_vehicleOrdered,_vehicleExtras,_vehicleCalls,_vehicleEta] call refreshUSUI;
