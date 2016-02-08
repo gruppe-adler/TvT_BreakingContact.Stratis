@@ -179,8 +179,10 @@ if (isServer) then {
 	[] execVM "server\russianMarker.sqf";
  	[] execVM "server\teleportListener.sqf";
 
- 	[] spawn {
- 		{if (!isPlayer _x) then {sleep 0.5; [_x] execVM "loadouts\_client.sqf"};} forEach allUnits;
+ 	if (!isMultiplayer) then {
+	 	[] spawn {
+	 		{if (!isPlayer _x) then {sleep 0.5; [_x] execVM "loadouts\_client.sqf"};} forEach allUnits;
+	 	};
  	};
  	
 };
