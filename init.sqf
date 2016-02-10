@@ -216,8 +216,10 @@ if (hasInterface) then {
 			player setDamage 1;
 			["forced"] spawn CSSA3_fnc_createSpectateDialog;
 		} else {
-		if (!didJIP) exitWith {[] call checkSpawnButton;};
-			if (playerSide == east) then {
+		if (!didJIP) exitWith {
+			[] call checkSpawnButton;
+		};
+		if (playerSide == east) then {
 			[OPFOR_TELEPORT_TARGET, 50] execVM "helpers\teleportPlayer.sqf";
 			} else {
 			[BLUFOR_TELEPORT_TARGET, 50] execVM "helpers\teleportPlayer.sqf";
