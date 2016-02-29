@@ -165,6 +165,7 @@ spawnBluforHQ = {
 
 			[_vehicle1, _vehicle2] call setSpawnedDirection;
 			[_vehicle1,	nil, ["hide_middleTop",1]] call BIS_fnc_initVehicle;
+			[_vehicle1] call clearInventory;
 
 			US_SPAWN_PAD = (_bluforSpawnSuccess select 2);
 			publicVariable "US_SPAWN_PAD";
