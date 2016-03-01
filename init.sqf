@@ -231,7 +231,7 @@ if (hasInterface) then {
 	checkSpawnButton = {
 		
 		if (player != opfor_teamlead) then {
-			0 = [[worldSize/2,worldSize/2,0],"",3000] execVM "helpers\establishingShot.sqf";
+			0 = [[worldSize/2,worldSize/2,0],"",1500] execVM "helpers\establishingShot.sqf";
 		} else {
 		disableSerialization;
 		waitUntil {!(isNull ([] call BIS_fnc_displayMission))};
