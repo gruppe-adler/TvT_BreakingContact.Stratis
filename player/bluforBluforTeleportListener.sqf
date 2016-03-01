@@ -22,7 +22,7 @@ _BLUFOR_TELEPORT_TARGET_listener = {
 };
 
 "BLUFOR_TELEPORT_TARGET" addPublicVariableEventHandler _BLUFOR_TELEPORT_TARGET_listener;
-
+diag_log format ["Mission Setup: Added blufor teleport PVEH: %1", _BLUFOR_TELEPORT_TARGET_listener];
 
 // runs in SP to emulate addPublicVariableEventHandler (which doesnt work in SP)
 if (!isMultiplayer) then {
