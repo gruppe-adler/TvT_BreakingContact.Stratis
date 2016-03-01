@@ -102,7 +102,7 @@ if (isServer) then {
 	case 2: {[1,true] call setCustomWeather;};
 	case 3: {[random 1,true] call setCustomWeather;};
 	default {[0,false] call setCustomWeather;};
-};
+        };
 	// set time acceleration
 	setTimeMultiplier TIME_ACCELERATION;
 
