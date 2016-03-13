@@ -73,7 +73,7 @@ _parameters = [
 	["ON_SPAWN_CALLBACK",{
 	{	
 		[_x] call randomCivilian;
-	} forEach crew _this;
+	} forEach crew (_this select 0);
 	}];
 ];
 
