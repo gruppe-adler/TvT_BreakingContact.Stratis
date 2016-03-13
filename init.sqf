@@ -88,7 +88,10 @@ if (!isMultiplayer) then { // Editor
 	/* {_x disableAI "MOVE"} forEach allUnits;*/
 };
 
+call compile preprocessfile "Engima\Traffic\Custom_GruppeAdler\createVehicle.sqf";
+call compile preprocessfile "Engima\Traffic\Custom_GruppeAdler\randomCivilian.sqf";
 
+[] execVM "Engima\Traffic\Init.sqf";
 
 if (isServer) then {
 	// allow view distance to be up to 10k
