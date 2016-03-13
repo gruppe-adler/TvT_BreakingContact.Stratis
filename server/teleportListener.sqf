@@ -48,14 +48,10 @@ _BLUFOR_TELEPORT_TARGET_listener = {
 	_pos = _this select 1;
 	publicVariable "BLUFOR_TELEPORT_TARGET";
 	
-	sleep 2; // just to make sure no one is missed, send again (dirty fix for spawn prob?)
-	publicVariable "BLUFOR_TELEPORT_TARGET";
-	
-	sleep 4;
-	publicVariable "BLUFOR_TELEPORT_TARGET";
-	
-	sleep 8;
-	publicVariable "BLUFOR_TELEPORT_TARGET";
+	[] spawn {
+		sleep 2; // just to make sure no one is missed, send again (dirty fix for spawn prob?)
+		publicVariable "BLUFOR_TELEPORT_TARGET";
+	};
 };
 
 

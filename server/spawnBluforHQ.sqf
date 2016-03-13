@@ -183,7 +183,7 @@ spawnBluforHQ = {
 
 			/* listener to remove spawn pad and actionhelper, when its time */
 			BUY_OPTION_BLUFOR = {
-				if (_this select 0) exitWith {};
+				if (BUY_OPTION_BLUFOR) exitWith {};
 				detach usActionHelper;
 				deleteVehicle usActionHelper;
 				hideObjectGlobal US_SPAWN_PAD;
@@ -231,7 +231,7 @@ spawnOpforHQ = {
 
 			/* listener to remove spawn pad and actionhelper, when its time */
 			BUY_OPTION_OPFOR = {
-				if (_this select 0) exitWith {};
+				if (BUY_OPTION_OPFOR) exitWith {};
 				detach rusActionHelper;
 				deleteVehicle rusActionHelper;
 				hideObjectGlobal RUS_SPAWN_PAD;
