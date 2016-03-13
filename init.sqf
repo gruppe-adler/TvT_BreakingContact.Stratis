@@ -53,7 +53,7 @@ setCustomWeather = {
 		10 setFog [_fogDensity, _fogFalloff, 0];
 	};
 	
-	setViewDistance 6000;
+	setViewDistance 3700;
 	forceWeatherChange;
 	// skipTime 24;
 };
@@ -196,14 +196,11 @@ if (isServer) then {
  	};
  	[] spawn {
  		{
- 		
  			if (!isPlayer _x) then {
 	 			sleep 0.2;
-	 			0 = [_x] execVM "loadouts\_client.sqf"};
+	 			0 = [_x] execVM "loadouts\_client.sqf";
 				0 = [_x] execVM "setup\adjustInitialSpawnPositionAI.sqf";
-
- 			};
- 		
+ 			};	
  		} forEach allUnits;
  	};
  	
