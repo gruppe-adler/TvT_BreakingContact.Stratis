@@ -140,10 +140,17 @@ if (isServer) then {
 	VEHICLE_ORDERED_EAST = [false,0];
 	publicVariable "VEHICLE_ORDERED_EAST";
 
+	BUY_OPTION_BLUFOR = true;
+	publicVariable "BUY_OPTION_BLUFOR";
+	BUY_OPTION_OPFOR = true;
+	publicVariable "BUY_OPTION_OPFOR";
+
 	OPFOR_TELEPORTED = false;
 	publicVariable "OPFOR_TELEPORTED";
 	BLUFOR_TELEPORTED = false;
 	publicVariable "BLUFOR_TELEPORTED";
+
+
 
 	REPLAY_FINISHED = false;
 	publicVariable "REPLAY_FINISHED";

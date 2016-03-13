@@ -118,7 +118,7 @@ while{true} do
 			};
 		};
 
-
+		if (_kindof == "c_unknown") exitWith {};
 
 		// current values: position, side, kindof
 		single_current_values = [_unit,_side,_pos,_dir,_kindof,_veh,_hide];

@@ -181,6 +181,15 @@ spawnBluforHQ = {
 			usActionHelper = createVehicle ["Land_SatellitePhone_F", [(getPos _vehicle1 select 0) + 2, (getPos _vehicle1 select 1) - 1, 0.5], [], 0, "NONE"];
 			usActionHelper attachTo [_vehicle1, [0,-0.3,1.1]];
 
+			/* listener to remove spawn pad and actionhelper, when its time */
+			BUY_OPTION_BLUFOR = {
+				if (_this select 0) exitWith {};
+				detach usActionHelper;
+				deleteVehicle usActionHelper;
+				hideObjectGlobal US_SPAWN_PAD;
+			};
+			"BUY_OPTION_BLUFOR" addPublicVariableEventHandler BUY_OPTION_BLUFOR;
+
 
 			debugLog("blufor published target");
 			diag_log format ["creating blufor stuff on position: %1",US_VEHICLE_SPAWN];
@@ -220,7 +229,14 @@ spawnOpforHQ = {
 			RUS_VEHICLE_SPAWN = getPos (_opforSpawnSuccess select 2);
 			publicVariable "RUS_VEHICLE_SPAWN";
 
-			
+			/* listener to remove spawn pad and actionhelper, when its time */
+			BUY_OPTION_OPFOR = {
+				if (_this select 0) exitWith {};
+				detach rusActionHelper;
+				deleteVehicle rusActionHelper;
+				hideObjectGlobal RUS_SPAWN_PAD;
+			};
+			"BUY_OPTION_OPFOR" addPublicVariableEventHandler BUY_OPTION_OPFOR;
 
 			/* OPFOR_TELEPORT_TARGET = getPos (_opforSpawnSuccess select 2);
 			publicVariableServer "OPFOR_TELEPORT_TARGET"; */

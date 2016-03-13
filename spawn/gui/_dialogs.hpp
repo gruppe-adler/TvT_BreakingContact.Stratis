@@ -557,7 +557,7 @@ class russianSupplyGUI
 				colorText[] = {1,0.2,0.2,0.5};
 				colorBackground[] = {0,0,0,1};
 				tooltip = "WARNING: you cant undo this & you cant buy anymore.";
-				action = "deleteVehicle RUS_SPAWN_PAD; opfor_teamlead setVariable ['canBuy', false]; detach rusActionHelper; deleteVehicle rusActionHelper; closeDialog 0;";
+				action = "BUY_OPTION_OPFOR = false; opfor_teamlead setVariable ['canBuy', false]; closeDialog 0;";
 				onMouseEnter = "(_this select 0) ctrlSetTextColor [1,0.2,0.2,1]";
 				onMouseExit = "(_this select 0) ctrlSetTextColor [1,0.2,0.2,0.5]";
 				period = 0;
@@ -1139,7 +1139,7 @@ class USSupplyGUI
 				colorText[] = {1,0.2,0.2,0.5};
 				colorBackground[] = {0,0,0,1};
 				tooltip = "WARNING: you cant undo this & you cant buy anymore.";
-				action = "deleteVehicle US_SPAWN_PAD; blufor_teamlead setVariable ['canBuy', false]; detach usActionHelper; deleteVehicle usActionHelper; closeDialog 0;";
+				action = "BUY_OPTION_BLUFOR = false; blufor_teamlead setVariable ['canBuy', false]; closeDialog 0;";
 				onMouseEnter = "(_this select 0) ctrlSetTextColor [1,0.2,0.2,1]";
 				onMouseExit = "(_this select 0) ctrlSetTextColor [1,0.2,0.2,0.5]";
 				period = 0;
