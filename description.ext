@@ -132,6 +132,13 @@ class Params
         texts[] =  {"False", "True"};
         default = 0;
     };
+
+    class CIVILIAN_TRAFFIC {
+        title = "Civilian Traffic"; 
+        values[] = {0, 1};
+        texts[] =  {"False", "True"};
+        default = 0;
+    };
 };
 
 class ACE_Settings {
