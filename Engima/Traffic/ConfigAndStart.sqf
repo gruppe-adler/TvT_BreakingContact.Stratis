@@ -71,6 +71,7 @@ _parameters = [
 	["MAX_SKILL", 0.1],
 	["DEBUG", true],
 	["ON_SPAWN_CALLBACK",{
+	{	
 		[_x] call randomCivilian;
 	} forEach crew _this;
 	}];
