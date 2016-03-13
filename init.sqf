@@ -191,20 +191,21 @@ if (isServer) then {
 
  	if (!isMultiplayer) then {
 	 	[] spawn {
-	 		{if (!isPlayer _x) then {sleep 0.5; 0 = [_x] execVM "loadouts\_client.sqf"};} forEach allUnits;
+	 		{if (!isPlayer _x) then {sleep 0.5; 0 = [_x] execVM "loadouts\_client.sqf"};0 = [_x] execVM "setup\adjustInitialSpawnPositionAI.sqf";} forEach allUnits;
 	 	};
- 	};
- 	[] spawn {
- 		{
- 			if (!isPlayer _x) then {
-	 			sleep 0.2;
-	 			0 = [_x] execVM "loadouts\_client.sqf";
-				0 = [_x] execVM "setup\adjustInitialSpawnPositionAI.sqf";
- 			};	
- 		} forEach allUnits;
- 	};
- 	
+ 	} else {
+	 	[] spawn {
+	 		{
+	 			if (!isPlayer _x) then {
+		 			sleep 0.2;
+		 			0 = [_x] execVM "loadouts\_client.sqf";
+					0 = [_x] execVM "setup\adjustInitialSpawnPositionAI.sqf";
+	 			};	
+	 		} forEach allUnits;
+	 	};
+	};
 };
+
 diag_log format ["setup: server done"];
 
 [REPLAY_ACCURACY] execVM "GRAD_replay\GRAD_replay_init.sqf";
