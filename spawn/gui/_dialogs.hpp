@@ -557,7 +557,7 @@ class russianSupplyGUI
 				colorText[] = {1,0.2,0.2,0.5};
 				colorBackground[] = {0,0,0,1};
 				tooltip = "WARNING: you cant undo this & you cant buy anymore.";
-				action = "BUY_OPTION_OPFOR = false; opfor_teamlead setVariable ['canBuy', false]; closeDialog 0;";
+				action = "BUY_OPTION_OPFOR = false; publicVariableServer 'BUY_OPTION_OPFOR'; opfor_teamlead setVariable ['canBuy', false]; closeDialog 0;";
 				onMouseEnter = "(_this select 0) ctrlSetTextColor [1,0.2,0.2,1]";
 				onMouseExit = "(_this select 0) ctrlSetTextColor [1,0.2,0.2,0.5]";
 				period = 0;
@@ -1139,7 +1139,7 @@ class USSupplyGUI
 				colorText[] = {1,0.2,0.2,0.5};
 				colorBackground[] = {0,0,0,1};
 				tooltip = "WARNING: you cant undo this & you cant buy anymore.";
-				action = "BUY_OPTION_BLUFOR = false; blufor_teamlead setVariable ['canBuy', false]; closeDialog 0;";
+				action = "BUY_OPTION_BLUFOR = false; publicVariableServer 'BUY_OPTION_BLUFOR'; blufor_teamlead setVariable ['canBuy', false]; closeDialog 0;";
 				onMouseEnter = "(_this select 0) ctrlSetTextColor [1,0.2,0.2,1]";
 				onMouseExit = "(_this select 0) ctrlSetTextColor [1,0.2,0.2,0.5]";
 				period = 0;
