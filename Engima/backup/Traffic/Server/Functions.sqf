@@ -139,10 +139,11 @@ ENGIMA_TRAFFIC_MoveVehicle = {
 };
 
 ENGIMA_TRAFFIC_StartTraffic = {
+
 	if (!isServer) exitWith {};
 	
 	private ["_side", "_vehicleCount", "_minSpawnDistance", "_maxSpawnDistance", "_minSkill", "_maxSkill", "_areaMarkerName", "_hideAreaMarker", "_debug"];
-	private ["_allPlayerPositions", "_allPlayerPositionsTemp", "_activeVehiclesAndGroup", "_vehiclesGroup", "_spawnSegment", "_vehicle", "_group", "_result", "_possibleVehicles", "_vehicleType", "_vehiclesCrew", "_skill", "_minDistance", "_tries", "_trafficLocation"];
+	private ["_allPlayerPositions", "_allPlayerPositionsTemp", "_activeVehiclesAndGroup", "_vehicleGroup", "_spawnSegment", "_vehicle", "_group", "_result", "_possibleVehicles", "_vehicleType", "_vehiclesCrew", "_skill", "_minDistance", "_tries", "_trafficLocation"];
 	private ["_currentEntityNo", "_vehicleVarName", "_tempVehiclesAndGroup", "_deletedVehiclesCount", "_firstIteration", "_roadSegments", "_destinationSegment", "_destinationPos", "_direction"];
 	private ["_roadSegmentDirection", "_testDirection", "_facingAway", "_posX", "_posY", "_pos", "_currentInstanceIndex"];
 	private ["_fnc_OnSpawnVehicle", "_fnc_OnRemoveVehicle", "_fnc_FindSpawnSegment"];
@@ -161,11 +162,13 @@ ENGIMA_TRAFFIC_StartTraffic = {
 	_fnc_OnRemoveVehicle = [_this, "ON_REMOVE_CALLBACK", {}] call ENGIMA_TRAFFIC_GetParamValue;
 	_debug = [_this, "DEBUG", false] call ENGIMA_TRAFFIC_GetParamValue;
 	
+	
+
 	if (_areaMarkerName != "" && _hideAreaMarker) then {
 		_areaMarkerName setMarkerAlpha 0;
 	};
 	
-	sleep random 1;
+	sleep (random 1);
 	ENGIMA_TRAFFIC_instanceIndex = ENGIMA_TRAFFIC_instanceIndex + 1;
 	_currentInstanceIndex = ENGIMA_TRAFFIC_instanceIndex;
 	
@@ -407,12 +410,22 @@ ENGIMA_TRAFFIC_StartTraffic = {
 	            _pos = [_posX, _posY, 0];
 	            
 	            // Create vehicle
-	            _vehicleType = _possibleVehicles select floor (random count _possibleVehicles);
-	            _result = [_pos, _direction, _vehicleType, _side] call BIS_fnc_spawnVehicle;
-	            _vehicle = _result select 0;
-	            _vehiclesCrew = _result select 1;
-	            _vehiclesGroup = _result select 2;
+	            _vehicleType = [_possibleVehicles] call BIS_fnc_selectRandom;
+	            _vehicleArray = [_pos,_vehicleType,_side] call createCivilianVehicle;
 	            
+	            waitUntil {count _vehicleArray > 0};
+	            
+				diag_log format ["traffic: vehicle is %1",_vehicleArray];
+				_vehicle = _vehicleArray select 0;
+				
+				_vehicleGroup = _vehicleArray select 1;
+				_vehiclesCrew = crew _vehicle;
+
+ 				
+
+				_result = [_vehicle, _vehiclesCrew, _vehicleGroup];
+	            // Array - 0: created vehicle (Object), 1: all crew (Array of Objects), 2: vehicle's group (Group) 
+
 	            // Name vehicle
 	            sleep random 0.1;
 	            if (isNil "dre_MilitaryTraffic_CurrentEntityNo") then {
@@ -427,18 +440,13 @@ ENGIMA_TRAFFIC_StartTraffic = {
 	            _vehicle call compile format ["%1=_this;", _vehicleVarName];
 	            sleep 0.01;
 	            
-	            // Set crew skill
-	            {
-	                _skill = _minSkill + random (_maxSkill - _minSkill);
-	                _x setSkill _skill;
-		            sleep 0.01;
-	            } foreach _vehiclesCrew;
+	           
 	            
 	            _debugMarkerName = "dre_MilitaryTraffic_DebugMarker" + str _currentEntityNo;
 	            
 	            // Start vehicle
 	            [_currentInstanceIndex, _vehicle, _destinationPos, _debug] spawn ENGIMA_TRAFFIC_MoveVehicle;
-	            _activeVehiclesAndGroup pushBack [_vehicle, _vehiclesGroup, _vehiclesCrew, _debugMarkerName];
+	            _activeVehiclesAndGroup pushBack [_vehicle, _vehicleGroup, _vehiclesCrew, _debugMarkerName];
 	            sleep 0.01;
 	            
 	            // Run spawn script and attach handle to vehicle
@@ -488,7 +496,8 @@ ENGIMA_TRAFFIC_StartTraffic = {
 	            // Terminate script before deleting the vehicle
 	            _scriptHandle = _vehicle getVariable "dre_scriptHandle";
 	            if (!(scriptDone _scriptHandle)) then {
-	                terminate _scriptHandle;
+	                waitUntil {scriptDone _scriptHandle};
+
 	            };
 	            
 	            deleteVehicle _vehicle;

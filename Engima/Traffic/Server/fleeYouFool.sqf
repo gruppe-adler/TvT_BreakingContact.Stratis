@@ -1,12 +1,12 @@
 _thisUnit = _this select 0;
-_thisShooter = _this select 1;
 
 deleteWaypoint [group _thisUnit, all];
 _thisUnit unassignVehicle (vehicle _thisUnit);
 _thisUnit leaveVehicle (vehicle _thisUnit);
 _thisUnit disableAI "FSM";
 
-_relDir = [_thisUnit,_thisShooter] call BIS_fnc_relativeDirTo;
+_buildingPosition = 0;
+
 _building = nearestObjects [_thisUnit, ["House", "Building"], 100] select 0;
 if (!isNull _building) then {
 	_buildingPosition = [_building] call BIS_fnc_buildingPositions;
@@ -33,7 +33,7 @@ if (count _buildingPosition > 0) then {
  	_thisUnit removeAllEventHandlers "FiredNear";
 
 } else {
-	_pos = [_thisUnit,[5,20],_relDir-180] call SHK_pos;
+	_pos = [_thisUnit,[5,20],random 360] call SHK_pos;
 	_thisUnit doMove _pos;
 	_thisUnit setSpeedMode "FULL";
 	_thisUnit forceSpeed 20;

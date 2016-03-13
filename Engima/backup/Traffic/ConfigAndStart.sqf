@@ -63,17 +63,13 @@ _parameters = [
 	"RHS_Ural_Open_Civ_03",
 	"RHS_UAZ_open_chdkz",
 	"RHS_UAZ_chdkz"
-	],
+	]],
 	["VEHICLES_COUNT", 10],
 	["MIN_SPAWN_DISTANCE", 1500],
 	["MAX_SPAWN_DISTANCE", 2500],
 	["MIN_SKILL", 0.1],
-	["MAX_SKILL", 0.1],
-	["DEBUG", true],
-	["ON_SPAWN_CALLBACK",{
-		[_x] call randomCivilian;
-	} forEach crew _this;
-	}];
+	["MAX_SKILL", 0.2],
+	["DEBUG", false]
 ];
 
 // Start an instance of the traffic
