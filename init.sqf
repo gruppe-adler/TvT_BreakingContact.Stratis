@@ -38,17 +38,49 @@ disableRemoteSensors true;
 
 setCustomWeather = {
 	// skipTime -24; 
-	0 setOvercast (_this select 0); 
+	10 setOvercast (_this select 0);
+	10 setRain 0;
+	if ((_this select 0) > 0.5) then {
+		_fogDensity = random 0.2;
+		_fogFalloff = random 0.01;
+		10 setFog [_fogDensity, _fogFalloff, 0];
+	}; 
+	if (_this select 1 && (_this select 0) > 0.7) then {
+		10 setRain 1;
+		_fogDensity = random 1;
+		_fogFalloff = random 0.05;
+		10 setFog [_fogDensity, _fogFalloff, 0];
+	};
+	
 	setViewDistance 6000;
+	forceWeatherChange;
 	// skipTime 24;
 };
 
-switch (WEATHER_SETTING) do {
-	case 0: {[0] call setCustomWeather;};
-	case 1: {[0.4] call setCustomWeather;};
-	case 2: {[1] call setCustomWeather;};
-	case 3: {[random 1] call setCustomWeather;};
-	default {[0] call setCustomWeather;};
+getMapSize = {
+	// check for arma3 map size
+	_mapSizeDetected = worldSize;
+	_mapSizeDetectedKnown = true;
+		
+	// check for utes/chernarus
+	if (_mapSizeDetected < 2000) then {
+	_mapSizeDetected = getNumber (configFile>>"CfgWorlds">>worldName>>"grid">>"zoom1">>"stepX")*(parseNumber mapGridPosition [0,0,0]);
+	diag_log format ["Calculating Spawnpos: Map doesnt seem to be Arma3 native. Checking for Chernarus/Utes.",_mapSizeDetected];
+	};
+
+	// check for OA terrains / takistan
+	if (_mapSizeDetected < 2000) then {
+		_mapSizeDetected = getNumber (configFile>>"CfgWorlds">>worldName>>"grid">>"offsety");
+		diag_log format ["Calculating Spawnpos: Checking for OA Terrain.",_mapSizeDetected];
+	};
+
+	// now im out of functions to get map size correctly
+	if (_mapSizeDetected < 2000) then {
+		_mapSizeDetectedKnown = false; diag_log format ["Calculating Spawnpos: Map Size < 2000 or unknown."];
+	} else {
+		_mapSizeDetectedKnown = true; diag_log format ["Calculating Spawnpos: Map Size is  %1.",_mapSizeDetected];
+	};
+	[_mapSizeDetected,_mapSizeDetectedKnown]
 };
 
 
@@ -63,6 +95,14 @@ if (isServer) then {
 	
 	// set to full moon date
 	setDate [2015, 2, 2, TIME_OF_DAY, 1];
+
+	switch (WEATHER_SETTING) do {
+	case 0: {[0,false] call setCustomWeather;};
+	case 1: {[0.69,false] call setCustomWeather;};
+	case 2: {[1,true] call setCustomWeather;};
+	case 3: {[random 1,true] call setCustomWeather;};
+	default {[0,false] call setCustomWeather;};
+};
 	// set time acceleration
 	setTimeMultiplier TIME_ACCELERATION;
 
@@ -111,14 +151,23 @@ if (isServer) then {
 	REPLAY_SPEED = 0.02;
 	REPLAY_STEPS_PER_TICK = 1;
 
-
-	_playercount = count allPlayers;
-	_bonusPerPlayer = _playercount * 100;
-
-	russianCredits = OPFOR_MONEY + _bonusPerPlayer;
-	USCredits = BLUFOR_MONEY + _bonusPerPlayer;
+	russianCredits = OPFOR_MONEY;
+	USCredits = BLUFOR_MONEY;
 
 	0 = [russianCredits,USCredits] execVM "spawn\gui\addPublicVariableEventhandler.sqf";
+
+	
+	[] spawn {
+		_connectedPlayers = call CBA_fnc_players;
+		_playercount = count _connectedPlayers;
+		_bonusPerPlayer = _playercount * 100;
+		
+		russianCredits = OPFOR_MONEY + _bonusPerPlayer;
+		USCredits = BLUFOR_MONEY + _bonusPerPlayer;
+
+		0 = [russianCredits,USCredits] execVM "spawn\gui\addPublicVariableEventhandler.sqf";
+		
+	};
 
 	if (isClass (configFile >> "CfgPatches" >> "task_force_radio")) then {
 		[] execVM "tfarsettings.sqf";
@@ -130,8 +179,10 @@ if (isServer) then {
 	[] execVM "server\russianMarker.sqf";
  	[] execVM "server\teleportListener.sqf";
 
- 	[] spawn {
- 		{if (!isPlayer _x) then {sleep 0.5; [_x] execVM "loadouts\_client.sqf"};} forEach allUnits;
+ 	if (!isMultiplayer) then {
+	 	[] spawn {
+	 		{if (!isPlayer _x) then {sleep 0.5; [_x] execVM "loadouts\_client.sqf"};} forEach allUnits;
+	 	};
  	};
  	
 };
@@ -165,8 +216,10 @@ if (hasInterface) then {
 			player setDamage 1;
 			["forced"] spawn CSSA3_fnc_createSpectateDialog;
 		} else {
-		if (!didJIP) exitWith {[] call checkSpawnButton;};
-			if (playerSide == east) then {
+		if (!didJIP) exitWith {
+			[] call checkSpawnButton;
+		};
+		if (playerSide == east) then {
 			[OPFOR_TELEPORT_TARGET, 50] execVM "helpers\teleportPlayer.sqf";
 			} else {
 			[BLUFOR_TELEPORT_TARGET, 50] execVM "helpers\teleportPlayer.sqf";

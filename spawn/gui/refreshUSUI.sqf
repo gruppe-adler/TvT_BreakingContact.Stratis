@@ -4,6 +4,7 @@ resetUSUI = {
 
 		_buttonRelease = localize "str_GRAD_buy_order";
 		_headlineString = localize "str_GRAD_buy_headline";
+		_headlineRelease = [_headlineString] call headlineString;
 
 		disableSerialization;
 		_display = findDisplay 3000;
@@ -137,6 +138,7 @@ refreshUSUI = {
 		ctrlEnable [3506, false];
 		ctrlEnable [3507, false];
 		ctrlEnable [3508, false];
+		
 
 		_display displayCtrl 3501 ctrlSetFade 1;
 		_display displayCtrl 3501 ctrlCommit 0;

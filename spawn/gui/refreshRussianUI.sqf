@@ -142,6 +142,7 @@ refreshRussianUI = {
 
 	if (!(player getVariable ["canBuy",false])) then {
 		_display displayCtrl 1600 ctrlSetStructuredText parseText ([_headlineBlocked] call headlineString);
+		// order buttons
 		ctrlEnable [1501, false];
 		ctrlEnable [1502, false];
 		ctrlEnable [1503, false];
@@ -150,6 +151,10 @@ refreshRussianUI = {
 		ctrlEnable [1506, false];
 		ctrlEnable [1507, false];
 
+		// eradicate spawn pad
+		ctrlEnable [1701, false]; 
+
+		// order buttons
 		_display displayCtrl 1501 ctrlSetFade 1;
 		_display displayCtrl 1501 ctrlCommit 0;
 		_display displayCtrl 1502 ctrlSetFade 1;
@@ -164,6 +169,11 @@ refreshRussianUI = {
 		_display displayCtrl 1506 ctrlCommit 0;
 		_display displayCtrl 1507 ctrlSetFade 1;
 		_display displayCtrl 1507 ctrlCommit 0;
+
+		// eradicate spawn pad
+		_display displayCtrl 1701 ctrlSetFade 1;
+		_display displayCtrl 1701 ctrlCommit 0;
+
 	};
 
 	if (_outOfMoney) exitWith {

@@ -2,7 +2,7 @@
 #include "spawn\gui\_dialogs.hpp"
 
 OnLoadMission = "A mobile radio station is trying to get a message sent - their adversaries try to stop them from completing the broadcast";
-author = "Nomisum, XiviD, Fusselwurm für Gruppe Adler";  //appears as author in overview and loading screen
+author = "Fusselwurm, McDiod & Nomisum for Gruppe Adler";  //appears as author in overview and loading screen
 overviewText = "US vs. Russians"; //appears in overview and loading screen
 onLoadName = "Breaking Contact"; //mission name for loading screen only
 overviewPicture = ""; //mission picture for loading screen only
@@ -41,7 +41,7 @@ class Params
     {
 		title = "Weather Settings";
 		values[] = {0,1,2,3};
-		texts[] = {"SUNNY DAY","RAINY DAY","CLOUDY DAY","RANDOM WEATHER"};
+		texts[] = {"SUNNY DAY","CLOUDY DAY","RAINY DAY","RANDOM WEATHER"};
 		default = 0;
     };
 
@@ -181,5 +181,90 @@ class CfgSounds
 		sound[] = {"sounds\signal_lost.ogg", 1, 1};
 		// subtitle delay in seconds, subtitle text
 		titles[] = {1, ""};
+	};
+};
+
+
+
+class CfgUnitInsignia
+{
+	class grad_command
+	{
+		displayName = "GRAD Command"; // Name displayed in Arsenal
+		author = "Gruppe Adler"; // Author displayed in Arsenal
+		texture = "pic\insignia\command.paa"; // Image path
+		textureVehicle = ""; // Does nothing currently, reserved for future use
+	};
+
+	class grad_alpha
+	{
+		displayName = "GRAD Alpha"; // Name displayed in Arsenal
+		author = "Gruppe Adler"; // Author displayed in Arsenal
+		texture = "pic\insignia\alpha.paa"; // Image path
+		textureVehicle = ""; // Does nothing currently, reserved for future use
+	};
+
+	class grad_bravo
+	{
+		displayName = "GRAD Bravo"; // Name displayed in Arsenal
+		author = "Gruppe Adler"; // Author displayed in Arsenal
+		texture = "pic\insignia\bravo.paa"; // Image path
+		textureVehicle = ""; // Does nothing currently, reserved for future use
+	};
+
+	class grad_charlie
+	{
+		displayName = "GRAD Charlie"; // Name displayed in Arsenal
+		author = "Gruppe Adler"; // Author displayed in Arsenal
+		texture = "pic\insignia\charlie.paa"; // Image path
+		textureVehicle = ""; // Does nothing currently, reserved for future use
+	};
+
+	class grad_delta
+	{
+		displayName = "GRAD Delta"; // Name displayed in Arsenal
+		author = "Gruppe Adler"; // Author displayed in Arsenal
+		texture = "pic\insignia\delta.paa"; // Image path
+		textureVehicle = ""; // Does nothing currently, reserved for future use
+	};
+
+class grad_foxtrot
+	{
+		displayName = "GRAD Foxtrot"; // Name displayed in Arsenal
+		author = "Gruppe Adler"; // Author displayed in Arsenal
+		texture = "pic\insignia\foxtrot.paa"; // Image path
+		textureVehicle = ""; // Does nothing currently, reserved for future use
+	};
+
+class grad_golf
+	{
+		displayName = "GRAD Golf"; // Name displayed in Arsenal
+		author = "Gruppe Adler"; // Author displayed in Arsenal
+		texture = "pic\insignia\golf.paa"; // Image path
+		textureVehicle = ""; // Does nothing currently, reserved for future use
+	};
+
+class grad_hotel
+	{
+		displayName = "GRAD Hotel"; // Name displayed in Arsenal
+		author = "Gruppe Adler"; // Author displayed in Arsenal
+		texture = "pic\insignia\hotel.paa"; // Image path
+		textureVehicle = ""; // Does nothing currently, reserved for future use
+	};
+
+class grad_india
+	{
+		displayName = "GRAD India"; // Name displayed in Arsenal
+		author = "Gruppe Adler"; // Author displayed in Arsenal
+		texture = "pic\insignia\india.paa"; // Image path
+		textureVehicle = ""; // Does nothing currently, reserved for future use
+	};
+
+	class grad_air
+	{
+		displayName = "GRAD Air"; // Name displayed in Arsenal
+		author = "Gruppe Adler"; // Author displayed in Arsenal
+		texture = "pic\insignia\air.paa"; // Image path
+		textureVehicle = ""; // Does nothing currently, reserved for future use
 	};
 };

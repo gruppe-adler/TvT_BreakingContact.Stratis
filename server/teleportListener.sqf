@@ -9,6 +9,11 @@ createOpforStuff =  {
 
 	funkwagen animate ["light_hide",1];
 	sleep 0.1;
+
+	rusActionHelper = createVehicle ["Land_SatellitePhone_F", [(getPos funkwagen select 0) + 2, (getPos funkwagen select 1) - 1, 0.5], [], 0, "NONE"];
+	rusActionHelper attachTo [funkwagen, [-1.34,-2.26,0.1]];
+	rusActionHelper setVectorDirAndUp [[1,0,0],[0,0,1]];
+
 	[getPos funkwagen, 50] call spawnOpforHQ;
 
 	

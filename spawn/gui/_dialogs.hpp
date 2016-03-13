@@ -164,7 +164,7 @@ class russianSupplyGUI
 				y = 3.5 * GUI_GRID_H + GUI_GRID_Y;
 				w = 7 * GUI_GRID_W;
 				h = 6 * GUI_GRID_H;
-				text = "spawn\gui\pic\rus_btr70.paa";
+				text = "spawn\gui\pic\rus_btr60.paa";
 			};
 
 			class russian_gui_pic_6: RscPicture
@@ -546,6 +546,22 @@ class russianSupplyGUI
 				tooltip = $STR_GRAD_buy_credits_hint;
 				lineSpacing = 0.4;
 			};
+			class russian_gui_btn_disable: RscButtonSmall
+			{
+				idc = 1701;
+				text = $STR_GRAD_buy_disable;
+				x = 32.5 * GUI_GRID_W + GUI_GRID_X;
+				y = 1 * GUI_GRID_H + GUI_GRID_Y;
+				w = 10 * GUI_GRID_W;
+				h = 1.5 * GUI_GRID_H;
+				colorText[] = {1,0.2,0.2,0.5};
+				colorBackground[] = {0,0,0,1};
+				tooltip = "WARNING: you cant undo this & you cant buy anymore.";
+				action = "RUS_SPAWN_PAD hideObjectGlobal true; RUS_SPAWN_PAD hideObject true; opfor_teamlead setVariable ['canBuy', false]; deleteVehicle rusActionHelper; closeDialog 0;";
+				onMouseEnter = "(_this select 0) ctrlSetTextColor [1,0.2,0.2,1]";
+				onMouseExit = "(_this select 0) ctrlSetTextColor [1,0.2,0.2,0.5]";
+				period = 0;
+			};
 			class russian_gui_btn_close: RscButtonSmall
 			{
 				idc = -1;
@@ -556,7 +572,7 @@ class russianSupplyGUI
 				h = 1.5 * GUI_GRID_H;
 				colorText[] = {1,1,1,0.5};
 				colorBackground[] = {0,0,0,1};
-				tooltip = "Dialog schließen";
+				tooltip = "close Dialog";
 				action = "closeDialog 0";
 				onMouseEnter = "(_this select 0) ctrlSetTextColor [1, 1, 1, 1]";
 				onMouseExit = "(_this select 0) ctrlSetTextColor [1, 1, 1, 0.5]";
@@ -1172,6 +1188,22 @@ class USSupplyGUI
 				tooltip = $STR_GRAD_buy_credits_hint;
 				lineSpacing = 0.4;
 			};
+			class US_gui_btn_disable: RscButtonSmall
+			{
+				idc = 3701;
+				text = $STR_GRAD_buy_disable;
+				x = 32.5 * GUI_GRID_W + GUI_GRID_X;
+				y = 1 * GUI_GRID_H + GUI_GRID_Y;
+				w = 10 * GUI_GRID_W;
+				h = 1.5 * GUI_GRID_H;
+				colorText[] = {1,0.2,0.2,0.5};
+				colorBackground[] = {0,0,0,1};
+				tooltip = "WARNING: you cant undo this & you cant buy anymore.";
+				action = "US_SPAWN_PAD hideObjectGlobal true; US_SPAWN_PAD hideObject true; blufor_teamlead setVariable ['canBuy', false]; deleteVehicle usActionHelper; closeDialog 0;";
+				onMouseEnter = "(_this select 0) ctrlSetTextColor [1,0.2,0.2,1]";
+				onMouseExit = "(_this select 0) ctrlSetTextColor [1,0.2,0.2,0.5]";
+				period = 0;
+			};
 			class US_gui_btn_close: RscButtonSmall
 			{
 				idc = -1;
@@ -1182,7 +1214,7 @@ class USSupplyGUI
 				h = 1.5 * GUI_GRID_H;
 				colorText[] = {1,1,1,0.5};
 				colorBackground[] = {0,0,0,1};
-				tooltip = "Dialog schließen";
+				tooltip = "close Dialog";
 				action = "closeDialog 0";
 				onMouseEnter = "(_this select 0) ctrlSetTextColor [1, 1, 1, 1]";
 				onMouseExit = "(_this select 0) ctrlSetTextColor [1, 1, 1, 0.5]";

@@ -120,8 +120,8 @@ fillRussianSupplies = {
             format['%1<br/>%2<br/>%3<br/>%4<br/>%5<br/>%6<br/>%7<br/>%8<br/>%9','Crew: 2','Seats: 1','Speed: 121','','Weapons:','50x4 12.7mm','','1 GPS']
         ],
         [
-            "rhs_btr70_vdv",
-            "BTR-70",
+            "rhs_btr60_vdv",
+            "BTR-60",
             3,
             2000,
             "<t align='center'>2000 cr</t>",
@@ -134,7 +134,7 @@ fillRussianSupplies = {
             clearMagazineCargoGlobal (_this select 0);
             (_this select 0) addItemCargoGlobal ['ItemGPS',1];
             },
-            format['%1<br/>%2<br/>%3<br/>%4<br/>%5<br/>%6<br/>%7','Crew: 3','Seats: 15 (8 on top)','Speed: 80','','Weapons:','50x9 14.5mm','250x5 7.62mm']
+            format['%1<br/>%2<br/>%3<br/>%4<br/>%5<br/>%6<br/>%7','Crew: 3','Seats: 15 (8 on top)','Speed: 80','','Weapons:','','250x5 7.62mm']
         ],
         [
             "rhs_t72ba_tv",
