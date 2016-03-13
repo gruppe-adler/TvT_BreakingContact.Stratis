@@ -410,7 +410,7 @@ ENGIMA_TRAFFIC_StartTraffic = {
 	            _pos = [_posX, _posY, 0];
 	            
 	            // Create vehicle
-	            _vehicleType = _possibleVehicles select floor (random count _possibleVehicles);
+	            _vehicleType = [_possibleVehicles] call BIS_fnc_selectRandom;
 	            //_vehicleGroup = createGroup _side;
 	            //_vehicle = createVehicle [_vehicleType, _pos, [], 0, "NONE"];
 	            // Run spawn script and attach handle to vehicle
@@ -426,7 +426,7 @@ ENGIMA_TRAFFIC_StartTraffic = {
 				// = [_vehicleType] ... "createVehicle.sqf";
 				
 				_vehicleGroup = _vehicleArray select 1;
-				_vehiclesCrew = units _vehicleGroup;
+				_vehiclesCrew = crew _vehicle;
 
  				
 
@@ -447,12 +447,7 @@ ENGIMA_TRAFFIC_StartTraffic = {
 	            _vehicle call compile format ["%1=_this;", _vehicleVarName];
 	            sleep 0.01;
 	            
-	            // Set crew skill
-	            {
-	                _skill = _minSkill + random (_maxSkill - _minSkill);
-	                _x setSkill _skill;
-		            sleep 0.01;
-	            } foreach _vehiclesCrew;
+	           
 	            
 	            _debugMarkerName = "dre_MilitaryTraffic_DebugMarker" + str _currentEntityNo;
 	            
