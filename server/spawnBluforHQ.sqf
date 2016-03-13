@@ -165,6 +165,7 @@ spawnBluforHQ = {
 
 			[_vehicle1, _vehicle2] call setSpawnedDirection;
 			[_vehicle1,	nil, ["hide_middleTop",1]] call BIS_fnc_initVehicle;
+			[_vehicle1] call clearInventory;
 
 			US_SPAWN_PAD = (_bluforSpawnSuccess select 2);
 			publicVariable "US_SPAWN_PAD";
@@ -179,6 +180,15 @@ spawnBluforHQ = {
 
 			usActionHelper = createVehicle ["Land_SatellitePhone_F", [(getPos _vehicle1 select 0) + 2, (getPos _vehicle1 select 1) - 1, 0.5], [], 0, "NONE"];
 			usActionHelper attachTo [_vehicle1, [0,-0.3,1.1]];
+
+			/* listener to remove spawn pad and actionhelper, when its time */
+			BUY_OPTION_BLUFOR = {
+				if (_this select 0) exitWith {};
+				detach usActionHelper;
+				deleteVehicle usActionHelper;
+				hideObjectGlobal US_SPAWN_PAD;
+			};
+			"BUY_OPTION_BLUFOR" addPublicVariableEventHandler BUY_OPTION_BLUFOR;
 
 
 			debugLog("blufor published target");
@@ -219,7 +229,14 @@ spawnOpforHQ = {
 			RUS_VEHICLE_SPAWN = getPos (_opforSpawnSuccess select 2);
 			publicVariable "RUS_VEHICLE_SPAWN";
 
-			
+			/* listener to remove spawn pad and actionhelper, when its time */
+			BUY_OPTION_OPFOR = {
+				if (_this select 0) exitWith {};
+				detach rusActionHelper;
+				deleteVehicle rusActionHelper;
+				hideObjectGlobal RUS_SPAWN_PAD;
+			};
+			"BUY_OPTION_OPFOR" addPublicVariableEventHandler BUY_OPTION_OPFOR;
 
 			/* OPFOR_TELEPORT_TARGET = getPos (_opforSpawnSuccess select 2);
 			publicVariableServer "OPFOR_TELEPORT_TARGET"; */

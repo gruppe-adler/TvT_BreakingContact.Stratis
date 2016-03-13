@@ -24,6 +24,7 @@ REPLAY_ACCURACY = paramsArray select 7;
 AR3PLAY_ENABLE_REPLAY = (paramsArray select 8) == 1;
 AR3PLAY_IS_STREAMABLE = (paramsArray select 9) == 1;
 JIP_TIME_ALLOWED = paramsArray select 11;
+CIVILIAN_TRAFFIC = paramsArray select 13;
 
 
 // paramsarray select 12 is BFT module in editor
@@ -88,7 +89,10 @@ if (!isMultiplayer) then { // Editor
 	/* {_x disableAI "MOVE"} forEach allUnits;*/
 };
 
+call compile preprocessfile "Engima\Traffic\Custom_GruppeAdler\createVehicle.sqf";
+call compile preprocessfile "Engima\Traffic\Custom_GruppeAdler\randomCivilian.sqf";
 
+[] execVM "Engima\Traffic\Init.sqf";
 
 if (isServer) then {
 	// allow view distance to be up to 10k
@@ -102,7 +106,7 @@ if (isServer) then {
 	case 2: {[1,true] call setCustomWeather;};
 	case 3: {[random 1,true] call setCustomWeather;};
 	default {[0,false] call setCustomWeather;};
-};
+        };
 	// set time acceleration
 	setTimeMultiplier TIME_ACCELERATION;
 
@@ -140,10 +144,17 @@ if (isServer) then {
 	VEHICLE_ORDERED_EAST = [false,0];
 	publicVariable "VEHICLE_ORDERED_EAST";
 
+	BUY_OPTION_BLUFOR = true;
+	publicVariable "BUY_OPTION_BLUFOR";
+	BUY_OPTION_OPFOR = true;
+	publicVariable "BUY_OPTION_OPFOR";
+
 	OPFOR_TELEPORTED = false;
 	publicVariable "OPFOR_TELEPORTED";
 	BLUFOR_TELEPORTED = false;
 	publicVariable "BLUFOR_TELEPORTED";
+
+
 
 	REPLAY_FINISHED = false;
 	publicVariable "REPLAY_FINISHED";
@@ -179,6 +190,8 @@ if (isServer) then {
 	[] execVM "server\russianMarker.sqf";
  	[] execVM "server\teleportListener.sqf";
 
+ 	call compile preprocessFileLineNumbers "server\spawnBluforHQ.sqf";
+
  	if (!isMultiplayer) then {
 	 	[] spawn {
 	 		{if (!isPlayer _x) then {sleep 0.5; [_x] execVM "loadouts\_client.sqf"};} forEach allUnits;
@@ -188,7 +201,6 @@ if (isServer) then {
 };
 diag_log format ["setup: server done"];
 
-[] execVM "CSSA3\CSSA3_init.sqf";
 [REPLAY_ACCURACY] execVM "GRAD_replay\GRAD_replay_init.sqf";
 
 clearInventory = compile preprocessFile "helpers\clearInventory.sqf";
@@ -197,7 +209,6 @@ spawnStuff = compile preprocessFile "helpers\spawnStuff.sqf";
 call compile preprocessfile "SHK_pos\shk_pos_init.sqf";
 // findsimplePos
 call compile preprocessFileLineNumbers "helpers\findSimplePos.sqf";
-call compile preprocessFileLineNumbers "helpers\spawnBluforHQ.sqf";
 
 
 If(isNil "spawn_help_fnc_compiled") then { call compile preprocessFileLineNumbers "helpers\findPos.sqf"; }; // TODO why the if condition here?
@@ -220,9 +231,9 @@ if (hasInterface) then {
 			[] call checkSpawnButton;
 		};
 		if (playerSide == east) then {
-			[OPFOR_TELEPORT_TARGET, 50] execVM "helpers\teleportPlayer.sqf";
+				[OPFOR_TELEPORT_TARGET, 50] execVM "player\teleportPlayer.sqf";
 			} else {
-			[BLUFOR_TELEPORT_TARGET, 50] execVM "helpers\teleportPlayer.sqf";
+				[BLUFOR_TELEPORT_TARGET, 50] execVM "player\teleportPlayer.sqf";
 			};
 		};
 	};
@@ -230,8 +241,8 @@ if (hasInterface) then {
 
 	checkSpawnButton = {
 		
-		if (player != opfor_teamlead) then {
-			0 = [[worldSize/2,worldSize/2,0],"",3000] execVM "helpers\establishingShot.sqf";
+		if (str player != "opfor_teamlead") then {
+			0 = [[worldSize/2,worldSize/2,0],"",1500] execVM "player\setup\establishingShot.sqf";
 		} else {
 		disableSerialization;
 		waitUntil {!(isNull ([] call BIS_fnc_displayMission))};
@@ -260,7 +271,7 @@ if (hasInterface) then {
 	enableSentences false;
 
 	
-	[] execVM "player\intro.sqf"; diag_log format ["setup: intro initiated"];
+	
 
 	[] execVM "player\setup\helpBriefing.sqf"; diag_log format ["setup: briefing initiated"];
 
@@ -281,7 +292,6 @@ if (hasInterface) then {
 	
 	if (playerSide == west) then {
 		[] execVM "player\russianMarker.sqf"; 
-		[] execVM "player\bluforOpforTeleportListener.sqf";
 		[] execVM "player\bluforBluforTeleportListener.sqf";
 		[] execVM "player\bluforRussianPointsListener.sqf";
 		[] spawn checkJIP;
@@ -289,7 +299,6 @@ if (hasInterface) then {
 
 	if (playerSide == east) then {
 		[] execVM "player\russianMarker.sqf"; diag_log format ["setup: russianmarker initiated"];
-		[] execVM "player\opforBluforTeleportListener.sqf"; diag_log format ["setup: opforBluforTeleportListener initiated"];
 		[] execVM "player\opforOpforTeleportListener.sqf"; diag_log format ["setup: opforOpforTeleportListener initiated"];
 		[] execVM "player\bluforRussianPointsListener.sqf";
 		[] spawn checkJIP; diag_log format ["setup: createStartHints initiated"];

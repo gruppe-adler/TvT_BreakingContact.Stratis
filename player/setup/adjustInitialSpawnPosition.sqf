@@ -15,8 +15,8 @@ if (side player == blufor) then {
 	_playerPosition = _playerPositionsForCurrentWorld select 0;
 };
 
-_msg = format["moving player to %1 ...", _playerPosition];
-debugLog(_msg);
+diag_log format["moving player to %1 ...", _playerPosition];
+
 
 
 _tmpPos = [_playerPosition,[0,10], random 360,0,[1,50]] call SHK_pos;

@@ -7,22 +7,16 @@ addBluforSpawnMarker = {
 	_blufor_marker_start setMarkerColorLocal "ColorWEST";
 };
 
-deleteBluforSpawnLimitMarkers = {
-	/*deleteMarker "inner_marker";
-	deleteMarker "outer_marker";*/
-};
-
 _BLUFOR_TELEPORT_TARGET_listener = {
 	_pos = _this select 1;
 
 	_pos call addBluforSpawnMarker;
-	// call deleteBluforSpawnLimitMarkers;
-
-	[_pos, 50] execVM "helpers\teleportPlayer.sqf";
+	
+	[_pos, 50] execVM "player\teleportPlayer.sqf";
 };
 
 "BLUFOR_TELEPORT_TARGET" addPublicVariableEventHandler _BLUFOR_TELEPORT_TARGET_listener;
-
+diag_log format ["Mission Setup: Added blufor teleport PVEH: %1", _BLUFOR_TELEPORT_TARGET_listener];
 
 // runs in SP to emulate addPublicVariableEventHandler (which doesnt work in SP)
 if (!isMultiplayer) then {

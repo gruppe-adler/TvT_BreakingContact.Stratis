@@ -12,7 +12,7 @@ _OPFOR_TELEPORT_TARGET_listener = {
 	debugLog("opfor teleport target listener running...");
 	_pos = _this select 1;
 
-	[_pos, 50] execVM "helpers\teleportPlayer.sqf";
+	[_pos, 50] execVM "player\teleportPlayer.sqf";
 	
 	_pos call createOpforMarker;
 

@@ -557,7 +557,7 @@ class russianSupplyGUI
 				colorText[] = {1,0.2,0.2,0.5};
 				colorBackground[] = {0,0,0,1};
 				tooltip = "WARNING: you cant undo this & you cant buy anymore.";
-				action = "RUS_SPAWN_PAD hideObjectGlobal true; RUS_SPAWN_PAD hideObject true; opfor_teamlead setVariable ['canBuy', false]; deleteVehicle rusActionHelper; closeDialog 0;";
+				action = "BUY_OPTION_OPFOR = false; publicVariableServer 'BUY_OPTION_OPFOR'; opfor_teamlead setVariable ['canBuy', false]; closeDialog 0;";
 				onMouseEnter = "(_this select 0) ctrlSetTextColor [1,0.2,0.2,1]";
 				onMouseExit = "(_this select 0) ctrlSetTextColor [1,0.2,0.2,0.5]";
 				period = 0;
@@ -591,7 +591,7 @@ class USSupplyGUI
 		enableSimulation = 1;
 		enableDisplay = 1;
 		objects[] = {};
-		onLoad = "disableSerialization; [3000,[3801,3802,3803,3804,3805,3806,3807,3808]] execVM 'spawn\gui\hideControl.sqf';";
+		onLoad = "disableSerialization; [3000,[3801,3802,3803,3804,3805,3806,3807]] execVM 'spawn\gui\hideControl.sqf';";
 
 		class ControlsBackground
 		{
@@ -701,19 +701,7 @@ class USSupplyGUI
 				tooltip = $STR_GRAD_buy_order_hint;
 				onButtonClick = "disableSerialization; [_this select 0] execVM 'spawn\gui\orderUSVehicle.sqf';";
 			};
-			class US_gui_btn_anfordern_8: RscButton
-			{
-				idc = 3508;
-				text = $STR_GRAD_buy_order;
-				x = 46.25 * GUI_GRID_W + GUI_GRID_X;
-				y = 16 * GUI_GRID_H + GUI_GRID_Y;
-				w = 6 * GUI_GRID_W;
-				h = 2 * GUI_GRID_H;
-				colorText[] = {1,1,1,1};
-				colorBackground[] = {0,0,0,1};
-				tooltip = $STR_GRAD_buy_order_hint;
-				onButtonClick = "disableSerialization; [_this select 0] execVM 'spawn\gui\orderUSVehicle.sqf';";
-			};
+			
 			class US_gui_pic_1: RscPicture
 			{
 				idc = 3001;
@@ -757,7 +745,7 @@ class USSupplyGUI
 				y = 3.5 * GUI_GRID_H + GUI_GRID_Y;
 				w = 7 * GUI_GRID_W;
 				h = 6 * GUI_GRID_H;
-				text = "spawn\gui\pic\us_parachutes.paa";
+				text = "spawn\gui\pic\us_mh6.paa";
 			};
 			class US_gui_pic_6: RscPicture
 			{
@@ -766,21 +754,12 @@ class USSupplyGUI
 				y = 3.5 * GUI_GRID_H + GUI_GRID_Y;
 				w = 7 * GUI_GRID_W;
 				h = 6 * GUI_GRID_H;
-				text = "spawn\gui\pic\us_mh6.paa";
+				text = "spawn\gui\pic\us_ch53e.paa";
 			};
 			class US_gui_pic_7: RscPicture
 			{
 				idc = 3007;
 				x = 38.25 * GUI_GRID_W + GUI_GRID_X;
-				y = 3.5 * GUI_GRID_H + GUI_GRID_Y;
-				w = 7 * GUI_GRID_W;
-				h = 6 * GUI_GRID_H;
-				text = "spawn\gui\pic\us_uh60.paa";
-			};
-			class US_gui_pic_8: RscPicture
-			{
-				idc = 3008;
-				x = 45.75 * GUI_GRID_W + GUI_GRID_X;
 				y = 3.5 * GUI_GRID_H + GUI_GRID_Y;
 				w = 7 * GUI_GRID_W;
 				h = 6 * GUI_GRID_H;
@@ -856,16 +835,7 @@ class USSupplyGUI
 				h = 1 * GUI_GRID_H;
 				colorBackground[] = {-1,-1,-1,0};
 			};
-			class US_gui_text_namedisplay_8: RscStructuredText
-			{
-				idc = 3108;
-				text = "<t align='center'>lade ...</t>";
-				x = 45.75 * GUI_GRID_W + GUI_GRID_X;
-				y = 10 * GUI_GRID_H + GUI_GRID_Y;
-				w = 6.5 * GUI_GRID_W;
-				h = 1 * GUI_GRID_H;
-				colorBackground[] = {-1,-1,-1,0};
-			};
+			
 			class US_gui_text_countleft_1: RscStructuredText
 			{
 				idc = 3201;
@@ -936,16 +906,7 @@ class USSupplyGUI
 				h = 1 * GUI_GRID_H;
 				colorBackground[] = {-1,-1,-1,0};
 			};
-			class US_gui_text_countleft_8: RscStructuredText
-			{
-				idc = 3208;
-				text = "<t align='center'>lade ...</t>";
-				x = 46.25 * GUI_GRID_W + GUI_GRID_X;
-				y = 12 * GUI_GRID_H + GUI_GRID_Y;
-				w = 6 * GUI_GRID_W;
-				h = 1 * GUI_GRID_H;
-				colorBackground[] = {-1,-1,-1,0};
-			};
+			
 			class US_gui_text_pricedisplay_1: RscStructuredText
 			{
 				idc = 3301;
@@ -1016,16 +977,7 @@ class USSupplyGUI
 				h = 1 * GUI_GRID_H;
 				colorBackground[] = {-1,-1,-1,0};
 			};
-			class US_gui_text_pricedisplay_8: RscStructuredText
-			{
-				idc = 3308;
-				text = "<t align='center'>lade ...</t>";
-				x = 45.75 * GUI_GRID_W + GUI_GRID_X;
-				y = 14 * GUI_GRID_H + GUI_GRID_Y;
-				w = 7 * GUI_GRID_W;
-				h = 1 * GUI_GRID_H;
-				colorBackground[] = {-1,-1,-1,0};
-			};
+			
 			class US_gui_text_legend_namedisplay: RscStructuredText
 			{
 				idc = 3401;
@@ -1151,19 +1103,7 @@ class USSupplyGUI
 				onMouseEnter = "disableSerialization; [3000,3807] execVM 'spawn\gui\showControl.sqf';";
 				onMouseExit = "disableSerialization; [3000,[3807]] execVM 'spawn\gui\hideControl.sqf';";
 			};
-			class US_gui_tooltip_8: RscStructuredTextTooltip
-			{
-				idc = 3808;
-				x = 45.75 * GUI_GRID_W + GUI_GRID_X;
-				y = 3.5 * GUI_GRID_H + GUI_GRID_Y;
-				w = 7 * GUI_GRID_W;
-				h = 12 * GUI_GRID_H;
-				colorBackground[] = {0,0,0,0.8}; 
-				text = "loading";
-				size = 0.028;
-				onMouseEnter = "disableSerialization; [3000,3808] execVM 'spawn\gui\showControl.sqf';";
-				onMouseExit = "disableSerialization; [3000,[3808]] execVM 'spawn\gui\hideControl.sqf';";
-			};
+			
 
 			class US_gui_text_headline: RscStructuredTextHeadline
 			{
@@ -1199,7 +1139,7 @@ class USSupplyGUI
 				colorText[] = {1,0.2,0.2,0.5};
 				colorBackground[] = {0,0,0,1};
 				tooltip = "WARNING: you cant undo this & you cant buy anymore.";
-				action = "US_SPAWN_PAD hideObjectGlobal true; US_SPAWN_PAD hideObject true; blufor_teamlead setVariable ['canBuy', false]; deleteVehicle usActionHelper; closeDialog 0;";
+				action = "BUY_OPTION_BLUFOR = false; publicVariableServer 'BUY_OPTION_BLUFOR'; blufor_teamlead setVariable ['canBuy', false]; closeDialog 0;";
 				onMouseEnter = "(_this select 0) ctrlSetTextColor [1,0.2,0.2,1]";
 				onMouseExit = "(_this select 0) ctrlSetTextColor [1,0.2,0.2,0.5]";
 				period = 0;

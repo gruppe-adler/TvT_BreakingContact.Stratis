@@ -30,6 +30,8 @@ while{true} do
 		if (_side == east) then { _side_prefix = "o_";};
 		if (_side == independent) then { _side_prefix = "n_";};
 		if (_side == civilian) then { _side_prefix = "c_";};
+
+		if (_side == civilian && (!(vehicle _unit == funkwagen) || !(_unit == funkwagen))) exitWith {};
 		
 		_kindof = "c_unknown";
 
@@ -90,16 +92,6 @@ while{true} do
 			_kindof = "loc_Tree";
 		};
 
-		if (_unit isKindOf "Land_Cargo_House_V1_F") then {
-			_side = east;
-			_kindof = "mil_start";
-		};
-
-		if (_unit isKindOf "Land_Cargo_House_V3_F") then {
-			_side = west;
-			_kindof = "mil_start";
-		};
-
 		if (!alive _unit) then {
 			_kindof = "KIA";
 		};
@@ -126,7 +118,7 @@ while{true} do
 			};
 		};
 
-
+		if (_kindof == "c_unknown") exitWith {};
 
 		// current values: position, side, kindof
 		single_current_values = [_unit,_side,_pos,_dir,_kindof,_veh,_hide];

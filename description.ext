@@ -12,10 +12,8 @@ enableDebugConsole = 1;
 loadScreen = "pic\loading.jpg";
 respawnDelay = 9999999; 
 
-#include "CSSA3\CSSA3_header.hpp"
-
-//respawnDelay = 9999999; // 9999999 or greater = No Respawn
-//Changes respawn, respawnDialog and respawnTemplates parameters.
+respawn = 3;
+respawnTemplates[] = {"ace_spectator"};
 
 
 
@@ -131,6 +129,13 @@ class Params
         title = "Bluforce-Tracking active"; //You can use ACE's stringtables
         ACE_setting = 1;
         values[] = {0, 1}; //setting is a BOOL, but values still need to be numbers, so 0 is false, 1 is true
+        texts[] =  {"False", "True"};
+        default = 0;
+    };
+
+    class CIVILIAN_TRAFFIC {
+        title = "Civilian Traffic"; 
+        values[] = {0, 1};
         texts[] =  {"False", "True"};
         default = 0;
     };
