@@ -414,7 +414,7 @@ ENGIMA_TRAFFIC_StartTraffic = {
 	            //_vehicleGroup = createGroup _side;
 	            //_vehicle = createVehicle [_vehicleType, _pos, [], 0, "NONE"];
 	            // Run spawn script and attach handle to vehicle
-	            _vehicleArray = [[_pos,_vehicleType,_side] call createTakistaniVehicle];
+	            _vehicleArray = [[_pos,_vehicleType,_side] call createCivilianVehicle];
 	            // diag_log format ["vehicleArray I is %1",_vehicleArray];
 	            waitUntil {count _vehicleArray > 0};
 	            // diag_log format ["vehicleArray II is %1",_vehicleArray];
