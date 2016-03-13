@@ -2,15 +2,16 @@
 if (!isServer) exitWith {};
 
 checkForReal = {
-	_bool = compile (_this select 0);
-	  
+	_varName = _this select 0;
+	_bool = call compile (_this select 0);
+
 	for [{_i=0}, {_i<20}, {_i=_i+1}] do
 	{
 		if (!_bool) exitWith {};
 		sleep 1;
 	};
-	if (_bool && str _bool == "OPFOR_PRE_ELIMINATED") then {OPFOR_ELIMINATED = true;};	    	
-	if (_bool && str _bool == "BLUFOR_PRE_ELIMINATED") then {BLUFOR_ELIMINATED = true;};	    	
+	if (_bool && _varName == "OPFOR_PRE_ELIMINATED") then {OPFOR_ELIMINATED = true;};
+	if (_bool && _varName == "BLUFOR_PRE_ELIMINATED") then {BLUFOR_ELIMINATED = true;};
 };
 
 [] spawn {
