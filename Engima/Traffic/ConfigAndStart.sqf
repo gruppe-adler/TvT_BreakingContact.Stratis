@@ -63,7 +63,7 @@ _parameters = [
 	"RHS_Ural_Open_Civ_03",
 	"RHS_UAZ_open_chdkz",
 	"RHS_UAZ_chdkz"
-	],
+	]],
 	["VEHICLES_COUNT", 10],
 	["MIN_SPAWN_DISTANCE", 1500],
 	["MAX_SPAWN_DISTANCE", 2500],
