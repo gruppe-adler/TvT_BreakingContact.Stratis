@@ -153,6 +153,8 @@ if (isServer) then {
 	BLUFOR_TELEPORTED = false;
 	publicVariable "BLUFOR_TELEPORTED";
 
+        
+       CIV_KILLED_POS = [0,0,0];
 
 
 	REPLAY_FINISHED = false;
@@ -188,6 +190,7 @@ if (isServer) then {
  	// events/listeners
 	[] execVM "server\russianMarker.sqf";
  	[] execVM "server\teleportListener.sqf";
+       [] execVM "server\civKillListener";
 
  	call compile preprocessFileLineNumbers "server\spawnBluforHQ.sqf";
 
