@@ -14,10 +14,19 @@ _usAction2 = ["ACE_MainActions", (localize "str_GRAD_buy_vehicles"), "",
 
 
 _rusAction = ["RusBuyMenu", (localize "str_GRAD_buy_vehicles"), "",
- {0 = createDialog "RussianSupplyGUI"; disableSerialization; [russianSupplies, false, 0, "","",""] call refreshRussianUI;},
+ {
+ 0 = createDialog "RussianSupplyGUI"; disableSerialization; [russianSupplies, false, 0, "","",""] call refreshRussianUI;
+ },
   {side player == east}] call ace_interact_menu_fnc_createAction;
-
 ["rhs_gaz66_r142_vv", 0, ["ACE_MainActions"],_rusAction] call ace_interact_menu_fnc_addActionToClass;
+
+
+_destroyAction = ["usDestroyMenu", (localize "str_GRAD_buy_vehicles"), "",
+ {
+ [60, [], {(_this select 0) setdamage 1;}, {hint "Cancelled"}, "Destroying radio equipment"] call ace_common_fnc_progressBar;
+ },
+  {side player == west}] call ace_interact_menu_fnc_createAction;  
+["rhs_gaz66_r142_vv", 0, ["ACE_MainActions"],_destroyAction] call ace_interact_menu_fnc_addActionToClass;
 
 
 

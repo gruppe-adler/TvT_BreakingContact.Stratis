@@ -22,3 +22,27 @@ sleep 1;
 cutText ["", "PLAIN"];
 
 ["<img size= '6' shadow='false' image='pic\gruppe-adler.paa'/><br/><t size='.9' color='#FFFFFF'>Breaking Contact</t>",0,0,2,2] spawn BIS_fnc_dynamicText;
+
+addBluforSpawnpadMarker = {
+	_pos = _this;
+	
+	_blufor_marker_start = createMarkerLocal ["blufor_marker_spawnpad", _pos];
+	_blufor_marker_start setMarkerTypeLocal "hd_pickup";
+	_blufor_marker_start setMarkerColorLocal "ColorWEST";
+};
+
+addOpforSpawnpadMarker = {
+	_pos = _this;
+	
+	_blufor_marker_start = createMarkerLocal ["opfor_marker_spawnpad", _pos];
+	_blufor_marker_start setMarkerTypeLocal "hd_pickup";
+	_blufor_marker_start setMarkerColorLocal "ColorEAST";
+};
+
+if (side player == west) then {
+	US_SPAWNPAD call addBluforSpawnpadMarker;
+};
+
+if (side player == east) then {
+	RUS_SPAWNPAD call addOpforSpawnpadMarker;
+};
