@@ -70,7 +70,6 @@ _parameters = [
 	["MIN_SKILL", 0.1],
 	["MAX_SKILL", 0.1],
 	["DEBUG", false]
-	];
 ];
 
 // Start an instance of the traffic
