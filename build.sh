@@ -18,6 +18,7 @@ islands=(
 	Panthera3
 	Sara_dbe1
 	Shapur_BAF
+	SugarLake
 	Stratis
 	Thirsk
 	Woodland_ACR
