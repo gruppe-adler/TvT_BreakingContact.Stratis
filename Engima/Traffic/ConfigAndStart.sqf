@@ -69,12 +69,8 @@ _parameters = [
 	["MAX_SPAWN_DISTANCE", 2500],
 	["MIN_SKILL", 0.1],
 	["MAX_SKILL", 0.1],
-	["DEBUG", true],
-	["ON_SPAWN_CALLBACK",{
-	{	
-		[_x] call randomCivilian;
-	} forEach crew (_this select 0);
-	}];
+	["DEBUG", false]
+	];
 ];
 
 // Start an instance of the traffic
