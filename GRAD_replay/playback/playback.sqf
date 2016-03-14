@@ -1,7 +1,7 @@
 #include "\z\ace\addons\main\script_component.hpp"
-[] execVM "CSSA3\exitCSSA3.sqf";
 
 [] execVM "GRAD_replay\playback\preparePlayback.sqf";
+[player, true] call TFAR_fnc_forceSpectator;
 
 if (isServer || isDedicated) then {
 
