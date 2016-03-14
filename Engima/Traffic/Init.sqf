@@ -11,7 +11,7 @@ ENGIMA_TRAFFIC_edgeBottomLeftRoads = [];
 ENGIMA_TRAFFIC_edgeRoadsUseful = [];
 
 if (isServer) then {
-	call compile preprocessFileLineNumbers "Engima\Traffic\Server\Functions.sqf";
 	call compile preprocessFileLineNumbers "Engima\Traffic\Server\randomCivilian.sqf";
+	call compile preprocessFileLineNumbers "Engima\Traffic\Server\Functions.sqf";
 	call compile preprocessFileLineNumbers "Engima\Traffic\ConfigAndStart.sqf";
 };

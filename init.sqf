@@ -89,7 +89,9 @@ if (!isMultiplayer) then { // Editor
 	/* {_x disableAI "MOVE"} forEach allUnits;*/
 };
 
-[] execVM "Engima\Traffic\Init.sqf";
+if (CIVILIAN_TRAFFIC == 1) then {
+	[] execVM "Engima\Traffic\Init.sqf";
+};
 
 if (isServer) then {
 	// allow view distance to be up to 10k
