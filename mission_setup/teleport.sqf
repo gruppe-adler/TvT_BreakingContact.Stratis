@@ -8,7 +8,7 @@ checkWater = {
 	};
 };
 
-if (player == opfor_teamlead) then {
+if (str player == "opfor_teamlead") then {
 	[
 		"teleportClickOpf",
 		"onMapSingleClick",
@@ -25,7 +25,7 @@ if (player == opfor_teamlead) then {
 	] call BIS_fnc_addStackedEventHandler;
 };
 
-if (player == blufor_teamlead) then {
+if (str player == "blufor_teamlead") then {
 	[
 		"teleportClickBlu",
 		"onMapSingleClick",

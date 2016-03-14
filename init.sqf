@@ -190,7 +190,7 @@ if (isServer) then {
  	// events/listeners
 	[] execVM "server\russianMarker.sqf";
  	[] execVM "server\teleportListener.sqf";
-    [] execVM "server\civKillListener";
+    [] execVM "server\civKillListener.sqf";
 
  	call compile preprocessFileLineNumbers "server\spawnBluforHQ.sqf";
 
