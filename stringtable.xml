@@ -140,6 +140,16 @@
 				<German>Fahrzeuge kaufen</German>
 				<French>Sélectionner des voitures</French>
 			</Key>
+			<Key ID="str_GRAD_destroy_vehicle">
+				<Original>Destroy Radio Truck</Original>
+				<English>Destroy Radio Truck</English>
+				<German>Funkwagen zerstören</German>
+			</Key>
+			<Key ID="str_GRAD_destroying_radio">
+				<Original>Destroying radio equipment...</Original>
+				<English>Destroying radio equipment...</English>
+				<German>Zerstöre Funkequipment...</German>
+			</Key>
 			<Key ID="str_GRAD_jip">
 				<Original>Sorry, you joined too late. Spectate and enjoy!</Original>
 				<English>Sorry, you joined too late. Spectate and enjoy!</English>

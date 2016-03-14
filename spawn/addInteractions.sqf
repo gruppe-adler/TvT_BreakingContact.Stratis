@@ -21,9 +21,9 @@ _rusAction = ["RusBuyMenu", (localize "str_GRAD_buy_vehicles"), "",
 ["rhs_gaz66_r142_vv", 0, ["ACE_MainActions"],_rusAction] call ace_interact_menu_fnc_addActionToClass;
 
 
-_destroyAction = ["usDestroyMenu", (localize "str_GRAD_buy_vehicles"), "",
+_destroyAction = ["usDestroyMenu", (localize "str_GRAD_destroy_vehicle"), "",
  {
- [60, [], {(_this select 0) setdamage 1;}, {hint "Cancelled"}, "Destroying radio equipment"] call ace_common_fnc_progressBar;
+ [60, [_this select 0], {((_this select 0) select 0) setdamage 1;}, {hint "Cancelled action"}, (localize "str_GRAD_destroying_radio")] call ace_common_fnc_progressBar;
  },
   {side player == west}] call ace_interact_menu_fnc_createAction;  
 ["rhs_gaz66_r142_vv", 0, ["ACE_MainActions"],_destroyAction] call ace_interact_menu_fnc_addActionToClass;

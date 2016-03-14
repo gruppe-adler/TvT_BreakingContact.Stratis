@@ -6,9 +6,6 @@ randomCivilian = {
 	_unit = _this select 0;
 
 	_rds_rhs_civilian = [
-	"rds_schoolteacher",
-	"rds_doctor",
-	"rds_uniform_assistant",
 	"rds_uniform_Worker1",
 	"rds_uniform_Worker2",
 	"rds_uniform_Worker3",

@@ -40,9 +40,9 @@ addOpforSpawnpadMarker = {
 };
 
 if (side player == west) then {
-	US_SPAWNPAD call addBluforSpawnpadMarker;
+	[getPos US_SPAWN_PAD] call addBluforSpawnpadMarker;
 };
 
 if (side player == east) then {
-	RUS_SPAWNPAD call addOpforSpawnpadMarker;
+	[getPos RUS_SPAWN_PAD] call addOpforSpawnpadMarker;
 };
