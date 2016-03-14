@@ -108,7 +108,7 @@ randomCivilian = {
 	};
 
 
-       addKilledNews = {
+    addKilledNews = {
        (_this select 0) addEventhandler ["Killed",
         {
          CIV_KILLED_POS = (position (_this select 0));

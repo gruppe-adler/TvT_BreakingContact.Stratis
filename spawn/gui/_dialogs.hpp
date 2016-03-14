@@ -1381,6 +1381,26 @@ class RscTitles {
 		};
 	};
 
+	class gui_intel_paper_civ_killed
+	{
+		idd = -1;
+		duration = 10;
+		name = "gui_intel_paper_civ_killed";
+		fadeOut = 5;
+
+	 	class controls {
+			class gui_intel_paper_pic: RscPicture
+			{
+				idc = -1;
+				x = safeZoneX + safeZoneW - 0.3;  
+				y = safeZoneY + safeZoneH - 1.5;
+				w = 0.3;
+				h = 0.4;
+				text = "pic\civ_killed_badge.paa";
+			};
+		};
+	};
+
 	class gui_blufor_pleasewait
 	{
 		idd = -1;
