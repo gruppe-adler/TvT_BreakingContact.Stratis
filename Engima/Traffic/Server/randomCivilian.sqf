@@ -107,10 +107,20 @@ randomCivilian = {
 		}];
 	};
 
+
+       addKilledNews = {
+       (_this select 0) addEventhandler ["Killed",
+        {
+         CIV_KILLED_POS = (position (_this select 0));
+        }];
+
+       };
+
 	[_unit] call _stripHim;
 	sleep 0.1;
 	[_unit] call _reclotheHim;
 	// [_unit] call addFleeingBehaviour;
+        [_unit] call addKilledNews;
 
 
 
