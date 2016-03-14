@@ -6,13 +6,12 @@ showCivKilledHint = {
 };
 
 createCivKilledMarker = {
-	xxx = createMarkerLocal ["civ_killed_marker", (_this select 0)];
+	_marker1Nam = format["civKilledMarkerName_%1",(_this select 0)];
+	xxx = createMarkerLocal [_marker1Nam, (_this select 0)];
 	"civ_killed_marker" setMarkerShapeLocal "ICON";
 	"civ_killed_marker" setMarkerTypeLocal "KIA";
 	"civ_killed_marker" setMarkerColorLocal "ColorCivilian";
 	"civ_killed_marker" setMarkerAlphaLocal 1;
-
-
 };
 
 [_pos] call createCivKilledMarker;
