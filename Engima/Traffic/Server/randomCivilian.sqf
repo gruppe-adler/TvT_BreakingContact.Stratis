@@ -112,6 +112,8 @@ randomCivilian = {
        (_this select 0) addEventhandler ["Killed",
         {
          CIV_KILLED_POS = (position (_this select 0));
+         diag_log format ["civ killed at %1",CIV_KILLED_POS];
+         publicVariableServer "CIV_KILLED_POS";
         }];
 
        };
@@ -120,7 +122,7 @@ randomCivilian = {
 	sleep 0.1;
 	[_unit] call _reclotheHim;
 	// [_unit] call addFleeingBehaviour;
-        [_unit] call addKilledNews;
+    [_unit] call addKilledNews;
 
 
 
