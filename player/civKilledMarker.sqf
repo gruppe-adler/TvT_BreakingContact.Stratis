@@ -17,9 +17,11 @@ createCivKilledMarker = {
 	diag_log format ["CivKills: Marker %1 created", _marker];
 };
 
-_closesttown = (nearestLocations [_pos,["NameCityCapital","NameCity","NameVillage"],10000]) select 0;
+_closesttownArray = (nearestLocations [_pos,["NameCityCapital","NameCity","NameVillage"],10000]);
 
-if (count _closesttown > 0) then {
+
+if (count _closesttownArray > 0) then {
+	_closesttown = _closesttownArray select 0;
 	_town_pos = position _closesttown;
 	_distance = floor (_town_pos distance _pos);
 	_delay = _distance / 5;
