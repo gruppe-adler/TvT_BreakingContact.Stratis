@@ -17,20 +17,23 @@ createCivKilledMarker = {
 	diag_log format ["CivKills: Marker %1 created", _marker];
 };
 
-_closesttownArray = (nearestLocations [_pos,["NameCityCapital","NameCity","NameVillage"],10000]);
+_closestTown = nearestLocation [_pos,"NameCity"];
+_closestvillage = nearestLocation [_pos,"NameVillage"];
 
+_distanceTown = position _closestTown distance _pos;
+_distanceVillage = position _distanceVillage distance _pos;
 
-if (count _closesttownArray > 0) then {
-	_closesttown = _closesttownArray select 0;
-	_town_pos = position _closesttown;
+if (_distanceTown < _distanceVillage) then {
+	_town_pos = position _closestTown;
+	_distance = floor (_town_pos distance _pos);
+	_delay = _distance / 5;
+} else {
+	_town_pos = position _closestvillage;
 	_distance = floor (_town_pos distance _pos);
 	_delay = _distance / 5;
 };
 
-diag_log format ["distance of killed civ to next town %2 is %1, delay is %3 secs.",_distance,text _closesttown,_delay];
-
-
-
+diag_log format ["distance of killed civ to next town %2 is %1, delay is %3 secs.",_distance,text _closestTown,_delay];
 
 sleep _delay;
 
