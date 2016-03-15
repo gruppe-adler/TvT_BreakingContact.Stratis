@@ -42,14 +42,14 @@ setCustomWeather = {
 	10 setOvercast (_this select 0);
 	10 setRain 0;
 	if ((_this select 0) > 0.5) then {
-		_fogDensity = random 0.2;
-		_fogFalloff = random 0.01;
+		_fogDensity = 0.2;
+		_fogFalloff = 0.01;
 		10 setFog [_fogDensity, _fogFalloff, 0];
 	}; 
 	if (_this select 1 && (_this select 0) > 0.7) then {
 		10 setRain 1;
-		_fogDensity = random 1;
-		_fogFalloff = random 0.05;
+		_fogDensity = 0.8;
+		_fogFalloff = 0.05;
 		10 setFog [_fogDensity, _fogFalloff, 0];
 	};
 	
