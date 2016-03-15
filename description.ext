@@ -56,7 +56,7 @@ class Params
 		title = "Finances OPFOR";
 		values[] = {1000, 2000, 3000, 4000, 5000, 6000};
 		texts[] = {"1000k","2000k","3000k","4000k","5000k","6000k"};
-		default = 1500;
+		default = 2000;
 	};
 
 	class BluforMoney
@@ -64,7 +64,7 @@ class Params
 		title = "Finances BLUFOR";
 		values[] = {1000, 2000, 3000, 4000, 5000, 6000};
 		texts[] = {"1000k","2000k","3000k","4000k","5000k","6000k"};
-		default = 2500;
+		default = 3000;
 	};
 
 	class OpforTimeToSend
