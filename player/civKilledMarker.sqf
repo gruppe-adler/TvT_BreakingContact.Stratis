@@ -20,8 +20,8 @@ createCivKilledMarker = {
 _closestTown = nearestLocation [_pos,"NameCity"];
 _closestVillage = nearestLocation [_pos,"NameVillage"];
 
-_distanceTown = position _closestTown distance _pos;
-_distanceVillage = position _closestVillage distance _pos;
+_distanceTown = _closestTown distance _pos;
+_distanceVillage = _closestVillage distance _pos;
 
 if (_distanceTown < _distanceVillage) then {
 	_town_pos = position _closestTown;
