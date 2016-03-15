@@ -155,6 +155,7 @@ if (isServer) then {
 
         
     CIV_KILLED_POS = [0,0,0];
+    publicVariable "CIV_KILLED_POS";
 
 
 	REPLAY_FINISHED = false;
@@ -301,6 +302,8 @@ if (hasInterface) then {
 	[] execVM "spawn\hedgehogAssemblingSystem.sqf";
 	[] execVM "spawn\assaultBoatAssemblingSystem.sqf";
 	[] execVM "spawn\addInteractions.sqf";
+	[] execVM "player\civKillListener.sqf"; 
+	[] execVM "player\startMarkerListener.sqf"; 
 	
 	if (playerSide == west) then {
 		[] execVM "player\russianMarker.sqf"; 
