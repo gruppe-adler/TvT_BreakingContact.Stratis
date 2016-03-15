@@ -150,9 +150,15 @@ spawnBluforHQ = {
     } else {
        hmmwv_hq = "rhsusf_m998_d_4dr";
     };
+    _startTime = time;
+   
 
 	while {_waitingForBluforSpawn} do {
 		_bluforSpawnSuccess = [0,nil,nil];
+		if (time > (_startTime + 60)) exitWith {
+			diag_log format ["fatal error : no blufor spawnpad position found"]; 
+			[{hintSilent "F A T A L   E R R O R:  no blufor spawn position found, please restart";},"BIS_fnc_spawn",true,true] call BIS_fnc_MP;
+		};
 
 		_bluforSpawnSuccess = [_bluforCenterPosition, [hmmwv_hq,"Land_HelipadCivil_F"], _bluforDistance] call testSpawnPositions;
 		waitUntil {(_bluforSpawnSuccess select 0) > 0};
@@ -206,14 +212,20 @@ spawnOpforHQ = {
 	_opforCenterPosition = _this select 0;
 	_opforDistance = _this select 1;
 	_waitingForOpforSpawn = true;
-	
+	_startTime = time;
 
 	while {_waitingForOpforSpawn} do {
 		_opforSpawnSuccess = [0,nil,nil];
 
+		if (time > (_startTime + 60)) exitWith {
+			diag_log format ["fatal error : no opfor spawnpad position found"]; 
+			[{hintSilent "F A T A L   E R R O R:  no opfor spawnpad position found, please restart";},"BIS_fnc_spawn",true,true] call BIS_fnc_MP;
+		};
+
 		// landclutter instead of building - dummy object
 		_opforSpawnSuccess = [_opforCenterPosition, ["Land_ClutterCutter_small_F","Land_HelipadCivil_F"], _opforDistance] call testSpawnPositions;
 		waitUntil {(_opforSpawnSuccess select 0) > 0};
+
 
 		if ((_opforSpawnSuccess select 0) > 1) exitWith {
 			_waitingForOpforSpawn = false;
