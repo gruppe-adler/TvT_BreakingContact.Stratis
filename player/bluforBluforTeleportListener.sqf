@@ -1,5 +1,5 @@
 addBluforSpawnMarker = {
-	_pos = _this;
+	_pos = _this select 0;
 
 	
 	_blufor_marker_start = createMarkerLocal ["blufor_marker_start", _pos];
@@ -10,7 +10,7 @@ addBluforSpawnMarker = {
 _BLUFOR_TELEPORT_TARGET_listener = {
 	_pos = _this select 1;
 
-	_pos call addBluforSpawnMarker;
+	[_pos] call addBluforSpawnMarker;
 	
 	[_pos, 50] execVM "player\teleportPlayer.sqf";
 };

@@ -1,7 +1,7 @@
 #include "..\missionMacros.h"
 
 createOpforMarker = {
-	_opfor_marker = createMarker ["opfor_marker", _this];
+	_opfor_marker = createMarker ["opfor_marker", _this select 0];
 	_opfor_marker setMarkerType "hd_objective";
 	_opfor_marker setMarkerColor "ColorWEST";
 	// with sector module, marker is only needed for getting position
@@ -14,7 +14,7 @@ _OPFOR_TELEPORT_TARGET_listener = {
 
 	[_pos, 50] execVM "player\teleportPlayer.sqf";
 	
-	_pos call createOpforMarker;
+	[_pos] call createOpforMarker;
 
 	closeDialog 0;
 };

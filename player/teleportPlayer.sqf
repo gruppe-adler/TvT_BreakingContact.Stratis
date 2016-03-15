@@ -27,6 +27,7 @@ addBluforSpawnpadMarker = {
 	_pos = _this;
 	
 	_blufor_marker_start = createMarkerLocal ["blufor_marker_spawnpad", _pos];
+	_blufor_marker_start setMarkerShapeLocal "ICON";
 	_blufor_marker_start setMarkerTypeLocal "hd_pickup";
 	_blufor_marker_start setMarkerColorLocal "ColorWEST";
 };
@@ -34,9 +35,10 @@ addBluforSpawnpadMarker = {
 addOpforSpawnpadMarker = {
 	_pos = _this;
 	
-	_blufor_marker_start = createMarkerLocal ["opfor_marker_spawnpad", _pos];
-	_blufor_marker_start setMarkerTypeLocal "hd_pickup";
-	_blufor_marker_start setMarkerColorLocal "ColorEAST";
+	_opfor_marker_start = createMarkerLocal ["opfor_marker_spawnpad", _pos];
+	_opfor_marker_start setMarkerShapeLocal "ICON";
+	_opfor_marker_start setMarkerTypeLocal "hd_pickup";
+	_opfor_marker_start setMarkerColorLocal "ColorEAST";
 };
 
 if (side player == west) then {
