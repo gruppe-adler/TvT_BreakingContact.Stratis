@@ -155,9 +155,20 @@ spawnBluforHQ = {
 
 	while {_waitingForBluforSpawn} do {
 		_bluforSpawnSuccess = [0,nil,nil];
-		if (time > (_startTime + 60)) exitWith {
-			diag_log format ["fatal error : no blufor spawnpad position found"]; 
-			[{hintSilent "F A T A L   E R R O R:  no blufor spawn position found, please restart";},"BIS_fnc_spawn",true,true] call BIS_fnc_MP;
+		if (time > (_startTime + 60)) then {
+			diag_log format ["fatal error : no blufor spawnpad position found. reducing spawn radius..."]; 
+			[{hintSilent "F A T A L   E R R O R:  no blufor spawn position found, reducing spawn radius...";},"BIS_fnc_spawn",true,true] call BIS_fnc_MP;
+			_bluforDistance = _bluforDistance - 1000;
+		};
+		if (time > (_startTime + 120)) then {
+			diag_log format ["fatal error : no blufor spawnpad position found. reducing spawn radius..."]; 
+			[{hintSilent "F A T A L   E R R O R:  no blufor spawn position found, reducing spawn radius...";},"BIS_fnc_spawn",true,true] call BIS_fnc_MP;
+			_bluforDistance = _bluforDistance - 1000;
+		};
+		if (time > (_startTime + 180)) exitWith {
+			diag_log format ["fatal error : no blufor spawnpad position found. please restart."]; 
+			[{hintSilent "F A T A L   E R R O R:  no blufor spawnpad position found. please restart.";},"BIS_fnc_spawn",true,true] call BIS_fnc_MP;
+			
 		};
 
 		_bluforSpawnSuccess = [_bluforCenterPosition, [hmmwv_hq,"Land_HelipadCivil_F"], _bluforDistance] call testSpawnPositions;
@@ -217,9 +228,20 @@ spawnOpforHQ = {
 	while {_waitingForOpforSpawn} do {
 		_opforSpawnSuccess = [0,nil,nil];
 
-		if (time > (_startTime + 60)) exitWith {
-			diag_log format ["fatal error : no opfor spawnpad position found"]; 
-			[{hintSilent "F A T A L   E R R O R:  no opfor spawnpad position found, please restart";},"BIS_fnc_spawn",true,true] call BIS_fnc_MP;
+		if (time > (_startTime + 60)) then {
+			diag_log format ["fatal error : no opfor spawnpad position found. reducing spawn radius..."]; 
+			[{hintSilent "F A T A L   E R R O R:  no opfor spawnpad position found, reducing spawn radius...";},"BIS_fnc_spawn",true,true] call BIS_fnc_MP;
+			_opforDistance = _opforDistance - 1000;
+		};
+		if (time > (_startTime + 120)) then {
+			diag_log format ["fatal error : no opfor spawnpad position found. reducing spawn radius..."]; 
+			[{hintSilent "F A T A L   E R R O R:  no opfor spawnpad position found, reducing spawn radius...";},"BIS_fnc_spawn",true,true] call BIS_fnc_MP;
+			_opforDistance = _opforDistance - 1000;
+		};
+		if (time > (_startTime + 180)) exitWith {
+			diag_log format ["fatal error : no opfor spawnpad position found. please restart."]; 
+			[{hintSilent "F A T A L   E R R O R:  no opfor spawnpad position found. please restart.";},"BIS_fnc_spawn",true,true] call BIS_fnc_MP;
+			
 		};
 
 		// landclutter instead of building - dummy object
