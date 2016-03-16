@@ -188,6 +188,10 @@ blufor_ftl = {
 
 	[this, "HandGrenade", 2] call addMagazinesToVest;
 
+	[this, "rhs_mag_M585_white", 4] call addMagazinesToBackpack;
+	[this, "rhs_mag_m662_red", 3] call addMagazinesToBackpack;
+	[this, "rhs_mag_m661_green", 3] call addMagazinesToBackpack;
+
 	this addWeapon "Binocular";
 	this addWeapon "rhs_weap_m4a1_m203s";
 	this addPrimaryWeaponItem "optic_Aco";

@@ -139,8 +139,12 @@ opfor_ftl = {
 
 	[this, "rhs_mag_rgd5", 2] call addMagazinesToBackpack;
 
+	[this, "rhs_GRD40_White", 4] call addMagazinesToBackpack;
+	[this, "rhs_GRD40_Green", 3] call addMagazinesToBackpack;
+	[this, "rhs_GRD40_Red", 3] call addMagazinesToBackpack;
+
 	this addWeapon "Binocular";
-	this addWeapon "rhs_weap_akm";
+	this addWeapon "rhs_weap_akm_gp25";
 	this addWeapon "hgun_Rook40_F";
 	this linkItem "ItemGPS";
 	
