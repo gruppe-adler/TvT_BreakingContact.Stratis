@@ -43,6 +43,7 @@ fillRussianSupplies = {
             clearBackpackCargoGlobal (_this select 0); 
             clearMagazineCargoGlobal (_this select 0);
             (_this select 0) addItemCargoGlobal ['ItemGPS',1];
+            ['AddCargoByClass', _this select 0, ['ACE_wheel', _this select 0, 2]] call ace_common_fnc_targetEvent;
             },
             format['%1<br/>%2<br/>%3<br/>%4<br/>%5','Crew: 1','Seats: 11','Speed: 90','','1 GPS']
         ],
@@ -60,6 +61,7 @@ fillRussianSupplies = {
             clearBackpackCargoGlobal (_this select 0); 
             clearMagazineCargoGlobal (_this select 0);
             (_this select 0) addItemCargoGlobal ['ItemGPS',1];
+            ['AddCargoByClass', _this select 0, ['ACE_wheel', _this select 0, 2]] call ace_common_fnc_targetEvent;
             },
             format['%1<br/>%2<br/>%3<br/>%4<br/>%5','Crew: 1','Seats: 7','Speed: 140','','1 GPS']
         ],
@@ -116,6 +118,7 @@ fillRussianSupplies = {
             (_this select 0) addItemCargoGlobal ['ItemGPS',1];
             (_this select 0) setObjectTextureGlobal [0,"rhsafrf\addons\rhs_a2port_car\uaz\data\uaz_main_ind_co.paa"];
             (_this select 0) setObjectTextureGlobal [1,"rhsafrf\addons\rhs_a2port_car\uaz\data\uaz_mount_co.paa"];
+            ['AddCargoByClass', _this select 0, ['ACE_wheel', _this select 0, 2]] call ace_common_fnc_targetEvent;
             },
             format['%1<br/>%2<br/>%3<br/>%4<br/>%5<br/>%6<br/>%7<br/>%8<br/>%9','Crew: 2','Seats: 1','Speed: 121','','Weapons:','50x4 12.7mm','','1 GPS']
         ],
@@ -133,6 +136,7 @@ fillRussianSupplies = {
             clearBackpackCargoGlobal (_this select 0); 
             clearMagazineCargoGlobal (_this select 0);
             (_this select 0) addItemCargoGlobal ['ItemGPS',1];
+            ['AddCargoByClass', _this select 0, ['ACE_wheel', _this select 0, 2]] call ace_common_fnc_targetEvent;
             },
             format['%1<br/>%2<br/>%3<br/>%4<br/>%5<br/>%6<br/>%7','Crew: 3','Seats: 15 (8 on top)','Speed: 80','','Weapons:','','250x5 7.62mm']
         ],
@@ -151,6 +155,7 @@ fillRussianSupplies = {
             clearMagazineCargoGlobal (_this select 0);
             (_this select 0) addItemCargoGlobal ['ItemGPS',1];
             (_this select 0) removemagazinesturret ["rhs_mag_3of26_5",[0]];
+            ['AddCargoByClass', _this select 0, ['ACE_Track', _this select 0, 2]] call ace_common_fnc_targetEvent;
             },
             format['%1<br/>%2<br/>%3<br/>%4<br/>%5<br/>%6<br/>%7,<br/>%8<br/>%9,<br/>%10','Crew: 3','Speed: 60','','Weapons:','4x3 9M119','4x7 3BM42 KE','6x3 3BK18M HEAT','no HE!','250x7 7.62mm','8 Smoke']
         ],
@@ -232,6 +237,7 @@ fillUSSupplies = {
             clearBackpackCargoGlobal (_this select 0); 
             clearMagazineCargoGlobal (_this select 0);
             (_this select 0) addItemCargoGlobal ['ItemGPS',1];
+            ['AddCargoByClass', _this select 0, ['ACE_wheel', _this select 0, 2]] call ace_common_fnc_targetEvent;
             _box = createVehicle ['ACE_Box_Misc', position (_this select 0), [], 1, 'NONE'];
             clearWeaponCargoGlobal _box; 
             clearItemCargoGlobal _box; 
@@ -254,6 +260,7 @@ fillUSSupplies = {
             clearBackpackCargoGlobal (_this select 0); 
             clearMagazineCargoGlobal (_this select 0);
             (_this select 0) addItemCargoGlobal ['ItemGPS',1];
+            ['AddCargoByClass', _this select 0, ['ACE_wheel', _this select 0, 2]] call ace_common_fnc_targetEvent;
             },
             format['%1<br/>%2<br/>%3<br/>%4<br/>%5<br/>%6<br/>%7<br/>%8','Crew: 1','Seats: 3','Speed: 109','','Weapons:','100x6 7.62','','1 GPS']
         ],
@@ -271,6 +278,7 @@ fillUSSupplies = {
             clearBackpackCargoGlobal (_this select 0); 
             clearMagazineCargoGlobal (_this select 0);
             (_this select 0) addItemCargoGlobal ['ItemGPS',1];
+            ['AddCargoByClass', _this select 0, ['ACE_Track', _this select 0, 2]] call ace_common_fnc_targetEvent;
             },
             format['%1<br/>%2<br/>%3<br/>%4<br/>%5','Crew: 2','Seats: 11','Speed: 67','','1 GPS']
         ],
