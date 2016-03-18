@@ -4,6 +4,7 @@
 // Readable List:
 // Altis,
 // Bornholm,
+// Bukovina
 // Chernarus
 // Chernarus Summer,
 // Clafghan,
@@ -33,6 +34,7 @@
 ISLANDS = [
 	'Altis',
 	'Bornholm',
+	'Bukovina',
 	'Chernarus',
 	'Chernarus_Summer',
 	'clafghan',
@@ -62,7 +64,8 @@ ISLANDS = [
 // pos blufor, pos opfor, water around map?, woodcamo, name
 ISLAND_TARGET_POSITIONS = [
 	[ [14300,16200], [14600, 16700], true, true, 'Altis'],
-	[ [3000, 5400], [3900, 4900], true, true,'Bornholm' ],
+	[ [3000, 5400], [3900, 4900], true, true, 'Bornholm' ],
+	[ [-2500,-500],[-500,-2500], false, true, 'Bootcamp_ACR'],
 	[ [4100,11000], [4860, 9740], true, true,'Chernarus'],
 	[ [4100,11000], [4860, 9740], true, true,'Chernarus_Summer'],
 	[ [15550,920], [15850, 370], false, false,'clafghan'],

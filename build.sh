@@ -7,6 +7,7 @@ missionname="TvT_Breaking_Contact"
 islands=(
 	Altis
 	Bornholm
+	Bootcamp_ACR
 	Chernarus
 	Chernarus_Summer
 	FDF_Isle1_a
