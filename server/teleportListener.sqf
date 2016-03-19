@@ -3,7 +3,7 @@ createOpforStuff =  {
 
 
   if (USE_FIREPLACE_INSTEAD_OF_RADIO_TRUCK) then {
-			funkwagen = [_position, 0, 1, "land_campfire"] call spawnStuff;
+			funkwagen = "land_campfire" createVehicle _position;
 		} else {
 			funkwagen = [_position, 0, 1, "rhs_gaz66_r142_vv"] call spawnStuff;
 		};
