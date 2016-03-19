@@ -38,21 +38,21 @@ jipTime = JIP_TIME_ALLOWED;
 disableRemoteSensors true;
 
 setCustomWeather = {
-	// skipTime -24; 
+	// skipTime -24;
 	10 setOvercast (_this select 0);
 	10 setRain 0;
 	if ((_this select 0) > 0.5) then {
 		_fogDensity = 0.2;
 		_fogFalloff = 0.01;
 		10 setFog [_fogDensity, _fogFalloff, 0];
-	}; 
+	};
 	if (_this select 1 && (_this select 0) > 0.7) then {
 		10 setRain 1;
 		_fogDensity = 0.8;
 		_fogFalloff = 0.05;
 		10 setFog [_fogDensity, _fogFalloff, 0];
 	};
-	
+
 	setViewDistance 3700;
 	forceWeatherChange;
 	// skipTime 24;
@@ -62,7 +62,7 @@ getMapSize = {
 	// check for arma3 map size
 	_mapSizeDetected = worldSize;
 	_mapSizeDetectedKnown = true;
-		
+
 	// check for utes/chernarus
 	if (_mapSizeDetected < 2000) then {
 	_mapSizeDetected = getNumber (configFile>>"CfgWorlds">>worldName>>"grid">>"zoom1">>"stepX")*(parseNumber mapGridPosition [0,0,0]);
@@ -95,7 +95,7 @@ if (CIVILIAN_TRAFFIC == 1) then {
 
 if (isServer) then {
 	// allow view distance to be up to 10k
-	
+
 	// set to full moon date
 	setDate [2015, 2, 2, TIME_OF_DAY, 1];
 
@@ -153,7 +153,7 @@ if (isServer) then {
 	BLUFOR_TELEPORTED = false;
 	publicVariable "BLUFOR_TELEPORTED";
 
-        
+
     CIV_KILLED_POS = [0,0,0];
     publicVariable "CIV_KILLED_POS";
 
@@ -169,17 +169,17 @@ if (isServer) then {
 
 	0 = [russianCredits,USCredits] execVM "spawn\gui\addPublicVariableEventhandler.sqf";
 
-	
+
 	[] spawn {
 		_connectedPlayers = call CBA_fnc_players;
 		_playercount = count _connectedPlayers;
 		_bonusPerPlayer = _playercount * 100;
-		
+
 		russianCredits = OPFOR_MONEY + _bonusPerPlayer;
 		USCredits = BLUFOR_MONEY + _bonusPerPlayer;
 
 		0 = [russianCredits,USCredits] execVM "spawn\gui\addPublicVariableEventhandler.sqf";
-		
+
 	};
 
 	if (isClass (configFile >> "CfgPatches" >> "task_force_radio")) then {
@@ -197,7 +197,12 @@ if (isServer) then {
 
  	if (!isMultiplayer) then {
 	 	[] spawn {
-	 		{if (!isPlayer _x) then {sleep 0.5; 0 = [_x] execVM "loadouts\_client.sqf"};0 = [_x] execVM "server\adjustInitialSpawnPositionAI.sqf";} forEach allUnits;
+	 		{
+				if (!isPlayer _x) then {
+					sleep 0.5; 0 = [_x] execVM "loadouts\_client.sqf"
+				};
+				0 = [_x] execVM "server\adjustInitialSpawnPositionAI.sqf";
+			} forEach allUnits;
 	 	};
  	} else {
 	 	[] spawn {
@@ -206,7 +211,7 @@ if (isServer) then {
 		 			sleep 0.2;
 		 			0 = [_x] execVM "loadouts\_client.sqf";
 					0 = [_x] execVM "server\adjustInitialSpawnPositionAI.sqf";
-	 			};	
+	 			};
 	 		} forEach allUnits;
 	 	};
 	};
@@ -253,7 +258,7 @@ if (hasInterface) then {
 
 
 	checkSpawnButton = {
-		
+
 		if (str player != "opfor_teamlead") then {
 			0 = [[worldSize/2,worldSize/2,0],"",1500] execVM "player\setup\establishingShot.sqf";
 		} else {
@@ -261,10 +266,10 @@ if (hasInterface) then {
 		waitUntil {!(isNull ([] call BIS_fnc_displayMission))};
 			cheffeKeyEH = ([] call BIS_fnc_displayMission) displayAddEventHandler [
 				"KeyDown",
-				format ["	
+				format ["
 						if (OPFOR_TELEPORT_TARGET select 0 != 0) then {
 							([] call BIS_fnc_displayMission) displayRemoveEventHandler ['KeyDown', cheffeKeyEH];
-							
+
 							playSound ['click', true];
 
 						};
@@ -278,35 +283,35 @@ if (hasInterface) then {
 		};
 	};
 
-	
-	
+
+
 
 	enableSentences false;
 
-	
-	
+
+
 
 	[] execVM "player\setup\helpBriefing.sqf"; diag_log format ["setup: briefing initiated"];
 
-	
 
-	
+
+
 	[] execVM "player\allXXXSurrenderedListener.sqf"; diag_log format ["setup: surrenderlistener initiated"];
-	// [player] execVM "loadouts\_client.sqf"; 
+	// [player] execVM "loadouts\_client.sqf";
 	[] spawn {
 		sleep (random 10);
 		[player] execVM "loadouts\_client.sqf"; diag_log format ["setup: loadout %1 initiated",player];
 	};
-	
+
 
 	[] execVM "spawn\hedgehogAssemblingSystem.sqf";
 	[] execVM "spawn\assaultBoatAssemblingSystem.sqf";
 	[] execVM "spawn\addInteractions.sqf";
-	[] execVM "player\civKillListener.sqf"; 
-	[] execVM "player\startMarkerListener.sqf"; 
-	
+	[] execVM "player\civKillListener.sqf";
+	[] execVM "player\startMarkerListener.sqf";
+
 	if (playerSide == west) then {
-		[] execVM "player\russianMarker.sqf"; 
+		[] execVM "player\russianMarker.sqf";
 		[] execVM "player\bluforBluforTeleportListener.sqf";
 		[] execVM "player\bluforRussianPointsListener.sqf";
 		[] spawn checkJIP;

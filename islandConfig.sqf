@@ -34,7 +34,7 @@
 ISLANDS = [
 	'Altis',
 	'Bornholm',
-	'Bukovina',
+	'Bootcamp_ACR',
 	'Chernarus',
 	'Chernarus_Summer',
 	'clafghan',
