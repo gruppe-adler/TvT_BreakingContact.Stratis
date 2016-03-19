@@ -16,6 +16,7 @@ islands=(
 	IsolaDiCapraia
 	Kunduz
 	namalsk
+	ProvingGrounds_PMC
 	Panthera3
 	Sara_dbe1
 	Shapur_BAF
@@ -85,7 +86,7 @@ echo "building PBO...";
 $cpbo_path -y -p "$tmpdir" > /dev/null
 echo "done (probably)"
 
-pbofilename="${tmpdir}.pbo" 
+pbofilename="${tmpdir}.pbo"
 
 if [[ ! -f "$pbofilename" ]]; then
 	echo "örks"
