@@ -10,7 +10,7 @@ bluforSurrendered = {
 };
 
 funkwagenIsSending = {
-	(funkwagen getVariable ["tf_range",0]) == 50000;
+	((funkwagen getVariable ["tf_range",0]) == 50000) || (inflamed funkwagen);
 };
 
 booleanEqual = {

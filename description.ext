@@ -10,7 +10,7 @@ onLoadMissionTime = True;
 disabledAI = 0; //1
 enableDebugConsole = 1;
 loadScreen = "pic\loading.jpg";
-respawnDelay = 9999999; 
+respawnDelay = 9999999;
 
 respawn = 3;
 respawnTemplates[] = {"ace_spectator"};
@@ -36,12 +36,12 @@ class Params
 	};
 
 	class WeatherSetting
-    {
+  {
 		title = "Weather Settings";
 		values[] = {0,1,2,3};
 		texts[] = {"SUNNY DAY","CLOUDY DAY","RAINY DAY","RANDOM WEATHER"};
 		default = 0;
-    };
+  };
 
 	class AllowedSpawnDistance
 	{
@@ -108,7 +108,7 @@ class Params
 		default = 0;
 		isGlobal = 0;
 	};
-	
+
 	class Debug_Mode
 	{
 		title = "Enable Debug Log";
@@ -126,19 +126,26 @@ class Params
 	};
 
 	class ace_map_BFT_Enabled { //This ia a "BOOL"
-        title = "Bluforce-Tracking active"; //You can use ACE's stringtables
-        ACE_setting = 1;
-        values[] = {0, 1}; //setting is a BOOL, but values still need to be numbers, so 0 is false, 1 is true
-        texts[] =  {"False", "True"};
-        default = 0;
-    };
+    title = "Bluforce-Tracking active"; //You can use ACE's stringtables
+    ACE_setting = 1;
+    values[] = {0, 1}; //setting is a BOOL, but values still need to be numbers, so 0 is false, 1 is true
+    texts[] =  {"False", "True"};
+    default = 0;
+	};
 
-    class CIVILIAN_TRAFFIC {
-        title = "Civilian Traffic"; 
-        values[] = {0, 1};
-        texts[] =  {"False", "True"};
-        default = 0;
-    };
+  class CIVILIAN_TRAFFIC {
+    title = "Civilian Traffic";
+    values[] = {0, 1};
+    texts[] =  {"False", "True"};
+    default = 0;
+  };
+
+	class TypeOfCommunication {
+		title = "Type of communication device";
+		values[] = {0, 1};
+		texts[] = {"radio truck", "fireplace"};
+		default = 0;
+	};
 };
 
 class ACE_Settings {

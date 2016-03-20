@@ -1,7 +1,11 @@
 createOpforStuff =  {
 	_position = _this;
 
-	funkwagen = [_position, 0, 1, "rhs_gaz66_r142_vv"] call spawnStuff;
+  if (USE_FIREPLACE_INSTEAD_OF_RADIO_TRUCK) then {
+		funkwagen = "land_campfire" createVehicle _position;
+	} else {
+		funkwagen = [_position, 0, 1, "rhs_gaz66_r142_vv"] call spawnStuff;
+	};
 
 	sleep 1;
 	[funkwagen] call clearInventory;
@@ -16,7 +20,7 @@ createOpforStuff =  {
 
 	[getPos funkwagen, 50] call spawnOpforHQ;
 
-	
+
 	if (!isMultiplayer) then {
 		_opfor_marker_start = createMarker ["debug_opfor_marker_start", RUS_VEHICLE_SPAWN];
 		_opfor_marker_start setMarkerType "hd_start";
@@ -26,7 +30,7 @@ createOpforStuff =  {
 
 createBluforStuff = {
 	_opforposition = _this;
-	
+
 	[_opforposition, BLUFOR_SPAWN_DISTANCE] call spawnBluforHQ;
 
 	if (!isMultiplayer) then {
@@ -47,7 +51,7 @@ _OPFOR_TELEPORT_TARGET_listener = {
 _BLUFOR_TELEPORT_TARGET_listener = {
 	_pos = _this select 1;
 	publicVariable "BLUFOR_TELEPORT_TARGET";
-	
+
 	[] spawn {
 		sleep 2; // just to make sure no one is missed, send again (dirty fix for spawn prob?)
 		publicVariable "BLUFOR_TELEPORT_TARGET";
