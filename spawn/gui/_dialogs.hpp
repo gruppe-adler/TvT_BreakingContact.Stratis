@@ -6,7 +6,7 @@ class russianSupplyGUI
 		enableSimulation = 1;
 		enableDisplay = 1;
 		objects[] = {};
-		onLoad = "disableSerialization; [1000,[1801,1802,1803,1804,1805,1806,1807]] execVM 'spawn\gui\hideControl.sqf';";
+		onLoad = "disableSerialization; [1000,[1801,1802,1803,1804,1805,1806,1807,1808]] execVM 'spawn\gui\hideControl.sqf';";
 
 
 		class ControlsBackground

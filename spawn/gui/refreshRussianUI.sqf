@@ -128,7 +128,7 @@ refreshRussianUI = {
 	disableSerialization;
 	_display = findDisplay 1000;
 
-	if (!(_vehicleOrdered == "")) then {
+	if (!(_vehicleOrdered == "") then {
 		VEHICLE_ORDERED_EAST = [true,_vehicleEta];
 		publicVariable "VEHICLE_ORDERED_EAST";
 
@@ -366,6 +366,6 @@ refreshRussianUI = {
 			sleep 1;
 		};
 		[_vehicle, RUS_VEHICLE_SPAWN, _extras, _calls] call spawnSupplyDrop;
-		[] call resetRussianUI;		
+		[] call resetRussianUI;
 	};
 };

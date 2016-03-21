@@ -66,9 +66,11 @@ sleep 2; // give it time, boy - possible fix for "Undefined variable in expressi
 		} else {
 			if (!isNil "radioSuitcaseDropped") then {
 				[getPos radioSuitcaseDropped select 0, getPos radioSuitcaseDropped select 1] call setRussianMarkerPosition;
+				RUSSIAN_POINTS = RUSSIAN_POINTS + 1;
 			};
 			if (!isNil "radioSuitcaseCarry") then {
 				[getPos radioSuitcaseCarry select 0, getPos radioSuitcaseCarry select 1] call setRussianMarkerPosition;
+				RUSSIAN_POINTS = RUSSIAN_POINTS + 1;
 			};
 		};
 		
