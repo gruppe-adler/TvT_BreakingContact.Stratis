@@ -392,8 +392,6 @@ blufor_engineer = {
 	[this, "HandGrenade", 1] call addMagazinesToVest;
 
 
-	[this, "ACE_wirecutter", 1] call addMagazinesToBackpack;
-
 	this addWeapon "Binocular";
 	this addWeapon (blufor_random_primaryweapon call BIS_fnc_selectRandom);
 	this addPrimaryWeaponItem "optic_Aco";

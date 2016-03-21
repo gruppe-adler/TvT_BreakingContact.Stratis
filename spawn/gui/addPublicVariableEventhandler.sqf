@@ -257,7 +257,7 @@ fillUSSupplies = {
             clearBackpackCargoGlobal _box; 
             clearMagazineCargoGlobal _box;
             },
-            format['%1<br/>%2<br/>%3<br/>%4<br/>%5','Crew: 1','Seats: 5','Speed: 109','1 Assault Boat','1 GPS']
+            format['%1<br/>%2<br/>%3<br/>%4<br/>%5','Crew: 1','Seats: 7','Speed: 109','1 Assault Boat','1 GPS']
         ],
         [
             hmmwv_m2,
@@ -345,6 +345,7 @@ fillUSSupplies = {
             clearItemCargoGlobal (_this select 0); 
             clearBackpackCargoGlobal (_this select 0); 
             clearMagazineCargoGlobal (_this select 0);
+            [(_this select 0)] call ace_fastroping_fnc_equipFRIES;
             },
             format['%1<br/>%2<br/>%3<br/>%4<br/>%5','Crew: 1','Seats: 7','Speed: 245','','']
         ],
@@ -362,6 +363,7 @@ fillUSSupplies = {
             clearBackpackCargoGlobal (_this select 0); 
             clearMagazineCargoGlobal (_this select 0);
             (_this select 0) addBackpackCargoGlobal ['B_Parachute',30];
+            [(_this select 0)] call ace_fastroping_fnc_equipFRIES;
             },
             format['%1<br/>%2<br/>%3<br/>%4<br/>%5<br/>%6','Crew: 2','Seats: 30','Speed: 295','','Extras:','30 Parachutes']
         ],
