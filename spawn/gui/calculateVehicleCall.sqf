@@ -21,8 +21,7 @@ calculateRussianVehicleCall = {
         _eta,
         _source_array select 6,
         _source_array select 7,
-        _source_array select 8,
-        _source_array select 9
+        _source_array select 8
 	];
 
 	//if (DEBUG) then { diag_log format ["calculateVehicleCall: %1",_target_array]; };

@@ -34,6 +34,7 @@ russian_IDC_to_selector = {
 		case 1505: { _selector = 5; };
 		case 1506: { _selector = 6; };
 		case 1507: { _selector = 7; };
+		case 1508: { _selector = 8; };
 		default {};
 
 	};
@@ -57,6 +58,7 @@ russian_IDC_to_classname = {
 		case 1505: { _classname = ((russianSupplies select 5) select 0); };
 		case 1506: { _classname = ((russianSupplies select 6) select 0); };
 		case 1507: { _classname = ((russianSupplies select 7) select 0); };
+		case 1508: { _classname = ((russianSupplies select 8) select 0); };
 		default {};
 	};
 
@@ -78,6 +80,7 @@ russian_IDC_to_displayname = {
 		case 1505: { _displayname = ((russianSupplies select 5) select 1); };
 		case 1506: { _displayname = ((russianSupplies select 6) select 1); };
 		case 1507: { _displayname = ((russianSupplies select 7) select 1); };
+		case 1508: { _displayname = ((russianSupplies select 8) select 1); };
 		default {};
 	};
 
@@ -100,6 +103,7 @@ russian_IDC_to_countleft = {
 		case 1505: { _countleft = ((russianSupplies select 5) select 2); };
 		case 1506: { _countleft = ((russianSupplies select 6) select 2); };
 		case 1507: { _countleft = ((russianSupplies select 7) select 2); };
+		case 1508: { _countleft = ((russianSupplies select 8) select 2); };
 		default {};
 	};
 
@@ -121,6 +125,7 @@ russian_buttonIDC_to_countleftIDC = {
 		case 1505: { _countleftIDC = 1205; };
 		case 1506: { _countleftIDC = 1206; };
 		case 1507: { _countleftIDC = 1207; };
+		case 1508: { _countleftIDC = 1208; };
 		default {};
 	};
 
@@ -142,6 +147,7 @@ russian_IDC_to_price = {
 		case 1505: { _price = ((russianSupplies select 5) select 3); };
 		case 1506: { _price = ((russianSupplies select 6) select 3); };
 		case 1507: { _price = ((russianSupplies select 7) select 3); };
+		case 1508: { _price = ((russianSupplies select 8) select 3); };
 		default {};
 	};
 
@@ -164,6 +170,7 @@ russian_IDC_to_pricedisplay = {
 		case 1505: { _pricedisplay = ((russianSupplies select 5) select 3); };
 		case 1506: { _pricedisplay = ((russianSupplies select 6) select 3); };
 		case 1507: { _pricedisplay = ((russianSupplies select 7) select 3); };
+		case 1508: { _pricedisplay = ((russianSupplies select 8) select 3); };
 		default {};
 	};
 
@@ -188,6 +195,7 @@ russian_IDC_to_eta = {
 		case 1505: { _eta = ((russianSupplies select 5) select 5); };
 		case 1506: { _eta = ((russianSupplies select 6) select 5); };
 		case 1507: { _eta = ((russianSupplies select 7) select 5); };
+		case 1508: { _eta = ((russianSupplies select 8) select 5); };
 		default {};
 	};
 
@@ -208,6 +216,7 @@ russian_IDC_to_extras = {
 		case 1505: { _extras = ((russianSupplies select 5) select 6); };
 		case 1506: { _extras = ((russianSupplies select 6) select 6); };
 		case 1507: { _extras = ((russianSupplies select 7) select 6); };
+		case 1508: { _extras = ((russianSupplies select 8) select 6); };
 		default {};
 	};
 
@@ -229,6 +238,7 @@ russian_IDC_to_calls = {
 		case 1505: { _calls = ((russianSupplies select 5) select 7); };
 		case 1506: { _calls = ((russianSupplies select 6) select 7); };
 		case 1507: { _calls = ((russianSupplies select 7) select 7); };
+		case 1508: { _calls = ((russianSupplies select 8) select 7); };
 		default {};
 	};
 
