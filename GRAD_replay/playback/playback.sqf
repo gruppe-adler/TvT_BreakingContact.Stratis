@@ -1,7 +1,7 @@
 #include "\z\ace\addons\main\script_component.hpp"
 
 [] execVM "GRAD_replay\playback\preparePlayback.sqf";
-[player, true] call TFAR_fnc_forceSpectator;
+[true] call ace_spectator_fnc_setSpectator;
 
 if (isServer || isDedicated) then {
 
@@ -176,6 +176,8 @@ if (isServer || isDedicated) then {
 			[{openMap [false,true];},"BIS_fnc_spawn",true,true] call BIS_fnc_MP;
 
 			REPLAY_FINISHED = true; publicVariable "REPLAY_FINISHED";
+			[false] call ace_spectator_fnc_setSpectator;
+			player enableSimulation false;
 		};
 		
 		sleep REPLAY_SPEED;

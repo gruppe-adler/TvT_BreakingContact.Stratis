@@ -249,6 +249,7 @@ if (hasInterface) then {
 		waitUntil {!isNull player};
 		if (playerSide == east) then {
 				[OPFOR_TELEPORT_TARGET, 50] execVM "player\teleportPlayer.sqf";
+			}
 			else {
 				[BLUFOR_TELEPORT_TARGET, 50] execVM "player\teleportPlayer.sqf";
 			};
