@@ -7,6 +7,7 @@ _tempRussian_4 = (russianSupplies select 4);
 _tempRussian_5 = (russianSupplies select 5);
 _tempRussian_6 = (russianSupplies select 6);
 _tempRussian_7 = (russianSupplies select 7);
+_tempRussian_8 = (russianSupplies select 8);
 
 _oldMoney = (russianSupplies select 0);
 _price = [_idc] call russian_IDC_to_price;
@@ -34,12 +35,13 @@ switch (_selector) do {
     case 5: { _tempRussian_5 = [_idc,_tempRussian_5] call calculateRussianVehicleCall; };
     case 6: { _tempRussian_6 = [_idc,_tempRussian_6] call calculateRussianVehicleCall; };
     case 7: { _tempRussian_7 = [_idc,_tempRussian_7] call calculateRussianVehicleCall; };
+    case 8: { _tempRussian_8 = [_idc,_tempRussian_8] call calculateRussianVehicleCall; };
 
     default {};
 };
 
 // dont fucking buy without stock dude -> exit with hint
-if (count _tempRussian_1 == 1 || count _tempRussian_2 == 1 || count _tempRussian_3 == 1 || count _tempRussian_4 == 1 || count _tempRussian_5 == 1 || count _tempRussian_6 == 1 || count _tempRussian_7 == 1) exitWith { 
+if (count _tempRussian_1 == 1 || count _tempRussian_2 == 1 || count _tempRussian_3 == 1 || count _tempRussian_4 == 1 || count _tempRussian_5 == 1 || count _tempRussian_6 == 1 || count _tempRussian_7 == 1 || count _tempRussian_8 == 1) exitWith { 
     [russianSupplies,false,_idc,"","",""] call refreshRussianUI;
     player say3D "rhs_rus_land_rc_01";
 };
@@ -92,7 +94,8 @@ _tempSupplies =
         _tempRussian_4,
         _tempRussian_5,
         _tempRussian_6,
-        _tempRussian_7
+        _tempRussian_7,
+        _tempRussian_8
     ];
 
 [_tempSupplies,false,0,_vehicleOrdered,_vehicleExtras,_vehicleCalls,_vehicleEta] call refreshRussianUI;

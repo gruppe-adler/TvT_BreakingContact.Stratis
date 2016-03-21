@@ -16,7 +16,7 @@ class russianSupplyGUI
 				idc = 1999;
 				x = -10 * GUI_GRID_W + GUI_GRID_X;
 				y = 0 * GUI_GRID_H + GUI_GRID_Y;
-				w = 60 * GUI_GRID_W;
+				w = 64 * GUI_GRID_W;
 				h = 19 * GUI_GRID_H;
 				colorBackground[] = {0,0,0,0.8};
 			};
@@ -30,7 +30,7 @@ class russianSupplyGUI
 			{
 				idc = 1501;
 				text = $STR_GRAD_buy_order;
-				x = -3 * GUI_GRID_W + GUI_GRID_X;
+				x = -6.75 * GUI_GRID_W + GUI_GRID_X;
 				y = 16 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6.5 * GUI_GRID_W;
 				h = 2 * GUI_GRID_H;
@@ -43,7 +43,7 @@ class russianSupplyGUI
 			{
 				idc = 1502;
 				text = $STR_GRAD_buy_order;
-				x = 5 * GUI_GRID_W + GUI_GRID_X;
+				x = 1.25 * GUI_GRID_W + GUI_GRID_X;
 				y = 16 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6 * GUI_GRID_W;
 				h = 2 * GUI_GRID_H;
@@ -56,7 +56,7 @@ class russianSupplyGUI
 			{
 				idc = 1503;
 				text = $STR_GRAD_buy_order;
-				x = 12.5 * GUI_GRID_W + GUI_GRID_X;
+				x = 8.75 * GUI_GRID_W + GUI_GRID_X;
 				y = 16 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6 * GUI_GRID_W;
 				h = 2 * GUI_GRID_H;
@@ -69,7 +69,7 @@ class russianSupplyGUI
 			{
 				idc = 1504;
 				text = $STR_GRAD_buy_order;
-				x = 20 * GUI_GRID_W + GUI_GRID_X;
+				x = 16.25 * GUI_GRID_W + GUI_GRID_X;
 				y = 16 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6 * GUI_GRID_W;
 				h = 2 * GUI_GRID_H;
@@ -82,7 +82,7 @@ class russianSupplyGUI
 			{
 				idc = 1505;
 				text = $STR_GRAD_buy_order;
-				x = 27.5 * GUI_GRID_W + GUI_GRID_X;
+				x = 23.75 * GUI_GRID_W + GUI_GRID_X;
 				y = 16 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6 * GUI_GRID_W;
 				h = 2 * GUI_GRID_H;
@@ -95,7 +95,7 @@ class russianSupplyGUI
 			{
 				idc = 1506;
 				text = $STR_GRAD_buy_order;
-				x = 35 * GUI_GRID_W + GUI_GRID_X;
+				x = 31.25 * GUI_GRID_W + GUI_GRID_X;
 				y = 16 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6 * GUI_GRID_W;
 				h = 2 * GUI_GRID_H;
@@ -108,7 +108,20 @@ class russianSupplyGUI
 			{
 				idc = 1507;
 				text = $STR_GRAD_buy_order;
-				x = 42.5 * GUI_GRID_W + GUI_GRID_X;
+				x = 38.75 * GUI_GRID_W + GUI_GRID_X;
+				y = 16 * GUI_GRID_H + GUI_GRID_Y;
+				w = 6 * GUI_GRID_W;
+				h = 2 * GUI_GRID_H;
+				colorText[] = {1,1,1,1};
+				colorBackground[] = {0,0,0,1};
+				tooltip = $STR_GRAD_buy_order_hint;
+				onButtonClick = "disableSerialization; [_this select 0] execVM 'spawn\gui\orderRussianVehicle.sqf';";
+			};
+			class russian_gui_btn_anfordern_8: RscButton
+			{
+				idc = 1508;
+				text = $STR_GRAD_buy_order;
+				x = 46.25 * GUI_GRID_W + GUI_GRID_X;
 				y = 16 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6 * GUI_GRID_W;
 				h = 2 * GUI_GRID_H;
@@ -120,7 +133,7 @@ class russianSupplyGUI
 			class russian_gui_pic_1: RscPicture
 			{
 				idc = 1001;
-				x = -3.5 * GUI_GRID_W + GUI_GRID_X;
+				x = -7.25 * GUI_GRID_W + GUI_GRID_X;
 				y = 3.5 * GUI_GRID_H + GUI_GRID_Y;
 				w = 7 * GUI_GRID_W;
 				h = 6 * GUI_GRID_H;
@@ -130,7 +143,7 @@ class russianSupplyGUI
 			class russian_gui_pic_2: RscPicture
 			{
 				idc = 1002;
-				x = 4.5 * GUI_GRID_W + GUI_GRID_X;
+				x = 0.75 * GUI_GRID_W + GUI_GRID_X;
 				y = 3.5 * GUI_GRID_H + GUI_GRID_Y;
 				w = 7 * GUI_GRID_W;
 				h = 6 * GUI_GRID_H;
@@ -140,7 +153,7 @@ class russianSupplyGUI
 			class russian_gui_pic_3: RscPicture
 			{
 				idc = 1003;
-				x = 12 * GUI_GRID_W + GUI_GRID_X;
+				x = 8.25 * GUI_GRID_W + GUI_GRID_X;
 				y = 3.5 * GUI_GRID_H + GUI_GRID_Y;
 				w = 7 * GUI_GRID_W;
 				h = 6 * GUI_GRID_H;
@@ -150,7 +163,7 @@ class russianSupplyGUI
 			class russian_gui_pic_4: RscPicture
 			{
 				idc = 1004;
-				x = 19.5 * GUI_GRID_W + GUI_GRID_X;
+				x = 15.75 * GUI_GRID_W + GUI_GRID_X;
 				y = 3.5 * GUI_GRID_H + GUI_GRID_Y;
 				w = 7 * GUI_GRID_W;
 				h = 6 * GUI_GRID_H;
@@ -160,7 +173,7 @@ class russianSupplyGUI
 			class russian_gui_pic_5: RscPicture
 			{
 				idc = 1005;
-				x = 27 * GUI_GRID_W + GUI_GRID_X;
+				x = 23.25 * GUI_GRID_W + GUI_GRID_X;
 				y = 3.5 * GUI_GRID_H + GUI_GRID_Y;
 				w = 7 * GUI_GRID_W;
 				h = 6 * GUI_GRID_H;
@@ -170,7 +183,7 @@ class russianSupplyGUI
 			class russian_gui_pic_6: RscPicture
 			{
 				idc = 1006;
-				x = 34.5 * GUI_GRID_W + GUI_GRID_X;
+				x = 30.75 * GUI_GRID_W + GUI_GRID_X;
 				y = 3.5 * GUI_GRID_H + GUI_GRID_Y;
 				w = 7 * GUI_GRID_W;
 				h = 6 * GUI_GRID_H;
@@ -180,18 +193,28 @@ class russianSupplyGUI
 			class russian_gui_pic_7: RscPicture
 			{
 				idc = 1007;
-				x = 42 * GUI_GRID_W + GUI_GRID_X;
+				x = 38.25 * GUI_GRID_W + GUI_GRID_X;
 				y = 3.5 * GUI_GRID_H + GUI_GRID_Y;
 				w = 7 * GUI_GRID_W;
 				h = 6 * GUI_GRID_H;
 				text = "spawn\gui\pic\rus_static_mg.paa";
+			};
+
+			class russian_gui_pic_8: RscPicture
+			{
+				idc = 1008;
+				x = 45.75 * GUI_GRID_W + GUI_GRID_X;
+				y = 3.5 * GUI_GRID_H + GUI_GRID_Y;
+				w = 7 * GUI_GRID_W;
+				h = 6 * GUI_GRID_H;
+				text = "spawn\gui\pic\rus_carryradio.paa";
 			};
 			
 			class russian_gui_text_namedisplay_1: RscStructuredText
 			{
 				idc = 1101;
 				text = "<t align='center'>lade...</t>";
-				x = -3.5 * GUI_GRID_W + GUI_GRID_X;
+				x = -7.25 * GUI_GRID_W + GUI_GRID_X;
 				y = 10 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6.5 * GUI_GRID_W;
 				h = 1 * GUI_GRID_H;
@@ -201,7 +224,7 @@ class russianSupplyGUI
 			{
 				idc = 1102;
 				text = "<t align='center'>lade ...</t>";
-				x = 4.5 * GUI_GRID_W + GUI_GRID_X;
+				x = 0.75 * GUI_GRID_W + GUI_GRID_X;
 				y = 10 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6.5 * GUI_GRID_W;
 				h = 1 * GUI_GRID_H;
@@ -211,7 +234,7 @@ class russianSupplyGUI
 			{
 				idc = 1103;
 				text = "<t align='center'>lade ...</t>";
-				x = 12 * GUI_GRID_W + GUI_GRID_X;
+				x = 8.25 * GUI_GRID_W + GUI_GRID_X;
 				y = 10 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6.5 * GUI_GRID_W;
 				h = 1 * GUI_GRID_H;
@@ -221,7 +244,7 @@ class russianSupplyGUI
 			{
 				idc = 1104;
 				text = "<t align='center'>lade ...</t>";
-				x = 19.5 * GUI_GRID_W + GUI_GRID_X;
+				x = 15.75 * GUI_GRID_W + GUI_GRID_X;
 				y = 10 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6.5 * GUI_GRID_W;
 				h = 1 * GUI_GRID_H;
@@ -231,7 +254,7 @@ class russianSupplyGUI
 			{
 				idc = 1105;
 				text = "<t align='center'>lade ...</t>";
-				x = 27 * GUI_GRID_W + GUI_GRID_X;
+				x = 23.25 * GUI_GRID_W + GUI_GRID_X;
 				y = 10 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6.5 * GUI_GRID_W;
 				h = 1 * GUI_GRID_H;
@@ -241,7 +264,7 @@ class russianSupplyGUI
 			{
 				idc = 1106;
 				text = "<t align='center'>lade ...</t>";
-				x = 34.5 * GUI_GRID_W + GUI_GRID_X;
+				x = 30.75 * GUI_GRID_W + GUI_GRID_X;
 				y = 10 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6.5 * GUI_GRID_W;
 				h = 1 * GUI_GRID_H;
@@ -251,7 +274,17 @@ class russianSupplyGUI
 			{
 				idc = 1107;
 				text = "<t align='center'>lade ...</t>";
-				x = 42 * GUI_GRID_W + GUI_GRID_X;
+				x = 38.25 * GUI_GRID_W + GUI_GRID_X;
+				y = 10 * GUI_GRID_H + GUI_GRID_Y;
+				w = 6.5 * GUI_GRID_W;
+				h = 1 * GUI_GRID_H;
+				colorBackground[] = {-1,-1,-1,0};
+			};
+			class russian_gui_text_namedisplay_8: RscStructuredText
+			{
+				idc = 1108;
+				text = "<t align='center'>lade ...</t>";
+				x = 45.75 * GUI_GRID_W + GUI_GRID_X;
 				y = 10 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6.5 * GUI_GRID_W;
 				h = 1 * GUI_GRID_H;
@@ -261,7 +294,7 @@ class russianSupplyGUI
 			{
 				idc = 1201;
 				text = "<t align='center'>lade ...</t>";
-				x = -3 * GUI_GRID_W + GUI_GRID_X;
+				x = -6.75 * GUI_GRID_W + GUI_GRID_X;
 				y = 12 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6 * GUI_GRID_W;
 				h = 1 * GUI_GRID_H;
@@ -271,7 +304,7 @@ class russianSupplyGUI
 			{
 				idc = 1202;
 				text = "<t align='center'>lade ...</t>";
-				x = 5 * GUI_GRID_W + GUI_GRID_X;
+				x = 1.25 * GUI_GRID_W + GUI_GRID_X;
 				y = 12 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6 * GUI_GRID_W;
 				h = 1 * GUI_GRID_H;
@@ -281,7 +314,7 @@ class russianSupplyGUI
 			{
 				idc = 1203;
 				text = "<t align='center'>lade ...</t>";
-				x = 12.5 * GUI_GRID_W + GUI_GRID_X;
+				x = 8.75 * GUI_GRID_W + GUI_GRID_X;
 				y = 12 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6 * GUI_GRID_W;
 				h = 1 * GUI_GRID_H;
@@ -291,7 +324,7 @@ class russianSupplyGUI
 			{
 				idc = 1204;
 				text = "<t align='center'>lade ...</t>";
-				x = 20 * GUI_GRID_W + GUI_GRID_X;
+				x = 16.25 * GUI_GRID_W + GUI_GRID_X;
 				y = 12 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6 * GUI_GRID_W;
 				h = 1 * GUI_GRID_H;
@@ -301,7 +334,7 @@ class russianSupplyGUI
 			{
 				idc = 1205;
 				text = "<t align='center'>lade ...</t>";
-				x = 27.5 * GUI_GRID_W + GUI_GRID_X;
+				x = 23.75 * GUI_GRID_W + GUI_GRID_X;
 				y = 12 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6 * GUI_GRID_W;
 				h = 1 * GUI_GRID_H;
@@ -311,7 +344,7 @@ class russianSupplyGUI
 			{
 				idc = 1206;
 				text = "<t align='center'>lade ...</t>";
-				x = 35 * GUI_GRID_W + GUI_GRID_X;
+				x = 31.25 * GUI_GRID_W + GUI_GRID_X;
 				y = 12 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6 * GUI_GRID_W;
 				h = 1 * GUI_GRID_H;
@@ -321,7 +354,17 @@ class russianSupplyGUI
 			{
 				idc = 1207;
 				text = "<t align='center'>lade ...</t>";
-				x = 42.5 * GUI_GRID_W + GUI_GRID_X;
+				x = 38.75 * GUI_GRID_W + GUI_GRID_X;
+				y = 12 * GUI_GRID_H + GUI_GRID_Y;
+				w = 6 * GUI_GRID_W;
+				h = 1 * GUI_GRID_H;
+				colorBackground[] = {-1,-1,-1,0};
+			};
+			class russian_gui_text_countleft_8: RscStructuredText
+			{
+				idc = 1208;
+				text = "<t align='center'>lade ...</t>";
+				x = 45.75 * GUI_GRID_W + GUI_GRID_X;
 				y = 12 * GUI_GRID_H + GUI_GRID_Y;
 				w = 6 * GUI_GRID_W;
 				h = 1 * GUI_GRID_H;
@@ -331,7 +374,7 @@ class russianSupplyGUI
 			{
 				idc = 1301;
 				text = "<t align='center'>lade ...</t>";
-				x = -3.5 * GUI_GRID_W + GUI_GRID_X;
+				x = -7.25 * GUI_GRID_W + GUI_GRID_X;
 				y = 14 * GUI_GRID_H + GUI_GRID_Y;
 				w = 7 * GUI_GRID_W;
 				h = 1 * GUI_GRID_H;
@@ -341,7 +384,7 @@ class russianSupplyGUI
 			{
 				idc = 1302;
 				text = "<t align='center'>lade ...</t>";
-				x = 4.5 * GUI_GRID_W + GUI_GRID_X;
+				x = 0.75 * GUI_GRID_W + GUI_GRID_X;
 				y = 14 * GUI_GRID_H + GUI_GRID_Y;
 				w = 7 * GUI_GRID_W;
 				h = 1 * GUI_GRID_H;
@@ -351,7 +394,7 @@ class russianSupplyGUI
 			{
 				idc = 1303;
 				text = "<t align='center'>lade ...</t>";
-				x = 12 * GUI_GRID_W + GUI_GRID_X;
+				x = 8.25 * GUI_GRID_W + GUI_GRID_X;
 				y = 14 * GUI_GRID_H + GUI_GRID_Y;
 				w = 7 * GUI_GRID_W;
 				h = 1 * GUI_GRID_H;
@@ -361,7 +404,7 @@ class russianSupplyGUI
 			{
 				idc = 1304;
 				text = "<t align='center'>lade ...</t>";
-				x = 19.5 * GUI_GRID_W + GUI_GRID_X;
+				x = 15.75 * GUI_GRID_W + GUI_GRID_X;
 				y = 14 * GUI_GRID_H + GUI_GRID_Y;
 				w = 7 * GUI_GRID_W;
 				h = 1 * GUI_GRID_H;
@@ -371,7 +414,7 @@ class russianSupplyGUI
 			{
 				idc = 1305;
 				text = "<t align='center'>lade ...</t>";
-				x = 27 * GUI_GRID_W + GUI_GRID_X;
+				x = 23.25 * GUI_GRID_W + GUI_GRID_X;
 				y = 14 * GUI_GRID_H + GUI_GRID_Y;
 				w = 7 * GUI_GRID_W;
 				h = 1 * GUI_GRID_H;
@@ -381,7 +424,7 @@ class russianSupplyGUI
 			{
 				idc = 1306;
 				text = "<t align='center'>lade ...</t>";
-				x = 34.5 * GUI_GRID_W + GUI_GRID_X;
+				x = 30.75 * GUI_GRID_W + GUI_GRID_X;
 				y = 14 * GUI_GRID_H + GUI_GRID_Y;
 				w = 7 * GUI_GRID_W;
 				h = 1 * GUI_GRID_H;
@@ -391,7 +434,17 @@ class russianSupplyGUI
 			{
 				idc = 1307;
 				text = "<t align='center'>lade ...</t>";
-				x = 42 * GUI_GRID_W + GUI_GRID_X;
+				x = 38.25 * GUI_GRID_W + GUI_GRID_X;
+				y = 14 * GUI_GRID_H + GUI_GRID_Y;
+				w = 7 * GUI_GRID_W;
+				h = 1 * GUI_GRID_H;
+				colorBackground[] = {-1,-1,-1,0};
+			};
+			class russian_gui_text_pricedisplay_8: RscStructuredText
+			{
+				idc = 1308;
+				text = "<t align='center'>lade ...</t>";
+				x = 45.75 * GUI_GRID_W + GUI_GRID_X;
 				y = 14 * GUI_GRID_H + GUI_GRID_Y;
 				w = 7 * GUI_GRID_W;
 				h = 1 * GUI_GRID_H;
@@ -434,7 +487,7 @@ class russianSupplyGUI
 			class russian_gui_tooltip_1: RscStructuredTextTooltip
 			{
 				idc = 1801;
-				x = -3.5 * GUI_GRID_W + GUI_GRID_X;
+				x = -7.25 * GUI_GRID_W + GUI_GRID_X;
 				y = 3.5 * GUI_GRID_H + GUI_GRID_Y;
 				w = 7 * GUI_GRID_W;
 				h = 12 * GUI_GRID_H;
@@ -447,7 +500,7 @@ class russianSupplyGUI
 			class russian_gui_tooltip_2: RscStructuredTextTooltip
 			{
 				idc = 1802;
-				x = 4.5 * GUI_GRID_W + GUI_GRID_X;
+				x = 0.75 * GUI_GRID_W + GUI_GRID_X;
 				y = 3.5 * GUI_GRID_H + GUI_GRID_Y;
 				w = 7 * GUI_GRID_W;
 				h = 12 * GUI_GRID_H;
@@ -460,7 +513,7 @@ class russianSupplyGUI
 			class russian_gui_tooltip_3: RscStructuredTextTooltip
 			{
 				idc = 1803;
-				x = 12 * GUI_GRID_W + GUI_GRID_X;
+				x = 8.25 * GUI_GRID_W + GUI_GRID_X;
 				y = 3.5 * GUI_GRID_H + GUI_GRID_Y;
 				w = 7 * GUI_GRID_W;
 				h = 12 * GUI_GRID_H;
@@ -473,7 +526,7 @@ class russianSupplyGUI
 			class russian_gui_tooltip_4: RscStructuredTextTooltip
 			{
 				idc = 1804;
-				x = 19.5 * GUI_GRID_W + GUI_GRID_X;
+				x = 15.75 * GUI_GRID_W + GUI_GRID_X;
 				y = 3.5 * GUI_GRID_H + GUI_GRID_Y;
 				w = 7 * GUI_GRID_W;
 				h = 12 * GUI_GRID_H;
@@ -486,7 +539,7 @@ class russianSupplyGUI
 			class russian_gui_tooltip_5: RscStructuredTextTooltip
 			{
 				idc = 1805;
-				x = 27 * GUI_GRID_W + GUI_GRID_X;
+				x = 23.25 * GUI_GRID_W + GUI_GRID_X;
 				y = 3.5 * GUI_GRID_H + GUI_GRID_Y;
 				w = 7 * GUI_GRID_W;
 				h = 12 * GUI_GRID_H;
@@ -499,7 +552,7 @@ class russianSupplyGUI
 			class russian_gui_tooltip_6: RscStructuredTextTooltip
 			{
 				idc = 1806;
-				x = 34.5 * GUI_GRID_W + GUI_GRID_X;
+				x = 30.75 * GUI_GRID_W + GUI_GRID_X;
 				y = 3.5 * GUI_GRID_H + GUI_GRID_Y;
 				w = 7 * GUI_GRID_W;
 				h = 12 * GUI_GRID_H;
@@ -512,7 +565,7 @@ class russianSupplyGUI
 			class russian_gui_tooltip_7: RscStructuredTextTooltip
 			{
 				idc = 1807;
-				x = 42 * GUI_GRID_W + GUI_GRID_X;
+				x = 38.25 * GUI_GRID_W + GUI_GRID_X;
 				y = 3.5 * GUI_GRID_H + GUI_GRID_Y;
 				w = 7 * GUI_GRID_W;
 				h = 12 * GUI_GRID_H;
@@ -521,6 +574,19 @@ class russianSupplyGUI
 				size = 0.028;
 				onMouseEnter = "disableSerialization; [1000,1807] execVM 'spawn\gui\showControl.sqf';";
 				onMouseExit = "disableSerialization; [1000,[1807]] execVM 'spawn\gui\hideControl.sqf';";
+			};
+			class russian_gui_tooltip_8: RscStructuredTextTooltip
+			{
+				idc = 1808;
+				x = 45.75 * GUI_GRID_W + GUI_GRID_X;
+				y = 3.5 * GUI_GRID_H + GUI_GRID_Y;
+				w = 7 * GUI_GRID_W;
+				h = 12 * GUI_GRID_H;
+				colorBackground[] = {0,0,0,0.8}; 
+				text = "loading";
+				size = 0.028;
+				onMouseEnter = "disableSerialization; [1000,1808] execVM 'spawn\gui\showControl.sqf';";
+				onMouseExit = "disableSerialization; [1000,[1808]] execVM 'spawn\gui\hideControl.sqf';";
 			};
 
 			class russian_gui_text_headline: RscStructuredTextHeadline
@@ -1256,7 +1322,7 @@ class gui_spawn_opfor
 				colorText[] = {0,0,0,1};
 				colorBackground[] = {0.81,0.55,0.12,1};
 				tooltip = $STR_GRAD_choose_spawn_location;
-				onButtonClick = "openMap [true,false]; [] execVM 'mission_setup\teleport.sqf'; closeDialog 0";
+				onButtonClick = "openMap [true,false]; player linkitem 'itemMap'; [] execVM 'mission_setup\teleport.sqf'; closeDialog 0";
 			};
 		};
 };

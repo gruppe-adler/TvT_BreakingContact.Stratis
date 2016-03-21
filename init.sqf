@@ -244,7 +244,6 @@ if (hasInterface) then {
 	checkJIP = {
 		if ((OPFOR_TELEPORT_TARGET select 0 != 0) && didJIP && time > jipTime) then {
 			player setDamage 1;
-			["forced"] spawn CSSA3_fnc_createSpectateDialog;
 		} else {
 		if (!didJIP) exitWith {
 			[] call checkSpawnButton;
@@ -323,6 +322,7 @@ if (hasInterface) then {
 		[] execVM "player\opforOpforTeleportListener.sqf"; diag_log format ["setup: opforOpforTeleportListener initiated"];
 		[] execVM "player\bluforRussianPointsListener.sqf";
 		[] spawn checkJIP; diag_log format ["setup: createStartHints initiated"];
+		player setVariable ["radioAttached",false]; // for use in detaching radio from radio truck
 	};
 
 

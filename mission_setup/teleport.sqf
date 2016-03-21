@@ -8,7 +8,18 @@ checkWater = {
 	};
 };
 
-if (str player == "opfor_teamlead") then {
+opforTeleporting = {
+	OPFOR_TELEPORT_TARGET = _this;
+	publicVariableServer "OPFOR_TELEPORT_TARGET";
+	debugLog("opfor published target");
+
+	OPFOR_TELEPORTED = true;
+	publicVariable "OPFOR_TELEPORTED";
+};
+
+// executed on player only anyway?!
+// if (player == opfor_teamlead) then {
+
 	[
 		"teleportClickOpf",
 		"onMapSingleClick",
@@ -23,42 +34,4 @@ if (str player == "opfor_teamlead") then {
 			};
 		}
 	] call BIS_fnc_addStackedEventHandler;
-};
-
-if (str player == "blufor_teamlead") then {
-	[
-		"teleportClickBlu",
-		"onMapSingleClick",
-		{
-			try {
-				if (OPFOR_TELEPORT_TARGET select 0 == 0) then { throw "opfor not yet teleported" };
-
-				["teleportClickBlu", "onMapSingleClick"] call BIS_fnc_removeStackedEventHandler;
-
-				//_pos call bluforTeleporting;
-			} catch {
-				hint str _exception;
-			};
-		}
-	] call BIS_fnc_addStackedEventHandler;
-};
-
-opforTeleporting = {
-	OPFOR_TELEPORT_TARGET = _this;
-	publicVariableServer "OPFOR_TELEPORT_TARGET";
-	debugLog("opfor published target");
-
-	OPFOR_TELEPORTED = true;
-	publicVariable "OPFOR_TELEPORTED";
-};
-
-bluforTeleporting = {
-
-	BLUFOR_TELEPORT_TARGET = _this;
-	publicVariableServer "BLUFOR_TELEPORT_TARGET";
-
-	BLUFOR_TELEPORTED = true;
-	publicVariable "BLUFOR_TELEPORTED";
-};
-
-
+// };

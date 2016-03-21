@@ -1,22 +1,16 @@
 createOpforStuff =  {
 	_position = _this;
-
-  if (USE_FIREPLACE_INSTEAD_OF_RADIO_TRUCK) then {
-		funkwagen = "land_campfire" createVehicle _position;
-	} else {
-		funkwagen = [_position, 0, 1, "rhs_gaz66_r142_vv"] call spawnStuff;
-	};
+  
+	funkwagen = [_position, 0, 1, "rhs_gaz66_r142_vv"] call spawnStuff;
+	// used for detachable radio unit
+	funkwagen setVariable ["detachableRadio", 0, true];
 
 	sleep 1;
 	[funkwagen] call clearInventory;
 
-
+	// hide light covers for optical reasons
 	funkwagen animate ["light_hide",1];
 	sleep 0.1;
-
-	rusActionHelper = createVehicle ["Land_SatellitePhone_F", [(getPos funkwagen select 0) + 2, (getPos funkwagen select 1) - 1, 0.5], [], 0, "NONE"];
-	rusActionHelper attachTo [funkwagen, [-1.34,-2.26,0.1]];
-	rusActionHelper setVectorDirAndUp [[1,0,0],[0,0,1]];
 
 	[getPos funkwagen, 50] call spawnOpforHQ;
 
@@ -51,7 +45,6 @@ _OPFOR_TELEPORT_TARGET_listener = {
 _BLUFOR_TELEPORT_TARGET_listener = {
 	_pos = _this select 1;
 	publicVariable "BLUFOR_TELEPORT_TARGET";
-
 	[] spawn {
 		sleep 2; // just to make sure no one is missed, send again (dirty fix for spawn prob?)
 		publicVariable "BLUFOR_TELEPORT_TARGET";

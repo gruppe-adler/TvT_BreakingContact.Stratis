@@ -10,7 +10,7 @@ bluforSurrendered = {
 };
 
 funkwagenIsSending = {
-	((funkwagen getVariable ["tf_range",0]) == 50000) || (inflamed funkwagen);
+	((funkwagen getVariable ["tf_range",0]) == 50000) || funkwagen getVariable ["detachableRadio", 0] == 2;
 };
 
 booleanEqual = {
@@ -61,8 +61,17 @@ sleep 2; // give it time, boy - possible fix for "Undefined variable in expressi
 		if (!alive funkwagen) exitWith {
 			[] call bluforCaptured;
 		};
-
-		[getPos funkwagen select 0, getPos funkwagen select 1] call setRussianMarkerPosition;
+		if (funkwagen getVariable ["detachableRadio", 0] == 0 || funkwagen getVariable ["detachableRadio", 0] == 1) then {
+			[getPos funkwagen select 0, getPos funkwagen select 1] call setRussianMarkerPosition;
+		} else {
+			if (!isNil "radioSuitcaseDropped") then {
+				[getPos radioSuitcaseDropped select 0, getPos radioSuitcaseDropped select 1] call setRussianMarkerPosition;
+			};
+			if (!isNil "radioSuitcaseCarry") then {
+				[getPos radioSuitcaseCarry select 0, getPos radioSuitcaseCarry select 1] call setRussianMarkerPosition;
+			};
+		};
+		
 
 		sleep 1;
 	};

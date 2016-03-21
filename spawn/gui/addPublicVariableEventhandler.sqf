@@ -32,7 +32,7 @@ fillRussianSupplies = {
         [
             "rhs_gaz66o_vdv",
             "GAZ-66",
-            30,
+            3,
             200,
             "<t align='center'>200 cr</t>",
             1,
@@ -177,6 +177,19 @@ fillRussianSupplies = {
             (_this select 0) addItemCargoGlobal ['ACE_Sandbag_empty',100];
             },
             format['%1<br/>%2<br/>%3','100 Sandbags','2 Static Dshkm','(4 Backpacks)']
+        ],
+        [
+            "Land_SatellitePhone_F",
+            "Detachable Radio Unit",
+            1,
+            500,
+            "<t align='center'>500 cr</t>",
+            1,
+            [[]],
+            {
+            },
+            format['%1<br/>%2<br/>%3','Detachable Radio Unit','','Detach the radio unit from the radio truck (ACE Interact) as a suitcase which you can carry around. Downside is: Sending takes 2x the time and turning the device off is not possible.']
+       
         ]
     ];
 
@@ -226,7 +239,7 @@ fillUSSupplies = {
         [
             hmmwv_transport,
             "HMMWV Transport",
-            30,
+            5,
             200,
             "<t align='center'>200 cr</t>",
             1,
@@ -325,7 +338,7 @@ fillUSSupplies = {
             2,
             2500,
             "<t align='center'>2500 cr</t>",
-            2,
+            1,
             [[]],
             {
             clearWeaponCargoGlobal (_this select 0); 

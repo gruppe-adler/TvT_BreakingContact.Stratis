@@ -266,8 +266,6 @@ spawnOpforHQ = {
 			/* listener to remove spawn pad and actionhelper, when its time */
 			BUY_OPTION_OPFOR = {
 				if (BUY_OPTION_OPFOR) exitWith {};
-				detach rusActionHelper;
-				deleteVehicle rusActionHelper;
 				hideObjectGlobal RUS_SPAWN_PAD;
 			};
 			"BUY_OPTION_OPFOR" addPublicVariableEventHandler BUY_OPTION_OPFOR;

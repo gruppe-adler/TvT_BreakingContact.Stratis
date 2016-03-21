@@ -42,6 +42,7 @@ resetRussianUI = {
 		ctrlSetText [1505, _buttonRelease];
 		ctrlSetText [1506, _buttonRelease];
 		ctrlSetText [1507, _buttonRelease];
+		ctrlSetText [1508, _buttonRelease];
 
 		ctrlEnable [1501, true];
 		ctrlEnable [1502, true];
@@ -50,6 +51,7 @@ resetRussianUI = {
 		ctrlEnable [1505, true];
 		ctrlEnable [1506, true];
 		ctrlEnable [1507, true];
+		ctrlEnable [1508, true];
 		VEHICLE_ORDERED_EAST = [false,0];
 		publicVariable "VEHICLE_ORDERED_EAST";
 			
@@ -77,6 +79,7 @@ refreshRussianOrder = {
 		ctrlSetText [1505, _refreshPleasewait];
 		ctrlSetText [1506, _refreshPleasewait];
 		ctrlSetText [1507, _refreshPleasewait];
+		ctrlSetText [1508, _refreshPleasewait];
 
 		ctrlEnable [1501, false];
 		ctrlEnable [1502, false];
@@ -85,6 +88,7 @@ refreshRussianOrder = {
 		ctrlEnable [1505, false];
 		ctrlEnable [1506, false];
 		ctrlEnable [1507, false];
+		ctrlEnable [1508, false];
 
 		//if (DEBUG) then { diag_log format ["_bool is %1, _eta is %2",_bool, _eta];};
 
@@ -136,6 +140,7 @@ refreshRussianUI = {
 		ctrlSetText [1505, _pleasewait];
 		ctrlSetText [1506, _pleasewait];
 		ctrlSetText [1507, _pleasewait];
+		ctrlSetText [1508, _pleasewait];
 	};
 	
 	[VEHICLE_ORDERED_EAST] call refreshRussianOrder;
@@ -150,6 +155,7 @@ refreshRussianUI = {
 		ctrlEnable [1505, false];
 		ctrlEnable [1506, false];
 		ctrlEnable [1507, false];
+		ctrlEnable [1508, false];
 
 		// eradicate spawn pad
 		ctrlEnable [1701, false]; 
@@ -169,6 +175,8 @@ refreshRussianUI = {
 		_display displayCtrl 1506 ctrlCommit 0;
 		_display displayCtrl 1507 ctrlSetFade 1;
 		_display displayCtrl 1507 ctrlCommit 0;
+		_display displayCtrl 1508 ctrlSetFade 1;
+		_display displayCtrl 1508 ctrlCommit 0;
 
 		// eradicate spawn pad
 		_display displayCtrl 1701 ctrlSetFade 1;
@@ -230,6 +238,7 @@ refreshRussianUI = {
 	_display displayCtrl 1805 ctrlSetStructuredText parseText ((_array select 5) select 8);
 	_display displayCtrl 1806 ctrlSetStructuredText parseText ((_array select 6) select 8);
 	_display displayCtrl 1807 ctrlSetStructuredText parseText ((_array select 7) select 8);
+	_display displayCtrl 1808 ctrlSetStructuredText parseText ((_array select 8) select 8);
 	};
 
 
@@ -267,7 +276,9 @@ refreshRussianUI = {
 	_countleft_7 = (_array select 7) select 2;
 	_pricedisplay_7 = (_array select 7) select 4;
 	//_eta_7 = (_array select 7) select 4;
-
+	_namedisplay_8 = (_array select 8) select 1;
+	_countleft_8 = (_array select 8) select 2;
+	_pricedisplay_8 = (_array select 8) select 4;
 	
 
 	//if (DEBUG) then { diag_log format ["typeName _namedisplay_1: %1",typeName _namedisplay_1]; };
@@ -320,6 +331,10 @@ refreshRussianUI = {
 	_display displayCtrl 1107 ctrlSetStructuredText parseText ([_namedisplay_7] call centerString);
 	_display displayCtrl 1207 ctrlSetStructuredText parseText ([_countleft_7] call centerAndConvertToString);
 	_display displayCtrl 1307 ctrlSetStructuredText parseText ([_pricedisplay_7] call centerString);
+
+	_display displayCtrl 1108 ctrlSetStructuredText parseText ([_namedisplay_8] call centerString);
+	_display displayCtrl 1208 ctrlSetStructuredText parseText ([_countleft_8] call centerAndConvertToString);
+	_display displayCtrl 1308 ctrlSetStructuredText parseText ([_pricedisplay_8] call centerString);
 
 	disableSerialization;
 	
