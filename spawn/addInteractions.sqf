@@ -69,7 +69,7 @@ _destroyActionPortableRadio = ["usDestroyMenuPortable", (localize "str_GRAD_dest
 ////////////// attach action to dropped radio
  _droppedRadioAction = ["droppedRadioMenu", (localize "str_GRAD_pickup_radio"), "",
  {
- [0.5, [_this select 0], {
+    [0.5, [_this select 0], {
     deleteVehicle ((_this select 0) select 0);
     [] execVM "player\radioAttached.sqf";
  }, {hint "Cancelled action"}, (localize "str_GRAD_pickup_radio")] call ace_common_fnc_progressBar;
@@ -84,7 +84,6 @@ _dropRadioAction = ["ACE_MainActions", (localize "str_GRAD_drop_radio"), "",
   ] call ace_interact_menu_fnc_createAction;
 
 [player, 0, ["ACE_MainActions"], _dropRadioAction] call ace_interact_menu_fnc_addActionToObject;
-
 
 
 /*_assembleTankTrap = ["ACE_MainActions", "Assemble Tank Trap", "",
