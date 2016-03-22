@@ -196,6 +196,9 @@ if (isServer) then {
     [] execVM "server\civKillListener.sqf";
     [] execVM "server\civGunfightListener.sqf";
 
+    // VCOM driving AI
+    [] execVM "VCOM_Driving\init.sqf";
+
  	call compile preprocessFileLineNumbers "server\spawnBluforHQ.sqf";
 
  	if (!isMultiplayer) then {
