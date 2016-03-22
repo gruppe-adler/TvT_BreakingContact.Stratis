@@ -26,10 +26,10 @@ markerAnimation = {
 	_modifier = 1;
 
 	if (RADIO_PORTABLE) then {
-		"opfor_marker" setMarkerColorLocal ColorGreen;
+		"opfor_marker" setMarkerColorLocal "ColorGreen";
 	}
 	else {
-		"opfor_marker" setMarkerColorLocal ColorOpfor;
+		"opfor_marker" setMarkerColorLocal "ColorOpfor";
 	};
 
 	"opfor_marker" setMarkerAlphaLocal 1;
