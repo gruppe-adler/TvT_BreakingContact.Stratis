@@ -1469,7 +1469,7 @@ class RscTitles {
 
 	class gui_intel_paper_civ_gunfight
 	{
-		idd = 4001;
+		idd = -1;
 		duration = 10;
 		name = "gui_intel_paper_civ_gunfight";
 		fadeOut = 5;
@@ -1480,9 +1480,9 @@ class RscTitles {
 			{
 				idc = 4002;
 				x = safeZoneX + safeZoneW - 0.3;  
-				y = safeZoneY + safeZoneH - 1.8;
+				y = safeZoneY + safeZoneH - 1;
 				w = 0.3;
-				h = 0.2;
+				h = 0.4;
 				text = "none";
 				colorText[] = {0.1, 0.1, 0.1, 1};
 				colorBackground[] = {0,0,0,0};
@@ -1495,7 +1495,7 @@ class RscTitles {
 					shadow = 0.2;
 					shadowColor = "#767676";
 					valign = "top";
-					
+
 				};
 			};
 			class gui_intel_paper_pic_gunfight: RscPicture
