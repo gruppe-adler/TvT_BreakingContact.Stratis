@@ -1,6 +1,6 @@
 #include "..\missionMacros.h"
 
-
+player setVariable ["GunfightTimeout",false];
 
 _CIV_GUNFIGHT_POS_listener = {
 	0 = [CIV_GUNFIGHT_POS] execVM "player\civGunfightMarker.sqf";

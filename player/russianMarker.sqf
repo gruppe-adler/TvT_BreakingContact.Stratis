@@ -26,7 +26,7 @@ markerAnimation = {
 	_modifier = 1;
 
 	if (RADIO_PORTABLE) then {
-		"opfor_marker" setMarkerColorLocal "ColorGreen";
+		"opfor_marker" setMarkerColorLocal "ColorGrey";
 	}
 	else {
 		"opfor_marker" setMarkerColorLocal "ColorOpfor";
@@ -35,16 +35,17 @@ markerAnimation = {
 	"opfor_marker" setMarkerAlphaLocal 1;
 	while {!RUSSIAN_MARKER_HIDDEN} do {
 		if (_pulsesize > _pulseMaxSize) then {
-			_pulsesize = 1;
+			_pulsesize = 0.01;
 			_modifier = 0.3;
+			if (RADIO_PORTABLE) then {
+				sleep 5; // if radio is carried or dropped, it sends much slower
+			};
 		};
 		_pulsesize = _pulsesize + _modifier;
 		_modifier = _modifier + 0.1;
 		"opfor_marker" setMarkerAlphaLocal 1 - (_pulsesize/_pulseMaxSize);
 		"opfor_marker" setMarkerSizeLocal [_pulsesize, _pulsesize];
-		if (RADIO_PORTABLE) then {
-			sleep 5; // if radio is carried or dropped, it sends much slower
-		};
+		
 		sleep _pulseSpeed;
 	};
 
@@ -55,7 +56,7 @@ markerAnimation = {
 
 ensureMarkerAnimation = {
 	_maxSize = 250; //marker precision (radius)
-	_size = 1;
+	_size = 0.01;
 	_animationSpeed = 0.02;
 
 	if (!markerAnimationIsRunning) then {

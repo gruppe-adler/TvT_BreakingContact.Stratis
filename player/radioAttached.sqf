@@ -23,6 +23,8 @@ while {true} do {
 
 if (player getVariable ["radioAttached",false]) then {
 	radioSuitcaseDropped = createVehicle ['Land_SatellitePhone_F', [getPos player select 0, (getPos player select 1) - 0.5,0], [], 0, 'CAN_COLLIDE'];
+	radioSuitcaseDropped setVariable ["ace_cargo_size", 1];
+	radioSuitcaseDropped setVariable ["ace_cargo_canLoad", 1];
 	publicVariable "radioSuitcaseDropped";
 };
 
