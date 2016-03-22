@@ -30,3 +30,5 @@ if (player getVariable ["radioAttached",false]) then {
 
 player setVariable ["radioAttached",false];
 deleteVehicle radioSuitcaseCarry;
+radioSuitcaseCarry = nil;
+publicVariable "radioSuitcaseCarry";

@@ -77,6 +77,9 @@ _destroyActionPortableRadio = ["usDestroyMenuPortable", (localize "str_GRAD_dest
  {
     [0.5, [_this select 0], {
     deleteVehicle ((_this select 0) select 0);
+    ((_this select 0) select 0) = nil; // broadcast theres nothing to see here
+    publicVariable (str ((_this select 0) select 0)); 
+
     [] execVM "player\radioAttached.sqf";
  }, {hint "Cancelled action"}, (localize "str_GRAD_pickup_radio")] call ace_common_fnc_progressBar;
  },
