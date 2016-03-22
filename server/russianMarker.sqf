@@ -49,19 +49,22 @@ sleep 2; // give it time, boy - possible fix for "Undefined variable in expressi
 [] spawn {
 	while {true} do { // could be optimized and synced to real time - b/c as it is, there WILL be delays
 		_isSending = call funkwagenIsSending;
+
 		if (_isSending) then {
 			RUSSIAN_POINTS = RUSSIAN_POINTS + 1;
 		};
+
 		!_isSending call setRussianMarkerStatus;
 
 		if (RUSSIAN_POINTS >= POINTS_NEEDED_FOR_VICTORY) exitWith {
 			[] call bluforSurrendered;
 		};
 
-		if (!alive funkwagen) exitWith {
+		if (!alive funkwagen && {(funkwagen getVariable ["detachableRadio", 0] != 2)}) exitWith {
 			[] call bluforCaptured;
 		};
-		if (funkwagen getVariable ["detachableRadio", 0] == 0 || funkwagen getVariable ["detachableRadio", 0] == 1) then {
+
+		if (!RADIO_PORTABLE) then {
 			[getPos funkwagen select 0, getPos funkwagen select 1] call setRussianMarkerPosition;
 		} else {
 			if (!isNil "radioSuitcaseDropped") then {

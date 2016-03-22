@@ -25,11 +25,21 @@ markerAnimation = {
 	_pulseSpeed = _this select 2;
 	_modifier = 1;
 
+	if (RADIO_PORTABLE) then {
+		"opfor_marker" setMarkerColorLocal ColorUNKNOWN;
+	}
+	else {
+		"opfor_marker" setMarkerColorLocal ColorOpfor;
+	};
+
 	"opfor_marker" setMarkerAlphaLocal 1;
 	while {!RUSSIAN_MARKER_HIDDEN} do {
 		if (_pulsesize > _pulseMaxSize) then {
 			_pulsesize = 1;
 			_modifier = 0.3;
+			if (RADIO_PORTABLE) then {
+				sleep 5;
+			};
 		};
 		_pulsesize = _pulsesize + _modifier;
 		_modifier = _modifier + 0.1;
@@ -49,7 +59,7 @@ ensureMarkerAnimation = {
 	_animationSpeed = 0.02;
 
 	if (!markerAnimationIsRunning) then {
-
+		
 		[_size, _maxSize, _animationSpeed] spawn markerAnimation;
 	};
 };

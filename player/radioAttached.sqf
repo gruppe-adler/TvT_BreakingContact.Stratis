@@ -1,4 +1,3 @@
-
 // put away weapon
 [player] call ace_weaponselect_fnc_putWeaponAway;
 sleep 1.1;
@@ -10,12 +9,13 @@ publicVariable "radioSuitcaseCarry";
 
 // checks
 while {true} do {
+	if (vehicle player != player) exitWith {hintSilent "Dropped Suitcase when entering vehicle."};
 	if (!alive player) exitWith {}; // if player is dead
 	if (currentWeapon player != "") exitWith {}; // if player switches to weapon
 	if (!(player getVariable ["radioAttached",false])) exitWith {}; // if player lost the radio in another way (put it back)
 	sleep 0.5;
 };
- 
+
 if (player getVariable ["radioAttached",false]) then {
 	radioSuitcaseDropped = createVehicle ['Land_SatellitePhone_F', [getPos player select 0, (getPos player select 1) - 0.5,0], [], 0, 'CAN_COLLIDE'];
 	publicVariable "radioSuitcaseDropped";

@@ -151,6 +151,8 @@ if (isServer) then {
 	BLUFOR_TELEPORTED = false;
 	publicVariable "BLUFOR_TELEPORTED";
 
+	RADIO_PORTABLE = false;
+	publicVariable "RADIO_PORTABLE";
 
     CIV_KILLED_POS = [0,0,0];
     publicVariable "CIV_KILLED_POS";
@@ -310,6 +312,7 @@ if (hasInterface) then {
 	[] execVM "spawn\assaultBoatAssemblingSystem.sqf";
 	[] execVM "spawn\addInteractions.sqf";
 	[] execVM "player\civKillListener.sqf";
+	[] execVM "player\civGunfightListener.sqf";
 	[] execVM "player\startMarkerListener.sqf";
 
 	if (playerSide == west) then {

@@ -46,16 +46,20 @@ _destroyActionPortableRadio = ["usDestroyMenuPortable", (localize "str_GRAD_dest
  {
  [6, [_this select 0], {
     ((_this select 0) select 0) setVariable ["detachableRadio", 2, true];
+    deleteVehicle radioSuitcaseAttached;
+    RADIO_PORTABLE = true; publicVariable "RADIO_PORTABLE";
     [] execVM "player\radioAttached.sqf";
  }, {hint "Cancelled action"}, (localize "str_GRAD_detaching_radio")] call ace_common_fnc_progressBar;
  },
   {side player == east && ((_this select 0) getVariable ["detachableRadio", 0] == 1)}] call ace_interact_menu_fnc_createAction;
 ["rhs_gaz66_r142_vv", 0, ["ACE_MainActions"],_detachRadioAction] call ace_interact_menu_fnc_addActionToClass;
 
- _attachRadioAction = ["RusDetachMenu", (localize "str_GRAD_attach_radio"), "",
+ _attachRadioAction = ["RusAttachMenu", (localize "str_GRAD_attach_radio"), "",
  {
  [6, [_this select 0], {
     ((_this select 0) select 0) setVariable ["detachableRadio", 1, true];
+
+    RADIO_PORTABLE = false; publicVariable "RADIO_PORTABLE";
 
     radioSuitcaseAttached = createVehicle ['Land_SatellitePhone_F', [(getPos ((_this select 0) select 0) select 0) + 2, (getPos ((_this select 0) select 0) select 1) - 1, 0.5], [], 0, 'NONE'];
     radioSuitcaseAttached attachTo [((_this select 0) select 0), [-1.34,-2.26,0.1]];
