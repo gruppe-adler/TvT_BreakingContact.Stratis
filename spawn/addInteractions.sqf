@@ -64,6 +64,8 @@ _destroyActionPortableRadio = ["usDestroyMenuPortable", (localize "str_GRAD_dest
     radioSuitcaseAttached = createVehicle ['Land_SatellitePhone_F', [(getPos ((_this select 0) select 0) select 0) + 2, (getPos ((_this select 0) select 0) select 1) - 1, 0.5], [], 0, 'NONE'];
     radioSuitcaseAttached attachTo [((_this select 0) select 0), [-1.34,-2.26,0.1]];
     radioSuitcaseAttached setVectorDirAndUp [[1,0,0],[0,0,1]];
+    radioSuitcaseAttached setVariable ["ace_cargo_size", 1];
+    radioSuitcaseAttached setVariable ["ace_cargo_canLoad", 1];
     player setVariable ["radioAttached",false];
  }, {hint "Cancelled action"}, (localize "str_GRAD_attaching_radio")] call ace_common_fnc_progressBar;
  },

@@ -4,6 +4,8 @@ sleep 1.1;
 radioSuitcaseCarry = "Land_Suitcase_F" createvehicle getpos player;
 radioSuitcaseCarry attachTo [player, [-0.03,-.1,-0.26], "RightHandMiddle1"];
 radioSuitcaseCarry setVectorDirAndUp [[1,0,0],[0,0,1]];
+radioSuitcaseCarry setVariable ["ace_cargo_size", 1];
+radioSuitcaseCarry setVariable ["ace_cargo_canLoad", 1];
 player setVariable ["radioAttached",true];
 publicVariable "radioSuitcaseCarry";
 
