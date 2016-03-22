@@ -4,6 +4,7 @@ createOpforStuff =  {
 	funkwagen = [_position, 0, 1, "rhs_gaz66_r142_vv"] call spawnStuff;
 	// used for detachable radio unit
 	funkwagen setVariable ["detachableRadio", 0, true];
+	publicVariable "funkwagen";
 
 	sleep 1;
 	[funkwagen] call clearInventory;
