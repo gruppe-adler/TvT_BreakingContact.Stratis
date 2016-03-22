@@ -4,11 +4,13 @@ _delay = 120; // 120 default
 
 showCivGunfightHint = {
 	_nameOfCity = _this select 0;
+
+	diag_log format ["gunfight reporting at %1",_nameOfCity];
 	
 	playSound "signal_lost";
 	cutRsc ["gui_intel_paper_civ_gunfight","PLAIN",0];
 	waitUntil {!isNull (uiNameSpace getVariable "gui_intel_paper_civ_gunfight")};
-	((uiNameSpace getVariable "gui_intel_paper_civ_gunfight") displayCtrl 4002) ctrlSetStructuredText parseText format ["<t size='2'>" + _nameOfCity];
+	((uiNameSpace getVariable "gui_intel_paper_civ_gunfight") displayCtrl 4002) ctrlSetStructuredText parseText format ["<t size='1.2'>" + _nameOfCity];
 	player setVariable ["GunfightTimeout",true];
 	sleep 5;
 	player setVariable ["GunfightTimeout",false];
@@ -21,6 +23,8 @@ _closestVillage = nearestLocation [_pos,"NameVillage"];
 
 _distanceTown = _closestTown distance _pos;
 _distanceVillage = _closestVillage distance _pos;
+
+_closestInstance = "";
 
 if (_distanceTown < _distanceVillage) then {
 	_closestInstance = text _closestTown;
