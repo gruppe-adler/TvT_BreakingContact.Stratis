@@ -26,7 +26,7 @@ markerAnimation = {
 	_modifier = 1;
 
 	if (RADIO_PORTABLE) then {
-		"opfor_marker" setMarkerColorLocal ColorUNKNOWN;
+		"opfor_marker" setMarkerColorLocal ColorGreen;
 	}
 	else {
 		"opfor_marker" setMarkerColorLocal ColorOpfor;
@@ -37,14 +37,14 @@ markerAnimation = {
 		if (_pulsesize > _pulseMaxSize) then {
 			_pulsesize = 1;
 			_modifier = 0.3;
-			if (RADIO_PORTABLE) then {
-				sleep 5;
-			};
 		};
 		_pulsesize = _pulsesize + _modifier;
 		_modifier = _modifier + 0.1;
 		"opfor_marker" setMarkerAlphaLocal 1 - (_pulsesize/_pulseMaxSize);
 		"opfor_marker" setMarkerSizeLocal [_pulsesize, _pulsesize];
+		if (RADIO_PORTABLE) then {
+			sleep 5; // if radio is carried or dropped, it sends much slower
+		};
 		sleep _pulseSpeed;
 	};
 

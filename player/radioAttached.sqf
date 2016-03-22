@@ -9,7 +9,10 @@ publicVariable "radioSuitcaseCarry";
 
 // checks
 while {true} do {
-	if (vehicle player != player) exitWith {hintSilent "Dropped Suitcase when entering vehicle."};
+	if (vehicle player != player) exitWith {
+		[radioSuitcaseCarry, vehicle player] call ace_cargo_fnc_loadItem;
+		player setVariable ["radioAttached",false];
+	};
 	if (!alive player) exitWith {}; // if player is dead
 	if (currentWeapon player != "") exitWith {}; // if player switches to weapon
 	if (!(player getVariable ["radioAttached",false])) exitWith {}; // if player lost the radio in another way (put it back)

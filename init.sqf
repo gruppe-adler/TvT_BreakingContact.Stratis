@@ -41,14 +41,14 @@ setCustomWeather = {
 	10 setRain 0;
 	if ((_this select 0) > 0.5) then {
 		_fogDensity = 0.2;
-		_fogFalloff = 0.01;
+		_fogFalloff = 0;
 		10 setFog [_fogDensity, _fogFalloff, 0];
 	};
 	if (_this select 1 && (_this select 0) > 0.7) then {
 		10 setRain 1;
-		_fogDensity = 0.8;
-		_fogFalloff = 0.05;
-		10 setFog [_fogDensity, _fogFalloff, 0];
+		_fogDensity = 0.4;
+		_fogFalloff = 0;
+		10 setFog [_fogDensity, _fogFalloff, 1];
 	};
 
 	setViewDistance 3700;
@@ -99,7 +99,7 @@ if (isServer) then {
 
 	switch (WEATHER_SETTING) do {
 	case 0: {[0,false] call setCustomWeather;};
-	case 1: {[0.69,false] call setCustomWeather;};
+	case 1: {[0.65,false] call setCustomWeather;};
 	case 2: {[1,true] call setCustomWeather;};
 	case 3: {[random 1,true] call setCustomWeather;};
 	default {[0,false] call setCustomWeather;};
@@ -194,6 +194,7 @@ if (isServer) then {
 	[] execVM "server\russianMarker.sqf";
  	[] execVM "server\teleportListener.sqf";
     [] execVM "server\civKillListener.sqf";
+    [] execVM "server\civGunfightListener.sqf";
 
  	call compile preprocessFileLineNumbers "server\spawnBluforHQ.sqf";
 
