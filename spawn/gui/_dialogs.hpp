@@ -1375,7 +1375,7 @@ class RscTitles {
 		fadeOut = 5;
 
 	 	class controls {
-			class gui_intel_paper_pic: RscPicture
+			class gui_intel_paper_pic_us: RscPicture
 			{
 				idc = -1;
 				x = safeZoneX + safeZoneW - 0.3;  
@@ -1395,7 +1395,7 @@ class RscTitles {
 		fadeOut = 5;
 
 	 	class controls {
-			class gui_intel_paper_pic: RscPicture
+			class gui_intel_paper_pic_us_lost: RscPicture
 			{
 				idc = -1;
 				x = safeZoneX + safeZoneW - 0.3;  
@@ -1415,7 +1415,7 @@ class RscTitles {
 		fadeOut = 5;
 
 	 	class controls {
-			class gui_intel_paper_pic: RscPicture
+			class gui_intel_paper_pic_rus: RscPicture
 			{
 				idc = -1;
 				x = safeZoneX + safeZoneW - 0.3;  
@@ -1435,7 +1435,7 @@ class RscTitles {
 		fadeOut = 5;
 
 	 	class controls {
-			class gui_intel_paper_pic: RscPicture
+			class gui_intel_paper_pic_rus_lost: RscPicture
 			{
 				idc = -1;
 				x = safeZoneX + safeZoneW - 0.3;  
@@ -1455,7 +1455,7 @@ class RscTitles {
 		fadeOut = 5;
 
 	 	class controls {
-			class gui_intel_paper_pic: RscPicture
+			class gui_intel_paper_pic_killed: RscPicture
 			{
 				idc = -1;
 				x = safeZoneX + safeZoneW - 0.3;  
@@ -1463,6 +1463,48 @@ class RscTitles {
 				w = 0.3;
 				h = 0.4;
 				text = "pic\civ_killed_badge.paa";
+			};
+		};
+	};
+
+	class gui_intel_paper_civ_gunfight
+	{
+		idd = 4001;
+		duration = 10;
+		name = "gui_intel_paper_civ_gunfight";
+		fadeOut = 5;
+		
+
+	 	class controls {
+	 		class gui_intel_paper_text_gunfight: RscStructuredText
+			{
+				idc = 4002;
+				x = safeZoneX + safeZoneW - 0.3;  
+				y = safeZoneY + safeZoneH - 1.4;
+				w = 0.3;
+				h = 0.2;
+				text = "none";
+				colorText[] = {0.1, 0.1, 0.1, 1};
+				colorBackground[] = {0,0,0,0};
+				shadow = 0;
+
+				class Attributes {
+					font = "RobotoCondensed";
+					color = "#262626";
+					align = "center";
+					shadow = 0.2;
+					shadowColor = "#767676";
+					valign = "top";
+				};
+			};
+			class gui_intel_paper_pic_gunfight: RscPicture
+			{
+				idc = -1;
+				x = safeZoneX + safeZoneW - 0.3;  
+				y = safeZoneY + safeZoneH - 1.5;
+				w = 0.3;
+				h = 0.4;
+				text = "pic\civ_gunfight_badge.paa";
 			};
 		};
 	};

@@ -90,6 +90,7 @@ randomCivilian = {
 		
 	};
 
+	/*
 	addFleeingBehaviour = {
 		(_this select 0) setVariable ["fleeing",false];
 
@@ -102,7 +103,7 @@ randomCivilian = {
 			sleep (random 1);
 		 	{[_x] execVM "Engima\Traffic\Server\fleeYouFool.sqf";} forEach crew (vehicle _thisUnit);
 		}];
-	};
+	};*/
 
 
     addKilledNews = {
@@ -113,13 +114,24 @@ randomCivilian = {
          publicVariableServer "CIV_KILLED_POS";
         }];
 
-       };
+    };
+
+    addGunfightNews = {
+       (_this select 0) addEventhandler ["FiredNear",
+        {
+         CIV_GUNFIGHT_POS = (position (_this select 0));
+         diag_log format ["civ gunfight at %1",CIV_GUNFIGHT_POS];
+         publicVariableServer "CIV_GUNFIGHT_POS";
+        }];
+
+    };
 
 	[_unit] call _stripHim;
 	sleep 0.1;
 	[_unit] call _reclotheHim;
 	// [_unit] call addFleeingBehaviour;
     [_unit] call addKilledNews;
+    [_unit] call addGunfightNews;
 
 
 

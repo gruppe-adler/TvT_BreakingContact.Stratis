@@ -156,6 +156,8 @@ if (isServer) then {
     CIV_KILLED_POS = [0,0,0];
     publicVariable "CIV_KILLED_POS";
 
+    CIV_GUNFIGHT_POS = [0,0,0];
+	publicVariable "CIV_GUNFIGHT_POS";
 
 	REPLAY_FINISHED = false;
 	publicVariable "REPLAY_FINISHED";
