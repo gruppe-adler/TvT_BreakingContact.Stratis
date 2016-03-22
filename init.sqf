@@ -25,7 +25,6 @@ AR3PLAY_ENABLE_REPLAY = (paramsArray select 8) == 1;
 AR3PLAY_IS_STREAMABLE = (paramsArray select 9) == 1;
 JIP_TIME_ALLOWED = paramsArray select 11;
 CIVILIAN_TRAFFIC = paramsArray select 13;
-USE_FIREPLACE_INSTEAD_OF_RADIO_TRUCK = (paramsArray select 14) == 1;
 
 
 // paramsarray select 12 is BFT module in editor
