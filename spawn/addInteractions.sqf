@@ -87,12 +87,12 @@ _destroyActionPortableRadio = ["usDestroyMenuPortable", (localize "str_GRAD_dest
 ["Land_SatellitePhone_F", 0, ["ACE_MainActions"],_droppedRadioAction] call ace_interact_menu_fnc_addActionToClass;
 
 
-_dropRadioAction = ["ACE_MainActions", (localize "str_GRAD_drop_radio"), "",
+_dropRadioAction = ["ACE_SelfActions", (localize "str_GRAD_drop_radio"), "",
  {player setVariable ["radioAttached",false];},
   {side player == east && (player getVariable ["radioAttached",false])}
   ] call ace_interact_menu_fnc_createAction;
 
-[player, 0, ["ACE_MainActions"], _dropRadioAction] call ace_interact_menu_fnc_addActionToObject;
+[typeOf player, 0, ["ACE_SelfActions"], _dropRadioAction] call ace_interact_menu_fnc_addActionToObject;
 
 
 /*_assembleTankTrap = ["ACE_MainActions", "Assemble Tank Trap", "",
