@@ -10,17 +10,13 @@ spawnSupplyDrop = {
             portableRadioBox attachTo [funkwagen,[0.5,-5,0]];  
             portableRadioBox setVectorDirAndUp [[0,1,0.3],[0,0,0.7]];  
 
-            [[portableRadioBox,["Open","server\dataterminal\OpenTerminal.sqf"]],"addAction",true] call BIS_fnc_MP; 
-            [[portableRadioBox, true, [0,1,0], 180], "ace_dragging_fnc_setdraggable", true, true] call BIS_fnc_MP;
-
-
+            [[portableRadioBox,["Open","player\dataterminal\OpenTerminal.sqf"]],"addAction",true] call BIS_fnc_MP; 
+            
             portableRadioBox setObjectTextureGlobal [0, "#(argb,8,8,3)color(0,0,0,0.0,co)"];  
             portableRadioBox setObjectTextureGlobal [1, "#(argb,8,8,3)color(0,0,0,0.0,co)"];  
             portableRadioBox setObjectTextureGlobal [2, "#(argb,8,8,3)color(0,0,0,0.0,co)"];  
             portableRadioBox setObjectTextureGlobal [3, "#(argb,8,8,3)color(0,0,0,0.0,co)"];  
-            portableRadioBox setObjectTextureGlobal [4, "#(argb,8,8,3)color(0,0,0,0.0,co)"];
-
-            [campChair, true, 1] call ace_cargo_fnc_makeLoadable;
+            portableRadioBox setObjectTextureGlobal [4, "#(argb,8,8,3)color(0,0,0,0.0,co)"];            
             
             funkwagen setVariable ['detachableRadio', 1, true];
     };

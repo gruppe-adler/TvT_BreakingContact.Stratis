@@ -34,6 +34,7 @@ jipTime = JIP_TIME_ALLOWED;
 
 // optimize for PVP
 disableRemoteSensors true;
+setViewDistance 3500;
 
 setCustomWeather = {
 	// skipTime -24;
@@ -51,7 +52,6 @@ setCustomWeather = {
 		10 setFog [_fogDensity, _fogFalloff, 1];
 	};
 
-	setViewDistance 3700;
 	forceWeatherChange;
 	// skipTime 24;
 };

@@ -187,6 +187,15 @@ class CfgSounds
 		// subtitle delay in seconds, subtitle text
 		titles[] = {1, ""};
 	};
+	class signal_distortion
+	{
+		// how the sound is referred to in the editor (e.g. trigger effects)
+		name = "signal_distortion";
+		// filename, volume, pitch
+		sound[] = {"sounds\signal_distortion.ogg", 0.5, 1};
+		// subtitle delay in seconds, subtitle text
+		titles[] = {1, ""};
+	};
 };
 
 
