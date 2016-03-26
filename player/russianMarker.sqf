@@ -28,8 +28,14 @@ markerAnimation = {
 	if (RADIO_PORTABLE && RADIO_PORTABLE_ACTIVE) then {
 		"opfor_marker" setMarkerColorLocal "ColorGrey";
 	}
-	else {
+	if (RADIO_PORTABLE && !RADIO_PORTABLE_ACTIVE) {
 		"opfor_marker" setMarkerColorLocal "ColorOpfor";
+	};
+	if (!RADIO_PORTABLE && !RADIO_PORTABLE_ACTIVE) {
+		"opfor_marker" setMarkerColorLocal "ColorOpfor";
+	};
+	if (!RADIO_PORTABLE && RADIO_PORTABLE_ACTIVE) {
+		"opfor_marker" setMarkerColorLocal "ColorRed";
 	};
 
 	"opfor_marker" setMarkerAlphaLocal 1;
@@ -37,8 +43,11 @@ markerAnimation = {
 		if (_pulsesize > _pulseMaxSize) then {
 			_pulsesize = 0.01;
 			_modifier = 0.3;
-			if (RADIO_PORTABLE) then {
+			if (RADIO_PORTABLE_ACTIVE && RADIO_PORTABLE) then {
 				sleep 5; // if radio is carried or dropped, it sends much slower
+			};
+			if (RADIO_PORTABLE_ACTIVE && !RADIO_PORTABLE) then {
+				_pulseSpeed = 0.01; // if radio is combined with radio truck, it sends  faster
 			};
 		};
 		_pulsesize = _pulsesize + _modifier;
