@@ -179,7 +179,7 @@ fillRussianSupplies = {
             format['%1<br/>%2<br/>%3','100 Sandbags','2 Static Dshkm','(4 Backpacks)']
         ],
         [
-            "Land_SatellitePhone_F",
+            "Land_DataTerminal_01_F",
             "Detachable Radio Unit",
             1,
             500,
@@ -188,7 +188,7 @@ fillRussianSupplies = {
             [[]],
             {
             },
-            format['%1<br/>%2<br/>%3','Detachable Radio Unit','','Detach the radio unit from the radio truck (ACE Interact) as a suitcase which you can carry around. Downside is: Sending takes 2x the time and turning the device off is not possible.']
+            format['%1<br/>%2<br/>%3','Detachable Radio Unit','','Detach the radio unit from the radio truck (ACE Interact) which you can drag around. Downside is: Sending takes 5x the time and turning the device off is not possible.']
        
         ]
     ];
