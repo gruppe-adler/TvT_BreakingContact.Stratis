@@ -124,7 +124,9 @@ testSpawnPositions = {
 	_testPos2 = [_testPos1,[20,50], random 360,0,[1,200]] call SHK_pos;
 	if (count _testPos2 < 1) exitWith {_result = [1,nil,nil]; diag_log format ["Calculating Spawnpos: No matching second pos."]; _result};	
 	if (_testPos1 distance _testPos2 < 10) exitWith {deleteVehicle _testVehicle1; _result = [1,nil,nil]; diag_log format ["Calculating Spawnpos: HQ too close on marker."]; _result};
+
 	if (_testPos1 distance OPFOR_TELEPORT_TARGET < _distance) exitWith {deleteVehicle _testVehicle1; _result = [1,nil,nil]; diag_log format ["Calculating Spawnpos: HQ too close to OPFOR."]; _result};
+		
 	if ([_testPos2, 5] call get_slope > 0.5) exitWith {deleteVehicle _testVehicle1;_result = [1,nil,nil]; diag_log format ["Calculating SpawnposPad: Not flat enough."]; _result};
 
 	_testVehicle2 = (_items select 1) createVehicleLocal _testPos2;
@@ -228,17 +230,7 @@ spawnOpforHQ = {
 	while {_waitingForOpforSpawn} do {
 		_opforSpawnSuccess = [0,nil,nil];
 
-		if (time > (_startTime + 60)) then {
-			diag_log format ["fatal error : no opfor spawnpad position found. reducing spawn radius..."]; 
-			[{hintSilent "F A T A L   E R R O R:  no opfor spawnpad position found, reducing spawn radius...";},"BIS_fnc_spawn",true,true] call BIS_fnc_MP;
-			_opforDistance = _opforDistance - 1000;
-		};
-		if (time > (_startTime + 120)) then {
-			diag_log format ["fatal error : no opfor spawnpad position found. reducing spawn radius..."]; 
-			[{hintSilent "F A T A L   E R R O R:  no opfor spawnpad position found, reducing spawn radius...";},"BIS_fnc_spawn",true,true] call BIS_fnc_MP;
-			_opforDistance = _opforDistance - 1000;
-		};
-		if (time > (_startTime + 180)) exitWith {
+		if (time > (_startTime + 240)) exitWith {
 			diag_log format ["fatal error : no opfor spawnpad position found. please restart."]; 
 			[{hintSilent "F A T A L   E R R O R:  no opfor spawnpad position found. please restart.";},"BIS_fnc_spawn",true,true] call BIS_fnc_MP;
 			

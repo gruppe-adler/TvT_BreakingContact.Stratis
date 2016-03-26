@@ -1,3 +1,6 @@
+waitUntil {RUS_SPAWN_PAD select 0 != 0};
+waitUntil {US_SPAWN_PAD select 0 != 0};
+
 // buy actions
 _usAction1 = ["ACE_MainActions", (localize "str_GRAD_buy_vehicles"), "",
  {0 = createDialog "USSupplyGUI"; disableSerialization; [USSupplies, false, 0, "","",""] call refreshUSUI;},

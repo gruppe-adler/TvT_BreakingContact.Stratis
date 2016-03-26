@@ -96,28 +96,6 @@ while{true} do
 			_kindof = "KIA";
 		};
 
-		if(_unit == funkwagen) then 
-		{
-			_isSending = call funkwagenIsSending;
-
-			if (_isSending) then {
-				_kindof =  "loc_Transmitter";
-			} else {
-				_kindof = "loc_BusStop";
-			};
-		};
-
-		if(vehicle _unit == funkwagen) then 
-		{
-			_isSending = call funkwagenIsSending;
-
-			if (_isSending) then {
-				_kindof =  "loc_Transmitter";
-			} else {
-				_kindof = "loc_BusStop";
-			};
-		};
-
 		if (_kindof == "c_unknown") exitWith {};
 
 		// current values: position, side, kindof
