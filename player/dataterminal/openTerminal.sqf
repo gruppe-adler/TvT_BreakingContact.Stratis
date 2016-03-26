@@ -21,7 +21,7 @@ with uiNamespace do {
     while {(_this select 0) getVariable ["RadioInterference",false]} do {
         (_this select 0) say3D "signal_distortion";
         sleep 5;
-        (_this select 0) setObjectTextureGlobal [0, "#(argb,8,8,3)color(1,0.2,0,0.0,co)"];
+        (_this select 0) setObjectTextureGlobal [0, "#(argb,8,8,3)color(1,0.2,0,1.0,co)"];
         sleep 2;
         (_this select 0) setObjectTextureGlobal [0, "#(argb,8,8,3)color(0,0,0,0.0,co)"];
     };
