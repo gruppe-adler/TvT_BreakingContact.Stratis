@@ -47,13 +47,10 @@ _destroyActionPortableRadio = ["usDestroyMenuPortable", (localize "str_GRAD_dest
  [6, [_this select 0], {
     ((_this select 0) select 0) setVariable ["detachableRadio", 2, true];
     
-      _tmpmass = getMass portableRadioBox;
-      portableRadioBox setMass 0.1;
+      
       detach portableRadioBox;
       RADIO_PORTABLE = true; publicVariable "RADIO_PORTABLE";
-      waitUntil {getpos portableRadioBox select 2 < 0.1};
-
-      portableRadioBox setMass _tmpmass;
+     
       [[portableRadioBox, true, [0,1,0], 180], "ace_dragging_fnc_setdraggable", true, true] call BIS_fnc_MP;
  }, {hint "Cancelled action"}, (localize "str_GRAD_detaching_radio")] call ace_common_fnc_progressBar;
  },
@@ -67,7 +64,7 @@ _destroyActionPortableRadio = ["usDestroyMenuPortable", (localize "str_GRAD_dest
 
     [[portableRadioBox, false, [0,1,0], 180], "ace_dragging_fnc_setdraggable", true, true] call BIS_fnc_MP;
     RADIO_PORTABLE = false; publicVariable "RADIO_PORTABLE";
-    portableRadioBox attachTo [funkwagen,[0.5,-5,0]];  
+    portableRadioBox attachTo [funkwagen,[0.5,-4.9,0]];  
     portableRadioBox setVectorDirAndUp [[0,1,0.3],[0,0,0.7]];  
 
  }, {hint "Cancelled action"}, (localize "str_GRAD_attaching_radio")] call ace_common_fnc_progressBar;

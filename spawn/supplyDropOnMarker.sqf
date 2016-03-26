@@ -7,7 +7,7 @@ spawnSupplyDrop = {
     // if there is nothing to be spawned
     if (_vehicleType == "Land_DataTerminal_01_F") exitWith {
 			portableRadioBox = createVehicle ['Land_DataTerminal_01_F', [(getPos funkwagen select 0) + 2, (getPos funkwagen select 1) - 1, 0.5], [], 0, 'NONE'];
-            portableRadioBox attachTo [funkwagen,[0.5,-5,0]];  
+            portableRadioBox attachTo [funkwagen,[0.5,-4.9,0]];  
             portableRadioBox setVectorDirAndUp [[0,1,0.3],[0,0,0.7]];  
 
             [[portableRadioBox,["Open","player\dataterminal\OpenTerminal.sqf"]],"addAction",true] call BIS_fnc_MP; 
