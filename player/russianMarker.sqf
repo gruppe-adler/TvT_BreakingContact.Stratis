@@ -27,7 +27,7 @@ markerAnimation = {
 
 	if (RADIO_PORTABLE && RADIO_PORTABLE_ACTIVE) then {
 		"opfor_marker" setMarkerColorLocal "ColorGrey";
-	}
+	};
 	if (RADIO_PORTABLE && !RADIO_PORTABLE_ACTIVE) {
 		"opfor_marker" setMarkerColorLocal "ColorOpfor";
 	};
