@@ -12,22 +12,22 @@ showCivGunfightHint = {
 };
 
 createCivGunfightMarker = {
+
 	_marker = createMarkerLocal [format["gunfight_shape_%1",_pos],_pos];
-	
 	_marker setMarkerShapeLocal "ELLIPSE";
 	_marker setMarkerColorLocal "ColorUnknown";
 	_marker setMarkerSizeLocal [100,100];
 
-	diag_log format ["CivGunfight: Marker %1 created", _marker2];
-
 	_marker2 = createMarkerLocal [format["gunfight_icon_%1",_pos],_pos];
 	_marker2 setMarkerShapeLocal "ICON";
 	_marker2 setMarkerTypeLocal "hd_warning";
-	_marker2 setMarkerColorLocal "ColorBlack";
+	_marker2 setMarkerColorLocal "ColorUnknown";
 	
-	_markerAlpha = 1;
+	_markerAlpha = 0.5;
 
-	for "_i" from 0 to 99 do
+	diag_log format ["CivGunfight: Marker %1 created", _marker];
+
+	for "_i" from 0 to 49 do
 	{
 		_markerAlpha = _markerAlpha - 0.01;
 		_marker setMarkerAlphaLocal _markerAlpha;

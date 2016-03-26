@@ -105,6 +105,10 @@ randomCivilian = {
 		}];
 	};*/
 
+	addBehaviour = {
+		group (_this select 0) setBehaviour "SAFE";
+	};
+
 
     addKilledNews = {
        (_this select 0) addEventhandler ["Killed",
@@ -132,6 +136,7 @@ randomCivilian = {
 	// [_unit] call addFleeingBehaviour;
     [_unit] call addKilledNews;
     [_unit] call addGunfightNews;
+    [_unit] call addBehaviour;
 
 
 
