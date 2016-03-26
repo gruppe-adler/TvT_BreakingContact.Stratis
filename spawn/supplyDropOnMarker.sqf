@@ -20,6 +20,13 @@ spawnSupplyDrop = {
             
             funkwagen setVariable ["detachableRadio", 1, true];
             publicVariable "portableRadioBox";
+
+            _dummy addEventHandler ["Explosion",{
+	
+			(_this select 0) setDamage 1;
+			[_this select 0] execVM "player\dataterminal\explodeDelayed.sqf";
+	
+}];
     };
 
     _vehicle = createVehicle [_vehicleType, _pos, [], 0, "NONE"];
