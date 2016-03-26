@@ -10,7 +10,7 @@ spawnSupplyDrop = {
             portableRadioBox attachTo [funkwagen,[0.5,-5,0]];  
             portableRadioBox setVectorDirAndUp [[0,1,0.3],[0,0,0.7]];  
 
-            [[portableRadioBox,["Open","dataterminal\OpenTerminal.sqf"]],"addAction",true] call BIS_fnc_MP; 
+            [[portableRadioBox,["Open","server\dataterminal\OpenTerminal.sqf"]],"addAction",true] call BIS_fnc_MP; 
             [[portableRadioBox, true, [0,1,0], 180], "ace_dragging_fnc_setdraggable", true, true] call BIS_fnc_MP;
 
 

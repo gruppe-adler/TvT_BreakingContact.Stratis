@@ -20,4 +20,4 @@ sleep 1;
 RADIO_PORTABLE_ACTIVE = true;
 publicVariableServer "RADIO_PORTABLE_ACTIVE";
 
-_closeaction = [[_object,["Close","DataTerminal\CloseTerminal.sqf"]],"addAction",true] call BIS_fnc_MP;
+_closeaction = [[_object,["Close","server\dataterminal\CloseTerminal.sqf"]],"addAction",true] call BIS_fnc_MP;
