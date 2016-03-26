@@ -4,7 +4,7 @@ _id = _this select 2;
 _object removeaction _id;
 [_object,0] call BIS_fnc_dataTerminalAnimate;
 RADIO_PORTABLE_ACTIVE = false;
-publicVariableServer "RADIO_PORTABLE_ACTIVE";
+publicVariable "RADIO_PORTABLE_ACTIVE";
 _object setVariable ["RadioInterference",false];
 (uiNamespace getVariable "BIS_RscMissionScreen") closeDisplay 1;
 sleep 2;

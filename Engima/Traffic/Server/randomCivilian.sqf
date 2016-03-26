@@ -86,7 +86,7 @@ randomCivilian = {
 		};
 
 		[[_guy,_taliFaces], "setCustomFace"] call BIS_fnc_MP;
-		
+		_guy setVariable ["BIS_noCoreConversations", true];
 		
 	};
 

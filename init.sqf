@@ -208,7 +208,8 @@ if (isServer) then {
 	 	[] spawn {
 	 		{
 				if (!isPlayer _x) then {
-					sleep 0.5; 0 = [_x] execVM "loadouts\_client.sqf"
+					sleep 0.5; 0 = [_x] execVM "loadouts\_client.sqf";
+					_x setVariable ["BIS_noCoreConversations", true]; 
 				};
 				0 = [_x] execVM "server\adjustInitialSpawnPositionAI.sqf";
 			} forEach allUnits;
@@ -218,6 +219,7 @@ if (isServer) then {
 	 		{
 	 			if (!isPlayer _x) then {
 		 			sleep 0.2;
+		 			_x setVariable ["BIS_noCoreConversations", true]; 
 		 			0 = [_x] execVM "loadouts\_client.sqf";
 					0 = [_x] execVM "server\adjustInitialSpawnPositionAI.sqf";
 	 			};
@@ -297,9 +299,7 @@ if (hasInterface) then {
 
 
 
-	enableSentences false;
-
-
+	
 
 
 	[] execVM "player\setup\helpBriefing.sqf"; diag_log format ["setup: briefing initiated"];
@@ -312,6 +312,9 @@ if (hasInterface) then {
 	[] spawn {
 		sleep (random 10);
 		[player] execVM "loadouts\_client.sqf"; diag_log format ["setup: loadout %1 initiated",player];
+		enableSentences false;
+		showSubtitles false;
+		0 fadeRadio 0;
 	};
 
 

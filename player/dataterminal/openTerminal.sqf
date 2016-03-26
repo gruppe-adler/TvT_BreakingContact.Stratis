@@ -28,6 +28,6 @@ with uiNamespace do {
 };
 
 RADIO_PORTABLE_ACTIVE = true;
-publicVariableServer "RADIO_PORTABLE_ACTIVE";
+publicVariable "RADIO_PORTABLE_ACTIVE";
 
 _closeaction = [[_object,["Close","player\dataterminal\CloseTerminal.sqf"]],"addAction",true] call BIS_fnc_MP;
