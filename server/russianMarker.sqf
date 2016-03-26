@@ -10,7 +10,7 @@ bluforSurrendered = {
 };
 
 funkwagenIsSending = {
-	((funkwagen getVariable ["tf_range",0]) == 50000) || RADIO_PORTABLE_ACTIVE)
+	((funkwagen getVariable ["tf_range",0]) == 50000) || (RADIO_PORTABLE_ACTIVE)
 };
 
 booleanEqual = {
