@@ -6,7 +6,7 @@ _smoke setParticleClass "SmallDestructionSmoke";
 sleep 20;
 deleteVehicle _smoke;
 _ex = createVehicle [
-                "rhs_mine_tm62m_ammo",
+                "rhs_ammo_rgn_exp",
                 (_this select 0) modeltoworld [0,0,0],
                 [],
                 0,
