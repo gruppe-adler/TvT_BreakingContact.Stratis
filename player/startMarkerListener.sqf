@@ -30,14 +30,14 @@ if (side player == east) then {
 // runs in SP to emulate addPublicVariableEventHandler (which doesnt work in SP)
 if (!isMultiplayer) then {
 	_US_SPAWN_PAD_listener spawn {
-		waitUntil {US_SPAWN_PAD select 0 != 0};
+		waitUntil {getpos US_SPAWN_PAD select 0 != 0};
 		[0, US_SPAWN_PAD] call _this;
 	};
 };
 
 if (!isMultiplayer) then {
 	_RUS_SPAWN_PAD_listener spawn {
-		waitUntil {RUS_SPAWN_PAD select 0 != 0};
+		waitUntil {getpos RUS_SPAWN_PAD select 0 != 0};
 		[0, RUS_SPAWN_PAD] call _this;
 	};
 };
