@@ -154,6 +154,9 @@ if (isServer) then {
 	RADIO_PORTABLE = false;
 	publicVariable "RADIO_PORTABLE";
 
+	RADIO_PORTABLE_ACTIVE = false;
+	publicVariable "RADIO_PORTABLE_ACTIVE";
+
     CIV_KILLED_POS = [0,0,0];
     publicVariable "CIV_KILLED_POS";
 

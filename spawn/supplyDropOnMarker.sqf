@@ -1,14 +1,3 @@
-/*
-		
-		This script is based on a script created by [EVO] Dan, with help from [EVO] Curry, with snippets from the BIS module.
-			
-		modified by nomisum to his needs
-
-*/
-		
-
-
-		
 spawnSupplyDrop = {
 	_vehicleType = _this select 0;	//ammocrate class for blufor, feel free to change to whichever box you desire
 	_pos = _this select 1;
@@ -16,10 +5,23 @@ spawnSupplyDrop = {
     _calls = _this select 3;
 
     // if there is nothing to be spawned
-    if (_vehicleType == "Land_SatellitePhone_F") exitWith {
-			radioSuitcaseAttached = createVehicle ['Land_SatellitePhone_F', [(getPos funkwagen select 0) + 2, (getPos funkwagen select 1) - 1, 0.5], [], 0, 'NONE'];
-            radioSuitcaseAttached attachTo [funkwagen, [-1.34,-2.26,0.1]];
-            radioSuitcaseAttached setVectorDirAndUp [[1,0,0],[0,0,1]];
+    if (_vehicleType == "Land_DataTerminal_01_F") exitWith {
+			portableRadioBox = createVehicle ['Land_DataTerminal_01_F', [(getPos funkwagen select 0) + 2, (getPos funkwagen select 1) - 1, 0.5], [], 0, 'NONE'];
+            portableRadioBox attachTo [funkwagen,[0.5,-5,0]];  
+            portableRadioBox setVectorDirAndUp [[0,1,0.3],[0,0,0.7]];  
+
+            [[portableRadioBox,["Open","dataterminal\OpenTerminal.sqf"]],"addAction",true] call BIS_fnc_MP; 
+            [[portableRadioBox, true, [0,1,0], 180], "ace_dragging_fnc_setdraggable", true, true] call BIS_fnc_MP;
+
+
+            portableRadioBox setObjectTextureGlobal [0, "#(argb,8,8,3)color(0,0,0,0.0,co)"];  
+            portableRadioBox setObjectTextureGlobal [1, "#(argb,8,8,3)color(0,0,0,0.0,co)"];  
+            portableRadioBox setObjectTextureGlobal [2, "#(argb,8,8,3)color(0,0,0,0.0,co)"];  
+            portableRadioBox setObjectTextureGlobal [3, "#(argb,8,8,3)color(0,0,0,0.0,co)"];  
+            portableRadioBox setObjectTextureGlobal [4, "#(argb,8,8,3)color(0,0,0,0.0,co)"];
+
+            [campChair, true, 1] call ace_cargo_fnc_makeLoadable;
+            
             funkwagen setVariable ['detachableRadio', 1, true];
     };
 

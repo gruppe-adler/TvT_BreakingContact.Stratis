@@ -25,7 +25,7 @@ markerAnimation = {
 	_pulseSpeed = _this select 2;
 	_modifier = 1;
 
-	if (RADIO_PORTABLE) then {
+	if (RADIO_PORTABLE && RADIO_PORTABLE_ACTIVE) then {
 		"opfor_marker" setMarkerColorLocal "ColorGrey";
 	}
 	else {

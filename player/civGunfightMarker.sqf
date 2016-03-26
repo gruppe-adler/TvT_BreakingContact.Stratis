@@ -2,18 +2,39 @@ _pos = _this select 0;
 _delay = 120; // 120 default
 
 
-showCivGunfightHint = {
-	_nameOfCity = _this select 0;
-
-	diag_log format ["gunfight reporting at %1",_nameOfCity];
-	
+showCivGunfightHint = {	
 	playSound "signal_lost";
 	cutRsc ["gui_intel_paper_civ_gunfight","PLAIN",0];
-	waitUntil {!isNull (uiNameSpace getVariable "gui_intel_paper_civ_gunfight")};
-	((uiNameSpace getVariable "gui_intel_paper_civ_gunfight") displayCtrl 4002) ctrlSetStructuredText parseText format ["<t size='1.2'>" + _nameOfCity];
+	
 	player setVariable ["GunfightTimeout",true];
-	sleep 5;
+	sleep 7;
 	player setVariable ["GunfightTimeout",false];
+};
+
+createCivGunfightMarker = {
+	_marker = createMarkerLocal [format["gunfight_shape_%1",_pos],_pos];
+	
+	_marker setMarkerShapeLocal "ELLIPSE";
+	_marker setMarkerColorLocal "ColorUnknown";
+	_marker setMarkerSizeLocal [100,100];
+
+	diag_log format ["CivGunfight: Marker %1 created", _marker2];
+
+	_marker2 = createMarkerLocal [format["gunfight_icon_%1",_pos],_pos];
+	_marker2 setMarkerShapeLocal "ICON";
+	_marker2 setMarkerTypeLocal "hd_warning";
+	_marker2 setMarkerColorLocal "ColorBlack";
+	
+	_markerAlpha = 1;
+
+	for "_i" from 0 to 99 do
+	{
+		_markerAlpha = _markerAlpha - 0.01;
+		_marker setMarkerAlphaLocal _markerAlpha;
+		sleep 2;
+	};
+	deleteMarkerLocal _marker;
+	deleteMarkerLocal _marker2;
 };
 
 
@@ -44,6 +65,9 @@ if (_distanceTown < _distanceVillage) then {
 
 sleep _delay/2;
 
+
+
 if (player getVariable ["GunfightTimeout",false]) exitWith {};
 
-[_closestInstance] call showCivGunfightHint;
+[] call showCivGunfightHint;
+[_pos] call createCivGunfightMarker;

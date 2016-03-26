@@ -1,0 +1,10 @@
+_object = _this select 0;
+_caller = _this select 1;
+_id = _this select 2;
+_object removeaction _id;
+[_object,0] call BIS_fnc_dataTerminalAnimate;
+RADIO_PORTABLE_ACTIVE = false;
+publicVariableServer "RADIO_PORTABLE_ACTIVE";
+(uiNamespace getVariable "BIS_RscMissionScreen") closeDisplay 1;
+sleep 2;
+_openaction = [[_object,["Open","server\dataterminal\OpenTerminal.sqf"]],"addAction",true] call BIS_fnc_MP;

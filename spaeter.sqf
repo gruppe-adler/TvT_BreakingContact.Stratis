@@ -3,6 +3,33 @@
 //
 
 
+terminal attachTo [funkwagen,[0.25,-4.8,0]]; // perfect position for endgame terminal to attach on gaz66 142
+
+hiddenSelections[] = {"Camo_1","Camo_2","Camo_3","Camo_4","Camo_5"}; // terminal camos
+hiddenSelectionsMaterials[] = {"\A3\Data_F\Lights\Lamp_lcd.rvmat","\A3\Data_F\Lights\Lamp_lcd.rvmat","\A3\Props_F_Exp_A\Military\Equipment\Data\DataTerminal_blue.rvmat","\A3\Props_F_Exp_A\Military\Equipment\Data\DataTerminal_orange.rvmat","\A3\Props_F_Exp_A\Military\Equipment\Data\DataTerminal_green.rvmat"};
+hiddenSelectionsTextures[] = {"#(argb,8,8,3)color(0,0,0,0.0,co)","#(argb,8,8,3)color(0,0,0,0.0,co)","#(argb,8,8,3)color(0,1,1,1.0,co)","#(argb,8,8,3)color(0.75,0.5,0,1.0,co)","#(argb,8,8,3)color(0.25,0.75,0.25,1.0,co)"};
+
+
+hiddenSelectionsTextures[] = {"#(argb,8,8,3)color(0,0,0,0.0,co)","#(argb,8,8,3)color(0,0,0,0.0,co)","#(argb,8,8,3)color(0,1,1,1.0,co)","#(argb,8,8,3)color(0.75,0.5,0,1.0,co)","#(argb,8,8,3)color(0.25,0.75,0.25,1.0,co)"};
+
+
+
+terminal setObjectTextureGlobal [0, "#(argb,8,8,3)color(0,0,0,0.0,co)"];
+terminal setObjectTextureGlobal [1, "#(argb,8,8,3)color(0,0,0,0.0,co)"];
+terminal setObjectTextureGlobal [2, "#(argb,8,8,3)color(0,0,0,0.0,co)"];
+terminal setObjectTextureGlobal [3, "#(argb,8,8,3)color(0,0,0,0.0,co)"];
+terminal setObjectTextureGlobal [4, "#(argb,8,8,3)color(0,0,0,0.0,co)"];
+
+
+
+
+
+
+
+
+
+
+///////////////////////
 [_unit, true, [0,1.1,0.092], 180] call FUNC(setDraggable);
 
 

@@ -1476,28 +1476,7 @@ class RscTitles {
 		onLoad = "with uiNameSpace do { gui_intel_paper_civ_gunfight = _this select 0 }";
 
 	 	class controls {
-	 		class gui_intel_paper_text_gunfight: RscStructuredText
-			{
-				idc = 4002;
-				x = safeZoneX + safeZoneW - 0.3;  
-				y = safeZoneY + safeZoneH - 1;
-				w = 0.3;
-				h = 0.4;
-				text = "none";
-				colorText[] = {0.1, 0.1, 0.1, 1};
-				colorBackground[] = {0,0,0,0};
-				shadow = 0;
-
-				class Attributes {
-					font = "RobotoCondensed";
-					color = "#262626";
-					align = "center";
-					shadow = 0.2;
-					shadowColor = "#767676";
-					valign = "top";
-
-				};
-			};
+	 		
 			class gui_intel_paper_pic_gunfight: RscPicture
 			{
 				idc = -1;

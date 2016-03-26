@@ -10,7 +10,7 @@ bluforSurrendered = {
 };
 
 funkwagenIsSending = {
-	((funkwagen getVariable ["tf_range",0]) == 50000) || (funkwagen getVariable ["detachableRadio", 0] == 2)
+	((funkwagen getVariable ["tf_range",0]) == 50000) || RADIO_PORTABLE_ACTIVE)
 };
 
 booleanEqual = {
@@ -64,16 +64,12 @@ sleep 2; // give it time, boy - possible fix for "Undefined variable in expressi
 			[] call bluforCaptured;
 		};
 
-		if (!RADIO_PORTABLE) then {
+		if (!RADIO_PORTABLE_ACTIVE) then {
 			[getPos funkwagen select 0, getPos funkwagen select 1] call setRussianMarkerPosition;
 		} else {
-			if (!isNil "radioSuitcaseDropped") then {
-				[getPos radioSuitcaseDropped select 0, getPos radioSuitcaseDropped select 1] call setRussianMarkerPosition;
-				RUSSIAN_POINTS = RUSSIAN_POINTS + 1;
-			};
-			if (!isNil "radioSuitcaseCarry") then {
-				[getPos radioSuitcaseCarry select 0, getPos radioSuitcaseCarry select 1] call setRussianMarkerPosition;
-				RUSSIAN_POINTS = RUSSIAN_POINTS + 1;
+			if (!isNil "portableRadioBox") then {
+				[getPos portableRadioBox select 0, getPos portableRadioBox select 1] call setRussianMarkerPosition;
+				RUSSIAN_POINTS = RUSSIAN_POINTS + 0.2;
 			};
 		};
 		

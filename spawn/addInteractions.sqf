@@ -46,9 +46,12 @@ _destroyActionPortableRadio = ["usDestroyMenuPortable", (localize "str_GRAD_dest
  {
  [6, [_this select 0], {
     ((_this select 0) select 0) setVariable ["detachableRadio", 2, true];
-    deleteVehicle radioSuitcaseAttached;
-    RADIO_PORTABLE = true; publicVariable "RADIO_PORTABLE";
-    [] execVM "player\radioAttached.sqf";
+    _tmpmass = getMass portableRadioBox;
+    portableRadioBox setMass 0.1;
+    detach portableRadioBox;
+    RADIO_MOBILE = true; publicVariable "RADIO_MOBILE";
+    waitUntil {getpos portableRadioBox select 2 < 0.1};
+    portableRadioBox setMass _tmpmass;
  }, {hint "Cancelled action"}, (localize "str_GRAD_detaching_radio")] call ace_common_fnc_progressBar;
  },
   {side player == east && ((_this select 0) getVariable ["detachableRadio", 0] == 1)}] call ace_interact_menu_fnc_createAction;
@@ -59,53 +62,12 @@ _destroyActionPortableRadio = ["usDestroyMenuPortable", (localize "str_GRAD_dest
  [6, [_this select 0], {
     ((_this select 0) select 0) setVariable ["detachableRadio", 1, true];
 
-    RADIO_PORTABLE = false; publicVariable "RADIO_PORTABLE";
+    RADIO_MOBILE = false; publicVariable "RADIO_MOBILE";
 
-    radioSuitcaseAttached = createVehicle ['Land_SatellitePhone_F', [(getPos ((_this select 0) select 0) select 0) + 2, (getPos ((_this select 0) select 0) select 1) - 1, 0.5], [], 0, 'NONE'];
-    radioSuitcaseAttached attachTo [((_this select 0) select 0), [-1.34,-2.26,0.1]];
-    radioSuitcaseAttached setVectorDirAndUp [[1,0,0],[0,0,1]];
-    radioSuitcaseAttached setVariable ["ace_cargo_size", 1];
-    radioSuitcaseAttached setVariable ["ace_cargo_canLoad", 1];
-    player setVariable ["radioAttached",false];
  }, {hint "Cancelled action"}, (localize "str_GRAD_attaching_radio")] call ace_common_fnc_progressBar;
  },
   {side player == east && ((_this select 0) getVariable ["detachableRadio", 0] == 2)}] call ace_interact_menu_fnc_createAction;
 ["rhs_gaz66_r142_vv", 0, ["ACE_MainActions"],_attachRadioAction] call ace_interact_menu_fnc_addActionToClass;
-
-////////////// attach action to dropped radio
-_droppedRadioAction = [
-    "droppedRadioMenu",
-    (localize "str_GRAD_pickup_radio"),
-    "",
-    {
-        _satellitephone = _this select 0;
-        [
-            0.5,
-            _satellitephone,
-            {
-                _satellitephone = (_this select 0);
-                deleteVehicle _satellitephone;
-                _satellitephone = nil; // broadcast theres nothing to see here
-                publicVariable (str _satellitephone);
-                [] execVM "player\radioAttached.sqf";
-
-            },
-            {hint "Cancelled action"},
-            (localize "str_GRAD_pickup_radio")
-        ] call ace_common_fnc_progressBar;
-    },
-    {side player == east && funkwagen getVariable ["detachableRadio", 0] == 2}
-] call ace_interact_menu_fnc_createAction;
-
-["Land_SatellitePhone_F", 0, ["ACE_MainActions"],_droppedRadioAction] call ace_interact_menu_fnc_addActionToClass;
-
-
-_dropRadioAction = ["ACE_SelfActions", (localize "str_GRAD_drop_radio"), "",
- {player setVariable ["radioAttached",false];},
-  {side player == east && (player getVariable ["radioAttached",false])}
-  ] call ace_interact_menu_fnc_createAction;
-
-[typeOf player, 0, ["ACE_SelfActions"], _dropRadioAction] call ace_interact_menu_fnc_addActionToObject;
 
 
 /*_assembleTankTrap = ["ACE_MainActions", "Assemble Tank Trap", "",
