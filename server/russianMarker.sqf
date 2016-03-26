@@ -67,10 +67,9 @@ sleep 2; // give it time, boy - possible fix for "Undefined variable in expressi
 		if (!RADIO_PORTABLE_ACTIVE) then {
 			[getPos funkwagen select 0, getPos funkwagen select 1] call setRussianMarkerPosition;
 		} else {
-			if (!isNil "portableRadioBox") then {
-				[getPos portableRadioBox select 0, getPos portableRadioBox select 1] call setRussianMarkerPosition;
-				RUSSIAN_POINTS = RUSSIAN_POINTS + 0.3;
-			};
+			[getPos portableRadioBox select 0, getPos portableRadioBox select 1] call setRussianMarkerPosition;
+			RUSSIAN_POINTS = RUSSIAN_POINTS + 0.3;
+			
 		};
 		
 

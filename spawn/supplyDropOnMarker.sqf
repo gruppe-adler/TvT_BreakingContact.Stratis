@@ -18,7 +18,8 @@ spawnSupplyDrop = {
             portableRadioBox setObjectTextureGlobal [3, "#(argb,8,8,3)color(0,0,0,0.0,co)"];  
             portableRadioBox setObjectTextureGlobal [4, "#(argb,8,8,3)color(0,0,0,0.0,co)"];            
             
-            funkwagen setVariable ['detachableRadio', 1, true];
+            funkwagen setVariable ['detachableRadio', 0, true];
+            publicVariable "portableRadioBox";
     };
 
     _vehicle = createVehicle [_vehicleType, _pos, [], 0, "NONE"];

@@ -1,6 +1,3 @@
-waitUntil {getpos RUS_SPAWN_PAD select 0 != 0};
-waitUntil {getpos US_SPAWN_PAD select 0 != 0};
-
 // buy actions
 _usAction1 = ["ACE_MainActions", (localize "str_GRAD_buy_vehicles"), "",
  {0 = createDialog "USSupplyGUI"; disableSerialization; [USSupplies, false, 0, "","",""] call refreshUSUI;},
@@ -47,7 +44,7 @@ _destroyActionPortableRadio = ["usDestroyMenuPortable", (localize "str_GRAD_dest
 
  _detachRadioAction = ["RusDetachMenu", (localize "str_GRAD_detach_radio"), "",
  {
- [6, [_this select 0], {
+ [4, [_this select 0], {
     ((_this select 0) select 0) setVariable ["detachableRadio", 2, true];
     
       
@@ -63,7 +60,7 @@ _destroyActionPortableRadio = ["usDestroyMenuPortable", (localize "str_GRAD_dest
 
  _attachRadioAction = ["RusAttachMenu", (localize "str_GRAD_attach_radio"), "",
  {
- [6, [_this select 0], {
+ [4, [_this select 0], {
     ((_this select 0) select 0) setVariable ["detachableRadio", 1, true];
 
     [[portableRadioBox, false, [0,1,0], 180], "ace_dragging_fnc_setdraggable", true, true] call BIS_fnc_MP;
