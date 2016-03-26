@@ -25,18 +25,7 @@ markerAnimation = {
 	_pulseSpeed = _this select 2;
 	_modifier = 1;
 
-	if (RADIO_PORTABLE && RADIO_PORTABLE_ACTIVE) then {
-		"opfor_marker" setMarkerColorLocal "ColorGrey";
-	};
-	if (RADIO_PORTABLE && !RADIO_PORTABLE_ACTIVE) then {
-		"opfor_marker" setMarkerColorLocal "ColorOpfor";
-	};
-	if (!RADIO_PORTABLE && !RADIO_PORTABLE_ACTIVE) then {
-		"opfor_marker" setMarkerColorLocal "ColorOpfor";
-	};
-	if (!RADIO_PORTABLE && RADIO_PORTABLE_ACTIVE) then {
-		"opfor_marker" setMarkerColorLocal "ColorRed";
-	};
+	
 
 	"opfor_marker" setMarkerAlphaLocal 1;
 	while {!RUSSIAN_MARKER_HIDDEN} do {
@@ -44,12 +33,20 @@ markerAnimation = {
 			_pulsesize = 0.01;
 			_modifier = 0.3;
 			if (RADIO_PORTABLE_ACTIVE && RADIO_PORTABLE) then {
-				sleep 5; // if radio is carried or dropped, it sends much slower
+				sleep 4; // if radio is carried or dropped, it sends much slower
+				"opfor_marker" setMarkerColorLocal "ColorGrey";
+				_pulseSpeed = 0.02;
 			};
 			if (RADIO_PORTABLE_ACTIVE && !RADIO_PORTABLE) then {
 				_pulseSpeed = 0.01; // if radio is combined with radio truck, it sends  faster
+				"opfor_marker" setMarkerColorLocal "ColorRed";
+			};
+			if ((RADIO_PORTABLE && !RADIO_PORTABLE_ACTIVE) || (!RADIO_PORTABLE && !RADIO_PORTABLE_ACTIVE)) then {
+				"opfor_marker" setMarkerColorLocal "ColorOpfor";
+				_pulseSpeed = 0.02;
 			};
 		};
+
 		_pulsesize = _pulsesize + _modifier;
 		_modifier = _modifier + 0.1;
 		"opfor_marker" setMarkerAlphaLocal 1 - (_pulsesize/_pulseMaxSize);
