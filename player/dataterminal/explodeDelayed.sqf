@@ -14,6 +14,7 @@ _ex = createVehicle [
             ];
 _ex setVectorDirAndUp [[0,0,1],[0,-1,0]];
 _ex setVelocity [0,0,-1000];
+(_this select 0) setDamage 1;
 deleteVehicle (_this select 0);
 detach portableRadioBox;
 deleteVehicle portableRadioBox;
