@@ -37,11 +37,19 @@ markerAnimation = {
 				"opfor_marker" setMarkerColorLocal "ColorGrey";
 				_pulseSpeed = 0.02;
 			};
-			if (RADIO_PORTABLE_ACTIVE && !RADIO_PORTABLE) then {
+			if (RADIO_PORTABLE_ACTIVE && !RADIO_PORTABLE && (funkwagen getVariable ["tf_range",0]) == 50000)) then {
+				sleep 1;
 				_pulseSpeed = 0.01; // if radio is combined with radio truck, it sends  faster
 				"opfor_marker" setMarkerColorLocal "ColorRed";
 			};
+
+			if (RADIO_PORTABLE_ACTIVE && !RADIO_PORTABLE && (funkwagen getVariable ["tf_range",0]) != 50000)) then {
+				sleep 4; // if radio is carried or dropped, it sends much slower
+				"opfor_marker" setMarkerColorLocal "ColorGrey";
+				_pulseSpeed = 0.02;
+			};
 			if ((RADIO_PORTABLE && !RADIO_PORTABLE_ACTIVE) || (!RADIO_PORTABLE && !RADIO_PORTABLE_ACTIVE)) then {
+				sleep 1;
 				"opfor_marker" setMarkerColorLocal "ColorOpfor";
 				_pulseSpeed = 0.02;
 			};
