@@ -207,6 +207,7 @@ if (isServer) then {
 
  	// events/listeners
 	[] execVM "server\russianMarker.sqf";
+	[] execVM "server\radioBoxDistanceListener.sqf";
  	[] execVM "server\teleportListener.sqf";
     [] execVM "server\civKillListener.sqf";
     [] execVM "server\civGunfightListener.sqf";
@@ -348,6 +349,7 @@ if (hasInterface) then {
 		[] execVM "player\russianMarker.sqf"; diag_log format ["setup: russianmarker initiated"];
 		[] execVM "player\opforOpforTeleportListener.sqf"; diag_log format ["setup: opforOpforTeleportListener initiated"];
 		[] execVM "player\bluforRussianPointsListener.sqf";
+		[] execVM "player\radioBoxDistanceListener.sqf"
 		[] spawn checkJIP; diag_log format ["setup: createStartHints initiated"];
 		player setVariable ["radioAttached",false]; // for use in detaching radio from radio truck
 	};

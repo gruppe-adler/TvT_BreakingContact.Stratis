@@ -106,7 +106,14 @@ sleep 2; // give it time, boy - possible fix for "Undefined variable in expressi
 			RUSSIAN_POINTS = RUSSIAN_POINTS + 1;
 		};
 		if (_radioTruckIsSending && _bothAreSending) then {
+			_tempModifier = _modifier;
 			_modifier = call distanceToRadioNerf;
+			// check if distance changed, if yes, broadcast for client hint
+			if (_modifier != _tempModifier) then {
+				RADIO_BOX_DISTANCE = _modifier * 100;
+				publicVariable "RADIO_BOX_DISTANCE";
+			};
+
 			RUSSIAN_POINTS = RUSSIAN_POINTS * _modifier;
 		};
 
