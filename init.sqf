@@ -124,13 +124,7 @@ if (isServer) then {
 
 	SPECTATOR_LIST = [];
 	publicVariable "SPECTATOR_LIST";
-	RUSSIAN_MARKER_HIDDEN = true;
-	publicVariable "RUSSIAN_MARKER_HIDDEN";
 
-	RUSSIAN_MARKER_POS = [0,0];
-	publicVariable "RUSSIAN_MARKER_POS";
-	RUSSIAN_POINTS = 0;
-	publicVariable "RUSSIAN_POINTS";
 	OPFOR_TELEPORT_TARGET = [0, 0];
 	publicVariable "OPFOR_TELEPORT_TARGET";
 	BLUFOR_TELEPORT_TARGET = [0, 0];
@@ -151,21 +145,39 @@ if (isServer) then {
 	BLUFOR_TELEPORTED = false;
 	publicVariable "BLUFOR_TELEPORTED";
 
-	RADIO_PORTABLE = false;
-	publicVariable "RADIO_PORTABLE";
+	// radio box related
+	RADIO_BOX = false;
+	publicVariable "RADIO_BOX";
+	RADIO_BOX_ACTIVE = false;
+	publicVariable "RADIO_BOX_ACTIVE";
+	
+	RADIO_BOX_MARKER_HIDDEN = true;
+	publicVariable "RADIO_BOX_MARKER_HIDDEN";
+	RADIO_BOX_MARKER_POS = [0,0];
+	publicVariable "RADIO_BOX_MARKER_POS";
 
-	RADIO_PORTABLE_ACTIVE = false;
-	publicVariable "RADIO_PORTABLE_ACTIVE";
+	RADIO_BOX_DISTANCE = 0;
+	publicVariable "RADIO_BOX_DISTANCE";
 
+
+	// radio truck related
+	RADIO_TRUCK_MARKER_HIDDEN = true;
+	publicVariable "RADIO_TRUCK_MARKER_HIDDEN";
+	RADIO_TRUCK_MARKER_POS = [0,0];
+	publicVariable "RADIO_TRUCK_MARKER_POS";
+
+	RUSSIAN_POINTS = 0;
+	publicVariable "RUSSIAN_POINTS";
+
+	// civilian traffic
     CIV_KILLED_POS = [0,0,0];
     publicVariable "CIV_KILLED_POS";
-
     CIV_GUNFIGHT_POS = [0,0,0];
 	publicVariable "CIV_GUNFIGHT_POS";
 
+	// replay
 	REPLAY_FINISHED = false;
 	publicVariable "REPLAY_FINISHED";
-
 	REPLAY_SPEED = 0.02;
 	REPLAY_STEPS_PER_TICK = 1;
 

@@ -1,84 +1,3 @@
-
-xxx = createMarkerLocal ["opfor_marker", [0, 0, 0]];
-"opfor_marker" setMarkerShapeLocal "ELLIPSE";
-"opfor_marker" setMarkerTypeLocal "mil_unknown";
-"opfor_marker" setMarkerColorLocal "ColorOpfor";
-"opfor_marker" setMarkerAlphaLocal 0;
-"opfor_marker" setMarkerSizeLocal [1, 1];
-"opfor_marker" setMarkerBrushLocal "SolidFull";
-
-markerAnimationIsRunning = false;
-
-markerAnimation = {
-	private ["_pulseSpeed","_pulsesize","_pulseMaxSize", "_modifier"];
-
-	playSound "beep";
-	if (playerSide == west) then {
-		cutRsc ["gui_intel_paper_us","PLAIN",0];
-	} else {
-		cutRsc ["gui_intel_paper_rus","PLAIN",0];
-	};
-
-	markerAnimationIsRunning = true;
-	_pulsesize = _this select 0;
-	_pulseMaxSize = _this select 1;
-	_pulseSpeed = _this select 2;
-	_modifier = 1;
-
-	
-
-	"opfor_marker" setMarkerAlphaLocal 1;
-	while {!RUSSIAN_MARKER_HIDDEN} do {
-		if (_pulsesize > _pulseMaxSize) then {
-			_pulsesize = 0.01;
-			_modifier = 0.3;
-			if (RADIO_PORTABLE_ACTIVE && RADIO_PORTABLE) then {
-				sleep 4; // if radio is carried or dropped, it sends much slower
-				"opfor_marker" setMarkerColorLocal "ColorGrey";
-				_pulseSpeed = 0.02;
-			};
-			if (RADIO_PORTABLE_ACTIVE && !RADIO_PORTABLE && ((funkwagen getVariable ["tf_range",0]) == 50000)) then {
-				sleep 1;
-				_pulseSpeed = 0.01; // if radio is combined with radio truck, it sends  faster
-				"opfor_marker" setMarkerColorLocal "ColorRed";
-			};
-
-			if (RADIO_PORTABLE_ACTIVE && !RADIO_PORTABLE && ((funkwagen getVariable ["tf_range",0]) != 50000)) then {
-				sleep 4; // if radio is carried or dropped, it sends much slower
-				"opfor_marker" setMarkerColorLocal "ColorGrey";
-				_pulseSpeed = 0.02;
-			};
-			if ((RADIO_PORTABLE && !RADIO_PORTABLE_ACTIVE) || (!RADIO_PORTABLE && !RADIO_PORTABLE_ACTIVE)) then {
-				sleep 1;
-				"opfor_marker" setMarkerColorLocal "ColorOpfor";
-				_pulseSpeed = 0.02;
-			};
-		};
-
-		_pulsesize = _pulsesize + _modifier;
-		_modifier = _modifier + 0.1;
-		"opfor_marker" setMarkerAlphaLocal 1 - (_pulsesize/_pulseMaxSize);
-		"opfor_marker" setMarkerSizeLocal [_pulsesize, _pulsesize];
-		
-		sleep _pulseSpeed;
-	};
-
-	markerAnimationIsRunning = false;
-	call endTransmissionEffects;
-	
-};
-
-ensureMarkerAnimation = {
-	_maxSize = 250; //marker precision (radius)
-	_size = 0.01;
-	_animationSpeed = 0.02;
-
-	if (!markerAnimationIsRunning) then {
-		
-		[_size, _maxSize, _animationSpeed] spawn markerAnimation;
-	};
-};
-
 endTransmissionEffects = {
 	playSound "signal_lost";
 	if (playerSide == west) then {
@@ -89,27 +8,165 @@ endTransmissionEffects = {
 
 };
 
-_RUSSIAN_MARKER_POS_listener = {
-	"opfor_marker" setMarkerPosLocal (_this select 1);
+// create initial markers
+_nul = createMarkerLocal ["radio_truck_marker", [0, 0, 0]];
+"radio_truck_marker" setMarkerShapeLocal "ELLIPSE";
+"radio_truck_marker" setMarkerColorLocal "ColorRed";
+"radio_truck_marker" setMarkerAlphaLocal 0;
+"radio_truck_marker" setMarkerSizeLocal [1, 1];
+"radio_truck_marker" setMarkerBrushLocal "SolidFull";
+
+_nul2 = createMarkerLocal ["radio_box_marker", [0, 0, 0]];
+"radio_box_marker" setMarkerShapeLocal "ELLIPSE";
+"radio_box_marker" setMarkerColorLocal "ColorOpfor";
+"radio_box_marker" setMarkerAlphaLocal 0;
+"radio_box_marker" setMarkerSizeLocal [1, 1];
+"radio_box_marker" setMarkerBrushLocal "SolidFull";
+
+radioTruckMarkerAnimationIsRunning = false;
+radioBoxMarkerAnimationIsRunning = false;
+
+radioTruckMarkerAnimation = {
+	private ["_pulseSpeed","_pulsesize","_pulseMaxSize", "_modifier"];
+
+	playSound "beep";
+	if (playerSide == west) then {
+		cutRsc ["gui_intel_paper_us","PLAIN",0];
+	} else {
+		cutRsc ["gui_intel_paper_rus","PLAIN",0];
+	};
+
+	radioTruckMarkerAnimationIsRunning = true;
+	_pulsesize = _this select 0;
+	_pulseMaxSize = _this select 1;
+	_pulseSpeed = _this select 2;
+	_pulseDelayBetween = _this select 3;
+	_modifier = 1;
+
+	"radio_truck_marker" setMarkerAlphaLocal 1;
+	while {!RADIO_TRUCK_MARKER_HIDDEN} do {
+		if (_pulsesize > _pulseMaxSize) then {
+			_pulsesize = 0.01;
+			_modifier = 0.3;
+			sleep _pulseDelayBetween;
+		};
+
+		_pulsesize = _pulsesize + _modifier;
+		_modifier = _modifier + 0.1;
+		"radio_truck_marker" setMarkerAlphaLocal 1 - (_pulsesize/_pulseMaxSize);
+		"radio_truck_marker" setMarkerSizeLocal [_pulsesize, _pulsesize];
+		
+		sleep _pulseSpeed;
+	};
+
+	radioTruckMarkerAnimationIsRunning = false;
+	call endTransmissionEffects;
+	
 };
 
-_RUSSIAN_MARKER_HIDDEN_listener = {
-	if (_this select 1) then {
-		"opfor_marker" setMarkerAlphaLocal 0;
+radioBoxMarkerAnimation = {
+	private ["_pulseSpeed","_pulsesize","_pulseMaxSize", "_modifier"];
+
+	playSound "beep";
+	if (playerSide == west) then {
+		cutRsc ["gui_intel_paper_us","PLAIN",0];
 	} else {
-		call ensureMarkerAnimation;	
+		cutRsc ["gui_intel_paper_rus","PLAIN",0];
+	};
+
+	radioBoxMarkerAnimationIsRunning = true;
+	_pulsesize = _this select 0;
+	_pulseMaxSize = _this select 1;
+	_pulseSpeed = _this select 2;
+	_pulseDelayBetween = _this select 3;
+	_modifier = 1;
+
+	"radio_box_marker" setMarkerAlphaLocal 1;
+	while {!RADIO_BOX_MARKER_HIDDEN} do {
+		if (_pulsesize > _pulseMaxSize) then {
+			_pulsesize = 0.01;
+			_modifier = 0.3;
+			sleep _pulseDelayBetween;
+		};
+
+		_pulsesize = _pulsesize + _modifier;
+		_modifier = _modifier + 0.1;
+		"radio_box_marker" setMarkerAlphaLocal 1 - (_pulsesize/_pulseMaxSize);
+		"radio_box_marker" setMarkerSizeLocal [_pulsesize, _pulsesize];
+		
+		sleep _pulseSpeed;
+	};
+
+	radioBoxMarkerAnimationIsRunning = false;
+	call endTransmissionEffects;
+	
+};
+
+// 
+ensureRadioTruckMarkerAnimation = {
+	_maxSize = 250; // marker radius
+	_size = 0.01; // intial size
+	_animationSpeed = 0.02; // delay between growth steps
+	_delayBetweenPulse = 0; // delay between cycles
+
+	if (!radioTruckMarkerAnimationIsRunning) then {
+		
+		[_size, _maxSize, _animationSpeed,_delayBetweenPulse] spawn radioTruckMarkerAnimation;
 	};
 };
 
-"RUSSIAN_MARKER_POS" addPublicVariableEventHandler _RUSSIAN_MARKER_POS_listener;
-"RUSSIAN_MARKER_HIDDEN" addPublicVariableEventHandler _RUSSIAN_MARKER_HIDDEN_listener;
+ensureRadioBoxMarkerAnimation = {
+	_maxSize = 150; 
+	_size = 0.01;
+	_animationSpeed = 0.02;
+	_delayBetweenPulse = 1;
+
+	if (!radioBoxMarkerAnimationIsRunning) then {
+		
+		[_size, _maxSize, _animationSpeed,_delayBetweenPulse] spawn radioBoxMarkerAnimation;
+	};
+};
+
+
+
+_RADIO_TRUCK_MARKER_POS_listener = {
+	"radio_truck_marker" setMarkerPosLocal (_this select 1);
+};
+
+_RADIO_TRUCK_MARKER_HIDDEN_listener = {
+	if (_this select 1) then {
+		"radio_truck_marker" setMarkerAlphaLocal 0;
+	} else {
+		call ensureRadioTruckMarkerAnimation;	
+	};
+};
+
+_RADIO_BOX_MARKER_POS_listener = {
+	"radio_box_marker" setMarkerPosLocal (_this select 1);
+};
+
+_RADIO_BOX_MARKER_HIDDEN_listener = {
+	if (_this select 1) then {
+		"radio_box_marker" setMarkerAlphaLocal 0;
+	} else {
+		call ensureRadioBoxMarkerAnimation;	
+	};
+};
+
+"RADIO_TRUCK_MARKER_POS" addPublicVariableEventHandler _RADIO_TRUCK_MARKER_POS_listener;
+"RADIO_TRUCK_MARKER_HIDDEN" addPublicVariableEventHandler _RADIO_TRUCK_MARKER_HIDDEN_listener;
+
+"RADIO_BOX_MARKER_POS" addPublicVariableEventHandler _RADIO_BOX_MARKER_POS_listener;
+"RADIO_BOX_MARKER_HIDDEN" addPublicVariableEventHandler _RADIO_BOX_MARKER_HIDDEN_listener;
 
 // runs in SP to emulate addPublicVariableEventHandler (which doesnt work in SP)
 if (!isMultiplayer) then {
-	[_RUSSIAN_MARKER_HIDDEN_listener, _RUSSIAN_MARKER_POS_listener] spawn {
+	[_RADIO_TRUCK_MARKER_HIDDEN_listener, _RADIO_TRUCK_MARKER_POS_listener, _RADIO_BOX_MARKER_POS_listener, _RADIO_BOX_MARKER_POS_listener] spawn {
 		while {true} do {
-			[0, RUSSIAN_MARKER_HIDDEN] call (_this select 0);
-			[0, RUSSIAN_MARKER_POS] call (_this select 1);
+			[0, RADIO_TRUCK_MARKER_HIDDEN] call (_this select 0);
+			[0, RADIO_TRUCK_MARKER_POS] call (_this select 1);
+			[0, RADIO_BOX_MARKER_HIDDEN] call (_this select 0);
+			[0, RADIO_BOX_MARKER_POS] call (_this select 1);
 			sleep 2;
 		};
 	};

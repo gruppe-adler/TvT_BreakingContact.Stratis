@@ -2,6 +2,7 @@
 /* this file contains notes only */
 //
 
+/// attaching terminal to funkwagen
 
 terminal attachTo [funkwagen,[0.25,-4.8,0]]; // perfect position for endgame terminal to attach on gaz66 142
 
@@ -20,13 +21,21 @@ terminal setObjectTextureGlobal [2, "#(argb,8,8,3)color(0,0,0,0.0,co)"];
 terminal setObjectTextureGlobal [3, "#(argb,8,8,3)color(0,0,0,0.0,co)"];
 terminal setObjectTextureGlobal [4, "#(argb,8,8,3)color(0,0,0,0.0,co)"];
 
+//////// gaz 66 142 mast animations
+
+mast_source // ausfahren
+
+mast_handler // aufgebautes wankeln
+
+condition = "(player == driver this) AND this doorPhase 'mast_source' < 0.01 and (speed this < 1)"; // deploy mast
+statement = "[this,1] spawn rhs_fnc_gaz66_radioDeploy"; // deploy mast action
+
+condition = "(player == driver this) AND this doorPhase 'mast_source' > 0.99"; // fold mast
+statement = "[this,0] spawn rhs_fnc_gaz66_radioDeploy"; // fold mast action
 
 
-
-
-
-
-
+repeated condition: funkwagen doorPhase "mast_source" > 0.01
+statement:  [funkwagen,0] spawn rhs_fnc_gaz66_radioDeploy; hintSilent "cant build up";
 
 
 ///////////////////////
