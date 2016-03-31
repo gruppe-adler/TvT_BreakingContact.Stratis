@@ -2,7 +2,6 @@
 
 forceRespawn player;
 
-CSSA3_forceClose = true;
 if (!isNull (findDisplay 7810)) then {closeDialog 0};
 
 

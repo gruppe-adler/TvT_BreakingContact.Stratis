@@ -142,7 +142,7 @@ sleep 2; // give it time, boy - possible fix for "Undefined variable in expressi
 			[] call bluforCaptured;
 		};
 
-		if (!alive funkwagen && {(funkwagen getVariable ["detachableRadio", 0] == 2)} && {!alive portableRadioBox}) exitWith {
+		if (RADIO_BOX && !alive portableRadioBox) exitWith {
 			[] call bluforCaptured;
 		};
 

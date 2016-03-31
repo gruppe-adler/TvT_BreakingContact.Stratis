@@ -42,7 +42,7 @@ with uiNamespace do {
         sleep 6;
         // (_this select 0) setObjectTextureGlobal [4, "#(argb,8,8,3)color(1,0.2,0,1.0,co)"];
         sleep 1;
-        // (_this select 0) setObjectTextureGlobal [4, "#(argb,8,8,3)color(0,0,0,0.0,co)"];
+        // (_this select 0) setObjectTextureGlobal [0, "#(argb,8,8,3)color(1,1,1,1.0,co)"];
     };
 };
 
