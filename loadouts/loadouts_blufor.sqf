@@ -23,7 +23,7 @@ if ((ISLAND_TARGET_POSITIONS select (ISLANDS find worldName)) select 3) then {
 	];
 
 	blufor_crew_helmet = crew_helmet_d;
-	
+
 };
 
 
@@ -61,7 +61,7 @@ blufor_basic = {
 	[this, "ACE_key_west", 1] call addItemsToUniform;
 	[this, "ACE_MapTools", 1] call addItemsToUniform;
 	[this, "Chemlight_blue", 2] call addItemsToUniform;
-	
+
 
 	[this, "rhsusf_mag_17Rnd_9x19_JHP", 3] call addItemsToUniform;
 
@@ -76,7 +76,7 @@ blufor_basic = {
 };
 
 blufor_default = {
-	
+
 	this = _this select 0;
 
 	comment "Remove existing items";
@@ -90,30 +90,30 @@ blufor_default = {
 	removeGoggles this;
 
 	comment "Add containers";
-	
+
 	this forceAddUniform blufor_uniform;
 	this addVest "rhsusf_iotv_ocp_Squadleader";
 	this addHeadgear (blufor_random_helmet call BIS_fnc_selectRandom);
 	this addBackpack "rhsusf_assault_eagleaiii_coy";
-	
+
 	[this, "rhs_mag_30Rnd_556x45_M855A1_Stanag", 7] call addMagazinesToBackpack;
 	[this, "rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Yellow", 7] call addMagazinesToBackpack;
-	
+
 	[this, "SmokeShell", 1] call addMagazinesToVest;
 	[this, "SmokeShellRed", 1] call addMagazinesToVest;
 	[this, "HandGrenade", 2] call addMagazinesToVest;
 
-	
+
 
 	this addWeapon "Binocular";
 	this addWeapon (blufor_random_primaryweapon call BIS_fnc_selectRandom);
-	this addPrimaryWeaponItem "optic_Aco";
+	this addPrimaryWeaponItem "rhsusf_acc_compm4";
 
 	[this] call blufor_basic;
 };
 
 blufor_sql = {
-	
+
 	this = _this select 0;
 
 	comment "Remove existing items";
@@ -127,16 +127,16 @@ blufor_sql = {
 	removeGoggles this;
 
 	comment "Add containers";
-	
+
 	this forceAddUniform blufor_uniform;
 	this addVest "rhsusf_iotv_ocp_Grenadier";
 	this addHeadgear (blufor_random_helmet call BIS_fnc_selectRandom);
 	this addBackpack "tf_rt1523g_big_bwmod_tropen";
 
-	
+
 
 	[this, "rhs_mag_30Rnd_556x45_M855A1_Stanag", 6] call addMagazinesToVest;
-	
+
 	[this, "SmokeShell", 4] call addMagazinesToVest;
 	[this, "SmokeShellRed", 2] call addMagazinesToVest;
 
@@ -147,12 +147,13 @@ blufor_sql = {
 	[this, "rhs_mag_M585_white", 4] call addMagazinesToBackpack;
 	[this, "rhs_mag_m662_red", 3] call addMagazinesToBackpack;
 	[this, "rhs_mag_m661_green", 3] call addMagazinesToBackpack;
-	
 
+	[this, "rhs_mag_m713_Red", 3] call addMagazinesToBackpack;
+	[this, "rhs_mag_m714_White", 3] call addMagazinesToBackpack;
 
 	this addWeapon "Binocular";
 	this addWeapon "rhs_weap_m4a1_m203";
-	this addPrimaryWeaponItem "optic_Aco";
+	this addPrimaryWeaponItem "rhsusf_acc_compm4";
 	this addPrimaryWeaponItem "acc_flashlight";
 	this linkItem "ItemGPS";
 	this linkItem "ItemMap";
@@ -161,7 +162,7 @@ blufor_sql = {
 };
 
 blufor_ftl = {
-	
+
 	this = _this select 0;
 
 	comment "Remove existing items";
@@ -175,35 +176,38 @@ blufor_ftl = {
 	removeGoggles this;
 
 	comment "Add containers";
-	
+
 	this forceAddUniform blufor_uniform;
 	this addVest "rhsusf_iotv_ocp_Teamleader";
 	this addHeadgear (blufor_random_helmet call BIS_fnc_selectRandom);
 	this addBackpack "tf_rt1523g_big_bwmod_tropen";
 
 	[this] call set_m4a1_ammo;
-	
+
 	[this, "SmokeShell", 4] call addMagazinesToVest;
 	[this, "SmokeShellRed", 2] call addMagazinesToVest;
 
 	[this, "HandGrenade", 2] call addMagazinesToVest;
 
 	[this, "rhs_mag_M585_white", 4] call addMagazinesToBackpack;
-	[this, "rhs_mag_m662_red", 3] call addMagazinesToBackpack;
-	[this, "rhs_mag_m661_green", 3] call addMagazinesToBackpack;
+	[this, "rhs_mag_m662_red", 2] call addMagazinesToBackpack;
+	[this, "rhs_mag_m661_green", 2] call addMagazinesToBackpack;
+
+	[this, "rhs_mag_m713_Red", 3] call addMagazinesToBackpack;
+	[this, "rhs_mag_m714_White", 3] call addMagazinesToBackpack;
 
 	this addWeapon "Binocular";
 	this addWeapon "rhs_weap_m4a1_m203s";
-	this addPrimaryWeaponItem "optic_Aco";
+	this addPrimaryWeaponItem "rhsusf_acc_compm4";
 	this addPrimaryWeaponItem "acc_flashlight";
 	this linkItem "ItemGPS";
-	
+
 	[this] call blufor_basic;
 
 };
 
 blufor_medic = {
-	
+
 	this = _this select 0;
 
 	comment "Remove existing items";
@@ -217,20 +221,20 @@ blufor_medic = {
 	removeGoggles this;
 
 	comment "Add containers";
-	
+
 	this forceAddUniform blufor_uniform;
 	this addVest "rhsusf_iotv_ocp_Medic";
 	this addHeadgear (blufor_random_helmet call BIS_fnc_selectRandom);
 	this addBackpack "rhsusf_assault_eagleaiii_coy";
 
 	[this] call set_m4a1_ammo;
-	
+
 	[this, "SmokeShell", 4] call addMagazinesToVest;
 	[this, "SmokeShellRed", 2] call addMagazinesToVest;
 
 	[this, "HandGrenade", 2] call addMagazinesToBackpack;
 
-	
+
 	[this, "ACE_fieldDressing", 40] call addMagazinesToBackpack;
 	[this, "ACE_Morphine", 20] call addMagazinesToBackpack;
 	[this, "ACE_epinephrine", 20] call addMagazinesToBackpack;
@@ -240,15 +244,15 @@ blufor_medic = {
 
 	this addWeapon "Binocular";
 	this addWeapon (blufor_random_primaryweapon call BIS_fnc_selectRandom);
-	this addPrimaryWeaponItem "optic_Aco";
+	this addPrimaryWeaponItem "rhsusf_acc_compm4";
 
-	
+
 	[this] call blufor_basic;
 
 };
 
 blufor_marksman = {
-	
+
 	this = _this select 0;
 
 	comment "Remove existing items";
@@ -262,11 +266,11 @@ blufor_marksman = {
 	removeGoggles this;
 
 	comment "Add containers";
-	
+
 	this forceAddUniform blufor_uniform;
 	this addVest "rhsusf_iotv_ocp_Rifleman";
 	this addHeadgear (blufor_random_helmet call BIS_fnc_selectRandom);
-	
+
 	[this, "SmokeShell", 1] call addMagazinesToVest;
 	[this, "SmokeShellRed", 1] call addMagazinesToVest;
 	[this, "HandGrenade", 1] call addMagazinesToVest;
@@ -276,14 +280,14 @@ blufor_marksman = {
 	this addPrimaryWeaponItem "rhsusf_acc_ACOG_d";
 	this addPrimaryWeaponItem "rhsusf_acc_harris_bipod";
 
-	
+
 	[this] call blufor_basic;
 	this linkItem "rhs_scarf";
 
 };
 
 blufor_AT = {
-	
+
 	this = _this select 0;
 
 	comment "Remove existing items";
@@ -297,7 +301,7 @@ blufor_AT = {
 	removeGoggles this;
 
 	comment "Add containers";
-	
+
 	this forceAddUniform blufor_uniform;
 	this addVest "rhsusf_iotv_ocp_Repair";
 	this addHeadgear (blufor_random_helmet call BIS_fnc_selectRandom);
@@ -317,13 +321,13 @@ blufor_AT = {
 	this addItemToBackpack "rhs_mag_smaw_HEAA";
 	this addItemToBackpack "rhs_mag_smaw_HEAA";
 
-	
+
 	[this] call blufor_basic;
 
 };
 
 blufor_MG = {
-	
+
 	this = _this select 0;
 
 	comment "Remove existing items";
@@ -337,7 +341,7 @@ blufor_MG = {
 	removeGoggles this;
 
 	comment "Add containers";
-	
+
 	this forceAddUniform blufor_uniform;
 	this addVest "rhsusf_iotv_ocp_Repair";
 	this addHeadgear (blufor_random_helmet call BIS_fnc_selectRandom);
@@ -346,7 +350,7 @@ blufor_MG = {
 
 	[this, "rhs_200rnd_556x45_T_SAW", 1] call addMagazinesToVest;
 	[this, "rhs_200rnd_556x45_M_SAW", 2] call addMagazinesToBackpack;
-	
+
 	[this, "SmokeShell", 2] call addMagazinesToVest;
 	[this, "SmokeShellRed", 2] call addMagazinesToVest;
 	[this, "HandGrenade", 1] call addMagazinesToVest;
@@ -364,7 +368,7 @@ blufor_MG = {
 
 
 blufor_engineer = {
-	
+
 	this = _this select 0;
 
 	comment "Remove existing items";
@@ -378,15 +382,15 @@ blufor_engineer = {
 	removeGoggles this;
 
 	comment "Add containers";
-	
+
 	this forceAddUniform blufor_uniform;
 	this addVest "rhsusf_iotv_ocp_Repair";
 	this addHeadgear (blufor_random_helmet call BIS_fnc_selectRandom);
 	this addBackpack "rhsusf_assault_eagleaiii_coy";
 
-	
+
 	[this] call set_m4a1_ammo;
-	
+
 	[this, "SmokeShell", 2] call addMagazinesToVest;
 	[this, "SmokeShellRed", 2] call addMagazinesToVest;
 	[this, "HandGrenade", 1] call addMagazinesToVest;
@@ -394,14 +398,14 @@ blufor_engineer = {
 
 	this addWeapon "Binocular";
 	this addWeapon (blufor_random_primaryweapon call BIS_fnc_selectRandom);
-	this addPrimaryWeaponItem "optic_Aco";
+	this addPrimaryWeaponItem "rhsusf_acc_compm4";
 
-	
+
 	[this] call blufor_basic;
 };
 
 blufor_crew = {
-	
+
 	this = _this select 0;
 
 	comment "Remove existing items";
@@ -415,23 +419,23 @@ blufor_crew = {
 	removeGoggles this;
 
 	comment "Add containers";
-	
+
 	this forceAddUniform blufor_uniform;
 	this addVest "rhsusf_iotv_ocp";
 	this addHeadgear blufor_crew_helmet;
 	this addBackpack "rhsusf_assault_eagleaiii_coy";
 
 	[this] call set_m4a1_ammo;
-	
+
 	[this, "SmokeShell", 2] call addMagazinesToVest;
 	[this, "SmokeShellRed", 2] call addMagazinesToVest;
 	[this, "HandGrenade", 1] call addMagazinesToVest;
 
 	this addWeapon "Binocular";
 	this addWeapon (blufor_random_primaryweapon call BIS_fnc_selectRandom);
-	this addPrimaryWeaponItem "optic_Aco";
+	this addPrimaryWeaponItem "rhsusf_acc_compm4";
 
-	
+
 	[this] call blufor_basic;
 
 };
@@ -451,15 +455,15 @@ blufor_ammobearer = {
 	removeGoggles this;
 
 	comment "Add containers";
-	
+
 	this forceAddUniform blufor_uniform;
 	this addVest "rhsusf_iotv_ocp_Repair";
 	this addHeadgear (blufor_random_helmet call BIS_fnc_selectRandom);
 	this addBackpack "B_Carryall_khk";
 
-	
+
 	[this] call set_m4a1_ammo;
-	
+
 	[this, "SmokeShell", 2] call addMagazinesToVest;
 	[this, "SmokeShellRed", 2] call addMagazinesToVest;
 	[this, "HandGrenade", 1] call addMagazinesToVest;
@@ -469,8 +473,8 @@ blufor_ammobearer = {
 
 	this addWeapon "Binocular";
 	this addWeapon (blufor_random_primaryweapon call BIS_fnc_selectRandom);
-	this addPrimaryWeaponItem "optic_Aco";
+	this addPrimaryWeaponItem "rhsusf_acc_compm4";
 
-	
+
 	[this] call blufor_basic;
 };

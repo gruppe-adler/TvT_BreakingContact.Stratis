@@ -91,15 +91,16 @@ opfor_sql = {
 
 	[this] call set_akm_ammo;
 
-	[this, "SmokeShell", 4] call addMagazinesToVest; // 1 weiß angekommen
+	[this, "SmokeShell", 2] call addMagazinesToVest; // 1 weiß angekommen
 	[this, "SmokeShellRed", 2] call addMagazinesToVest;
 
 	[this, "rhs_mag_rgd5", 2] call addMagazinesToBackpack; // beide angekommen
 
 	[this, "rhs_GRD40_White", 4] call addMagazinesToBackpack;
-	[this, "rhs_GRD40_Green", 3] call addMagazinesToBackpack;
-	[this, "rhs_GRD40_Red", 3] call addMagazinesToBackpack;
-
+	[this, "rhs_GRD40_Green", 2] call addMagazinesToBackpack;
+	[this, "rhs_GRD40_Red", 2] call addMagazinesToBackpack;
+	[this, "rhs_VG40MD_Green", 3] call addMagazinesToBackpack;
+	[this, "rhs_VG40MD_White", 3] call addMagazinesToBackpack;
 
 	this addWeapon "Binocular";
 	this addWeapon "rhs_weap_akm_gp25";
@@ -138,11 +139,13 @@ opfor_ftl = {
 	[this, "SmokeShell", 4] call addMagazinesToVest;
 	[this, "SmokeShellRed", 2] call addMagazinesToVest;
 
-	[this, "rhs_mag_rgd5", 2] call addMagazinesToBackpack;
+	[this, "rhs_mag_rgd5", 2] call addMagazinesToBackpack; // beide angekommen
 
 	[this, "rhs_GRD40_White", 4] call addMagazinesToBackpack;
-	[this, "rhs_GRD40_Green", 3] call addMagazinesToBackpack;
-	[this, "rhs_GRD40_Red", 3] call addMagazinesToBackpack;
+	[this, "rhs_GRD40_Green", 2] call addMagazinesToBackpack;
+	[this, "rhs_GRD40_Red", 2] call addMagazinesToBackpack;
+	[this, "rhs_VG40MD_Green", 3] call addMagazinesToBackpack;
+	[this, "rhs_VG40MD_White", 3] call addMagazinesToBackpack;
 
 	this addWeapon "Binocular";
 	this addWeapon "rhs_weap_akm_gp25";
