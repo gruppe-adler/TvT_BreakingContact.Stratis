@@ -107,12 +107,12 @@ sleep 2; // give it time, boy - possible fix for "Undefined variable in expressi
 
 		if (_radioTruckIsSending && !_bothAreSending) then {
 			RUSSIAN_POINTS = RUSSIAN_POINTS + 1;
-			diag_log format ["debug: radio truck is sending alone"];
+			// diag_log format ["debug: radio truck is sending alone"];
 		};
 
 		if (!_radioTruckIsSending && _radioBoxIsSending) then {
 			RUSSIAN_POINTS = RUSSIAN_POINTS + 0.5;
-			diag_log format ["debug: radio box is sending alone"];
+			// diag_log format ["debug: radio box is sending alone"];
 		};
 
 		if (_bothAreSending) then {
@@ -126,7 +126,7 @@ sleep 2; // give it time, boy - possible fix for "Undefined variable in expressi
 				publicVariable "RADIO_BOX_DISTANCE";
 			};
 			RUSSIAN_POINTS = RUSSIAN_POINTS + (1 * _modifier);
-			diag_log format ["debug: radio box is sending alone"];
+			// diag_log format ["debug:both are sending"];
 		};
 
 
