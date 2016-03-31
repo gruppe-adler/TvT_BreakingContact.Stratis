@@ -103,7 +103,7 @@ if (isServer) then {
 	case 2: {[1,true] call setCustomWeather;};
 	case 3: {[random 1,true] call setCustomWeather;};
 	default {[0,false] call setCustomWeather;};
-        };
+  };
 	// set time acceleration
 	setTimeMultiplier TIME_ACCELERATION;
 
@@ -150,7 +150,7 @@ if (isServer) then {
 	publicVariable "RADIO_BOX";
 	RADIO_BOX_ACTIVE = false;
 	publicVariable "RADIO_BOX_ACTIVE";
-	
+
 	RADIO_BOX_MARKER_HIDDEN = true;
 	publicVariable "RADIO_BOX_MARKER_HIDDEN";
 	RADIO_BOX_MARKER_POS = [0,0];
@@ -222,7 +222,7 @@ if (isServer) then {
 	 		{
 				if (!isPlayer _x) then {
 					sleep 0.5; 0 = [_x] execVM "loadouts\_client.sqf";
-					_x setVariable ["BIS_noCoreConversations", true]; 
+					_x setVariable ["BIS_noCoreConversations", true];
 				};
 				0 = [_x] execVM "server\adjustInitialSpawnPositionAI.sqf";
 			} forEach allUnits;
@@ -232,7 +232,7 @@ if (isServer) then {
 	 		{
 	 			if (!isPlayer _x) then {
 		 			sleep 0.2;
-		 			_x setVariable ["BIS_noCoreConversations", true]; 
+		 			_x setVariable ["BIS_noCoreConversations", true];
 		 			0 = [_x] execVM "loadouts\_client.sqf";
 					0 = [_x] execVM "server\adjustInitialSpawnPositionAI.sqf";
 	 			};
@@ -312,7 +312,7 @@ if (hasInterface) then {
 
 
 
-	
+
 
 
 	[] execVM "player\setup\helpBriefing.sqf"; diag_log format ["setup: briefing initiated"];
