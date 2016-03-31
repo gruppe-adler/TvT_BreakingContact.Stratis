@@ -2,7 +2,7 @@
 
 
 _RADIO_BOX_DISTANCE_listener = {
-	0 = [RADIO_BOX_DISTANCE] execVM "player\civGunfightMarker.sqf";
+	0 = [RADIO_BOX_DISTANCE] execVM "player\radioBoxDistanceHint.sqf";
 };
 
 "RADIO_BOX_DISTANCE" addPublicVariableEventHandler _RADIO_BOX_DISTANCE_listener;

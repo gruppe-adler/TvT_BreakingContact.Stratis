@@ -170,9 +170,9 @@ if (isServer) then {
 	publicVariable "RUSSIAN_POINTS";
 
 	// civilian traffic
-    CIV_KILLED_POS = [0,0,0];
-    publicVariable "CIV_KILLED_POS";
-    CIV_GUNFIGHT_POS = [0,0,0];
+  CIV_KILLED_POS = [0,0,0];
+  publicVariable "CIV_KILLED_POS";
+  CIV_GUNFIGHT_POS = [0,0,0];
 	publicVariable "CIV_GUNFIGHT_POS";
 
 	// replay
@@ -209,11 +209,11 @@ if (isServer) then {
 	[] execVM "server\russianMarker.sqf";
 	[] execVM "server\radioBoxDistanceListener.sqf";
  	[] execVM "server\teleportListener.sqf";
-    [] execVM "server\civKillListener.sqf";
-    [] execVM "server\civGunfightListener.sqf";
+  [] execVM "server\civKillListener.sqf";
+  [] execVM "server\civGunfightListener.sqf";
 
-    // VCOM driving AI
-    [] execVM "VCOM_Driving\init.sqf";
+  // VCOM driving AI
+  [] execVM "VCOM_Driving\init.sqf";
 
  	call compile preprocessFileLineNumbers "server\spawnBluforHQ.sqf";
 
@@ -278,7 +278,6 @@ if (hasInterface) then {
 			else {
 				[BLUFOR_TELEPORT_TARGET, 50] execVM "player\teleportPlayer.sqf";
 			};
-
 		};
 	};
 
@@ -309,16 +308,7 @@ if (hasInterface) then {
 		};
 	};
 
-
-
-
-
-
-
 	[] execVM "player\setup\helpBriefing.sqf"; diag_log format ["setup: briefing initiated"];
-
-
-
 
 	[] execVM "player\allXXXSurrenderedListener.sqf"; diag_log format ["setup: surrenderlistener initiated"];
 	// [player] execVM "loadouts\_client.sqf";
@@ -329,7 +319,6 @@ if (hasInterface) then {
 		showSubtitles false;
 		0 fadeRadio 0;
 	};
-
 
 	[] execVM "spawn\hedgehogAssemblingSystem.sqf";
 	[] execVM "spawn\assaultBoatAssemblingSystem.sqf";
@@ -354,10 +343,8 @@ if (hasInterface) then {
 		player setVariable ["radioAttached",false]; // for use in detaching radio from radio truck
 	};
 
-
 	//player addEventHandler ["WeaponAssembled", {[_this select 1] execVM "helpers\nerfDrone.sqf"}];		//Darter
 	[] execVM "helpers\nerfRaven.sqf";																		//Raven
-
 
 	/*waitUntil {!isNull player && !isNil "ST_STHud_ToRestart"};
 	// disable sthud for intro

@@ -53,20 +53,21 @@ setRadioTruckMarkerStatus = {
 	if (MISSION_COMPLETED) then {RADIO_TRUCK_MARKER_HIDDEN = true;};
 	if (!alive funkwagen) then {RADIO_TRUCK_MARKER_HIDDEN = true;};
 	if (!([RADIO_TRUCK_MARKER_HIDDEN, _previous] call booleanEqual)) then {
-		publicVariable "RADIO_TRUCK_MARKER_HIDDEN";
+		 publicVariable "RADIO_TRUCK_MARKER_HIDDEN";
 	};
 };
 
 setRadioTruckMarkerPosition = {
 	_prev = RADIO_TRUCK_MARKER_POS;
 	RADIO_TRUCK_MARKER_POS = _this;
-	if ((_prev select 0 != RADIO_TRUCK_MARKER_POS select 0) || (_prev select 1 != RADIO_TRUCK_MARKER_POS select 1)) then { // TODO um arrays zu vergleichen  gibts doch bsetimmt ne schönere funktion
-		publicVariable "RADIO_TRUCK_MARKER_POS";
+	if ((_prev select 0 != RADIO_TRUCK_MARKER_POS select 0) ||
+		 (_prev select 1 != RADIO_TRUCK_MARKER_POS select 1)) then {
+		 publicVariable "RADIO_TRUCK_MARKER_POS";
 	};
 };
 
 
-// radio box functions 
+// radio box functions
 setRadioBoxMarkerStatus = {
 	_previous = RADIO_BOX_MARKER_HIDDEN;
 	RADIO_BOX_MARKER_HIDDEN = _this;
@@ -80,8 +81,9 @@ setRadioBoxMarkerStatus = {
 setRadioBoxMarkerPosition = {
 	_prev = RADIO_BOX_MARKER_POS;
 	RADIO_BOX_MARKER_POS = _this;
-	if ((_prev select 0 != RADIO_BOX_MARKER_POS select 0) || (_prev select 1 != RADIO_BOX_MARKER_POS select 1)) then { // TODO um arrays zu vergleichen  gibts doch bsetimmt ne schönere funktion
-		publicVariable "RADIO_BOX_MARKER_POS";
+	if ((_prev select 0 != RADIO_BOX_MARKER_POS select 0) ||
+		 (_prev select 1 != RADIO_BOX_MARKER_POS select 1)) then {
+		 publicVariable "RADIO_BOX_MARKER_POS";
 	};
 };
 
@@ -104,7 +106,14 @@ sleep 2; // give it time, boy - possible fix for "Undefined variable in expressi
 
 		if (_radioTruckIsSending && !_bothAreSending) then {
 			RUSSIAN_POINTS = RUSSIAN_POINTS + 1;
+			diag_log format ["debug: radio truck is sending alone"];
 		};
+
+		if (!_radioTruckIsSending && _radioBoxIsSending) then {
+			RUSSIAN_POINTS = RUSSIAN_POINTS + 0.5;
+			diag_log format ["debug: radio box is sending alone"];
+		};
+
 		if (_radioTruckIsSending && _bothAreSending) then {
 			_tempModifier = _modifier;
 			_modifier = call distanceToRadioNerf;
@@ -113,9 +122,11 @@ sleep 2; // give it time, boy - possible fix for "Undefined variable in expressi
 				RADIO_BOX_DISTANCE = _modifier * 100;
 				publicVariable "RADIO_BOX_DISTANCE";
 			};
-
-			RUSSIAN_POINTS = RUSSIAN_POINTS * _modifier;
+			RUSSIAN_POINTS = RUSSIAN_POINTS + (1 * _modifier);
+			diag_log format ["debug: radio box is sending alone"];
 		};
+
+
 
 		!_radioTruckIsSending call setRadioTruckMarkerStatus;
 		!_radioBoxIsSending call setRadioBoxMarkerStatus;
@@ -140,8 +151,6 @@ sleep 2; // give it time, boy - possible fix for "Undefined variable in expressi
 			[getPos portableRadioBox select 0, getPos portableRadioBox select 1] call setRadioBoxMarkerPosition;
 			// diag_log format ["logging portableRadioBox: %1", portableRadioBox];
 		};
-		
-
 		sleep 1;
 	};
 };
