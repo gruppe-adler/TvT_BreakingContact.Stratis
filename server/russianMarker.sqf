@@ -22,8 +22,8 @@ radioBoxIsSending = {
 // get multiplier for distance penalty radio box to truck
 distanceToRadioNerf = {
 	_mod = 1;
-	if ((RADIO_BOX_DISTANCE > 50) && (RADIO_BOX_DISTANCE < 500)) then {
-		_substractor = RADIO_BOX_DISTANCE/1000;
+	if ((funkwagen distance portableRadioBox > 50) && (funkwagen distance portableRadioBox < 500)) then {
+		_substractor = (funkwagen distance portableRadioBox)/1000;
 		// round value
 		_substractor = _substractor * 100;
 		_substractor = floor (_substractor);
@@ -31,7 +31,7 @@ distanceToRadioNerf = {
 
 		_mod = _mod - _substractor;
 	};
-	if (RADIO_BOX_DISTANCE >= 500) then {
+	if ((funkwagen distance portableRadioBox) >= 500) then {
 		_mod = 0.5;
 	};
 	_mod
@@ -99,6 +99,7 @@ setRadioBoxMarkerPosition = {
 sleep 2; // give it time, boy - possible fix for "Undefined variable in expression: radioTruckIsSending"
 
 [] spawn {
+	_modifier = 1;
 	while {true} do { // could be optimized and synced to real time - b/c as it is, there WILL be delays
 		_radioTruckIsSending = call radioTruckIsSending;
 		_radioBoxIsSending = call radioBoxIsSending;
@@ -114,9 +115,11 @@ sleep 2; // give it time, boy - possible fix for "Undefined variable in expressi
 			diag_log format ["debug: radio box is sending alone"];
 		};
 
-		if (_radioTruckIsSending && _bothAreSending) then {
+		if (_bothAreSending) then {
 			_tempModifier = _modifier;
 			_modifier = call distanceToRadioNerf;
+
+
 			// check if distance changed, if yes, broadcast for client hint
 			if (_modifier != _tempModifier) then {
 				RADIO_BOX_DISTANCE = _modifier * 100;
