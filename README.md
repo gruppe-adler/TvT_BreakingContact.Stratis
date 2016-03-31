@@ -12,7 +12,7 @@ They can switch the signal on and off, and move about as they please.
 
 ## Mods
 
-TFAR, ACE3, RHSAFRF and RHSUSF mods are required. 
+TFAR, ACE3, RHSAFRF and RHSUSF mods are required. RDS_CIV is optional (required for param "civilian traffic")
 
 # Administration
 
