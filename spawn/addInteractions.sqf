@@ -46,13 +46,13 @@ _destroyActionPortableRadio = ["usDestroyMenuPortable", (localize "str_GRAD_dest
  {
  [4, [_this select 0], {
     ((_this select 0) select 0) setVariable ["detachableRadio", 2, true];
-    
-      
+
+
       detach portableRadioBox;
       portableRadioBox setPos [getPos portableRadioBox select 0, getPos portableRadioBox select 1, 0];
       RADIO_BOX = true; publicVariable "RADIO_BOX";
-     
-      [[portableRadioBox, true, [0,1,0], 180], "ace_dragging_fnc_setdraggable", true, true] call BIS_fnc_MP;
+
+      [[portableRadioBox, true, [0,1.4,0], 270], "ace_dragging_fnc_setdraggable", true, true] call BIS_fnc_MP;
  }, {hint "Cancelled action"}, (localize "str_GRAD_detaching_radio")] call ace_common_fnc_progressBar;
  },
   {side player == east && ((_this select 0) getVariable ["detachableRadio", 0] == 1)}] call ace_interact_menu_fnc_createAction;
@@ -123,8 +123,8 @@ waitUntil {!isNil "portableRadioBox"};
 
       [[portableRadioBox, false, [0,1,0], 180], "ace_dragging_fnc_setdraggable", true, true] call BIS_fnc_MP;
       RADIO_BOX = false; publicVariable "RADIO_BOX";
-      portableRadioBox attachTo [funkwagen,[0.5,-4.85,0]];  
-      portableRadioBox setVectorDirAndUp [[0,1,0.3],[0,0,0.7]];  
+      portableRadioBox attachTo [funkwagen,[0.5,-4.85,0]];
+      portableRadioBox setVectorDirAndUp [[0,1,0.3],[0,0,0.7]];
 
    }, {hint "Cancelled action"}, (localize "str_GRAD_attaching_radio")] call ace_common_fnc_progressBar;
    },

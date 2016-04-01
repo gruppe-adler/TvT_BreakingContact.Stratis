@@ -38,7 +38,7 @@
 				<German>Bedienung</German>
 			</Key>
 			<Key ID="str_GRAD_ravenUsage">
-				<Original>					
+				<Original>
 					&lt;font size='20' color='#c0c0c0'&gt;Launch&lt;/font&gt;&lt;br/&gt;
 					&lt;br/&gt;1. Place backpack on the ground.&lt;br/&gt;2. Assemble RQ-11 Raven.&lt;br/&gt;3. Pick up the drone and launch it.
 					&lt;br/&gt;4. Use the GCS or pick it up. Anyone can carry it, but only the soldier who launched the drone can use it.
@@ -74,7 +74,7 @@
 					&lt;br/&gt;* J   - display controls on-screen
 					&lt;br/&gt;* G   - close camera feed
 				</English>
-				<German>					
+				<German>
 					&lt;font size='20' color='#c0c0c0'&gt;Start&lt;/font&gt;&lt;br/&gt;
 					&lt;br/&gt;1. Rucksack auf den Boden legen.&lt;br/&gt;2. RQ-11 Raven zusammenbauen.&lt;br/&gt;3. Drohne aufheben und starten.
 					&lt;br/&gt;4. GCS benutzen oder mitnehmen. Jeder kann das GCS tragen, aber nur wer die Drohne gestartet hat kann es benutzen.
@@ -327,6 +327,11 @@
 				<Original>Drop radio unit</Original>
 				<English>Drop radio unit</English>
 				<German>Sendeeinheit ablegen</German>
+			</Key>
+			<Key ID="str_GRAD_radio_signalstrength">
+				<Original>Signal strength to relay is now </Original>
+				<English>Signal strength to relay is now </English>
+				<German>Sendestärke ist nun </German>
 			</Key>
 		</Container>
 	</Package>

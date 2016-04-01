@@ -1,6 +1,6 @@
 #include "\z\ace\addons\main\script_component.hpp"
 
-forceRespawn player;
+// forceRespawn player;
 
 if (!isNull (findDisplay 7810)) then {closeDialog 0};
 

@@ -21,9 +21,10 @@ radioBoxIsSending = {
 
 // get multiplier for distance penalty radio box to truck
 distanceToRadioNerf = {
+	_distance = _this select 0;
 	_mod = 1;
-	if ((funkwagen distance portableRadioBox > 50) && (funkwagen distance portableRadioBox < 500)) then {
-		_substractor = (funkwagen distance portableRadioBox)/1000;
+	if ((_distance > 50) && (_distance < 500)) then {
+		_substractor = (_distance)/1000;
 		// round value
 		_substractor = _substractor * 100;
 		_substractor = floor (_substractor);
@@ -31,10 +32,10 @@ distanceToRadioNerf = {
 
 		_mod = _mod - _substractor;
 	};
-	if ((funkwagen distance portableRadioBox) >= 500) then {
+	if (_distance >= 500) then {
 		_mod = 0.5;
 	};
-	_mod
+	[_mod,_distance]
 };
 
 
@@ -99,7 +100,7 @@ setRadioBoxMarkerPosition = {
 sleep 2; // give it time, boy - possible fix for "Undefined variable in expression: radioTruckIsSending"
 
 [] spawn {
-	_modifier = 1;
+	_distanceToRadioTruck = [1,0];
 	while {true} do { // could be optimized and synced to real time - b/c as it is, there WILL be delays
 		_radioTruckIsSending = call radioTruckIsSending;
 		_radioBoxIsSending = call radioBoxIsSending;
@@ -116,12 +117,13 @@ sleep 2; // give it time, boy - possible fix for "Undefined variable in expressi
 		};
 
 		if (_bothAreSending) then {
-			_tempModifier = _modifier;
-			_modifier = call distanceToRadioNerf;
-
+			_tempDistance = _distanceToRadioTruck;
+			_result = [funkwagen distance portableRadioBox] call distanceToRadioNerf;
+			_modifier = _result select 0;
+			_distanceToRadioTruck = _result select 1;
 
 			// check if distance changed, if yes, broadcast for client hint
-			if (_modifier != _tempModifier) then {
+			if (_distanceToRadioTruck != _tempDistance) then {
 				RADIO_BOX_DISTANCE = _modifier * 100;
 				publicVariable "RADIO_BOX_DISTANCE";
 			};

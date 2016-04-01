@@ -11,7 +11,7 @@ if (_winningSide == blufor) then {
 };
 
 MISSION_COMPLETED = true; publicVariable "MISSION_COMPLETED";
-
+[player, true] call TFAR_fnc_forceSpectator;
 waitUntil {REPLAY_FINISHED};
 
 [{openMap [false,false];},"BIS_fnc_spawn",true,true] call BIS_fnc_MP;

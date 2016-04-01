@@ -45,17 +45,17 @@ setSpawnedDirection = {
 	diag_log format ["Calculating Spawnposis: Roads %1 and %2 found.",_road1, _road2];
 
 	if (!isNil "_road1") then {
-	_roadConnectedTo1 = roadsConnectedTo _road1;  
+	_roadConnectedTo1 = roadsConnectedTo _road1;
 	if (isNil "_roadconnectedto1") exitWith {};
- 	_connectedRoad1 = _roadConnectedTo1 select 0;  
+ 	_connectedRoad1 = _roadConnectedTo1 select 0;
  	_direction1 = [_road1, _connectedRoad1] call BIS_fnc_DirTo;
  	};
 
  	if (!isNil "_road2") then {
-	_roadConnectedTo2 = roadsConnectedTo _road2;  
+	_roadConnectedTo2 = roadsConnectedTo _road2;
 	if (isNil "_roadconnectedto2") exitWith {};
- 	_connectedRoad2 = _roadConnectedTo2 select 0;  
- 	_direction2 = [_road2, _connectedRoad2] call BIS_fnc_DirTo; 
+ 	_connectedRoad2 = _roadConnectedTo2 select 0;
+ 	_direction2 = [_road2, _connectedRoad2] call BIS_fnc_DirTo;
 	};
 
 	if (!isNil "_direction1") then {
@@ -73,7 +73,7 @@ getMapSize = {
 	// check for arma3 map size
 	_mapSizeDetected = worldSize;
 	_mapSizeDetectedKnown = true;
-		
+
 	// check for utes/chernarus
 	if (_mapSizeDetected < 2000) then {
 	_mapSizeDetected = getNumber (configFile>>"CfgWorlds">>worldName>>"grid">>"zoom1">>"stepX")*(parseNumber mapGridPosition [0,0,0]);
@@ -100,7 +100,7 @@ testSpawnPositions = {
 	_items = _this select 1;
 	_distance = _this select 2;
 	_result = [2,nil,nil];
-	
+
 	_mapSizeArray = [] call getMapSize;
 	_mapSize = _mapSizeArray select 0;
 	_mapSizeKnown = _mapSizeArray select 1;
@@ -111,23 +111,23 @@ testSpawnPositions = {
 	_testPos1 = [_center,[_distance,_distance], random 360,0,[1,500]] call SHK_pos;
 	if (count _testPos1 < 1) exitWith {_result = [1,nil,nil];};
 
-	// if map size is known and spawn position is outside map, result is 1 
+	// if map size is known and spawn position is outside map, result is 1
 	if (!([_mapSize, _testPos1] call checkInsideMap) && _mapSizeKnown) exitWith {_result = [1,nil,nil]; diag_log format ["Calculating Spawnpos: Outside Map."]; _result };
-	
 
-	if ([_testPos1, 5] call get_slope > 0.5) exitWith {_result = [1,nil,nil]; diag_log format ["Calculating SpawnposHQ: Not flat enough."]; _result };
+
+	if ([_testPos1, 5] call get_slope > 0.7) exitWith {_result = [1,nil,nil]; diag_log format ["Calculating SpawnposHQ: Not flat enough."]; _result };
 
 
 	_testVehicle1 = (_items select 0) createVehicleLocal _testPos1;
 
 
-	_testPos2 = [_testPos1,[20,50], random 360,0,[1,200]] call SHK_pos;
-	if (count _testPos2 < 1) exitWith {_result = [1,nil,nil]; diag_log format ["Calculating Spawnpos: No matching second pos."]; _result};	
+	_testPos2 = [_testPos1,[20,60], random 360,0,[1,200]] call SHK_pos;
+	if (count _testPos2 < 1) exitWith {_result = [1,nil,nil]; diag_log format ["Calculating Spawnpos: No matching second pos."]; _result};
 	if (_testPos1 distance _testPos2 < 10) exitWith {deleteVehicle _testVehicle1; _result = [1,nil,nil]; diag_log format ["Calculating Spawnpos: HQ too close on marker."]; _result};
 
 	if (_testPos1 distance OPFOR_TELEPORT_TARGET < _distance) exitWith {deleteVehicle _testVehicle1; _result = [1,nil,nil]; diag_log format ["Calculating Spawnpos: HQ too close to OPFOR."]; _result};
-		
-	if ([_testPos2, 5] call get_slope > 0.5) exitWith {deleteVehicle _testVehicle1;_result = [1,nil,nil]; diag_log format ["Calculating SpawnposPad: Not flat enough."]; _result};
+
+	if ([_testPos2, 5] call get_slope > 0.7) exitWith {deleteVehicle _testVehicle1;_result = [1,nil,nil]; diag_log format ["Calculating SpawnposPad: Not flat enough."]; _result};
 
 	_testVehicle2 = (_items select 1) createVehicleLocal _testPos2;
 
@@ -145,32 +145,32 @@ spawnBluforHQ = {
 	_bluforCenterPosition = _this select 0;
 	_bluforDistance = _this select 1;
 	_waitingForBluforSpawn = true;
-	
+
 	// woodland camo?
     if ((ISLAND_TARGET_POSITIONS select (ISLANDS find worldName)) select 3) then {
-       hmmwv_hq = "rhsusf_m998_w_4dr";     
+       hmmwv_hq = "rhsusf_m998_w_4dr";
     } else {
        hmmwv_hq = "rhsusf_m998_d_4dr";
     };
     _startTime = time;
-   
+
 
 	while {_waitingForBluforSpawn} do {
 		_bluforSpawnSuccess = [0,nil,nil];
 		if (time > (_startTime + 60)) then {
-			diag_log format ["fatal error : no blufor spawnpad position found. reducing spawn radius..."]; 
+			diag_log format ["fatal error : no blufor spawnpad position found. reducing spawn radius..."];
 			[{hintSilent "F A T A L   E R R O R:  no blufor spawn position found, reducing spawn radius...";},"BIS_fnc_spawn",true,true] call BIS_fnc_MP;
 			_bluforDistance = _bluforDistance - 1000;
 		};
 		if (time > (_startTime + 120)) then {
-			diag_log format ["fatal error : no blufor spawnpad position found. reducing spawn radius..."]; 
+			diag_log format ["fatal error : no blufor spawnpad position found. reducing spawn radius..."];
 			[{hintSilent "F A T A L   E R R O R:  no blufor spawn position found, reducing spawn radius...";},"BIS_fnc_spawn",true,true] call BIS_fnc_MP;
 			_bluforDistance = _bluforDistance - 1000;
 		};
 		if (time > (_startTime + 180)) exitWith {
-			diag_log format ["fatal error : no blufor spawnpad position found. please restart."]; 
+			diag_log format ["fatal error : no blufor spawnpad position found. please restart."];
 			[{hintSilent "F A T A L   E R R O R:  no blufor spawnpad position found. please restart.";},"BIS_fnc_spawn",true,true] call BIS_fnc_MP;
-			
+
 		};
 
 		_bluforSpawnSuccess = [_bluforCenterPosition, [hmmwv_hq,"Land_HelipadCivil_F"], _bluforDistance] call testSpawnPositions;
@@ -231,9 +231,9 @@ spawnOpforHQ = {
 		_opforSpawnSuccess = [0,nil,nil];
 
 		if (time > (_startTime + 240)) exitWith {
-			diag_log format ["fatal error : no opfor spawnpad position found. please restart."]; 
+			diag_log format ["fatal error : no opfor spawnpad position found. please restart."];
 			[{hintSilent "F A T A L   E R R O R:  no opfor spawnpad position found. please restart.";},"BIS_fnc_spawn",true,true] call BIS_fnc_MP;
-			
+
 		};
 
 		// landclutter instead of building - dummy object

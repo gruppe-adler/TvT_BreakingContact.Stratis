@@ -1,7 +1,8 @@
 #include "\z\ace\addons\main\script_component.hpp"
 
 [] execVM "GRAD_replay\playback\preparePlayback.sqf";
-[true] call ace_spectator_fnc_setSpectator;
+[player, true] call TFAR_fnc_forceSpectator;
+player enableSimulationGlobal false;
 
 if (isServer || isDedicated) then {
 
@@ -173,17 +174,16 @@ if (isServer || isDedicated) then {
 
 		if (!(local_recording_counter < local_recording_length)) exitWith {
 			[{["Replay finished."] call EFUNC(common,displayTextStructured);},"BIS_fnc_spawn",true,true] call BIS_fnc_MP;
+			sleep 5;
 			[{openMap [false,true];},"BIS_fnc_spawn",true,true] call BIS_fnc_MP;
 
 			REPLAY_FINISHED = true; publicVariable "REPLAY_FINISHED";
-			[false] call ace_spectator_fnc_setSpectator;
-			player enableSimulation false;
 		};
-		
+
 		sleep REPLAY_SPEED;
 
 		};
 	};
-	
+
 	[] spawn iterateRecording;
 };
