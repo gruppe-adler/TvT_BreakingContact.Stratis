@@ -125,7 +125,7 @@ testSpawnPositions = {
 	if (count _testPos2 < 1) exitWith {_result = [1,nil,nil]; diag_log format ["Calculating Spawnpos: No matching second pos."]; _result};
 	if (_testPos1 distance _testPos2 < 10) exitWith {deleteVehicle _testVehicle1; _result = [1,nil,nil]; diag_log format ["Calculating Spawnpos: HQ too close on marker."]; _result};
 
-	if (_testPos1 distance OPFOR_TELEPORT_TARGET < _distance) exitWith {deleteVehicle _testVehicle1; _result = [1,nil,nil]; diag_log format ["Calculating Spawnpos: HQ too close to OPFOR."]; _result};
+	// if (_testPos1 distance OPFOR_TELEPORT_TARGET < _distance) exitWith {deleteVehicle _testVehicle1; _result = [1,nil,nil]; diag_log format ["Calculating Spawnpos: HQ too close to OPFOR."]; _result};
 
 	if ([_testPos2, 5] call get_slope > 0.7) exitWith {deleteVehicle _testVehicle1;_result = [1,nil,nil]; diag_log format ["Calculating SpawnposPad: Not flat enough."]; _result};
 

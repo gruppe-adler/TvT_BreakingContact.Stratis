@@ -8,7 +8,7 @@ fnc_deleteTestObj = {
 			deleteVehicle _this;
 		};
 	}];
-	_this setDamage 1; 
+	_this setDamage 1;
 };
 
 _smoke = "#particlesource" createVehicle position (_this select 0);
@@ -29,3 +29,6 @@ _ex = createVehicle [
             _ex setVelocity [0,0,-1000];
             deleteVehicle (_this select 0);
             deleteVehicle terminal2;
+
+sleep 5;
+[] call bluforCaptured;

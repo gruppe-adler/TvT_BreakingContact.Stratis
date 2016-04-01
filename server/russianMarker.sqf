@@ -146,9 +146,6 @@ sleep 2; // give it time, boy - possible fix for "Undefined variable in expressi
 			[] call bluforCaptured;
 		};
 
-		if (RADIO_BOX && !alive portableRadioBox) exitWith {
-			[] call bluforCaptured;
-		};
 
 		if (!RADIO_BOX_ACTIVE) then {
 			[getPos funkwagen select 0, getPos funkwagen select 1] call setRadioTruckMarkerPosition;
