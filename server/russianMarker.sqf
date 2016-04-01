@@ -125,7 +125,7 @@ sleep 2; // give it time, boy - possible fix for "Undefined variable in expressi
 			_distanceToRadioTruck = _result select 1;
 
 			// check if distance changed, if yes, broadcast for client hint
-			if ((_distanceToRadioTruck != _tempDistance) || (_modifier != _tempModifier))) then {
+			if ((_distanceToRadioTruck != _tempDistance) || (_modifier != _tempModifier)) then {
 				RADIO_BOX_DISTANCE = _modifier * 100;
 				publicVariable "RADIO_BOX_DISTANCE";
 			};
