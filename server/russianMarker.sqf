@@ -117,7 +117,7 @@ sleep 2; // give it time, boy - possible fix for "Undefined variable in expressi
 		};
 
 		if (_bothAreSending) then {
-			_tempDistance = _distanceToRadioTruck;
+			_tempDistance = _distanceToRadioTruck select 1;
 			_result = [funkwagen distance portableRadioBox] call distanceToRadioNerf;
 			_modifier = _result select 0;
 			_distanceToRadioTruck = _result select 1;
