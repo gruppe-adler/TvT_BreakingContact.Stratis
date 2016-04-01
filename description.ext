@@ -13,7 +13,6 @@ loadScreen = "pic\loading.jpg";
 respawnDelay = 9999999;
 
 respawn = 3;
-respawnTemplates[] = {"ace_spectator"};
 
 
 
