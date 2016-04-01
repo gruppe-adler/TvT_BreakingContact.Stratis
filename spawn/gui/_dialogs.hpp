@@ -209,7 +209,7 @@ class russianSupplyGUI
 				h = 6 * GUI_GRID_H;
 				text = "spawn\gui\pic\rus_carryradio.paa";
 			};
-			
+
 			class russian_gui_text_namedisplay_1: RscStructuredText
 			{
 				idc = 1101;
@@ -491,7 +491,7 @@ class russianSupplyGUI
 				y = 3.5 * GUI_GRID_H + GUI_GRID_Y;
 				w = 7 * GUI_GRID_W;
 				h = 12 * GUI_GRID_H;
-				colorBackground[] = {0,0,0,0.8}; 
+				colorBackground[] = {0,0,0,0.8};
 				text = "loading";
 				size = 0.028;
 				onMouseEnter = "disableSerialization; [1000,1801] execVM 'spawn\gui\showControl.sqf';";
@@ -504,7 +504,7 @@ class russianSupplyGUI
 				y = 3.5 * GUI_GRID_H + GUI_GRID_Y;
 				w = 7 * GUI_GRID_W;
 				h = 12 * GUI_GRID_H;
-				colorBackground[] = {0,0,0,0.8}; 
+				colorBackground[] = {0,0,0,0.8};
 				text = "loading";
 				size = 0.028;
 				onMouseEnter = "disableSerialization; [1000,1802] execVM 'spawn\gui\showControl.sqf';";
@@ -517,7 +517,7 @@ class russianSupplyGUI
 				y = 3.5 * GUI_GRID_H + GUI_GRID_Y;
 				w = 7 * GUI_GRID_W;
 				h = 12 * GUI_GRID_H;
-				colorBackground[] = {0,0,0,0.8}; 
+				colorBackground[] = {0,0,0,0.8};
 				text = "loading";
 				size = 0.028;
 				onMouseEnter = "disableSerialization; [1000,1803] execVM 'spawn\gui\showControl.sqf';";
@@ -530,7 +530,7 @@ class russianSupplyGUI
 				y = 3.5 * GUI_GRID_H + GUI_GRID_Y;
 				w = 7 * GUI_GRID_W;
 				h = 12 * GUI_GRID_H;
-				colorBackground[] = {0,0,0,0.8}; 
+				colorBackground[] = {0,0,0,0.8};
 				text = "loading";
 				size = 0.028;
 				onMouseEnter = "disableSerialization; [1000,1804] execVM 'spawn\gui\showControl.sqf';";
@@ -543,7 +543,7 @@ class russianSupplyGUI
 				y = 3.5 * GUI_GRID_H + GUI_GRID_Y;
 				w = 7 * GUI_GRID_W;
 				h = 12 * GUI_GRID_H;
-				colorBackground[] = {0,0,0,0.8}; 
+				colorBackground[] = {0,0,0,0.8};
 				text = "loading";
 				size = 0.028;
 				onMouseEnter = "disableSerialization; [1000,1805] execVM 'spawn\gui\showControl.sqf';";
@@ -556,7 +556,7 @@ class russianSupplyGUI
 				y = 3.5 * GUI_GRID_H + GUI_GRID_Y;
 				w = 7 * GUI_GRID_W;
 				h = 12 * GUI_GRID_H;
-				colorBackground[] = {0,0,0,0.8}; 
+				colorBackground[] = {0,0,0,0.8};
 				text = "loading";
 				size = 0.028;
 				onMouseEnter = "disableSerialization; [1000,1806] execVM 'spawn\gui\showControl.sqf';";
@@ -569,7 +569,7 @@ class russianSupplyGUI
 				y = 3.5 * GUI_GRID_H + GUI_GRID_Y;
 				w = 7 * GUI_GRID_W;
 				h = 12 * GUI_GRID_H;
-				colorBackground[] = {0,0,0,0.8}; 
+				colorBackground[] = {0,0,0,0.8};
 				text = "loading";
 				size = 0.028;
 				onMouseEnter = "disableSerialization; [1000,1807] execVM 'spawn\gui\showControl.sqf';";
@@ -582,7 +582,7 @@ class russianSupplyGUI
 				y = 3.5 * GUI_GRID_H + GUI_GRID_Y;
 				w = 7 * GUI_GRID_W;
 				h = 12 * GUI_GRID_H;
-				colorBackground[] = {0,0,0,0.8}; 
+				colorBackground[] = {0,0,0,0.8};
 				text = "loading";
 				size = 0.028;
 				onMouseEnter = "disableSerialization; [1000,1808] execVM 'spawn\gui\showControl.sqf';";
@@ -616,7 +616,7 @@ class russianSupplyGUI
 			{
 				idc = 1701;
 				text = $STR_GRAD_buy_disable;
-				x = 32.5 * GUI_GRID_W + GUI_GRID_X;
+				x = 34.5 * GUI_GRID_W + GUI_GRID_X;
 				y = 1 * GUI_GRID_H + GUI_GRID_Y;
 				w = 10 * GUI_GRID_W;
 				h = 1.5 * GUI_GRID_H;
@@ -632,9 +632,9 @@ class russianSupplyGUI
 			{
 				idc = -1;
 				text = $STR_GRAD_buy_exit;
-				x = 43.5 * GUI_GRID_W + GUI_GRID_X;
+				x = 45.75 * GUI_GRID_W + GUI_GRID_X;
 				y = 1 * GUI_GRID_H + GUI_GRID_Y;
-				w = 5 * GUI_GRID_W;
+				w = 7 * GUI_GRID_W;
 				h = 1.5 * GUI_GRID_H;
 				colorText[] = {1,1,1,0.5};
 				colorBackground[] = {0,0,0,1};
@@ -767,7 +767,7 @@ class USSupplyGUI
 				tooltip = $STR_GRAD_buy_order_hint;
 				onButtonClick = "disableSerialization; [_this select 0] execVM 'spawn\gui\orderUSVehicle.sqf';";
 			};
-			
+
 			class US_gui_pic_1: RscPicture
 			{
 				idc = 3001;
@@ -901,7 +901,7 @@ class USSupplyGUI
 				h = 1 * GUI_GRID_H;
 				colorBackground[] = {-1,-1,-1,0};
 			};
-			
+
 			class US_gui_text_countleft_1: RscStructuredText
 			{
 				idc = 3201;
@@ -972,7 +972,7 @@ class USSupplyGUI
 				h = 1 * GUI_GRID_H;
 				colorBackground[] = {-1,-1,-1,0};
 			};
-			
+
 			class US_gui_text_pricedisplay_1: RscStructuredText
 			{
 				idc = 3301;
@@ -1043,7 +1043,7 @@ class USSupplyGUI
 				h = 1 * GUI_GRID_H;
 				colorBackground[] = {-1,-1,-1,0};
 			};
-			
+
 			class US_gui_text_legend_namedisplay: RscStructuredText
 			{
 				idc = 3401;
@@ -1085,7 +1085,7 @@ class USSupplyGUI
 				y = 3.5 * GUI_GRID_H + GUI_GRID_Y;
 				w = 7 * GUI_GRID_W;
 				h = 12 * GUI_GRID_H;
-				colorBackground[] = {0,0,0,0.8}; 
+				colorBackground[] = {0,0,0,0.8};
 				text = "loading";
 				size = 0.028;
 				onMouseEnter = "disableSerialization; [3000,3801] execVM 'spawn\gui\showControl.sqf';";
@@ -1098,7 +1098,7 @@ class USSupplyGUI
 				y = 3.5 * GUI_GRID_H + GUI_GRID_Y;
 				w = 7 * GUI_GRID_W;
 				h = 12 * GUI_GRID_H;
-				colorBackground[] = {0,0,0,0.8}; 
+				colorBackground[] = {0,0,0,0.8};
 				text = "loading";
 				size = 0.028;
 				onMouseEnter = "disableSerialization; [3000,3802] execVM 'spawn\gui\showControl.sqf';";
@@ -1111,7 +1111,7 @@ class USSupplyGUI
 				y = 3.5 * GUI_GRID_H + GUI_GRID_Y;
 				w = 7 * GUI_GRID_W;
 				h = 12 * GUI_GRID_H;
-				colorBackground[] = {0,0,0,0.8}; 
+				colorBackground[] = {0,0,0,0.8};
 				text = "loading";
 				size = 0.028;
 				onMouseEnter = "disableSerialization; [3000,3803] execVM 'spawn\gui\showControl.sqf';";
@@ -1124,7 +1124,7 @@ class USSupplyGUI
 				y = 3.5 * GUI_GRID_H + GUI_GRID_Y;
 				w = 7 * GUI_GRID_W;
 				h = 12 * GUI_GRID_H;
-				colorBackground[] = {0,0,0,0.8}; 
+				colorBackground[] = {0,0,0,0.8};
 				text = "loading";
 				size = 0.028;
 				onMouseEnter = "disableSerialization; [3000,3804] execVM 'spawn\gui\showControl.sqf';";
@@ -1137,7 +1137,7 @@ class USSupplyGUI
 				y = 3.5 * GUI_GRID_H + GUI_GRID_Y;
 				w = 7 * GUI_GRID_W;
 				h = 12 * GUI_GRID_H;
-				colorBackground[] = {0,0,0,0.8}; 
+				colorBackground[] = {0,0,0,0.8};
 				text = "loading";
 				size = 0.028;
 				onMouseEnter = "disableSerialization; [3000,3805] execVM 'spawn\gui\showControl.sqf';";
@@ -1150,7 +1150,7 @@ class USSupplyGUI
 				y = 3.5 * GUI_GRID_H + GUI_GRID_Y;
 				w = 7 * GUI_GRID_W;
 				h = 12 * GUI_GRID_H;
-				colorBackground[] = {0,0,0,0.8}; 
+				colorBackground[] = {0,0,0,0.8};
 				text = "loading";
 				size = 0.028;
 				onMouseEnter = "disableSerialization; [3000,3806] execVM 'spawn\gui\showControl.sqf';";
@@ -1163,13 +1163,13 @@ class USSupplyGUI
 				y = 3.5 * GUI_GRID_H + GUI_GRID_Y;
 				w = 7 * GUI_GRID_W;
 				h = 12 * GUI_GRID_H;
-				colorBackground[] = {0,0,0,0.8}; 
+				colorBackground[] = {0,0,0,0.8};
 				text = "loading";
 				size = 0.028;
 				onMouseEnter = "disableSerialization; [3000,3807] execVM 'spawn\gui\showControl.sqf';";
 				onMouseExit = "disableSerialization; [3000,[3807]] execVM 'spawn\gui\hideControl.sqf';";
 			};
-			
+
 
 			class US_gui_text_headline: RscStructuredTextHeadline
 			{
@@ -1359,7 +1359,7 @@ class gui_spawn_waitplease
 				w = 12 * GUI_GRID_W;
 				h = 3 * GUI_GRID_H;
 				colorBackground[] = {0,0,0,1};
-				
+
 			};
 		};
 };
@@ -1378,7 +1378,7 @@ class RscTitles {
 			class gui_intel_paper_pic_us: RscPicture
 			{
 				idc = -1;
-				x = safeZoneX + safeZoneW - 0.3;  
+				x = safeZoneX + safeZoneW - 0.3;
 				y = safeZoneY + safeZoneH - 1.5;
 				w = 0.3;
 				h = 0.4;
@@ -1398,7 +1398,7 @@ class RscTitles {
 			class gui_intel_paper_pic_us_lost: RscPicture
 			{
 				idc = -1;
-				x = safeZoneX + safeZoneW - 0.3;  
+				x = safeZoneX + safeZoneW - 0.3;
 				y = safeZoneY + safeZoneH - 1.5;
 				w = 0.3;
 				h = 0.4;
@@ -1418,7 +1418,7 @@ class RscTitles {
 			class gui_intel_paper_pic_rus: RscPicture
 			{
 				idc = -1;
-				x = safeZoneX + safeZoneW - 0.3;  
+				x = safeZoneX + safeZoneW - 0.3;
 				y = safeZoneY + safeZoneH - 1.5;
 				w = 0.3;
 				h = 0.4;
@@ -1438,7 +1438,7 @@ class RscTitles {
 			class gui_intel_paper_pic_rus_lost: RscPicture
 			{
 				idc = -1;
-				x = safeZoneX + safeZoneW - 0.3;  
+				x = safeZoneX + safeZoneW - 0.3;
 				y = safeZoneY + safeZoneH - 1.5;
 				w = 0.3;
 				h = 0.4;
@@ -1458,7 +1458,7 @@ class RscTitles {
 			class gui_intel_paper_pic_killed: RscPicture
 			{
 				idc = -1;
-				x = safeZoneX + safeZoneW - 0.3;  
+				x = safeZoneX + safeZoneW - 0.3;
 				y = safeZoneY + safeZoneH - 1.5;
 				w = 0.3;
 				h = 0.4;
@@ -1476,11 +1476,11 @@ class RscTitles {
 		onLoad = "with uiNameSpace do { gui_intel_paper_civ_gunfight = _this select 0 }";
 
 	 	class controls {
-	 		
+
 			class gui_intel_paper_pic_gunfight: RscPicture
 			{
 				idc = -1;
-				x = safeZoneX + safeZoneW - 0.3;  
+				x = safeZoneX + safeZoneW - 0.3;
 				y = safeZoneY + safeZoneH - 1.5;
 				w = 0.3;
 				h = 0.4;
