@@ -106,7 +106,7 @@ sleep 2; // give it time, boy - possible fix for "Undefined variable in expressi
 		_radioBoxIsSending = call radioBoxIsSending;
 		_bothAreSending = (_radioBoxIsSending && _radioTruckIsSending);
 
-		if (_radioTruckIsSending && !_bothAreSending) then {
+		if (_radioTruckIsSending && !_bothAreSending && !RADIO_BOX) then {
 			RUSSIAN_POINTS = RUSSIAN_POINTS + 1;
 			// diag_log format ["debug: radio truck is sending alone"];
 		};
