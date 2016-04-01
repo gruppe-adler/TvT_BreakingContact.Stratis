@@ -19,7 +19,7 @@ checkForReal = {
         OPFOR_PRE_ELIMINATED = (({side _x == east} count playableUnits) + ({side _x == east} count switchableUnits) == 0);
         BLUFOR_PRE_ELIMINATED = (({side _x == west} count playableUnits)  + ({side _x == west} count switchableUnits) == 0);
 
-				if (RADIO_BOX_DESTROYED) then { [] call bluforCaptured; };
+				if (RADIO_BOX_DESTROYED) exitWith { [] call bluforCaptured; };
 
         if (OPFOR_PRE_ELIMINATED) then {["OPFOR_PRE_ELIMINATED"] spawn checkForReal;};
         if (BLUFOR_PRE_ELIMINATED) then {["BLUFOR_PRE_ELIMINATED"] spawn checkForReal;};
