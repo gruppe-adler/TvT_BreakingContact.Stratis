@@ -100,7 +100,7 @@ setRadioBoxMarkerPosition = {
 sleep 2; // give it time, boy - possible fix for "Undefined variable in expression: radioTruckIsSending"
 
 [] spawn {
-	_distanceToRadioTruck = [1,0];
+	_result = [1,0];
 	while {true} do { // could be optimized and synced to real time - b/c as it is, there WILL be delays
 		_radioTruckIsSending = call radioTruckIsSending;
 		_radioBoxIsSending = call radioBoxIsSending;
@@ -117,13 +117,15 @@ sleep 2; // give it time, boy - possible fix for "Undefined variable in expressi
 		};
 
 		if (_bothAreSending) then {
-			_tempDistance = _distanceToRadioTruck select 1;
+			_tempModifier = _result select 0;
+			_tempDistance = _result select 1;
+
 			_result = [funkwagen distance portableRadioBox] call distanceToRadioNerf;
 			_modifier = _result select 0;
 			_distanceToRadioTruck = _result select 1;
 
 			// check if distance changed, if yes, broadcast for client hint
-			if (_distanceToRadioTruck != _tempDistance) then {
+			if ((_distanceToRadioTruck != _tempDistance) || (_modifier != _tempModifier))) then {
 				RADIO_BOX_DISTANCE = _modifier * 100;
 				publicVariable "RADIO_BOX_DISTANCE";
 			};
