@@ -24,7 +24,7 @@ fillRussianSupplies = {
     } else {
         tigr = "rhs_tigr_m_3camo_vdv";
     };
-    
+
 
      russianSupplies = [
 
@@ -38,9 +38,9 @@ fillRussianSupplies = {
             1,
             ["light_hide", 1],
             {
-            clearWeaponCargoGlobal (_this select 0); 
-            clearItemCargoGlobal (_this select 0); 
-            clearBackpackCargoGlobal (_this select 0); 
+            clearWeaponCargoGlobal (_this select 0);
+            clearItemCargoGlobal (_this select 0);
+            clearBackpackCargoGlobal (_this select 0);
             clearMagazineCargoGlobal (_this select 0);
             (_this select 0) addItemCargoGlobal ['ItemGPS',1];
             ['AddCargoByClass', _this select 0, ['ACE_wheel', _this select 0, 2]] call ace_common_fnc_targetEvent;
@@ -56,9 +56,9 @@ fillRussianSupplies = {
             1,
             ["light_hide", 1],
             {
-            clearWeaponCargoGlobal (_this select 0); 
-            clearItemCargoGlobal (_this select 0); 
-            clearBackpackCargoGlobal (_this select 0); 
+            clearWeaponCargoGlobal (_this select 0);
+            clearItemCargoGlobal (_this select 0);
+            clearBackpackCargoGlobal (_this select 0);
             clearMagazineCargoGlobal (_this select 0);
             (_this select 0) addItemCargoGlobal ['ItemGPS',1];
             ['AddCargoByClass', _this select 0, ['ACE_wheel', _this select 0, 2]] call ace_common_fnc_targetEvent;
@@ -111,9 +111,9 @@ fillRussianSupplies = {
             1,
             ["light_hide", 1],
             {
-            clearWeaponCargoGlobal (_this select 0); 
-            clearItemCargoGlobal (_this select 0); 
-            clearBackpackCargoGlobal (_this select 0); 
+            clearWeaponCargoGlobal (_this select 0);
+            clearItemCargoGlobal (_this select 0);
+            clearBackpackCargoGlobal (_this select 0);
             clearMagazineCargoGlobal (_this select 0);
             (_this select 0) addItemCargoGlobal ['ItemGPS',1];
             (_this select 0) setObjectTextureGlobal [0,"rhsafrf\addons\rhs_a2port_car\uaz\data\uaz_main_ind_co.paa"];
@@ -131,9 +131,9 @@ fillRussianSupplies = {
             1,
             [[]],
             {
-            clearWeaponCargoGlobal (_this select 0); 
-            clearItemCargoGlobal (_this select 0); 
-            clearBackpackCargoGlobal (_this select 0); 
+            clearWeaponCargoGlobal (_this select 0);
+            clearItemCargoGlobal (_this select 0);
+            clearBackpackCargoGlobal (_this select 0);
             clearMagazineCargoGlobal (_this select 0);
             (_this select 0) addItemCargoGlobal ['ItemGPS',1];
             ['AddCargoByClass', _this select 0, ['ACE_wheel', _this select 0, 2]] call ace_common_fnc_targetEvent;
@@ -149,9 +149,9 @@ fillRussianSupplies = {
             1,
             [[]],
             {
-            clearWeaponCargoGlobal (_this select 0); 
-            clearItemCargoGlobal (_this select 0); 
-            clearBackpackCargoGlobal (_this select 0); 
+            clearWeaponCargoGlobal (_this select 0);
+            clearItemCargoGlobal (_this select 0);
+            clearBackpackCargoGlobal (_this select 0);
             clearMagazineCargoGlobal (_this select 0);
             (_this select 0) addItemCargoGlobal ['ItemGPS',1];
             (_this select 0) removemagazinesturret ["rhs_mag_3of26_5",[0]];
@@ -168,9 +168,9 @@ fillRussianSupplies = {
             1,
             [[]],
             {
-            clearWeaponCargoGlobal (_this select 0); 
-            clearItemCargoGlobal (_this select 0); 
-            clearBackpackCargoGlobal (_this select 0); 
+            clearWeaponCargoGlobal (_this select 0);
+            clearItemCargoGlobal (_this select 0);
+            clearBackpackCargoGlobal (_this select 0);
             clearMagazineCargoGlobal (_this select 0);
             (_this select 0) addBackpackCargoGlobal ['RHS_DShkM_Gun_Bag',2];
             (_this select 0) addBackpackCargoGlobal ['RHS_DShkM_TripodHigh_Bag',2];
@@ -182,14 +182,14 @@ fillRussianSupplies = {
             "Land_DataTerminal_01_F",
             "Detachable Radio Unit",
             1,
-            500,
-            "<t align='center'>500 cr</t>",
+            1000,
+            "<t align='center'>1000 cr</t>",
             1,
             [[]],
             {
             },
-            format['%1<br/>%2<br/>%3','Detachable Radio Unit','','Detach the radio unit from the radio truck (ACE Interact) which you can drag around. Downside is: Sending takes 5x the time and turning the device off is not possible.']
-       
+            format['%1<br/>%2<br/>%3','Detachable Radio Unit','','Detach the radio unit from the radio truck (ACE Interact) and drag it around. Sending takes up to 2x the time, depending on distance to relay (radio truck). Can also send alone. Radio truck cant anymore.']
+
         ]
     ];
 
@@ -245,16 +245,16 @@ fillUSSupplies = {
             1,
             ["light_hide", 1 , "hide_backTop", 0, "hide_frontTop", 0 ],
             {
-            clearWeaponCargoGlobal (_this select 0); 
-            clearItemCargoGlobal (_this select 0); 
-            clearBackpackCargoGlobal (_this select 0); 
+            clearWeaponCargoGlobal (_this select 0);
+            clearItemCargoGlobal (_this select 0);
+            clearBackpackCargoGlobal (_this select 0);
             clearMagazineCargoGlobal (_this select 0);
             (_this select 0) addItemCargoGlobal ['ItemGPS',1];
             ['AddCargoByClass', _this select 0, ['ACE_wheel', _this select 0, 2]] call ace_common_fnc_targetEvent;
             _box = createVehicle ['ACE_Box_Misc', position (_this select 0), [], 1, 'NONE'];
-            clearWeaponCargoGlobal _box; 
-            clearItemCargoGlobal _box; 
-            clearBackpackCargoGlobal _box; 
+            clearWeaponCargoGlobal _box;
+            clearItemCargoGlobal _box;
+            clearBackpackCargoGlobal _box;
             clearMagazineCargoGlobal _box;
             },
             format['%1<br/>%2<br/>%3<br/>%4<br/>%5','Crew: 1','Seats: 7','Speed: 109','1 Assault Boat','1 GPS']
@@ -268,9 +268,9 @@ fillUSSupplies = {
             1,
             ["light_hide", 1 , "hide_backTop", 0, "hide_frontTop", 0 ],
             {
-            clearWeaponCargoGlobal (_this select 0); 
-            clearItemCargoGlobal (_this select 0); 
-            clearBackpackCargoGlobal (_this select 0); 
+            clearWeaponCargoGlobal (_this select 0);
+            clearItemCargoGlobal (_this select 0);
+            clearBackpackCargoGlobal (_this select 0);
             clearMagazineCargoGlobal (_this select 0);
             (_this select 0) addItemCargoGlobal ['ItemGPS',1];
             ['AddCargoByClass', _this select 0, ['ACE_wheel', _this select 0, 2]] call ace_common_fnc_targetEvent;
@@ -286,9 +286,9 @@ fillUSSupplies = {
             1,
             [[]],
             {
-            clearWeaponCargoGlobal (_this select 0); 
-            clearItemCargoGlobal (_this select 0); 
-            clearBackpackCargoGlobal (_this select 0); 
+            clearWeaponCargoGlobal (_this select 0);
+            clearItemCargoGlobal (_this select 0);
+            clearBackpackCargoGlobal (_this select 0);
             clearMagazineCargoGlobal (_this select 0);
             (_this select 0) addItemCargoGlobal ['ItemGPS',1];
             ['AddCargoByClass', _this select 0, ['ACE_Track', _this select 0, 2]] call ace_common_fnc_targetEvent;
@@ -305,7 +305,7 @@ fillUSSupplies = {
             [[]],
             {
             clearWeaponCargoGlobal (_this select 0);
-            clearItemCargoGlobal (_this select 0); 
+            clearItemCargoGlobal (_this select 0);
             clearBackpackCargoGlobal (_this select 0);
             clearMagazineCargoGlobal (_this select 0);
             (_this select 0) addMagazineCargoGlobal ['SmokeShell',20];
@@ -341,9 +341,9 @@ fillUSSupplies = {
             1,
             [[]],
             {
-            clearWeaponCargoGlobal (_this select 0); 
-            clearItemCargoGlobal (_this select 0); 
-            clearBackpackCargoGlobal (_this select 0); 
+            clearWeaponCargoGlobal (_this select 0);
+            clearItemCargoGlobal (_this select 0);
+            clearBackpackCargoGlobal (_this select 0);
             clearMagazineCargoGlobal (_this select 0);
             [(_this select 0)] call ace_fastroping_fnc_equipFRIES;
             },
@@ -358,9 +358,9 @@ fillUSSupplies = {
             1,
             [[]],
             {
-            clearWeaponCargoGlobal (_this select 0); 
-            clearItemCargoGlobal (_this select 0); 
-            clearBackpackCargoGlobal (_this select 0); 
+            clearWeaponCargoGlobal (_this select 0);
+            clearItemCargoGlobal (_this select 0);
+            clearBackpackCargoGlobal (_this select 0);
             clearMagazineCargoGlobal (_this select 0);
             (_this select 0) addBackpackCargoGlobal ['B_Parachute',30];
             [(_this select 0)] call ace_fastroping_fnc_equipFRIES;
@@ -376,9 +376,9 @@ fillUSSupplies = {
             1,
             [[]],
             {
-            clearWeaponCargoGlobal (_this select 0); 
-            clearItemCargoGlobal (_this select 0); 
-            clearBackpackCargoGlobal (_this select 0); 
+            clearWeaponCargoGlobal (_this select 0);
+            clearItemCargoGlobal (_this select 0);
+            clearBackpackCargoGlobal (_this select 0);
             clearMagazineCargoGlobal (_this select 0);
             //(_this select 0) addBackpackCargoGlobal ['B_UAV_01_backpack_F',1];        //Darter
             //(_this select 0) addItemCargoGlobal ['B_UAVTerminal',2];                  //Terminal
