@@ -7,23 +7,23 @@ spawnSupplyDrop = {
     // if there is nothing to be spawned
     if (_vehicleType == "Land_DataTerminal_01_F") exitWith {
 			portableRadioBox = createVehicle ['Land_DataTerminal_01_F', [(getPos funkwagen select 0) + 2, (getPos funkwagen select 1) - 1, 0.5], [], 0, 'NONE'];
-            portableRadioBox attachTo [funkwagen,[0.5,-4.85,0]];  
-            portableRadioBox setVectorDirAndUp [[0,1,0.3],[0,0,0.7]];  
+            portableRadioBox attachTo [funkwagen,[0.5,-4.85,0]];
+            portableRadioBox setVectorDirAndUp [[0,1,0.3],[0,0,0.7]];
 
-            [[portableRadioBox,["Open","player\dataterminal\OpenTerminal.sqf"]],"addAction",true] call BIS_fnc_MP; 
-            
-            portableRadioBox setObjectTextureGlobal [0, "#(argb,8,8,3)color(0,0,0,0.0,co)"];  
-            portableRadioBox setObjectTextureGlobal [1, "#(argb,8,8,3)color(0,0,0,0.0,co)"];  
-            portableRadioBox setObjectTextureGlobal [2, "#(argb,8,8,3)color(0,0,0,0.0,co)"];  
-            portableRadioBox setObjectTextureGlobal [3, "#(argb,8,8,3)color(0,0,0,0.0,co)"];  
-            portableRadioBox setObjectTextureGlobal [4, "#(argb,8,8,3)color(0,0,0,0.0,co)"];            
-            
+            [[portableRadioBox,["Open","player\dataterminal\OpenTerminal.sqf"]],"addAction",true] call BIS_fnc_MP;
+
+            portableRadioBox setObjectTextureGlobal [0, "#(argb,8,8,3)color(0,0,0,0.0,co)"];
+            portableRadioBox setObjectTextureGlobal [1, "#(argb,8,8,3)color(0,0,0,0.0,co)"];
+            portableRadioBox setObjectTextureGlobal [2, "#(argb,8,8,3)color(0,0,0,0.0,co)"];
+            portableRadioBox setObjectTextureGlobal [3, "#(argb,8,8,3)color(0,0,0,0.0,co)"];
+            portableRadioBox setObjectTextureGlobal [4, "#(argb,8,8,3)color(0,0,0,0.0,co)"];
+
             funkwagen setVariable ["detachableRadio", 1, true];
             publicVariable "portableRadioBox";
 
             portableRadioBox addEventHandler ["Explosion",{
-	
-				
+
+
 				[_this select 0] execVM "player\dataterminal\explodeDelayed.sqf";
 	
 			}];
@@ -33,15 +33,15 @@ spawnSupplyDrop = {
     _vehicle allowDamage false;
     _road = [getPos _vehicle] call BIS_fnc_nearestRoad;
 	if (!isNull _road) then {
-		_roadConnectedTo = roadsConnectedTo _road;  
-	 	_connectedRoad = _roadConnectedTo select 0;  
-	 	_direction = [_road, _connectedRoad] call BIS_fnc_DirTo; 
+		_roadConnectedTo = roadsConnectedTo _road;
+	 	_connectedRoad = _roadConnectedTo select 0;
+	 	_direction = [_road, _connectedRoad] call BIS_fnc_DirTo;
 	 	_vehicle setDir _direction;
 	};
 
 	[_vehicle] call _calls;
-	
-	
+
+
 	sleep 0.1;
 	 _vehicle allowDamage true;
 	// adjust vehicle (remove lamp covers and stuff)

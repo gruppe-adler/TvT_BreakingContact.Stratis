@@ -34,18 +34,15 @@ _parameters = [
 
 	"RDS_Octavia_Civ_01",
 
-	"RDS_Lada_Civ_01",
 	"RDS_Lada_Civ_02",
 	"RDS_Lada_Civ_03",
 	"RDS_Lada_Civ_04",
 	"RDS_Lada_Civ_05",
-	"RDS_Lada_Civ_01",
 	"RDS_Lada_Civ_02",
 	"RDS_Lada_Civ_03",
 	"RDS_Lada_Civ_04",
 
 	"RDS_Zetor6945_Base",
-
 
 	"RHS_Ural_Civ_01",
 	"RHS_Ural_Civ_02",

@@ -122,8 +122,6 @@ if (isServer) then {
 	MISSION_COMPLETED = false;
 	publicVariable "MISSION_COMPLETED";
 
-	SPECTATOR_LIST = [];
-	publicVariable "SPECTATOR_LIST";
 
 	OPFOR_TELEPORT_TARGET = [0, 0];
 	publicVariable "OPFOR_TELEPORT_TARGET";
@@ -159,6 +157,8 @@ if (isServer) then {
 	RADIO_BOX_DISTANCE = 0;
 	publicVariable "RADIO_BOX_DISTANCE";
 
+	RADIO_BOX_DESTROYED = false;
+	publicVariable "RADIO_BOX_DESTROYED";
 
 	// radio truck related
 	RADIO_TRUCK_MARKER_HIDDEN = true;
