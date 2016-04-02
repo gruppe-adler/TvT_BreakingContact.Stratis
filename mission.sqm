@@ -5599,6 +5599,7 @@ class Mission
 				position[]={1633.9399,-14.050371,6018.541};
 			};
 			id=165;
+			condition="paramsArray select 12 == 1";
 			type="ACE_ModuleBlueForceTracking";
 			class CustomAttributes
 			{
@@ -5742,7 +5743,6 @@ class Mission
 				position[]={1693.483,-3.6788545,6062.46};
 				angles[]={0.58407444,0,0.29443705};
 			};
-			presenceCondition="paramsArray select 12 == 1";
 			id=170;
 			type="ACE_moduleMedicalSettings";
 			class CustomAttributes
