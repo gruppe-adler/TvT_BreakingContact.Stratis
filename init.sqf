@@ -107,7 +107,7 @@ if (isServer) then {
 	// set time acceleration
 	setTimeMultiplier TIME_ACCELERATION;
 
-	["Initialize"] call BIS_fnc_dynamicGroups;
+  ["Initialize", [true]] call BIS_fnc_dynamicGroups;
 
 	BLUFOR_ELIMINATED = false;
 	publicVariable "BLUFOR_ELIMINATED";
@@ -259,7 +259,7 @@ diag_log format ["setup: clientandserver done"];
 
 if (hasInterface) then {
 
-	["InitializePlayer", [player]] call BIS_fnc_dynamicGroups;
+  ["InitializePlayer", [player, true]] call BIS_fnc_dynamicGroups;
 
 	player allowDamage false;
 	[] execVM "player\setup\adjustInitialSpawnPosition.sqf"; diag_log format ["setup: initial spawn position initiated"];

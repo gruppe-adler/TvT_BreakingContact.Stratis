@@ -10,8 +10,8 @@ fnc_setUnitInsignias =
                 }       foreach getarray (configfile >> "CfgVehicles" >> gettext ( configfile >> "CfgWeapons" >> uniform _unit >> "ItemInfo" >> "uniformClass") >> "hiddenSelections");
                 _unit setObjectTextureGlobal [_index, _patch];
 };
- 
-_group = group _thisUnit;   
+
+_group = group _thisUnit;
         switch (_group) do
         {
                 case "Command":

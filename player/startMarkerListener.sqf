@@ -1,6 +1,6 @@
 _US_SPAWN_PAD_listener = {
 	_pos = getPos US_SPAWN_PAD;
-	
+
 	_blufor_marker_start = createMarkerLocal ["blufor_marker_spawnpad", _pos];
 	_blufor_marker_start setMarkerShapeLocal "ICON";
 	_blufor_marker_start setMarkerTypeLocal "hd_pickup";
@@ -9,7 +9,7 @@ _US_SPAWN_PAD_listener = {
 
 _RUS_SPAWN_PAD_listener = {
 	_pos = getPos RUS_SPAWN_PAD;
-	
+
 	_opfor_marker_start = createMarkerLocal ["opfor_marker_spawnpad", _pos];
 	_opfor_marker_start setMarkerShapeLocal "ICON";
 	_opfor_marker_start setMarkerTypeLocal "hd_pickup";
@@ -29,6 +29,8 @@ if (side player == east) then {
 
 // runs in SP to emulate addPublicVariableEventHandler (which doesnt work in SP)
 if (!isMultiplayer) then {
+	waitUntil {!isNil "US_SPAWN_PAD"};
+
 	_US_SPAWN_PAD_listener spawn {
 		waitUntil {getpos US_SPAWN_PAD select 0 != 0};
 		[0, US_SPAWN_PAD] call _this;
@@ -36,6 +38,8 @@ if (!isMultiplayer) then {
 };
 
 if (!isMultiplayer) then {
+	waitUntil {!isNil "RUS_SPAWN_PAD"};
+
 	_RUS_SPAWN_PAD_listener spawn {
 		waitUntil {getpos RUS_SPAWN_PAD select 0 != 0};
 		[0, RUS_SPAWN_PAD] call _this;

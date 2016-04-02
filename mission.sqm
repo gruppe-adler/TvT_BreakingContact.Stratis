@@ -8,7 +8,7 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=183;
+		nextID=186;
 	};
 	class MarkerIDProvider
 	{
@@ -17,9 +17,9 @@ class EditorData
 	class Camera
 	{
 		pos[]={1647.0717,156.68965,5910.4521};
-		dir[]={-0.18027602,-0.80721956,0.56211889};
-		up[]={-0.24651292,0.59026521,0.76865149};
-		aside[]={0.952268,-3.6001438e-007,0.30540088};
+		dir[]={0.073647864,-0.70306277,0.70736384};
+		up[]={0.07280682,0.71112865,0.69928759};
+		aside[]={0.99466854,-3.1026138e-007,-0.10356008};
 	};
 };
 binarizationWanted=0;
@@ -816,7 +816,7 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={1576.3779,0.042701405,6017.5728};
+				position[]={1576.3781,0.042531967,6017.5732};
 			};
 			id=12;
 			type="ACE_ModuleInteraction";
@@ -5599,7 +5599,6 @@ class Mission
 				position[]={1633.9399,-14.050371,6018.541};
 			};
 			id=165;
-			condition="paramsArray select 12 == 1";
 			type="ACE_ModuleBlueForceTracking";
 			class CustomAttributes
 			{
