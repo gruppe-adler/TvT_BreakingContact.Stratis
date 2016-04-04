@@ -99,8 +99,8 @@ opfor_sql = {
 	[this, "rhs_GRD40_White", 4] call addMagazinesToBackpack;
 	[this, "rhs_GRD40_Green", 2] call addMagazinesToBackpack;
 	[this, "rhs_GRD40_Red", 2] call addMagazinesToBackpack;
-	[this, "rhs_VG40MD_Green", 3] call addMagazinesToBackpack;
-	[this, "rhs_VG40MD_White", 3] call addMagazinesToBackpack;
+	[this, "rhs_VG40OP_green", 3] call addMagazinesToBackpack;
+	[this, "rhs_VG40OP_white", 3] call addMagazinesToBackpack;
 
 	this addWeapon "Binocular";
 	this addWeapon "rhs_weap_akm_gp25";
@@ -144,8 +144,8 @@ opfor_ftl = {
 	[this, "rhs_GRD40_White", 4] call addMagazinesToBackpack;
 	[this, "rhs_GRD40_Green", 2] call addMagazinesToBackpack;
 	[this, "rhs_GRD40_Red", 2] call addMagazinesToBackpack;
-	[this, "rhs_VG40MD_Green", 3] call addMagazinesToBackpack;
-	[this, "rhs_VG40MD_White", 3] call addMagazinesToBackpack;
+	[this, "rhs_VG40OP_green", 3] call addMagazinesToBackpack;
+	[this, "rhs_VG40OP_white", 3] call addMagazinesToBackpack;
 
 	this addWeapon "Binocular";
 	this addWeapon "rhs_weap_akm_gp25";
