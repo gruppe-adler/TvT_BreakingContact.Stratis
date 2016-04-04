@@ -91,6 +91,8 @@ fillRussianSupplies = {
             (_this select 0) addMagazineCargoGlobal ['rhs_GRD40_White',10];
             (_this select 0) addMagazineCargoGlobal ['rhs_GRD40_Green',10];
             (_this select 0) addMagazineCargoGlobal ['rhs_GRD40_Red',10];
+            (_this select 0) addMagazineCargoGlobal ['rhs_VG40OP_white',10];
+            (_this select 0) addMagazineCargoGlobal ['rhs_VG40OP_green',10];
             (_this select 0) addItemCargoGlobal ['ACE_Earplugs',15];
             (_this select 0) addItemCargoGlobal ['ACE_Morphine',40];
             (_this select 0) addItemCargoGlobal ['ACE_epinephrine',40];
@@ -100,7 +102,7 @@ fillRussianSupplies = {
             ['AddCargoByClass', _this select 0, ['ACE_wheel', _this select 0, 3]] call ace_common_fnc_targetEvent;
             ['AddCargoByClass', _this select 0, ['ACE_Track', _this select 0, 1]] call ace_common_fnc_targetEvent;
             },
-            format['%1<br/>%2<br/>%3<br/>%4<br/>%5<br/>%6<br/>%7<br/>%8<br/>%9<br/>%10<br/>%11<br/>%12<br/>%13<br/>%14','Crew: 1','Seats: 1','Speed: 90','','Cargo:','40 Smokes','60 AK Mags','20 MG Mags','20 Grenades','30 Flares','Medical Stuff','5 GPS','3 Repair Wheels','1 Repair Track']
+            format['%1<br/>%2<br/>%3<br/>%4<br/>%5<br/>%6<br/>%7<br/>%8<br/>%9<br/>%10<br/>%11<br/>%12<br/>%13<br/>%14<br/>%15','Crew: 1','Seats: 1','Speed: 90','','Cargo:','40 Smokes','60 AK Mags','20 MG Mags','20 Grenades','30 GL Smokes','20 GL Flares','Medical Stuff','5 GPS','3 Repair Wheels','1 Repair Track']
         ],
         [
             "rhs_uaz_dshkm_chdkz",
@@ -317,8 +319,8 @@ fillUSSupplies = {
             (_this select 0) addMagazineCargoGlobal ['rhs_200rnd_556x45_T_SAW',10];
             (_this select 0) addMagazineCargoGlobal ['rhs_200rnd_556x45_M_SAW',10];
             (_this select 0) addMagazineCargoGlobal ['HandGrenade',20];
-            (_this select 0) addMagazineCargoGlobal ['rhs_mag_M585_white',15];
-            (_this select 0) addMagazineCargoGlobal ['rhs_mag_m662_red',15];
+            (_this select 0) addMagazineCargoGlobal ['rhs_mag_m714_White',15];
+            (_this select 0) addMagazineCargoGlobal ['rhs_mag_m713_Red',15];
             (_this select 0) addMagazineCargoGlobal ['rhs_mag_m661_green',15];
             (_this select 0) addMagazineCargoGlobal ["rhs_mag_smaw_HEAA",5];
             (_this select 0) addItemCargoGlobal ['ACE_Earplugs',15];
