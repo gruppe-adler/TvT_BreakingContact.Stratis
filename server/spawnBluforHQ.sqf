@@ -126,19 +126,21 @@ spawnBluforHQ = {
 		if (time > (_startTime + 30)) then {
 			diag_log format ["fatal error : no blufor spawnpad position found. reducing spawn radius..."];
 			[{hintSilent "F A T A L   E R R O R:  no blufor spawn position found, adapting...";},"BIS_fnc_spawn",true,true] call BIS_fnc_MP;
-			_bluforDistance = _bluforDistance - 1000;
+			_bluforDistance = _bluforDistance - 500;
 			_bluforSearchDistance = _bluforSearchDistance + 20;
 		};
 		if (time > (_startTime + 60)) then {
 			diag_log format ["fatal error : no blufor spawnpad position found. reducing spawn radius..."];
 			[{hintSilent "F A T A L   E R R O R:  no blufor spawn position found, adapting...";},"BIS_fnc_spawn",true,true] call BIS_fnc_MP;
-			_bluforDistance = _bluforDistance - 1000;
+			_bluforDistance = _bluforDistance - 500;
 			_bluforSearchDistance = _bluforSearchDistance + 40;
 		};
 		if (time > (_startTime + 120)) exitWith {
 			diag_log format ["fatal error : no blufor spawnpad position found. please restart."];
 			[{hintSilent "F A T A L   E R R O R:  no blufor spawnpad position found. please restart.";},"BIS_fnc_spawn",true,true] call BIS_fnc_MP;
 		};
+
+		diag_log format ["Debug: _bluforSpawnSuccess is %1",_bluforSpawnSuccess];
 
 		_bluforSpawnSuccess = [_bluforCenterPosition, [hmmwv_hq,"Land_HelipadCivil_F"], _bluforDistance, _bluforSearchDistance] call testSpawnPositions;
 		waitUntil {(_bluforSpawnSuccess select 0) > 0};

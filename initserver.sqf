@@ -1,3 +1,4 @@
+call compile preprocessFile "islandConfig.sqf";
 
 setCustomWeather = {
 	// skipTime -24;
