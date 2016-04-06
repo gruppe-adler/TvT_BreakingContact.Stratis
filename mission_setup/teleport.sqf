@@ -29,7 +29,7 @@ opforTeleporting = {
 		{
 			debugLog("opfor lead clicked on map");
 			try {
-				if !(_pos call checkWater) exitWith {};
+				if (_pos call checkWater) exitWith {};
 				["teleportClickOpf", "onMapSingleClick"] call BIS_fnc_removeStackedEventHandler;
 				_pos call opforTeleporting;
 				playSound ['click', true];

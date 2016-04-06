@@ -8,9 +8,9 @@ sleep (random 7);
 
 _spawn = _location findEmptyPosition[2, 20, "B_Soldier_F"];
 diag_log format ["teleporting %1 to %2.", player, _location];
-playSound "beam";
 cutText ["", "BLACK OUT", 0.1];
-
+sleep 1;
+playSound "beam";
 _nul = player setPos _spawn;
 openMap [false, false];
 hintSilent "";
