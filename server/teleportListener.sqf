@@ -1,6 +1,6 @@
 createOpforStuff =  {
 	_position = _this;
-  
+
 	funkwagen = [_position, 0, 1, "rhs_gaz66_r142_vv"] call spawnStuff;
 	// used for detachable radio unit
 	funkwagen setVariable ["detachableRadio", 0, true];
@@ -46,10 +46,6 @@ _OPFOR_TELEPORT_TARGET_listener = {
 _BLUFOR_TELEPORT_TARGET_listener = {
 	_pos = _this select 1;
 	publicVariable "BLUFOR_TELEPORT_TARGET";
-	[] spawn {
-		sleep 2; // just to make sure no one is missed, send again (dirty fix for spawn prob?)
-		publicVariable "BLUFOR_TELEPORT_TARGET";
-	};
 };
 
 

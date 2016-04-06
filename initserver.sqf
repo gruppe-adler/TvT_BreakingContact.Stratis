@@ -1,4 +1,33 @@
+#include "\z\ace\addons\main\script_component.hpp"
+#include "\z\ace\addons\main\script_macros.hpp"
+
 call compile preprocessFile "islandConfig.sqf";
+// get_slope used in spawnbluforhq.sqf
+call compile preprocessFileLineNumbers "helpers\findSimplePos.sqf";
+If(isNil "spawn_help_fnc_compiled") then { call compile preprocessFileLineNumbers "helpers\findPos.sqf"; }; // TODO why the if condition here?
+
+if (paramsArray select 10 == 1 || !isMultiplayer) then {
+	DEBUG_MODE = true;
+} else {
+	DEBUG_MODE = false;
+};
+
+// read parameters
+TIME_OF_DAY = paramsArray select 0;
+WEATHER_SETTING = paramsArray select 1;
+BLUFOR_SPAWN_DISTANCE = (paramsArray select 2);
+OPFOR_MONEY = paramsArray select 3;
+BLUFOR_MONEY = paramsArray select 4;
+POINTS_NEEDED_FOR_VICTORY = paramsArray select 5;
+TIME_ACCELERATION = paramsArray select 6;
+REPLAY_ACCURACY = paramsArray select 7;
+publicVariable "REPLAY_ACCURACY";
+AR3PLAY_ENABLE_REPLAY = (paramsArray select 8) == 1;
+AR3PLAY_IS_STREAMABLE = (paramsArray select 9) == 1;
+JIP_TIME_ALLOWED = paramsArray select 11;
+publicVariable "JIP_TIME_ALLOWED";
+CIVILIAN_TRAFFIC = paramsArray select 13;
+publicVariable "CIVILIAN_TRAFFIC";
 
 setCustomWeather = {
 	// skipTime -24;

@@ -14,7 +14,7 @@ water_check = {
 					_y_k = _pos select 1;
 					_z_k = _pos select 2;
 					_is_water = 0;
-					
+
 					If(!(surfaceiswater [_x_k,_y_k]))then {_is_water = false;}else{_is_water = true;};
 					_is_water
 			   };
@@ -43,9 +43,9 @@ get_slope = {
 };
 
 
-//from Xeno\modified by Fry					
+//from Xeno\modified by Fry
 // get a random point inside a circle for bigger objects
-// parameters: "SMALL" = 10m radius, "Normal" = 20m radius, "BIG" = 30m radius, "RBIG" = 50m radius 
+// parameters: "SMALL" = 10m radius, "Normal" = 20m radius, "BIG" = 30m radius, "RBIG" = 50m radius
 // center position, radius of the circle
 // example: _random_point = [position trigger1, 200, "NORMAL"] call point_in_circle_big;
 point_in_circle_big = {
@@ -68,9 +68,9 @@ point_in_circle_big = {
                             case "MBIG" :{_dist = 100;};
 							case "SPECIAL":{_border = true;};
                           };
-         if(_allow_new_dist)then{_dist = _new_dist;};						  
+         if(_allow_new_dist)then{_dist = _new_dist;};
 
-         while {count _ret_val == 0 && _co < 50} do 
+         while {count _ret_val == 0 && _co < 50} do
 		 {
 		   _angle = floor (random 360);
 		   If(_border)then
@@ -78,22 +78,22 @@ point_in_circle_big = {
 		     _point = [_center, _radius,_angle] call BIS_fnc_relPos;
 		   }else{_point = [_center,(random _radius),_angle] call BIS_fnc_relPos;};
 		   _water = [_point] call water_check;
-		   if (!_water)then 
-		   { 
+		   if (!_water)then
+		   {
              _nobs = nearestObjects [_point,["Static","House","Tank","Car","StaticWeapon","Truck_F"],_dist];
 			 _streets = _point nearRoads _dist;
 			 _nobs = _nobs + _streets;
              if(count _nobs == 0)then
 			 {
 			   _slope = [_point, 5] call get_slope;
-			   if(_slope < 0.5)then 
+			   if(_slope < 0.5)then
 			   {
 				_ret_val = _point;
 			   };
 			 };
-				
+
 		   };
-		   
+
 		   if(count _ret_val == 0)then
 		   {
 			 _co = _co + 1;
@@ -111,16 +111,16 @@ point_in_circle_big = {
 point_in_circle = {
 	private ["_center","_radius","_ret_val","_co","_angle","_point","_water","_hard_objs","_slope"];
 	_center = _this select 0;
-	_radius = _this select 1;	
+	_radius = _this select 1;
 	_ret_val = [];
 	_co = 0;
-	while {count _ret_val == 0 && _co < 50} do 
+	while {count _ret_val == 0 && _co < 50} do
 	{
 		_angle = floor (random 360);
         _point = [_center,(random _radius),_angle] call BIS_fnc_relPos;
 		_water = [_point] call water_check;
 		_hard_objs = [_point,5] call hard_check;
-		if (!_water && _hard_objs == 0) then 
+		if (!_water && _hard_objs == 0) then
 		{
 			_slope = [_point, 5] call get_slope;
 			if(_slope < 0.5)then
@@ -134,14 +134,14 @@ point_in_circle = {
 		};
 	};
 	_ret_val
-};	
+};
 
 
 hard_check = {
                 private ["_point","_dist","_hard_obj","_output"];
                 _point = _this select 0;
 				_dist = _this select 1;
-				
+
 				_hard_obj = nearestObjects [_point,["Static","house","Tank","Car","StaticWeapon"],_dist];
 				_output = (count _hard_obj);
 				_output
@@ -159,13 +159,13 @@ get_vec_spawn_point = {
 						_searched_pos = [];
 						_dir = 0;
 						_counter = 0;
-						
+
 						_searched_pos = [_pos,_radius,"SMALL"] call point_in_circle_big;
                         while{count _searched_pos == 0 && _counter < 100}do
 						{
 						  _searched_pos = [_pos,_radius,"SMALL"] call point_in_circle_big;
 						  _counter = _counter + 1;
-						  sleep 0.04;						
+						  sleep 0.04;
 						};
 						If(count _searched_pos > 0)then
 						{
@@ -173,11 +173,11 @@ get_vec_spawn_point = {
 						   {
 						     case 0:{_output_arr = [_searched_pos,(random 360)];};
 						     case 1:{
-							          _dir = [_searched_pos,_dir_pos] call BIS_fnc_dirTo; 
+							          _dir = [_searched_pos,_dir_pos] call BIS_fnc_dirTo;
 						              _output_arr = [_searched_pos,_dir];
 									};
 						   };
-						   											
+
 						};
 						_output_arr
                       };

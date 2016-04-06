@@ -1,79 +1,48 @@
 #include "\z\ace\addons\main\script_component.hpp"
 #include "\z\ace\addons\main\script_macros.hpp"
 
-if (paramsArray select 10 == 1 || !isMultiplayer) then {
-	DEBUG_MODE = true;
-	[] execVM "bulletTracing.sqf";
-} else {
-	DEBUG_MODE = false;
-};
-
 // islandconfig must be before initgui!
 call compile preprocessFile "islandConfig.sqf";
+clearInventory = compile preprocessFile "helpers\clearInventory.sqf";
+spawnStuff = compile preprocessFile "helpers\spawnStuff.sqf";
 [] execVM "spawn\initGUI.sqf";
-
-// read parameters
-TIME_OF_DAY = paramsArray select 0;
-WEATHER_SETTING = paramsArray select 1;
-BLUFOR_SPAWN_DISTANCE = (paramsArray select 2);
-OPFOR_MONEY = paramsArray select 3;
-BLUFOR_MONEY = paramsArray select 4;
-POINTS_NEEDED_FOR_VICTORY = paramsArray select 5;
-TIME_ACCELERATION = paramsArray select 6;
-REPLAY_ACCURACY = paramsArray select 7;
-AR3PLAY_ENABLE_REPLAY = (paramsArray select 8) == 1;
-AR3PLAY_IS_STREAMABLE = (paramsArray select 9) == 1;
-JIP_TIME_ALLOWED = paramsArray select 11;
-CIVILIAN_TRAFFIC = paramsArray select 13;
-
-
-// paramsarray select 12 is BFT module in editor
-jipTime = JIP_TIME_ALLOWED;
-
-
 
 // optimize for PVP
 // disableRemoteSensors true; // ai driving behaviour affected?
 setViewDistance 3500;
 
-if (!isMultiplayer) then { // Editor
-	/* {_x disableAI "MOVE"} forEach allUnits;*/
-};
 
+// paramsarray select 12 is BFT module in editor
+waitUntil {!isNil "JIP_TIME_ALLOWED"};
+jipTime = JIP_TIME_ALLOWED;
+
+waitUntil {!isNil "CIVILIAN_TRAFFIC"};
 if (CIVILIAN_TRAFFIC == 1) then {
 	[] execVM "Engima\Traffic\Init.sqf";
 };
 
-
-
+waitUntil {!isNil "REPLAY_ACCURACY"};
 [REPLAY_ACCURACY] execVM "GRAD_replay\GRAD_replay_init.sqf";
 
-clearInventory = compile preprocessFile "helpers\clearInventory.sqf";
-spawnStuff = compile preprocessFile "helpers\spawnStuff.sqf";
-//SHK POS
-call compile preprocessfile "SHK_pos\shk_pos_init.sqf";
-// findsimplePos
-call compile preprocessFileLineNumbers "helpers\findSimplePos.sqf";
-
-
-If(isNil "spawn_help_fnc_compiled") then { call compile preprocessFileLineNumbers "helpers\findPos.sqf"; }; // TODO why the if condition here?
-
-
 if (hasInterface) then {
+	call compile preprocessfile "SHK_pos\shk_pos_init.sqf";
 
   ["InitializePlayer", [player, true]] call BIS_fnc_dynamicGroups;
 
 	player allowDamage false;
 	[] execVM "player\setup\adjustInitialSpawnPosition.sqf"; diag_log format ["setup: initial spawn position initiated"];
 
+
 	checkJIP = {
-		if ((OPFOR_TELEPORT_TARGET select 0 != 0) && didJIP && time > jipTime) then {
+		if ((OPFOR_TELEPORT_TARGET select 0 != 0) && didJIP && serverTime > jipTime) then {
 			player setDamage 1;
 		} else {
 		if (!didJIP) exitWith {
 			[] call checkSpawnButton;
 		};
+
 		waitUntil {!isNull player};
+
 		if (playerSide == east) then {
 				[OPFOR_TELEPORT_TARGET, 50] execVM "player\teleportPlayer.sqf";
 			}
@@ -128,6 +97,9 @@ if (hasInterface) then {
 	[] execVM "player\civKillListener.sqf";
 	[] execVM "player\civGunfightListener.sqf";
 	[] execVM "player\startMarkerListener.sqf";
+
+	waitUntil {!isNil "OPFOR_TELEPORT_TARGET"};
+	waitUntil {!isNil "BLUFOR_TELEPORT_TARGET"};
 
 	if (playerSide == west) then {
 		[] execVM "player\russianMarker.sqf";
