@@ -1,17 +1,27 @@
-addBluforSpawnMarker = {
+_addBluforSpawnMarker = {
 	_pos = _this select 0;
 
-	
+
 	_blufor_marker_start = createMarkerLocal ["blufor_marker_start", _pos];
 	_blufor_marker_start setMarkerTypeLocal "hd_start";
 	_blufor_marker_start setMarkerColorLocal "ColorWEST";
 };
 
+_ShowSetupInformation = {
+	 while {!isNil "US_SPAWN_PAD"} do {
+	 hintSilent format ["Searching Spawn Pad..."];
+	 sleep 2;
+ 	};
+	hintSilent format ["Setup completed."];
+	diag_log format ["Mission Setup Information: Completed"];
+};
+
 _BLUFOR_TELEPORT_TARGET_listener = {
 	_pos = _this select 1;
 
-	[_pos] call addBluforSpawnMarker;
-	
+	[_pos] call _addBluforSpawnMarker;
+	[] call _ShowSetupInformation;
+
 	[_pos, 50] execVM "player\teleportPlayer.sqf";
 };
 

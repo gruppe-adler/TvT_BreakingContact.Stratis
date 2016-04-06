@@ -8,13 +8,23 @@ createOpforMarker = {
 	_opfor_marker setMarkerAlpha 0;
 };
 
+_ShowSetupInformation = {
+	 while {!isNil "RUS_SPAWN_PAD"} do {
+	 hintSilent format ["Searching Spawn Pad..."];
+	 sleep 2;
+ 	};
+	hintSilent format ["Setup completed."];
+	diag_log format ["Mission Setup Information: Completed"];
+};
+
 _OPFOR_TELEPORT_TARGET_listener = {
 	debugLog("opfor teleport target listener running...");
 	_pos = _this select 1;
 
 	[_pos, 50] execVM "player\teleportPlayer.sqf";
-	
+
 	[_pos] call createOpforMarker;
+	[] call _ShowSetupInformation;
 
 	closeDialog 0;
 };

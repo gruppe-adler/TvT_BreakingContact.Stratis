@@ -1,12 +1,16 @@
 #include "\z\ace\addons\main\script_component.hpp"
 
-[] execVM "GRAD_replay\playback\preparePlayback.sqf";
-[player, true] call TFAR_fnc_forceSpectator;
+[player, true] call TFAR_fnc_forceSpectator; // force everyone in spectator channel
 player enableSimulationGlobal false;
+
+{deleteMarker _x;} forEach allMapMarkers; // cleanup of markers for replay
+
+if (!isNull (findDisplay 7810)) then {closeDialog 0};
 
 if (isServer || isDedicated) then {
 
-	{deleteMarker _x;} forEach allMapMarkers;
+	[{["Starting Replay."] call EFUNC(common,displayTextStructured);},"BIS_fnc_spawn",true,true] call BIS_fnc_MP;
+	[{openMap [true,true];},"BIS_fnc_spawn",true,true] call BIS_fnc_MP;
 
 	[{[] execVM "GRAD_replay\playback\playbackCommands.sqf";},"BIS_fnc_spawn",true,true] call BIS_fnc_MP;
 
