@@ -74,7 +74,7 @@ testSpawnPositions = {
 
 	// put something very big in there, just to be sure there is enough room
 	_testPos1 = [_center,[_spawnDistance,_spawnDistance + 10], random 360,0,[2,_searchDistance],[_searchDistance,"Land_HelipadCivil_F"]] call SHK_pos;
-	if (count _testPos1 < 1) exitWith {_result = [1,nil,nil]; diag_log format ["Calculating Spawnpos: Found nothing, trying again."];};
+	if (count _testPos1 < 1) exitWith {_result = [1,nil,nil]; diag_log format ["Calculating Spawnpos: Found nothing, trying again."]; _result };
 
 	// if map size is known and spawn position is outside map, result is 1
 	if (!([_mapSize, _testPos1] call checkInsideMap) && _mapSizeKnown) exitWith {_result = [1,nil,nil]; diag_log format ["Calculating Spawnpos: Outside Map."]; _result };
