@@ -1,7 +1,8 @@
 #include "\z\ace\addons\main\script_component.hpp"
 #include "\z\ace\addons\main\script_macros.hpp"
 
-call compile preprocessFile "islandConfig.sqf";
+call compile preprocessFile "islandConfig.sqf"; // absolute basic!
+call compile preprocessfile "SHK_pos\shk_pos_init.sqf"; // absolute basic!
 // get_slope used in spawnbluforhq.sqf
 call compile preprocessFileLineNumbers "helpers\findSimplePos.sqf";
 If(isNil "spawn_help_fnc_compiled") then { call compile preprocessFileLineNumbers "helpers\findPos.sqf"; }; // TODO why the if condition here?
