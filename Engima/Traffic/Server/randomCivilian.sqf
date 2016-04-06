@@ -106,7 +106,7 @@ randomCivilian = {
 	};*/
 
 	addBehaviour = {
-		group (_this select 0) setBehaviour "SAFE";
+		group (_this select 0) setBehaviour "CARELESS";
 	};
 
 
@@ -137,7 +137,4 @@ randomCivilian = {
     [_unit] call addKilledNews;
     [_unit] call addGunfightNews;
     [_unit] call addBehaviour;
-
-
-
 };

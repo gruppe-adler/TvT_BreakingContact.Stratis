@@ -27,13 +27,6 @@ _destroyAction = ["usDestroyMenu", (localize "str_GRAD_destroy_vehicle"), "",
   {side player == west}] call ace_interact_menu_fnc_createAction;
 ["rhs_gaz66_r142_vv", 0, ["ACE_MainActions"],_destroyAction] call ace_interact_menu_fnc_addActionToClass;
 
-_destroyActionPortableRadio = ["usDestroyMenuDropped", (localize "str_GRAD_destroy_vehicle"), "",
- {
- [60, [_this select 0], {((_this select 0) select 0) setdamage 1; BLUFOR_CAPTURED = TRUE; publicVariable "BLUFOR_CAPTURED";}, {hint "Cancelled action"}, (localize "str_GRAD_destroying_radio")] call ace_common_fnc_progressBar;
- },
-  {side player == west}] call ace_interact_menu_fnc_createAction;
-["Land_SatellitePhone_F", 0, ["ACE_MainActions"],_destroyActionPortableRadio] call ace_interact_menu_fnc_addActionToClass;
-
 _destroyActionPortableRadio = ["usDestroyMenuPortable", (localize "str_GRAD_destroy_vehicle"), "",
  {
  [60, [_this select 0], {((_this select 0) select 0) setdamage 1; BLUFOR_CAPTURED = TRUE; publicVariable "BLUFOR_CAPTURED";}, {hint "Cancelled action"}, (localize "str_GRAD_destroying_radio")] call ace_common_fnc_progressBar;
@@ -59,36 +52,6 @@ _destroyActionPortableRadio = ["usDestroyMenuPortable", (localize "str_GRAD_dest
 ["rhs_gaz66_r142_vv", 0, ["ACE_MainActions"],_detachRadioAction] call ace_interact_menu_fnc_addActionToClass;
 
 
-/*_assembleTankTrap = ["ACE_MainActions", "Assemble Tank Trap", "",
- {[this] call assembleTankTrap;},
-  {},{},[],[1,0,0],1] call ace_interact_menu_fnc_createAction;*/
-
-// CURRENTLY NOT IN USE (UNWANTED AIA DEPENDENCY)
-
-/*
-_assembleTankTrap = ["TankTrapSystem", "Assemble Tank Trap", "",
- {[(_this select 0)] call assembleTankTrap;},
-  {true}] call ace_interact_menu_fnc_createAction;
-
-["ACE_Box_Misc", 0, ["ACE_MainActions"],_assembleTankTrap] call ace_interact_menu_fnc_addActionToClass;
-*/
-
-/*
-_disassembleTankTrap = ["ACE_MainActions", "Disassemble Tank Trap", "",
- {[this] call disassembleTankTrap;},
-  {},{},[],[1,0,0],1] call ace_interact_menu_fnc_createAction;*/
-
-
-// CURRENTLY NOT IN USE (UNWANTED AIA DEPENDENCY)
-/*
-_disassembleTankTrap = ["TankTrapSystem", "Disassemble Tank Trap", "",
- {[(_this select 0)] call disassembleTankTrap;},
-  {true}] call ace_interact_menu_fnc_createAction;
-
-["Hedgehog", 0, ["ACE_MainActions"],_disassembleTankTrap] call ace_interact_menu_fnc_addActionToClass;
-
-*/
-
 
 // transmission progress check
 _transmissionProgressAction = ["TransmissionProgress", "Check Transmission Progress", "",
@@ -96,7 +59,6 @@ _transmissionProgressAction = ["TransmissionProgress", "Check Transmission Progr
   {side player == east}] call ace_interact_menu_fnc_createAction;
 
 ["rhs_gaz66_r142_vv", 0, ["ACE_MainActions"],_transmissionProgressAction] call ace_interact_menu_fnc_addActionToClass;
-
 
 
 
