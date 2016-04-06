@@ -2,10 +2,13 @@
 #include "..\missionMacros.h"
 
 checkWater = {
+	_return = false;
 	if (surfaceIsWater _this) then {
 		_string = localize "str_GRAD_spawn_on_water";
-		[_string] call EFUNC(common,displayTextStructured); // 
+		[_string] call EFUNC(common,displayTextStructured); //
+		_return = true;
 	};
+	_return
 };
 
 opforTeleporting = {
@@ -26,9 +29,11 @@ opforTeleporting = {
 		{
 			debugLog("opfor lead clicked on map");
 			try {
-				_pos call checkWater;
+				if !(_pos call checkWater) exitWith {};
 				["teleportClickOpf", "onMapSingleClick"] call BIS_fnc_removeStackedEventHandler;
 				_pos call opforTeleporting;
+				playSound ['click', true];
+				["Preparing Spawn..."] call EFUNC(common,displayTextStructured);
 			} catch {
 				hint str _exception;
 			};

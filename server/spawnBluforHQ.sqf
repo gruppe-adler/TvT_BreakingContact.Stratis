@@ -151,7 +151,7 @@ spawnBluforHQ = {
 			_vehicle1 = (_bluforSpawnSuccess select 1);
 			_vehicle2 = (_bluforSpawnSuccess select 2);
 
-			[_vehicle1, _vehicle2] call setSpawnedDirection;
+
 			[_vehicle1,	nil, ["hide_middleTop",1]] call BIS_fnc_initVehicle;
 			[_vehicle1] call clearInventory;
 
@@ -221,8 +221,6 @@ spawnOpforHQ = {
 
 			_vehicle1 = (_opforSpawnSuccess select 1);
 			_vehicle2 = (_opforSpawnSuccess select 2);
-
-			[_vehicle1, _vehicle2] call setSpawnedDirection;
 
 			RUS_SPAWN_PAD = (_opforSpawnSuccess select 2);
 			publicVariable "RUS_SPAWN_PAD";

@@ -1,5 +1,6 @@
 _ai = _this select 0;
 
+waitUntil {!isNil "BLUFOR_TELEPORT_TARGET"};
 waitUntil {(BLUFOR_TELEPORT_TARGET select 0 != 0)};
 
 if (side _ai == west) then {
