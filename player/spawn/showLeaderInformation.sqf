@@ -17,41 +17,39 @@ _commanders = [
 	"opfor_teamlead"
 ];
 _allofthem = _teamleads + _squadleads + _commanders;
-drawIconsStacked = [];
-MISSION_ROOT = str missionConfigFile select [0, count str missionConfigFile - 15];
-diag_log format ["////////////////////////"];
-diag_log format ["debug stacked handler MISSION_ROOT : %1",MISSION_ROOT];
-diag_log format ["////////////////////////"];
+_drawIconsStacked = [];
+_MISSION_ROOT = str missionConfigFile select [0, count str missionConfigFile - 15];
+
 
 {
-	drawIconSymbol = "tl";
+	_drawIconSymbol = "tl";
 	if (!(typeOf _x in _allofthem)) exitWith {};
 
 	if (typeOf _x in _teamleads) then {
-		drawIconSymbol = "tl";
-		drawIconColor = [0.2,0.2,0.9,1];
+		_drawIconSymbol = "tl";
+		_drawIconColor = [0.2,0.2,0.9,1];
 	};
 	if (typeOf _x in _squadleads) then {
-		drawIconSymbol = "sql";
-		drawIconColor = [0.8,0.8,0.8,1];
+		_drawIconSymbol = "sql";
+		_drawIconColor = [0.8,0.8,0.8,1];
 	};
 	if (str _x in _commanders) then {
-		drawIconSymbol = "com";
-		drawIconColor = [0.2,0.9,0.2,1];
+		_drawIconSymbol = "com";
+		_drawIconColor = [0.2,0.9,0.2,1];
 	};
 	_uniqueString = "drawIconFor" + (parseText format ["%1",_x]);
 	diag_log format ["////////////////////////"];
 	diag_log format ["debug stacked handler _uniqueString : %1",_uniqueString];
 	diag_log format ["////////////////////////"];
-	drawIconsStacked = drawIconsStacked + _uniqueString;
+	_drawIconsStacked = _drawIconsStacked + _uniqueString;
 	[_uniqueString, "onEachFrame", {
 
 		drawIcon3D [
-		MISSION_ROOT + "\pic\leaderclasses\"
-		drawIconSymbol +
-		".paa", drawIconColor, [((getPos _x) select 0), ((getPos _x) select 1), 2.3], 2, 2, 0,""
+		_MISSION_ROOT + "\pic\leaderclasses\" +
+		_drawIconSymbol +
+		".paa", _drawIconColor, [((getPos _x) select 0), ((getPos _x) select 1), 2.3], 2, 2, 0,""
 		];
 	}] call BIS_fnc_addStackedEventHandler;
 } forEach playableUnits;
 waitUntil {time > 600};
-{[_x, "onEachFrame"] call BIS_fnc_removeStackedEventHandler; } forEach _drawIconsStacked;
+{[_x, "onEachFrame"] call BIS_fnc_removeStackedEventHandler; } forEach __drawIconsStacked;
