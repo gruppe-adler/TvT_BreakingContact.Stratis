@@ -55,12 +55,14 @@ _showLeaderInformation = {
 			_symbol = "com";
 			_color = [0.2,0.9,0.2,1];
 		};
-		_uniqueString = "drawIconFor" + format ["%1",_x];
+		_uniqueString = "drawIconFor" + (format ["%1",_x]);
 		_drawIconsStacked = _drawIconsStacked + _uniqueString;
 		[_uniqueString, "onEachFrame", {
-			drawIcon3D[_MISSION_ROOT + "\pic\leaderclasses\"
+			drawIcon3D [
+			_MISSION_ROOT + "\pic\leaderclasses\"
 			_symbol +
-			".paa", _color, [getPos _x select 0, getPos _x select 1, 2.3], 2, 2, 0];
+			".paa", _color, [((getPos _x) select 0), ((getPos _x) select 1), 2.3], 2, 2, 0
+			];
 		}] call BIS_fnc_addStackedEventHandler;
 	} forEach allPlayers;
 	waitUntil {time > 180};

@@ -1295,7 +1295,7 @@ class gui_spawn_opfor
 				text = "<t align='center' size='1.2'>Hello Commander!</t>";
 				x = 14 * GUI_GRID_W + GUI_GRID_X;
 				y = 1 * GUI_GRID_H + GUI_GRID_Y;
-				w = 12 * GUI_GRID_W;
+				w = 18 * GUI_GRID_W;
 				h = 3 * GUI_GRID_H;
 				colorBackground[] = {-1,-1,-1,0};
 			};
@@ -1303,10 +1303,10 @@ class gui_spawn_opfor
 			class text_spawn_opfor2: RscStructuredText
 			{
 				idc = -1;
-				text = "<t align='center' size='0.6'>In case you close this dialog by accident, reopen with [SPACE]</t>";
+				text = "<t align='center' size='0.7'>In case you close this dialog by accident, reopen with [SPACE] !</t>";
 				x = 14 * GUI_GRID_W + GUI_GRID_X;
 				y = 3 * GUI_GRID_H + GUI_GRID_Y;
-				w = 12 * GUI_GRID_W;
+				w = 18 * GUI_GRID_W;
 				h = 3 * GUI_GRID_H;
 				colorBackground[] = {-1,-1,-1,0};
 			};
@@ -1317,7 +1317,7 @@ class gui_spawn_opfor
 				text = $STR_GRAD_choose_spawn_location;
 				x = 14 * GUI_GRID_W + GUI_GRID_X;
 				y = 5 * GUI_GRID_H + GUI_GRID_Y;
-				w = 12 * GUI_GRID_W;
+				w = 18 * GUI_GRID_W;
 				h = 3 * GUI_GRID_H;
 				colorText[] = {0,0,0,1};
 				colorBackground[] = {0.81,0.55,0.12,1};
