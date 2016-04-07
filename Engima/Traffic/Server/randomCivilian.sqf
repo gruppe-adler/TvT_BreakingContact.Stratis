@@ -118,6 +118,8 @@ randomCivilian = {
          CIV_KILLED_POS = (position (_this select 0));
          diag_log format ["civ killed at %1",CIV_KILLED_POS];
          publicVariableServer "CIV_KILLED_POS";
+         (_this select 0) removeAllEventHandlers "Killed";
+         (_this select 0) removeAllEventHandlers "FiredNear";
         }];
 
     };
