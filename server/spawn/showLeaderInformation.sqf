@@ -45,6 +45,7 @@ _drawIconsStacked = [];
 	_drawIconTemp = _drawIconSymbol createVehicle position _x;
 	_drawIconTemp attachTo [_x,[0,0,2.5]];
 
+	_drawIconsStacked = _drawIconsStacked + [_drawIconTemp];
 
 } forEach allUnits;
 
