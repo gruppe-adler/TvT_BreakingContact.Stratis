@@ -17,8 +17,11 @@ _commanders = [
 	"opfor_teamlead"
 ];
 _allofthem = _teamleads + _squadleads + _commanders;
-_drawIconsStacked = [];
+drawIconsStacked = [];
 MISSION_ROOT = str missionConfigFile select [0, count str missionConfigFile - 15];
+diag_log format ["////////////////////////"];
+diag_log format ["debug stacked handler MISSION_ROOT : %1",MISSION_ROOT];
+diag_log format ["////////////////////////"];
 
 {
 	drawIconSymbol = "tl";
@@ -37,7 +40,10 @@ MISSION_ROOT = str missionConfigFile select [0, count str missionConfigFile - 15
 		drawIconColor = [0.2,0.9,0.2,1];
 	};
 	_uniqueString = "drawIconFor" + (parseText format ["%1",_x]);
-	_drawIconsStacked = _drawIconsStacked + _uniqueString;
+	diag_log format ["////////////////////////"];
+	diag_log format ["debug stacked handler _uniqueString : %1",_uniqueString];
+	diag_log format ["////////////////////////"];
+	drawIconsStacked = drawIconsStacked + _uniqueString;
 	[_uniqueString, "onEachFrame", {
 
 		drawIcon3D [
@@ -46,6 +52,6 @@ MISSION_ROOT = str missionConfigFile select [0, count str missionConfigFile - 15
 		".paa", drawIconColor, [((getPos _x) select 0), ((getPos _x) select 1), 2.3], 2, 2, 0,""
 		];
 	}] call BIS_fnc_addStackedEventHandler;
-} forEach allPlayers;
+} forEach playableUnits;
 waitUntil {time > 600};
 {[_x, "onEachFrame"] call BIS_fnc_removeStackedEventHandler; } forEach _drawIconsStacked;
