@@ -21,7 +21,11 @@ _drawIconsStacked = [];
 _MISSION_ROOT = str missionConfigFile select [0, count str missionConfigFile - 15];
 
 {
+	diag_log format ["////////////////////////"];
+	diag_log format ["debug stacked handler _x : %1",_x];
+	diag_log format ["////////////////////////"];
 	_drawIconSymbol = "tl";
+	_drawIconColor = [0.2,0.2,0.9,1];
 	if (!(typeOf _x in _allofthem)) exitWith {};
 
 	if (typeOf _x in _teamleads) then {
@@ -49,6 +53,6 @@ _MISSION_ROOT = str missionConfigFile select [0, count str missionConfigFile - 1
 		2, 2, 0,""
 		];
 	}] call BIS_fnc_addStackedEventHandler;
-} forEach playableUnits;
+} forEach allUnits;
 waitUntil {time > 600};
-{[_x, "onEachFrame"] call BIS_fnc_removeStackedEventHandler; } forEach __drawIconsStacked;
+{[_x, "onEachFrame"] call BIS_fnc_removeStackedEventHandler; } forEach _drawIconsStacked;

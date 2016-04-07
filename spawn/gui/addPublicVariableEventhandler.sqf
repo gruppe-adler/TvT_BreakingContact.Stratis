@@ -253,13 +253,12 @@ fillUSSupplies = {
             clearMagazineCargoGlobal (_this select 0);
             (_this select 0) addItemCargoGlobal ['ItemGPS',1];
             ['AddCargoByClass', _this select 0, ['ACE_wheel', _this select 0, 2]] call ace_common_fnc_targetEvent;
-            _box = createVehicle ['ACE_Box_Misc', position (_this select 0), [], 1, 'NONE'];
             clearWeaponCargoGlobal _box;
             clearItemCargoGlobal _box;
             clearBackpackCargoGlobal _box;
             clearMagazineCargoGlobal _box;
             },
-            format['%1<br/>%2<br/>%3<br/>%4<br/>%5','Crew: 1','Seats: 7','Speed: 109','1 Assault Boat','1 GPS']
+            format['%1<br/>%2<br/>%3<br/>%4','Crew: 1','Seats: 7','Speed: 109','1 GPS']
         ],
         [
             hmmwv_m2,
@@ -329,10 +328,12 @@ fillUSSupplies = {
             (_this select 0) addItemCargoGlobal ['ACE_fieldDressing',100];
             (_this select 0) addItemCargoGlobal ['ACE_bloodIV_250',20];
             (_this select 0) addItemCargoGlobal ['ItemGPS',5];
+            _box = createVehicle ['ACE_Box_Misc', position (_this select 0), [], 1, 'NONE'];
+            _box = createVehicle ['ACE_Box_Misc', position (_this select 0), [], 1, 'NONE'];
             ['AddCargoByClass', _this select 0, ['ACE_wheel', _this select 0, 3]] call ace_common_fnc_targetEvent;
             ['AddCargoByClass', _this select 0, ['ACE_Track', _this select 0, 1]] call ace_common_fnc_targetEvent;
             },
-            format['%1<br/>%2<br/>%3<br/>%4<br/>%5<br/>%6<br/>%7<br/>%8<br/>%9<br/>%10<br/>%11<br/>%12<br/>%13<br/>%14<br/>%15','Crew: 2','Seats: 11','Speed: 67','','Cargo:','4 AT M136','40 Smokes','60 AK Mags','20 MG Mags','20 Grenades','30 Flares','Medical Stuff','5 GPS','3 Repair Wheels','1 Repair Track']
+            format['%1<br/>%2<br/>%3<br/>%4<br/>%5<br/>%6<br/>%7<br/>%8<br/>%9<br/>%10<br/>%11<br/>%12<br/>%13<br/>%14<br/>%15<br/>%16','Crew: 2','Seats: 11','Speed: 67','','Cargo:','4 AT M136','40 Smokes','60 AK Mags','20 MG Mags','20 Grenades','30 Flares','Medical Stuff','5 GPS','2 Assault Boats (in Boxes)','3 Repair Wheels','1 Repair Track']
         ],
         [
             "B_Heli_Light_01_F",
