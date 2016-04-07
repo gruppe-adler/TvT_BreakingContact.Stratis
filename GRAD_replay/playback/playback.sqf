@@ -8,11 +8,9 @@ player enableSimulationGlobal false;
 if (!isNull (findDisplay 7810)) then {closeDialog 0};
 
 if (isServer || isDedicated) then {
-
+	["Terminate"] call BIS_fnc_EGSpectator;
 	[{["Starting Replay."] call EFUNC(common,displayTextStructured);},"BIS_fnc_spawn",true,true] call BIS_fnc_MP;
 	[{openMap [true,true];},"BIS_fnc_spawn",true,true] call BIS_fnc_MP;
-
-	[{[] execVM "GRAD_replay\playback\playbackCommands.sqf";},"BIS_fnc_spawn",true,true] call BIS_fnc_MP;
 
 	local_recording_length = count local_recording;
 	local_recording_counter = 0;
