@@ -65,7 +65,8 @@ _transmissionProgressAction = ["TransmissionProgress", "Check Transmission Progr
 // assault boat assembly
 
 _assembleAssaultBoat = ["AssaultBoatAssembly", "Assemble Assault Boat", "",
- {[(_this select 0)] call assembleAssaultBoat;},
+ {[(_this select 0)] call assembleAssaultBoat;
+   },
   {true}] call ace_interact_menu_fnc_createAction;
 
 ["ACE_Box_Misc", 0, ["ACE_MainActions"],_assembleAssaultBoat] call ace_interact_menu_fnc_addActionToClass;
