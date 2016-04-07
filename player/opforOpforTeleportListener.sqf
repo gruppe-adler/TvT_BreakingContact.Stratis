@@ -8,66 +8,6 @@ createOpforMarker = {
 	_opfor_marker setMarkerAlpha 0;
 };
 
-_ShowSetupInformation = {
-	 while {!isNil "RUS_SPAWN_PAD"} do {
-	 hintSilent format ["Searching Spawn Pad..."];
-	 sleep 2;
- 	};
-	hintSilent format ["Setup completed."];
-	diag_log format ["Mission Setup Information: Completed"];
-};
-
-_showLeaderInformation = {
-	_teamleads= [
-		"O_G_Soldier_TL_F",
-		"O_soldierU_F",
-		"O_Soldier_TL_F",
-		"O_recon_TL_F",
-		"O_soldierU_TL_F",
-		"O_G_officer_F",
-		"O_Soldier_TL_F",
-		"O_recon_TL_F",
-		"O_soldierU_TL_F"
-	];
-	_squadleads= [
-		"O_Soldier_SL_F"
-	];
-	_commanders = [
-		"opfor_assistant",
-		"opfor_teamlead"
-	];
-	_allofthem = _teamleads + _squadleads + _commanders;
-	_drawIconsStacked = [];
-
-	_MISSION_ROOT = str missionConfigFile select [0, count str missionConfigFile - 15];
-	{
-		if (!(typeOf _x in _allofthem)) exitWith {};
-
-		if (typeOf _x in _teamleads) then {
-			_symbol = "tl";
-			_color = [0.2,0.2,0.9,1];
-		};
-		if (typeOf _x in _squadleads) then {
-			_symbol = "sql";
-			_color = [0.8,0.8,0.8,1];
-		};
-		if (str _x in _commanders) then {
-			_symbol = "com";
-			_color = [0.2,0.9,0.2,1];
-		};
-		_uniqueString = "drawIconFor" + (format ["%1",_x]);
-		_drawIconsStacked = _drawIconsStacked + _uniqueString;
-		[_uniqueString, "onEachFrame", {
-			drawIcon3D [
-			_MISSION_ROOT + "\pic\leaderclasses\"
-			_symbol +
-			".paa", _color, [((getPos _x) select 0), ((getPos _x) select 1), 2.3], 2, 2, 0
-			];
-		}] call BIS_fnc_addStackedEventHandler;
-	} forEach allPlayers;
-	waitUntil {time > 180};
-	{[_x, "onEachFrame"] call BIS_fnc_removeStackedEventHandler; } forEach _drawIconsStacked;
-};
 
 _OPFOR_TELEPORT_TARGET_listener = {
 	debugLog("opfor teleport target listener running...");
@@ -78,8 +18,8 @@ _OPFOR_TELEPORT_TARGET_listener = {
 
 	closeDialog 0;
 
-	[] spawn _ShowSetupInformation;
-	[] spawn _showLeaderInformation;
+	0 = [] execVM "player\spawn\showSetupInformation.sqf";
+	0 = [] execVM "player\spawn\showLeaderInformation.sqf";
 };
 
 "OPFOR_TELEPORT_TARGET" addPublicVariableEventHandler _OPFOR_TELEPORT_TARGET_listener;
