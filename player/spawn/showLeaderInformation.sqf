@@ -26,13 +26,13 @@ _MISSION_ROOT = str missionConfigFile select [0, count str missionConfigFile - 1
 	diag_log format ["////////////////////////"];
 	_drawIconSymbol = "tl";
 	_drawIconColor = [0.2,0.2,0.9,1];
-	if (!(typeOf _x in _allofthem)) exitWith {};
+	if (!((str typeOf _x) in _allofthem)) exitWith {};
 
-	if (typeOf _x in _teamleads) then {
+	if ((str typeOf _x) in _teamleads) then {
 		_drawIconSymbol = "tl";
 		_drawIconColor = [0.2,0.2,0.9,1];
 	};
-	if (typeOf _x in _squadleads) then {
+	if ((str typeOf _x) in _squadleads) then {
 		_drawIconSymbol = "sql";
 		_drawIconColor = [0.8,0.8,0.8,1];
 	};
