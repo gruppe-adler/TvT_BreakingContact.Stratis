@@ -36,7 +36,7 @@ MISSION_ROOT = str missionConfigFile select [0, count str missionConfigFile - 15
 		drawIconSymbol = "com";
 		drawIconColor = [0.2,0.9,0.2,1];
 	};
-	_uniqueString = "drawIconFor" + (format ["%1",_x]);
+	_uniqueString = "drawIconFor" + (parseText format ["%1",_x]);
 	_drawIconsStacked = _drawIconsStacked + _uniqueString;
 	[_uniqueString, "onEachFrame", {
 
