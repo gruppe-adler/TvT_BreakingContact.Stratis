@@ -56,7 +56,7 @@ _drawIconsStacked = [];
 
 } forEach allUnits;
 
-waitUntil {time > 600};
+waitUntil {time > 300};
 {deleteVehicle _x} forEach _drawIconsStacked;
 
 /*
