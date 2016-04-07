@@ -180,7 +180,8 @@ if (isClass (configFile >> "CfgPatches" >> "task_force_radio")) then {
  	[] spawn {
  		{
 			if (!isPlayer _x) then {
-				sleep 0.5; 0 = [_x] execVM "loadouts\_client.sqf";
+				sleep 1; 
+				0 = [_x] execVM "loadouts\_client.sqf";
 				_x setVariable ["BIS_noCoreConversations", true];
 			};
 			0 = [_x] execVM "server\teleportAI.sqf";
@@ -190,7 +191,7 @@ if (isClass (configFile >> "CfgPatches" >> "task_force_radio")) then {
  	[] spawn {
  		{
  			if (!isPlayer _x) then {
-	 			sleep 0.2;
+	 			sleep 0.5;
 	 			_x setVariable ["BIS_noCoreConversations", true];
 	 			0 = [_x] execVM "loadouts\_client.sqf";
 				0 = [_x] execVM "server\teleportAI.sqf";
