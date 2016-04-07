@@ -16,7 +16,7 @@ createCivGunfightMarker = {
 	_marker = createMarkerLocal [format["gunfight_shape_%1",_pos],_pos];
 	_marker setMarkerShapeLocal "ELLIPSE";
 	_marker setMarkerColorLocal "ColorUnknown";
-	_marker setMarkerSizeLocal [100,100];
+	_marker setMarkerSizeLocal [200,200];
 
 	_marker2 = createMarkerLocal [format["gunfight_icon_%1",_pos],_pos];
 	_marker2 setMarkerShapeLocal "ICON";

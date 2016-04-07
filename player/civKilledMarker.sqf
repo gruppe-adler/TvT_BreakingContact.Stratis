@@ -11,8 +11,8 @@ createCivKilledMarker = {
 	
 	_marker = createMarkerLocal [format["civkill_shape_%1",_pos],_pos];
 	_marker setMarkerShapeLocal "ELLIPSE";
-	_marker setMarkerColorLocal "ColorUnknown";
-	_marker setMarkerSizeLocal [100,100];
+	_marker setMarkerColorLocal "ColorCivilian";
+	_marker setMarkerSizeLocal [200,200];
 
 	_marker2 = createMarkerLocal [format["civkill_icon_%1",_pos],_pos];
 	_marker2 setMarkerShapeLocal "ICON";
