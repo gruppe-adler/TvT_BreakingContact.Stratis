@@ -34,13 +34,13 @@ _drawIconsStacked = [];
 	if (!((typeOf _x) in _allofthem)) then {} else {
 
 		if ((typeOf _x) in _teamleads) then {
-			_drawIconSymbol = "Sign_Pointer_Green_F";
+			_drawIconSymbol = "Sign_Arrow_Green_F";
 		};
 		if ((typeOf _x) in _squadleads) then {
-			_drawIconSymbol = "Sign_Pointer_Pink_F";
+			_drawIconSymbol = "Sign_Arrow_Pink_F";
 		};
 		if (str _x in _commanders) then {
-			_drawIconSymbol = "Sign_Pointer_Yellow_F";
+			_drawIconSymbol = "Sign_Arrow_Yellow_F";
 		};
 		_drawIconTemp = _drawIconSymbol createVehicle position _x;
 		_drawIconTemp attachTo [_x,[0,0,2.5]];

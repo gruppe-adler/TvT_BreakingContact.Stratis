@@ -56,8 +56,8 @@ _parameters = [
 	["VEHICLES_COUNT", 10],
 	["MIN_SPAWN_DISTANCE", 1500],
 	["MAX_SPAWN_DISTANCE", 2500],
-	["MIN_SKILL", 0.1],
-	["MAX_SKILL", 0.1],
+	["MIN_SKILL", 1],
+	["MAX_SKILL", 1],
 	["DEBUG", false]
 ];
 

@@ -172,7 +172,7 @@ if (isClass (configFile >> "CfgPatches" >> "task_force_radio")) then {
 [] execVM "server\civGunfightListener.sqf";
 
 // VCOM driving AI
-[] execVM "VCOM_Driving\init.sqf";
+// [] execVM "VCOM_Driving\init.sqf"; // doesnt help with kamikaze behaviour
 
 	call compile preprocessFileLineNumbers "server\spawnBluforHQ.sqf";
 
