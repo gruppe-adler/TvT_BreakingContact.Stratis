@@ -34,24 +34,29 @@ _drawIconsStacked = [];
 
 
 
-	if ((typeOf _x) in _teamleads) then {
-		_drawIconSymbol = "Sign_Pointer_Green_F";
+	if ((typeOf _x) in _teamleads) exitWith {
+		_drawIconSymbol = "UserTexture1m_F";
 		_drawIconTemp = _drawIconSymbol createVehicle position _x;
 		_drawIconTemp attachTo [_x,[0,0,2.5]];
+		_drawIconTemp setObjectTextureGlobal [0,"\pic\leaderclasses\tl.paa"];
 		_drawIconsStacked = _drawIconsStacked + [_drawIconTemp];
 	};
-	if ((typeOf _x) in _squadleads) then {
-		_drawIconSymbol = "Sign_Pointer_Pink_F";
+	// must be before sqls
+	if (str _x in _commanders) exitWith {
+		_drawIconSymbol = "UserTexture1m_F";
 		_drawIconTemp = _drawIconSymbol createVehicle position _x;
 		_drawIconTemp attachTo [_x,[0,0,2.5]];
+		_drawIconTemp setObjectTextureGlobal [0,"\pic\leaderclasses\com.paa"];
 		_drawIconsStacked = _drawIconsStacked + [_drawIconTemp];
 	};
-	if (str _x in _commanders) then {
-		_drawIconSymbol = "Sign_Pointer_Yellow_F";
+	if ((typeOf _x) in _squadleads) exitWith {
+		_drawIconSymbol = "UserTexture1m_F";
 		_drawIconTemp = _drawIconSymbol createVehicle position _x;
 		_drawIconTemp attachTo [_x,[0,0,2.5]];
+		_drawIconTemp setObjectTextureGlobal [0,"\pic\leaderclasses\sql.paa"];
 		_drawIconsStacked = _drawIconsStacked + [_drawIconTemp];
 	};
+	
 
 
 } forEach allUnits;
