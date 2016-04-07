@@ -18,8 +18,7 @@ _OPFOR_TELEPORT_TARGET_listener = {
 
 	closeDialog 0;
 
-	0 = [] execVM "player\spawn\showSetupInformation.sqf";
-	0 = [] execVM "player\spawn\showLeaderInformation.sqf";
+	// 0 = [] execVM "player\spawn\showSetupInformation.sqf";
 };
 
 "OPFOR_TELEPORT_TARGET" addPublicVariableEventHandler _OPFOR_TELEPORT_TARGET_listener;

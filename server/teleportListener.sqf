@@ -16,6 +16,9 @@ createOpforStuff =  {
 	[getPos funkwagen, 50] call spawnOpforHQ;
 
 
+	0 = [] execVM "server\spawn\showLeaderInformation.sqf";
+
+
 	if (!isMultiplayer) then {
 		_opfor_marker_start = createMarker ["debug_opfor_marker_start", RUS_VEHICLE_SPAWN];
 		_opfor_marker_start setMarkerType "hd_start";
