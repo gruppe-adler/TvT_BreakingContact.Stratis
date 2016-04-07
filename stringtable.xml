@@ -101,10 +101,20 @@
 				<German>Im Wasser spawnen unmöglich</German>
 			</Key>
 			<Key ID="str_GRAD_choose_spawn_location">
-				<Original>Choose Spawn (must be on road)</Original>
-				<English>Choose Spawn (must be on road)</English>
-				<German>Spawnpunkt auf Straße wählen</German>
+				<Original>Choose Spawn</Original>
+				<English>Choose Spawn</English>
+				<German>Spawnpunkt wählen</German>
 			</Key>
+			<Key ID="str_GRAD_choose_spawn_location_road">
+				<Original>Spawn must be on road!</Original>
+				<English>Spawn must be on road!</English>
+				<German>Muss auf Straße liegen!</German>
+			</Key>
+			<Key ID="str_GRAD_choose_spawn_location_hint">
+				<Original>&lt;t align='center' color='#80ffffff' size='0.7'&gt;In case you close this dialog by accident, reopen with [SPACE]. Spawn will be on nearest road to selected point. Thus its wise to choose a road beforehand. &lt;/t&gt;</Original>
+				<English>&lt;t align='center' color='#80ffffff' size='0.7'&gt;In case you close this dialog by accident, reopen with [SPACE] ! Spawn will be on nearest road to selected point. Thus its wise to choose a road beforehand. &lt;/t&gt;</English>
+				<German>&lt;t align='center' color='#80ffffff' size='0.7'&gt;Wenn Du diesen Dialog aus Versehen schließt, kannst du ihn mit [Leertaste] neu aufrufen. Spawn ist auf der dem selektierten Punkt am nächsten gelegenen Straße. Wähl also am Besten direkt eine aus.&lt;/t&gt;</German>
+			</Key>			
 			<Key ID="str_GRAD_buy_vehicles">
 				<Original>Buy Vehicles</Original>
 				<English>Buy Vehicles</English>
