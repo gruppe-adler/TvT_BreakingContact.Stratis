@@ -1316,7 +1316,7 @@ class gui_spawn_opfor
 				idc = -1;
 				text = $STR_GRAD_choose_spawn_location;
 				x = 11 * GUI_GRID_W + GUI_GRID_X;
-				y = 5 * GUI_GRID_H + GUI_GRID_Y;
+				y = 6 * GUI_GRID_H + GUI_GRID_Y;
 				w = 18 * GUI_GRID_W;
 				h = 3 * GUI_GRID_H;
 				colorText[] = {0,0,0,1};
