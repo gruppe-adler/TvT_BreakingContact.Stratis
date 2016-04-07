@@ -1,8 +1,10 @@
-
+#include "\z\ace\addons\main\script_component.hpp"
 // takes location, distance
 
 _location = _this select 0;
 _distance = _this select 1;
+
+["Preparing teleport..."] call EFUNC(common,displayTextStructured);
 
 sleep (random 7);
 

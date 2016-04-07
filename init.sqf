@@ -54,7 +54,6 @@ if (hasInterface) then {
 
 
 	checkSpawnButton = {
-
 		if (str player != "opfor_teamlead") then {
 			0 = [[worldSize/2,worldSize/2,0],"",1500] execVM "player\setup\establishingShot.sqf";
 		} else {
