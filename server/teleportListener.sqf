@@ -14,6 +14,11 @@ createOpforStuff =  {
 	sleep 0.1;
 
 	[getPos funkwagen, 50] call spawnOpforHQ;
+	funkwagen addItemCargoGlobal ["ACE_SpraypaintBlack",10];
+	funkwagen addItemCargoGlobal ["ACE_SpraypaintBlue",10];
+	funkwagen addItemCargoGlobal ["ACE_SpraypaintGreen",10];
+	funkwagen addItemCargoGlobal ["ACE_SpraypaintRed",10];
+	funkwagen addItemCargoGlobal ["ACE_EntrenchingTool",10];
 
 
 	0 = [] execVM "server\spawn\showLeaderInformation.sqf";

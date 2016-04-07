@@ -154,6 +154,11 @@ spawnBluforHQ = {
 
 			[_vehicle1,	nil, ["hide_middleTop",1]] call BIS_fnc_initVehicle;
 			[_vehicle1] call clearInventory;
+			_vehicle1 addItemCargoGlobal ["ACE_SpraypaintBlack",10];
+			_vehicle1 addItemCargoGlobal ["ACE_SpraypaintBlue",10];
+			_vehicle1 addItemCargoGlobal ["ACE_SpraypaintGreen",10];
+			_vehicle1 addItemCargoGlobal ["ACE_SpraypaintRed",10];
+			_vehicle1 addItemCargoGlobal ["ACE_EntrenchingTool",10];
 
 			US_SPAWN_PAD = (_bluforSpawnSuccess select 2);
 			publicVariable "US_SPAWN_PAD";
