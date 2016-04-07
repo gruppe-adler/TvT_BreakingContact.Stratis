@@ -20,7 +20,6 @@ _allofthem = _teamleads + _squadleads + _commanders;
 _drawIconsStacked = [];
 _MISSION_ROOT = str missionConfigFile select [0, count str missionConfigFile - 15];
 
-
 {
 	_drawIconSymbol = "tl";
 	if (!(typeOf _x in _allofthem)) exitWith {};
@@ -43,11 +42,11 @@ _MISSION_ROOT = str missionConfigFile select [0, count str missionConfigFile - 1
 	diag_log format ["////////////////////////"];
 	_drawIconsStacked = _drawIconsStacked + _uniqueString;
 	[_uniqueString, "onEachFrame", {
-
 		drawIcon3D [
-		_MISSION_ROOT + "\pic\leaderclasses\" +
-		_drawIconSymbol +
-		".paa", _drawIconColor, [((getPos _x) select 0), ((getPos _x) select 1), 2.3], 2, 2, 0,""
+		"\A3\ui_f\data\map\vehicleicons\" + gettext (configFile >> 'CfgVehicles' >> (typeOf _x) >> 'icon'),
+		_drawIconColor,
+		[((getPos _x) select 0), ((getPos _x) select 1), 2.3],
+		2, 2, 0,""
 		];
 	}] call BIS_fnc_addStackedEventHandler;
 } forEach playableUnits;
