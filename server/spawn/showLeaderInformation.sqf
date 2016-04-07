@@ -31,21 +31,28 @@ _drawIconsStacked = [];
 	diag_log format ["debug attaching helper stuff _x : %1",_x];
 	diag_log format ["////////////////////////"];
 	_drawIconSymbol = "Sign_Pointer_Cyan_F";
-	if (!((typeOf _x) in _allofthem)) exitWith {};
+
+
 
 	if ((typeOf _x) in _teamleads) then {
 		_drawIconSymbol = "Sign_Pointer_Green_F";
+		_drawIconTemp = _drawIconSymbol createVehicle position _x;
+		_drawIconTemp attachTo [_x,[0,0,2.5]];
+		_drawIconsStacked = _drawIconsStacked + _drawIconTemp;
 	};
 	if ((typeOf _x) in _squadleads) then {
 		_drawIconSymbol = "Sign_Pointer_Pink_F";
+		_drawIconTemp = _drawIconSymbol createVehicle position _x;
+		_drawIconTemp attachTo [_x,[0,0,2.5]];
+		_drawIconsStacked = _drawIconsStacked + _drawIconTemp;
 	};
 	if (str _x in _commanders) then {
 		_drawIconSymbol = "Sign_Pointer_Yellow_F";
+		_drawIconTemp = _drawIconSymbol createVehicle position _x;
+		_drawIconTemp attachTo [_x,[0,0,2.5]];
+		_drawIconsStacked = _drawIconsStacked + _drawIconTemp;
 	};
-	_drawIconTemp = _drawIconSymbol createVehicle position _x;
-	_drawIconTemp attachTo [_x,[0,0,2.5]];
 
-	_drawIconsStacked = _drawIconsStacked + _drawIconTemp;
 
 } forEach allUnits;
 
