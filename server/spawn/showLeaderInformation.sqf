@@ -1,20 +1,27 @@
-_teamleads = [
-	"O_G_Soldier_TL_F",
-	"O_soldierU_F",
-	"O_Soldier_TL_F",
-	"O_recon_TL_F",
-	"O_soldierU_TL_F",
-	"O_G_officer_F",
-	"O_Soldier_TL_F",
-	"O_recon_TL_F",
-	"O_soldierU_TL_F"
+_teamleads= [
+"B_Soldier_TL_F",
+"B_G_Soldier_TL_F",
+"B_recon_TL_F",
+"O_G_Soldier_TL_F",
+"O_soldierU_F",
+"O_Soldier_TL_F",
+"O_recon_TL_F",
+"O_soldierU_TL_F",
+"O_G_officer_F",
+"O_Soldier_TL_F",
+"O_recon_TL_F",
+"O_soldierU_TL_F"
 ];
-_squadleads = [
-	"O_Soldier_SL_F"
+_squadleads= [
+"B_Soldier_SL_F",
+"B_G_Soldier_SL_F",
+"O_Soldier_SL_F"
 ];
 _commanders = [
-	"opfor_assistant",
-	"opfor_teamlead"
+"opfor_assistant",
+"opfor_teamlead",
+"blufor_assistant",
+"blufor_teamlead"
 ];
 _allofthem = _teamleads + _squadleads + _commanders;
 _drawIconsStacked = [];
