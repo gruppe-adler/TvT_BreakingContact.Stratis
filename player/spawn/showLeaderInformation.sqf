@@ -21,6 +21,7 @@ _drawIconsStacked = [];
 MISSION_ROOT = str missionConfigFile select [0, count str missionConfigFile - 15];
 
 {
+	drawIconSymbol = "tl";
 	if (!(typeOf _x in _allofthem)) exitWith {};
 
 	if (typeOf _x in _teamleads) then {
