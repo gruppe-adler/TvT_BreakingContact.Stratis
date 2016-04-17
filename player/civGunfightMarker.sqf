@@ -69,5 +69,5 @@ sleep _delay/2;
 
 if (player getVariable ["GunfightTimeout",false]) exitWith {};
 
-[] call showCivGunfightHint;
 [_pos] call createCivGunfightMarker;
+[] call showCivGunfightHint;
