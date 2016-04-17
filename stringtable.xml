@@ -33,9 +33,9 @@
 				</German>
 			</Key>
 			<Key ID="str_GRAD_ravenTitle">
-				<Original>Operation</Original>
-				<English>Operation</English>
-				<German>Bedienung</German>
+				<Original>RAVEN Operation</Original>
+				<English>RAVEN Operation</English>
+				<German>RAVEN Bedienung</German>
 			</Key>
 			<Key ID="str_GRAD_ravenUsage">
 				<Original>
@@ -114,7 +114,7 @@
 				<Original>&lt;t align='center' color='#80ffffff' size='0.7'&gt;In case you close this dialog by accident, reopen with [SPACE]. Spawn will be on nearest road to selected point. Thus its wise to choose a road beforehand. &lt;/t&gt;</Original>
 				<English>&lt;t align='center' color='#80ffffff' size='0.7'&gt;In case you close this dialog by accident, reopen with [SPACE] ! Spawn will be on nearest road to selected point. Thus its wise to choose a road beforehand. &lt;/t&gt;</English>
 				<German>&lt;t align='center' color='#80ffffff' size='0.7'&gt;Wenn Du diesen Dialog aus Versehen schließt, kannst du ihn mit [Leertaste] neu aufrufen. Spawn ist auf der dem selektierten Punkt am nächsten gelegenen Straße. Wähl also am Besten direkt eine aus.&lt;/t&gt;</German>
-			</Key>			
+			</Key>
 			<Key ID="str_GRAD_buy_vehicles">
 				<Original>Buy Vehicles</Original>
 				<English>Buy Vehicles</English>
@@ -190,6 +190,21 @@
 				<Original>No other viewmodes available.</Original>
 				<English>No other viewmodes available.</English>
 				<German>Keine weiteren Anzeigemodi verfügbar.</German>
+			</Key>
+			<Key ID="str_GRAD_carry_place">
+				<Original>Release</Original>
+				<English>Release</English>
+				<German>Ablegen</German>
+			</Key>
+			<Key ID="str_GRAD_carry_hint1">
+				<Original>At max you can move this boat for</Original>
+				<English>At max you can move this boat for</English>
+				<German>Sie können dieses Boot maximal</German>
+			</Key>
+			<Key ID="str_GRAD_carry_hint2">
+				<Original>using all your strength.</Original>
+				<English>using all your strength.</English>
+				<German>bewegen, verbrauchen dabei ihre Kraft.</German>
 			</Key>
 		</Container>
 		<Container name="mission_end">

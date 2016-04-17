@@ -61,20 +61,23 @@ _transmissionProgressAction = ["TransmissionProgress", "Check Transmission Progr
 ["rhs_gaz66_r142_vv", 0, ["ACE_MainActions"],_transmissionProgressAction] call ace_interact_menu_fnc_addActionToClass;
 
 
+// createBoats on ammo m113
+_createAssaultBoat = ["CreateBoatAction", "Take Boat", "",
+  {0 = [_this select 0] execVM 'player\carry\createBoat.sqf';},
+  {((_this select 0) getVariable ["detachableBoat", 0] > 0)}] call ace_interact_menu_fnc_createAction;
 
-// assault boat assembly
-
-_assembleAssaultBoat = ["AssaultBoatAssembly", "Assemble Assault Boat", "",
- {[(_this select 0)] call assembleAssaultBoat;
-   },
-  {true}] call ace_interact_menu_fnc_createAction;
-
-["ACE_Box_Misc", 0, ["ACE_MainActions"],_assembleAssaultBoat] call ace_interact_menu_fnc_addActionToClass;
-
-/* 0 = _x addAction["<t color=""#93E352"">" + "Assemble Assault Boat",{[[[position player]  "spawn\assaultBoatAssemblingSystem.sqf"],"BIS_fnc_execVM",true,true] spawn BIS_fnc_MP; }, _Args, 1, false, true, "","typeOf 'B_FieldPack_blk' == typeOf _target"];*/
+["rhsusf_m113_usarmy_supply", 0, ["ACE_MainActions"],_createAssaultBoat] call ace_interact_menu_fnc_addActionToClass;
+["rhsusf_m113d_usarmy_supply", 0, ["ACE_MainActions"],_createAssaultBoat] call ace_interact_menu_fnc_addActionToClass;
 
 
-// "B_Boat_Transport_01_F" / "B_FieldPack_blk"
+// boat carrying
+_carryAssaultBoat = ["CarryBoatAction", "Carry Boat", "",
+  {0 = [_this select 0] execVM 'player\carry\pickupBoat.sqf';},
+  {((count (crew (_this select 0))) == 0)}] call ace_interact_menu_fnc_createAction;
+
+["B_Boat_Transport_01_F", 0, ["ACE_MainActions"],_carryAssaultBoat] call ace_interact_menu_fnc_addActionToClass;
+
+
 
 [] spawn {
 waitUntil {!isNil "portableRadioBox"};

@@ -3,8 +3,7 @@
 [player, true] call TFAR_fnc_forceSpectator; // force everyone in spectator channel
 player enableSimulationGlobal false;
 
-{deleteMarker _x;} forEach allMapMarkers; // cleanup of markers for replay
-
+// {deleteMarker _x;} forEach allMapMarkers; // cleanup of markers for replay --> buggy, deletes also replay markers -.-
 if (!isNull (findDisplay 7810)) then {closeDialog 0};
 
 if (isServer || isDedicated) then {
