@@ -60,10 +60,11 @@ carryAttachX = 0;
 carryAttachY = 4.5;
 carryAttachH = 1.5;
 
-addCamShake [5, 1, 10];
+
 carryBoat attachTo [player,[carryAttachX, carryAttachY, carryAttachH]];
 player setVariable ["carryBoat",1];
-playSound selectRandom ["pick","pick2"];
+addCamShake [5, 1, 10];
+playSound selectRandom ["pick"];
 
 
 

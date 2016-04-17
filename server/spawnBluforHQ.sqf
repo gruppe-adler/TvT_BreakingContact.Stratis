@@ -165,6 +165,7 @@ spawnBluforHQ = {
 			_vehicle1 addItemCargoGlobal ["ACE_SpraypaintGreen",10];
 			_vehicle1 addItemCargoGlobal ["ACE_SpraypaintRed",10];
 			_vehicle1 addItemCargoGlobal ["ACE_EntrenchingTool",10];
+			_vehicle1 setVariable ["detachableBoat",2];
 
 			US_SPAWN_PAD = (_bluforSpawnSuccess select 2);
 			publicVariable "US_SPAWN_PAD";
