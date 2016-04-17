@@ -69,6 +69,9 @@ _createAssaultBoat = ["CreateBoatAction", "Take Boat", "",
 ["rhsusf_m113_usarmy_supply", 0, ["ACE_MainActions"],_createAssaultBoat] call ace_interact_menu_fnc_addActionToClass;
 ["rhsusf_m113d_usarmy_supply", 0, ["ACE_MainActions"],_createAssaultBoat] call ace_interact_menu_fnc_addActionToClass;
 
+["rhsusf_m998_w_4dr", 0, ["ACE_MainActions"],_createAssaultBoat] call ace_interact_menu_fnc_addActionToClass;
+["rhsusf_m998_d_4dr", 0, ["ACE_MainActions"],_createAssaultBoat] call ace_interact_menu_fnc_addActionToClass;
+
 
 // boat carrying
 _carryAssaultBoat = ["CarryBoatAction", "Carry Boat", "",
