@@ -15,20 +15,26 @@ if (paramsArray select 10 == 1 || !isMultiplayer) then {
 
 // read parameters
 TIME_OF_DAY = paramsArray select 0;
+publicVariable "TIME_OF_DAY";
 WEATHER_SETTING = paramsArray select 1;
+publicVariable "WEATHER_SETTING";
 BLUFOR_SPAWN_DISTANCE = (paramsArray select 2);
+publicVariable "BLUFOR_SPAWN_DISTANCE";
 OPFOR_MONEY = paramsArray select 3;
+publicVariable "OPFOR_MONEY";
 BLUFOR_MONEY = paramsArray select 4;
+publicVariable "BLUFOR_MONEY";
 POINTS_NEEDED_FOR_VICTORY = paramsArray select 5;
+publicVariable "POINTS_NEEDED_FOR_VICTORY"; // clients need to know this
 TIME_ACCELERATION = paramsArray select 6;
 REPLAY_ACCURACY = paramsArray select 7;
-publicVariable "REPLAY_ACCURACY";
+publicVariable "REPLAY_ACCURACY"; // clients need to know this
 AR3PLAY_ENABLE_REPLAY = (paramsArray select 8) == 1;
 AR3PLAY_IS_STREAMABLE = (paramsArray select 9) == 1;
 JIP_TIME_ALLOWED = paramsArray select 11;
-publicVariable "JIP_TIME_ALLOWED";
+publicVariable "JIP_TIME_ALLOWED"; // clients need to know this
 CIVILIAN_TRAFFIC = paramsArray select 13;
-publicVariable "CIVILIAN_TRAFFIC";
+publicVariable "CIVILIAN_TRAFFIC"; // clients need to know this
 
 setCustomWeather = {
 	// skipTime -24;
@@ -128,7 +134,7 @@ publicVariable "RADIO_TRUCK_MARKER_POS";
 RUSSIAN_POINTS = 0;
 publicVariable "RUSSIAN_POINTS";
 
-publicVariable "POINTS_NEEDED_FOR_VICTORY";
+
 
 showPointsInstant = {diag_log format ["debug: east checks transmission progress manually."];};
 
