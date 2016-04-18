@@ -43,10 +43,14 @@ spawnSupplyDrop = {
 
 
 	sleep 0.1;
-	 _vehicle allowDamage true;
+	
 	// adjust vehicle (remove lamp covers and stuff)
 	if (count _init > 0) then {
  		[_vehicle, nil, _init] call BIS_fnc_initVehicle;
 	};
 	sleep 0.1;
+   [_vehicle] spawn {
+      sleep 60;
+      (_this select 0) allowDamage true;
+   };
 };
