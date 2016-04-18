@@ -127,6 +127,9 @@ publicVariable "RADIO_TRUCK_MARKER_POS";
 
 RUSSIAN_POINTS = 0;
 publicVariable "RUSSIAN_POINTS";
+
+publicVariable "POINTS_NEEDED_FOR_VICTORY";
+
 showPointsInstant = {diag_log format ["debug: east checks transmission progress manually."];};
 
 // civilian traffic
