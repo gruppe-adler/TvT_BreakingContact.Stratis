@@ -320,7 +320,7 @@ fillUSSupplies = {
             format['%1<br/>%2<br/>%3<br/>%4<br/>%5<br/>%6<br/>%7<br/>%8<br/>%9<br/>%10<br/>%11<br/>%12<br/>%13<br/>%14<br/>%15','Crew: 2','Seats: 11','Speed: 67','','Cargo:','4 AT M136','40 Smokes','60 AK Mags','20 MG Mags','20 Grenades','30 Flares','Medical Stuff','5 GPS','3 Repair Wheels','1 Repair Track']
         ],
         [
-            "B_Heli_Light_01_F",
+            "RHS_MELB_MH6M",
             "MH-6",
             2,
             2500,
