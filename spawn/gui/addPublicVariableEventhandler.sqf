@@ -382,13 +382,13 @@ fillUSSupplies = {
             clearItemCargoGlobal (_this select 0);
             clearBackpackCargoGlobal (_this select 0);
             clearMagazineCargoGlobal (_this select 0);
-            //(_this select 0) addBackpackCargoGlobal ['B_UAV_01_backpack_F',1];        //Darter
-            //(_this select 0) addItemCargoGlobal ['B_UAVTerminal',2];                  //Terminal
-            (_this select 0) addBackpackCargoGlobal ['B_rhsusf_B_BACKPACK',1];          //Raven
+(_this select 0) addBackpackCargoGlobal ['B_UAV_01_backpack_F',1];        //Darter
+(_this select 0) addItemCargoGlobal ['B_UAVTerminal',2];                  //Terminals
+            
             (_this select 0) addItemCargoGlobal ['ACE_HuntIR_monitor',2];
             (_this select 0) addMagazineCargoGlobal ['ACE_HuntIR_M203',4];
             },
-            format['%1<br/>%2<br/>%3','1 RQ-11 Raven','4 HuntIR rounds','2 HuntIR monitors']
+            format['%1<br/>%2<br/>%3<br/>%4','1 Quadcopter UAV without thermal', '2 UAV terminal','4 HuntIR rounds','2 HuntIR monitors']
         ]
     ];
 
