@@ -116,8 +116,8 @@ if (hasInterface) then {
 		player setVariable ["radioAttached",false]; // for use in detaching radio from radio truck
 	};
 
-	//player addEventHandler ["WeaponAssembled", {[_this select 1] execVM "helpers\nerfDrone.sqf"}];		//Darter
-	[] execVM "helpers\nerfRaven.sqf";																		//Raven
+	player addEventHandler ["WeaponAssembled", {[_this select 1] execVM "helpers\nerfDrone.sqf"}];		//Darter nerf fuel and TIE
+
 
 	/*waitUntil {!isNull player && !isNil "ST_STHud_ToRestart"};
 	// disable sthud for intro
