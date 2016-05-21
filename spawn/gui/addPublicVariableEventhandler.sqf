@@ -348,6 +348,7 @@ fillUSSupplies = {
             clearBackpackCargoGlobal (_this select 0);
             clearMagazineCargoGlobal (_this select 0);
             [(_this select 0)] call ace_fastroping_fnc_equipFRIES;
+            (_this select 0) disableTIEquipment true;
             },
             format['%1<br/>%2<br/>%3<br/>%4<br/>%5','Crew: 1','Seats: 7','Speed: 245','','']
         ],
