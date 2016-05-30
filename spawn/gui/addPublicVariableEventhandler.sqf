@@ -105,7 +105,7 @@ fillRussianSupplies = {
             format['%1<br/>%2<br/>%3<br/>%4<br/>%5<br/>%6<br/>%7<br/>%8<br/>%9<br/>%10<br/>%11<br/>%12<br/>%13<br/>%14<br/>%15','Crew: 1','Seats: 1','Speed: 90','','Cargo:','40 Smokes','60 AK Mags','20 MG Mags','20 Grenades','30 GL Smokes','20 GL Flares','Medical Stuff','5 GPS','3 Repair Wheels','1 Repair Track']
         ],
         [
-            "rhs_uaz_dshkm_chdkz",
+            "rhsgref_cdf_reg_uaz_dshkm",
             "UAZ-DshKm",
             5,
             900,
