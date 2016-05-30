@@ -1,7 +1,5 @@
 #include "\z\ace\addons\main\script_component.hpp"
 
-[player, true] call TFAR_fnc_forceSpectator; // force everyone in spectator channel
-player enableSimulationGlobal false;
 
 // {deleteMarker _x;} forEach allMapMarkers; // cleanup of markers for replay --> buggy, deletes also replay markers -.-
 if (!isNull (findDisplay 7810)) then {closeDialog 0};
@@ -10,6 +8,7 @@ if (isServer || isDedicated) then {
 	["Terminate"] call BIS_fnc_EGSpectator;
 	[{["Starting Replay."] call EFUNC(common,displayTextStructured);},"BIS_fnc_spawn",true,true] call BIS_fnc_MP;
 	[{openMap [true,true];},"BIS_fnc_spawn",true,true] call BIS_fnc_MP;
+	[{[player, true] call TFAR_fnc_forceSpectator;},"BIS_fnc_spawn",true,true] call BIS_fnc_MP;
 
 	local_recording_length = count local_recording;
 	local_recording_counter = 0;
