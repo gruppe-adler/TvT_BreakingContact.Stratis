@@ -6,12 +6,28 @@ before_script:
 - wget http://gruppe-adler.de/api/travis/sqf_validator.py
 - sed -i -e 's/addons//g' sqf_validator.py
 - mv sqf_validator.py tools/
+- git clone https://github.com/KoffeinFlummi/armake 
+- pushd armake 
+- make 
+- sudo make install
+- popd
+- rm -rf armake
 script:
 - python3 tools/sqf_validator.py
+- rm tools/sqf_validator.py
+- mkdir build
+- armake build -x build.sh -x ".git/*" -x cpbo.exe -x .travis.yml -x .gitattributes -x .gitignore . build/TvT_BreakingContact-$TRAVIS_TAG.Stratis.pbo
+- ls -la build/
 notifications:
   slack: gruppe-adler:WUbRswFJEqy55XKuLhtXTlOf
   template:
-     
   - "%{repository}#%{build_number} (%{branch} - %{commit} : %{author}): %{message}"
   - "Commit Title : %{commit_subject}"
   - "Commit details : %{commit_message}"
+deploy:
+  provider: releases
+  api_key: "$GITHUB_ACCESS_TOKEN"
+  file: "build/TvT_BreakingContact-$TRAVIS_TAG.Stratis.pbo"
+  skip_cleanup: true
+  on:
+    tags: true
