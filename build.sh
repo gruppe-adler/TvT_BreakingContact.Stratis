@@ -4,35 +4,7 @@
 cpbo_path="$1"
 missionname="TvT_Breaking_Contact"
 
-islands=(
-	Altis
-	Bornholm
-	Bootcamp_ACR
-	Chernarus
-	Chernarus_Summer
-	FDF_Isle1_a
-	Esseker
-	Gorgona
-	IsolaDiCapraia
-	Kunduz
-	namalsk
-	ProvingGrounds_PMC
-	Panthera3
-	Sara_dbe1
-	Shapur_BAF
-	SugarLake
-	Stratis
-	Thirsk
-	Woodland_ACR
-	Zargabad
-	clafghan
-	fata
-	saru
-	takistan
-	vt5
-	xcam_prototype
-	pja305 # N'ziwasogo
-)
+islands=`cat compatibleIslands.txt`
 
 ### AS AS USER, DONT EDIT BELOW THIS LINE ###
 
@@ -94,7 +66,7 @@ if [[ ! -f "$pbofilename" ]]; then
 fi
 
 echo "copying pbo for different islands..."
-for island in "${islands[@]}"; do
+for island in $islands; do
 	cp "$pbofilename" "${builddir}/${missionname}_${version}.${island}.pbo"
 done
 
