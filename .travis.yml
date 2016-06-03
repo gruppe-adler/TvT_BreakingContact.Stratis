@@ -16,7 +16,7 @@ script:
 - python3 tools/sqf_validator.py
 - rm tools/sqf_validator.py
 - mkdir build
-- armake build -x build.sh -x ".git/*" -x cpbo.exe -x .travis.yml -x .gitattributes -x .gitignore . build/TvT_BreakingContact-$TRAVIS_TAG.Stratis.pbo
+- armake build -x build.sh -x compatibleIslands.txt -x ".git/*" -x cpbo.exe -x .travis.yml -x .gitattributes -x .gitignore . build/TvT_BreakingContact-$TRAVIS_TAG.Stratis.pbo
 - ls -la build/
 notifications:
   slack: gruppe-adler:WUbRswFJEqy55XKuLhtXTlOf
@@ -27,7 +27,9 @@ notifications:
 deploy:
   provider: releases
   api_key: "$GITHUB_ACCESS_TOKEN"
-  file: "build/TvT_BreakingContact-$TRAVIS_TAG.Stratis.pbo"
+  file:
+    - "build/TvT_BreakingContact-$TRAVIS_TAG.Stratis.pbo"
+    - "compatibleIslands.txt"
   skip_cleanup: true
   on:
     tags: true
