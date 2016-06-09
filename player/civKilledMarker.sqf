@@ -60,5 +60,5 @@ if (_distanceTown < _distanceVillage) then {
 
 sleep _delay;
 
-[_pos] call createCivKilledMarker;
-call showCivKilledHint;
+[_pos] spawn createCivKilledMarker;
+[] spawn showCivKilledHint;
