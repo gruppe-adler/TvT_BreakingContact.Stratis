@@ -1,4 +1,4 @@
 if (!MISSION_COMPLETED) then {
-["Initialize", [player, [], true]] call BIS_fnc_EGSpectator;
+[true] call ace_spectator_fnc_setSpectator;
 };
 [player, true] call TFAR_fnc_forceSpectator;
