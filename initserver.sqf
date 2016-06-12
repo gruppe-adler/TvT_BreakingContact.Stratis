@@ -157,8 +157,7 @@ USCredits = BLUFOR_MONEY;
 
 
 [] spawn {
-	_connectedPlayers = call CBA_fnc_players;
-	_playercount = count _connectedPlayers;
+	_playercount = count allPlayers;
 	_bonusPerPlayer = _playercount * 100;
 
 	russianCredits = OPFOR_MONEY + _bonusPerPlayer;

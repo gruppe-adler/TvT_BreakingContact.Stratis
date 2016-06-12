@@ -9,12 +9,14 @@ showCivKilledHint = {
 
 createCivKilledMarker = {
 	
-	_marker = createMarkerLocal [format["civkill_shape_%1",_pos],_pos];
+	_markerPos = _this select 0;
+	
+	_marker = createMarkerLocal [format["civkill_shape_%1",_markerPos],_markerPos];
 	_marker setMarkerShapeLocal "ELLIPSE";
 	_marker setMarkerColorLocal "ColorCivilian";
 	_marker setMarkerSizeLocal [200,200];
 
-	_marker2 = createMarkerLocal [format["civkill_icon_%1",_pos],_pos];
+	_marker2 = createMarkerLocal [format["civkill_icon_%1",_markerPos],_markerPos];
 	_marker2 setMarkerShapeLocal "ICON";
 	_marker2 setMarkerTypeLocal "KIA";
 	_marker2 setMarkerColorLocal "ColorCivilian";
