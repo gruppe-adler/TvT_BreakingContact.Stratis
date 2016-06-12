@@ -105,7 +105,7 @@ fillRussianSupplies = {
             format['%1<br/>%2<br/>%3<br/>%4<br/>%5<br/>%6<br/>%7<br/>%8<br/>%9<br/>%10<br/>%11<br/>%12<br/>%13<br/>%14<br/>%15','Crew: 1','Seats: 1','Speed: 90','','Cargo:','40 Smokes','60 AK Mags','20 MG Mags','20 Grenades','30 GL Smokes','20 GL Flares','Medical Stuff','5 GPS','3 Repair Wheels','1 Repair Track']
         ],
         [
-            "rhsgref_cdf_reg_uaz_dshkm",
+            "rhsgref_nat_uaz_dshkm",
             "UAZ-DshKm",
             5,
             900,
@@ -383,8 +383,8 @@ fillUSSupplies = {
             clearItemCargoGlobal (_this select 0);
             clearBackpackCargoGlobal (_this select 0);
             clearMagazineCargoGlobal (_this select 0);
-(_this select 0) addBackpackCargoGlobal ['B_UAV_01_backpack_F',1];        //Darter
-(_this select 0) addItemCargoGlobal ['B_UAVTerminal',2];                  //Terminals
+            (_this select 0) addBackpackCargoGlobal ['B_UAV_01_backpack_F',1];        //Darter
+            (_this select 0) addItemCargoGlobal ['B_UAVTerminal',2];                  //Terminals
             
             (_this select 0) addItemCargoGlobal ['ACE_HuntIR_monitor',2];
             (_this select 0) addMagazineCargoGlobal ['ACE_HuntIR_M203',4];

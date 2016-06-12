@@ -28,9 +28,7 @@ _parameters = [
 	"RDS_Ikarus_Civ_02",
 	"RDS_Ikarus_Civ_02",
 
-	"RDS_S1203_Civ_01",
 	"RDS_S1203_Civ_02",
-	"RDS_S1203_Civ_03",
 
 	"RDS_Octavia_Civ_01",
 
@@ -50,8 +48,7 @@ _parameters = [
 	"RHS_Ural_Open_Civ_01",
 	"RHS_Ural_Open_Civ_02",
 	"RHS_Ural_Open_Civ_03",
-	"RHS_UAZ_open_chdkz",
-	"RHS_UAZ_chdkz"
+	"rhsgref_nat_uaz"
 	]],
 	["VEHICLES_COUNT", 10],
 	["MIN_SPAWN_DISTANCE", 1500],
