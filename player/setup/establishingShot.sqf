@@ -149,13 +149,7 @@ if (_mode == 1) then {
 					BIS_fnc_establishingShot_skip = true;
 				};
 
-				if (_this select 1 == 60 && playerSide == east) then { 
-					openMap [true,false];
-					cutText ['', 'PLAIN'];
-				};
-
 				
-
 				if (_this select 1 != 1) then {true};
 			",
 			_key
