@@ -4,13 +4,14 @@
 _location = _this select 0;
 _distance = _this select 1;
 
-["Preparing teleport..."] call EFUNC(common,displayTextStructured);
 
+["Preparing teleport..."] call EFUNC(common,displayTextStructured);
+cutText ["", "BLACK OUT", 0.1];
 if (str player != "opfor_teamlead") then { sleep (random 10);};
 
 _spawn = _location findEmptyPosition[2, 20, "B_Soldier_F"];
 diag_log format ["teleporting %1 to %2.", player, _location];
-cutText ["", "BLACK OUT", 0.1];
+
 sleep 1;
 playSound "beam";
 _nul = player setPos _spawn;
