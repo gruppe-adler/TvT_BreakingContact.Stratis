@@ -73,6 +73,7 @@ blufor_basic = {
 	this linkItem "ItemCompass";
 	this linkItem "ItemWatch";
 	this linkItem "tf_anprc148jem";
+	this setVariable ["ACE_hasEarPlugsIn", true, true];
 };
 
 blufor_default = {
@@ -107,7 +108,7 @@ blufor_default = {
 
 	this addWeapon "Binocular";
 	this addWeapon (blufor_random_primaryweapon call BIS_fnc_selectRandom);
-	this addPrimaryWeaponItem "rhsusf_acc_compm4";
+	this addPrimaryWeaponItem "rhsusf_acc_eotech_xps3";
 
 	[this] call blufor_basic;
 };
@@ -153,7 +154,7 @@ blufor_sql = {
 
 	this addWeapon "Binocular";
 	this addWeapon "rhs_weap_m4a1_m203";
-	this addPrimaryWeaponItem "rhsusf_acc_compm4";
+	this addPrimaryWeaponItem "rhsusf_acc_eotech_xps3";
 	this addPrimaryWeaponItem "acc_flashlight";
 	this linkItem "ItemGPS";
 	this linkItem "ItemMap";
@@ -198,7 +199,7 @@ blufor_ftl = {
 
 	this addWeapon "Binocular";
 	this addWeapon "rhs_weap_m4a1_m203s";
-	this addPrimaryWeaponItem "rhsusf_acc_compm4";
+	this addPrimaryWeaponItem "rhsusf_acc_eotech_xps3";
 	this addPrimaryWeaponItem "acc_flashlight";
 	this linkItem "ItemGPS";
 
@@ -244,7 +245,7 @@ blufor_medic = {
 
 	this addWeapon "Binocular";
 	this addWeapon (blufor_random_primaryweapon call BIS_fnc_selectRandom);
-	this addPrimaryWeaponItem "rhsusf_acc_compm4";
+	this addPrimaryWeaponItem "rhsusf_acc_eotech_xps3";
 
 
 	[this] call blufor_basic;
@@ -398,7 +399,7 @@ blufor_engineer = {
 
 	this addWeapon "Binocular";
 	this addWeapon (blufor_random_primaryweapon call BIS_fnc_selectRandom);
-	this addPrimaryWeaponItem "rhsusf_acc_compm4";
+	this addPrimaryWeaponItem "rhsusf_acc_eotech_xps3";
 
 
 	[this] call blufor_basic;
@@ -433,7 +434,7 @@ blufor_crew = {
 
 	this addWeapon "Binocular";
 	this addWeapon (blufor_random_primaryweapon call BIS_fnc_selectRandom);
-	this addPrimaryWeaponItem "rhsusf_acc_compm4";
+	this addPrimaryWeaponItem "rhsusf_acc_eotech_xps3";
 
 
 	[this] call blufor_basic;
@@ -473,7 +474,7 @@ blufor_ammobearer = {
 
 	this addWeapon "Binocular";
 	this addWeapon (blufor_random_primaryweapon call BIS_fnc_selectRandom);
-	this addPrimaryWeaponItem "rhsusf_acc_compm4";
+	this addPrimaryWeaponItem "rhsusf_acc_eotech_xps3";
 
 
 	[this] call blufor_basic;

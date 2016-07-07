@@ -30,6 +30,7 @@ opfor_basic = {
 	this linkItem "ItemCompass";
 	this linkItem "ItemWatch";
 	this linkItem "tf_fadak";
+	this setVariable ["ACE_hasEarPlugsIn", true, true];
 };
 
 opfor_default = {
