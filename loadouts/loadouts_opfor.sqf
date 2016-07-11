@@ -8,8 +8,10 @@ set_akm_ammo = {
 opfor_basic = {
 	this = _this select 0;
 
-	[this, "ACE_Earplugs", 1] call addItemsToUniform;
-	[this, "ACE_fieldDressing", 6] call addItemsToUniform;
+
+
+	[this, "ACE_elasticBandage", 6] call addItemsToUniform;
+	[this, "ACE_quikclot", 6] call addItemsToUniform;
 	[this, "ACE_Morphine", 2] call addItemsToUniform;
 	[this, "ACE_epinephrine", 1] call addItemsToUniform;
 
@@ -17,6 +19,8 @@ opfor_basic = {
 	[this, "ACE_key_east", 1] call addItemsToUniform;
 	[this, "ACE_MapTools", 1] call addItemsToUniform;
 	[this, "Chemlight_red", 2] call addItemsToUniform;
+
+	this addItemToUniform "ACE_NVG_Gen1";
 
 
 	[this, "16Rnd_9x21_Mag", 3] call addItemsToUniform;
@@ -30,7 +34,7 @@ opfor_basic = {
 	this linkItem "ItemCompass";
 	this linkItem "ItemWatch";
 	this linkItem "tf_fadak";
-	this setVariable ["ACE_hasEarPlugsIn", true, true];
+
 };
 
 opfor_default = {
@@ -183,10 +187,18 @@ opfor_medic = {
 	[this, "SmokeShell", 4] call addMagazinesToVest;
 	[this, "SmokeShellRed", 2] call addMagazinesToVest;
 
-	[this, "ACE_fieldDressing", 40] call addMagazinesToBackpack;
-	[this, "ACE_Morphine", 20] call addMagazinesToBackpack;
-	[this, "ACE_epinephrine", 20] call addMagazinesToBackpack;
-	[this, "ACE_bloodIV_250", 12] call addMagazinesToBackpack;
+	for "_i" from 1 to 40 do {this addItemToBackpack "ACE_elasticBandage";};
+	for "_i" from 1 to 40 do {this addItemToBackpack "ACE_quikclot";};
+	for "_i" from 1 to 10 do {this addItemToBackpack "ACE_bloodIV_250";};
+	for "_i" from 1 to 3 do {this addItemToBackpack "ACE_bodyBag";};
+	for "_i" from 1 to 10 do {this addItemToBackpack "ACE_atropine";};
+	for "_i" from 1 to 15 do {this addItemToBackpack "ACE_epinephrine";};
+	for "_i" from 1 to 30 do {this addItemToBackpack "ACE_morphine";};
+	for "_i" from 1 to 10 do {this addItemToBackpack "ACE_packingBandage";};
+	for "_i" from 1 to 10 do {this addItemToBackpack "ACE_personalAidKit";};
+	for "_i" from 1 to 10 do {this addItemToBackpack "ACE_adenosine";};
+	for "_i" from 1 to 6 do {this addItemToBackpack "ACE_plasmaIV_250";};
+	for "_i" from 1 to 2 do {this addItemToBackpack "ACE_tourniquet";};
 
 	[this, "rhs_mag_rgd5", 2] call addMagazinesToBackpack;
 
