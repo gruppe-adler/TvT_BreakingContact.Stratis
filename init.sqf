@@ -25,7 +25,7 @@ waitUntil {!isNil "REPLAY_ACCURACY"};
 [REPLAY_ACCURACY] execVM "GRAD_replay\GRAD_replay_init.sqf";
 
 if (hasInterface) then {
-	call compile preprocessfile "SHK_pos\shk_pos_init.sqf";
+	call compile preprocessfile "node_modules\shk_pos\functions\shk_pos_init.sqf";
 
   ["InitializePlayer", [player, true]] call BIS_fnc_dynamicGroups;
 
