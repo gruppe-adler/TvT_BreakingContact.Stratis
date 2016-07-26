@@ -22,7 +22,7 @@ if (CIVILIAN_TRAFFIC == 1) then {
 };
 
 waitUntil {!isNil "REPLAY_ACCURACY"};
-[REPLAY_ACCURACY] execVM "GRAD_replay\GRAD_replay_init.sqf";
+[REPLAY_ACCURACY] execVM "node_modules\grad_replay\GRAD_replay_init.sqf";
 
 if (hasInterface) then {
 	call compile preprocessfile "node_modules\shk_pos\functions\shk_pos_init.sqf";
