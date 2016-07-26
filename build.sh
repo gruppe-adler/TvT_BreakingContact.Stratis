@@ -54,6 +54,8 @@ rm -fr "$tmpdir/.git"
 rm "$tmpdir/.gitattributes"
 rm "$tmpdir/.gitignore"
 
+npm install
+
 echo "building PBO...";
 $cpbo_path -y -p "$tmpdir" > /dev/null
 echo "done (probably)"
