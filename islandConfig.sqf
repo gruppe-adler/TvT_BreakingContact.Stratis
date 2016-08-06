@@ -89,7 +89,7 @@ ISLAND_TARGET_POSITIONS = [
 	[ [4190,7310], [4620,6120], true, true,'SugarLake'],
 	[ [1540, 5015], [1800, 6000], true, true,'Stratis'],
 	[ [7700, 1600], [8250, 2130], false, false,'takistan'],
-	[ [1916, 3453], [2468,3621], false, false,'Tanoa'],
+	[ [1916, 3453], [2468,3621], true, true,'Tanoa'],
 	[ [1100, 3200], [1700, 3000], true, true,'Thirsk'],
 	[ [4080, 7580], [4860, 7600], true, false,'Panthera3'],
 	[ [-2500,-500],[-500,-2500], false, true,'vt5'],

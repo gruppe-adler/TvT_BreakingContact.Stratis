@@ -357,6 +357,16 @@
 				<English>Signal strength to relay is now </English>
 				<German>Sendestärke ist nun </German>
 			</Key>
+			<Key ID="str_GRAD_radio_deploy">
+				<Original>Deploy Radio Antenna</Original>
+				<English>Deploy Radio Antenna</English>
+				<German>Funkmast ausfahren</German>
+			</Key>
+			<Key ID="str_GRAD_radio_retract">
+				<Original>Retract Radio Antenna</Original>
+				<English>Retract Radio Antenna</English>
+				<German>Funkmast einfahren</German>
+			</Key>
 		</Container>
 	</Package>
 </Project>

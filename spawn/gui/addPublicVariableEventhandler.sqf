@@ -253,10 +253,6 @@ fillUSSupplies = {
             clearMagazineCargoGlobal (_this select 0);
             (_this select 0) addItemCargoGlobal ['ItemGPS',1];
             ['AddCargoByClass', _this select 0, ['ACE_wheel', _this select 0, 2]] call ace_common_fnc_targetEvent;
-            clearWeaponCargoGlobal _box;
-            clearItemCargoGlobal _box;
-            clearBackpackCargoGlobal _box;
-            clearMagazineCargoGlobal _box;
             },
             format['%1<br/>%2<br/>%3<br/>%4','Crew: 1','Seats: 7','Speed: 109','1 GPS']
         ],
@@ -383,13 +379,10 @@ fillUSSupplies = {
             clearItemCargoGlobal (_this select 0);
             clearBackpackCargoGlobal (_this select 0);
             clearMagazineCargoGlobal (_this select 0);
-            (_this select 0) addBackpackCargoGlobal ['B_UAV_01_backpack_F',1];        //Darter
-            (_this select 0) addItemCargoGlobal ['B_UAVTerminal',2];                  //Terminals
-            
             (_this select 0) addItemCargoGlobal ['ACE_HuntIR_monitor',2];
             (_this select 0) addMagazineCargoGlobal ['ACE_HuntIR_M203',4];
             },
-            format['%1<br/>%2<br/>%3<br/>%4','1 Quadcopter UAV without thermal', '2 UAV terminal','4 HuntIR rounds','2 HuntIR monitors']
+            format['%1<br/>%2','4 HuntIR rounds','2 HuntIR monitors']
         ]
     ];
 
