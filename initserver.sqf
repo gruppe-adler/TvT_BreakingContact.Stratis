@@ -180,13 +180,15 @@ if (isClass (configFile >> "CfgPatches" >> "task_force_radio")) then {
 [] execVM "server\civKillListener.sqf";
 [] execVM "server\civGunfightListener.sqf";
 
-	call compile preprocessFileLineNumbers "server\spawnBluforHQ.sqf";
+call compile preprocessFileLineNumbers "server\spawnBluforHQ.sqf";
+call compile preprocessFileLineNumbers "server\fnc_radiotruck_deploy.sqf";
+call compile preprocessFileLineNumbers "server\fnc_radiotruck_retract.sqf";
 
 	if (!isMultiplayer) then {
  	[] spawn {
  		{
 			if (!isPlayer _x) then {
-				sleep 1; 
+				sleep 1;
 				0 = [_x] execVM "loadouts\_client.sqf";
 				_x setVariable ["BIS_noCoreConversations", true];
 			};

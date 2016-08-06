@@ -21,34 +21,41 @@ _rusAction = ["RusBuyMenu", (localize "str_GRAD_buy_vehicles"), "",
 ["rhs_gaz66_r142_vv", 0, ["ACE_MainActions"],_rusAction] call ace_interact_menu_fnc_addActionToClass;
 
 
-_deployAction = ["RusRadioDeploy", (localize "str_GRAD_radio_deploy"), "",
- {
- 	_radiotruck = (_this select 0);
- 	_radiotruck setVariable ["GRAD_fuel", fuel _radiotruck];
- 	_radiotruck setVariable ["GRAD_isDeployed", "true"];
- 	_radiotruck setFuel 0;
- 	[_radiotruck,1] call rhs_fnc_gaz66_radioDeploy;
- },
- {
-    side player == east && 
-  	((speed (_this select 0)) == 0) && 
-  	((_this select 0) getVariable ["GRAD_isDeployed","false"] == "false")
-  }] call ace_interact_menu_fnc_createAction;
-["rhs_gaz66_r142_vv", 0, ["ACE_MainActions"],_deployAction] call ace_interact_menu_fnc_addActionToClass;
+_deployAction = [
+    "RusRadioDeploy",
+    (localize "str_GRAD_radio_deploy"),
+    "",
+    {
+        params ["_radiotruck"];
+        [_radiotruck] remoteExec ["fnc_radiotruck_deploy", 2];
+    },
+    {
+        params ["_radiotruck"];
+        _isRetracted = ! (_radiotruck getVariable ["GRAD_isDeployed", false]);
+        _isStationary = (speed _radiotruck) == 0;
 
-_retractAction = ["RusRadioRetract", (localize "str_GRAD_radio_retract"), "",
- {
- 	_radiotruck = _this select 0;
- 	_fuel = _radiotruck getVariable ["GRAD_fuel", 1];
- 	_radiotruck setFuel _fuel;
- 	[_radiotruck,0] call rhs_fnc_gaz66_radioDeploy;
- },
- {
-  side player == east && 
-  ((speed (_this select 0)) == 0) && 
-  ((_this select 0) getVariable ["GRAD_isDeployed","false"] == "true")
-}] call ace_interact_menu_fnc_createAction;
-["rhs_gaz66_r142_vv", 0, ["ACE_MainActions"],_retractAction] call ace_interact_menu_fnc_addActionToClass;
+        side player == east && _isStationary && _isRetracted;
+    }
+] call ace_interact_menu_fnc_createAction;
+["rhs_gaz66_r142_vv", 0, ["ACE_MainActions"], _deployAction] call ace_interact_menu_fnc_addActionToClass;
+
+_retractAction = [
+    "RusRadioRetract",
+    (localize "str_GRAD_radio_retract"),
+    "",
+    {
+        params ["_radiotruck"];
+        [_radiotruck] remoteExec ["fnc_radiotruck_retract", 2];
+    },
+    {
+        params ["_radiotruck"];
+        _isDeployed = _radiotruck getVariable ["GRAD_isDeployed", false];
+        _isStationary = (speed _radiotruck) == 0;
+
+        side player == east && _isStationary && _isDeployed;
+    }
+] call ace_interact_menu_fnc_createAction;
+["rhs_gaz66_r142_vv", 0, ["ACE_MainActions"], _retractAction] call ace_interact_menu_fnc_addActionToClass;
 
 
 _destroyAction = ["usDestroyMenu", (localize "str_GRAD_destroy_vehicle"), "",
