@@ -10,7 +10,7 @@ _RADIO_BOX_DISTANCE_listener = {
 // runs in SP to emulate addPublicVariableEventHandler (which doesnt work in SP)
 if (!isMultiplayer) then {
 	_RADIO_BOX_DISTANCE_listener spawn {
-		waitUntil {RADIO_BOX_DISTANCE select 0 != 0};
+		waitUntil {RADIO_BOX_DISTANCE != 0};
 		[0, RADIO_BOX_DISTANCE] call _this;
 	};
 };
