@@ -35,7 +35,7 @@ _retractAction = ["RusRadioRetract", (localize "str_GRAD_radio_retract"), "",
  {
  	_radiotruck = _this select 0;
  	_fuel = getVariable ["GRAD_fuel", 1];
- 	(_this select 0) setFuel _fuel;
+ 	_radiotruck setFuel _fuel;
  	[_radiotruck,0] call rhs_fnc_gaz66_radioDeploy;
  },
   {side player == east && ((speed (vehicle (_this select 0)))  == 0)}] call ace_interact_menu_fnc_createAction;
