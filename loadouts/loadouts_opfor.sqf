@@ -90,7 +90,7 @@ opfor_sql = {
 	comment "Add containers";
 
 	this forceAddUniform "rhs_uniform_flora_patchless_alt";
-	this addVest "rhs_6b23_ML_crewofficer";
+	this addVest "rhs_6b23_ML_6sh92_headset_mapcase";
 	this addHeadgear "rhs_fieldcap_ml";
 	this addBackpack "tf_rt1523g_big";
 
@@ -135,7 +135,7 @@ opfor_ftl = {
 	comment "Add containers";
 
 	this forceAddUniform "rhs_uniform_flora_patchless_alt";
-	this addVest "rhs_6b23_ML_crewofficer";
+	this addVest "rhs_6b23_ML_6sh92_headset_mapcase";
 	this addHeadgear "rhs_fieldcap_ml";
 	this addBackpack "tf_rt1523g_big";
 
