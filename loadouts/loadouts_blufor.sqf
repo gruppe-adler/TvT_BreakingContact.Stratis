@@ -328,7 +328,7 @@ blufor_AT = {
 	this addWeapon "Binocular";
 	this addWeapon (blufor_random_primaryweapon call BIS_fnc_selectRandom);
 	this addWeapon "rhs_weap_smaw";
-	for "_i" from 1 to 7 do {this addItemToBackpack "rhs_mag_smaw_SR";};
+	for "_i" from 1 to 6 do {this addItemToBackpack "rhs_mag_smaw_SR";};
 	this addItemToBackpack "rhs_mag_smaw_HEAA";
 	this addItemToBackpack "rhs_mag_smaw_HEAA";
 
