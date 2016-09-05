@@ -18,12 +18,12 @@ opfor_basic = {
 	[this, "ACE_MapTools", 1] call addItemsToUniform;
 	[this, "Chemlight_red", 2] call addItemsToUniform;
 
-	this addItemToUniform "ACE_NVG_Gen2";
+	this linkItem "ACE_NVG_Gen2";
 
 
 	[this, "16Rnd_9x21_Mag", 3] call addItemsToUniform;
 
-	this addPrimaryWeaponItem "rhs_acc_2dpZenit";
+
 
 	this addWeapon "hgun_Rook40_F";
 
@@ -66,6 +66,9 @@ opfor_default = {
 	this addWeapon "Binocular";
 	this addWeapon "rhs_weap_akm";
 	this addWeapon "hgun_Rook40_F";
+
+	this addItemToUniform "rhs_acc_2dpZenit";
+	this linkItem "rhs_acc_perst1ik";
 
 	[this] call opfor_basic;
 
@@ -196,6 +199,9 @@ opfor_medic = {
 	this addWeapon "rhs_weap_akm";
 	this addWeapon "hgun_Rook40_F";
 
+	this addItemToUniform "rhs_acc_2dpZenit";
+	this linkItem "rhs_acc_perst1ik";
+
 	[this] call opfor_basic;
 
 };
@@ -269,6 +275,9 @@ opfor_AT = {
 	this addWeapon "rhs_weap_akm";
 	this addWeapon "hgun_Rook40_F";
 	this addWeapon "rhs_weap_rpg7";
+
+	this addItemToUniform "rhs_acc_2dpZenit";
+	this linkItem "rhs_acc_perst1ik";
 	[this] call opfor_basic;
 
 };
@@ -346,6 +355,9 @@ opfor_engineer = {
 	this addWeapon "rhs_weap_akm";
 	this addWeapon "hgun_Rook40_F";
 
+	this addItemToUniform "rhs_acc_2dpZenit";
+	this linkItem "rhs_acc_perst1ik";
+
 	[this] call opfor_basic;
 
 };
@@ -379,6 +391,9 @@ opfor_crew = {
 
 	this addWeapon "Binocular";
 	this addWeapon "rhs_weap_akm";
+
+	this addItemToUniform "rhs_acc_2dpZenit";
+	this linkItem "rhs_acc_perst1ik";
 	this addWeapon "hgun_Rook40_F";
 
 	[this] call opfor_basic;
@@ -417,6 +432,9 @@ opfor_ammobearer = {
 	this addWeapon "Binocular";
 	this addWeapon "rhs_weap_akm";
 	this addWeapon "hgun_Rook40_F";
+
+	this addItemToUniform "rhs_acc_2dpZenit";
+	this linkItem "rhs_acc_perst1ik";
 
 	[this] call opfor_basic;
 };

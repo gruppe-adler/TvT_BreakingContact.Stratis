@@ -1,7 +1,7 @@
 blufor_uniform_d = "rhs_uniform_cu_ocp";
 blufor_uniform_w = "rhs_uniform_FROG01_wd";
 
-crew_helmet_d = "rhsusf_ach_helmet_headset_ess_ocp";
+crew_helmet_d = "rhsusf_cvc_helmet";
 crew_helmet_w = "rhsusf_cvc_green_helmet";
 
 // woodland camo?
@@ -9,7 +9,12 @@ if ((ISLAND_TARGET_POSITIONS select (ISLANDS find worldName)) select 3) then {
 	blufor_uniform = blufor_uniform_w;
 
 	blufor_random_helmet = [
-	"rhsusf_lwh_helmet_marpatwd"
+	"rhsusf_mich_helmet_marpatwd",
+	"rhsusf_mich_helmet_marpatwd_alt",
+	"rhsusf_mich_helmet_marpatwd_norotos_arc",
+	"rhsusf_mich_helmet_marpatwd_norotos_arc_headset",
+	"rhsusf_mich_helmet_marpatwd_norotos_headset",
+	"rhsusf_mich_helmet_marpatwd_headset"
 	];
 
 	blufor_crew_helmet = crew_helmet_w;
@@ -17,9 +22,11 @@ if ((ISLAND_TARGET_POSITIONS select (ISLANDS find worldName)) select 3) then {
 	blufor_uniform = blufor_uniform_d;
 
 	blufor_random_helmet = [
-	"rhsusf_ach_helmet_ocp",
-	"rhsusf_ach_helmet_headset_ocp",
-	"rhsusf_ach_helmet_ocp_norotos"
+	"rhsusf_mich_helmet_marpatd_headset",
+	"rhsusf_mich_helmet_marpatd_norotos_arc",
+	"rhsusf_mich_helmet_marpatd_norotos_arc_headset",
+	"rhsusf_mich_helmet_marpatd_norotos_headset",
+	"rhsusf_mich_helmet_marpatd_alt_headset"
 	];
 
 	blufor_crew_helmet = crew_helmet_d;
@@ -61,12 +68,11 @@ blufor_basic = {
 	[this, "ACE_MapTools", 1] call addItemsToUniform;
 	[this, "Chemlight_blue", 2] call addItemsToUniform;
 
-	this addItemToUniform "ACE_NVG_Gen2";
+	this linkItem "ACE_NVG_Gen2";
 
 
 	[this, "rhsusf_mag_17Rnd_9x19_JHP", 3] call addItemsToUniform;
 
-	this addPrimaryWeaponItem "acc_flashlight";
 	this addWeapon "rhsusf_weap_glock17g4";
 
 	comment "Add items";
@@ -110,6 +116,9 @@ blufor_default = {
 	this addWeapon "Binocular";
 	this addWeapon (blufor_random_primaryweapon call BIS_fnc_selectRandom);
 	this addPrimaryWeaponItem "rhsusf_acc_eotech_xps3";
+
+	this addItemToUniform "acc_flashlight";
+	this linkItem "rhsusf_acc_anpeq15_bk";
 
 	[this] call blufor_basic;
 };
@@ -156,7 +165,10 @@ blufor_sql = {
 	this addWeapon "Binocular";
 	this addWeapon "rhs_weap_m4a1_m203";
 	this addPrimaryWeaponItem "rhsusf_acc_eotech_xps3";
-	this addPrimaryWeaponItem "acc_flashlight";
+
+	this addItemToUniform "acc_flashlight";
+	this linkItem "rhsusf_acc_anpeq15_bk";
+
 	this linkItem "ItemGPS";
 	this linkItem "ItemMap";
 
@@ -201,8 +213,11 @@ blufor_ftl = {
 	this addWeapon "Binocular";
 	this addWeapon "rhs_weap_m4a1_m203s";
 	this addPrimaryWeaponItem "rhsusf_acc_eotech_xps3";
-	this addPrimaryWeaponItem "acc_flashlight";
+	this addItemToUniform "acc_flashlight";
+	this linkItem "rhsusf_acc_anpeq15_bk";
 	this linkItem "ItemGPS";
+
+	
 
 	[this] call blufor_basic;
 
@@ -242,7 +257,8 @@ blufor_medic = {
 	[this, "ACE_epinephrine", 20] call addMagazinesToBackpack;
 	[this, "ACE_bloodIV_250", 12] call addMagazinesToBackpack;
 
-
+	this addItemToUniform "acc_flashlight";
+	this linkItem "rhsusf_acc_anpeq15_bk";	
 
 	this addWeapon "Binocular";
 	this addWeapon (blufor_random_primaryweapon call BIS_fnc_selectRandom);
@@ -323,6 +339,8 @@ blufor_AT = {
 	this addItemToBackpack "rhs_mag_smaw_HEAA";
 	this addItemToBackpack "rhs_mag_smaw_HEAA";
 
+	this addItemToUniform "acc_flashlight";
+	this linkItem "rhsusf_acc_anpeq15_bk";	
 
 	[this] call blufor_basic;
 
@@ -402,6 +420,8 @@ blufor_engineer = {
 	this addWeapon (blufor_random_primaryweapon call BIS_fnc_selectRandom);
 	this addPrimaryWeaponItem "rhsusf_acc_eotech_xps3";
 
+	this addItemToUniform "acc_flashlight";
+	this linkItem "rhsusf_acc_anpeq15_bk";	
 
 	[this] call blufor_basic;
 };
@@ -437,6 +457,8 @@ blufor_crew = {
 	this addWeapon (blufor_random_primaryweapon call BIS_fnc_selectRandom);
 	this addPrimaryWeaponItem "rhsusf_acc_eotech_xps3";
 
+	this addItemToUniform "acc_flashlight";
+	this linkItem "rhsusf_acc_anpeq15_bk";	
 
 	[this] call blufor_basic;
 
@@ -477,6 +499,8 @@ blufor_ammobearer = {
 	this addWeapon (blufor_random_primaryweapon call BIS_fnc_selectRandom);
 	this addPrimaryWeaponItem "rhsusf_acc_eotech_xps3";
 
+	this addItemToUniform "acc_flashlight";
+	this linkItem "rhsusf_acc_anpeq15_bk";	
 
 	[this] call blufor_basic;
 };
