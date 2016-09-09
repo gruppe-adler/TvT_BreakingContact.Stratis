@@ -130,7 +130,7 @@ waitUntil {!isNil "portableRadioBox"};
 
       [[portableRadioBox, false, [0,1,0], 180], "ace_dragging_fnc_setdraggable", true, true] call BIS_fnc_MP;
       RADIO_BOX = false; publicVariable "RADIO_BOX";
-      portableRadioBox attachTo [funkwagen,[0.5,-4.85,0]];
+      portableRadioBox attachTo [funkwagen,[0.3,-2.85,0.7]];
       portableRadioBox setVectorDirAndUp [[0,1,0.3],[0,0,0.7]];
 
    }, {hint "Cancelled action"}, (localize "str_GRAD_attaching_radio")] call ace_common_fnc_progressBar;
