@@ -1,7 +1,5 @@
 _object = _this select 0;
-_caller = _this select 1;
-_id = _this select 2;
-_object removeaction _id;
+
 [_object,3] call BIS_fnc_dataTerminalAnimate;
 sleep 2;
 _object setVariable ["RadioInterference",true];
@@ -48,5 +46,3 @@ with uiNamespace do {
 
 RADIO_BOX_ACTIVE = true;
 publicVariable "RADIO_BOX_ACTIVE";
-
-_closeaction = [[_object,["Close","player\dataterminal\CloseTerminal.sqf"]],"addAction",true] call BIS_fnc_MP;
