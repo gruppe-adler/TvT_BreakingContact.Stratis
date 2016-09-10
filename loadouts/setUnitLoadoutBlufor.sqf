@@ -27,6 +27,9 @@ blufor_random_helmet_d = selectRandom [
 	"rhsusf_mich_helmet_marpatd_alt_headset"
 ];
 
+_blufor_helmet_boss_d = "rhs_8point_marpatd";
+_blufor_helmet_boss_w = "rhs_8point_marpatwd";
+
 blufor_random_mg = [
 	"rhs_weap_m249_pip_L",
 	"rhs_weap_m249_pip_L_para",
@@ -39,15 +42,28 @@ blufor_random_mg = [
 blufor_helmet_crew_d = "rhsusf_cvc_helmet";
 blufor_helmet_crew_w = "rhsusf_cvc_green_helmet";
 
+_blufor_radio_lr_w = "tf_rt1523g_big_bwmod";
+_blufor_radio_lr_d = "tf_rt1523g_big_bwmod_tropen";
+
 _blufor_helmet = blufor_random_helmet_d;	
 _blufor_helmet_crew = blufor_helmet_crew_d;
 _blufor_uniform = blufor_uniform_d;
+
+_blufor_radio_lr = _blufor_radio_lr_d;
+
+_blufor_helmet_boss = _blufor_helmet_boss_d;
 
 if (_isWoodlandCamo) then {
 	_blufor_helmet = blufor_random_helmet_w;	
 	_blufor_helmet_crew = blufor_helmet_crew_w;
 	_blufor_uniform = blufor_uniform_w;
+
+	_blufor_radio_lr = _blufor_radio_lr_w;
+
+	_blufor_helmet_boss = _blufor_helmet_boss_w;
 };
+
+
 
 
 blufor_rifleman = [
@@ -103,7 +119,7 @@ blufor_ftl = [
 	["rhs_weap_m4a1_m203s","","","rhsusf_acc_eotech_xps3",["rhs_mag_30Rnd_556x45_M855A1_Stanag",30],["rhs_mag_M585_white",1],""],[],["rhsusf_weap_glock17g4","","","",["rhsusf_mag_17Rnd_9x19_JHP",17],[],""],
 	[_blufor_uniform,[["acc_flashlight",1],["ACE_fieldDressing",6],["ACE_morphine",2],["ACE_epinephrine",1],["ACE_Flashlight_KSF1",1],["ACE_key_west",1],["ACE_MapTools",1],["Chemlight_blue",1,2],["rhsusf_mag_17Rnd_9x19_JHP",17,2]]],
 	["rhsusf_iotv_ocp_Teamleader",[["rhs_mag_30Rnd_556x45_M855A1_Stanag",30,5],["rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Yellow",30,6],["SmokeShell",1,4],["SmokeShellRed",1,2],["HandGrenade",1,2]]],
-	["tf_rt1523g_big_bwmod_tropen",[["rhs_mag_M585_white",1,3],["rhs_mag_m662_red",1,2],["rhs_mag_m661_green",1,2],["rhs_mag_m713_Red",1,3],["rhs_mag_m714_White",1,3]]],
+	[_blufor_radio_lr,[["rhs_mag_M585_white",1,3],["rhs_mag_m662_red",1,2],["rhs_mag_m661_green",1,2],["rhs_mag_m713_Red",1,3],["rhs_mag_m714_White",1,3]]],
 	_blufor_helmet,"",["Binocular","","","",[],[],""],
 	["ItemMap","ItemGPS","tf_anprc148jem","ItemCompass","ItemWatch","ACE_NVG_Gen2"]
 ];
@@ -113,8 +129,8 @@ blufor_sql = [
 	["rhs_weap_m4a1_m203","","","rhsusf_acc_eotech_xps3",["rhs_mag_30Rnd_556x45_M855A1_Stanag",30],["rhs_mag_M585_white",1],""],[],["rhsusf_weap_glock17g4","","","",["rhsusf_mag_17Rnd_9x19_JHP",17],[],""],
 	[_blufor_uniform,[["acc_flashlight",1],["ACE_fieldDressing",6],["ACE_morphine",2],["ACE_epinephrine",1],["ACE_Flashlight_KSF1",1],["ACE_key_west",1],["ACE_MapTools",1],["Chemlight_blue",1,2],["rhsusf_mag_17Rnd_9x19_JHP",17,2]]],
 	["rhsusf_iotv_ocp_Grenadier",[["rhs_mag_30Rnd_556x45_M855A1_Stanag",30,11],["SmokeShell",1,4],["SmokeShellRed",1,2],["HandGrenade",1,2]]],
-	["tf_rt1523g_big_bwmod_tropen",[["rhs_mag_M585_white",1,3],["rhs_mag_m662_red",1,3],["rhs_mag_m661_green",1,3],["rhs_mag_m713_Red",1,3],["rhs_mag_m714_White",1,3]]],
-	_blufor_helmet,"",["Binocular","","","",[],[],""],
+	[_blufor_radio_lr,[["rhs_mag_M585_white",1,3],["rhs_mag_m662_red",1,3],["rhs_mag_m661_green",1,3],["rhs_mag_m713_Red",1,3],["rhs_mag_m714_White",1,3]]],
+	_blufor_helmet_boss,"",["Binocular","","","",[],[],""],
 	["ItemMap","ItemGPS","tf_anprc148jem","ItemCompass","ItemWatch","ACE_NVG_Gen2"]
 ];
 
