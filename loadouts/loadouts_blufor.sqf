@@ -81,6 +81,8 @@ blufor_basic = {
 	this linkItem "ItemWatch";
 	this linkItem "tf_anprc148jem";
 
+	
+
 };
 
 blufor_default = {

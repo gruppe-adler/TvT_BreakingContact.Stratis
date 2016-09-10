@@ -3,6 +3,9 @@
 
 // islandconfig must be before initgui!
 call compile preprocessFile "islandConfig.sqf";
+call compile preprocessFileLineNumbers "loadouts\setUnitLoadoutBlufor.sqf";
+call compile preprocessFileLineNumbers "loadouts\setUnitLoadoutOpfor.sqf";
+GRAD_fnc_addTerminalInteraction = compile preprocessFileLineNumbers "player\dataterminal\addActionToTerminal.sqf";
 clearInventory = compile preprocessFile "helpers\clearInventory.sqf";
 spawnStuff = compile preprocessFile "helpers\spawnStuff.sqf";
 [] execVM "spawn\initGUI.sqf";

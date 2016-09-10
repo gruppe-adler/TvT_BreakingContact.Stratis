@@ -33,6 +33,8 @@ opfor_basic = {
 	this linkItem "ItemWatch";
 	this linkItem "tf_fadak";
 
+	
+
 };
 
 opfor_default = {
