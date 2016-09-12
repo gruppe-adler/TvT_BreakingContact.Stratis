@@ -3,20 +3,22 @@
 
 // Readable List:
 // Altis,
+// Beketov,
 // Bornholm,
-// Bukovina
-// Chernarus
+// Bukovina,
+// Chernarus,
 // Chernarus Summer,
 // Clafghan,
 // Desert,
 // Esseker,
 // Fatah,
-// Gorgona
+// Gorgona,
 // Podagorsk,
 // Capraia,
-// Kunduz
-// Namalsk
-// N'Ziwasogo
+// Kunduz,
+// Celle 2,
+// Namalsk,
+// N'Ziwasogo,
 // Sarahni,
 // Sarugao,
 // Shapur,
@@ -24,16 +26,18 @@
 // Stratis,
 // Takistan,
 // Tanoa,
+// Taviana,
 // Thirsk,
 // Panthera,
 // Bystrica,
-// vt5
-// X-Cam Prototype
+// vt5,
+// X-Cam Prototype,
 // Zargabad
 
 
 ISLANDS = [
 	'Altis',
+	'Beketov'
 	'Bornholm',
 	'Bootcamp_ACR',
 	'Chernarus',
@@ -47,6 +51,7 @@ ISLANDS = [
 	'IsolaDiCapraia',
 	'Kunduz',
 	'pja305',
+	'mbg_celle2',
 	'namalsk',
 	'ProvingGrounds_PMC',
 	'Sara',
@@ -57,6 +62,7 @@ ISLANDS = [
 	'Stratis',
 	'takistan',
 	'Tanoa',
+	'taviana',
 	'Thirsk',
 	'Panthera3',
 	'vt5',
@@ -67,6 +73,7 @@ ISLANDS = [
 // pos blufor, pos opfor, water around map?, woodcamo, name
 ISLAND_TARGET_POSITIONS = [
 	[ [14300,16200], [14600, 16700], true, true, 'Altis'],
+	[ [400, -400], [1000, -400], false, true, 'Beketov'],
 	[ [3000, 5400], [3900, 4900], true, true, 'Bornholm' ],
 	[ [-2500,-500],[-500,-2500], false, true, 'Bootcamp_ACR'],
 	[ [4100,11000], [4860, 9740], true, true,'Chernarus'],
@@ -80,6 +87,7 @@ ISLAND_TARGET_POSITIONS = [
 	[ [1240, 9450], [1240, 8450], true, false,'IsolaDiCapraia'],
 	[ [-2500,-500],[-500,-2500], false, false,'Kunduz'],
 	[ [12870, 780], [13830, 780], true, false,'pja305'],
+	[ [7200,1150], [7900,1270], false, true, 'mbg_celle2'],
 	[ [6235, 9200], [6235, 9528], true, true, 'namalsk'],
 	[ [-2500,-500],[-500,-2500], false, true, 'ProvingGrounds_PMC'],
 	[ [18080, 18535], [18200, 18060], true, false,'Sara'],
@@ -90,6 +98,7 @@ ISLAND_TARGET_POSITIONS = [
 	[ [1540, 5015], [1800, 6000], true, true,'Stratis'],
 	[ [7700, 1600], [8250, 2130], false, false,'takistan'],
 	[ [1916, 3453], [2468,3621], true, true,'Tanoa'],
+	[ [10500,17700], [10000,18600], true, true, 'taviana'],
 	[ [1100, 3200], [1700, 3000], true, true,'Thirsk'],
 	[ [4080, 7580], [4860, 7600], true, false,'Panthera3'],
 	[ [-2500,-500],[-500,-2500], false, true,'vt5'],

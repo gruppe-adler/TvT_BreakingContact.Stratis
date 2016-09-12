@@ -1,4 +1,5 @@
 Altis
+Beketov
 Bornholm
 Bootcamp_ACR
 Chernarus
@@ -8,6 +9,7 @@ Esseker
 Gorgona
 IsolaDiCapraia
 Kunduz
+mbg_celle2
 namalsk
 ProvingGrounds_PMC
 Panthera3
@@ -23,6 +25,7 @@ fata
 saru
 takistan
 Tanoa
+taviana
 vt5
 xcam_prototype
 pja305
