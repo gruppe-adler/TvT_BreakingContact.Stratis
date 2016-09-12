@@ -37,7 +37,7 @@
 
 ISLANDS = [
 	'Altis',
-	'Beketov'
+	'Beketov',
 	'Bornholm',
 	'Bootcamp_ACR',
 	'Chernarus',
