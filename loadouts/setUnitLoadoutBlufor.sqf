@@ -30,7 +30,7 @@ blufor_random_helmet_d = selectRandom [
 _blufor_helmet_boss_d = "rhs_8point_marpatd";
 _blufor_helmet_boss_w = "rhs_8point_marpatwd";
 
-blufor_random_mg = [
+blufor_random_mg = selectRandom [
 	"rhs_weap_m249_pip_L",
 	"rhs_weap_m249_pip_L_para",
 	"rhs_weap_m249_pip_L_vfg",
