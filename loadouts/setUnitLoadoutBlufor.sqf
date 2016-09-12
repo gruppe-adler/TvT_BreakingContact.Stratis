@@ -86,10 +86,10 @@ blufor_mg = [
 
 
 blufor_at = [
-	[blufor_random_primaryweapon,"","","",["rhs_mag_30Rnd_556x45_M855A1_Stanag",30],[],""],["rhs_weap_smaw","","","",["rhs_mag_smaw_HEAA",1],[],""],["rhsusf_weap_glock17g4","","","",["rhsusf_mag_17Rnd_9x19_JHP",17],[],""],
+	[blufor_random_primaryweapon,"","","",["rhs_mag_30Rnd_556x45_M855A1_Stanag",30],[],""],["rhs_weap_M136_hedp","","","",["rhs_mag_smaw_HEAA",1],[],""],["rhsusf_weap_glock17g4","","","",["rhsusf_mag_17Rnd_9x19_JHP",17],[],""],
 	[_blufor_uniform,[["acc_flashlight",1],["ACE_fieldDressing",6],["ACE_morphine",2],["ACE_epinephrine",1],["ACE_Flashlight_KSF1",1],["ACE_key_west",1],["ACE_MapTools",1],["Chemlight_blue",1,2],["rhsusf_mag_17Rnd_9x19_JHP",17,2]]],
 	["rhsusf_iotv_ocp_Repair",[["rhs_mag_30Rnd_556x45_M855A1_Stanag",30,5],["rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Yellow",30,6],["SmokeShell",1,2],["SmokeShellRed",1,2]]],
-	["B_Carryall_khk",[["rhs_mag_smaw_SR",5,6],["rhs_mag_smaw_HEAA",1,1]]],
+	["B_Carryall_khk",[["rhs_mag_30Rnd_556x45_M855A1_Stanag",30,3],["rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Yellow",30,3]]],
 	_blufor_helmet,"",["Binocular","","","",[],[],""],
 	["ItemMap","","tf_anprc148jem","ItemCompass","ItemWatch","ACE_NVG_Gen2"]
 ];

@@ -84,11 +84,11 @@ waitUntil { !isNull _unit };
             case "O_soldierU_exp_F": {[_unit, opfor_marksman] setUnitLoadout ;};
             */
 
-            case "O_G_Soldier_AR_F": {_unit setUnitLoadout opfor_at;};
-            case "O_Soldier_AR_F": {_unit setUnitLoadout opfor_at;};
-            case "O_soldierU_AR_F": {_unit setUnitLoadout opfor_at;};
-            case "O_Soldier_AAR_F": {_unit setUnitLoadout opfor_at;};
-            case "O_soldierU_AAR_F": {_unit setUnitLoadout opfor_at;};
+            case "O_G_Soldier_AR_F": {_unit setUnitLoadout opfor_mg;};
+            case "O_Soldier_AR_F": {_unit setUnitLoadout opfor_mg;};
+            case "O_soldierU_AR_F": {_unit setUnitLoadout opfor_mg;};
+            case "O_Soldier_AAR_F": {_unit setUnitLoadout opfor_mg;};
+            case "O_soldierU_AAR_F": {_unit setUnitLoadout opfor_mg;};
 
             case "O_officer_F": {_unit setUnitLoadout opfor_sql;};
 

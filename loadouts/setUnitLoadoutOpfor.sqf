@@ -153,7 +153,7 @@ opfor_sql = [
 	[_opfor_vest_sql,[["rhs_30Rnd_762x39mm",30,4],["rhs_30Rnd_762x39mm_tracer",30,3],["SmokeShell",1,1]]],
 	[_opfor_radio_lr,[["rhs_mag_rgd5",1,2],["rhs_GRD40_White",1,4],["rhs_GRD40_Green",1,2],["rhs_GRD40_Red",1,2],["rhs_VG40OP_green",1,3],["rhs_VG40OP_white",1,2]]],
 	_opfor_helmet_boss,"",["Binocular","","","",[],[],""],
-	["ItemMap","ItemGPS","tf_fadak_2","ItemCompass","ItemWatch","ACE_NVG_Gen2"]
+	["ItemMap","ItemGPS","tf_fadak","ItemCompass","ItemWatch","ACE_NVG_Gen2"]
 ];
 
 
