@@ -90,7 +90,6 @@ if (hasInterface) then {
 		[player] execVM "loadouts\_client.sqf"; diag_log format ["setup: loadout %1 initiated",player];
 		enableSentences false;
 		showSubtitles false;
-		0 fadeRadio 0;
 	};
 
 	[] execVM "spawn\hedgehogAssemblingSystem.sqf";
