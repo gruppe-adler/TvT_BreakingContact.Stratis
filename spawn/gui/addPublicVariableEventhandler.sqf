@@ -165,8 +165,8 @@ fillRussianSupplies = {
             "Ace_Box_Ammo",
             "Defense Pack",
             2,
-            500,
-            "<t align='center'>500 cr</t>",
+            800,
+            "<t align='center'>800 cr</t>",
             1,
             [[]],
             {
@@ -174,11 +174,23 @@ fillRussianSupplies = {
             clearItemCargoGlobal (_this select 0);
             clearBackpackCargoGlobal (_this select 0);
             clearMagazineCargoGlobal (_this select 0);
-            (_this select 0) addBackpackCargoGlobal ['RHS_DShkM_Gun_Bag',2];
-            (_this select 0) addBackpackCargoGlobal ['RHS_DShkM_TripodHigh_Bag',2];
+            (_this select 0) addBackpackCargoGlobal ['RHS_DShkM_Gun_Bag',1];
+            (_this select 0) addBackpackCargoGlobal ['RHS_DShkM_TripodHigh_Bag',1];
             (_this select 0) addItemCargoGlobal ['ACE_Sandbag_empty',100];
+
+            //AA Launcher
+            [_this select 0] spawn {
+              params ["_ammobox"];
+              waitUntil {str (getPos _ammobox) != "[0,0,0]"};
+              _pos = (getPos _ammobox) findEmptyPosition [1, 10, "rhs_Igla_AA_pod_msv"];
+              _aa = "rhs_Igla_AA_pod_msv" createVehicle _pos;
+              _aa removemagazineturret ["rhs_mag_2Rnd_Igla", [0]];
+              _aa removemagazineturret ["rhs_mag_2Rnd_Igla", [0]];
+              [_aa, true, 1] call ace_cargo_fnc_makeLoadable;
+            };
+
             },
-            format['%1<br/>%2<br/>%3','100 Sandbags','2 Static Dshkm','(4 Backpacks)']
+            format['%1<br/>%2<br/>%3<br/>%4','100 Sandbags','1 Static Dshkm','(2 Backpacks)','1 Static Igla Turret']
         ],
         [
             "Land_DataTerminal_01_F",
