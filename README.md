@@ -17,7 +17,7 @@ TFAR, ACE3, RHSAFRF and RHSUSF mods are required. RDS\_CIV is optional (required
 
 
 
->## Rules
+## Rules
 * no respawn
 * spectator
 * no play area restrictions
