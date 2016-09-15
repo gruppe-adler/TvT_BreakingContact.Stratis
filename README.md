@@ -15,11 +15,18 @@ They can switch the signal on and off, and move about as they please.
 
 TFAR, ACE3, RHSAFRF and RHSUSF mods are required. RDS\_CIV is optional (required for param "civilian traffic")
 
-## Rules
-no respawn, spectator, no play area restrictions,  no scopes, basic medical, fixed loadout, quick start, dynamic spawn position
+
+
 <details> 
-  <summary>Always visibile</summary>
-   Hidden Text 
+  <summary>## Rules</summary>
+   no respawn, 
+   spectator, 
+   no play area restrictions,  
+   no scopes, 
+   basic medical, 
+   fixed loadout, 
+   quick start, 
+   dynamic spawn position
 </details>
 
 ## Features
