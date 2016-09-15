@@ -95,7 +95,7 @@ opfor_rifleman = [
 	[_opfor_vest_rifleman,[["SmokeShell",1,1],["SmokeShellRed",1,1],["rhs_mag_rgd5",1,2]]],
 	["rhs_sidor",[["rhs_30Rnd_762x39mm",30,10]]],
 	_opfor_helmet,"",["Binocular","","","",[],[],""],
-	["ItemMap","","tf_fadak","ItemCompass","ItemWatch","ACE_NVG_Gen2"]
+	["ItemMap","","tf_fadak","ItemCompass","ItemWatch",""]
 ];
 
 opfor_mg = [
@@ -104,7 +104,7 @@ opfor_mg = [
 	[_opfor_vest_mg,[["rhs_100Rnd_762x54mmR_green",100,1],["SmokeShell",1,2],["SmokeShellRed",1,2],["rhs_mag_rgd5",1,1]]],
 	["rhs_sidor",[["rhs_100Rnd_762x54mmR",100,1],["rhs_100Rnd_762x54mmR_green",100,1]]],
 	_opfor_helmet,"",["Binocular","","","",[],[],""],
-	["ItemMap","","tf_fadak","ItemCompass","ItemWatch","ACE_NVG_Gen2"]
+	["ItemMap","","tf_fadak","ItemCompass","ItemWatch",""]
 ];
 
 
@@ -113,7 +113,7 @@ opfor_at = [
 	[_opfor_uniform,[["rhs_acc_2dpZenit",1],["ACE_fieldDressing",6],["ACE_morphine",2],["ACE_epinephrine",1],["ACE_Flashlight_MX991",1],["ACE_key_east",1],["ACE_MapTools",1],["Chemlight_red",1,2],["16Rnd_9x21_Mag",17,2]]],
 	[_opfor_vest_at,[["rhs_30Rnd_762x39mm",30,4],["SmokeShell",1,2]]],["rhs_rpg_empty",[["rhs_rpg7_PG7VL_mag",1,2]]],
 	_opfor_helmet,"",["Binocular","","","",[],[],""],
-	["ItemMap","","tf_fadak","ItemCompass","ItemWatch","ACE_NVG_Gen2"]
+	["ItemMap","","tf_fadak","ItemCompass","ItemWatch",""]
 ];
 
 
@@ -123,7 +123,7 @@ opfor_ammobearer = [
 	[_opfor_vest_rifleman,[["rhs_30Rnd_762x39mm",30,4],["rhs_30Rnd_762x39mm_tracer",30,2]]],
 	["rhs_sidor",[["rhs_100Rnd_762x54mmR_green",100,2],["rhs_100Rnd_762x54mmR",100,1]]],
 	_opfor_helmet,"",["Binocular","","","",[],[],""],
-	["ItemMap","","tf_fadak","ItemCompass","ItemWatch","ACE_NVG_Gen2"]
+	["ItemMap","","tf_fadak","ItemCompass","ItemWatch",""]
 ];
 
 
@@ -133,7 +133,7 @@ opfor_medic = [
 	[_opfor_vest_medic,[["rhs_30Rnd_762x39mm",30,4],["rhs_30Rnd_762x39mm_tracer",30,4]]],
 	["rhs_sidor",[["ACE_fieldDressing",40],["ACE_morphine",20],["ACE_epinephrine",20],["ACE_bloodIV_250",12],["rhs_mag_rgd5",1,2]]],
 	_opfor_helmet,"",["Binocular","","","",[],[],""],
-	["ItemMap","","tf_fadak","ItemCompass","ItemWatch","ACE_NVG_Gen2"]
+	["ItemMap","","tf_fadak","ItemCompass","ItemWatch",""]
 ];
 
 
@@ -143,7 +143,7 @@ opfor_ftl = [
 	[_opfor_vest_ftl,[["rhs_30Rnd_762x39mm",30,4],["rhs_30Rnd_762x39mm_tracer",30,3],["SmokeShell",1,1]]],
 	[_opfor_radio_lr,[["rhs_mag_rgd5",1,2],["rhs_GRD40_White",1,4],["rhs_GRD40_Green",1,2],["rhs_GRD40_Red",1,2],["rhs_VG40OP_green",1,3],["rhs_VG40OP_white",1,2]]],
 	_opfor_helmet,"",["Binocular","","","",[],[],""],
-	["ItemMap","ItemGPS","tf_fadak","ItemCompass","ItemWatch","ACE_NVG_Gen2"]
+	["ItemMap","ItemGPS","tf_fadak","ItemCompass","ItemWatch",""]
 ];
 
 
@@ -153,7 +153,7 @@ opfor_sql = [
 	[_opfor_vest_sql,[["rhs_30Rnd_762x39mm",30,4],["rhs_30Rnd_762x39mm_tracer",30,3],["SmokeShell",1,1]]],
 	[_opfor_radio_lr,[["rhs_mag_rgd5",1,2],["rhs_GRD40_White",1,4],["rhs_GRD40_Green",1,2],["rhs_GRD40_Red",1,2],["rhs_VG40OP_green",1,3],["rhs_VG40OP_white",1,2]]],
 	_opfor_helmet_boss,"",["Binocular","","","",[],[],""],
-	["ItemMap","ItemGPS","tf_fadak","ItemCompass","ItemWatch","ACE_NVG_Gen2"]
+	["ItemMap","ItemGPS","tf_fadak","ItemCompass","ItemWatch",""]
 ];
 
 
@@ -163,6 +163,6 @@ opfor_crewman = [
 	[_opfor_vest_crew,[["rhs_30Rnd_762x39mm",30,4],["rhs_30Rnd_762x39mm_tracer",30,2]]],
 	["rhs_sidor",[]],
 	_opfor_helmet_crew,"",["Binocular","","","",[],[],""],
-	["ItemMap","","tf_fadak","ItemCompass","ItemWatch","ACE_NVG_Gen2"]
+	["ItemMap","","tf_fadak","ItemCompass","ItemWatch",""]
 ];
 

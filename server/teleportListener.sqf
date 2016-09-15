@@ -19,6 +19,9 @@ createOpforStuff =  {
 	funkwagen addItemCargoGlobal ["ACE_SpraypaintGreen",10];
 	funkwagen addItemCargoGlobal ["ACE_SpraypaintRed",10];
 	funkwagen addItemCargoGlobal ["ACE_EntrenchingTool",10];
+	funkwagen addItemCargoGlobal ["ACE_NVG_Gen2",50];
+	
+
 
 
 	0 = [] execVM "server\spawn\showLeaderInformation.sqf";

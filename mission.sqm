@@ -8,7 +8,7 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=192;
+		nextID=197;
 	};
 	class MarkerIDProvider
 	{
@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={1780.5632,13.354508,5976.1177};
-		dir[]={0.76868016,-0.32116541,0.55327237};
-		up[]={0.26070049,0.9470104,0.18764459};
-		aside[]={0.58421594,2.1088636e-007,-0.811674};
+		pos[]={1789.5753,9.9509182,5976.1436};
+		dir[]={-0.9396798,-0.31810325,0.12631679};
+		up[]={-0.31531519,0.94804001,0.04238579};
+		aside[]={0.13323553,3.2899698e-007,0.99115264};
 	};
 };
 binarizationWanted=0;
@@ -51,13 +51,16 @@ addons[]=
 	"ace_optionsmenu",
 	"ace_map",
 	"ace_hearing",
-	"ace_finger"
+	"ace_finger",
+	"ace_advanced_fatigue",
+	"ace_advanced_throwing",
+	"ace_tagging"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=27;
+		items=30;
 		class Item0
 		{
 			className="A3_Ui_F";
@@ -245,6 +248,27 @@ class AddonsMetaData
 			author="ACE-Team";
 			url="http://ace3mod.com/";
 		};
+		class Item27
+		{
+			className="ace_advanced_fatigue";
+			name="ACE3 - Advanced Fatigue";
+			author="ACE-Team";
+			url="http://ace3mod.com/";
+		};
+		class Item28
+		{
+			className="ace_advanced_throwing";
+			name="ACE3 - Advanced Throwing";
+			author="ACE-Team";
+			url="http://ace3mod.com/";
+		};
+		class Item29
+		{
+			className="ace_tagging";
+			name="ACE3 - Tagging";
+			author="ACE-Team";
+			url="http://ace3mod.com/";
+		};
 	};
 };
 randomSeed=6764181;
@@ -273,7 +297,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=53;
+		items=56;
 		class Item0
 		{
 			dataType="Marker";
@@ -6378,6 +6402,260 @@ class Mission
 					};
 				};
 				nAttributes=2;
+			};
+		};
+		class Item53
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={1699.126,-5.7392988,6105.21};
+			};
+			id=192;
+			type="ace_advanced_fatigue_moduleSettings";
+			atlOffset=0.66699982;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ace_advanced_fatigue_moduleSettings_TerrainGradientFactor";
+					expression="_this setVariable ['TerrainGradientFactor',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=1;
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="ace_advanced_fatigue_moduleSettings_Enabled";
+					expression="_this setVariable ['Enabled',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=1;
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="ace_advanced_fatigue_moduleSettings_RecoveryFactor";
+					expression="_this setVariable ['RecoveryFactor',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=1;
+						};
+					};
+				};
+				class Attribute3
+				{
+					property="ace_advanced_fatigue_moduleSettings_LoadFactor";
+					expression="_this setVariable ['LoadFactor',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=1;
+						};
+					};
+				};
+				class Attribute4
+				{
+					property="ace_advanced_fatigue_moduleSettings_PerformanceFactor";
+					expression="_this setVariable ['PerformanceFactor',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=1;
+						};
+					};
+				};
+				nAttributes=5;
+			};
+		};
+		class Item54
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={1699.556,-6.068655,6097.0488};
+				angles[]={0.039985489,0,6.2083282};
+			};
+			id=193;
+			type="ace_advanced_throwing_Module";
+			atlOffset=4.7683716e-007;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ace_advanced_throwing_Module_showMouseControls";
+					expression="_this setVariable ['showMouseControls',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=1;
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="ace_advanced_throwing_Module_enabled";
+					expression="_this setVariable ['enabled',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=1;
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="ace_advanced_throwing_Module_showThrowArc";
+					expression="_this setVariable ['showThrowArc',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=1;
+						};
+					};
+				};
+				class Attribute3
+				{
+					property="ace_advanced_throwing_Module_enablePickUpAttached";
+					expression="_this setVariable ['enablePickUpAttached',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=1;
+						};
+					};
+				};
+				class Attribute4
+				{
+					property="ace_advanced_throwing_Module_enablePickUp";
+					expression="_this setVariable ['enablePickUp',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=1;
+						};
+					};
+				};
+				nAttributes=5;
+			};
+		};
+		class Item55
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={1695.364,-8.8547115,6015.98};
+			};
+			id=195;
+			type="ACE_ModuleTagging";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ACE_ModuleTagging_quickTag";
+					expression="_this setVariable ['quickTag',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=1;
+						};
+					};
+				};
+				nAttributes=1;
 			};
 		};
 	};

@@ -72,7 +72,7 @@ blufor_rifleman = [
 	["rhsusf_iotv_ocp_Squadleader",[["SmokeShell",1,1],["SmokeShellRed",1,1],["HandGrenade",1,2]]],
 	["rhsusf_assault_eagleaiii_coy",[["rhs_mag_30Rnd_556x45_M855A1_Stanag",30,6],["rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Yellow",30,7]]],
 	_blufor_helmet,"",["Binocular","","","",[],[],""],
-	["ItemMap","","tf_anprc148jem","ItemCompass","ItemWatch","ACE_NVG_Gen2"]
+	["ItemMap","","tf_anprc148jem","ItemCompass","ItemWatch",""]
 ];
 
 blufor_mg = [
@@ -81,17 +81,17 @@ blufor_mg = [
 	["rhsusf_iotv_ocp_Repair",[["rhs_200rnd_556x45_T_SAW",200,1],["SmokeShell",1,2],["SmokeShellRed",1,2],["HandGrenade",1,1]]],
 	["rhsusf_assault_eagleaiii_coy",[["rhs_200rnd_556x45_M_SAW",200,1],["rhs_200rnd_556x45_T_SAW",200,1]]],
 	_blufor_helmet,"",["Binocular","","","",[],[],""],
-	["ItemMap","","tf_anprc148jem","ItemCompass","ItemWatch","ACE_NVG_Gen2"]
+	["ItemMap","","tf_anprc148jem","ItemCompass","ItemWatch",""]
 ];
 
 
 blufor_at = [
-	[blufor_random_primaryweapon,"","","",["rhs_mag_30Rnd_556x45_M855A1_Stanag",30],[],""],["rhs_weap_M136_hedp","","","",["rhs_mag_smaw_HEAA",1],[],""],["rhsusf_weap_glock17g4","","","",["rhsusf_mag_17Rnd_9x19_JHP",17],[],""],
+	[blufor_random_primaryweapon,"","","",["rhs_mag_30Rnd_556x45_M855A1_Stanag",30],[],""],["rhs_weap_M136_hedp","","","",["rhs_m136_hedp_mag",1],[],""],["rhsusf_weap_glock17g4","","","",["rhsusf_mag_17Rnd_9x19_JHP",17],[],""],
 	[_blufor_uniform,[["acc_flashlight",1],["ACE_fieldDressing",6],["ACE_morphine",2],["ACE_epinephrine",1],["ACE_Flashlight_KSF1",1],["ACE_key_west",1],["ACE_MapTools",1],["Chemlight_blue",1,2],["rhsusf_mag_17Rnd_9x19_JHP",17,2]]],
 	["rhsusf_iotv_ocp_Repair",[["rhs_mag_30Rnd_556x45_M855A1_Stanag",30,5],["rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Yellow",30,6],["SmokeShell",1,2],["SmokeShellRed",1,2]]],
 	["B_Carryall_khk",[["rhs_mag_30Rnd_556x45_M855A1_Stanag",30,3],["rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Yellow",30,3]]],
 	_blufor_helmet,"",["Binocular","","","",[],[],""],
-	["ItemMap","","tf_anprc148jem","ItemCompass","ItemWatch","ACE_NVG_Gen2"]
+	["ItemMap","","tf_anprc148jem","ItemCompass","ItemWatch",""]
 ];
 
 
@@ -101,7 +101,7 @@ blufor_ammobearer = [
 	["rhsusf_iotv_ocp_Repair",[["rhs_mag_30Rnd_556x45_M855A1_Stanag",30,5],["rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Yellow",30,6],["SmokeShell",1,2],["SmokeShellRed",1,2]]],
 	["B_Carryall_khk",[["rhs_200rnd_556x45_T_SAW",200,2],["rhs_200rnd_556x45_M_SAW",200,3]]],
 	_blufor_helmet,"",["Binocular","","","",[],[],""],
-	["ItemMap","","tf_anprc148jem","ItemCompass","ItemWatch","ACE_NVG_Gen2"]
+	["ItemMap","","tf_anprc148jem","ItemCompass","ItemWatch",""]
 ];
 
 
@@ -111,7 +111,7 @@ blufor_medic = [
 	["rhsusf_iotv_ocp_Medic",[["rhs_mag_30Rnd_556x45_M855A1_Stanag",30,5],["rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Yellow",30,6],["SmokeShell",1,4],["SmokeShellRed",1,2]]],
 	["rhsusf_assault_eagleaiii_coy",[["ACE_fieldDressing",40],["ACE_morphine",20],["ACE_epinephrine",20],["ACE_bloodIV_250",12],["HandGrenade",1,2]]],
 	_blufor_helmet,"",["Binocular","","","",[],[],""],
-	["ItemMap","","tf_anprc148jem","ItemCompass","ItemWatch","ACE_NVG_Gen2"]
+	["ItemMap","","tf_anprc148jem","ItemCompass","ItemWatch",""]
 ];
 
 
@@ -121,7 +121,7 @@ blufor_ftl = [
 	["rhsusf_iotv_ocp_Teamleader",[["rhs_mag_30Rnd_556x45_M855A1_Stanag",30,5],["rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Yellow",30,6],["SmokeShell",1,4],["SmokeShellRed",1,2],["HandGrenade",1,2]]],
 	[_blufor_radio_lr,[["rhs_mag_M585_white",1,3],["rhs_mag_m662_red",1,2],["rhs_mag_m661_green",1,2],["rhs_mag_m713_Red",1,3],["rhs_mag_m714_White",1,3]]],
 	_blufor_helmet,"",["Binocular","","","",[],[],""],
-	["ItemMap","ItemGPS","tf_anprc148jem","ItemCompass","ItemWatch","ACE_NVG_Gen2"]
+	["ItemMap","ItemGPS","tf_anprc148jem","ItemCompass","ItemWatch",""]
 ];
 
 
@@ -131,7 +131,7 @@ blufor_sql = [
 	["rhsusf_iotv_ocp_Grenadier",[["rhs_mag_30Rnd_556x45_M855A1_Stanag",30,11],["SmokeShell",1,4],["SmokeShellRed",1,2],["HandGrenade",1,2]]],
 	[_blufor_radio_lr,[["rhs_mag_M585_white",1,3],["rhs_mag_m662_red",1,3],["rhs_mag_m661_green",1,3],["rhs_mag_m713_Red",1,3],["rhs_mag_m714_White",1,3]]],
 	_blufor_helmet_boss,"",["Binocular","","","",[],[],""],
-	["ItemMap","ItemGPS","tf_anprc148jem","ItemCompass","ItemWatch","ACE_NVG_Gen2"]
+	["ItemMap","ItemGPS","tf_anprc148jem","ItemCompass","ItemWatch",""]
 ];
 
 
@@ -141,5 +141,5 @@ blufor_crewman = [
 	["rhsusf_iotv_ocp",[["rhs_mag_30Rnd_556x45_M855A1_Stanag",30,1],["SmokeShell",1,1]]],
 	["rhsusf_assault_eagleaiii_coy",[]],
 	_blufor_helmet_crew,"",["Binocular","","","",[],[],""],
-	["ItemMap","","tf_anprc148jem","ItemCompass","ItemWatch","ACE_NVG_Gen2"]
+	["ItemMap","","tf_anprc148jem","ItemCompass","ItemWatch",""]
 ];
