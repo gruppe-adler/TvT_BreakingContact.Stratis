@@ -17,6 +17,10 @@ TFAR, ACE3, RHSAFRF and RHSUSF mods are required. RDS\_CIV is optional (required
 
 ## Rules
 no respawn, spectator, no play area restrictions,  no scopes, basic medical, fixed loadout, quick start, dynamic spawn position
+<details> 
+  <summary>Always visibile</summary>
+   Hidden Text 
+</details>
 
 ## Features
 * Buy Menu (ACE interact on start vehicle)
