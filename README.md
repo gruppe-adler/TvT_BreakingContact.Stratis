@@ -62,3 +62,7 @@ To play on one of those islands, change the file name's terrain part (_"Stratis"
 * Best played in a roughly 2:1 attacker defender ratio
 * You can eradicate the helipad in the buy menu when you are fully equipped to hide your spawn
 
+
+
+Play with us at
+http://www.gruppe-adler.de
