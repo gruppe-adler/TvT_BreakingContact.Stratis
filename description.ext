@@ -195,6 +195,7 @@ class CfgSounds
 		// subtitle delay in seconds, subtitle text
 		titles[] = {0, ""};
 	};
+	
 
 	class pick
 	{
@@ -260,6 +261,7 @@ class CfgSounds
 		// subtitle delay in seconds, subtitle text
 		titles[] = {0, ""};
 	};
+
 };
 
 
