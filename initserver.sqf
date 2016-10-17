@@ -153,11 +153,11 @@ REPLAY_STEPS_PER_TICK = 1;
 russianCredits = OPFOR_MONEY;
 USCredits = BLUFOR_MONEY;
 
-0 = [russianCredits,USCredits] execVM "spawn\gui\addPublicVariableEventhandler.sqf";
+// 0 = [russianCredits,USCredits] execVM "spawn\gui\addPublicVariableEventhandler.sqf";
 
 
 [] spawn {
-	_playercount = count allPlayers;
+	_playercount = count (call CBA_fnc_players);
 	_bonusPerPlayer = _playercount * 100;
 
 	russianCredits = OPFOR_MONEY + _bonusPerPlayer;
