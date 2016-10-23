@@ -147,6 +147,7 @@ spawnBluforHQ = {
 		};
 
 		diag_log format ["Debug: _bluforSpawnSuccess is %1",_bluforSpawnSuccess];
+		[{hintSilent "Blufor Spawn successfully found.";},"BIS_fnc_spawn",true,true] call BIS_fnc_MP;
 
 		_bluforSpawnSuccess = [_bluforCenterPosition, [hmmwv_hq,"Land_HelipadCivil_F"], _bluforDistance, _bluforSearchDistance] call testSpawnPositions;
 		waitUntil {(_bluforSpawnSuccess select 0) > 0};
@@ -166,6 +167,7 @@ spawnBluforHQ = {
 			_vehicle1 addItemCargoGlobal ["ACE_SpraypaintRed",10];
 			_vehicle1 addItemCargoGlobal ["ACE_EntrenchingTool",10];
 			_vehicle1 addItemCargoGlobal ["ACE_NVG_Gen2",50];
+			_vehicle1 addItemCargoGlobal ["ItemGPS",1];
 			_vehicle1 setVariable ["detachableBoat",2];
 
 			US_SPAWN_PAD = (_bluforSpawnSuccess select 2);
@@ -215,18 +217,19 @@ spawnOpforHQ = {
 
 		if (time > (_startTime + 30)) then {
 			diag_log format ["fatal error : no blufor spawnpad position found. reducing spawn radius..."];
-			[{hintSilent "F A T A L   E R R O R:  no blufor spawn position found, adapting...";},"BIS_fnc_spawn",true,true] call BIS_fnc_MP;
+			[{hintSilent "no opfor spawn position found, adapting...";},"BIS_fnc_spawn",true,true] call BIS_fnc_MP;
 			_opforSearchDistance = _opforSearchDistance + 20;
 		};
 
 		if (time > (_startTime + 240)) exitWith {
 			diag_log format ["fatal error : no opfor spawnpad position found. please restart."];
-			[{hintSilent "F A T A L   E R R O R:  no opfor spawnpad position found. please restart.";},"BIS_fnc_spawn",true,true] call BIS_fnc_MP;
+			[{hintSilent "fatal reror: no opfor spawnpad position found. please restart.";},"BIS_fnc_spawn",true,true] call BIS_fnc_MP;
 		};
 
 		// landclutter instead of building - dummy object
 		_opforSpawnSuccess = [_opforCenterPosition, ["Land_ClutterCutter_small_F","Land_HelipadCivil_F"], _opforDistance, _opforSearchDistance] call testSpawnPositions;
 		waitUntil {(_opforSpawnSuccess select 0) > 0};
+		[{hintSilent "Opfor Spawn successfully found.";},"BIS_fnc_spawn",true,true] call BIS_fnc_MP;
 
 
 		if ((_opforSpawnSuccess select 0) > 1) exitWith {

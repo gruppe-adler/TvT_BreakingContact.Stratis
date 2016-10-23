@@ -356,6 +356,7 @@ fillUSSupplies = {
             clearBackpackCargoGlobal (_this select 0);
             clearMagazineCargoGlobal (_this select 0);
             (_this select 0) addItemCargoGlobal ['ACE_NVG_Wide',2];
+            (_this select 0) addItemCargoGlobal ["ItemGPS",1];
             [(_this select 0)] call ace_fastroping_fnc_equipFRIES;
             (_this select 0) disableTIEquipment true;
             },
