@@ -131,7 +131,7 @@ opfor_medic = [
 	["rhs_weap_akm","","","",["rhs_30Rnd_762x39mm",30],[],""],[],["hgun_Rook40_F","","","",["16Rnd_9x21_Mag",17],[],""],
 	[_opfor_uniform,[["rhs_acc_2dpZenit",1],["ACE_fieldDressing",6],["ACE_morphine",2],["ACE_epinephrine",1],["ACE_Flashlight_MX991",1],["ACE_key_east",1],["ACE_MapTools",1],["Chemlight_red",2,1],["16Rnd_9x21_Mag",2,17]]],
 	[_opfor_vest_medic,[["rhs_30Rnd_762x39mm",4,30],["rhs_30Rnd_762x39mm_tracer",4,30]]],
-	["rhs_sidor",[["ACE_fieldDressing",40],["ACE_morphine",20],["ACE_epinephrine",20],["ACE_bloodIV_250",10],["rhs_mag_rgd5",2,1]]],
+	["rhs_sidor",[["ACE_fieldDressing",40],["ACE_morphine",20],["ACE_epinephrine",20],["ACE_bloodIV_250",8],["rhs_mag_rgd5",2,1]]],
 	_opfor_helmet,"",["Binocular","","","",[],[],""],
 	["ItemMap","","tf_fadak","ItemCompass","ItemWatch",""]
 ];

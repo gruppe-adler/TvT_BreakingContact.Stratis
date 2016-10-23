@@ -109,7 +109,7 @@ blufor_medic = [
 	["rhs_weap_m4a1_carryhandle","","","rhsusf_acc_eotech_xps3",["rhs_mag_30Rnd_556x45_M855A1_Stanag",30],[],""],[],["rhsusf_weap_glock17g4","","","",["rhsusf_mag_17Rnd_9x19_JHP",17],[],""],
 	[_blufor_uniform,[["acc_flashlight",1],["ACE_fieldDressing",6],["ACE_morphine",2],["ACE_epinephrine",1],["ACE_Flashlight_KSF1",1],["ACE_key_west",1],["ACE_MapTools",1],["Chemlight_blue",2,1],["rhsusf_mag_17Rnd_9x19_JHP",2,17]]],
 	["rhsusf_iotv_ocp_Medic",[["rhs_mag_30Rnd_556x45_M855A1_Stanag",5,30],["rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Yellow",6,30],["SmokeShell",4,1],["SmokeShellRed",2,1]]],
-	["rhsusf_assault_eagleaiii_coy",[["ACE_fieldDressing",40],["ACE_morphine",20],["ACE_epinephrine",20],["ACE_bloodIV_250",12],["HandGrenade",2,1]]],
+	["rhsusf_assault_eagleaiii_coy",[["ACE_fieldDressing",40],["ACE_morphine",20],["ACE_epinephrine",20],["ACE_bloodIV_250",8],["HandGrenade",2,1]]],
 	_blufor_helmet,"",["Binocular","","","",[],[],""],
 	["ItemMap","","tf_anprc148jem","ItemCompass","ItemWatch",""]
 ];
