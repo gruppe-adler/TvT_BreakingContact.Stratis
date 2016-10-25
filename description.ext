@@ -137,7 +137,7 @@ class Params
 	};
 
   class CIVILIAN_TRAFFIC {
-    title = "Civilian Traffic";
+    title = "Civilian Traffic (needs RDS_CIV)";
     values[] = {0, 1};
     texts[] =  {"False", "True"};
     default = 0;
