@@ -82,13 +82,13 @@ ENGIMA_TRAFFIC_FindEdgeRoads = {
 				if (!(ENGIMA_TRAFFIC_edgeRoadsUseful select _index)) then {
 					ENGIMA_TRAFFIC_edgeRoadsUseful set [_index, true];
 				};
-				sleep 0.01;
+				sleep 0.05;
 			};
 			
 			_index = _index + 1;
 		};
 		
-		sleep 0.01;
+		sleep 0.03;
 		_i = _i + 50;
 		if (_i >= _segmentsCount) then {
 			_i = _nextStartPos;
