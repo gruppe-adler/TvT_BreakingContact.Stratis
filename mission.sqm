@@ -8,7 +8,7 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=199;
+		nextID=200;
 	};
 	class MarkerIDProvider
 	{
@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={1790.6584,9.9509182,5980.9922};
-		dir[]={0.21015675,-0.26932412,0.93991661};
-		up[]={0.058778342,0.96303535,0.26288599};
-		aside[]={0.97597015,3.2930984e-007,-0.21821731};
+		pos[]={1790.6584,34.533222,5980.9922};
+		dir[]={0.27469081,-0.61871701,0.73612523};
+		up[]={0.21631405,0.78560287,0.57968694};
+		aside[]={0.93696034,1.610606e-007,-0.34963351};
 	};
 };
 binarizationWanted=0;
@@ -53,7 +53,8 @@ addons[]=
 	"ace_advanced_fatigue",
 	"ace_advanced_throwing",
 	"ace_tagging",
-	"acex_sitting"
+	"acex_sitting",
+	"ace_spectator"
 };
 class AddonsMetaData
 {
@@ -259,7 +260,14 @@ class AddonsMetaData
 		class Item28
 		{
 			className="acex_sitting";
-			name="acex_sitting";
+			name="ACEX - Sitting";
+			author="ACE-Team";
+			url="http://ace3mod.com/";
+		};
+		class Item29
+		{
+			className="ace_spectator";
+			name="ACE3 - Spectator";
 			author="ACE-Team";
 			url="http://ace3mod.com/";
 		};
@@ -291,7 +299,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=56;
+		items=57;
 		class Item0
 		{
 			dataType="Marker";
@@ -6650,6 +6658,97 @@ class Mission
 					};
 				};
 				nAttributes=1;
+			};
+		};
+		class Item56
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={1660.9871,1.5258789e-005,6016.1289};
+			};
+			id=199;
+			type="ace_spectator_moduleSettings";
+			atlOffset=16.313999;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ace_spectator_moduleSettings_sidesFilter";
+					expression="_this setVariable ['sidesFilter',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=3;
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="ace_spectator_moduleSettings_cameraModes";
+					expression="_this setVariable ['cameraModes',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=0;
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="ace_spectator_moduleSettings_unitsFilter";
+					expression="_this setVariable ['unitsFilter',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=3;
+						};
+					};
+				};
+				class Attribute3
+				{
+					property="ace_spectator_moduleSettings_visionModes";
+					expression="_this setVariable ['visionModes',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=0;
+						};
+					};
+				};
+				nAttributes=4;
 			};
 		};
 	};
