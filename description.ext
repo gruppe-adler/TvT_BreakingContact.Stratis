@@ -17,7 +17,7 @@ respawnTemplates[] = {"ace_spectator"};
 
 
 
-GRAD_useNerfedUAV = 1; // 
+GRAD_useNerfedUAV = 1; //
 
 
 class Header
@@ -195,7 +195,7 @@ class CfgSounds
 		// subtitle delay in seconds, subtitle text
 		titles[] = {0, ""};
 	};
-	
+
 
 	class pick
 	{
@@ -346,5 +346,31 @@ class grad_india
 		author = "Gruppe Adler"; // Author displayed in Arsenal
 		texture = "pic\insignia\air.paa"; // Image path
 		textureVehicle = ""; // Does nothing currently, reserved for future use
+	};
+};
+
+#define MODULES_DIRECTORY node_modules
+
+class CfgFunctions {
+	#include "node_modules\grad-loadout\cfgFunctions.hpp"
+};
+
+class Loadouts {
+	#include "LIST_N.hpp"
+
+	resetLoadout = 1;
+	handleRadios = 1;
+
+	class AllUnits {
+		binoculars = "Binocular";
+		map = "ItemMap";
+		compass = "ItemCompass";
+		watch = "ItemWatch";
+	};
+	class Faction {
+		#include "loadouts\US_Desert.hpp"
+		#include "loadouts\US_Woodland.hpp"
+		#include "loadouts\RU_Desert.hpp"
+		#include "loadouts\RU_Woodland.hpp"
 	};
 };

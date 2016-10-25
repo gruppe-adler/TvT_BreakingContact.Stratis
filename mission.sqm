@@ -5288,7 +5288,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=153;
-					type="B_crew_F";
+					type="B_Helipilot_F";
 				};
 				class Item2
 				{
