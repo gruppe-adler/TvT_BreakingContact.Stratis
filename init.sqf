@@ -3,8 +3,6 @@
 
 // islandconfig must be before initgui!
 call compile preprocessFile "islandConfig.sqf";
-call compile preprocessFileLineNumbers "loadouts\setUnitLoadoutBlufor.sqf";
-call compile preprocessFileLineNumbers "loadouts\setUnitLoadoutOpfor.sqf";
 GRAD_fnc_addTerminalInteraction = compile preprocessFileLineNumbers "player\dataterminal\addActionToTerminal.sqf";
 clearInventory = compile preprocessFile "helpers\clearInventory.sqf";
 spawnStuff = compile preprocessFile "helpers\spawnStuff.sqf";
@@ -14,6 +12,15 @@ spawnStuff = compile preprocessFile "helpers\spawnStuff.sqf";
 // disableRemoteSensors true; // ai driving behaviour affected?
 setViewDistance 3500;
 
+_isWoodlandCamo = ((ISLAND_TARGET_POSITIONS select (ISLANDS find worldName)) select 3);
+if (_isWoodlandCamo) then {
+	["BLU_F", "US_Woodland"] call GRAD_Loadout_fnc_FactionSetLoadout;
+	["OPF_F", "RU_Woodland"] call GRAD_Loadout_fnc_FactionSetLoadout;
+} else {
+	["BLU_F", "US_Desert"] call GRAD_Loadout_fnc_FactionSetLoadout;
+	["OPF_F", "RU_Desert"] call GRAD_Loadout_fnc_FactionSetLoadout;
+};
+call compile preprocessfile "loadouts\setLoadoutRandomization.sqf";
 
 // paramsarray select 12 is BFT module in editor
 waitUntil {!isNil "JIP_TIME_ALLOWED"};
@@ -84,13 +91,6 @@ if (hasInterface) then {
 	[] execVM "player\setup\helpBriefing.sqf"; diag_log format ["setup: briefing initiated"];
 
 	[] execVM "player\allXXXSurrenderedListener.sqf"; diag_log format ["setup: surrenderlistener initiated"];
-	// [player] execVM "loadouts\_client.sqf";
-	[] spawn {
-		sleep (random 10);
-		[player] execVM "loadouts\_client.sqf"; diag_log format ["setup: loadout %1 initiated",player];
-		enableSentences false;
-		showSubtitles false;
-	};
 
 	[] execVM "spawn\hedgehogAssemblingSystem.sqf";
 	[] execVM "spawn\assaultBoatAssemblingSystem.sqf";

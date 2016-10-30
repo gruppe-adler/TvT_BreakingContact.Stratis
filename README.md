@@ -56,13 +56,13 @@ To play on one of those islands, change the file name's terrain part (_"Stratis"
 ## Hints
 * Admin slot is Zeus to fight bugs
 * Russian Commander Slot is mandatory 
-* Its highly recommended to use the predefined amount of money
+* It's highly recommended to use the predefined amount of money
 * For every player there is a little bonus in money
 * Russians might redeploy, the sum of deployed time counts for winning
 * Best played in a roughly 2:1 attacker defender ratio
 * You can eradicate the helipad in the buy menu when you are fully equipped to hide your spawn
 
-
+----
 
 Play with us at
 http://www.gruppe-adler.de

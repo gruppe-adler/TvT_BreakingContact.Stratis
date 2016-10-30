@@ -189,7 +189,6 @@ call compile preprocessFileLineNumbers "server\fnc_radiotruck_retract.sqf";
  		{
 			if (!isPlayer _x) then {
 				sleep 1;
-				0 = [_x] execVM "loadouts\_client.sqf";
 				_x setVariable ["BIS_noCoreConversations", true];
 			};
 			0 = [_x] execVM "server\teleportAI.sqf";
@@ -201,7 +200,6 @@ call compile preprocessFileLineNumbers "server\fnc_radiotruck_retract.sqf";
  			if (!isPlayer _x) then {
 	 			sleep 0.5;
 	 			_x setVariable ["BIS_noCoreConversations", true];
-	 			0 = [_x] execVM "loadouts\_client.sqf";
 				0 = [_x] execVM "server\teleportAI.sqf";
  			};
  		} forEach allUnits;
