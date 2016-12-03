@@ -43,7 +43,7 @@ fillRussianSupplies = {
             clearBackpackCargoGlobal (_this select 0);
             clearMagazineCargoGlobal (_this select 0);
             (_this select 0) addItemCargoGlobal ['ItemGPS',1];
-            ['AddCargoByClass', _this select 0, ['ACE_wheel', _this select 0, 2]] call ace_common_fnc_targetEvent;
+            ['AddCargoByClass', ['ACE_wheel', _this select 0, 2], _this select 0] call CBA_fnc_targetEvent;
             },
             format['%1<br/>%2<br/>%3<br/>%4<br/>%5','Crew: 1','Seats: 11','Speed: 90','','1 GPS']
         ],
@@ -61,7 +61,7 @@ fillRussianSupplies = {
             clearBackpackCargoGlobal (_this select 0);
             clearMagazineCargoGlobal (_this select 0);
             (_this select 0) addItemCargoGlobal ['ItemGPS',1];
-            ['AddCargoByClass', _this select 0, ['ACE_wheel', _this select 0, 2]] call ace_common_fnc_targetEvent;
+            ['AddCargoByClass', ['ACE_wheel', _this select 0, 2], _this select 0] call CBA_fnc_targetEvent;
             },
             format['%1<br/>%2<br/>%3<br/>%4<br/>%5','Crew: 1','Seats: 7','Speed: 140','','1 GPS']
         ],
@@ -99,8 +99,8 @@ fillRussianSupplies = {
             (_this select 0) addItemCargoGlobal ['ACE_fieldDressing',100];
             (_this select 0) addItemCargoGlobal ['ItemGPS',5];
             (_this select 0) addItemCargoGlobal ['ACE_bloodIV_250',20];
-            ['AddCargoByClass', _this select 0, ['ACE_wheel', _this select 0, 3]] call ace_common_fnc_targetEvent;
-            ['AddCargoByClass', _this select 0, ['ACE_Track', _this select 0, 1]] call ace_common_fnc_targetEvent;
+            ['AddCargoByClass', ['ACE_wheel', _this select 0, 3], _this select 0] call CBA_fnc_targetEvent;
+            ['AddCargoByClass', ['ACE_Track', _this select 0, 1], _this select 0] call CBA_fnc_targetEvent;
             },
             format['%1<br/>%2<br/>%3<br/>%4<br/>%5<br/>%6<br/>%7<br/>%8<br/>%9<br/>%10<br/>%11<br/>%12<br/>%13<br/>%14<br/>%15','Crew: 1','Seats: 1','Speed: 90','','Cargo:','40 Smokes','60 AK Mags','20 MG Mags','20 Grenades','30 GL Smokes','20 GL Flares','Medical Stuff','5 GPS','3 Repair Wheels','1 Repair Track']
         ],
@@ -120,7 +120,7 @@ fillRussianSupplies = {
             (_this select 0) addItemCargoGlobal ['ItemGPS',1];
             (_this select 0) setObjectTextureGlobal [0,"rhsafrf\addons\rhs_a2port_car\uaz\data\uaz_main_ind_co.paa"];
             (_this select 0) setObjectTextureGlobal [1,"rhsafrf\addons\rhs_a2port_car\uaz\data\uaz_mount_co.paa"];
-            ['AddCargoByClass', _this select 0, ['ACE_wheel', _this select 0, 2]] call ace_common_fnc_targetEvent;
+            ['AddCargoByClass', ['ACE_wheel', _this select 0, 2], _this select 0] call CBA_fnc_targetEvent;
             },
             format['%1<br/>%2<br/>%3<br/>%4<br/>%5<br/>%6<br/>%7<br/>%8<br/>%9','Crew: 2','Seats: 1','Speed: 121','','Weapons:','50x4 12.7mm','','1 GPS']
         ],
@@ -138,7 +138,7 @@ fillRussianSupplies = {
             clearBackpackCargoGlobal (_this select 0);
             clearMagazineCargoGlobal (_this select 0);
             (_this select 0) addItemCargoGlobal ['ItemGPS',1];
-            ['AddCargoByClass', _this select 0, ['ACE_wheel', _this select 0, 2]] call ace_common_fnc_targetEvent;
+            ['AddCargoByClass', ['ACE_wheel', _this select 0, 2], _this select 0] call CBA_fnc_targetEvent;
             },
             format['%1<br/>%2<br/>%3<br/>%4<br/>%5<br/>%6<br/>%7','Crew: 3','Seats: 15 (8 on top)','Speed: 80','','Weapons:','','250x5 7.62mm']
         ],
@@ -157,7 +157,7 @@ fillRussianSupplies = {
             clearMagazineCargoGlobal (_this select 0);
             (_this select 0) addItemCargoGlobal ['ItemGPS',1];
             (_this select 0) removemagazinesturret ["rhs_mag_3of26_5",[0]];
-            ['AddCargoByClass', _this select 0, ['ACE_Track', _this select 0, 2]] call ace_common_fnc_targetEvent;
+            ['AddCargoByClass', ['ACE_Track', _this select 0, 2], _this select 0] call CBA_fnc_targetEvent;
             },
             format['%1<br/>%2<br/>%3<br/>%4<br/>%5<br/>%6<br/>%7,<br/>%8<br/>%9,<br/>%10','Crew: 3','Speed: 60','','Weapons:','4x3 9M119','4x7 3BM42 KE','6x3 3BK18M HEAT','no HE!','250x7 7.62mm','8 Smoke']
         ],
@@ -264,7 +264,7 @@ fillUSSupplies = {
             clearBackpackCargoGlobal (_this select 0);
             clearMagazineCargoGlobal (_this select 0);
             (_this select 0) addItemCargoGlobal ['ItemGPS',1];
-            ['AddCargoByClass', _this select 0, ['ACE_wheel', _this select 0, 2]] call ace_common_fnc_targetEvent;
+            ['AddCargoByClass', ['ACE_wheel', _this select 0, 2], _this select 0] call CBA_fnc_targetEvent;
             },
             format['%1<br/>%2<br/>%3<br/>%4','Crew: 1','Seats: 7','Speed: 109','1 GPS']
         ],
@@ -282,7 +282,7 @@ fillUSSupplies = {
             clearBackpackCargoGlobal (_this select 0);
             clearMagazineCargoGlobal (_this select 0);
             (_this select 0) addItemCargoGlobal ['ItemGPS',1];
-            ['AddCargoByClass', _this select 0, ['ACE_wheel', _this select 0, 2]] call ace_common_fnc_targetEvent;
+            ['AddCargoByClass', ['ACE_wheel', _this select 0, 2], _this select 0] call CBA_fnc_targetEvent;
             },
             format['%1<br/>%2<br/>%3<br/>%4<br/>%5<br/>%6<br/>%7<br/>%8','Crew: 1','Seats: 3','Speed: 109','','Weapons:','100x6 7.62','','1 GPS']
         ],
@@ -300,7 +300,7 @@ fillUSSupplies = {
             clearBackpackCargoGlobal (_this select 0);
             clearMagazineCargoGlobal (_this select 0);
             (_this select 0) addItemCargoGlobal ['ItemGPS',1];
-            ['AddCargoByClass', _this select 0, ['ACE_Track', _this select 0, 2]] call ace_common_fnc_targetEvent;
+            ['AddCargoByClass', ['ACE_Track', _this select 0, 2], _this select 0] call CBA_fnc_targetEvent;
             },
             format['%1<br/>%2<br/>%3<br/>%4<br/>%5','Crew: 2','Seats: 11','Speed: 67','','1 GPS']
         ],
@@ -337,8 +337,8 @@ fillUSSupplies = {
             (_this select 0) addItemCargoGlobal ['ACE_bloodIV_250',20];
             (_this select 0) addItemCargoGlobal ['ItemGPS',5];
             (_this select 0) setVariable ["detachableBoat",4];
-            ['AddCargoByClass', _this select 0, ['ACE_wheel', _this select 0, 3]] call ace_common_fnc_targetEvent;
-            ['AddCargoByClass', _this select 0, ['ACE_Track', _this select 0, 1]] call ace_common_fnc_targetEvent;
+            ['AddCargoByClass', ['ACE_wheel', _this select 0, 3], _this select 0] call CBA_fnc_targetEvent;
+            ['AddCargoByClass', ['ACE_Track', _this select 0, 1], _this select 0] call CBA_fnc_targetEvent;
             },
             format['%1<br/>%2<br/>%3<br/>%4<br/>%5<br/>%6<br/>%7<br/>%8<br/>%9<br/>%10<br/>%11<br/>%12<br/>%13<br/>%14<br/>%15<br/>%16','Crew: 2','Seats: 11','Speed: 67','','Cargo:','4 AT M136','40 Smokes','60 AK Mags','20 MG Mags','20 Grenades','30 Flares','Medical Stuff','5 GPS','4 Rubber Boats (ACE Interact)','3 Repair Wheels','1 Repair Track']
         ],
