@@ -138,6 +138,11 @@ sleep 2; // give it time, boy - possible fix for "Undefined variable in expressi
 		!_radioTruckIsSending call setRadioTruckMarkerStatus;
 		!_radioBoxIsSending call setRadioBoxMarkerStatus;
 
+		if (funkwagen getHit "karoserie" == 1 && funkwagen getHit "motor" == 1 && !(funkwagen getVariable ["isCookingOff", false])) then {
+			funkwagen setVariable ["isCookingOff", true, true];
+			[funkwagen] call ace_cookoff_fnc_cookOff;
+		};
+
 		if (RUSSIAN_POINTS >= POINTS_NEEDED_FOR_VICTORY) exitWith {
 			[] call bluforSurrendered;
 		};
