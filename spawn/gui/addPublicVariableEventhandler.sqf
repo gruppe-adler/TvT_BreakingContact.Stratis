@@ -177,20 +177,12 @@ fillRussianSupplies = {
             (_this select 0) addBackpackCargoGlobal ['RHS_DShkM_Gun_Bag',1];
             (_this select 0) addBackpackCargoGlobal ['RHS_DShkM_TripodHigh_Bag',1];
             (_this select 0) addItemCargoGlobal ['ACE_Sandbag_empty',100];
-
-            //AA Launcher
-            [_this select 0] spawn {
-              params ["_ammobox"];
-              waitUntil {str (getPos _ammobox) != "[0,0,0]"};
-              _pos = (getPos _ammobox) findEmptyPosition [1, 10, "rhs_Igla_AA_pod_msv"];
-              _aa = "rhs_Igla_AA_pod_msv" createVehicle _pos;
-              _aa removemagazineturret ["rhs_mag_2Rnd_Igla", [0]];
-              _aa removemagazineturret ["rhs_mag_2Rnd_Igla", [0]];
-              [_aa, true, 1] call ace_cargo_fnc_makeLoadable;
-            };
+            (_this select 0) addWeaponCargoGlobal ['rhs_weap_igla',2];
+            (_this select 0) addBackpackCargoGlobal ['rhs_rpg_empty',2];
+            (_this select 0) addMagazineCargoGlobal ['rhs_mag_9k38_rocket',4];
 
             },
-            format['%1<br/>%2<br/>%3<br/>%4','100 Sandbags','1 Static Dshkm','(2 Backpacks)','1 Static Igla Turret']
+            format['%1<br/>%2<br/>%3<br/>%4','100 Sandbags','1 Static Dshkm','(2 Backpacks)','2 Igla Launchers', '4 Igla Rockets']
         ],
         [
             "Land_DataTerminal_01_F",
