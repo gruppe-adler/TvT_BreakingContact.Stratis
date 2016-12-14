@@ -140,7 +140,7 @@ sleep 2; // give it time, boy - possible fix for "Undefined variable in expressi
 
 		if (funkwagen getHit "karoserie" == 1 && funkwagen getHit "motor" == 1 && !(funkwagen getVariable ["isCookingOff", false])) then {
 			funkwagen setVariable ["isCookingOff", true, true];
-			[funkwagen] call ace_cookoff_fnc_cookOff;
+			[[funkwagen, {[funkwagen] call ace_cookoff_fnc_cookOff}], "helpers\execIfLocal.sqf"] remoteExec ["execVM",0,false];
 		};
 
 		if (RUSSIAN_POINTS >= POINTS_NEEDED_FOR_VICTORY) exitWith {

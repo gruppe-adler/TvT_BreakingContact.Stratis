@@ -182,7 +182,7 @@ fillRussianSupplies = {
             (_this select 0) addMagazineCargoGlobal ['rhs_mag_9k38_rocket',4];
 
             },
-            format['%1<br/>%2<br/>%3<br/>%4','100 Sandbags','1 Static Dshkm','(2 Backpacks)','2 Igla Launchers', '4 Igla Rockets']
+            format['%1<br/>%2<br/>%3<br/>%4<br/>%5','100 Sandbags','1 Static Dshkm','(2 Backpacks)','2 Igla Launchers', '4 Igla Rockets']
         ],
         [
             "Land_DataTerminal_01_F",
