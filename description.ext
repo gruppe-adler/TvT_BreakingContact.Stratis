@@ -1,5 +1,5 @@
-#include "spawn\gui\_defines.hpp"
-#include "spawn\gui\_dialogs.hpp"
+#include "grad_buymenu\definitions\_defines.hpp"
+#include "grad_buymenu\definitions\_dialogs.hpp"
 
 OnLoadMission = "A mobile radio station is trying to get a message sent - their adversaries try to stop them from completing the broadcast";
 author = "Fusselwurm, McDiod & Nomisum for Gruppe Adler";  //appears as author in overview and loading screen

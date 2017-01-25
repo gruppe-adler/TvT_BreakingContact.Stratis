@@ -1,12 +1,12 @@
 // buy actions
 _usAction1 = ["ACE_MainActions", (localize "str_GRAD_buy_vehicles"), "",
- {0 = createDialog "USSupplyGUI"; disableSerialization; [USSupplies, false, 0, "","",""] call refreshUSUI;},
+ {0 = execVM "grad_buymenu\openMenu.sqf";},
   {side player == west}] call ace_interact_menu_fnc_createAction;
 
 ["rhsusf_m998_w_4dr", 0, ["ACE_MainActions"], _usAction1] call ace_interact_menu_fnc_addActionToClass;
 
 _usAction2 = ["ACE_MainActions", (localize "str_GRAD_buy_vehicles"), "",
- {0 = createDialog "USSupplyGUI"; disableSerialization; [USSupplies, false, 0, "","",""] call refreshUSUI;},
+ {0 = execVM "grad_buymenu\openMenu.sqf";},
   {side player == west}] call ace_interact_menu_fnc_createAction;
 
 ["rhsusf_m998_d_4dr", 0, ["ACE_MainActions"], _usAction2] call ace_interact_menu_fnc_addActionToClass;
@@ -14,9 +14,7 @@ _usAction2 = ["ACE_MainActions", (localize "str_GRAD_buy_vehicles"), "",
 
 
 _rusAction = ["RusBuyMenu", (localize "str_GRAD_buy_vehicles"), "",
- {
- 0 = createDialog "RussianSupplyGUI"; disableSerialization; [russianSupplies, false, 0, "","",""] call refreshRussianUI;
- },
+{0 = execVM "grad_buymenu\openMenu.sqf";},
   {side player == east}] call ace_interact_menu_fnc_createAction;
 ["rhs_gaz66_r142_vv", 0, ["ACE_MainActions"],_rusAction] call ace_interact_menu_fnc_addActionToClass;
 
@@ -100,17 +98,6 @@ _transmissionProgressAction = ["TransmissionProgress", "Check Transmission Progr
 
 ["rhs_gaz66_r142_vv", 0, ["ACE_MainActions"],_transmissionProgressAction] call ace_interact_menu_fnc_addActionToClass;
 
-
-// createBoats on ammo m113
-_createAssaultBoat = ["CreateBoatAction", "Take Boat", "",
-  {0 = [_this select 0] execVM 'player\carry\createBoat.sqf';},
-  {((_this select 0) getVariable ["detachableBoat", 0] > 0)}] call ace_interact_menu_fnc_createAction;
-
-["rhsusf_m113_usarmy_supply", 0, ["ACE_MainActions"],_createAssaultBoat] call ace_interact_menu_fnc_addActionToClass;
-["rhsusf_m113d_usarmy_supply", 0, ["ACE_MainActions"],_createAssaultBoat] call ace_interact_menu_fnc_addActionToClass;
-
-["rhsusf_m998_w_4dr", 0, ["ACE_MainActions"],_createAssaultBoat] call ace_interact_menu_fnc_addActionToClass;
-["rhsusf_m998_d_4dr", 0, ["ACE_MainActions"],_createAssaultBoat] call ace_interact_menu_fnc_addActionToClass;
 
 
 // boat carrying

@@ -153,18 +153,19 @@ REPLAY_STEPS_PER_TICK = 1;
 russianCredits = OPFOR_MONEY;
 USCredits = BLUFOR_MONEY;
 
-// 0 = [russianCredits,USCredits] execVM "spawn\gui\addPublicVariableEventhandler.sqf";
 
 
+// add money from player count
 [] spawn {
 	_playercount = count (call CBA_fnc_players);
 	_bonusPerPlayer = _playercount * 100;
 
-	russianCredits = OPFOR_MONEY + _bonusPerPlayer;
-	USCredits = BLUFOR_MONEY + _bonusPerPlayer;
+	waitUntil {!isNil "moneyOpfor" && !isNil "moneyBlufor"};
 
-	0 = [russianCredits,USCredits] execVM "spawn\gui\addPublicVariableEventhandler.sqf";
-
+	moneyOpfor = moneyOpfor + _bonusPerPlayer;
+	moneyBlufor = moneyBlufor + _bonusPerPlayer;
+	publicVariable "moneyBlufor";
+	publicVariable "moneyOpfor";
 };
 
 if (isClass (configFile >> "CfgPatches" >> "task_force_radio")) then {

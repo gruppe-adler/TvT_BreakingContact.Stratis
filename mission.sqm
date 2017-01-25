@@ -8,18 +8,18 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=200;
+		nextID=231;
 	};
 	class MarkerIDProvider
 	{
-		nextID=2;
+		nextID=3;
 	};
 	class Camera
 	{
-		pos[]={1790.6584,34.533222,5980.9922};
-		dir[]={0.27469081,-0.61871701,0.73612523};
-		up[]={0.21631405,0.78560287,0.57968694};
-		aside[]={0.93696034,1.610606e-007,-0.34963351};
+		pos[]={1571.5697,92.751953,5869.502};
+		dir[]={-0.11468939,-0.89527547,0.43072104};
+		up[]={-0.2303513,0.44560537,0.86509305};
+		aside[]={0.96642333,3.5894918e-006,0.25732964};
 	};
 };
 binarizationWanted=0;
@@ -43,6 +43,8 @@ addons[]=
 	"ace_respawn",
 	"ace_medical",
 	"A3_Characters_F",
+	"asr_ai3_cfgcamouflage",
+	"asr_ai3_cfgvehicles",
 	"A3_Modules_F_Intel",
 	"A3_Modules_F_Curator_Curator",
 	"ace_cargo",
@@ -299,7 +301,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=57;
+		items=59;
 		class Item0
 		{
 			dataType="Marker";
@@ -1832,15 +1834,15 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={1794.2628,5.5014391,5978.8096};
+						position[]={1794.2629,5.5014391,5978.8096};
 						angles[]={0,0.69184852,0};
 					};
 					side="East";
 					flags=6;
 					class Attributes
 					{
-						rank="MAJOR";
-						init="this setVariable [""canBuy"", true]; 0 = [this] execVM ""dynamicGroups\createCommand.sqf"";";
+						rank="CAPTAIN";
+						init="this setVariable [""GRAD_canBuy"", true]; 0 = [this] execVM ""dynamicGroups\createCommand.sqf"";";
 						name="opfor_teamlead";
 						description="Commander (must be selected)";
 						isPlayer=1;
@@ -1848,6 +1850,29 @@ class Mission
 					};
 					id=25;
 					type="O_officer_F";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=1.03;
+								};
+							};
+						};
+						nAttributes=1;
+					};
 				};
 				class Item1
 				{
@@ -2041,6 +2066,25 @@ class Mission
 				};
 				class Attribute8
 				{
+					property="ModuleInfo";
+					expression="false";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=1;
+						};
+					};
+				};
+				class Attribute9
+				{
 					property="ModuleTaskCreate_F_State";
 					expression="_this setVariable ['State',_value,true];";
 					class Value
@@ -2058,7 +2102,7 @@ class Mission
 						};
 					};
 				};
-				nAttributes=9;
+				nAttributes=10;
 			};
 		};
 		class Item22
@@ -2227,6 +2271,25 @@ class Mission
 				};
 				class Attribute8
 				{
+					property="ModuleInfo";
+					expression="false";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=1;
+						};
+					};
+				};
+				class Attribute9
+				{
 					property="ModuleTaskCreate_F_State";
 					expression="_this setVariable ['State',_value,true];";
 					class Value
@@ -2244,7 +2307,7 @@ class Mission
 						};
 					};
 				};
-				nAttributes=9;
+				nAttributes=10;
 			};
 		};
 		class Item23
@@ -2261,6 +2324,25 @@ class Mission
 			{
 				class Attribute0
 				{
+					property="ModuleInfo";
+					expression="false";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=1;
+						};
+					};
+				};
+				class Attribute1
+				{
 					property="ModuleTaskSetState_F_State";
 					expression="_this setVariable ['State',_value,true];";
 					class Value
@@ -2278,7 +2360,7 @@ class Mission
 						};
 					};
 				};
-				nAttributes=1;
+				nAttributes=2;
 			};
 		};
 		class Item24
@@ -2295,6 +2377,25 @@ class Mission
 			{
 				class Attribute0
 				{
+					property="ModuleInfo";
+					expression="false";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=1;
+						};
+					};
+				};
+				class Attribute1
+				{
 					property="ModuleTaskSetState_F_State";
 					expression="_this setVariable ['State',_value,true];";
 					class Value
@@ -2312,7 +2413,7 @@ class Mission
 						};
 					};
 				};
-				nAttributes=1;
+				nAttributes=2;
 			};
 		};
 		class Item25
@@ -2329,8 +2430,8 @@ class Mission
 			{
 				class Attribute0
 				{
-					property="ModuleTaskSetState_F_State";
-					expression="_this setVariable ['State',_value,true];";
+					property="ModuleInfo";
+					expression="false";
 					class Value
 					{
 						class data
@@ -2339,29 +2440,14 @@ class Mission
 							{
 								type[]=
 								{
-									"STRING"
+									"BOOL"
 								};
 							};
-							value="SUCCEEDED";
+							value=1;
 						};
 					};
 				};
-				nAttributes=1;
-			};
-		};
-		class Item26
-		{
-			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={1570.5229,0.068785451,5921.7544};
-			};
-			id=32;
-			type="ModuleTaskSetState_F";
-			atlOffset=15.702212;
-			class CustomAttributes
-			{
-				class Attribute0
+				class Attribute1
 				{
 					property="ModuleTaskSetState_F_State";
 					expression="_this setVariable ['State',_value,true];";
@@ -2380,7 +2466,60 @@ class Mission
 						};
 					};
 				};
-				nAttributes=1;
+				nAttributes=2;
+			};
+		};
+		class Item26
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={1570.5229,0.068785451,5921.7544};
+			};
+			id=32;
+			type="ModuleTaskSetState_F";
+			atlOffset=15.702212;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ModuleInfo";
+					expression="false";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=1;
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="ModuleTaskSetState_F_State";
+					expression="_this setVariable ['State',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="SUCCEEDED";
+						};
+					};
+				};
+				nAttributes=2;
 			};
 		};
 		class Item27
@@ -3862,21 +4001,44 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={1530.0372,5.5014391,5046.7905};
-						angles[]={0,5.51016,0};
+						position[]={1530.037,5.5014391,5046.791};
+						angles[]={0,5.5101619,0};
 					};
 					side="West";
 					flags=6;
 					class Attributes
 					{
-						rank="MAJOR";
-						init="this setVariable [""canBuy"", true]; 0 = [this] execVM ""dynamicGroups\createCommand.sqf"";";
+						rank="CAPTAIN";
+						init="this setVariable [""GRAD_canBuy"", true]; 0 = [this] execVM ""dynamicGroups\createCommand.sqf"";";
 						name="blufor_teamlead";
 						description="Commander (must be selected)";
 						isPlayable=1;
 					};
 					id=91;
 					type="B_officer_F";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=0.99000001;
+								};
+							};
+						};
+						nAttributes=1;
+					};
 				};
 				class Item1
 				{
@@ -6750,6 +6912,24 @@ class Mission
 				};
 				nAttributes=4;
 			};
+		};
+		class Item57
+		{
+			dataType="Marker";
+			position[]={1760.215,3.9902805e+018,5731.311};
+			name="mrk_spawn_blufor_land_1";
+			type="Empty";
+			id=200;
+			atlOffset=3.9902805e+018;
+		};
+		class Item58
+		{
+			dataType="Marker";
+			position[]={1750.889,-5.4391075e-038,5692.0771};
+			name="mrk_spawn_opfor_land_1";
+			type="Empty";
+			id=201;
+			atlOffset=-5.5;
 		};
 	};
 	class Connections

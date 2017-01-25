@@ -1,12 +1,14 @@
 #include "\z\ace\addons\main\script_component.hpp"
 #include "\z\ace\addons\main\script_macros.hpp"
 
+0 = [] execVM "grad_buymenu\buymenu_init.sqf";
+
 // islandconfig must be before initgui!
 call compile preprocessFile "islandConfig.sqf";
 GRAD_fnc_addTerminalInteraction = compile preprocessFileLineNumbers "player\dataterminal\addActionToTerminal.sqf";
 clearInventory = compile preprocessFile "helpers\clearInventory.sqf";
 spawnStuff = compile preprocessFile "helpers\spawnStuff.sqf";
-[] execVM "spawn\initGUI.sqf";
+
 
 // optimize for PVP
 // disableRemoteSensors true; // ai driving behaviour affected?
@@ -94,7 +96,6 @@ if (hasInterface) then {
 
 	[] execVM "spawn\hedgehogAssemblingSystem.sqf";
 	[] execVM "spawn\assaultBoatAssemblingSystem.sqf";
-	[] execVM "spawn\addInteractions.sqf";
 	[] execVM "player\civKillListener.sqf";
 	[] execVM "player\civGunfightListener.sqf";
 	[] execVM "player\startMarkerListener.sqf";

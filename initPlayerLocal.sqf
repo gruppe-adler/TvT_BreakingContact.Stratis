@@ -1,0 +1,1 @@
+0 = execVM "spawn\addInteractions.sqf";
