@@ -4,12 +4,15 @@
 // 3 spawn with civilian driving it
 // 4 spawn at water marker
 
+
 if ((ISLAND_TARGET_POSITIONS select (ISLANDS find worldName)) select 3) then {
        tigr = "rhs_tigr_m_vdv";
        bmp_code = {};
        btr_code = {};
+       uaz = "rhsgref_nat_uaz_dshkm";
     } else {
        tigr = "rhs_tigr_m_3camo_vdv";
+       uaz = "rhsgref_cdf_b_reg_uaz_dshkm";
        bmp_code = {
         (_this select 0) setObjectTextureGlobal [0,"rhsafrf\addons\rhs_bmp_camo\data\bmp_1_desert_co.paa"];
         (_this select 0) setObjectTextureGlobal [1,"rhsafrf\addons\rhs_bmp_camo\data\bmp_2_desert_co.paa"];
@@ -69,12 +72,12 @@ _car = [
 
 
 _uaz = [
-    ["rhsgref_nat_uaz_dshkm"],
+    [uaz],
     "UAZ Dshkm",
     10,
     1100,
     1,
-    [],
+    ["cabinlights_hide",0,"light_hide",1],
     {
     clearWeaponCargoGlobal (_this select 0);
     clearItemCargoGlobal (_this select 0);
