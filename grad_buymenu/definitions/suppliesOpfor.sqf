@@ -4,12 +4,13 @@
 // 3 spawn with civilian driving it
 // 4 spawn at water marker
 
-
+// camo shit, todo: make function
 if ((ISLAND_TARGET_POSITIONS select (ISLANDS find worldName)) select 3) then {
        tigr = "rhs_tigr_m_vdv";
+       uaz = "rhsgref_nat_uaz_dshkm";
        bmp_code = {};
        btr_code = {};
-       uaz = "rhsgref_nat_uaz_dshkm";
+       gaz_code = {};
     } else {
        tigr = "rhs_tigr_m_3camo_vdv";
        uaz = "rhsgref_cdf_b_reg_uaz_dshkm";
@@ -24,6 +25,13 @@ if ((ISLAND_TARGET_POSITIONS select (ISLANDS find worldName)) select 3) then {
         btr_code = {
         (_this select 0) setObjectTextureGlobal [0,"rhsafrf\addons\rhs_btr70_camo\data\btr70_1_sand_co.paa"];
         (_this select 0) setObjectTextureGlobal [1,"rhsafrf\addons\rhs_btr70_camo\data\btr70_2_sand_co.paa"];
+        };
+        gaz_code = {
+        (_this select 0) setObjectTextureGlobal [0,"rhsafrf\addons\rhs_gaz66_camo\data\gaz66_sand_co.paa"];
+        (_this select 0) setObjectTextureGlobal [1,"rhsafrf\addons\rhs_gaz66\data\tent_co.paa"];
+        (_this select 0) setObjectTextureGlobal [2,"rhsafrf\addons\rhs_gaz66_camo\data\rhs_gaz66_kung_sand_co.paa"];
+        (_this select 0) setObjectTextureGlobal [3,"rhsafrf\addons\rhs_gaz66_camo\data\rhs_gaz66_ap2kung_sand_co.paa"];
+        (_this select 0) setObjectTextureGlobal [4,"rhsafrf\addons\rhs_gaz66_camo\data\rhs_gaz66_repkung_sand_co.paa"];
         };
     };
 
@@ -64,6 +72,51 @@ _car = [
         clearBackpackCargoGlobal (_this select 0);
         clearMagazineCargoGlobal (_this select 0);
         ['AddCargoByClass', ['ACE_wheel', _this select 0, 2], _this select 0] call CBA_fnc_targetEvent;
+    },
+    format[''],
+    0,
+    0
+];
+
+_ammotruck = [
+    ["rhs_gaz66_repair_vdv"],
+    "GAZ-66 Ammo",
+    1,
+    1000,
+    1,
+    [],
+    {
+        clearWeaponCargoGlobal (_this select 0);
+        clearItemCargoGlobal (_this select 0);
+        clearBackpackCargoGlobal (_this select 0);
+        clearMagazineCargoGlobal (_this select 0);
+        (_this select 0) addMagazineCargoGlobal ['SmokeShell',20];
+        (_this select 0) addMagazineCargoGlobal ['SmokeShellRed',20];
+        (_this select 0) addMagazineCargoGlobal ['rhs_30Rnd_762x39mm_tracer',30];
+        (_this select 0) addMagazineCargoGlobal ['rhs_30Rnd_762x39mm',30];
+        (_this select 0) addMagazineCargoGlobal ['16Rnd_9x21_Mag',20];
+        (_this select 0) addMagazineCargoGlobal ['rhs_rpg7_PG7VL_mag',5];
+        (_this select 0) addMagazineCargoGlobal ['rhs_rpg7_PG7VR_mag',5];
+        (_this select 0) addMagazineCargoGlobal ['rhs_100Rnd_762x54mmR_green',10];
+        (_this select 0) addMagazineCargoGlobal ['rhs_100Rnd_762x54mmR',10];
+        (_this select 0) addMagazineCargoGlobal ['rhs_mag_rgd5',20];
+        (_this select 0) addMagazineCargoGlobal ['rhs_GRD40_White',10];
+        (_this select 0) addMagazineCargoGlobal ['rhs_GRD40_Green',10];
+        (_this select 0) addMagazineCargoGlobal ['rhs_GRD40_Red',10];
+        (_this select 0) addMagazineCargoGlobal ['rhs_VG40OP_white',10];
+        (_this select 0) addMagazineCargoGlobal ['rhs_VG40OP_green',10];
+        (_this select 0) addItemCargoGlobal ['ACE_Earplugs',15];
+        (_this select 0) addItemCargoGlobal ['ACE_Morphine',40];
+        (_this select 0) addItemCargoGlobal ['ACE_epinephrine',40];
+        (_this select 0) addItemCargoGlobal ['ACE_fieldDressing',100];
+        (_this select 0) addItemCargoGlobal ['ItemGPS',5];
+        (_this select 0) addItemCargoGlobal ['ACE_bloodIV_250',20];
+        ['AddCargoByClass', ['ACE_wheel', _this select 0, 3], _this select 0] call CBA_fnc_targetEvent;
+        ['AddCargoByClass', ['ACE_Track', _this select 0, 1], _this select 0] call CBA_fnc_targetEvent;
+        (_this select 0) setVariable ["GRAD_fortifications_available_Land_BagFence_Long_F", 10];
+        (_this select 0) setVariable ["GRAD_fortifications_available_Land_BagFence_End_F", 5];
+        (_this select 0) setVariable ["GRAD_fortifications_available_rhs_Flag_DNR_F", 2];
+        call gaz_code;
     },
     format[''],
     0,
@@ -177,6 +230,7 @@ _transmitter = [
 
 suppliesOpfor setVariable ['car', _car, true];
 suppliesOpfor setVariable ['truck', _truck, true];
+suppliesOpfor setVariable ['ammotruck', _ammotruck, true];
 suppliesOpfor setVariable ['uaz', _uaz, true];
 suppliesOpfor setVariable ['bmp', _bmp, true];
 suppliesOpfor setVariable ['btr', _btr, true];

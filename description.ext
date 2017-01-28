@@ -1,6 +1,19 @@
 #include "grad_buymenu\definitions\_defines.hpp"
 #include "grad_buymenu\definitions\_dialogs.hpp"
 
+#define MODULES_DIRECTORY node_modules
+#include "node_modules\grad-fortifications\grad_fortifications.hpp"
+
+class CfgFunctions {
+	#include "node_modules\grad-loadout\cfgFunctions.hpp"
+	#include "node_modules\grad-fortifications\cfgFunctions.hpp"
+};
+
+class RscTitles {
+    #include "node_modules\grad-fortifications\dialog\hint\title.hpp"
+    #include "grad_buymenu\definitions\rscTitles.hpp"
+};
+
 OnLoadMission = "A mobile radio station is trying to get a message sent - their adversaries try to stop them from completing the broadcast";
 author = "Fusselwurm, McDiod & Nomisum for Gruppe Adler";  //appears as author in overview and loading screen
 overviewText = "US vs. Russians"; //appears in overview and loading screen
@@ -349,11 +362,7 @@ class grad_india
 	};
 };
 
-#define MODULES_DIRECTORY node_modules
 
-class CfgFunctions {
-	#include "node_modules\grad-loadout\cfgFunctions.hpp"
-};
 
 class Loadouts {
 	#include "LIST_N.hpp"
@@ -372,5 +381,83 @@ class Loadouts {
 		#include "loadouts\US_Woodland.hpp"
 		#include "loadouts\RU_Desert.hpp"
 		#include "loadouts\RU_Woodland.hpp"
+	};
+};
+
+class CfgGradFortifications {
+    canDemolishDefault = 1;
+    demolitionTimeFactor = 1;
+    inventorySize = 500;
+
+    class Land_BagFence_Long_F {
+        boundingBoxSize = 0.8;
+        canFloat = 0;
+        canCollide = 0;
+        size = 3;
+        demolitionTime = 10;
+    };
+
+    class Land_BagFence_End_F {
+    	boundingBoxSize = 0.8;
+        canFloat = 0;
+        canCollide = 0;
+        size = 3;
+        demolitionTime = 10;
+	};
+
+    class rhs_Flag_DNR_F {
+    	boundingBoxSize = 0.1;
+    	canFloat = 0;
+    	canCollide = 1;
+    	size = 1;
+    	demolitionTime = 3;
+	};
+
+	class Land_Wreck_Ural_F {
+		boundingBoxSize = 0.9;
+        canFloat = 0;
+        canCollide = 0;
+        size = 20;
+        demolitionTime = 30;
+	};
+
+	class Land_Wreck_UAZ_F {
+		boundingBoxSize = 0.9;
+        canFloat = 0;
+        canCollide = 0;
+        size = 10;
+        demolitionTime = 15;
+ 	};
+
+ 	class Land_Razorwire_F {
+    	boundingBoxSize = 0.1;
+    	canFloat = 0;
+    	canCollide = 1;
+    	size = 1;
+    	demolitionTime = 10;
+	};
+
+	class MetalBarrel_burning_F {
+    	boundingBoxSize = 0.9;
+    	canFloat = 0;
+    	canCollide = 1;
+    	size = 1;
+    	demolitionTime = 5;
+	};
+
+	class Campfire_burning_F {
+    	boundingBoxSize = 0.9;
+    	canFloat = 0;
+    	canCollide = 1;
+    	size = 1;
+    	demolitionTime = 5;
+	};
+
+	class Land_PortableLight_single_F {
+    	boundingBoxSize = 0.9;
+    	canFloat = 0;
+    	canCollide = 1;
+    	size = 1;
+    	demolitionTime = 5;
 	};
 };

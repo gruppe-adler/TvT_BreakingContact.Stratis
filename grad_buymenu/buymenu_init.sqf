@@ -133,7 +133,7 @@ if (hasInterface) then {
 		_canBuy = [];
 		if (playerSide == east) then {
 			switch (rank player) do {
-				case "CAPTAIN": { _canBuy = ['car', 'truck', 'uaz', 'btr', 'bmp', 'ammo_box', 'transmitter']; };
+				case "CAPTAIN": { _canBuy = ['car', 'truck', 'ammotruck', 'uaz', 'btr', 'bmp', 'ammo_box', 'transmitter']; };
 				default { _canBuy = []; };
 			};
 			player setVariable ["GRAD_canBuy", _canBuy];

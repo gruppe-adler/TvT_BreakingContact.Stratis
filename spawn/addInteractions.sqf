@@ -109,6 +109,63 @@ _carryAssaultBoat = ["CarryBoatAction", "Carry Boat", "",
 
 
 
+// GRAD fortification for OPFOR
+
+GRAD_fortification_isAvailable = {
+    params ["_item", "_container"];
+
+    _return = false;
+    _requestString = "GRAD_fortifications_available_" + _item;
+    _countAvailable = _container getVariable [_requestString,0];
+    if (_countAvailable > 0) then {
+        _return = true;
+    };
+    _return
+};
+
+GRAD_fortifications_giveFeedback = {
+    params ["_item", "_container"];
+     _requestString = "GRAD_fortifications_available_" + _item;
+    _countAvailable = _container getVariable [_requestString,0];
+     if (_countAvailable > 0) then {
+        _container setVariable [_requestString,_countAvailable - 1];
+    };
+    hintsilent format ["Noch %1 verfügbar", _countAvailable];
+};
+
+// bagfence long
+_Land_BagFence_Long_F = ["Fortifications", "Sandsackwall Lang", "",
+  {[player, "Land_BagFence_Long_F", 1] call grad_fortifications_fnc_addFort;
+  ["Land_BagFence_Long_F", (_this select 0)] call GRAD_fortifications_giveFeedback;},
+  {
+    (side player == east) && 
+    ([player, "Land_BagFence_Long_F", 1, true] call grad_fortifications_fnc_canTake) &&
+    (["Land_BagFence_Long_F", (_this select 0)] call GRAD_fortification_isAvailable)
+  }] call ace_interact_menu_fnc_createAction;
+
+_Land_BagFence_End_F = ["Fortifications", "Sandsackwall Kurz", "",
+  {[player, "Land_BagFence_End_F", 1] call grad_fortifications_fnc_addFort;
+  ["Land_BagFence_End_F", (_this select 0)] call GRAD_fortifications_giveFeedback;},
+  {
+    (side player == east) && 
+    ([player, "Land_BagFence_End_F", 1, true] call grad_fortifications_fnc_canTake) &&
+    (["Land_BagFence_End_F", (_this select 0)] call GRAD_fortification_isAvailable)
+  }] call ace_interact_menu_fnc_createAction;
+
+_rhs_Flag_DNR_F = ["Fortifications", "Flagge der DNR", "",
+  {[player, "rhs_Flag_DNR_F", 1] call grad_fortifications_fnc_addFort;
+  ["rhs_Flag_DNR_F", (_this select 0)] call GRAD_fortifications_giveFeedback;},
+  {
+    (side player == east) && 
+    ([player, "rhs_Flag_DNR_F", 1, true] call grad_fortifications_fnc_canTake) &&
+    (["rhs_Flag_DNR_F", (_this select 0)] call GRAD_fortification_isAvailable)
+  }] call ace_interact_menu_fnc_createAction;
+
+["rhs_gaz66_repair_vdv", 0, ["ACE_MainActions"],_Land_BagFence_Long_F] call ace_interact_menu_fnc_addActionToClass;
+["rhs_gaz66_repair_vdv", 0, ["ACE_MainActions"],_Land_BagFence_End_F] call ace_interact_menu_fnc_addActionToClass;
+["rhs_gaz66_repair_vdv", 0, ["ACE_MainActions"],_rhs_Flag_DNR_F] call ace_interact_menu_fnc_addActionToClass;
+
+
 [] spawn {
 waitUntil {!isNil "portableRadioBox"};
 

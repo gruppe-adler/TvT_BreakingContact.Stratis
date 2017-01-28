@@ -1,10 +1,11 @@
 {
-    "name": "tvt-breaking-contact",
-    "description": "Asymmetric TvT scenario for Arma3",
-    "version": "0.0.2",
-    "dependencies": {
-        "shk_pos": "gruppe-adler/shk_pos#master",
-        "grad_replay": "gruppe-adler/grad_replay#master",
-        "grad-loadout": "^4.3.0"
-    }
+  "name": "tvt-breaking-contact",
+  "description": "Asymmetric TvT scenario for Arma3",
+  "version": "0.0.2",
+  "dependencies": {
+    "grad-fortifications": "^0.1.0",
+    "grad-loadout": "^4.3.0",
+    "grad_replay": "gruppe-adler/grad_replay#master",
+    "shk_pos": "gruppe-adler/shk_pos#master"
+  }
 }

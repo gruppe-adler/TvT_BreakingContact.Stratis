@@ -9,6 +9,14 @@ createOpforStuff =  {
 	sleep 1;
 	[funkwagen] call clearInventory;
 
+	if (!((ISLAND_TARGET_POSITIONS select (ISLANDS find worldName)) select 3)) then {
+	funkwagen setObjectTextureGlobal [0,"rhsafrf\addons\rhs_gaz66_camo\data\gaz66_sand_co.paa"];
+    funkwagen setObjectTextureGlobal [1,"rhsafrf\addons\rhs_gaz66\data\tent_co.paa"];
+    funkwagen setObjectTextureGlobal [2,"rhsafrf\addons\rhs_gaz66_camo\data\rhs_gaz66_kung_sand_co.paa"];
+    funkwagen setObjectTextureGlobal [3,"rhsafrf\addons\rhs_gaz66_camo\data\rhs_gaz66_ap2kung_sand_co.paa"];
+    funkwagen setObjectTextureGlobal [4,"rhsafrf\addons\rhs_gaz66_camo\data\rhs_gaz66_repkung_sand_co.paa"];
+	};
+
 	// hide light covers for optical reasons
 	funkwagen animate ["light_hide",1];
 	sleep 0.1;
