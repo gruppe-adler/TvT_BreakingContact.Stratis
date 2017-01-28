@@ -133,37 +133,41 @@ GRAD_fortifications_giveFeedback = {
     hintsilent format ["Noch %1 verfügbar", _countAvailable];
 };
 
-// bagfence long
-_Land_BagFence_Long_F = ["Fortifications", "Sandsackwall Lang", "",
-  {[player, "Land_BagFence_Long_F", 1] call grad_fortifications_fnc_addFort;
-  ["Land_BagFence_Long_F", (_this select 0)] call GRAD_fortifications_giveFeedback;},
+GRAD_fortification_addToClass = {
+  params ["_target", "_item", "_description"];
+    _action = ["Fortifications", _description, "",
+  {
+    [player, _item, 1] call grad_fortifications_fnc_addFort;
+    [_item, _target] call GRAD_fortifications_giveFeedback;
+  },
   {
     (side player == east) && 
-    ([player, "Land_BagFence_Long_F", 1, true] call grad_fortifications_fnc_canTake) &&
-    (["Land_BagFence_Long_F", (_this select 0)] call GRAD_fortification_isAvailable)
+    ([player, _item, 1, true] call grad_fortifications_fnc_canTake) &&
+    ([_item, _target] call GRAD_fortification_isAvailable)
   }] call ace_interact_menu_fnc_createAction;
 
-_Land_BagFence_End_F = ["Fortifications", "Sandsackwall Kurz", "",
-  {[player, "Land_BagFence_End_F", 1] call grad_fortifications_fnc_addFort;
-  ["Land_BagFence_End_F", (_this select 0)] call GRAD_fortifications_giveFeedback;},
-  {
-    (side player == east) && 
-    ([player, "Land_BagFence_End_F", 1, true] call grad_fortifications_fnc_canTake) &&
-    (["Land_BagFence_End_F", (_this select 0)] call GRAD_fortification_isAvailable)
-  }] call ace_interact_menu_fnc_createAction;
+  [_target, 0, ["ACE_MainActions"],_action] call ace_interact_menu_fnc_addActionToClass;
+};
 
-_rhs_Flag_DNR_F = ["Fortifications", "Flagge der DNR", "",
-  {[player, "rhs_Flag_DNR_F", 1] call grad_fortifications_fnc_addFort;
-  ["rhs_Flag_DNR_F", (_this select 0)] call GRAD_fortifications_giveFeedback;},
-  {
-    (side player == east) && 
-    ([player, "rhs_Flag_DNR_F", 1, true] call grad_fortifications_fnc_canTake) &&
-    (["rhs_Flag_DNR_F", (_this select 0)] call GRAD_fortification_isAvailable)
-  }] call ace_interact_menu_fnc_createAction;
+_items = [
+  ["Land_BagFence_Long_F", "Sandsackwall Lang"],
+  ["Land_BagFence_End_F", "Sandsackwall Kurz"],
+  ["rhs_Flag_DNR_F", "Flagge der DNR"],
+  ["Land_Wreck_Ural_F", "Ural Barrikade"],
+  ["Land_Wreck_UAZ_F", "UAZ Barrikade"],
+  ["Land_Razorwire_F", "Stacheldraht"],
+  ["MetalBarrel_burning_F", "Brennendes Fass"],
+  ["Campfire_burning_F", "Lagerfeuer"],
+  ["Land_PortableLight_single_F", "Baustrahler"]
+];
 
-["rhs_gaz66_repair_vdv", 0, ["ACE_MainActions"],_Land_BagFence_Long_F] call ace_interact_menu_fnc_addActionToClass;
-["rhs_gaz66_repair_vdv", 0, ["ACE_MainActions"],_Land_BagFence_End_F] call ace_interact_menu_fnc_addActionToClass;
-["rhs_gaz66_repair_vdv", 0, ["ACE_MainActions"],_rhs_Flag_DNR_F] call ace_interact_menu_fnc_addActionToClass;
+{
+  [
+    "rhs_gaz66_repair_vdv",
+    _x select 0,
+    _x select 1
+  ] call GRAD_fortification_addToClass;
+} forEach _items;
 
 
 [] spawn {
