@@ -128,25 +128,34 @@ GRAD_fortifications_giveFeedback = {
      _requestString = "GRAD_fortifications_available_" + _item;
     _countAvailable = _container getVariable [_requestString,0];
      if (_countAvailable > 0) then {
-        _container setVariable [_requestString,_countAvailable - 1];
+        _container setVariable [_requestString,_countAvailable - 1, true];
+        hintsilent format ["Noch %1 verfügbar", _countAvailable - 1];
     };
-    hintsilent format ["Noch %1 verfügbar", _countAvailable];
 };
+
 
 GRAD_fortification_addToClass = {
   params ["_target", "_item", "_description"];
-    _action = ["Fortifications", _description, "",
-  {
-    [player, _item, 1] call grad_fortifications_fnc_addFort;
-    [_item, _target] call GRAD_fortifications_giveFeedback;
-  },
-  {
-    (side player == east) && 
-    ([player, _item, 1, true] call grad_fortifications_fnc_canTake) &&
-    ([_item, _target] call GRAD_fortification_isAvailable)
-  }] call ace_interact_menu_fnc_createAction;
+    _action = 
+    [
+      "Fortifications", _description, "",
+      {
+        params ["_target", "_player", "_params"];
+        [_player, _this select 2, 1] call grad_fortifications_fnc_addFort;
+        [_this select 2, _target] call GRAD_fortifications_giveFeedback;
 
-  [_target, 0, ["ACE_MainActions"],_action] call ace_interact_menu_fnc_addActionToClass;
+        diag_log format ["action taken: item %1 + target %2", _this select 2, _target];
+      },
+      {
+        (side player == east) && 
+        ([_player, _this select 2, 1, true] call grad_fortifications_fnc_canTake) &&
+        ([_this select 2, _target] call GRAD_fortification_isAvailable)
+      },
+      {},
+      _item
+    ] call ace_interact_menu_fnc_createAction;
+
+  [_target, 0, ["ACE_MainActions", "GRAD_Fortifications"],_action] call ace_interact_menu_fnc_addActionToClass;
 };
 
 _items = [
@@ -160,6 +169,9 @@ _items = [
   ["Campfire_burning_F", "Lagerfeuer"],
   ["Land_PortableLight_single_F", "Baustrahler"]
 ];
+
+_fortifications_node = ["GRAD_Fortifications", "Fortifications", "", {}, {true}] call ace_interact_menu_fnc_createAction;
+["rhs_gaz66_repair_vdv", 0, ["ACE_MainActions"], _fortifications_node] call ace_interact_menu_fnc_addActionToClass;
 
 {
   [

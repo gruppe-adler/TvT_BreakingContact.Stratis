@@ -84,7 +84,7 @@ _ammotruck = [
     1,
     1000,
     1,
-    [],
+    ["light_hide",1],
     {
         clearWeaponCargoGlobal (_this select 0);
         clearItemCargoGlobal (_this select 0);
@@ -116,6 +116,12 @@ _ammotruck = [
         (_this select 0) setVariable ["GRAD_fortifications_available_Land_BagFence_Long_F", 10];
         (_this select 0) setVariable ["GRAD_fortifications_available_Land_BagFence_End_F", 5];
         (_this select 0) setVariable ["GRAD_fortifications_available_rhs_Flag_DNR_F", 2];
+        (_this select 0) setVariable ["GRAD_fortifications_available_Land_Wreck_Ural_F", 1];
+        (_this select 0) setVariable ["GRAD_fortifications_available_Land_Wreck_UAZ_F", 1];
+        (_this select 0) setVariable ["GRAD_fortifications_available_Land_Razorwire_F", 3];
+        (_this select 0) setVariable ["GRAD_fortifications_available_MetalBarrel_burning_F", 2];
+        (_this select 0) setVariable ["GRAD_fortifications_available_Campfire_burning_F", 3];
+        (_this select 0) setVariable ["GRAD_fortifications_available_Land_PortableLight_single_F", 4];
         call gaz_code;
     },
     format[''],
