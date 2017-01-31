@@ -273,9 +273,9 @@
 				<German>Anfordern</German>
 			</Key>
 			<Key ID="str_GRAD_buy_order_hint">
-				<Original>Order vehicle</Original>
-				<English>Order vehicle</English>
-				<German>Fahrzeug anfordern</German>
+				<Original>Order</Original>
+				<English>Order</English>
+				<German>Bestellen</German>
 			</Key>
 			<Key ID="str_GRAD_buy_disable">
 				<Original>Eradicate Spawn Pad</Original>
@@ -315,12 +315,17 @@
 			<Key ID="str_GRAD_buy_calling">
 				<Original>Calling...</Original>
 				<English>Calling...</English>
-				<German>Anforderung läuft...</German>
+				<German>Auftrag läuft...</German>
 			</Key>
 			<Key ID="str_GRAD_buy_plswait">
 				<Original>Please wait.</Original>
 				<English>Please wait.</English>
 				<German>Bitte warten.</German>
+			</Key>
+			<Key ID="str_GRAD_buy_noleft">
+				<Original>None left</Original>
+				<English>None left</English>
+				<German>Nicht vorhanden</German>
 			</Key>
 			<Key ID="str_GRAD_detach_radio">
 				<Original>Detach radio unit</Original>

@@ -4,7 +4,7 @@ fnc_addOrder = {
         if (_idc == -1) exitWith {
             diag_log format ['something is wrong, no idc for button %1', _this];
         };
-        ctrlSetText [_idc, 'Ordering...'];
+        ctrlSetText [_idc, localize 'str_GRAD_buy_calling'];
         //ctrlSetTextColor [_idc, 'ordering...'];
         ctrlEnable [_idc, false];
     };

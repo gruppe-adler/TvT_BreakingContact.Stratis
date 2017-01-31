@@ -184,9 +184,11 @@ if (hasInterface) then {
 		call compile preprocessFileLineNumbers "grad_buymenu\functions\player\fnc_createEntryBuyButton.sqf";
 		call compile preprocessFileLineNumbers "grad_buymenu\functions\player\fnc_createEntryAmount.sqf";
 
+
 		call compile preprocessFileLineNumbers "grad_buymenu\functions\player\fnc_createToolbarExitButton.sqf";
 		call compile preprocessFileLineNumbers "grad_buymenu\functions\player\fnc_createToolbarheadline.sqf";
 		call compile preprocessFileLineNumbers "grad_buymenu\functions\player\fnc_createToolbarCredits.sqf";
+		call compile preprocessFileLineNumbers "grad_buymenu\functions\player\fnc_createToolbarEradicateSpawnPadButton.sqf";
 
 		call compile preprocessFileLineNumbers "grad_buymenu\functions\player\fnc_addOrder.sqf";
 		call compile preprocessFileLineNumbers "grad_buymenu\functions\player\fnc_refreshCredits.sqf";
@@ -198,7 +200,7 @@ if (hasInterface) then {
 		call compile preprocessFileLineNumbers "grad_buymenu\functions\player\api\invalidateSupply.sqf";
 
 
-		[] spawn fnc_showMarkers;
+		// [] spawn fnc_showMarkers; // dont need this for BC
 		
 };
 

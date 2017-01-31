@@ -113,15 +113,15 @@ _ammotruck = [
         (_this select 0) addItemCargoGlobal ['ACE_bloodIV_250',20];
         ['AddCargoByClass', ['ACE_wheel', _this select 0, 3], _this select 0] call CBA_fnc_targetEvent;
         ['AddCargoByClass', ['ACE_Track', _this select 0, 1], _this select 0] call CBA_fnc_targetEvent;
-        (_this select 0) setVariable ["GRAD_fortifications_available_Land_BagFence_Long_F", 10];
-        (_this select 0) setVariable ["GRAD_fortifications_available_Land_BagFence_End_F", 5];
-        (_this select 0) setVariable ["GRAD_fortifications_available_rhs_Flag_DNR_F", 2];
-        (_this select 0) setVariable ["GRAD_fortifications_available_Land_Wreck_Ural_F", 1];
-        (_this select 0) setVariable ["GRAD_fortifications_available_Land_Wreck_UAZ_F", 1];
-        (_this select 0) setVariable ["GRAD_fortifications_available_Land_Razorwire_F", 3];
-        (_this select 0) setVariable ["GRAD_fortifications_available_MetalBarrel_burning_F", 2];
-        (_this select 0) setVariable ["GRAD_fortifications_available_Campfire_burning_F", 3];
-        (_this select 0) setVariable ["GRAD_fortifications_available_Land_PortableLight_single_F", 4];
+        (_this select 0) setVariable ["GRAD_fortifications_available_Land_BagFence_Long_F", 10, true];
+        (_this select 0) setVariable ["GRAD_fortifications_available_Land_BagFence_End_F", 5, true];
+        (_this select 0) setVariable ["GRAD_fortifications_available_rhs_Flag_DNR_F", 2, true];
+        (_this select 0) setVariable ["GRAD_fortifications_available_Land_Wreck_Ural_F", 1, true];
+        (_this select 0) setVariable ["GRAD_fortifications_available_Land_Wreck_UAZ_F", 1, true];
+        (_this select 0) setVariable ["GRAD_fortifications_available_Land_Razorwire_F", 3, true];
+        (_this select 0) setVariable ["GRAD_fortifications_available_MetalBarrel_burning_F", 2, true];
+        (_this select 0) setVariable ["GRAD_fortifications_available_Campfire_burning_F", 3, true];
+        (_this select 0) setVariable ["GRAD_fortifications_available_Land_PortableLight_single_F", 4, true];
         call gaz_code;
     },
     format[''],
@@ -209,9 +209,7 @@ _ammo_box = [
     (_this select 0) addBackpackCargoGlobal ['RHS_DShkM_Gun_Bag',1];
     (_this select 0) addBackpackCargoGlobal ['RHS_DShkM_TripodHigh_Bag',1];
     (_this select 0) addItemCargoGlobal ['ACE_Sandbag_empty',100];
-    (_this select 0) addWeaponCargoGlobal ['rhs_weap_igla',2];
     (_this select 0) addBackpackCargoGlobal ['rhs_rpg_empty',2];
-    (_this select 0) addMagazineCargoGlobal ['rhs_mag_9k38_rocket',4];
     },
     format[''],
     0,
@@ -227,7 +225,7 @@ _transmitter = [
     [],
     {
         deleteVehicle (_this select 0);    
-        [] remoteExec ["server\spawn\fnc_attachTerminalToFunkwagen.sqf", [0, -2] select isMultiplayer, true];
+        [] execVM "server\spawn\fnc_attachTerminalToFunkwagen.sqf";
     },
     format[''],
     0,

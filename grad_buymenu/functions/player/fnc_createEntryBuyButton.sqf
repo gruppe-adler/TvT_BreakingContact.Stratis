@@ -21,9 +21,9 @@ fnc_createEntryBuyButton = {
 	buttonSetAction [_idc, format["['%1', %2] call fnc_addOrder;", _selector, _spawnMethod]];
 
 	switch (_status) do {
-		case 0: {ctrlEnable [_idc, true]; _btn ctrlSetText "Order";};
-		case 1: {ctrlEnable [_idc, false]; _btn ctrlSetText "En route";};
-		case 2: {ctrlEnable [_idc, false]; _btn ctrlSetText "None available";};
+		case 0: {ctrlEnable [_idc, true]; _btn ctrlSetText (localize "str_GRAD_buy_order_hint");};
+		case 1: {ctrlEnable [_idc, false]; _btn ctrlSetText (localize "str_GRAD_buy_calling");};
+		case 2: {ctrlEnable [_idc, false]; _btn ctrlSetText (localize "str_GRAD_buy_noleft");};
 		default {};
 	};
 
