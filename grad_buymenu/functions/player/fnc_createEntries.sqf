@@ -2,19 +2,14 @@ fnc_createEntries = {
 	_givenSupplies = missionNamespace getVariable (player getVariable 'GRAD_buymenu_supplies_name');
 	_allowedSupplies = player getVariable ['GRAD_canBuy', []];
 
-	/*
+	
+	// info: changed this part for BC, only one guy can buy anyway, but all can see
 	_applicableSupplies = [];
 	{
-		if ((_allowedSupplies find (toLower _x)) != -1) then {
+		
 			_applicableSupplies pushBack _x;
-		} else {
-			diag_log format ["FUUUU not applicable: %1 in %2", _x, allVAriables _givenSupplies];
-			// TODO  debug log...
-		};
 	} forEach (allVariables _givenSupplies);
-	*/
-
-	_applicableSupplies = _givenSupplies; // changed this for BC, only one guy can buy anyway, but all can see
+	
 
 	0 = createDialog "GRAD_buy_menu";
 	buyMenuOpen = true;
