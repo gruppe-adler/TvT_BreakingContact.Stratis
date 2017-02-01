@@ -209,7 +209,6 @@ _ammo_box = [
     (_this select 0) addBackpackCargoGlobal ['RHS_DShkM_Gun_Bag',1];
     (_this select 0) addBackpackCargoGlobal ['RHS_DShkM_TripodHigh_Bag',1];
     (_this select 0) addItemCargoGlobal ['ACE_Sandbag_empty',100];
-    (_this select 0) addBackpackCargoGlobal ['rhs_rpg_empty',2];
     },
     format[''],
     0,
