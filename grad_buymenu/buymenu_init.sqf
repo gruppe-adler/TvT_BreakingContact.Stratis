@@ -14,8 +14,8 @@ if (isServer) then {
 	publicVariable "suppliesOpfor";
 
 	// initial money, also used for tracking money during game
-	moneyBlufor = 4000; // initial money
-	moneyOpfor = 4000;
+	moneyBlufor = 3000; // initial money
+	moneyOpfor = 2000;
 	publicVariable "moneyBlufor";
 	publicVariable "moneyOpfor";
 

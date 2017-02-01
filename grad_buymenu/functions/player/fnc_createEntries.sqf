@@ -2,6 +2,7 @@ fnc_createEntries = {
 	_givenSupplies = missionNamespace getVariable (player getVariable 'GRAD_buymenu_supplies_name');
 	_allowedSupplies = player getVariable ['GRAD_canBuy', []];
 
+	/*
 	_applicableSupplies = [];
 	{
 		if ((_allowedSupplies find (toLower _x)) != -1) then {
@@ -11,6 +12,9 @@ fnc_createEntries = {
 			// TODO  debug log...
 		};
 	} forEach (allVariables _givenSupplies);
+	*/
+
+	_applicableSupplies = _givenSupplies; // changed this for BC, only one guy can buy anyway, but all can see
 
 	0 = createDialog "GRAD_buy_menu";
 	buyMenuOpen = true;
@@ -97,9 +101,10 @@ fnc_createEntries = {
 		 // randIDC = [randIDC] call fnc_getNextIDC;
 		 // _eta = [randIDC, _createdGui, _xCoord, _width,_supplyItem select 4] spawn fnc_createEntryETA;
 
-
-		 randIDC = [randIDC] call fnc_getNextIDC;
- 		_btn = [randIDC, _createdGui, _xCoord, _width, _x, _givenSupplies, _supplyItem select 8, _supplyItem select 9] spawn fnc_createEntryBuyButton;
+		 if (count _allowedSupplies > 0) then {
+		 	randIDC = [randIDC] call fnc_getNextIDC;
+ 			_btn = [randIDC, _createdGui, _xCoord, _width, _x, _givenSupplies, _supplyItem select 8, _supplyItem select 9] spawn fnc_createEntryBuyButton;
+ 		};
 
  		
 
