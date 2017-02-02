@@ -11,6 +11,7 @@ if ((ISLAND_TARGET_POSITIONS select (ISLANDS find worldName)) select 3) then {
        bmp_code = {};
        btr_code = {};
        gaz_code = {};
+       t72_code = {};
     } else {
        tigr = "rhs_tigr_m_3camo_vdv";
        uaz = "rhsgref_cdf_b_reg_uaz_dshkm";
@@ -33,16 +34,20 @@ if ((ISLAND_TARGET_POSITIONS select (ISLANDS find worldName)) select 3) then {
         (_this select 0) setObjectTextureGlobal [3,"rhsafrf\addons\rhs_gaz66_camo\data\rhs_gaz66_ap2kung_sand_co.paa"];
         (_this select 0) setObjectTextureGlobal [4,"rhsafrf\addons\rhs_gaz66_camo\data\rhs_gaz66_repkung_sand_co.paa"];
         };
+        t72_code = {
+        (_this select 0) setObjectTextureGlobal [0,"rhsafrf\addons\rhs_t72_camo\data\rhs_t72b_01a_sand_co.paa"];
+        (_this select 0) setObjectTextureGlobal [1,"rhsafrf\addons\rhs_t72_camo\data\rhs_t72b_02a_sand_co.paa"];
+        (_this select 0) setObjectTextureGlobal [2,"rhsafrf\addons\rhs_t72_camo\data\rhs_t72b_03_sand_co.paa"];
+        (_this select 0) setObjectTextureGlobal [3,"rhsafrf\addons\rhs_t72_camo\data\rhs_t72b_04_sand_co.paa"];
+        };
     };
 
 
-    
-
-_truck = [
-    ["rhs_kamaz5350_msv"],
-    "Kamaz 5350",
-    10,
-    400,
+_aatruck = [
+    ["rhs_kamaz5350_flatbed_msv"],
+    "Kamaz 5350 (MPAD)",
+    2,
+    500,
     1,
     [],
     {
@@ -50,12 +55,13 @@ _truck = [
         clearItemCargoGlobal (_this select 0);
         clearBackpackCargoGlobal (_this select 0);
         clearMagazineCargoGlobal (_this select 0);
+        ['AddCargoByClass', ['ACE_wheel', _this select 0, 2], _this select 0] call CBA_fnc_targetEvent;
+        [(_this select 0)] execVM "server\spawn\fnc_attachAAToKamaz.sqf";
     },
     format[''],
     0,
     0
-];
-
+];   
 
 _car = [
     [
@@ -63,7 +69,7 @@ _car = [
     ],
     "TIGR-M",
     8,
-    700,
+    500,
     1,
     [],
     {
@@ -113,15 +119,10 @@ _ammotruck = [
         (_this select 0) addItemCargoGlobal ['ACE_bloodIV_250',20];
         ['AddCargoByClass', ['ACE_wheel', _this select 0, 3], _this select 0] call CBA_fnc_targetEvent;
         ['AddCargoByClass', ['ACE_Track', _this select 0, 1], _this select 0] call CBA_fnc_targetEvent;
-        (_this select 0) setVariable ["GRAD_fortifications_available_Land_BagFence_Long_F", 10, true];
-        (_this select 0) setVariable ["GRAD_fortifications_available_Land_BagFence_End_F", 5, true];
-        (_this select 0) setVariable ["GRAD_fortifications_available_rhs_Flag_DNR_F", 2, true];
-        (_this select 0) setVariable ["GRAD_fortifications_available_Land_Wreck_Ural_F", 1, true];
-        (_this select 0) setVariable ["GRAD_fortifications_available_Land_Wreck_UAZ_F", 1, true];
-        (_this select 0) setVariable ["GRAD_fortifications_available_Land_Razorwire_F", 3, true];
-        (_this select 0) setVariable ["GRAD_fortifications_available_MetalBarrel_burning_F", 2, true];
-        (_this select 0) setVariable ["GRAD_fortifications_available_Campfire_burning_F", 3, true];
-        (_this select 0) setVariable ["GRAD_fortifications_available_Land_PortableLight_single_F", 4, true];
+
+        (_this select 0) addBackpackCargoGlobal ['RHS_DShkM_Gun_Bag',1];
+        (_this select 0) addBackpackCargoGlobal ['RHS_DShkM_TripodHigh_Bag',1];
+        (_this select 0) addItemCargoGlobal ['ACE_Sandbag_empty',100];
         call gaz_code;
     },
     format[''],
@@ -133,7 +134,7 @@ _ammotruck = [
 _uaz = [
     [uaz],
     "UAZ Dshkm",
-    10,
+    4,
     1100,
     1,
     ["cabinlights_hide",0,"light_hide",1],
@@ -148,6 +149,7 @@ _uaz = [
     0,
     0
 ];
+
 
 
 _btr = [
@@ -194,26 +196,29 @@ _bmp = [
     0
 ];
 
-_ammo_box = [
-    ["Ace_Box_Ammo"],
-    "Defence Pack",
-    3,
-    800,
+
+_t72 = [
+    ["rhs_t72ba_tv"],
+    "T-72",
     1,
-    [],
+    3500,
+    1,
+    ["hide_com_shield",1,"sightElevationAPFSDS",0],
     {
     clearWeaponCargoGlobal (_this select 0);
     clearItemCargoGlobal (_this select 0);
     clearBackpackCargoGlobal (_this select 0);
     clearMagazineCargoGlobal (_this select 0);
-    (_this select 0) addBackpackCargoGlobal ['RHS_DShkM_Gun_Bag',1];
-    (_this select 0) addBackpackCargoGlobal ['RHS_DShkM_TripodHigh_Bag',1];
-    (_this select 0) addItemCargoGlobal ['ACE_Sandbag_empty',100];
+    (_this select 0) addItemCargoGlobal ['ItemGPS',1];
+    ['AddCargoByClass', ['ACE_track', _this select 0, 2], _this select 0] call CBA_fnc_targetEvent;
+    (_this select 0) removeMagazinesTurret ["rhs_mag_3of26_5", [0]];
+    call t72_code;
     },
     format[''],
     0,
     0
 ];
+
 
 _transmitter = [
     ["Land_DataTerminal_01_F"],
@@ -231,11 +236,11 @@ _transmitter = [
     0
 ];
 
+suppliesOpfor setVariable ['aatruck', _aatruck, true];
 suppliesOpfor setVariable ['car', _car, true];
-suppliesOpfor setVariable ['truck', _truck, true];
 suppliesOpfor setVariable ['ammotruck', _ammotruck, true];
 suppliesOpfor setVariable ['uaz', _uaz, true];
 suppliesOpfor setVariable ['bmp', _bmp, true];
 suppliesOpfor setVariable ['btr', _btr, true];
-suppliesOpfor setVariable ['ammo_box', _ammo_box, true];
+suppliesOpfor setVariable ['t72', _t72, true];
 suppliesOpfor setVariable ['transmitter', _transmitter, true];

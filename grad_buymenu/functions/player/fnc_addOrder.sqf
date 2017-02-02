@@ -1,19 +1,37 @@
 fnc_addOrder = {
     _immediatelyLockButton = {
-        _idc = GRAD_buymenu_currentMenuBuyButtonIDCs getVariable [_this, -1];
+    	params ["_selector", "_cost"];
+
+    	_return = false;
+        _idc = GRAD_buymenu_currentMenuBuyButtonIDCs getVariable [_selector, -1];
+
         if (_idc == -1) exitWith {
             diag_log format ['something is wrong, no idc for button %1', _this];
         };
+
+		_moneyVar = player getVariable "GRAD_buymenu_money_name";
+		_money = missionNamespace getVariable _moneyVar;
+
+		_newMoney = _money - _cost;
+		if (_newMoney < 0) exitWith {
+			ctrlSetText [_idc, localize 'str_GRAD_buy_tooexpensive'];
+        	ctrlEnable [_idc, false];
+
+			_return = true;
+			_return
+		};
+
         ctrlSetText [_idc, localize 'str_GRAD_buy_calling'];
-        //ctrlSetTextColor [_idc, 'ordering...'];
         ctrlEnable [_idc, false];
+
+        _return
     };
 
 
 
 	_selector = _this select 0;
 
-    _selector call _immediatelyLockButton;
+	
 
 	_supplyItem = (missionNamespace getVariable (player getVariable 'GRAD_buymenu_supplies_name')) getVariable _selector;
 	_classname = _supplyItem select 0;
@@ -21,6 +39,11 @@ fnc_addOrder = {
 	_init = _supplyItem select 5;
 	_calls = _supplyItem select 6;
 	_method = _supplyItem select 8;
+
+	// position and cost
+    _endProcess = [_selector, _supplyItem select 3] call _immediatelyLockButton;
+
+    if (_endProcess) exitWith {diag_log format ["createOrder: too expensive, exiting..."];};
 
 	diag_log format ["addOrder: %1", _classname];
 

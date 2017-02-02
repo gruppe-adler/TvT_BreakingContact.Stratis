@@ -20,7 +20,7 @@ diag_log "entering singleplayer PVEH emulation";
 
 _moneyListener spawn {
 	waitUntil {
-		sleep 20;
+		sleep 1; // 20
 		[0,  missionNamespace getVariable (player getVariable 'GRAD_buymenu_money_name')] call _this;
 	}
 };

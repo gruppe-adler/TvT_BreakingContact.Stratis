@@ -133,7 +133,7 @@ if (hasInterface) then {
 		_canBuy = [];
 		if (playerSide == east) then {
 			switch (rank player) do {
-				case "CAPTAIN": { _canBuy = ['car', 'truck', 'ammotruck', 'uaz', 'btr', 'bmp', 'ammo_box', 'transmitter']; };
+				case "CAPTAIN": { _canBuy = ['car', 'aatruck', 'ammotruck', 'uaz', 'btr', 'bmp', 't72', 'transmitter']; };
 				default { _canBuy = []; };
 			};
 			player setVariable ["GRAD_canBuy", _canBuy];
@@ -188,7 +188,6 @@ if (hasInterface) then {
 		call compile preprocessFileLineNumbers "grad_buymenu\functions\player\fnc_createToolbarExitButton.sqf";
 		call compile preprocessFileLineNumbers "grad_buymenu\functions\player\fnc_createToolbarheadline.sqf";
 		call compile preprocessFileLineNumbers "grad_buymenu\functions\player\fnc_createToolbarCredits.sqf";
-		call compile preprocessFileLineNumbers "grad_buymenu\functions\player\fnc_createToolbarEradicateSpawnPadButton.sqf";
 
 		call compile preprocessFileLineNumbers "grad_buymenu\functions\player\fnc_addOrder.sqf";
 		call compile preprocessFileLineNumbers "grad_buymenu\functions\player\fnc_refreshCredits.sqf";

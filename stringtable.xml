@@ -278,9 +278,9 @@
 				<German>Bestellen</German>
 			</Key>
 			<Key ID="str_GRAD_buy_disable">
-				<Original>Eradicate Spawn Pad</Original>
-				<English>Eradicate Spawn Pad</English>
-				<German>Spawn Pad verwischen</German>
+				<Original>Hide (Disable Spawn)</Original>
+				<English>Hide (Disable Spawn)</English>
+				<German>Verstecken (Spawn beenden)</German>
 			</Key>
 			<Key ID="str_GRAD_buy_exit">
 				<Original>Close</Original>
@@ -327,6 +327,11 @@
 				<English>None left</English>
 				<German>Nicht vorhanden</German>
 			</Key>
+			<Key ID="str_GRAD_buy_tooexpensive">
+				<Original>Too expensive</Original>
+				<English>Too expensive</English>
+				<German>Zu teuer</German>
+			</Key>
 			<Key ID="str_GRAD_detach_radio">
 				<Original>Detach radio unit</Original>
 				<English>Detach radio unit</English>
@@ -371,6 +376,16 @@
 				<Original>Retract Radio Antenna</Original>
 				<English>Retract Radio Antenna</English>
 				<German>Funkmast einfahren</German>
+			</Key>
+			<Key ID="str_GRAD_flag_raise">
+				<Original>Raise flag</Original>
+				<English>Raise flag</English>
+				<German>Flagge hissen</German>
+			</Key>
+			<Key ID="str_GRAD_flag_remove">
+				<Original>Remove flag</Original>
+				<English>Remove flag</English>
+				<German>Flagge entfernen</German>
 			</Key>
 		</Container>
 	</Package>

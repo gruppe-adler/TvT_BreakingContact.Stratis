@@ -6,6 +6,8 @@ createOpforStuff =  {
 	funkwagen setVariable ["detachableRadio", 0, true];
 	publicVariable "funkwagen";
 
+	0 = [funkwagen, true] execVM "grad_buymenu\definitions\flagsOnVehicles.sqf";
+
 	sleep 1;
 	[funkwagen] call clearInventory;
 

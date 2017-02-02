@@ -3,6 +3,6 @@ fnc_api_invalidateSupply = {
     _supplySelector = _this select 1;
 
     if ((player getVariable 'GRAD_buymenu_supplies_name') == _supplyVarName) then {
-        call fnc_refreshGUI;
+        [] call fnc_refreshGUI;
     };
 };

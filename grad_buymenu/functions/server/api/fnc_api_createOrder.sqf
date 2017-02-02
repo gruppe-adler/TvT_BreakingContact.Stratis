@@ -15,7 +15,11 @@ fnc_api_createOrder = {
 	_cost = _supplyItem select 3;
 
 	_newMoney = _money - _cost;
-	if (_newMoney < 0) exitWith {};
+	if (_newMoney < 0) exitWith {
+		// [_money] spawn fnc_refreshCredits;
+		// _supplyItem set [9, 3];
+		diag_log format ["createOrder: too expensive, exiting..."];
+	};
 
 	_newAvailableAmount = _amount - 1;
 	if (_newAvailableAmount < 0) exitWith {};

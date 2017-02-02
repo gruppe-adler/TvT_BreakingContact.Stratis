@@ -1,4 +1,68 @@
-// buy actions
+// GET IN / OUT AA
+GRAD_addGetInActionAA = {
+  params ["_vehicle"];
+  _vehicle addAction ["Get In AA", {
+    [_this select 0, _this select 1] spawn {
+    (_this select 1) switchMove "ACE_Climb";
+      sleep 1.2;
+    (_this select 1) moveInTurret [(_this select 0) getVariable ['attachedObject',objNull], [0]];
+    };
+
+  }, nil, 1, false, true, "", 
+  "!isNull (_target getVariable ['attachedObject',objNull]) && 
+  {count crew (_target getVariable ['attachedObject',objNull]) < 1}",
+  5, false];
+};
+
+GRAD_addGetOutActionAA = {
+  params ["_manpad"];
+  _manpad addAction ["Get Out", {
+    moveOut (_this select 1); 
+    _dir = getDir (_this select 0);
+    (_this select 1) setDir _dir - 180;
+    (_this select 1) setPos ((_this select 0) modelToWorld [0,-5,0]);
+    (_this select 1) switchMove "AcrgPknlMstpSnonWnonDnon_AmovPercMstpSrasWrflDnon_getOutHigh";
+    (_this select 1) setPos getPos (_this select 0) getVariable ['attachedToObject',objNull];
+  }, nil, 1, false, true, "vehicle _this == _target", 
+  "",
+  1, false];
+};
+
+// FLAGS
+
+{ 
+ _flagActionRaise = ["ACE_MainActions", (localize "str_GRAD_flag_raise"), "",
+ {0 = [(_this select 0), true] execVM "grad_buymenu\definitions\flagsOnVehicles.sqf";},
+  {side player == east && isNull ((_this select 0) getVariable ["GRAD_flagObject",objNull])}] call ace_interact_menu_fnc_createAction;
+
+[_x, 0, ["ACE_MainActions"], _flagActionRaise] call ace_interact_menu_fnc_addActionToClass;
+
+} forEach ["rhs_gaz66_r142_vv","rhs_tigr_m_vdv","rhs_tigr_m_3camo_vdv","rhs_kamaz5350_flatbed_msv","rhsgref_cdf_b_reg_uaz_dshkm","rhsgref_nat_uaz_dshkm","rhs_gaz66_repair_vdv","gaz_funk","rhs_bmp1_msv","rhs_btr70_msv"];
+
+{ 
+ _flagActionRemove = ["ACE_MainActions", (localize "str_GRAD_flag_remove"), "",
+ {0 = [(_this select 0), false] execVM "grad_buymenu\definitions\flagsOnVehicles.sqf";},
+  {side player == east && !isNull ((_this select 0) getVariable ["GRAD_flagObject",objNull])}] call ace_interact_menu_fnc_createAction;
+
+[_x, 0, ["ACE_MainActions"], _flagActionRemove] call ace_interact_menu_fnc_addActionToClass;
+
+} forEach ["rhs_gaz66_r142_vv","rhs_tigr_m_vdv","rhs_tigr_m_3camo_vdv","rhs_kamaz5350_flatbed_msv","rhsgref_cdf_b_reg_uaz_dshkm","rhsgref_nat_uaz_dshkm","rhs_gaz66_repair_vdv","gaz_funk","rhs_bmp1_msv","rhs_btr70_msv"];  
+
+
+
+
+// REMOVE SPAWN
+
+_removeSpawn = ["ACE_MainActions", (localize "str_GRAD_buy_disable"), "",
+ {0 = [_this select 0] execVM "spawn\disableSpawn.sqf";},
+  {}] call ace_interact_menu_fnc_createAction;
+
+["RoadCone_L_F", 0, ["ACE_MainActions"], _removeSpawn] call ace_interact_menu_fnc_addActionToClass;
+
+
+
+// BUY
+
 _usAction1 = ["ACE_MainActions", (localize "str_GRAD_buy_vehicles"), "",
  {0 = execVM "grad_buymenu\openMenu.sqf";},
   {side player == west}] call ace_interact_menu_fnc_createAction;
@@ -11,13 +75,15 @@ _usAction2 = ["ACE_MainActions", (localize "str_GRAD_buy_vehicles"), "",
 
 ["rhsusf_m998_d_4dr", 0, ["ACE_MainActions"], _usAction2] call ace_interact_menu_fnc_addActionToClass;
 
-
-
 _rusAction = ["RusBuyMenu", (localize "str_GRAD_buy_vehicles"), "",
 {0 = execVM "grad_buymenu\openMenu.sqf";},
   {side player == east}] call ace_interact_menu_fnc_createAction;
 ["rhs_gaz66_r142_vv", 0, ["ACE_MainActions"],_rusAction] call ace_interact_menu_fnc_addActionToClass;
 
+
+
+
+// RADIO TRUCK DEPLOY
 
 _deployAction = [
     "RusRadioDeploy",
@@ -58,6 +124,9 @@ _retractAction = [
 ["rhs_gaz66_r142_vv", 0, ["ACE_MainActions"], _retractAction] call ace_interact_menu_fnc_addActionToClass;
 
 
+
+// RADIO TRUCK/BOX DESTROY
+
 _destroyAction = ["usDestroyMenu", (localize "str_GRAD_destroy_vehicle"), "",
  {
  [60, [_this select 0], {((_this select 0) select 0) setdamage 1;}, {hint "Cancelled action"}, (localize "str_GRAD_destroying_radio")] call ace_common_fnc_progressBar;
@@ -72,6 +141,9 @@ _destroyActionPortableRadio = ["usDestroyMenuPortable", (localize "str_GRAD_dest
   {side player == west}] call ace_interact_menu_fnc_createAction;
 ["Land_DataTerminal_01_F", 0, ["ACE_MainActions"],_destroyActionPortableRadio] call ace_interact_menu_fnc_addActionToClass;
 
+
+
+// TERMINAL ATTACH/DETACH
 
  _detachRadioAction = ["RusDetachMenu", (localize "str_GRAD_detach_radio"), "",
  {

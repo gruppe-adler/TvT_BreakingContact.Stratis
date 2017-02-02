@@ -166,7 +166,7 @@ spawnBluforHQ = {
     
 	[{hintSilent "Blufor Spawn successfully found.";},"BIS_fnc_spawn",true,true] call BIS_fnc_MP;
 
-	_bluforSpawnSuccess = [_bluforCenterPosition, [hmmwv_hq,"Land_HelipadCivil_F"], _bluforDistance, _bluforSearchDistance] call testSpawnPositions;
+	_bluforSpawnSuccess = [_bluforCenterPosition, [hmmwv_hq,"RoadCone_L_F"], _bluforDistance, _bluforSearchDistance] call testSpawnPositions;
 	
 
 	_vehicle1 = (_bluforSpawnSuccess select 1);
@@ -184,13 +184,15 @@ spawnBluforHQ = {
 	_vehicle1 addItemCargoGlobal ["ItemGPS",1];
 	_vehicle1 setVariable ["detachableBoat",2];
 
+	_vehicle2 setVariable ["GRAD_spawnType","blufor", true];
+
 	US_SPAWN_PAD = (_bluforSpawnSuccess select 2);
 	publicVariable "US_SPAWN_PAD";
 
 	US_VEHICLE_SPAWN = getPos (_bluforSpawnSuccess select 2);
 	publicVariable "US_VEHICLE_SPAWN";
 
-	"mrk_spawn_blufor_land_1" setMarkerPos US_VEHICLE_SPAWN;
+	
 
 	BLUFOR_TELEPORT_TARGET = getPos (_bluforSpawnSuccess select 2);
 	publicVariableServer "BLUFOR_TELEPORT_TARGET";
@@ -211,6 +213,7 @@ spawnBluforHQ = {
 	debugLog("blufor published target");
 	diag_log format ["creating blufor stuff on position: %1",US_VEHICLE_SPAWN];
 
+
 };
 
 
@@ -223,12 +226,14 @@ spawnOpforHQ = {
 	
 
 	// landclutter instead of building - dummy object
-	_opforSpawnSuccess = [_opforCenterPosition, ["Land_ClutterCutter_small_F","Land_HelipadCivil_F"], _opforDistance, _opforSearchDistance] call testSpawnPositions;
+	_opforSpawnSuccess = [_opforCenterPosition, ["Land_ClutterCutter_small_F","RoadCone_L_F"], _opforDistance, _opforSearchDistance] call testSpawnPositions;
 	// waitUntil {(_opforSpawnSuccess select 0) > 0};
 	[{hintSilent "Opfor Spawn successfully found.";},"BIS_fnc_spawn",true,true] call BIS_fnc_MP;
 
 	_vehicle1 = (_opforSpawnSuccess select 1);
 	_vehicle2 = (_opforSpawnSuccess select 2);
+
+	_vehicle2 setVariable ["GRAD_spawnType","opfor", true];
 
 	RUS_SPAWN_PAD = (_opforSpawnSuccess select 2);
 	publicVariable "RUS_SPAWN_PAD";
@@ -236,7 +241,7 @@ spawnOpforHQ = {
 	RUS_VEHICLE_SPAWN = getPos (_opforSpawnSuccess select 2);
 	publicVariable "RUS_VEHICLE_SPAWN";
 
-	"mrk_spawn_opfor_land_1" setMarkerPos RUS_VEHICLE_SPAWN;
+	
 
 	/* listener to remove spawn pad and actionhelper, when its time */
 	BUY_OPTION_OPFOR = {
@@ -245,9 +250,12 @@ spawnOpforHQ = {
 	};
 	"BUY_OPTION_OPFOR" addPublicVariableEventHandler BUY_OPTION_OPFOR;
 
+	diag_log format ["creating opfor stuff on position: %1",RUS_VEHICLE_SPAWN];
+	
+
 	/* OPFOR_TELEPORT_TARGET = getPos (_opforSpawnSuccess select 2);
 	publicVariableServer "OPFOR_TELEPORT_TARGET"; */
 
-	diag_log format ["creating opfor stuff on position: %1",RUS_VEHICLE_SPAWN];
+	
 	
 };

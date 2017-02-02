@@ -2,7 +2,7 @@ fnc_prepareAfterBuyRefresh = {
     _side = _this select 0;
     _selector = _this select 1;
 
-    sleep 1; // vehicles shouldnt spawn in each other
+    sleep 3; // vehicles shouldnt spawn in each other
 
     _supplyVar = '';
     switch (_side) do {
