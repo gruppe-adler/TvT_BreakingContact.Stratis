@@ -12,6 +12,7 @@ if ((ISLAND_TARGET_POSITIONS select (ISLANDS find worldName)) select 3) then {
        btr_code = {};
        gaz_code = {};
        t72_code = {};
+       kamaz_code = {};
     } else {
        tigr = "rhs_tigr_m_3camo_vdv";
        uaz = "rhsgref_cdf_b_reg_uaz_dshkm";
@@ -40,6 +41,10 @@ if ((ISLAND_TARGET_POSITIONS select (ISLANDS find worldName)) select 3) then {
         (_this select 0) setObjectTextureGlobal [2,"rhsafrf\addons\rhs_t72_camo\data\rhs_t72b_03_sand_co.paa"];
         (_this select 0) setObjectTextureGlobal [3,"rhsafrf\addons\rhs_t72_camo\data\rhs_t72b_04_sand_co.paa"];
         };
+        kamaz_code = {
+        (_this select 0) setObjectTextureGlobal [0,"#(argb,8,8,3)color(0.8,0.7,0.5,0.2)"];
+        (_this select 0) setObjectTextureGlobal [3,"#(argb,8,8,3)color(0.8,0.7,0.5,0.2)"];
+        };
     };
 
 
@@ -57,6 +62,7 @@ _aatruck = [
         clearMagazineCargoGlobal (_this select 0);
         ['AddCargoByClass', ['ACE_wheel', _this select 0, 2], _this select 0] call CBA_fnc_targetEvent;
         [(_this select 0)] execVM "server\spawn\fnc_attachAAToKamaz.sqf";
+        call kamaz_code;
     },
     format[''],
     0,

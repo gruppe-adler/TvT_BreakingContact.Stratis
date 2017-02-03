@@ -10,6 +10,7 @@ GRAD_addGetInActionAA = {
 
   }, nil, 1, false, true, "", 
   "!isNull (_target getVariable ['attachedObject',objNull]) && 
+  !(vehicle _this == _target) &&
   {count crew (_target getVariable ['attachedObject',objNull]) < 1}",
   5, false];
 };
@@ -20,10 +21,8 @@ GRAD_addGetOutActionAA = {
     moveOut (_this select 1); 
     _dir = getDir (_this select 0);
     (_this select 1) setDir _dir - 180;
-    (_this select 1) setPos ((_this select 0) modelToWorld [1,-6,-1]);
-    (_this select 1) switchMove "AcrgPknlMstpSnonWnonDnon_AmovPercMstpSrasWrflDnon_getOutHigh";
-    (_this select 1) setPos getPos (_this select 0) getVariable ['attachedToObject',objNull];
-  }, nil, 1, false, true, "_this == _target", 
+    (_this select 1) switchMove "AcrgPknlMstpSnonWnonDnon_AmovPercMstpSnonWnonDnon_getOutMedium";
+  }, nil, 1, false, true, "vehicle _this == _target", 
   "",
   1, false];
 };
