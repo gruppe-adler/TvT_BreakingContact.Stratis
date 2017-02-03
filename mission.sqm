@@ -1842,7 +1842,7 @@ class Mission
 					class Attributes
 					{
 						rank="CAPTAIN";
-						init="this setVariable [""GRAD_canBuy"", true]; 0 = [this] execVM ""dynamicGroups\createCommand.sqf"";";
+						init="0 = [this] execVM ""dynamicGroups\createCommand.sqf"";";
 						name="opfor_teamlead";
 						description="Commander (must be selected)";
 						isPlayer=1;
@@ -2534,8 +2534,8 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={1790.4622,5.5014391,5989.7769};
-						angles[]={0,0.30510798,0};
+						position[]={1790.462,5.5014391,5989.7769};
+						angles[]={0,0.30510101,0};
 					};
 					side="East";
 					flags=6;
@@ -2548,6 +2548,29 @@ class Mission
 					};
 					id=34;
 					type="O_Soldier_SL_F";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=0.97000003;
+								};
+							};
+						};
+						nAttributes=1;
+					};
 				};
 				class Item1
 				{
@@ -4009,7 +4032,7 @@ class Mission
 					class Attributes
 					{
 						rank="CAPTAIN";
-						init="this setVariable [""GRAD_canBuy"", true]; 0 = [this] execVM ""dynamicGroups\createCommand.sqf"";";
+						init="0 = [this] execVM ""dynamicGroups\createCommand.sqf"";";
 						name="blufor_teamlead";
 						description="Commander (must be selected)";
 						isPlayable=1;

@@ -20,10 +20,10 @@ GRAD_addGetOutActionAA = {
     moveOut (_this select 1); 
     _dir = getDir (_this select 0);
     (_this select 1) setDir _dir - 180;
-    (_this select 1) setPos ((_this select 0) modelToWorld [0,-5,0]);
+    (_this select 1) setPos ((_this select 0) modelToWorld [1,-6,-1]);
     (_this select 1) switchMove "AcrgPknlMstpSnonWnonDnon_AmovPercMstpSrasWrflDnon_getOutHigh";
     (_this select 1) setPos getPos (_this select 0) getVariable ['attachedToObject',objNull];
-  }, nil, 1, false, true, "vehicle _this == _target", 
+  }, nil, 1, false, true, "_this == _target", 
   "",
   1, false];
 };
@@ -55,33 +55,9 @@ GRAD_addGetOutActionAA = {
 
 _removeSpawn = ["ACE_MainActions", (localize "str_GRAD_buy_disable"), "",
  {
-    _cone = _this select 0;
-    diag_log format ["disable Spawn sqf"];
-
-    _type = _cone getVariable ["GRAD_spawnType","none"];
-
-    switch (_type) do {
-    case "blufor": {
-      BUY_OPTION_BLUFOR = false; 
-      publicVariableServer 'BUY_OPTION_BLUFOR'; 
-      blufor_teamlead setVariable ['GRAD_canBuy', false]; 
-      closeDialog 0;
-      hideObjectGlobal US_SPAWN_PAD;
-    };
-    case "opfor": {
-      BUY_OPTION_OPFOR = false; 
-      publicVariableServer 'BUY_OPTION_OPFOR'; 
-      opfor_teamlead setVariable ['GRAD_canBuy', false]; 
-      closeDialog 0;
-      hideObjectGlobal RUS_SPAWN_PAD;
-      diag_log format ["opfor spawn removed"];
-    };
-    default { diag_log format ["error: no spawn type defined"];};
-    };
-
-    deleteVehicle _cone;
+    [_this select 0] execVM "spawn\disableSpawn.sqf";
   },
-  {}] call ace_interact_menu_fnc_createAction;
+  {true}] call ace_interact_menu_fnc_createAction;
 
 ["RoadCone_L_F", 0, ["ACE_MainActions"], _removeSpawn] call ace_interact_menu_fnc_addActionToClass;
 

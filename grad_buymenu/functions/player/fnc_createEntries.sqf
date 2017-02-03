@@ -1,8 +1,9 @@
 fnc_createEntries = {
+	disableSerialization;
 	params ["_isRefresh"];
 
 	_givenSupplies = missionNamespace getVariable (player getVariable 'GRAD_buymenu_supplies_name');
-	_allowedSupplies = player getVariable ['GRAD_canBuy', []];
+	_allowedSupplies = player getVariable ["GRAD_canBuy", []];
 
 	
 	// info: changed this part for BC, only one guy can buy anyway, but all can see
@@ -21,7 +22,7 @@ fnc_createEntries = {
 		1338,1339,1340,1341,1342,1343,1344,1345,1346,1347,1348,1349
 	];
 
-	disableSerialization;
+	
 	_createdGui = uiNamespace getVariable ['GRAD_buy_menu_var',0];
 	if (!_isRefresh) then {
 		{ctrlShow [_x, false];} forEach _dummyPictureIDCs;
@@ -120,8 +121,8 @@ fnc_createEntries = {
 		 // randIDC = [randIDC] call fnc_getNextIDC;
 		 // _eta = [randIDC, _createdGui, _xCoord, _width,_supplyItem select 4] spawn fnc_createEntryETA;
 
+		 randIDC = [randIDC] call fnc_getNextIDC;
 		 if (count _allowedSupplies > 0) then {
-		 	randIDC = [randIDC] call fnc_getNextIDC;
 		 	if (_isRefresh) then {
  				_btn = [randIDC, _createdGui, _xCoord, _width, _x, _givenSupplies, _supplyItem select 8, _supplyItem select 9, _supplyItem select 3] spawn fnc_refreshEntryBuyButton;
  			} else {

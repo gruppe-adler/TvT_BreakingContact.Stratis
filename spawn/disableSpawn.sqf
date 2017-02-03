@@ -1,7 +1,5 @@
 params ["_cone"];
 
-diag_log format ["disable Spawn sqf"];
-
 _type = _cone getVariable ["GRAD_spawnType","none"];
 
 
@@ -9,14 +7,14 @@ switch (_type) do {
 	case "blufor": {
 		BUY_OPTION_BLUFOR = false; 
 		publicVariableServer 'BUY_OPTION_BLUFOR'; 
-		blufor_teamlead setVariable ['GRAD_canBuy', false]; 
+		blufor_teamlead setVariable ['GRAD_canBuy', [], true]; 
 		closeDialog 0;
 		hideObjectGlobal US_SPAWN_PAD;
 	};
 	case "opfor": {
 		BUY_OPTION_OPFOR = false; 
 		publicVariableServer 'BUY_OPTION_OPFOR'; 
-		opfor_teamlead setVariable ['GRAD_canBuy', false]; 
+		opfor_teamlead setVariable ['GRAD_canBuy', [], true]; 
 		closeDialog 0;
 		hideObjectGlobal RUS_SPAWN_PAD;
 		diag_log format ["opfor spawn removed"];
