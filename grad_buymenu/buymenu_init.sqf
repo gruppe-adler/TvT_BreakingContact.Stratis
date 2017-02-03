@@ -183,6 +183,8 @@ if (hasInterface) then {
 		call compile preprocessFileLineNumbers "grad_buymenu\functions\player\fnc_createEntrySpawnMethodMouseOverArea.sqf";
 		call compile preprocessFileLineNumbers "grad_buymenu\functions\player\fnc_createEntryBuyButton.sqf";
 		call compile preprocessFileLineNumbers "grad_buymenu\functions\player\fnc_createEntryAmount.sqf";
+		call compile preprocessFileLineNumbers "grad_buymenu\functions\player\fnc_refreshEntryBuyButton.sqf";
+		
 
 
 		call compile preprocessFileLineNumbers "grad_buymenu\functions\player\fnc_createToolbarExitButton.sqf";

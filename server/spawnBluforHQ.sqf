@@ -192,7 +192,7 @@ spawnBluforHQ = {
 	US_VEHICLE_SPAWN = getPos (_bluforSpawnSuccess select 2);
 	publicVariable "US_VEHICLE_SPAWN";
 
-	
+	"mrk_spawn_blufor_land_1" setMarkerPos RUS_VEHICLE_SPAWN;
 
 	BLUFOR_TELEPORT_TARGET = getPos (_bluforSpawnSuccess select 2);
 	publicVariableServer "BLUFOR_TELEPORT_TARGET";
@@ -235,11 +235,15 @@ spawnOpforHQ = {
 
 	_vehicle2 setVariable ["GRAD_spawnType","opfor", true];
 
+
+
 	RUS_SPAWN_PAD = (_opforSpawnSuccess select 2);
 	publicVariable "RUS_SPAWN_PAD";
 
 	RUS_VEHICLE_SPAWN = getPos (_opforSpawnSuccess select 2);
 	publicVariable "RUS_VEHICLE_SPAWN";
+
+	"mrk_spawn_opfor_land_1" setMarkerPos RUS_VEHICLE_SPAWN;
 
 	
 

@@ -1,4 +1,4 @@
-fnc_createEntryBuyButton = {
+fnc_refreshEntryBuyButton = {
 	disableSerialization;
 
 	_idc = _this select 0;
@@ -12,19 +12,15 @@ fnc_createEntryBuyButton = {
 	_cost = _this select 8;
 
 
-	_btn =  _display ctrlCreate ["RscButton", _idc];
-
-	_btn ctrlSetPosition [_xPos + (_width/4) - _width/16, safeZoneH/20*14, _width/2 + _width/8, safeZoneH/16];
-	_btn ctrlSetBackgroundColor [0,0,0,0];
-	_btn ctrlSetTextColor  [1,1,1,1];
+	_btn =  findDisplay 1337 displayCtrl _idc;
 
 	_moneyVar = player getVariable "GRAD_buymenu_money_name";
 	_money = missionNamespace getVariable _moneyVar;
 
 	_newMoney = _money - _cost;
 	if (_newMoney < 0) exitWith {
-		_btn ctrlSetTextColor  [0.8,0.2,0.2,1];
 		ctrlSetText [_idc, localize 'str_GRAD_buy_tooexpensive'];
+		_btn ctrlSetTextColor  [0.8,0.2,0.2,1];
         ctrlEnable [_idc, false];
 
         GRAD_buymenu_currentMenuBuyButtonIDCs setVariable [_selector, _idc];

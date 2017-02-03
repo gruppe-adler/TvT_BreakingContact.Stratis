@@ -1,7 +1,9 @@
 params ["_cone"];
 
-_type = _cone getVariable ["GRAD_spawnType","none"];
 diag_log format ["disable Spawn sqf"];
+
+_type = _cone getVariable ["GRAD_spawnType","none"];
+
 
 switch (_type) do {
 	case "blufor": {
@@ -22,4 +24,4 @@ switch (_type) do {
 	default { diag_log format ["error: no spawn type defined"];};
 };
 
-// deleteVehicle _cone;
+deleteVehicle _cone;

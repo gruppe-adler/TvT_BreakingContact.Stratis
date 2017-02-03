@@ -54,7 +54,33 @@ GRAD_addGetOutActionAA = {
 // REMOVE SPAWN
 
 _removeSpawn = ["ACE_MainActions", (localize "str_GRAD_buy_disable"), "",
- {0 = [_this select 0] execVM "spawn\disableSpawn.sqf";},
+ {
+    _cone = _this select 0;
+    diag_log format ["disable Spawn sqf"];
+
+    _type = _cone getVariable ["GRAD_spawnType","none"];
+
+    switch (_type) do {
+    case "blufor": {
+      BUY_OPTION_BLUFOR = false; 
+      publicVariableServer 'BUY_OPTION_BLUFOR'; 
+      blufor_teamlead setVariable ['GRAD_canBuy', false]; 
+      closeDialog 0;
+      hideObjectGlobal US_SPAWN_PAD;
+    };
+    case "opfor": {
+      BUY_OPTION_OPFOR = false; 
+      publicVariableServer 'BUY_OPTION_OPFOR'; 
+      opfor_teamlead setVariable ['GRAD_canBuy', false]; 
+      closeDialog 0;
+      hideObjectGlobal RUS_SPAWN_PAD;
+      diag_log format ["opfor spawn removed"];
+    };
+    default { diag_log format ["error: no spawn type defined"];};
+    };
+
+    deleteVehicle _cone;
+  },
   {}] call ace_interact_menu_fnc_createAction;
 
 ["RoadCone_L_F", 0, ["ACE_MainActions"], _removeSpawn] call ace_interact_menu_fnc_addActionToClass;
@@ -182,7 +208,7 @@ _carryAssaultBoat = ["CarryBoatAction", "Carry Boat", "",
 
 
 // GRAD fortification for OPFOR
-
+/*
 GRAD_fortification_isAvailable = {
     params ["_item", "_container"];
 
@@ -252,7 +278,7 @@ _fortifications_node = ["GRAD_Fortifications", "Fortifications", "", {}, {true}]
     _x select 1
   ] call GRAD_fortification_addToClass;
 } forEach _items;
-
+*/
 
 [] spawn {
 waitUntil {!isNil "portableRadioBox"};

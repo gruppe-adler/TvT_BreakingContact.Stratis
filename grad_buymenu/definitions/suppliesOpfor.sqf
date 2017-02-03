@@ -92,37 +92,49 @@ _ammotruck = [
     1,
     ["light_hide",1],
     {
-        clearWeaponCargoGlobal (_this select 0);
-        clearItemCargoGlobal (_this select 0);
-        clearBackpackCargoGlobal (_this select 0);
-        clearMagazineCargoGlobal (_this select 0);
-        (_this select 0) addMagazineCargoGlobal ['SmokeShell',20];
-        (_this select 0) addMagazineCargoGlobal ['SmokeShellRed',20];
-        (_this select 0) addMagazineCargoGlobal ['rhs_30Rnd_762x39mm_tracer',30];
-        (_this select 0) addMagazineCargoGlobal ['rhs_30Rnd_762x39mm',30];
-        (_this select 0) addMagazineCargoGlobal ['16Rnd_9x21_Mag',20];
-        (_this select 0) addMagazineCargoGlobal ['rhs_rpg7_PG7VL_mag',5];
-        (_this select 0) addMagazineCargoGlobal ['rhs_rpg7_PG7VR_mag',5];
-        (_this select 0) addMagazineCargoGlobal ['rhs_100Rnd_762x54mmR_green',10];
-        (_this select 0) addMagazineCargoGlobal ['rhs_100Rnd_762x54mmR',10];
-        (_this select 0) addMagazineCargoGlobal ['rhs_mag_rgd5',20];
-        (_this select 0) addMagazineCargoGlobal ['rhs_GRD40_White',10];
-        (_this select 0) addMagazineCargoGlobal ['rhs_GRD40_Green',10];
-        (_this select 0) addMagazineCargoGlobal ['rhs_GRD40_Red',10];
-        (_this select 0) addMagazineCargoGlobal ['rhs_VG40OP_white',10];
-        (_this select 0) addMagazineCargoGlobal ['rhs_VG40OP_green',10];
-        (_this select 0) addItemCargoGlobal ['ACE_Earplugs',15];
-        (_this select 0) addItemCargoGlobal ['ACE_Morphine',40];
-        (_this select 0) addItemCargoGlobal ['ACE_epinephrine',40];
-        (_this select 0) addItemCargoGlobal ['ACE_fieldDressing',100];
-        (_this select 0) addItemCargoGlobal ['ItemGPS',5];
-        (_this select 0) addItemCargoGlobal ['ACE_bloodIV_250',20];
-        ['AddCargoByClass', ['ACE_wheel', _this select 0, 3], _this select 0] call CBA_fnc_targetEvent;
-        ['AddCargoByClass', ['ACE_Track', _this select 0, 1], _this select 0] call CBA_fnc_targetEvent;
+        _truck = (_this select 0);
+        clearWeaponCargoGlobal _truck;
+        clearItemCargoGlobal _truck;
+        clearBackpackCargoGlobal _truck;
+        clearMagazineCargoGlobal _truck;
+        _truck addMagazineCargoGlobal ['SmokeShell',20];
+        _truck addMagazineCargoGlobal ['SmokeShellRed',20];
+        _truck addMagazineCargoGlobal ['rhs_30Rnd_762x39mm_tracer',30];
+        _truck addMagazineCargoGlobal ['rhs_30Rnd_762x39mm',30];
+        _truck addMagazineCargoGlobal ['16Rnd_9x21_Mag',20];
+        _truck addMagazineCargoGlobal ['rhs_rpg7_PG7VL_mag',5];
+        _truck addMagazineCargoGlobal ['rhs_rpg7_PG7VR_mag',5];
+        _truck addMagazineCargoGlobal ['rhs_100Rnd_762x54mmR_green',10];
+        _truck addMagazineCargoGlobal ['rhs_100Rnd_762x54mmR',10];
+        _truck addMagazineCargoGlobal ['rhs_mag_rgd5',20];
+        _truck addMagazineCargoGlobal ['rhs_GRD40_White',10];
+        _truck addMagazineCargoGlobal ['rhs_GRD40_Green',10];
+        _truck addMagazineCargoGlobal ['rhs_GRD40_Red',10];
+        _truck addMagazineCargoGlobal ['rhs_VG40OP_white',10];
+        _truck addMagazineCargoGlobal ['rhs_VG40OP_green',10];
+        _truck addItemCargoGlobal ['ACE_Earplugs',15];
+        _truck addItemCargoGlobal ['ACE_Morphine',40];
+        _truck addItemCargoGlobal ['ACE_epinephrine',40];
+        _truck addItemCargoGlobal ['ACE_fieldDressing',100];
+        _truck addItemCargoGlobal ['ItemGPS',5];
+        _truck addItemCargoGlobal ['ACE_bloodIV_250',20];
+        ['AddCargoByClass', ['ACE_wheel', _truck, 3], _truck] call CBA_fnc_targetEvent;
+        ['AddCargoByClass', ['ACE_Track', _truck, 1], _truck] call CBA_fnc_targetEvent;
 
-        (_this select 0) addBackpackCargoGlobal ['RHS_DShkM_Gun_Bag',1];
-        (_this select 0) addBackpackCargoGlobal ['RHS_DShkM_TripodHigh_Bag',1];
-        (_this select 0) addItemCargoGlobal ['ACE_Sandbag_empty',100];
+        _truck addBackpackCargoGlobal ['RHS_DShkM_Gun_Bag',1];
+        _truck addBackpackCargoGlobal ['RHS_DShkM_TripodHigh_Bag',1];
+        _truck addItemCargoGlobal ['ACE_Sandbag_empty',100];
+
+        [_truck, "Land_BagFence_Long_F", 10] call grad_fortifications_fnc_addFort;
+        [_truck, "Land_BagFence_End_F", 10] call grad_fortifications_fnc_addFort;
+        [_truck, "Land_Razorwire_F", 5] call grad_fortifications_fnc_addFort;
+        [_truck, "Campfire_burning_F", 3] call grad_fortifications_fnc_addFort;
+        [_truck, "MetalBarrel_burning_F", 4] call grad_fortifications_fnc_addFort;
+        [_truck, "Land_PortableLight_single_F", 4] call grad_fortifications_fnc_addFort;
+        [_truck, "Land_Wreck_Ural_F", 1] call grad_fortifications_fnc_addFort;
+        [_truck, "Land_Wreck_UAZ_F", 1] call grad_fortifications_fnc_addFort;
+        [_truck, "rhs_Flag_DNR_F", 4] call grad_fortifications_fnc_addFort;
+
         call gaz_code;
     },
     format[''],

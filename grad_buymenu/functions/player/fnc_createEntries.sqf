@@ -99,7 +99,11 @@ fnc_createEntries = {
 
 		 randIDC = [randIDC] call fnc_getNextIDC;
 		 
-		 _amount = [randIDC, _createdGui, _xCoord, _width,_supplyItem select 2] spawn fnc_createEntryAmount;
+		 if (_isRefresh) then {
+		 	_amount = [randIDC, _createdGui, _xCoord, _width,_supplyItem select 2] spawn fnc_refreshEntryAmount;
+		 } else {
+		 	_amount = [randIDC, _createdGui, _xCoord, _width,_supplyItem select 2] spawn fnc_createEntryAmount;
+		 };
 		 
 
 		 
@@ -118,7 +122,11 @@ fnc_createEntries = {
 
 		 if (count _allowedSupplies > 0) then {
 		 	randIDC = [randIDC] call fnc_getNextIDC;
- 			_btn = [randIDC, _createdGui, _xCoord, _width, _x, _givenSupplies, _supplyItem select 8, _supplyItem select 9, _supplyItem select 3] spawn fnc_createEntryBuyButton;
+		 	if (_isRefresh) then {
+ 				_btn = [randIDC, _createdGui, _xCoord, _width, _x, _givenSupplies, _supplyItem select 8, _supplyItem select 9, _supplyItem select 3] spawn fnc_refreshEntryBuyButton;
+ 			} else {
+ 				_btn = [randIDC, _createdGui, _xCoord, _width, _x, _givenSupplies, _supplyItem select 8, _supplyItem select 9, _supplyItem select 3] spawn fnc_createEntryBuyButton;
+ 			};
  		};
 
  		

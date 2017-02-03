@@ -14,7 +14,10 @@ fnc_addOrder = {
 
 		_newMoney = _money - _cost;
 		if (_newMoney < 0) exitWith {
+			_btn =  findDisplay 1337 displayCtrl _idc;
+
 			ctrlSetText [_idc, localize 'str_GRAD_buy_tooexpensive'];
+			_btn ctrlSetTextColor  [0.8,0.2,0.2,1];
         	ctrlEnable [_idc, false];
 
 			_return = true;
