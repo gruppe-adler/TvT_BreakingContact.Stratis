@@ -6,7 +6,9 @@ GRAD_attachThatFlag = {
 	params ["_vehicle", "_pos", "_vectorup"];
 
 	_flag = "rhs_Flag_chdkz" createVehicle [0,0,0];
-	_flag setFlagTexture "\rhsafrf\addons\rhs_main\data\Flag_dnr_CO.paa";
+	if ((ISLAND_TARGET_POSITIONS select (ISLANDS find worldName)) select 3) then {
+		_flag setFlagTexture "\rhsafrf\addons\rhs_main\data\Flag_dnr_CO.paa";
+	} else {};
 	_flag attachto [_vehicle,_pos];
 	_flag setVectorUp _vectorup;
 
