@@ -39,7 +39,7 @@ waitUntil {!isNil "REPLAY_ACCURACY"};
 if (hasInterface) then {
 	call compile preprocessfile "node_modules\shk_pos\functions\shk_pos_init.sqf";
 
-  ["InitializePlayer", [player, true]] call BIS_fnc_dynamicGroups;
+  
 
 	player allowDamage false;
 	[] execVM "player\setup\adjustInitialSpawnPosition.sqf"; diag_log format ["setup: initial spawn position initiated"];
