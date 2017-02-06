@@ -118,9 +118,16 @@ if (isServer) then {
 	publicVariable "SPAWN_APPROACH_BLUFOR";
 	publicVariable "SPAWN_APPROACH_OPFOR";
 
+	waitUntil { !isNil "FACTIONS_DEFAULT" };
+
 	// broadcast supplies definitions
-	0 = [] execVM "grad_buymenu\definitions\suppliesBlufor.sqf";
-	0 = [] execVM "grad_buymenu\definitions\suppliesOpfor.sqf";
+	if (!FACTIONS_DEFAULT) then {
+		0 = [] execVM "grad_buymenu\definitions\suppliesUS.sqf";
+		0 = [] execVM "grad_buymenu\definitions\suppliesRussians.sqf";
+	} else {
+		0 = [] execVM "grad_buymenu\definitions\suppliesMUD.sqf";
+		0 = [] execVM "grad_buymenu\definitions\suppliesSOV.sqf";
+	};
 
 };
 

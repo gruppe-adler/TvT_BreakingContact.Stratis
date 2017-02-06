@@ -142,19 +142,26 @@ class Params
 	};
 
 	class ace_map_BFT_Enabled { //This ia a "BOOL"
-    title = "Bluforce-Tracking active"; //You can use ACE's stringtables
-    ACE_setting = 1;
-    values[] = {0, 1}; //setting is a BOOL, but values still need to be numbers, so 0 is false, 1 is true
-    texts[] =  {"False", "True"};
-    default = 1;
+    	title = "Bluforce-Tracking active"; //You can use ACE's stringtables
+    	ACE_setting = 1;
+    	values[] = {0, 1}; //setting is a BOOL, but values still need to be numbers, so 0 is false, 1 is true
+    	texts[] =  {"False", "True"};
+    	default = 1;
 	};
 
-  class CIVILIAN_TRAFFIC {
-    title = "Civilian Traffic (needs RDS_CIV)";
-    values[] = {0, 1};
-    texts[] =  {"False", "True"};
-    default = 1;
-  };
+  	class CIVILIAN_TRAFFIC {
+    	title = "Civilian Traffic (needs RDS_CIV)";
+    	values[] = {0, 1};
+    	texts[] =  {"False", "True"};
+    	default = 1;
+  	};
+
+  	class FACTION_MODE {
+    	title = "Factions fighting";
+    	values[] = {0, 1};
+    	texts[] =  {"US vs. Russians", "Mudschaheddin vs. Sowjets (needs Project OPFOR & CUP TP!)"};
+    	default = 0;
+  	};
 };
 
 class ACE_Settings {
@@ -381,6 +388,10 @@ class Loadouts {
 		#include "loadouts\US_Woodland.hpp"
 		#include "loadouts\RU_Desert.hpp"
 		#include "loadouts\RU_Woodland.hpp"
+
+		#include "loadouts\SOV_Desert.hpp"
+		#include "loadouts\MUD_Desert.hpp"
+		
 	};
 };
 

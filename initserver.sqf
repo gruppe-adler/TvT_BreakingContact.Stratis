@@ -36,6 +36,10 @@ publicVariable "JIP_TIME_ALLOWED"; // clients need to know this
 CIVILIAN_TRAFFIC = paramsArray select 13;
 publicVariable "CIVILIAN_TRAFFIC"; // clients need to know this
 
+FACTIONS_DEFAULT = (paramsArray select 14 == 0);
+publicVariable "FACTIONS_DEFAULT";
+
+
 setCustomWeather = {
 	// skipTime -24;
 	10 setOvercast (_this select 0);
@@ -131,8 +135,8 @@ publicVariable "RADIO_TRUCK_MARKER_HIDDEN";
 RADIO_TRUCK_MARKER_POS = [0,0];
 publicVariable "RADIO_TRUCK_MARKER_POS";
 
-RUSSIAN_POINTS = 0;
-publicVariable "RUSSIAN_POINTS";
+OPFOR_POINTS = 0;
+publicVariable "OPFOR_POINTS";
 
 
 
@@ -149,9 +153,6 @@ REPLAY_FINISHED = false;
 publicVariable "REPLAY_FINISHED";
 REPLAY_SPEED = 0.02;
 REPLAY_STEPS_PER_TICK = 1;
-
-russianCredits = OPFOR_MONEY;
-USCredits = BLUFOR_MONEY;
 
 
 
@@ -175,7 +176,7 @@ if (isClass (configFile >> "CfgPatches" >> "task_force_radio")) then {
 	[] execVM "helpers\medical_settings.sqf";
 
 	// events/listeners
-[] execVM "server\russianMarker.sqf";
+[] execVM "server\trackingMarker.sqf";
 [] execVM "server\radioBoxDistanceListener.sqf";
 	[] execVM "server\teleportListener.sqf";
 [] execVM "server\civKillListener.sqf";

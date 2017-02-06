@@ -158,7 +158,7 @@ spawnBluforHQ = {
 	_waitingForBluforSpawn = true;
 
 	// woodland camo?
-    if ((ISLAND_TARGET_POSITIONS select (ISLANDS find worldName)) select 3) then {
+    if (IS_WOODLAND) then {
        hmmwv_hq = "rhsusf_m998_w_4dr";
     } else {
        hmmwv_hq = "rhsusf_m998_d_4dr";
@@ -192,7 +192,7 @@ spawnBluforHQ = {
 	US_VEHICLE_SPAWN = getPos (_bluforSpawnSuccess select 2);
 	publicVariable "US_VEHICLE_SPAWN";
 
-	"mrk_spawn_blufor_land_1" setMarkerPos RUS_VEHICLE_SPAWN;
+	"mrk_spawn_blufor_land_1" setMarkerPos US_VEHICLE_SPAWN;
 
 	BLUFOR_TELEPORT_TARGET = getPos (_bluforSpawnSuccess select 2);
 	publicVariableServer "BLUFOR_TELEPORT_TARGET";

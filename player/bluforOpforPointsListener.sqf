@@ -15,29 +15,29 @@ showPointsWarning = {
 
 showPointsInstant = {
 	if (playerSide == east) then {
-		_pointsRatio = RUSSIAN_POINTS / POINTS_NEEDED_FOR_VICTORY;
+		_pointsRatio = OPFOR_POINTS / POINTS_NEEDED_FOR_VICTORY;
 		_string = localize "str_GRAD_transmissionTime_1" + " " + (str (round(_pointsRatio * 100))) + " " + localize "str_GRAD_transmissionTime_2";
 		[_string] call EFUNC(common,displayTextStructured);
 	};
 };
 
-_RUSSIAN_POINTS_listener = {
+_OPFOR_POINTS_listener = {
 
 	_points = _this select 1;
 
 	_points call showPointsWarning;
 };
 
-"RUSSIAN_POINTS" addPublicVariableEventHandler _RUSSIAN_POINTS_listener;
+"OPFOR_POINTS" addPublicVariableEventHandler _OPFOR_POINTS_listener;
 
 // runs in SP to emulate addPublicVariableEventHandler (which doesnt work in SP)
 if (!isMultiplayer) then {
-	_RUSSIAN_POINTS_listener spawn {
-		_cur = RUSSIAN_POINTS;
+	_OPFOR_POINTS_listener spawn {
+		_cur = OPFOR_POINTS;
 		while {true} do {
-			waitUntil {sleep 1; RUSSIAN_POINTS > _cur};
-			_cur = RUSSIAN_POINTS;
-			[0, RUSSIAN_POINTS] call _this;
+			waitUntil {sleep 1; OPFOR_POINTS > _cur};
+			_cur = OPFOR_POINTS;
+			[0, OPFOR_POINTS] call _this;
 			sleep 3;
 		};
 	};

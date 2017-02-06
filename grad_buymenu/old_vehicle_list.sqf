@@ -10,16 +10,16 @@ VEHICLE 4 (classname, namedisplay, countleft, price, pricedisplay, eta)
 
 */
 
-_russianCredits = _this select 0;
-_USCredits = _this select 1;
+_opforCredits = _this select 0;
+_bluforCredits = _this select 1;
 
 
 
 
-fillRussianSupplies = {
+fillOpforSupplies = {
 
       // woodland camo?
-    if ((ISLAND_TARGET_POSITIONS select (ISLANDS find worldName)) select 3) then {
+    if (IS_WOODLAND) then {
        tigr = "rhs_tigr_m_vdv";
     } else {
         tigr = "rhs_tigr_m_3camo_vdv";
@@ -227,7 +227,7 @@ fillRussianSupplies = {
 fillUSSupplies = {
 
     // woodland camo?
-    if ((ISLAND_TARGET_POSITIONS select (ISLANDS find worldName)) select 3) then {
+    if (IS_WOODLAND) then {
        hmmwv_transport = "rhsusf_m998_w_2dr_fulltop";
         hmmwv_m2 = "rhsusf_m1025_w_m2";
         m113_m2 = "rhsusf_m113_usarmy";
@@ -418,5 +418,5 @@ fillUSSupplies = {
     };
 };
 
-[_russianCredits] call fillRussianSupplies;
-[_USCredits] call fillUSSupplies;
+[_opforCredits] call fillOpforSupplies;
+[_bluforCredits] call fillUSSupplies;

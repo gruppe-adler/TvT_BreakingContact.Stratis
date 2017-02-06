@@ -7,7 +7,7 @@ bluforCaptured = {
 
 bluforSurrendered = {
 	BLUFOR_SURRENDERED = true; publicVariable "BLUFOR_SURRENDERED";
-	publicVariable "RUSSIAN_POINTS";
+	publicVariable "OPFOR_POINTS";
 };
 
 
@@ -91,8 +91,8 @@ setRadioBoxMarkerPosition = {
 
 
 [] spawn {
-	while {RUSSIAN_POINTS <= POINTS_NEEDED_FOR_VICTORY} do  {
-		publicVariable "RUSSIAN_POINTS";
+	while {OPFOR_POINTS <= POINTS_NEEDED_FOR_VICTORY} do  {
+		publicVariable "OPFOR_POINTS";
 		sleep 5;
 	};
 };
@@ -107,12 +107,12 @@ sleep 2; // give it time, boy - possible fix for "Undefined variable in expressi
 		_bothAreSending = (_radioBoxIsSending && _radioTruckIsSending);
 
 		if (_radioTruckIsSending && !_bothAreSending && !RADIO_BOX) then {
-			RUSSIAN_POINTS = RUSSIAN_POINTS + 1;
+			OPFOR_POINTS = OPFOR_POINTS + 1;
 			// diag_log format ["debug: radio truck is sending alone"];
 		};
 
 		if (!_radioTruckIsSending && _radioBoxIsSending) then {
-			RUSSIAN_POINTS = RUSSIAN_POINTS + 0.5;
+			OPFOR_POINTS = OPFOR_POINTS + 0.5;
 			// diag_log format ["debug: radio box is sending alone"];
 		};
 
@@ -129,7 +129,7 @@ sleep 2; // give it time, boy - possible fix for "Undefined variable in expressi
 				RADIO_BOX_DISTANCE = _modifier * 100;
 				publicVariable "RADIO_BOX_DISTANCE";
 			};
-			RUSSIAN_POINTS = RUSSIAN_POINTS + (1 * _modifier);
+			OPFOR_POINTS = OPFOR_POINTS + (1 * _modifier);
 			// diag_log format ["debug:both are sending"];
 		};
 
@@ -143,7 +143,7 @@ sleep 2; // give it time, boy - possible fix for "Undefined variable in expressi
 			[[funkwagen, {[funkwagen] call ace_cookoff_fnc_cookOff}], "helpers\execIfLocal.sqf"] remoteExec ["execVM",0,false];
 		};
 
-		if (RUSSIAN_POINTS >= POINTS_NEEDED_FOR_VICTORY) exitWith {
+		if (OPFOR_POINTS >= POINTS_NEEDED_FOR_VICTORY) exitWith {
 			[] call bluforSurrendered;
 		};
 

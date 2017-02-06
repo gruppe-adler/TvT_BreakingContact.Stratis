@@ -14,14 +14,26 @@ spawnStuff = compile preprocessFile "helpers\spawnStuff.sqf";
 // disableRemoteSensors true; // ai driving behaviour affected?
 setViewDistance 3500;
 
-_isWoodlandCamo = ((ISLAND_TARGET_POSITIONS select (ISLANDS find worldName)) select 3);
-if (_isWoodlandCamo) then {
-	["BLU_F", "US_Woodland"] call GRAD_Loadout_fnc_FactionSetLoadout;
-	["OPF_F", "RU_Woodland"] call GRAD_Loadout_fnc_FactionSetLoadout;
+// wait until server has decided about parameters
+waitUntil { !isNil "FACTIONS_DEFAULT" };
+
+
+IS_WOODLAND = ((ISLAND_TARGET_POSITIONS select (ISLANDS find worldName)) select 3);
+if (!FACTIONS_DEFAULT) then {
+	if (IS_WOODLAND) then {
+	// us vs russians
+		["BLU_F", "US_Woodland"] call GRAD_Loadout_fnc_FactionSetLoadout;
+		["OPF_F", "RU_Woodland"] call GRAD_Loadout_fnc_FactionSetLoadout;
+	} else {
+		["BLU_F", "US_Desert"] call GRAD_Loadout_fnc_FactionSetLoadout;
+		["OPF_F", "RU_Desert"] call GRAD_Loadout_fnc_FactionSetLoadout;
+	};
 } else {
-	["BLU_F", "US_Desert"] call GRAD_Loadout_fnc_FactionSetLoadout;
-	["OPF_F", "RU_Desert"] call GRAD_Loadout_fnc_FactionSetLoadout;
+	// sovjets vs mudschaheddin
+	["BLU_F", "MUD_Desert"] call GRAD_Loadout_fnc_FactionSetLoadout;
+	["OPF_F", "SOV_Desert"] call GRAD_Loadout_fnc_FactionSetLoadout;
 };
+
 call compile preprocessfile "loadouts\setLoadoutRandomization.sqf";
 
 // paramsarray select 12 is BFT module in editor
@@ -104,16 +116,16 @@ if (hasInterface) then {
 	waitUntil {!isNil "BLUFOR_TELEPORT_TARGET"};
 
 	if (playerSide == west) then {
-		[] execVM "player\russianMarker.sqf";
+		[] execVM "player\trackingMarker.sqf";
 		[] execVM "player\bluforBluforTeleportListener.sqf";
-		[] execVM "player\bluforRussianPointsListener.sqf";
+		[] execVM "player\bluforOpforPointsListener.sqf";
 		[] spawn checkJIP;
 	};
 
 	if (playerSide == east) then {
-		[] execVM "player\russianMarker.sqf"; diag_log format ["setup: russianmarker initiated"];
+		[] execVM "player\trackingMarker.sqf"; diag_log format ["setup: trackingmarker initiated"];
 		[] execVM "player\opforOpforTeleportListener.sqf"; diag_log format ["setup: opforOpforTeleportListener initiated"];
-		[] execVM "player\bluforRussianPointsListener.sqf";
+		[] execVM "player\bluforOpforPointsListener.sqf";
 		[] execVM "player\radioBoxDistanceListener.sqf";
 		[] spawn checkJIP; diag_log format ["setup: createStartHints initiated"];
 		player setVariable ["radioAttached",false]; // for use in detaching radio from radio truck

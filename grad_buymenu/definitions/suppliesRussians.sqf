@@ -5,7 +5,7 @@
 // 4 spawn at water marker
 
 // camo shit, todo: make function
-if ((ISLAND_TARGET_POSITIONS select (ISLANDS find worldName)) select 3) then {
+if (IS_WOODLAND) then {
        tigr = "rhs_tigr_m_vdv";
        uaz = "rhsgref_nat_uaz_dshkm";
        bmp_code = {};

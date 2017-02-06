@@ -4,7 +4,7 @@
 // 3 spawn with civilian driving it
 // 4 spawn at water marker
 
-if ((ISLAND_TARGET_POSITIONS select (ISLANDS find worldName)) select 3) then {
+if (IS_WOODLAND) then {
        mrzr4 = "rhsusf_mrzr4_w_mud";
        mrap_init = ["DUKE_Hide",1];
        hmmwv_m2 = "rhsusf_m1025_w_m2";

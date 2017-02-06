@@ -6,12 +6,12 @@ createOpforStuff =  {
 	funkwagen setVariable ["detachableRadio", 0, true];
 	publicVariable "funkwagen";
 
-	0 = [funkwagen, true] execVM "grad_buymenu\definitions\flagsOnVehicles.sqf";
+	0 = [funkwagen, true] execVM "spawn\flagsOnVehicles.sqf";
 
 	sleep 1;
 	[funkwagen] call clearInventory;
 
-	if (!((ISLAND_TARGET_POSITIONS select (ISLANDS find worldName)) select 3)) then {
+	if (!IS_WOODLAND) then {
 	funkwagen setObjectTextureGlobal [0,"rhsafrf\addons\rhs_gaz66_camo\data\gaz66_sand_co.paa"];
     funkwagen setObjectTextureGlobal [1,"rhsafrf\addons\rhs_gaz66\data\tent_co.paa"];
     funkwagen setObjectTextureGlobal [2,"rhsafrf\addons\rhs_gaz66_camo\data\rhs_gaz66_kung_sand_co.paa"];

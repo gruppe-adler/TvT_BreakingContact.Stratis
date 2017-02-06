@@ -33,7 +33,7 @@ GRAD_addGetOutActionAA = {
 
 { 
  _flagActionRaise = ["ACE_MainActions", (localize "str_GRAD_flag_raise"), "",
- {0 = [(_this select 0), true] execVM "grad_buymenu\definitions\flagsOnVehicles.sqf";},
+ {0 = [(_this select 0), true] execVM "spawn\flagsOnVehicles.sqf";},
   {side player == east && isNull ((_this select 0) getVariable ["GRAD_flagObject",objNull])}] call ace_interact_menu_fnc_createAction;
 
 [_x, 0, ["ACE_MainActions"], _flagActionRaise] call ace_interact_menu_fnc_addActionToClass;
@@ -42,7 +42,7 @@ GRAD_addGetOutActionAA = {
 
 { 
  _flagActionRemove = ["ACE_MainActions", (localize "str_GRAD_flag_remove"), "",
- {0 = [(_this select 0), false] execVM "grad_buymenu\definitions\flagsOnVehicles.sqf";},
+ {0 = [(_this select 0), false] execVM "spawn\flagsOnVehicles.sqf";},
   {side player == east && !isNull ((_this select 0) getVariable ["GRAD_flagObject",objNull])}] call ace_interact_menu_fnc_createAction;
 
 [_x, 0, ["ACE_MainActions"], _flagActionRemove] call ace_interact_menu_fnc_addActionToClass;

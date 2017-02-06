@@ -1,3 +1,4 @@
+// russian helmets, US helmets
 [
     {
         _value = param [0];
@@ -29,6 +30,7 @@
     "headgear"
 ] call GRAD_Loadout_fnc_addReviver;
 
+// US M4a1 and M249 variants
 [
     {
         _value = param [0];
@@ -52,4 +54,78 @@
         _value
     },
     "primaryWeapon"
+] call GRAD_Loadout_fnc_addReviver;
+
+
+// mudschaheddin headgear, uniforms, beards
+[
+    {
+        _value = param [0];
+        if (_value == "LOP_H_Turban") then {
+            _value = selectRandom [
+                "LOP_H_Turban",
+                "LOP_H_Turban",
+                "LOP_H_Pakol",
+                "LOP_H_Pakol",
+                "LOP_H_Pakol",
+                "LOP_H_Pakol"
+            ];
+        };
+        _value
+    },
+    "headgear"
+] call GRAD_Loadout_fnc_addReviver;
+
+[
+    {
+        _value = param [0];
+        if (_value == "LOP_U_AM_Fatigue_01") then {
+            _value =  selectRandom [
+                "LOP_U_AM_Fatigue_01",
+                "LOP_U_AM_Fatigue_01_2",
+                "LOP_U_AM_Fatigue_01_3",
+                "LOP_U_AM_Fatigue_01_4",
+                "LOP_U_AM_Fatigue_01_5",
+                "LOP_U_AM_Fatigue_01_6",
+                "LOP_U_AM_Fatigue_02",
+                "LOP_U_AM_Fatigue_02_2",
+                "LOP_U_AM_Fatigue_02_3",
+                "LOP_U_AM_Fatigue_02_4",
+                "LOP_U_AM_Fatigue_02_5",
+                "LOP_U_AM_Fatigue_02_6",
+                "LOP_U_AM_Fatigue_03",
+                "LOP_U_AM_Fatigue_03_2",
+                "LOP_U_AM_Fatigue_03_3",
+                "LOP_U_AM_Fatigue_03_4",
+                "LOP_U_AM_Fatigue_03_5",
+                "LOP_U_AM_Fatigue_03_6",
+                "LOP_U_AM_Fatigue_01",
+                "LOP_U_AM_Fatigue_02_2",
+                "LOP_U_AM_Fatigue_03_3",
+                "LOP_U_AM_Fatigue_04_4",
+                "LOP_U_AM_Fatigue_05_5",
+                "LOP_U_AM_Fatigue_06_6"
+            ];
+        };
+        _value
+    },
+    "uniform"
+] call GRAD_Loadout_fnc_addReviver;
+
+[
+    {
+        _value = param [0];
+        if (_value == "TRYK_Beard_BK") then {
+            _value = selectRandom [
+                "TRYK_Beard_BK",
+                "TRYK_Beard_BK2",
+                "TRYK_Beard_BK3",
+                "TRYK_Beard_BK4",
+                "TRYK_Beard_BW",
+                "LOP_H_Pakol"
+            ];
+        };
+        _value
+    },
+    "facewear"
 ] call GRAD_Loadout_fnc_addReviver;
