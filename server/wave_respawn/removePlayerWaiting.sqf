@@ -19,5 +19,5 @@ switch (_side) do {
         };
     };
 
-    default {diag_log format ["Player %1 is neither WEST nor EAST.", name _unit)];
+    default {diag_log format ["Player %1 is neither WEST nor EAST.", name _unit];
 };
