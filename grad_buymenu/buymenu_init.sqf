@@ -139,10 +139,18 @@ if (hasInterface) then {
 
 		_canBuy = [];
 		if (playerSide == east) then {
-			switch (rank player) do {
-				case "CAPTAIN": { _canBuy = ['car', 'aatruck', 'ammotruck', 'uaz', 'btr', 'bmp', 't72', 'transmitter']; };
-				default { _canBuy = []; };
+			if (!FACTIONS_DEFAULT) then {
+				switch (rank player) do {
+					case "CAPTAIN": { _canBuy = ['car', 'aatruck', 'ammotruck', 'uaz', 'btr', 'bmp', 't72', 'transmitter']; };
+					default { _canBuy = []; };
+				};
+			} else {
+				switch (rank player) do {
+					case "CAPTAIN": { _canBuy = ['civcar', 'motorbike', 'landrover', 'uazspg9']; };
+					default { _canBuy = []; };
+				};
 			};
+
 			player setVariable ["GRAD_canBuy", _canBuy];
 
 			player setVariable ['GRAD_buymenu_money', {moneyOpfor}, true];
@@ -153,10 +161,18 @@ if (hasInterface) then {
 			player setVariable ['GRAD_buymenu_spawn_land', {getMarkerPos spawnMarkerOpforLand}];
 		};
 		if (playerSide == west) then {
-			switch (rank player) do {
-				case "CAPTAIN": { _canBuy = ['mrzr4','hmmwv_m2','mrap','ammo','melb','ch53', 'recon_box']; };
-				default { _canBuy = []; };
+			if (!FACTIONS_DEFAULT) then {
+				switch (rank player) do {
+					case "CAPTAIN": { _canBuy = ['mrzr4','hmmwv_m2','mrap','ammo','melb','ch53', 'recon_box']; };
+					default { _canBuy = []; };
+				};
+			} else {
+				switch (rank player) do {
+					case "CAPTAIN": { _canBuy = ['BRDM','BRM1K','BTR80','MI8','MI24']; };
+					default { _canBuy = []; };
+				};
 			};
+
 			player setVariable ["GRAD_canBuy", _canBuy];
 
 			player setVariable ['GRAD_buymenu_money', {moneyBlufor}, true];

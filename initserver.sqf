@@ -5,6 +5,7 @@ call compile preprocessFile "islandConfig.sqf"; // absolute basic!
 call compile preprocessfile "node_modules\shk_pos\functions\shk_pos_init.sqf"; // absolute basic!
 // get_slope used in spawnbluforhq.sqf
 call compile preprocessFileLineNumbers "helpers\findSimplePos.sqf";
+
 If(isNil "spawn_help_fnc_compiled") then { call compile preprocessFileLineNumbers "helpers\findPos.sqf"; }; // TODO why the if condition here?
 
 if (paramsArray select 10 == 1 || !isMultiplayer) then {
@@ -178,9 +179,10 @@ if (isClass (configFile >> "CfgPatches" >> "task_force_radio")) then {
 	// events/listeners
 [] execVM "server\trackingMarker.sqf";
 [] execVM "server\radioBoxDistanceListener.sqf";
-	[] execVM "server\teleportListener.sqf";
+[] execVM "server\teleportListener.sqf";
 [] execVM "server\civKillListener.sqf";
 [] execVM "server\civGunfightListener.sqf";
+[] execVM "server\spawn\spawnRadioTruck.sqf";
 
 call compile preprocessFileLineNumbers "server\spawnBluforHQ.sqf";
 call compile preprocessFileLineNumbers "server\fnc_radiotruck_deploy.sqf";

@@ -152,21 +152,16 @@ testSpawnPositions = {
 
 
 spawnBluforHQ = {
-	_bluforCenterPosition = _this select 0;
-	_bluforDistance = _this select 1;
+	params ["_bluforCenterPosition", "_bluforDistance", "_vehicle1class"];
+
 	_bluforSearchDistance = 10;
 	_waitingForBluforSpawn = true;
 
-	// woodland camo?
-    if (IS_WOODLAND) then {
-       hmmwv_hq = "rhsusf_m998_w_4dr";
-    } else {
-       hmmwv_hq = "rhsusf_m998_d_4dr";
-    };
+	
     
 	[{hintSilent "Blufor Spawn successfully found.";},"BIS_fnc_spawn",true,true] call BIS_fnc_MP;
 
-	_bluforSpawnSuccess = [_bluforCenterPosition, [hmmwv_hq,"RoadCone_L_F"], _bluforDistance, _bluforSearchDistance] call testSpawnPositions;
+	_bluforSpawnSuccess = [_bluforCenterPosition, [_vehicle1class,"RoadCone_L_F"], _bluforDistance, _bluforSearchDistance] call testSpawnPositions;
 	
 
 	_vehicle1 = (_bluforSpawnSuccess select 1);
@@ -218,15 +213,14 @@ spawnBluforHQ = {
 
 
 spawnOpforHQ = {
-	_opforCenterPosition = _this select 0;
-	_opforDistance = _this select 1;
 	_opforSearchDistance = 10;
 	_startTime = time;
+	params ["_opforCenterPosition", "_opforDistance", "_vehicle1class"];
 
 	
 
 	// landclutter instead of building - dummy object
-	_opforSpawnSuccess = [_opforCenterPosition, ["Land_ClutterCutter_small_F","RoadCone_L_F"], _opforDistance, _opforSearchDistance] call testSpawnPositions;
+	_opforSpawnSuccess = [_opforCenterPosition, [_vehicle1class,"RoadCone_L_F"], _opforDistance, _opforSearchDistance] call testSpawnPositions;
 	// waitUntil {(_opforSpawnSuccess select 0) > 0};
 	[{hintSilent "Opfor Spawn successfully found.";},"BIS_fnc_spawn",true,true] call BIS_fnc_MP;
 

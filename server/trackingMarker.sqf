@@ -1,4 +1,4 @@
-waitUntil {!isNil "funkwagen"};
+waitUntil {!isNil "radio_object"};
 
 
 bluforCaptured = {
@@ -12,7 +12,7 @@ bluforSurrendered = {
 
 
 radioTruckIsSending = {
-	(((funkwagen getVariable ["tf_range",0]) == 50000) && alive funkwagen)
+	(((radio_object getVariable ["tf_range",0]) == 50000) && alive radio_object)
 };
 
 radioBoxIsSending = {
@@ -52,7 +52,7 @@ setRadioTruckMarkerStatus = {
 	_previous = RADIO_TRUCK_MARKER_HIDDEN;
 	RADIO_TRUCK_MARKER_HIDDEN = _this;
 	if (MISSION_COMPLETED) then {RADIO_TRUCK_MARKER_HIDDEN = true;};
-	if (!alive funkwagen) then {RADIO_TRUCK_MARKER_HIDDEN = true;};
+	if (!alive radio_object) then {RADIO_TRUCK_MARKER_HIDDEN = true;};
 	if (!([RADIO_TRUCK_MARKER_HIDDEN, _previous] call booleanEqual)) then {
 		 publicVariable "RADIO_TRUCK_MARKER_HIDDEN";
 	};
@@ -120,7 +120,7 @@ sleep 2; // give it time, boy - possible fix for "Undefined variable in expressi
 			_tempModifier = _result select 0;
 			_tempDistance = _result select 1;
 
-			_result = [funkwagen distance portableRadioBox] call distanceToRadioNerf;
+			_result = [radio_object distance portableRadioBox] call distanceToRadioNerf;
 			_modifier = _result select 0;
 			_distanceToRadioTruck = _result select 1;
 
@@ -138,25 +138,25 @@ sleep 2; // give it time, boy - possible fix for "Undefined variable in expressi
 		!_radioTruckIsSending call setRadioTruckMarkerStatus;
 		!_radioBoxIsSending call setRadioBoxMarkerStatus;
 
-		if (funkwagen getHit "karoserie" == 1 && funkwagen getHit "motor" == 1 && !(funkwagen getVariable ["isCookingOff", false])) then {
-			funkwagen setVariable ["isCookingOff", true, true];
-			[[funkwagen, {[funkwagen] call ace_cookoff_fnc_cookOff}], "helpers\execIfLocal.sqf"] remoteExec ["execVM",0,false];
+		if (radio_object getHit "karoserie" == 1 && radio_object getHit "motor" == 1 && !(radio_object getVariable ["isCookingOff", false])) then {
+			radio_object setVariable ["isCookingOff", true, true];
+			[[radio_object, {[radio_object] call ace_cookoff_fnc_cookOff}], "helpers\execIfLocal.sqf"] remoteExec ["execVM",0,false];
 		};
 
 		if (OPFOR_POINTS >= POINTS_NEEDED_FOR_VICTORY) exitWith {
 			[] call bluforSurrendered;
 		};
 
-		if (!alive funkwagen && {(funkwagen getVariable ["detachableRadio", 0] != 2)}) exitWith {
+		if (!alive radio_object && {(radio_object getVariable ["detachableRadio", 0] != 2)}) exitWith {
 			[] call bluforCaptured;
 		};
 
 
 		if (!RADIO_BOX_ACTIVE) then {
-			[getPos funkwagen select 0, getPos funkwagen select 1] call setRadioTruckMarkerPosition;
-			// diag_log format ["logging funkwagen: %1", funkwagen];
+			[getPos radio_object select 0, getPos radio_object select 1] call setRadioTruckMarkerPosition;
+			// diag_log format ["logging radio_object: %1", radio_object];
 		} else {
-			[getPos funkwagen select 0, getPos funkwagen select 1] call setRadioTruckMarkerPosition;
+			[getPos radio_object select 0, getPos radio_object select 1] call setRadioTruckMarkerPosition;
 			[getPos portableRadioBox select 0, getPos portableRadioBox select 1] call setRadioBoxMarkerPosition;
 			// diag_log format ["logging portableRadioBox: %1", portableRadioBox];
 		};

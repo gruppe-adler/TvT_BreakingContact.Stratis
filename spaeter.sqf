@@ -2,9 +2,9 @@
 /* this file contains notes only */
 //
 
-/// attaching terminal to funkwagen
+/// attaching terminal to radio_object
 
-terminal attachTo [funkwagen,[0.25,-4.8,0]]; // perfect position for endgame terminal to attach on gaz66 142
+terminal attachTo [radio_object,[0.25,-4.8,0]]; // perfect position for endgame terminal to attach on gaz66 142
 
 hiddenSelections[] = {"Camo_1","Camo_2","Camo_3","Camo_4","Camo_5"}; // terminal camos
 hiddenSelectionsMaterials[] = {"\A3\Data_F\Lights\Lamp_lcd.rvmat","\A3\Data_F\Lights\Lamp_lcd.rvmat","\A3\Props_F_Exp_A\Military\Equipment\Data\DataTerminal_blue.rvmat","\A3\Props_F_Exp_A\Military\Equipment\Data\DataTerminal_orange.rvmat","\A3\Props_F_Exp_A\Military\Equipment\Data\DataTerminal_green.rvmat"};
@@ -34,8 +34,8 @@ condition = "(player == driver this) AND this doorPhase 'mast_source' > 0.99"; /
 statement = "[this,0] spawn rhs_fnc_gaz66_radioDeploy"; // fold mast action
 
 
-repeated condition: funkwagen doorPhase "mast_source" > 0.01
-statement:  [funkwagen,0] spawn rhs_fnc_gaz66_radioDeploy; hintSilent "cant build up";
+repeated condition: radio_object doorPhase "mast_source" > 0.01
+statement:  [radio_object,0] spawn rhs_fnc_gaz66_radioDeploy; hintSilent "cant build up";
 
 
 ///////////////////////

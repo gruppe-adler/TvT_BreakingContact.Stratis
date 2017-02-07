@@ -6,8 +6,8 @@ spawnSupplyDrop = {
 
     // if there is nothing to be spawned
     if (_vehicleType == "Land_DataTerminal_01_F") exitWith {
-			portableRadioBox = createVehicle ['Land_DataTerminal_01_F', [(getPos funkwagen select 0) + 2, (getPos funkwagen select 1) - 1, 0.5], [], 0, 'NONE'];
-            portableRadioBox attachTo [funkwagen,[0.3,-2.85,0.7]];
+			portableRadioBox = createVehicle ['Land_DataTerminal_01_F', [(getPos radio_object select 0) + 2, (getPos radio_object select 1) - 1, 0.5], [], 0, 'NONE'];
+            portableRadioBox attachTo [radio_object,[0.3,-2.85,0.7]];
             portableRadioBox setVectorDirAndUp [[0,1,0.3],[0,0,0.7]];
 
             [portableRadioBox] remoteExec ["GRAD_fnc_addTerminalInteraction", [0, -2] select isMultiplayer, true];
@@ -20,7 +20,7 @@ spawnSupplyDrop = {
             portableRadioBox setObjectTextureGlobal [3, "#(argb,8,8,3)color(0,0,0,0.0,co)"];
             portableRadioBox setObjectTextureGlobal [4, "#(argb,8,8,3)color(0,0,0,0.0,co)"];
 
-            funkwagen setVariable ["detachableRadio", 1, true];
+            radio_object setVariable ["detachableRadio", 1, true];
             publicVariable "portableRadioBox";
 
             portableRadioBox addEventHandler ["Explosion",{

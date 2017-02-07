@@ -1,39 +1,14 @@
 createOpforStuff =  {
 	_position = _this;
 
-	funkwagen = [_position, 0, 1, "rhs_gaz66_r142_vv"] call spawnStuff;
-	// used for detachable radio unit
-	funkwagen setVariable ["detachableRadio", 0, true];
-	publicVariable "funkwagen";
-
-	0 = [funkwagen, true] execVM "spawn\flagsOnVehicles.sqf";
-
-	sleep 1;
-	[funkwagen] call clearInventory;
-
-	if (!IS_WOODLAND) then {
-	funkwagen setObjectTextureGlobal [0,"rhsafrf\addons\rhs_gaz66_camo\data\gaz66_sand_co.paa"];
-    funkwagen setObjectTextureGlobal [1,"rhsafrf\addons\rhs_gaz66\data\tent_co.paa"];
-    funkwagen setObjectTextureGlobal [2,"rhsafrf\addons\rhs_gaz66_camo\data\rhs_gaz66_kung_sand_co.paa"];
-    funkwagen setObjectTextureGlobal [3,"rhsafrf\addons\rhs_gaz66_camo\data\rhs_gaz66_ap2kung_sand_co.paa"];
-    funkwagen setObjectTextureGlobal [4,"rhsafrf\addons\rhs_gaz66_camo\data\rhs_gaz66_repkung_sand_co.paa"];
+	if (!FACTIONS_DEFAULT) then {
+		[_position] call spawnRadioTruck;
+	} else {
+		blufor_teamlead setVariable ["GRAD_isVIP", true, true];
+		radio_object = blufor_teamlead;
+		publicVariable "radio_object";
+		[_position, 50, "rhsgref_BRDM2UM_ins_g"] call spawnOpforHQ;
 	};
-
-	// hide light covers for optical reasons
-	funkwagen animate ["light_hide",1];
-	sleep 0.1;
-
-
-	[getPos funkwagen, 50] call spawnOpforHQ;
-	funkwagen addItemCargoGlobal ["ACE_SpraypaintBlack",10];
-	funkwagen addItemCargoGlobal ["ACE_SpraypaintBlue",10];
-	funkwagen addItemCargoGlobal ["ACE_SpraypaintGreen",10];
-	funkwagen addItemCargoGlobal ["ACE_SpraypaintRed",10];
-	funkwagen addItemCargoGlobal ["ACE_EntrenchingTool",10];
-	funkwagen addItemCargoGlobal ["ACE_NVG_Gen2",50];
-	
-	
-
 
 	0 = [] execVM "server\spawn\showLeaderInformation.sqf";
 
@@ -48,7 +23,17 @@ createOpforStuff =  {
 createBluforStuff = {
 	_opforposition = _this;
 
-	[_opforposition, BLUFOR_SPAWN_DISTANCE] call spawnBluforHQ;
+	if (!FACTIONS_DEFAULT) then {
+	    if (IS_WOODLAND) then {
+	       blufor_hq = "rhsusf_m998_w_4dr";
+	    } else {
+	       blufor_hq = "rhsusf_m998_d_4dr";
+	    };
+	} else {
+		blufor_hq = "LOP_AM_Landrover_M2";
+	};
+
+	[_opforposition, BLUFOR_SPAWN_DISTANCE, blufor_hq] call spawnBluforHQ;
 
 	if (!isMultiplayer) then {
 		_blufor_marker_start = createMarker ["debug_blufor_marker_start", US_VEHICLE_SPAWN];

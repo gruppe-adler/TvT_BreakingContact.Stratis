@@ -7,9 +7,9 @@ fnc_radiotruck_retract = {
  	_count = ceil (random 6);
  	for "_i" from 0 to _count do {
  		 
- 		playsound3d ["rhsafrf\addons\rhs_gaz66\data\sounds\zil_gaz66_start.wss", funkwagen]; 
+ 		playsound3d ["rhsafrf\addons\rhs_gaz66\data\sounds\zil_gaz66_start.wss", radio_object]; 
    		sleep 2.9; 
-   		playsound3d ["A3\Sounds_F\vehicles\soft\Truck_02\ext_stop.wss", funkwagen];
+   		playsound3d ["A3\Sounds_F\vehicles\soft\Truck_02\ext_stop.wss", radio_object];
  		
  	};
  	

@@ -82,8 +82,23 @@ _rusAction = ["RusBuyMenu", (localize "str_GRAD_buy_vehicles"), "",
 {0 = execVM "grad_buymenu\openMenu.sqf";},
   {side player == east}] call ace_interact_menu_fnc_createAction;
 ["rhs_gaz66_r142_vv", 0, ["ACE_MainActions"],_rusAction] call ace_interact_menu_fnc_addActionToClass;
+["rhsgref_BRDM2UM_ins_g", 0, ["ACE_MainActions"],_rusAction] call ace_interact_menu_fnc_addActionToClass;
 
 
+
+// SOVIET MODE SELF RADIO
+
+_selfRadioStart = ["ACE_MainActions", "Start calling US agents", "",
+ {player setVariable ["tf_range", 50000, true];},
+  {(player getVariable ["GRAD_isVIP",false]) && (player getVariable ["tf_range",0] == 0)}] call ace_interact_menu_fnc_createAction;
+
+[typeOf player, 1, ["ACE_MainActions"], _selfRadioStart] call ace_interact_menu_fnc_addActionToClass;
+
+_selfRadioStop = ["ACE_MainActions", "Stop calling US agents", "",
+ {player setVariable ["tf_range", 0, true];},
+  {(player getVariable ["GRAD_isVIP",false]) && (player getVariable ["tf_range",0] > 0)}] call ace_interact_menu_fnc_createAction;
+
+[typeOf player, 1, ["ACE_MainActions"], _selfRadioStop] call ace_interact_menu_fnc_addActionToClass;
 
 
 // RADIO TRUCK DEPLOY
@@ -267,7 +282,7 @@ waitUntil {!isNil "portableRadioBox"};
 
       [[portableRadioBox, false, [0,1,0], 180], "ace_dragging_fnc_setdraggable", true, true] call BIS_fnc_MP;
       RADIO_BOX = false; publicVariable "RADIO_BOX";
-      portableRadioBox attachTo [funkwagen,[0.3,-2.85,0.7]];
+      portableRadioBox attachTo [radio_object,[0.3,-2.85,0.7]];
       portableRadioBox setVectorDirAndUp [[0,1,0.3],[0,0,0.7]];
 
    }, {hint "Cancelled action"}, (localize "str_GRAD_attaching_radio")] call ace_common_fnc_progressBar;
