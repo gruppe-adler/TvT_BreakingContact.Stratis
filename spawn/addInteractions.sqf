@@ -66,39 +66,38 @@ _removeSpawn = ["ACE_MainActions", (localize "str_GRAD_buy_disable"), "",
 
 // BUY
 
-_usAction1 = ["ACE_MainActions", (localize "str_GRAD_buy_vehicles"), "",
+_usAction = ["ACE_MainActions", (localize "str_GRAD_buy_vehicles"), "",
  {0 = execVM "grad_buymenu\openMenu.sqf";},
   {side player == west}] call ace_interact_menu_fnc_createAction;
 
-["rhsusf_m998_w_4dr", 0, ["ACE_MainActions"], _usAction1] call ace_interact_menu_fnc_addActionToClass;
-
-_usAction2 = ["ACE_MainActions", (localize "str_GRAD_buy_vehicles"), "",
- {0 = execVM "grad_buymenu\openMenu.sqf";},
-  {side player == west}] call ace_interact_menu_fnc_createAction;
-
-["rhsusf_m998_d_4dr", 0, ["ACE_MainActions"], _usAction2] call ace_interact_menu_fnc_addActionToClass;
+["rhsusf_m998_w_4dr", 0, ["ACE_MainActions"], _usAction] call ace_interact_menu_fnc_addActionToClass;
+["rhsusf_m998_d_4dr", 0, ["ACE_MainActions"], _usAction] call ace_interact_menu_fnc_addActionToClass;
+["LOP_AM_Landrover_M2", 0, ["ACE_MainActions"],_usAction] call ace_interact_menu_fnc_addActionToClass;
 
 _rusAction = ["RusBuyMenu", (localize "str_GRAD_buy_vehicles"), "",
 {0 = execVM "grad_buymenu\openMenu.sqf";},
   {side player == east}] call ace_interact_menu_fnc_createAction;
 ["rhs_gaz66_r142_vv", 0, ["ACE_MainActions"],_rusAction] call ace_interact_menu_fnc_addActionToClass;
-["rhsgref_BRDM2UM_ins_g", 0, ["ACE_MainActions"],_rusAction] call ace_interact_menu_fnc_addActionToClass;
+["rhsgref_BRDM2_HQ_msv", 0, ["ACE_MainActions"],_rusAction] call ace_interact_menu_fnc_addActionToClass;
+
 
 
 
 // SOVIET MODE SELF RADIO
 
-_selfRadioStart = ["ACE_MainActions", "Start calling US agents", "",
+_selfRadioStart = ["ACE_SelfActions", "Start calling US agents", "",
  {player setVariable ["tf_range", 50000, true];},
   {(player getVariable ["GRAD_isVIP",false]) && (player getVariable ["tf_range",0] == 0)}] call ace_interact_menu_fnc_createAction;
 
-[typeOf player, 1, ["ACE_MainActions"], _selfRadioStart] call ace_interact_menu_fnc_addActionToClass;
+[typeOf player, 1, ["ACE_SelfActions"], _selfRadioStart] call ace_interact_menu_fnc_addActionToClass;
 
-_selfRadioStop = ["ACE_MainActions", "Stop calling US agents", "",
+_selfRadioStop = ["ACE_SelfActions", "Stop calling US agents", "",
  {player setVariable ["tf_range", 0, true];},
   {(player getVariable ["GRAD_isVIP",false]) && (player getVariable ["tf_range",0] > 0)}] call ace_interact_menu_fnc_createAction;
 
-[typeOf player, 1, ["ACE_MainActions"], _selfRadioStop] call ace_interact_menu_fnc_addActionToClass;
+[typeOf player, 1, ["ACE_SelfActions"], _selfRadioStop] call ace_interact_menu_fnc_addActionToClass;
+
+
 
 
 // RADIO TRUCK DEPLOY

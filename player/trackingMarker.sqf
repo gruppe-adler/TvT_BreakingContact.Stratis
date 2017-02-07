@@ -23,6 +23,13 @@ _nul2 = createMarkerLocal ["radio_box_marker", [0, 0, 0]];
 "radio_box_marker" setMarkerSizeLocal [1, 1];
 "radio_box_marker" setMarkerBrushLocal "SolidFull";
 
+_nul2 = createMarkerLocal ["last_seen", [0, 0, 0]];
+"last_seen" setMarkerShapeLocal "ICON";
+"last_seen" setMarkerColorLocal "ColorOpfor";
+"last_seen" setMarkerAlphaLocal 0;
+"last_seen" setMarkerTypeLocal "hd_dot";
+"last_seen" setMarkerTextLocal "last transmission";
+
 radioTruckMarkerAnimationIsRunning = false;
 radioBoxMarkerAnimationIsRunning = false;
 
@@ -43,6 +50,10 @@ radioTruckMarkerAnimation = {
 	_pulseDelayBetween = _this select 3;
 	_modifier = 1;
 
+	if (!FACTIONS_DEFAULT) then {
+		"last_seen" setMarkerAlphaLocal 1;
+	};
+
 	"radio_truck_marker" setMarkerAlphaLocal 1;
 	while {!RADIO_TRUCK_MARKER_HIDDEN} do {
 		if (_pulsesize > _pulseMaxSize) then {
@@ -51,10 +62,14 @@ radioTruckMarkerAnimation = {
 			sleep _pulseDelayBetween;
 		};
 
+
+
 		_pulsesize = _pulsesize + _modifier;
 		_modifier = _modifier + 0.1;
 		"radio_truck_marker" setMarkerAlphaLocal 1 - (_pulsesize/_pulseMaxSize);
 		"radio_truck_marker" setMarkerSizeLocal [_pulsesize, _pulsesize];
+
+		
 		
 		sleep _pulseSpeed;
 	};
@@ -109,6 +124,12 @@ ensureRadioTruckMarkerAnimation = {
 	_animationSpeed = 0.02; // delay between growth steps
 	_delayBetweenPulse = 0; // delay between cycles
 
+	if (!FACTIONS_DEFAULT) then {
+		_delayBetweenPulse = 1;
+	} else {
+		_delayBetweenPulse = 10;
+	};
+
 	if (!radioTruckMarkerAnimationIsRunning) then {
 		
 		[_size, _maxSize, _animationSpeed,_delayBetweenPulse] spawn radioTruckMarkerAnimation;
@@ -120,6 +141,12 @@ ensureRadioBoxMarkerAnimation = {
 	_size = 0.01;
 	_animationSpeed = 0.02;
 	_delayBetweenPulse = 1;
+	
+	if (!FACTIONS_DEFAULT) then {
+		_delayBetweenPulse = 1;
+	} else {
+		_delayBetweenPulse = 10;
+	};
 
 	if (!radioBoxMarkerAnimationIsRunning) then {
 		
@@ -131,6 +158,8 @@ ensureRadioBoxMarkerAnimation = {
 
 _RADIO_TRUCK_MARKER_POS_listener = {
 	"radio_truck_marker" setMarkerPosLocal (_this select 1);
+	"last_seen" setMarkerPosLocal (_this select 1);
+	// diag_log format ["radio truck marker moved to %1", (_this select 1)];
 };
 
 _RADIO_TRUCK_MARKER_HIDDEN_listener = {
@@ -161,12 +190,12 @@ _RADIO_BOX_MARKER_HIDDEN_listener = {
 
 // runs in SP to emulate addPublicVariableEventHandler (which doesnt work in SP)
 if (!isMultiplayer) then {
-	[_RADIO_TRUCK_MARKER_HIDDEN_listener, _RADIO_TRUCK_MARKER_POS_listener, _RADIO_BOX_MARKER_POS_listener, _RADIO_BOX_MARKER_POS_listener] spawn {
+	[_RADIO_TRUCK_MARKER_HIDDEN_listener, _RADIO_TRUCK_MARKER_POS_listener, _RADIO_BOX_MARKER_HIDDEN_listener, _RADIO_BOX_MARKER_POS_listener] spawn {
 		while {true} do {
 			[0, RADIO_TRUCK_MARKER_HIDDEN] call (_this select 0);
 			[0, RADIO_TRUCK_MARKER_POS] call (_this select 1);
-			[0, RADIO_BOX_MARKER_HIDDEN] call (_this select 0);
-			[0, RADIO_BOX_MARKER_POS] call (_this select 1);
+			[0, RADIO_BOX_MARKER_HIDDEN] call (_this select 2);
+			[0, RADIO_BOX_MARKER_POS] call (_this select 3);
 			sleep 2;
 		};
 	};

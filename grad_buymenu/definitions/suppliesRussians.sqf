@@ -42,8 +42,8 @@ if (IS_WOODLAND) then {
         (_this select 0) setObjectTextureGlobal [3,"rhsafrf\addons\rhs_t72_camo\data\rhs_t72b_04_sand_co.paa"];
         };
         kamaz_code = {
-        (_this select 0) setObjectTextureGlobal [0,"#(argb,8,8,3)color(0.8,0.7,0.5,0.2)"];
-        (_this select 0) setObjectTextureGlobal [3,"#(argb,8,8,3)color(0.8,0.7,0.5,0.2)"];
+        (_this select 0) setObjectTextureGlobal [0,"pic\vehicle_retex\rhs_kamaz_bed_co.jpg"];
+        (_this select 0) setObjectTextureGlobal [3,"pic\vehicle_retex\Kamaz5350_cabin_co.jpg"];
         };
     };
 

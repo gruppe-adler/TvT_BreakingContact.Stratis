@@ -14,12 +14,14 @@ _BRDM = [
     500,
     1,
     [],
-    {
-        clearWeaponCargoGlobal (_this select 0);
-        clearItemCargoGlobal (_this select 0);
-        clearBackpackCargoGlobal (_this select 0);
-        clearMagazineCargoGlobal (_this select 0);
+    {   _veh = _this select 0;
+        clearWeaponCargoGlobal _veh;
+        clearItemCargoGlobal _veh;
+        clearBackpackCargoGlobal _veh;
+        clearMagazineCargoGlobal _veh;
         ['AddCargoByClass', ['ACE_wheel', _this select 0, 2], _this select 0] call CBA_fnc_targetEvent;
+        _veh setObjectTextureGlobal [0, "rhsgref\addons\rhsgref_a2port_armor\brdm2\data\brdm2_3tone_01_co.paa"];
+        _veh setObjectTextureGlobal [1, "rhsgref\addons\rhsgref_a2port_armor\brdm2\data\brdm2_3tone_02_co.paa"];
     },
     format[''],
     0,
@@ -34,11 +36,12 @@ _BRM1K = [
     1,
     [],
     {
-        clearWeaponCargoGlobal (_this select 0);
-        clearItemCargoGlobal (_this select 0);
-        clearBackpackCargoGlobal (_this select 0);
-        clearMagazineCargoGlobal (_this select 0);
-        (_this select 0) addItemCargoGlobal ['ItemGPS',1];
+        _veh = _this select 0;
+        clearWeaponCargoGlobal _veh;
+        clearItemCargoGlobal _veh;
+        clearBackpackCargoGlobal _veh;
+        clearMagazineCargoGlobal _veh;
+        _veh addItemCargoGlobal ['ItemGPS',1];
         ['AddCargoByClass', ['ACE_track', _this select 0, 2], _this select 0] call CBA_fnc_targetEvent;
     },
     format[''],
@@ -46,9 +49,9 @@ _BRM1K = [
     0
 ];
 
-_BTR80 = [
-    ["rhs_btr80_msv"],
-    "BTR-80",
+_BTR70 = [
+    ["rhs_btr70_msv"],
+    "BTR-70",
     2,
     1000,
     1,
@@ -111,6 +114,6 @@ _mi24 = [
 
 suppliesOpfor setVariable ['BRDM', _BRDM, true];
 suppliesOpfor setVariable ['BRM1K', _BRM1K, true];
-suppliesOpfor setVariable ['BTR80', _BTR80, true];
+suppliesOpfor setVariable ['BTR70', _BTR70, true];
 suppliesOpfor setVariable ['MI8', _MI8, true];
 suppliesOpfor setVariable ['MI24', _mi24, true];

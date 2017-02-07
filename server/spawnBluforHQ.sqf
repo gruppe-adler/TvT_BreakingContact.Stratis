@@ -208,7 +208,7 @@ spawnBluforHQ = {
 	debugLog("blufor published target");
 	diag_log format ["creating blufor stuff on position: %1",US_VEHICLE_SPAWN];
 
-
+	_vehicle1
 };
 
 
@@ -254,6 +254,6 @@ spawnOpforHQ = {
 	/* OPFOR_TELEPORT_TARGET = getPos (_opforSpawnSuccess select 2);
 	publicVariableServer "OPFOR_TELEPORT_TARGET"; */
 
-	
+	_vehicle1
 	
 };

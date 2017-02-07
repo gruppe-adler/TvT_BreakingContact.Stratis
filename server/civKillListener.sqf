@@ -1,7 +1,7 @@
-_CIV_KILLED_POS_listener = {
-    publicVariable "CIV_KILLED_POS";
+_CIV_KILLED_listener = {
+    publicVariable "CIV_KILLED";
 
    };
 
 
-"CIV_KILLED_POS" addPublicVariableEventhandler _CIV_KILLED_POS_listener;
+"CIV_KILLED" addPublicVariableEventhandler _CIV_KILLED_listener;

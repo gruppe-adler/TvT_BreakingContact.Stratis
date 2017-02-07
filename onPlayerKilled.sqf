@@ -3,6 +3,7 @@
 if (!MISSION_COMPLETED) then {
 	[true] call ace_spectator_fnc_setSpectator;
 };
+
 [player, true] call TFAR_fnc_forceSpectator;
 
 _killer = player getVariable ["ace_medical_lastDamageSource", objNull];
@@ -13,6 +14,10 @@ if (!isNull _killer) then {
 	_pos set [2,3];
 
 	[0, _killer, -2, _pos] call ace_spectator_fnc_setCameraAttributes;
+
+	if (!FACTIONS_DEFAULT) then {
+		[player, _killer] call waveRespawnOnPlayerKilled;
+	};
 };
 
 _string = format ['Killed by %1',_killer];

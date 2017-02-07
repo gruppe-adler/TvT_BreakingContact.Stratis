@@ -14,4 +14,6 @@ if (isServer) then {
 	call compile preprocessFileLineNumbers "Engima\Traffic\Server\randomCivilian.sqf";
 	call compile preprocessFileLineNumbers "Engima\Traffic\Server\Functions.sqf";
 	call compile preprocessFileLineNumbers "Engima\Traffic\ConfigAndStart.sqf";
+	GRAD_civs_findPositionsOfInterest = compile preprocessFileLineNumbers "Engima\Traffic\Server\findPositionOfInterest.sqf";
+	GRAD_civs_taskPatrol = compile preprocessFileLineNumbers "Engima\Traffic\Server\taskPatrol.sqf";
 };

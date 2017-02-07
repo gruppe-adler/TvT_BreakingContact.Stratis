@@ -6,6 +6,9 @@ call compile preprocessfile "node_modules\shk_pos\functions\shk_pos_init.sqf"; /
 // get_slope used in spawnbluforhq.sqf
 call compile preprocessFileLineNumbers "helpers\findSimplePos.sqf";
 
+
+
+
 If(isNil "spawn_help_fnc_compiled") then { call compile preprocessFileLineNumbers "helpers\findPos.sqf"; }; // TODO why the if condition here?
 
 if (paramsArray select 10 == 1 || !isMultiplayer) then {
@@ -40,6 +43,9 @@ publicVariable "CIVILIAN_TRAFFIC"; // clients need to know this
 FACTIONS_DEFAULT = (paramsArray select 14 == 0);
 publicVariable "FACTIONS_DEFAULT";
 
+if (!FACTIONS_DEFAULT) then {
+	0 = execVM "server\wave_respawn\init.sqf";
+};
 
 setCustomWeather = {
 	// skipTime -24;
@@ -144,8 +150,8 @@ publicVariable "OPFOR_POINTS";
 showPointsInstant = {diag_log format ["debug: east checks transmission progress manually."];};
 
 // civilian traffic
-CIV_KILLED_POS = [0,0,0];
-publicVariable "CIV_KILLED_POS";
+CIV_KILLED = [[0,0,0],objNull];
+publicVariable "CIV_KILLED";
 CIV_GUNFIGHT_POS = [0,0,0];
 publicVariable "CIV_GUNFIGHT_POS";
 

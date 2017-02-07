@@ -50,12 +50,12 @@ _parameters = [
 	"RHS_Ural_Open_Civ_03",
 	"rhsgref_nat_uaz"
 	]],
-	["VEHICLES_COUNT", 10],
+	["VEHICLES_COUNT", 15],
 	["MIN_SPAWN_DISTANCE", 1500],
 	["MAX_SPAWN_DISTANCE", 2500],
 	["MIN_SKILL", 1],
 	["MAX_SKILL", 1],
-	["DEBUG", false]
+	["DEBUG", true]
 ];
 
 // Start an instance of the traffic

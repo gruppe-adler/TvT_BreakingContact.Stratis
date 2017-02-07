@@ -1,4 +1,4 @@
-_pos = _this select 0;
+_pos = _this select 0 select 0;
 _delay = 120; // 120 default
 
 

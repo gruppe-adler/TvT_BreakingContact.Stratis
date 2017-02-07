@@ -168,7 +168,7 @@ if (hasInterface) then {
 				};
 			} else {
 				switch (rank player) do {
-					case "CAPTAIN": { _canBuy = ['BRDM','BRM1K','BTR80','MI8','MI24']; };
+					case "CAPTAIN": { _canBuy = ['BRDM','BRM1K','BTR70','MI8','MI24']; };
 					default { _canBuy = []; };
 				};
 			};

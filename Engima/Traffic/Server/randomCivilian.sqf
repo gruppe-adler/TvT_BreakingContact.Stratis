@@ -115,9 +115,9 @@ randomCivilian = {
     addKilledNews = {
        (_this select 0) addEventhandler ["Killed",
         {
-         CIV_KILLED_POS = (position (_this select 0));
-         diag_log format ["civ killed at %1",CIV_KILLED_POS];
-         publicVariableServer "CIV_KILLED_POS";
+         CIV_KILLED = [(position (_this select 0)), (_this select 0) getVariable ["ace_medical_lastDamageSource", objNull]];
+         diag_log format ["civ killed: %1",CIV_KILLED];
+         publicVariableServer "CIV_KILLED";
          (_this select 0) removeAllEventHandlers "Killed";
          (_this select 0) removeAllEventHandlers "FiredNear";
         }];

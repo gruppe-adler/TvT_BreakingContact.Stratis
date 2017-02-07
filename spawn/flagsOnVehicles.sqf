@@ -6,9 +6,13 @@ GRAD_attachThatFlag = {
 	params ["_vehicle", "_pos", "_vectorup"];
 
 	_flag = "rhs_Flag_chdkz" createVehicle [0,0,0];
-	if (IS_WOODLAND) then {
-		_flag setFlagTexture "\rhsafrf\addons\rhs_main\data\Flag_dnr_CO.paa";
-	} else {};
+	if (!FACTIONS_DEFAULT) then {
+		if (IS_WOODLAND) then {
+			_flag setFlagTexture "\rhsafrf\addons\rhs_main\data\Flag_dnr_CO.paa";
+		} else {};
+	} else {
+			_flag setFlagTexture "pic\flags\flag_sov_co.paa";
+	};
 	_flag attachto [_vehicle,_pos];
 	_flag setVectorUp _vectorup;
 
@@ -37,7 +41,9 @@ _vehicleFlagDefinitions = [
 	["rhs_gaz66_repair_vdv",[1.1,-1.9,2.2], [0,0,0]],
 	["rhs_gaz66_r142_vv",[1.1,-2.1,2.9], [0,0,0]],
 	["rhs_bmp1_msv", [0,-2.5,0.6], [0,0,0]],
-	["rhs_btr70_msv",[0,-2.7,0.6], [0,0,0]]
+	["rhs_btr70_msv",[0,-2.7,0.6], [0,0,0]],
+	["rhs_brm1k_msv", [0,-2.5,0.6], [0,0,0]],
+	["rhsgref_BRDM2_HQ_msv", [0.8,-1.15,1.3], [0,0,0]]
 ];
 
 {

@@ -101,6 +101,7 @@ sleep 2; // give it time, boy - possible fix for "Undefined variable in expressi
 
 [] spawn {
 	_result = [1,0];
+	_counter = 0;
 	while {true} do { // could be optimized and synced to real time - b/c as it is, there WILL be delays
 		_radioTruckIsSending = call radioTruckIsSending;
 		_radioBoxIsSending = call radioBoxIsSending;
@@ -138,9 +139,11 @@ sleep 2; // give it time, boy - possible fix for "Undefined variable in expressi
 		!_radioTruckIsSending call setRadioTruckMarkerStatus;
 		!_radioBoxIsSending call setRadioBoxMarkerStatus;
 
-		if (radio_object getHit "karoserie" == 1 && radio_object getHit "motor" == 1 && !(radio_object getVariable ["isCookingOff", false])) then {
-			radio_object setVariable ["isCookingOff", true, true];
-			[[radio_object, {[radio_object] call ace_cookoff_fnc_cookOff}], "helpers\execIfLocal.sqf"] remoteExec ["execVM",0,false];
+		if (typeOf radio_object == "rhs_gaz66_r142_vv") then {
+			if (radio_object getHit "karoserie" == 1 && radio_object getHit "motor" == 1 && !(radio_object getVariable ["isCookingOff", false])) then {
+				radio_object setVariable ["isCookingOff", true, true];
+				[[radio_object, {[radio_object] call ace_cookoff_fnc_cookOff}], "helpers\execIfLocal.sqf"] remoteExec ["execVM",0,false];
+			};
 		};
 
 		if (OPFOR_POINTS >= POINTS_NEEDED_FOR_VICTORY) exitWith {
@@ -153,13 +156,24 @@ sleep 2; // give it time, boy - possible fix for "Undefined variable in expressi
 
 
 		if (!RADIO_BOX_ACTIVE) then {
-			[getPos radio_object select 0, getPos radio_object select 1] call setRadioTruckMarkerPosition;
+			if (!FACTIONS_DEFAULT) then {
+				[getPos radio_object select 0, getPos radio_object select 1] call setRadioTruckMarkerPosition;
+			} else {
+				if (_counter < 10) then {
+					_counter = _counter + 1;
+				} else {
+					_counter = 0;
+					[getPos radio_object select 0, getPos radio_object select 1] call setRadioTruckMarkerPosition;
+				};
+			};
+			// diag_log format ["line 159 trackinmarker moved to %1,%2", getPos radio_object select 0, getPos radio_object select 1];
 			// diag_log format ["logging radio_object: %1", radio_object];
 		} else {
 			[getPos radio_object select 0, getPos radio_object select 1] call setRadioTruckMarkerPosition;
 			[getPos portableRadioBox select 0, getPos portableRadioBox select 1] call setRadioBoxMarkerPosition;
 			// diag_log format ["logging portableRadioBox: %1", portableRadioBox];
 		};
+		
 		sleep 1;
 	};
 };

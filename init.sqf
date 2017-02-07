@@ -11,7 +11,7 @@ spawnStuff = compile preprocessFile "helpers\spawnStuff.sqf";
 
 
 // optimize for PVP
-// disableRemoteSensors true; // ai driving behaviour affected?
+disableRemoteSensors true; // ai driving behaviour affected?
 setViewDistance 3500;
 
 // wait until server has decided about parameters

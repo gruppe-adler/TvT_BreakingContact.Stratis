@@ -5,9 +5,19 @@ createOpforStuff =  {
 		[_position] call spawnRadioTruck;
 	} else {
 		blufor_teamlead setVariable ["GRAD_isVIP", true, true];
-		radio_object = blufor_teamlead;
+		
+		if (!isMultiplayer) then {
+			radio_object = player;
+		} else {
+			radio_object = blufor_teamlead;
+		};
+		radio_object setVariable ["detachableRadio", 0, true];
 		publicVariable "radio_object";
-		[_position, 50, "rhsgref_BRDM2UM_ins_g"] call spawnOpforHQ;
+
+		_startVehicle = [_position, 50, "rhsgref_BRDM2_HQ_msv"] call spawnOpforHQ;
+		[_startVehicle] call clearInventory;
+		_startVehicle setObjectTextureGlobal [0, "rhsgref\addons\rhsgref_a2port_armor\brdm2\data\brdm2_3tone_01_co.paa"];
+        _startVehicle setObjectTextureGlobal [1, "rhsgref\addons\rhsgref_a2port_armor\brdm2\data\brdm2_3tone_02_co.paa"];
 	};
 
 	0 = [] execVM "server\spawn\showLeaderInformation.sqf";
@@ -33,7 +43,7 @@ createBluforStuff = {
 		blufor_hq = "LOP_AM_Landrover_M2";
 	};
 
-	[_opforposition, BLUFOR_SPAWN_DISTANCE, blufor_hq] call spawnBluforHQ;
+	_spawnVehicle = [_opforposition, BLUFOR_SPAWN_DISTANCE, blufor_hq] call spawnBluforHQ;
 
 	if (!isMultiplayer) then {
 		_blufor_marker_start = createMarker ["debug_blufor_marker_start", US_VEHICLE_SPAWN];
