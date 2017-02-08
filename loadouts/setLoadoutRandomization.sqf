@@ -112,6 +112,9 @@
     "uniform"
 ] call GRAD_Loadout_fnc_addReviver;
 
+// randomize beards if possible
+if (!(isClass (configfile >> "CfgGlasses" >> "TRYK_Beard"))) exitWith {};
+
 [
     {
         _value = param [0];
@@ -122,7 +125,9 @@
                 "TRYK_Beard_BK3",
                 "TRYK_Beard_BK4",
                 "TRYK_Beard_BW",
-                "LOP_H_Pakol"
+                "TRYK_Beard_BK",
+                "TRYK_Beard_BK",
+                "TRYK_Beard_BK"
             ];
         };
         _value

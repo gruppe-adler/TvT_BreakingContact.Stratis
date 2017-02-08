@@ -17,6 +17,16 @@ if (!isNull _killer) then {
 
 	if (!FACTIONS_DEFAULT) then {
 		[player, _killer] call waveRespawnOnPlayerKilled;
+		switch (playerSide) do {
+			case (west) do {
+				[[west], [east,civilian]] call ace_spectator_fnc_updateSpectatableSides;
+			};
+			case (east) do {
+				[[east], [west,civilian]] call ace_spectator_fnc_updateSpectatableSides;
+			};
+			default {};
+		};
+		
 	};
 };
 

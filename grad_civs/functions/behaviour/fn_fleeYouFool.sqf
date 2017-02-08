@@ -1,8 +1,14 @@
 _thisUnit = _this select 0;
+_group = group _thisUnit;
 
-deleteWaypoint [group _thisUnit, all];
-_thisUnit unassignVehicle (vehicle _thisUnit);
-_thisUnit leaveVehicle (vehicle _thisUnit);
+_animationHiding = ["Acts_CivilHiding_1", "Acts_CivilHiding_2"];
+_animationSitting = ["Acts_CivilShocked_1", "Acts_CivilShocked_2"];
+
+while {(count (waypoints _group)) > 0} do
+{
+	deleteWaypoint ((waypoints _group) select 0);
+};
+
 _thisUnit disableAI "FSM";
 
 _buildingPosition = 0;
@@ -20,7 +26,7 @@ if (count _buildingPosition > 0) then {
 	_thisUnit doMove _pos;
 	_thisUnit setSpeedMode "FULL";
 	_thisUnit forceSpeed 25;
-	_thisUnit playMove "AmovPercMevaSnonWnonDf";				
+	_thisUnit playMove "SprintCivilBaseDf";				
 	_thisUnit setVariable ["fleeing", "true"];
 	waitUntil {
 	  _thisUnit distance _pos < 2
@@ -30,6 +36,7 @@ if (count _buildingPosition > 0) then {
  	_thisUnit stop true;
  	_thisUnit disableAI "autoTarget";
  	_thisUnit disableAI "MOVE";
+ 	_thisUnit disableAI "ANIM";
  	_thisUnit removeAllEventHandlers "FiredNear";
 
 } else {
@@ -37,7 +44,7 @@ if (count _buildingPosition > 0) then {
 	_thisUnit doMove _pos;
 	_thisUnit setSpeedMode "FULL";
 	_thisUnit forceSpeed 20;
-	_thisUnit playMove "AmovPercMevaSnonWnonDf";				
+	_thisUnit playMove "SprintCivilBaseDf";				
 	_thisUnit setVariable ["fleeing", "true"];
 	waitUntil {
 	  _thisUnit distance _pos < 2
@@ -47,5 +54,6 @@ if (count _buildingPosition > 0) then {
 	_thisUnit stop true;
  	_thisUnit disableAI "autoTarget";
  	_thisUnit disableAI "MOVE";
+ 	_thisUnit disableAI "ANIM";
  	_thisUnit removeAllEventHandlers "FiredNear";
 };

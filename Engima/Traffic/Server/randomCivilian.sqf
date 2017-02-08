@@ -5,68 +5,64 @@
 randomCivilian = {
 	_unit = _this select 0;
 
-	_rds_rhs_civilian = [
-	"rds_uniform_Worker1",
-	"rds_uniform_Worker2",
-	"rds_uniform_Worker3",
-	"rds_uniform_Worker4",
-	"rds_uniform_Woodlander1",
-	"rds_uniform_Woodlander2",
-	"rds_uniform_Woodlander3",
-	"rds_uniform_Woodlander4",
-	"rds_uniform_Villager1",
-	"rds_uniform_Villager2",
-	"rds_uniform_Villager3",
-	"rds_uniform_Villager4",
-	"rds_uniform_Profiteer1",
-	"rds_uniform_Profiteer2",
-	"rds_uniform_Profiteer3",
-	"rds_uniform_Profiteer4",
-	"rds_uniform_citizen1",
-	"rds_uniform_citizen2",
-	"rds_uniform_citizen3",
-	"rds_uniform_citizen4"
+	_uniform = [
+		"LOP_U_AM_Fatigue_01",
+	    "LOP_U_AM_Fatigue_01_2",
+	    "LOP_U_AM_Fatigue_01_3",
+	    "LOP_U_AM_Fatigue_01_4",
+	    "LOP_U_AM_Fatigue_01_5",
+	    "LOP_U_AM_Fatigue_01_6",
+	    "LOP_U_AM_Fatigue_02",
+	    "LOP_U_AM_Fatigue_02_2",
+	    "LOP_U_AM_Fatigue_02_3",
+	    "LOP_U_AM_Fatigue_02_4",
+	    "LOP_U_AM_Fatigue_02_5",
+	    "LOP_U_AM_Fatigue_02_6",
+	    "LOP_U_AM_Fatigue_03",
+	    "LOP_U_AM_Fatigue_03_2",
+	    "LOP_U_AM_Fatigue_03_3",
+	    "LOP_U_AM_Fatigue_03_4",
+	    "LOP_U_AM_Fatigue_03_5",
+	    "LOP_U_AM_Fatigue_03_6",
+	    "LOP_U_AM_Fatigue_04",
+	    "LOP_U_AM_Fatigue_04_2",
+	    "LOP_U_AM_Fatigue_04_3",
+	    "LOP_U_AM_Fatigue_04_4",
+	    "LOP_U_AM_Fatigue_04_5",
+	    "LOP_U_AM_Fatigue_04_6"
 	] call BIS_fnc_selectRandom;
 
-	_rhsHeadGear = [
-	"rds_Villager_cap1",
-	"rds_Villager_cap2",
-	"rds_Villager_cap3",
-	"rds_Villager_cap4",
-	"rds_worker_cap1",
-	"rds_worker_cap2",
-	"rds_worker_cap3",
-	"rds_worker_cap4",
-	"rds_Profiteer_cap1",
-	"rds_Profiteer_cap2",
-	"rds_Profiteer_cap3",
-	"rds_Profiteer_cap4",
-	"rhs_beanie_green",
-	"rhs_beanie_green"
+	_headgear = [
+	    "LOP_H_Turban",
+        "LOP_H_Turban",
+        "LOP_H_Pakol",
+        "LOP_H_Pakol",
+        "LOP_H_Pakol",
+        "LOP_H_Pakol"
 	] call BIS_fnc_selectRandom;
 
 	_taliFaces = [
-	"PersianHead_A3_01",
-	"PersianHead_A3_02",
-	"PersianHead_A3_03",
-	"PersianHead_A3_01",
-	"PersianHead_A3_02",
-	"PersianHead_A3_03",
-	"PersianHead_A3_01",
-	"PersianHead_A3_02",
-	"PersianHead_A3_03",
-	"WhiteHead_08",
-	"WhiteHead_16",
-	"GreekHead_A3_01",
-	"GreekHead_A3_02",
-	"GreekHead_A3_03",
-	"GreekHead_A3_04"
+		"PersianHead_A3_01",
+		"PersianHead_A3_02",
+		"PersianHead_A3_03",
+		"PersianHead_A3_01",
+		"PersianHead_A3_02",
+		"PersianHead_A3_03",
+		"PersianHead_A3_01",
+		"PersianHead_A3_02",
+		"PersianHead_A3_03",
+		"WhiteHead_08",
+		"WhiteHead_16",
+		"GreekHead_A3_01",
+		"GreekHead_A3_02",
+		"GreekHead_A3_03",
+		"GreekHead_A3_04"
 	] call BIS_fnc_selectRandom;
 
 
 
 
-	_stripHim = {
+	_stripHimEngima = {
 		_it = _this select 0;
 			removeAllWeapons _it;
 			removeAllItems _it;
@@ -78,11 +74,11 @@ randomCivilian = {
 			removeGoggles _it;	
 	};
 
-	_reclotheHim = {
+	_reclotheHimEngima = {
 		_guy = _this select 0;
-		_guy forceAddUniform _rds_rhs_civilian;
+		_guy forceAddUniform _uniform;
 		if (random 2 > 1) then {
-			_guy addHeadgear _rhsHeadGear;
+			_guy addHeadgear _headgear;
 		};
 
 		[[_guy,_taliFaces], "setCustomFace"] call BIS_fnc_MP;
@@ -90,29 +86,16 @@ randomCivilian = {
 		
 	};
 
-	/*
-	addFleeingBehaviour = {
-		(_this select 0) setVariable ["fleeing",false];
+	
 
-		(_this select 0) addEventHandler ["FiredNear", {
-
-			if ((_this select 0) getVariable "fleeing" == "true") exitWith {};
-
-			_thisUnit = _this select 0;		
-
-			sleep (random 1);
-		 	{[_x] execVM "Engima\Traffic\Server\fleeYouFool.sqf";} forEach crew (vehicle _thisUnit);
-		}];
-	};*/
-
-	addBehaviour = {
+	_addBehaviourEngima = {
 		group (_this select 0) setBehaviour "CARELESS";
 		(_this select 0) disableAI "TARGET";
 		(_this select 0) disableAI "AUTOTARGET";
 	};
 
 
-    addKilledNews = {
+    _addKilledNewsEngima = {
        (_this select 0) addEventhandler ["Killed",
         {
          CIV_KILLED = [(position (_this select 0)), (_this select 0) getVariable ["ace_medical_lastDamageSource", objNull]];
@@ -124,7 +107,7 @@ randomCivilian = {
 
     };
 
-    addGunfightNews = {
+    _addGunfightNewsEngima = {
        (_this select 0) addEventhandler ["FiredNear",
         {
          CIV_GUNFIGHT_POS = (position (_this select 0));
@@ -134,11 +117,11 @@ randomCivilian = {
 
     };
 
-	[_unit] call _stripHim;
+	[_unit] call _stripHimEngima;
 	sleep 0.1;
-	[_unit] call _reclotheHim;
+	[_unit] call _reclotheHimEngima;
 	// [_unit] call addFleeingBehaviour;
-    [_unit] call addKilledNews;
-    [_unit] call addGunfightNews;
-    [_unit] call addBehaviour;
+    [_unit] call _addKilledNewsEngima;
+    [_unit] call _addGunfightNewsEngima;
+    [_unit] call _addBehaviourEngima;
 };

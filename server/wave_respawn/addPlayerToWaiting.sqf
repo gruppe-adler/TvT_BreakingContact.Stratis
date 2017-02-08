@@ -1,7 +1,7 @@
 params ["_deadPlayer", ["_deadPlayerSide", sideUnknown]];
 
-if (_deadPlayer getVariable ["GRAD_wr_respawnCount",0] > 5) exitWith {
-    ["You died too often. Respawns are disabled now."] remoteExec ["hintSilent", _deadPlayer, false];
+if (_deadPlayer getVariable ["GRAD_wr_respawnCount",0] > 1) exitWith {
+    [] remoteExec ["GRAD_wr_removeFromWaveRespawn", _deadPlayer, false];
 };
 
 switch (_deadPlayerSide) do {

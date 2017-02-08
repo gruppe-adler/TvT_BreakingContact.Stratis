@@ -17,3 +17,6 @@ forceRespawn player;
 
 
 player setVariable ["GRAD_wr_respawnCount", player getVariable ["GRAD_wr_respawnCount",0] + 1, true];
+
+_vehClass = player getVariable ["GRAD_wr_vehicleRespawnClass", ""];
+_vehClass createVehicle position player;

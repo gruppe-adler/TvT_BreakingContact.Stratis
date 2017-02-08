@@ -7,6 +7,7 @@
 class CfgFunctions {
 	#include "node_modules\grad-loadout\cfgFunctions.hpp"
 	#include "node_modules\grad-fortifications\cfgFunctions.hpp"
+	#include  "grad_civs\cfgFunctions.hpp"
 };
 
 class RscTitles {
@@ -286,90 +287,6 @@ class CfgSounds
 
 
 
-class CfgUnitInsignia
-{
-	class grad_command
-	{
-		displayName = "GRAD Command"; // Name displayed in Arsenal
-		author = "Gruppe Adler"; // Author displayed in Arsenal
-		texture = "pic\insignia\command.paa"; // Image path
-		textureVehicle = ""; // Does nothing currently, reserved for future use
-	};
-
-	class grad_alpha
-	{
-		displayName = "GRAD Alpha"; // Name displayed in Arsenal
-		author = "Gruppe Adler"; // Author displayed in Arsenal
-		texture = "pic\insignia\alpha.paa"; // Image path
-		textureVehicle = ""; // Does nothing currently, reserved for future use
-	};
-
-	class grad_bravo
-	{
-		displayName = "GRAD Bravo"; // Name displayed in Arsenal
-		author = "Gruppe Adler"; // Author displayed in Arsenal
-		texture = "pic\insignia\bravo.paa"; // Image path
-		textureVehicle = ""; // Does nothing currently, reserved for future use
-	};
-
-	class grad_charlie
-	{
-		displayName = "GRAD Charlie"; // Name displayed in Arsenal
-		author = "Gruppe Adler"; // Author displayed in Arsenal
-		texture = "pic\insignia\charlie.paa"; // Image path
-		textureVehicle = ""; // Does nothing currently, reserved for future use
-	};
-
-	class grad_delta
-	{
-		displayName = "GRAD Delta"; // Name displayed in Arsenal
-		author = "Gruppe Adler"; // Author displayed in Arsenal
-		texture = "pic\insignia\delta.paa"; // Image path
-		textureVehicle = ""; // Does nothing currently, reserved for future use
-	};
-
-class grad_foxtrot
-	{
-		displayName = "GRAD Foxtrot"; // Name displayed in Arsenal
-		author = "Gruppe Adler"; // Author displayed in Arsenal
-		texture = "pic\insignia\foxtrot.paa"; // Image path
-		textureVehicle = ""; // Does nothing currently, reserved for future use
-	};
-
-class grad_golf
-	{
-		displayName = "GRAD Golf"; // Name displayed in Arsenal
-		author = "Gruppe Adler"; // Author displayed in Arsenal
-		texture = "pic\insignia\golf.paa"; // Image path
-		textureVehicle = ""; // Does nothing currently, reserved for future use
-	};
-
-class grad_hotel
-	{
-		displayName = "GRAD Hotel"; // Name displayed in Arsenal
-		author = "Gruppe Adler"; // Author displayed in Arsenal
-		texture = "pic\insignia\hotel.paa"; // Image path
-		textureVehicle = ""; // Does nothing currently, reserved for future use
-	};
-
-class grad_india
-	{
-		displayName = "GRAD India"; // Name displayed in Arsenal
-		author = "Gruppe Adler"; // Author displayed in Arsenal
-		texture = "pic\insignia\india.paa"; // Image path
-		textureVehicle = ""; // Does nothing currently, reserved for future use
-	};
-
-	class grad_air
-	{
-		displayName = "GRAD Air"; // Name displayed in Arsenal
-		author = "Gruppe Adler"; // Author displayed in Arsenal
-		texture = "pic\insignia\air.paa"; // Image path
-		textureVehicle = ""; // Does nothing currently, reserved for future use
-	};
-};
-
-
 
 class Loadouts {
 	#include "LIST_N.hpp"
@@ -391,7 +308,6 @@ class Loadouts {
 
 		#include "loadouts\SOV_Desert.hpp"
 		#include "loadouts\MUD_Desert.hpp"
-		
 	};
 };
 
