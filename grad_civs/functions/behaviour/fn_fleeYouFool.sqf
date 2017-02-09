@@ -22,15 +22,16 @@ if (!isNull _building) then {
 //hintSilent format ["%1",_bla select 0];
 if (count _buildingPosition > 0) then {
 	_thisUnit setBehaviour "SAFE";
-	_pos = [_buildingPosition] call BIS_fnc_selectRandom;
+	_pos = selectRandom _buildingPosition;
 	_thisUnit doMove _pos;
+	diag_log format ["buildingpos is %1", _pos];
 	_thisUnit setSpeedMode "FULL";
 	_thisUnit forceSpeed 25;
 	_thisUnit playMove "SprintCivilBaseDf";				
 	_thisUnit setVariable ["GRAD_fleeing", true];
-	waitUntil {
-	  _thisUnit distance _pos < 2
-	};
+	
+
+	sleep 6;
 	
 	_thisUnit playMoveNow 'AinvPknlMstpSnonWnonDnon_1'; 
  	_thisUnit stop true;
