@@ -19,4 +19,4 @@ GRAD_civs_mainLoop = [{
     };
 
 
-},5,[]] call CBA_fnc_addPerFrameHandler;
+},10,[]] call CBA_fnc_addPerFrameHandler;

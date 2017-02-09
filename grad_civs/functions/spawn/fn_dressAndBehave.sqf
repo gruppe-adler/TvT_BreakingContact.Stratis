@@ -39,7 +39,7 @@ _addBeard = {
 	params ["_guy"];
 
 	_firstBeard = GRAD_civ_beards select 0;
-	diag_log format ["_trying to select beard %1", _firstBeard];
+	// diag_log format ["_trying to select beard %1", _firstBeard];
 	// add beards if possible
 	if (!(isClass (configfile >> "CfgGlasses" >> "TRYK_Beard"))) exitWith {};
 
