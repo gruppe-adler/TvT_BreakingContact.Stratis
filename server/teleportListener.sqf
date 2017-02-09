@@ -14,7 +14,7 @@ createOpforStuff =  {
 		radio_object setVariable ["detachableRadio", 0, true];
 		publicVariable "radio_object";
 
-		_startVehicle = [_position, 50, "rhsgref_BRDM2_HQ_msv"] call spawnOpforHQ;
+		_startVehicle = [_position, 10, "rhsgref_BRDM2_HQ_msv"] call spawnOpforHQ;
 		[_startVehicle] call clearInventory;
 		_startVehicle setObjectTextureGlobal [0, "rhsgref\addons\rhsgref_a2port_armor\brdm2\data\brdm2_3tone_01_co.paa"];
         _startVehicle setObjectTextureGlobal [1, "rhsgref\addons\rhsgref_a2port_armor\brdm2\data\brdm2_3tone_02_co.paa"];
