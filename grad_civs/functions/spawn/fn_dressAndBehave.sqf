@@ -19,13 +19,11 @@ _stripHim = {
 	_return
 };
 
-_unitLoadout = [];
+
 //_unitLoadout = [[],[],[],[""LOP_U_AM_Fatigue_01"",[]],[],[],""LOP_H_Pakol"","""",[],["""","""","""","""","""",""""]];
-if (random 2 > 1) then {
-	_unitLoadout = [[],[],[],[selectRandom GRAD_civ_clothes,[]],[],[],selectRandom GRAD_civ_headgear,"""",[],["""","""","""","""","""",""""]];
-} else {
-	_unitLoadout = [[],[],[],[selectRandom GRAD_civ_clothes,[]],[],["rhs_sidor"],selectRandom GRAD_civ_headgear,"""",[],["""","""","""","""","""",""""]];
-};
+
+_unitLoadout = [[],[],[],[selectRandom GRAD_civ_clothes,[]],[],[],selectRandom GRAD_civ_headgear,"""",[],["""","""","""","""","""",""""]];
+
 
 _reclotheHim = {
 	params ["_guy", "_loadout"];
@@ -50,11 +48,11 @@ _addBeard = {
 
 
 _addFleeingBehaviour = {
-	(_this select 0) setVariable ["fleeing",false];
+	(_this select 0) setVariable ["GRAD_fleeing",false];
 
 	(_this select 0) addEventHandler ["FiredNear", {
 
-		if ((_this select 0) getVariable ["fleeing",false]) exitWith {};
+		if ((_this select 0) getVariable ["GRAD_fleeing",false]) exitWith {};
 
 		_thisUnit = _this select 0;	
 

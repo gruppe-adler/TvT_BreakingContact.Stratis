@@ -27,7 +27,7 @@ if (count _buildingPosition > 0) then {
 	_thisUnit setSpeedMode "FULL";
 	_thisUnit forceSpeed 25;
 	_thisUnit playMove "SprintCivilBaseDf";				
-	_thisUnit setVariable ["fleeing", "true"];
+	_thisUnit setVariable ["GRAD_fleeing", true];
 	waitUntil {
 	  _thisUnit distance _pos < 2
 	};
@@ -45,7 +45,7 @@ if (count _buildingPosition > 0) then {
 	_thisUnit setSpeedMode "FULL";
 	_thisUnit forceSpeed 20;
 	_thisUnit playMove "SprintCivilBaseDf";				
-	_thisUnit setVariable ["fleeing", "true"];
+	_thisUnit setVariable ["GRAD_fleeing", true];
 	waitUntil {
 	  _thisUnit distance _pos < 2
 	};
