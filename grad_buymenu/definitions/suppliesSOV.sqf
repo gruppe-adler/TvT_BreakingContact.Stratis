@@ -19,6 +19,9 @@ _BRDM = [
         clearItemCargoGlobal _veh;
         clearBackpackCargoGlobal _veh;
         clearMagazineCargoGlobal _veh;
+        _veh addItemCargoGlobal ["rhs_tsh4",3];
+        _veh addItemCargoGlobal ["ItemGPS",1];
+
         ['AddCargoByClass', ['ACE_wheel', _this select 0, 2], _this select 0] call CBA_fnc_targetEvent;
         _veh setObjectTextureGlobal [0, "rhsgref\addons\rhsgref_a2port_armor\brdm2\data\brdm2_3tone_01_co.paa"];
         _veh setObjectTextureGlobal [1, "rhsgref\addons\rhsgref_a2port_armor\brdm2\data\brdm2_3tone_02_co.paa"];
@@ -41,7 +44,10 @@ _BRM1K = [
         clearItemCargoGlobal _veh;
         clearBackpackCargoGlobal _veh;
         clearMagazineCargoGlobal _veh;
-        _veh addItemCargoGlobal ['ItemGPS',1];
+
+        _veh addItemCargoGlobal ["rhs_tsh4",3];
+        _veh addItemCargoGlobal ["ItemGPS",1];
+
         ['AddCargoByClass', ['ACE_track', _this select 0, 2], _this select 0] call CBA_fnc_targetEvent;
     },
     format[''],
@@ -62,7 +68,10 @@ _BTR70 = [
         clearItemCargoGlobal _veh;
         clearBackpackCargoGlobal _veh;
         clearMagazineCargoGlobal _veh;
-        (_this select 0) addItemCargoGlobal ['ItemGPS',1];
+        
+        _veh addItemCargoGlobal ["rhs_tsh4",3];
+        _veh addItemCargoGlobal ["ItemGPS",1];
+
         ['AddCargoByClass', ['ACE_wheel', _this select 0, 2], _this select 0] call CBA_fnc_targetEvent;
     },
     format[''],
@@ -79,11 +88,13 @@ _MI8 = [
     1,
     [],
     {
-        clearWeaponCargoGlobal (_this select 0);
-        clearItemCargoGlobal (_this select 0);
-        clearBackpackCargoGlobal (_this select 0);
-        clearMagazineCargoGlobal (_this select 0);
-        (_this select 0) addItemCargoGlobal ['ItemGPS',1];
+        _veh = (_this select 0); 
+        clearWeaponCargoGlobal _veh;
+        clearItemCargoGlobal _veh;
+        clearBackpackCargoGlobal _veh;
+        clearMagazineCargoGlobal _veh;
+        _veh addItemCargoGlobal ["rhs_tsh4",3];
+        _veh addItemCargoGlobal ["ItemGPS",1];
     },
     format[''],
     0,
@@ -100,11 +111,13 @@ _mi24 = [
     1,
     ["exhaust_hide",1,"at_rack_hide",1],
     {
-        clearWeaponCargoGlobal (_this select 0);
-        clearItemCargoGlobal (_this select 0);
-        clearBackpackCargoGlobal (_this select 0);
-        clearMagazineCargoGlobal (_this select 0);
-        (_this select 0) addItemCargoGlobal ['ItemGPS',1];
+        _veh = (_this select 0); 
+        clearWeaponCargoGlobal _veh;
+        clearItemCargoGlobal _veh;
+        clearBackpackCargoGlobal _veh;
+        clearMagazineCargoGlobal _veh;
+        _veh addItemCargoGlobal ["rhs_tsh4",3];
+        _veh addItemCargoGlobal ["ItemGPS",1];
     },
     format[''],
     0,

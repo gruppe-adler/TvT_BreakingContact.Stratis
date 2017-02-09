@@ -27,4 +27,6 @@ params ["_playerPositions"];
 	GRAD_CIV_ONFOOT_COUNT = GRAD_CIV_ONFOOT_COUNT + 1;
 	GRAD_CIV_ONFOOT_GROUPS = GRAD_CIV_ONFOOT_GROUPS + [group _unit];
 
+	diag_log format ["added civilian on foot, now %1", GRAD_CIV_ONFOOT_COUNT];
+
 };

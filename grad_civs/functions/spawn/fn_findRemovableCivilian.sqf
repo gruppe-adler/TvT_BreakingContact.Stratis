@@ -3,11 +3,19 @@ params ["_allPlayerPositions", "_minSpawnDistance", "_maxSpawnDistance", "_activ
 // If any vehicle is too far away, delete it
 _tempVehiclesAndGroup = [];
 _deletedVehiclesCount = 0;
-{
-    private ["_closestUnitDistance", "_distance", "_crewUnits"];
+
+if (count _activeGroups == 0) exitWith {};
     
-    _unit = (units _x) select 0; // its 1 unit groups always
+{
+    private ["_closestUnitDistance", "_distance", "_unit"];
+ 
+    if (count units _x == 0) exitWith {
+        _tempVehiclesAndGroup = _tempVehiclesAndGroup - [_group];
+        deleteGroup _x;
+    };
+
     _group = _x;
+    _unit = (units _x) select 0; // its 1 unit groups always
     
     _closestUnitDistance = 1000000;
     

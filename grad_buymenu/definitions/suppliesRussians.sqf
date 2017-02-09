@@ -60,6 +60,7 @@ _aatruck = [
         clearItemCargoGlobal (_this select 0);
         clearBackpackCargoGlobal (_this select 0);
         clearMagazineCargoGlobal (_this select 0);
+         (_this select 0) addItemCargoGlobal ["ItemGPS",1];
         ['AddCargoByClass', ['ACE_wheel', _this select 0, 2], _this select 0] call CBA_fnc_targetEvent;
         [(_this select 0)] execVM "server\spawn\fnc_attachAAToKamaz.sqf";
         call kamaz_code;
@@ -83,6 +84,7 @@ _car = [
         clearItemCargoGlobal (_this select 0);
         clearBackpackCargoGlobal (_this select 0);
         clearMagazineCargoGlobal (_this select 0);
+         (_this select 0) addItemCargoGlobal ["ItemGPS",1];
         ['AddCargoByClass', ['ACE_wheel', _this select 0, 2], _this select 0] call CBA_fnc_targetEvent;
     },
     format[''],
@@ -103,6 +105,7 @@ _ammotruck = [
         clearItemCargoGlobal _truck;
         clearBackpackCargoGlobal _truck;
         clearMagazineCargoGlobal _truck;
+         (_this select 0) addItemCargoGlobal ["ItemGPS",1];
         _truck addMagazineCargoGlobal ['SmokeShell',20];
         _truck addMagazineCargoGlobal ['SmokeShellRed',20];
         _truck addMagazineCargoGlobal ['rhs_30Rnd_762x39mm_tracer',30];
@@ -161,6 +164,7 @@ _uaz = [
     clearItemCargoGlobal (_this select 0);
     clearBackpackCargoGlobal (_this select 0);
     clearMagazineCargoGlobal (_this select 0);
+     (_this select 0) addItemCargoGlobal ["ItemGPS",1];
     ['AddCargoByClass', ['ACE_wheel', _this select 0, 2], _this select 0] call CBA_fnc_targetEvent;
     },
     format[''],
@@ -182,8 +186,11 @@ _btr = [
     clearItemCargoGlobal (_this select 0);
     clearBackpackCargoGlobal (_this select 0);
     clearMagazineCargoGlobal (_this select 0);
-    (_this select 0) addItemCargoGlobal ['ItemGPS',1];
     ['AddCargoByClass', ['ACE_wheel', _this select 0, 2], _this select 0] call CBA_fnc_targetEvent;
+
+    (_this select 0) addItemCargoGlobal ["rhs_tsh4",3];
+    (_this select 0) addItemCargoGlobal ["ItemGPS",1];
+
     call btr_code;
     },
     format[''],

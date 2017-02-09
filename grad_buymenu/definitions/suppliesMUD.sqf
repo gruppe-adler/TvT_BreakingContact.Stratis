@@ -16,6 +16,7 @@ _civcar = [
         clearItemCargoGlobal (_this select 0);
         clearBackpackCargoGlobal (_this select 0);
         clearMagazineCargoGlobal (_this select 0);
+         (_this select 0) addItemCargoGlobal ["ItemGPS",1];
     },
     format[''],
     0,
@@ -34,6 +35,7 @@ _motorbike = [
         clearItemCargoGlobal (_this select 0);
         clearBackpackCargoGlobal (_this select 0);
         clearMagazineCargoGlobal (_this select 0);
+         (_this select 0) addItemCargoGlobal ["ItemGPS",1];
     },
     format[''],
     0,
@@ -52,6 +54,7 @@ _landrover = [
         clearItemCargoGlobal (_this select 0);
         clearBackpackCargoGlobal (_this select 0);
         clearMagazineCargoGlobal (_this select 0);
+         (_this select 0) addItemCargoGlobal ["ItemGPS",1];
     },
     format[''],
     0,
@@ -70,6 +73,7 @@ _uazspg9 = [
         clearItemCargoGlobal (_this select 0);
         clearBackpackCargoGlobal (_this select 0);
         clearMagazineCargoGlobal (_this select 0);
+         (_this select 0) addItemCargoGlobal ["ItemGPS",1];
     },
     format[''],
     0,

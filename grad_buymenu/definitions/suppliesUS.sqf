@@ -30,6 +30,7 @@ _mrzr4 = [
         clearItemCargoGlobal (_this select 0);
         clearBackpackCargoGlobal (_this select 0);
         clearMagazineCargoGlobal (_this select 0);
+         (_this select 0) addItemCargoGlobal ["ItemGPS",1];
         (_this select 0) addItemCargoGlobal ["U_B_Wetsuit",6];
         (_this select 0) addItemCargoGlobal ["V_RebreatherB",6];
         (_this select 0) addItemCargoGlobal ["G_B_Diving",6];
@@ -57,6 +58,7 @@ _hmmwv_m2 = [
         clearItemCargoGlobal (_this select 0);
         clearBackpackCargoGlobal (_this select 0);
         clearMagazineCargoGlobal (_this select 0);
+         (_this select 0) addItemCargoGlobal ["ItemGPS",1];
         ['AddCargoByClass', ['ACE_wheel', _this select 0, 2], _this select 0] call CBA_fnc_targetEvent;
       },
       format[''],
@@ -96,6 +98,7 @@ _ammo = [
         clearItemCargoGlobal (_this select 0);
         clearBackpackCargoGlobal (_this select 0);
         clearMagazineCargoGlobal (_this select 0);
+         (_this select 0) addItemCargoGlobal ["ItemGPS",1];
         (_this select 0) addMagazineCargoGlobal ['SmokeShell',20];
         (_this select 0) addMagazineCargoGlobal ['SmokeShellRed',20];
         (_this select 0) addMagazineCargoGlobal ['rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Yellow',30];
@@ -163,6 +166,7 @@ _ch53 = [
         clearMagazineCargoGlobal (_this select 0);
         (_this select 0) addItemCargoGlobal ['ACE_NVG_Wide',2];
         (_this select 0) addBackpackCargoGlobal ['B_Parachute',30];
+         (_this select 0) addItemCargoGlobal ["ItemGPS",1];
         [(_this select 0)] call ace_fastroping_fnc_equipFRIES;
       },
       format[''],

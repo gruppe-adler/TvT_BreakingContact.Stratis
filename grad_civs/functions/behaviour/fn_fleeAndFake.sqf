@@ -1,16 +1,14 @@
 _thisUnit = _this select 0;
 _group = group _thisUnit;
 
-diag_log format ["civ %1 is fleeing", _thisUnit];
-
-_animationHiding = ["Acts_CivilHiding_1", "Acts_CivilHiding_2"];
-_animationSitting = ["Acts_CivilShocked_1", "Acts_CivilShocked_2"];
+diag_log format ["civ %1 is faking a human", _thisUnit];
 
 
 
 _buildingPositions = [];
 
 _buildingPositions = nearestBuilding _thisUnit buildingPos -1;
+
 
 	 		
 //hintSilent format ["%1",_bla select 0];
@@ -24,10 +22,10 @@ if (count _buildingPositions > 0) then {
 	_thisUnit playMove "SprintCivilBaseDf";				
 	_thisUnit setVariable ["GRAD_fleeing", true];
 	
-	diag_log format ["civ %1 is fleeing to building", _thisUnit];
+	diag_log format ["civ %1 is fake fleeing to building", _thisUnit];
 	sleep (14 - (random 10));
 	
-	_thisUnit playMoveNow (selectRandom _animationHiding); 
+	_thisUnit playMoveNow 'AinvPknlMstpSnonWnonDnon_1'; 
  	_thisUnit stop true;
  	_thisUnit disableAI "autoTarget";
  	_thisUnit disableAI "MOVE";
@@ -35,20 +33,17 @@ if (count _buildingPositions > 0) then {
  	_thisUnit removeAllEventHandlers "FiredNear";
 
 } else {
-	_pos = [_thisUnit,[5,20],random 360] call SHK_pos;
+	_pos = [_thisUnit,[50,1000],random 360] call SHK_pos;
 	_thisUnit doMove _pos;
 	_thisUnit setSpeedMode "FULL";
 	_thisUnit forceSpeed 20;
 	_thisUnit playMove "SprintCivilBaseDf";				
 	_thisUnit setVariable ["GRAD_fleeing", true];
 
-	diag_log format ["civ %1 is fleeing to %2", _thisUnit, _pos];
-	sleep (14 - (random 10));
+	diag_log format ["civ %1 is fake fleeing to %2", _thisUnit, _pos];
 
-	_thisUnit playMoveNow (selectRandom _animationSitting); 
-	_thisUnit stop true;
- 	_thisUnit disableAI "autoTarget";
- 	_thisUnit disableAI "MOVE";
- 	_thisUnit disableAI "ANIM";
- 	_thisUnit removeAllEventHandlers "FiredNear";
+	sleep 60;
+
+	[group _thisUnit, _pos, 400 - (random 300), [3,6], [0,2,10]] call GRAD_civs_fnc_taskPatrol;
+	_thisUnit setVariable ["GRAD_fleeing", false];
 };

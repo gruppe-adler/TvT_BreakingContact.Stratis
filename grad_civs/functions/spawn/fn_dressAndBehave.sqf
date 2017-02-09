@@ -46,25 +46,21 @@ _addBeard = {
    	_guy addGoggles selectRandom GRAD_civ_beards;
 };
 
+_addBackpack = {
+	params ["_unit"];
 
-_addFleeingBehaviour = {
-	(_this select 0) setVariable ["GRAD_fleeing",false];
-
-	(_this select 0) addEventHandler ["FiredNear", {
-
-		if ((_this select 0) getVariable ["GRAD_fleeing",false]) exitWith {};
-
-		_thisUnit = _this select 0;	
-
-		[_thisUnit] spawn GRAD_civs_fnc_fleeYouFool;
-	 	
-	}];
+	if (random 2 > 1) then {
+		_unit addBackpackGlobal "rhs_sidor";
+	};
 };
+
+
 
 _addBehaviour = {
 	group (_this select 0) setBehaviour "CARELESS";
 	(_this select 0) disableAI "TARGET";
 	(_this select 0) disableAI "AUTOTARGET";
+	(_this select 0) disableAI "FSM";
 };
 
 
@@ -76,18 +72,29 @@ _addKilledNews = {
      publicVariableServer "CIV_KILLED";
      (_this select 0) removeAllEventHandlers "Killed";
      (_this select 0) removeAllEventHandlers "FiredNear";
+     (_this select 0) switchMove "";
      GRAD_CIV_ONFOOT_COUNT = GRAD_CIV_ONFOOT_COUNT - 1;
      GRAD_CIV_ONFOOT_GROUPS = GRAD_CIV_ONFOOT_GROUPS - [(_this select 0)];
     }];
 
 };
 
-_addGunfightNews = {
+_addGunfightNewsAndFlee = {
    (_this select 0) addEventhandler ["FiredNear",
     {
-     CIV_GUNFIGHT_POS = (position (_this select 0));
-     diag_log format ["civ gunfight at %1",CIV_GUNFIGHT_POS];
-     publicVariableServer "CIV_GUNFIGHT_POS";
+    	CIV_GUNFIGHT_POS = (position (_this select 0));
+    	diag_log format ["civ gunfight at %1",CIV_GUNFIGHT_POS];
+    	publicVariableServer "CIV_GUNFIGHT_POS";
+
+    	if ((_this select 0) getVariable ["GRAD_fleeing",false]) exitWith {};
+
+		_thisUnit = _this select 0;	
+
+		if (random 2 > 1) then {
+			[_thisUnit] spawn GRAD_civs_fnc_fleeYouFool;
+		} else {
+			[_thisUnit] spawn GRAD_civs_fnc_fleeAndFake;
+		};
     }];
 
 };
@@ -95,8 +102,8 @@ _addGunfightNews = {
 // _stripped = [_unit] call _stripHim;
 [_unit, _unitLoadout] call _reclotheHim;
 
-[_unit] call _addFleeingBehaviour;
 [_unit] call _addKilledNews;
-[_unit] call _addGunfightNews;
+[_unit] call _addGunfightNewsAndFlee;
 [_unit] call _addBehaviour;
 [_unit] call _addBeard;
+[_unit] call _addBackpack;
