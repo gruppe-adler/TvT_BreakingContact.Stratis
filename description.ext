@@ -1,5 +1,6 @@
 #include "grad_buymenu\definitions\_defines.hpp"
 #include "grad_buymenu\definitions\_dialogs.hpp"
+#include "GRAD_EGSpectator\GRAD_RscDisplayEGSpectator.hpp"
 
 #define MODULES_DIRECTORY node_modules
 #include "node_modules\grad-fortifications\grad_fortifications.hpp"
@@ -7,7 +8,8 @@
 class CfgFunctions {
 	#include "node_modules\grad-loadout\cfgFunctions.hpp"
 	#include "node_modules\grad-fortifications\cfgFunctions.hpp"
-	#include  "grad_civs\cfgFunctions.hpp"
+	#include "grad_civs\cfgFunctions.hpp"
+	#include "GRAD_EGSpectator\cfgFunctions.hpp"
 };
 
 class RscTitles {
@@ -27,7 +29,7 @@ loadScreen = "pic\loading.jpg";
 respawnDelay = 9999999;
 
 respawn = 3;
-respawnTemplates[] = {"ace_spectator"};
+
 
 
 

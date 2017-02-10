@@ -1,34 +1,22 @@
 #include "\z\ace\addons\main\script_component.hpp"
 
-if (!MISSION_COMPLETED) then {
-	[true] call ace_spectator_fnc_setSpectator;
-};
+if (MISSION_COMPLETED) exitWith {};
+
+
 
 [player, true] call TFAR_fnc_forceSpectator;
 
 _killer = player getVariable ["ace_medical_lastDamageSource", objNull];
 
 if (!isNull _killer) then {
-	_pos = getPos _killer;
-	_pos set [1,10];
-	_pos set [2,3];
 
-	[0, _killer, -2, _pos] call ace_spectator_fnc_setCameraAttributes;
+	_string = format ['Killed by %1',_killer];
+	[_string] call EFUNC(common,displayTextStructured);
 
 	if (!FACTIONS_DEFAULT) then {
-		[player, _killer] call waveRespawnOnPlayerKilled;
-		switch (playerSide) do {
-			case (west) do {
-				[[west], [east,civilian]] call ace_spectator_fnc_updateSpectatableSides;
-			};
-			case (east) do {
-				[[east], [west,civilian]] call ace_spectator_fnc_updateSpectatableSides;
-			};
-			default {};
-		};
-		
+		[player, _killer] call GRAD_wr_onPlayerKilled;
 	};
+} else {
+	["Initialize", [player, [], true, true, false, false, false, true, false, true]] call BIS_fnc_EGSpectator;
 };
 
-_string = format ['Killed by %1',_killer];
-[_string] call EFUNC(common,displayTextStructured);

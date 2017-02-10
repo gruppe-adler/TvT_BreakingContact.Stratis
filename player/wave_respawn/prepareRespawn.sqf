@@ -7,7 +7,6 @@ if (player getVariable ["wr_interrupted", false]) exitWith {
     player setDamage 1;
     setPlayerRespawnTime 99999;
     [player, true] call TFAR_fnc_forceSpectator;
-    [] call uo_common_fnc_startSpectator;
     hintsilent format ["sorry, mission over"];
 };
 
