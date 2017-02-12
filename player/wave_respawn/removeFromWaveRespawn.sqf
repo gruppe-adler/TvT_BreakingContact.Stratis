@@ -12,4 +12,5 @@ checkWater = {
 	if (surfaceIsWater _this) then {
 		_string = localize "str_GRAD_spawn_on_water";
 		[_string] call EFUNC(common,displayTextStructured);
+	};
 };
