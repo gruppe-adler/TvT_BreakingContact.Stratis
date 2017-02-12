@@ -1,6 +1,6 @@
-GRAD_wr_onPlayerKilled = compile preprocessFileLineNumbers "player\waveRespawn\onPlayerKilled.sqf";
-GRAD_wr_prepareRespawn = compile preprocessFileLineNumbers "player\waveRespawn\prepareRespawn.sqf";
-GRAD_wr_removeFromWaveRespawn = compile preprocessFileLineNumbers "player\waveRespawn\removeFromWaveRespawn.sqf";
+GRAD_wr_onPlayerKilled = compile preprocessFileLineNumbers "player\wave_respawn\onPlayerKilled.sqf";
+GRAD_wr_prepareRespawn = compile preprocessFileLineNumbers "player\wave_respawn\prepareRespawn.sqf";
+GRAD_wr_removeFromWaveRespawn = compile preprocessFileLineNumbers "player\wave_respawn\removeFromWaveRespawn.sqf";
 
 
 switch (playerSide) do {
