@@ -1,6 +1,6 @@
 #include "grad_buymenu\definitions\_defines.hpp"
 #include "grad_buymenu\definitions\_dialogs.hpp"
-#include "GRAD_EGSpectator\GRAD_RscDisplayEGSpectator.hpp"
+
 
 #define MODULES_DIRECTORY node_modules
 #include "node_modules\grad-fortifications\grad_fortifications.hpp"
@@ -29,11 +29,8 @@ loadScreen = "pic\loading.jpg";
 respawnDelay = 9999999;
 
 respawn = 3;
+respawnTemplates[] = {"ace_spectator"};
 
-
-
-
-GRAD_useNerfedUAV = 1; //
 
 
 class Header

@@ -4,14 +4,15 @@ params ["_victim", "_killer"];
 
 switch (playerSide) do {
 	case (west) do {
-		["Initialize", [player, [west], true, false, false, false, false, true, false, true]] call BIS_fnc_EGSpectator;
-		missionNamespace setVariable [VAR_CAMERA_DUMMY_TARGET, _killer];
+		[[west], [east, civilian, independent]] call ace_spectator_fnc_updateSpectatableSides;
+		[[1], [0,2]] call ace_spectator_fnc_updateCameraModes;
 	};
 	case (east) do {
-		["Initialize", [player, [east], true, false, false, false, false, true, false, true]] call BIS_fnc_EGSpectator;
-		missionNamespace setVariable [VAR_CAMERA_DUMMY_TARGET, _killer];
+		[[east], [west, civilian, independent]] call ace_spectator_fnc_updateSpectatableSides;
+		[[1], [0,2]] call ace_spectator_fnc_updateCameraModes;
 	};
 	default {
-		["Initialize", [player, [west], true, false, false, false, false, true, false, true]] call BIS_fnc_EGSpectator;
+		[[east,west,civilian, independent], []] call ace_spectator_fnc_updateSpectatableSides;
+		[[1], [0,2]] call ace_spectator_fnc_updateCameraModes;
 	};
 };

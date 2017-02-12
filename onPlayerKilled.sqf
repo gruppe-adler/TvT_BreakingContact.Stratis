@@ -2,7 +2,7 @@
 
 if (MISSION_COMPLETED) exitWith {};
 
-
+[true] call ace_spectator_fnc_setSpectator;
 
 [player, true] call TFAR_fnc_forceSpectator;
 
@@ -17,6 +17,6 @@ if (!isNull _killer) then {
 		[player, _killer] call GRAD_wr_onPlayerKilled;
 	};
 } else {
-	["Initialize", [player, [], true, true, false, false, false, true, false, true]] call BIS_fnc_EGSpectator;
+	[true] call ace_spectator_fnc_setSpectator;
 };
 
