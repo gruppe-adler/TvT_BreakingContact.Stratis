@@ -55,7 +55,7 @@ _parameters = [
 	["MAX_SPAWN_DISTANCE", 2500],
 	["MIN_SKILL", 1],
 	["MAX_SKILL", 1],
-	["DEBUG", true]
+	["DEBUG", false]
 ];
 
 // Start an instance of the traffic
