@@ -4,6 +4,8 @@
 [{!isNil "FACTIONS_DEFAULT"}, {
 
 	if (!FACTIONS_DEFAULT) then {
+		
+	} else {
 		0 = execVM "player\wave_respawn\init.sqf";
 	};
 
