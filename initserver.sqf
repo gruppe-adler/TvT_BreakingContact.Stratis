@@ -44,6 +44,8 @@ FACTIONS_DEFAULT = (paramsArray select 14 == 0);
 publicVariable "FACTIONS_DEFAULT";
 
 if (!FACTIONS_DEFAULT) then {
+	
+} else {
 	0 = execVM "server\wave_respawn\init.sqf";
 };
 
