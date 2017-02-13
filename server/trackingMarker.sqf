@@ -94,6 +94,10 @@ setRadioBoxMarkerPosition = {
 	while {OPFOR_POINTS <= POINTS_NEEDED_FOR_VICTORY} do  {
 		publicVariable "OPFOR_POINTS";
 		sleep 5;
+
+		"mrk_spawn_blufor_land_1" setMarkerPos US_VEHICLE_SPAWN;
+		"mrk_spawn_opfor_land_1" setMarkerPos RUS_VEHICLE_SPAWN;
+		
 	};
 };
 

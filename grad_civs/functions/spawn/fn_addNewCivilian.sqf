@@ -10,6 +10,7 @@ params ["_playerPositions"];
 		GRAD_CIV_ONFOOT_GROUPS
 	] call GRAD_civs_fnc_findSpawnSegment;
 
+	if (_position isEqualTo [0,0,0]) exitWith {};
 
 	diag_log format ["%1", _position];
 

@@ -22,4 +22,4 @@ switch (_type) do {
 	default { diag_log format ["error: no spawn type defined"];};
 };
 
-deleteVehicle _cone;
+// deleteVehicle _cone;

@@ -180,11 +180,12 @@ spawnBluforHQ = {
 	_vehicle1 setVariable ["detachableBoat",2];
 
 	_vehicle2 setVariable ["GRAD_spawnType","blufor", true];
+	[_vehicle2, true, [0, 1, 1], 10] call ace_dragging_fnc_setCarryable;
 
 	US_SPAWN_PAD = (_bluforSpawnSuccess select 2);
 	publicVariable "US_SPAWN_PAD";
 
-	US_VEHICLE_SPAWN = getPos (_bluforSpawnSuccess select 2);
+	US_VEHICLE_SPAWN = {getPos US_SPAWN_PAD};
 	publicVariable "US_VEHICLE_SPAWN";
 
 	"mrk_spawn_blufor_land_1" setMarkerPos US_VEHICLE_SPAWN;
@@ -229,13 +230,12 @@ spawnOpforHQ = {
 	_vehicle2 = (_opforSpawnSuccess select 2);
 
 	_vehicle2 setVariable ["GRAD_spawnType","opfor", true];
-
-
+	[_vehicle2, true, [0, 1, 1], 10] call ace_dragging_fnc_setCarryable;
 
 	RUS_SPAWN_PAD = (_opforSpawnSuccess select 2);
 	publicVariable "RUS_SPAWN_PAD";
 
-	RUS_VEHICLE_SPAWN = getPos (_opforSpawnSuccess select 2);
+	RUS_VEHICLE_SPAWN = {getPos RUS_SPAWN_PAD};
 	publicVariable "RUS_VEHICLE_SPAWN";
 
 	"mrk_spawn_opfor_land_1" setMarkerPos RUS_VEHICLE_SPAWN;

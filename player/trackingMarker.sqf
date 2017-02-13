@@ -23,7 +23,7 @@ _nul2 = createMarkerLocal ["radio_box_marker", [0, 0, 0]];
 "radio_box_marker" setMarkerSizeLocal [1, 1];
 "radio_box_marker" setMarkerBrushLocal "SolidFull";
 
-_nul2 = createMarkerLocal ["last_seen", [0, 0, 0]];
+_nul3 = createMarkerLocal ["last_seen", [0, 0, 0]];
 "last_seen" setMarkerShapeLocal "ICON";
 "last_seen" setMarkerColorLocal "ColorOpfor";
 "last_seen" setMarkerAlphaLocal 0;
@@ -110,6 +110,7 @@ radioBoxMarkerAnimation = {
 		"radio_box_marker" setMarkerSizeLocal [_pulsesize, _pulsesize];
 		
 		sleep _pulseSpeed;
+		if (!FACTIONS_DEFAULT) then {} else {"last_seen" setMarkerPosLocal RADIO_TRUCK_MARKER_POS;};
 	};
 
 	radioBoxMarkerAnimationIsRunning = false;
@@ -127,7 +128,7 @@ ensureRadioTruckMarkerAnimation = {
 	if (!FACTIONS_DEFAULT) then {
 		_delayBetweenPulse = 1;
 	} else {
-		_delayBetweenPulse = 10;
+		_delayBetweenPulse = 20;
 	};
 
 	if (!radioTruckMarkerAnimationIsRunning) then {
@@ -145,7 +146,7 @@ ensureRadioBoxMarkerAnimation = {
 	if (!FACTIONS_DEFAULT) then {
 		_delayBetweenPulse = 1;
 	} else {
-		_delayBetweenPulse = 10;
+		_delayBetweenPulse = 20;
 	};
 
 	if (!radioBoxMarkerAnimationIsRunning) then {
@@ -158,7 +159,6 @@ ensureRadioBoxMarkerAnimation = {
 
 _RADIO_TRUCK_MARKER_POS_listener = {
 	"radio_truck_marker" setMarkerPosLocal (_this select 1);
-	"last_seen" setMarkerPosLocal (_this select 1);
 	// diag_log format ["radio truck marker moved to %1", (_this select 1)];
 };
 

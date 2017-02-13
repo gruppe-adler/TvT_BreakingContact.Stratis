@@ -5,11 +5,11 @@ private ["_refPlayerPos", "_roadSegments", "_roadSegment", "_isOk", "_tries", "_
 // 
 params ["_allPlayerPositions", "_minSpawnDistance", "_maxSpawnDistance", "_civilianGroups"];
 
+if (count _allPlayerPositions == 0) exitWith { [0,0,0] };
    
 _spawnDistanceDiff = _maxSpawnDistance - _minSpawnDistance;
 _roadSegment = "NULL";
 _refPlayerPos = (_allPlayerPositions select floor random count _allPlayerPositions);
-
     
 _isOk = false;
 _tries = 0;
