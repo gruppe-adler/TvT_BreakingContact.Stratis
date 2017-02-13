@@ -50,7 +50,7 @@ radioTruckMarkerAnimation = {
 	_pulseDelayBetween = _this select 3;
 	_modifier = 1;
 
-	if (!FACTIONS_DEFAULT) then {
+	if (FACTIONS_DEFAULT) then {
 		"last_seen" setMarkerAlphaLocal 1;
 	};
 
@@ -67,7 +67,9 @@ radioTruckMarkerAnimation = {
 		"radio_truck_marker" setMarkerAlphaLocal 1 - (_pulsesize/_pulseMaxSize);
 		"radio_truck_marker" setMarkerSizeLocal [_pulsesize, _pulsesize];
 		
-		if (!FACTIONS_DEFAULT) then {} else {"last_seen" setMarkerPosLocal RADIO_TRUCK_MARKER_POS;};
+		if (FACTIONS_DEFAULT) then {
+			"last_seen" setMarkerPosLocal RADIO_TRUCK_MARKER_POS;
+		};
 
 		sleep _pulseSpeed;
 	};
