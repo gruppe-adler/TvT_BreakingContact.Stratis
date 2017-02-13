@@ -30,5 +30,7 @@ spawnRadioTruck = {
 	radio_object addItemCargoGlobal ["ACE_SpraypaintGreen",10];
 	radio_object addItemCargoGlobal ["ACE_SpraypaintRed",10];
 	radio_object addItemCargoGlobal ["ACE_EntrenchingTool",10];
-	radio_object addItemCargoGlobal ["ACE_NVG_Gen2",50];
+	if (!FACTIONS_DEFAULT) then {
+		radio_object addItemCargoGlobal ["ACE_NVG_Gen2",50];
+	};
 };
