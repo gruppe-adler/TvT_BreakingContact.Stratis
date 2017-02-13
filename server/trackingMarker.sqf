@@ -89,7 +89,7 @@ setRadioBoxMarkerPosition = {
 };
 
 
-
+// opfor point broadcasting and repositioning of spawn markers
 [] spawn {
 	while {OPFOR_POINTS <= POINTS_NEEDED_FOR_VICTORY} do  {
 		publicVariable "OPFOR_POINTS";
