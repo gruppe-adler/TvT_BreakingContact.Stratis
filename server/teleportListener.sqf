@@ -24,7 +24,7 @@ createOpforStuff =  {
 
 
 	if (!isMultiplayer) then {
-		_opfor_marker_start = createMarker ["debug_opfor_marker_start", RUS_VEHICLE_SPAWN];
+		_opfor_marker_start = createMarker ["debug_opfor_marker_start", (call RUS_VEHICLE_SPAWN)];
 		_opfor_marker_start setMarkerType "hd_start";
 		_opfor_marker_start setMarkerColor "ColorOpfor";
 	};
@@ -46,7 +46,7 @@ createBluforStuff = {
 	_spawnVehicle = [_opforposition, BLUFOR_SPAWN_DISTANCE, blufor_hq] call spawnBluforHQ;
 
 	if (!isMultiplayer) then {
-		_blufor_marker_start = createMarker ["debug_blufor_marker_start", US_VEHICLE_SPAWN];
+		_blufor_marker_start = createMarker ["debug_blufor_marker_start", (call US_VEHICLE_SPAWN)];
 		_blufor_marker_start setMarkerType "hd_start";
 		_blufor_marker_start setMarkerColor "ColorBlufor";
 	};
