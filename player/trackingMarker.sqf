@@ -67,11 +67,11 @@ radioTruckMarkerAnimation = {
 		"radio_truck_marker" setMarkerAlphaLocal 1 - (_pulsesize/_pulseMaxSize);
 		"radio_truck_marker" setMarkerSizeLocal [_pulsesize, _pulsesize];
 		
+
+		sleep _pulseSpeed;
 		if (FACTIONS_DEFAULT) then {
 			"last_seen" setMarkerPosLocal RADIO_TRUCK_MARKER_POS;
 		};
-
-		sleep _pulseSpeed;
 	};
 
 	radioTruckMarkerAnimationIsRunning = false;
@@ -128,7 +128,7 @@ ensureRadioTruckMarkerAnimation = {
 	if (!FACTIONS_DEFAULT) then {
 		_delayBetweenPulse = 1;
 	} else {
-		_delayBetweenPulse = 20;
+		_delayBetweenPulse = 30;
 	};
 
 	if (!radioTruckMarkerAnimationIsRunning) then {
@@ -146,7 +146,7 @@ ensureRadioBoxMarkerAnimation = {
 	if (!FACTIONS_DEFAULT) then {
 		_delayBetweenPulse = 1;
 	} else {
-		_delayBetweenPulse = 20;
+		_delayBetweenPulse = 30;
 	};
 
 	if (!radioBoxMarkerAnimationIsRunning) then {
