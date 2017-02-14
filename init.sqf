@@ -18,6 +18,8 @@ setViewDistance 3500;
 waitUntil { !isNil "FACTIONS_DEFAULT" };
 
 
+
+// loadout + wave respawn added
 IS_WOODLAND = ((ISLAND_TARGET_POSITIONS select (ISLANDS find worldName)) select 3);
 if (!FACTIONS_DEFAULT) then {
 	if (IS_WOODLAND) then {
@@ -32,6 +34,9 @@ if (!FACTIONS_DEFAULT) then {
 	// sovjets vs mudschaheddin
 	["BLU_F", "MUD_Desert"] call GRAD_Loadout_fnc_FactionSetLoadout;
 	["OPF_F", "SOV_Desert"] call GRAD_Loadout_fnc_FactionSetLoadout;
+
+	// add wave respawn
+	[] execVM "grad_waverespawn\init.sqf";
 };
 
 call compile preprocessfile "loadouts\setLoadoutRandomization.sqf";
