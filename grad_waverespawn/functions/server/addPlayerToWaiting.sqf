@@ -1,7 +1,8 @@
 params ["_deadPlayer", ["_deadPlayerSide", sideUnknown]];
 
-if (_deadPlayer getVariable ["GRAD_wr_respawnCount",0] > 1) exitWith {
-    [] remoteExec ["GRAD_wr_removeFromWaveRespawn", _deadPlayer, false];
+// dont let player add themselves if they died already x times
+if (_deadPlayer getVariable ["GRAD_waveRespawn_respawnCount",0] > 1) exitWith {
+    [] remoteExec ["GRAD_waveRespawn_fnc_removeFromWaveRespawn", _deadPlayer, false];
 };
 
 switch (_deadPlayerSide) do {

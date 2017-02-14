@@ -9,8 +9,6 @@ call compile preprocessFileLineNumbers "helpers\findSimplePos.sqf";
 0 = execVM "grad_civs\init.sqf";
 
 
-If(isNil "spawn_help_fnc_compiled") then { call compile preprocessFileLineNumbers "helpers\findPos.sqf"; }; // TODO why the if condition here?
-
 if (paramsArray select 10 == 1 || !isMultiplayer) then {
 	DEBUG_MODE = true;
 } else {

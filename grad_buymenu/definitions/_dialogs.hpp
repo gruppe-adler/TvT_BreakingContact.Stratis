@@ -466,7 +466,7 @@ class gui_spawn_opfor
 				colorText[] = {0,0,0,1};
 				colorBackground[] = {0.81,0.55,0.12,1};
 				tooltip = $STR_GRAD_choose_spawn_location_road;
-				onButtonClick = "openMap [true,false]; player linkitem 'itemMap'; [] execVM 'mission_setup\teleport.sqf'; closeDialog 0";
+				onButtonClick = "openMap [true,false]; player linkitem 'itemMap'; [] execVM 'spawn\teleport.sqf'; closeDialog 0";
 			};
 		};
 };

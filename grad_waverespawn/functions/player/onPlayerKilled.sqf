@@ -2,7 +2,7 @@
 
 params ["_victim", "_killer"];
 
-[_victim] remoteExec ["GRAD_wr_addPlayerToWaiting", 2, false];
+[_victim] remoteExec ["GRAD_waveRespawn_fnc_addPlayerToWaiting", 2, false];
 
 ["You are now in the respawn list."] call EFUNC(common,displayTextStructured); 
 

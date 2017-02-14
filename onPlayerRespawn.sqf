@@ -1,0 +1,1 @@
+setPlayerRespawnTime 99999;
