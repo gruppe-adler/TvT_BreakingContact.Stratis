@@ -119,28 +119,7 @@ publicVariable "OPFOR_TELEPORTED";
 BLUFOR_TELEPORTED = false;
 publicVariable "BLUFOR_TELEPORTED";
 
-// radio box related
-RADIO_BOX = false;
-publicVariable "RADIO_BOX";
-RADIO_BOX_ACTIVE = false;
-publicVariable "RADIO_BOX_ACTIVE";
 
-RADIO_BOX_MARKER_HIDDEN = true;
-publicVariable "RADIO_BOX_MARKER_HIDDEN";
-RADIO_BOX_MARKER_POS = [0,0];
-publicVariable "RADIO_BOX_MARKER_POS";
-
-RADIO_BOX_DISTANCE = 0;
-publicVariable "RADIO_BOX_DISTANCE";
-
-RADIO_BOX_DESTROYED = false;
-publicVariable "RADIO_BOX_DESTROYED";
-
-// radio truck related
-RADIO_TRUCK_MARKER_HIDDEN = true;
-publicVariable "RADIO_TRUCK_MARKER_HIDDEN";
-RADIO_TRUCK_MARKER_POS = [0,0];
-publicVariable "RADIO_TRUCK_MARKER_POS";
 
 OPFOR_POINTS = 0;
 publicVariable "OPFOR_POINTS";
@@ -182,17 +161,14 @@ if (isClass (configFile >> "CfgPatches" >> "task_force_radio")) then {
 [] execVM "objectives\detect_all_dead.sqf";
 	[] execVM "helpers\medical_settings.sqf";
 
-	// events/listeners
-[] execVM "server\trackingMarker.sqf";
-[] execVM "server\radioBoxDistanceListener.sqf";
+
 [] execVM "server\teleportListener.sqf";
 [] execVM "server\civKillListener.sqf";
 [] execVM "server\civGunfightListener.sqf";
 [] execVM "server\spawn\spawnRadioTruck.sqf";
 
 call compile preprocessFileLineNumbers "server\spawnBluforHQ.sqf";
-call compile preprocessFileLineNumbers "server\fnc_radiotruck_deploy.sqf";
-call compile preprocessFileLineNumbers "server\fnc_radiotruck_retract.sqf";
+
 
 	if (!isMultiplayer) then {
  	[] spawn {

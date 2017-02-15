@@ -108,7 +108,7 @@ _deployAction = [
     "",
     {
         params ["_radiotruck"];
-        [_radiotruck] remoteExec ["fnc_radiotruck_deploy", 2];
+        [_radiotruck] remoteExec ["GRAD_tracking_fnc_radioTruckDeploy", 2];
     },
     {
         params ["_radiotruck"];
@@ -127,7 +127,7 @@ _retractAction = [
     "",
     {
         params ["_radiotruck"];
-        [_radiotruck] remoteExec ["fnc_radiotruck_retract", 2];
+        [_radiotruck] remoteExec ["GRAD_tracking_fnc_radioTruckRetract", 2];
     },
     {
         params ["_radiotruck"];
@@ -167,12 +167,14 @@ _destroyActionPortableRadio = ["usDestroyMenuPortable", (localize "str_GRAD_dest
  [4, [_this select 0], {
     ((_this select 0) select 0) setVariable ["detachableRadio", 2, true];
 
+      _terminal = missionNamespace getVariable ["GRAD_tracking_terminalObj", objNull];
+      _radioVeh = missionNamespace getVariable ["GRAD_tracking_radioVehObj", objNull];
 
-      detach portableRadioBox;
-      portableRadioBox setPos [getPos portableRadioBox select 0, getPos portableRadioBox select 1, 0];
-      RADIO_BOX = true; publicVariable "RADIO_BOX";
+      detach _terminal;
+      _terminal setPos [getPos _terminal select 0, getPos _terminal select 1, 0];
+      GRAD_TERMINAL = true; publicVariable "GRAD_TERMINAL";
 
-      [[portableRadioBox, true, [0,1.4,0], 270], "ace_dragging_fnc_setdraggable", true, true] call BIS_fnc_MP;
+      [[_terminal, true, [0,1.4,0], 270], "ace_dragging_fnc_setdraggable", true, true] call BIS_fnc_MP;
  }, {hint "Cancelled action"}, (localize "str_GRAD_detaching_radio")] call ace_common_fnc_progressBar;
  },
   {side player == east && ((_this select 0) getVariable ["detachableRadio", 0] == 1)}] call ace_interact_menu_fnc_createAction;
@@ -198,94 +200,27 @@ _carryAssaultBoat = ["CarryBoatAction", "Carry Boat", "",
 
 
 
-// GRAD fortification for OPFOR
-/*
-GRAD_fortification_isAvailable = {
-    params ["_item", "_container"];
 
-    _return = false;
-    _requestString = "GRAD_fortifications_available_" + _item;
-    _countAvailable = _container getVariable [_requestString,0];
-    if (_countAvailable > 0) then {
-        _return = true;
-    };
-    _return
-};
+ _attachRadioAction = ["RusAttachMenu", (localize "str_GRAD_attach_radio"), "",
+ {
+ [4, [_this select 0], {
+    ((_this select 0) select 0) setVariable ["detachableRadio", 1, true];
 
-GRAD_fortifications_giveFeedback = {
-    params ["_item", "_container"];
-     _requestString = "GRAD_fortifications_available_" + _item;
-    _countAvailable = _container getVariable [_requestString,0];
-     if (_countAvailable > 0) then {
-        _container setVariable [_requestString,_countAvailable - 1, true];
-        hintsilent format ["Noch %1 verfügbar", _countAvailable - 1];
-    };
-};
+    _terminal = missionNamespace getVariable ["GRAD_tracking_terminalObj", objNull];
+    _radioVeh = missionNamespace getVariable ["GRAD_tracking_radioVehObj", objNull];
 
+    [[(_terminal), false, [0,1,0], 180], "ace_dragging_fnc_setdraggable", true, true] call BIS_fnc_MP;
+    GRAD_TERMINAL = false; publicVariable "GRAD_TERMINAL";
+    (_terminal) attachTo [_radioVeh ,[0.3,-2.85,0.7]];
+    (_terminal) setVectorDirAndUp [[0,1,0.3],[0,0,0.7]];
 
-GRAD_fortification_addToClass = {
-  params ["_target", "_item", "_description"];
-    _action = 
-    [
-      "Fortifications", _description, "",
-      {
-        params ["_target", "_player", "_params"];
-        [_player, _this select 2, 1] call grad_fortifications_fnc_addFort;
-        [_this select 2, _target] call GRAD_fortifications_giveFeedback;
+ }, {hint "Cancelled action"}, (localize "str_GRAD_attaching_radio")] call ace_common_fnc_progressBar;
+ },
+  {
+  
+    side player == east && ((_this select 0) getVariable ["detachableRadio", 0] == 2) && 
+    (missionNamespace getVariable ["GRAD_tracking_terminalObj", objNull]) distance (_this select 0) < 8
 
-        diag_log format ["action taken: item %1 + target %2", _this select 2, _target];
-      },
-      {
-        (side player == east) && 
-        ([_player, _this select 2, 1, true] call grad_fortifications_fnc_canTake) &&
-        ([_this select 2, _target] call GRAD_fortification_isAvailable)
-      },
-      {},
-      _item
-    ] call ace_interact_menu_fnc_createAction;
+  }] call ace_interact_menu_fnc_createAction;
+["rhs_gaz66_r142_vv", 0, ["ACE_MainActions"],_attachRadioAction] call ace_interact_menu_fnc_addActionToClass;
 
-  [_target, 0, ["ACE_MainActions", "GRAD_Fortifications"],_action] call ace_interact_menu_fnc_addActionToClass;
-};
-
-_items = [
-  ["Land_BagFence_Long_F", "Sandsackwall Lang"],
-  ["Land_BagFence_End_F", "Sandsackwall Kurz"],
-  ["rhs_Flag_DNR_F", "Flagge der DNR"],
-  ["Land_Wreck_Ural_F", "Ural Barrikade"],
-  ["Land_Wreck_UAZ_F", "UAZ Barrikade"],
-  ["Land_Razorwire_F", "Stacheldraht"],
-  ["MetalBarrel_burning_F", "Brennendes Fass"],
-  ["Campfire_burning_F", "Lagerfeuer"],
-  ["Land_PortableLight_single_F", "Baustrahler"]
-];
-
-_fortifications_node = ["GRAD_Fortifications", "Fortifications", "", {}, {true}] call ace_interact_menu_fnc_createAction;
-["rhs_gaz66_repair_vdv", 0, ["ACE_MainActions"], _fortifications_node] call ace_interact_menu_fnc_addActionToClass;
-
-{
-  [
-    "rhs_gaz66_repair_vdv",
-    _x select 0,
-    _x select 1
-  ] call GRAD_fortification_addToClass;
-} forEach _items;
-*/
-
-[] spawn {
-waitUntil {!isNil "portableRadioBox"};
-
-   _attachRadioAction = ["RusAttachMenu", (localize "str_GRAD_attach_radio"), "",
-   {
-   [4, [_this select 0], {
-      ((_this select 0) select 0) setVariable ["detachableRadio", 1, true];
-
-      [[portableRadioBox, false, [0,1,0], 180], "ace_dragging_fnc_setdraggable", true, true] call BIS_fnc_MP;
-      RADIO_BOX = false; publicVariable "RADIO_BOX";
-      portableRadioBox attachTo [radio_object,[0.3,-2.85,0.7]];
-      portableRadioBox setVectorDirAndUp [[0,1,0.3],[0,0,0.7]];
-
-   }, {hint "Cancelled action"}, (localize "str_GRAD_attaching_radio")] call ace_common_fnc_progressBar;
-   },
-    {side player == east && ((_this select 0) getVariable ["detachableRadio", 0] == 2) && portableRadioBox distance (_this select 0) < 8}] call ace_interact_menu_fnc_createAction;
-  ["rhs_gaz66_r142_vv", 0, ["ACE_MainActions"],_attachRadioAction] call ace_interact_menu_fnc_addActionToClass;
-};

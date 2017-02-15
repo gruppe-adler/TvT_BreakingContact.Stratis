@@ -253,8 +253,10 @@ _transmitter = [
     1,
     [],
     {
-        deleteVehicle (_this select 0);    
-        [] execVM "server\spawn\fnc_attachTerminalToFunkwagen.sqf";
+        deleteVehicle (_this select 0);
+        _radioVeh = missionNameSpace getVariable ["GRAD_tracking_radioVehObj", objNull];
+        _terminal = missionNameSpace getVariable ["GRAD_tracking_terminalObj", objNull];
+        [_terminal, _radioVeh] call GRAD_tracking_fnc_terminalAttachToVeh;
     },
     format[''],
     0,

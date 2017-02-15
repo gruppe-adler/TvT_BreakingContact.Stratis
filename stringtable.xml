@@ -176,20 +176,20 @@
 				<English> %.</English>
 				<German> % gesendet.</German>
 			</Key>
+			<Key ID="str_GRAD_transmissionTime_1_mud">
+				<Original>The Mudschaheddin already sent </Original>
+				<English>The Mudschaheddin already sent </English>
+				<German>Die Mudschaheddin haben schon </German>
+			</Key>
+			<Key ID="str_GRAD_lastTransmission">
+				<Original>Last transmission</Original>
+				<English>Last transmission</English>
+				<German>Letztes Signal</German>
+			</Key>
 			<Key ID="str_GRAD_endPlacement">
 				<Original>End Placement</Original>
 				<English>End Placement</English>
 				<German>Keine Objekte mehr platzieren</German>
-			</Key>
-			<Key ID="str_GRAD_ravenError1">
-				<Original>Thermal imaging not available. Please reopen camera feed.</Original>
-				<English>Thermal imaging not available. Please reopen camera feed.</English>
-				<German>Wärmebildmodus nicht verfügbar. Bitte Übertragung erneut öffnen.</German>
-			</Key>
-			<Key ID="str_GRAD_ravenError2">
-				<Original>No other viewmodes available.</Original>
-				<English>No other viewmodes available.</English>
-				<German>Keine weiteren Anzeigemodi verfügbar.</German>
 			</Key>
 			<Key ID="str_GRAD_carry_place">
 				<Original>Release</Original>
