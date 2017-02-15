@@ -5,13 +5,12 @@
 
 // islandconfig must be before initgui!
 call compile preprocessFile "islandConfig.sqf";
-GRAD_fnc_addTerminalInteraction = compile preprocessFileLineNumbers "player\dataterminal\addActionToTerminal.sqf";
 clearInventory = compile preprocessFile "helpers\clearInventory.sqf";
 spawnStuff = compile preprocessFile "helpers\spawnStuff.sqf";
 
 
 // optimize for PVP
-disableRemoteSensors true; // ai driving behaviour affected?
+disableRemoteSensors true; // disable ai combat ability
 setViewDistance 3500;
 
 // wait until server has decided about parameters
@@ -111,7 +110,6 @@ if (hasInterface) then {
 
 	[] execVM "player\allXXXSurrenderedListener.sqf"; diag_log format ["setup: surrenderlistener initiated"];
 
-	[] execVM "spawn\hedgehogAssemblingSystem.sqf";
 	[] execVM "spawn\assaultBoatAssemblingSystem.sqf";
 	[] execVM "player\civKillListener.sqf";
 	[] execVM "player\civGunfightListener.sqf";
@@ -121,25 +119,16 @@ if (hasInterface) then {
 	waitUntil {!isNil "BLUFOR_TELEPORT_TARGET"};
 
 	if (playerSide == west) then {
-		[] execVM "player\trackingMarker.sqf";
 		[] execVM "player\bluforBluforTeleportListener.sqf";
 		[] execVM "player\bluforOpforPointsListener.sqf";
 		[] spawn checkJIP;
 	};
 
 	if (playerSide == east) then {
-		[] execVM "player\trackingMarker.sqf"; diag_log format ["setup: trackingmarker initiated"];
 		[] execVM "player\opforOpforTeleportListener.sqf"; diag_log format ["setup: opforOpforTeleportListener initiated"];
 		[] execVM "player\bluforOpforPointsListener.sqf";
-		[] execVM "player\radioBoxDistanceListener.sqf";
 		[] spawn checkJIP; diag_log format ["setup: createStartHints initiated"];
 		player setVariable ["radioAttached",false]; // for use in detaching radio from radio truck
 	};
 
-	player addEventHandler ["WeaponAssembled", {[_this select 1] execVM "helpers\nerfDrone.sqf"}];		//Darter nerf fuel and TIE
-
-
-	/*waitUntil {!isNull player && !isNil "ST_STHud_ToRestart"};
-	// disable sthud for intro
-	0 call fn_sthud_usermenu_changeMode;*/
 };
