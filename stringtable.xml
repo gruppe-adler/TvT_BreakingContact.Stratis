@@ -259,11 +259,10 @@
 				<English>Replay finished</English>
 				<German>Replay beendet</German>
 			</Key>
-			<Key ID="STR_CSSA3_Spectator">
-				<Original>Spectator</Original>
-				<English>Spectator</English>
-				<German>Zuschauer</German>
-				<Italian>Spettatore</Italian>
+			<Key ID="str_GRAD_supplyDrop">
+				<Original> Fim92</Original>
+				<English> Fim92</English>
+				<German> Fim92</German>
 			</Key>
 		</Container>
 		<Container name="GUI_buy_menu">

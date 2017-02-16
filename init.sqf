@@ -36,6 +36,7 @@ if (!FACTIONS_DEFAULT) then {
 
 	// add wave respawn
 	[] execVM "grad_waverespawn\init.sqf";
+	[] execVM "grad_supplydrops\init.sqf";
 };
 
 call compile preprocessfile "loadouts\setLoadoutRandomization.sqf";
