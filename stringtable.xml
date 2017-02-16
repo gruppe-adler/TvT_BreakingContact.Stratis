@@ -264,6 +264,16 @@
 				<English> Fim92</English>
 				<German> Fim92</German>
 			</Key>
+			<Key ID="str_GRAD_intervalReached_1">
+				<Original>Call</Original>
+				<English>Call</English>
+				<German>Funkspruch</German>
+			</Key>
+			<Key ID="str_GRAD_intervalReached_2">
+				<Original>finished</Original>
+				<English>finished</English>
+				<German>beendet</German>
+			</Key>
 		</Container>
 		<Container name="GUI_buy_menu">
 			<Key ID="str_GRAD_buy_order">

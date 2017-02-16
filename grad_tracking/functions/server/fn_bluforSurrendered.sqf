@@ -1,3 +1,3 @@
 BLUFOR_SURRENDERED = true; publicVariable "BLUFOR_SURRENDERED";
 
-publicVariable "OPFOR_POINTS";
+publicVariable "GRAD_TICKS_DONE";

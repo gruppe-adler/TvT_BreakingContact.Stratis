@@ -1,6 +1,19 @@
 params ["_radioVeh", "_terminal"];
 
 if (isServer) then {
+
+	GRAD_TICKS_NEEDED = ["GRAD_TICKS_NEEDED", 2700] call BIS_fnc_getParamValue;
+	publicVariable "GRAD_TICKS_NEEDED"; // clients need to know this
+
+	GRAD_TICKS_DONE = 0;
+	publicVariable "GRAD_TICKS_DONE";
+
+	GRAD_INTERVALS_NEEDED = ["GRAD_INTERVALS_NEEDED", 1] call BIS_fnc_getParamValue;
+	publicVariable "GRAD_INTERVALS_NEEDED"; // clients need to know this
+
+	GRAD_INTERVALS_DONE = 0;
+	publicVariable "GRAD_INTERVALS_DONE";
+
 	// radio box related
 	GRAD_TERMINAL = false;
 	publicVariable "GRAD_TERMINAL";
@@ -23,19 +36,27 @@ if (isServer) then {
 	GRAD_RADIO_VEH_MARKER_POS = [0,0];
 	publicVariable "GRAD_RADIO_VEH_MARKER_POS";
 
+	GRAD_SIGNAL_DELAY = 1;
+
+	// afghan wars mode
+	if (FACTIONS_DEFAULT) then {
+		GRAD_INTERVALS_NEEDED = 5;
+		GRAD_SIGNAL_DELAY = 30;
+	};
+	
 	sleep 2;
 
-	// radio vehicle, condition to stop
-	[_radioVeh, _terminal, MISSION_COMPLETED] call GRAD_tracking_fnc_mainLoop;
+	[
+		_radioVeh, 
+		_terminal, 
+		MISSION_COMPLETED
+	] call GRAD_tracking_fnc_mainLoop;
+	
+
 	call GRAD_tracking_fnc_terminalDistanceListenerServer;
 };
 
 if (hasInterface) then {
-	if (!FACTIONS_DEFAULT) then {
-		GRAD_SIGNAL_DELAY = 1;
-	} else {
-		GRAD_SIGNAL_DELAY = 30;
-	};
 
 	[] call GRAD_tracking_fnc_initClient;
 	call GRAD_tracking_fnc_terminalDistanceListenerClient;

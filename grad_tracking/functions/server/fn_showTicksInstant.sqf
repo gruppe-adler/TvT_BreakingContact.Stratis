@@ -1,0 +1,1 @@
+diag_log format ["debug: someone checks transmission progress manually."];

@@ -8,7 +8,7 @@ _stringWeather = _c1 + "Weather: " + _c2 + str (WEATHER_SETTING * 100) + " % Rai
 _stringSpawnDistance = _c1 + "Spawn Distance: " + _c2 + (str BLUFOR_SPAWN_DISTANCE) + " m";
 _stringOpforMoney = _c1 + "Money Opfor: " + _c2 + (str OPFOR_MONEY);
 _stringBluforMoney = _c1 + "Money Blufor: " + _c2 + (str BLUFOR_MONEY);
-_stringSendingTime = _c1 + "Sending Time Radio Truck: " + _c2 + (str (POINTS_NEEDED_FOR_VICTORY/60)) + " min";
+_stringSendingTime = _c1 + "Sending Time Radio Truck: " + _c2 + (str (GRAD_TICKS_NEEDED/60)) + " min";
 _stringTimeAcc = _c1 + "Time Acceleration: " + _c2 + (str TIME_ACCELERATION) + " x";
 
 player createDiaryRecord ["Diary", ["Parameter",
