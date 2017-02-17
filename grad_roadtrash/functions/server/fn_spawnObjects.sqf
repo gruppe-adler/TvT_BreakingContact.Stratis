@@ -6,8 +6,6 @@ for "_i" from 0 to _count do {
 
 	_objType = "";
 
-	
-
 	_obj = [_objType] call BIS_fnc_createSimpleObject;
 
 	_data = [_objType] call BIS_fnc_simpleObjectData;
@@ -28,6 +26,10 @@ for "_i" from 0 to _count do {
 
 	if (!isMultiplayer) then {
 		[_spawnPos] call grad_roadtrash_fnc_createDebugMarker;
-	};
+	} else {
+		if (DEBUG_MODE) then {
+			[_spawnPos] call grad_roadtrash_fnc_createDebugMarker;
+		};
+	};	
 };
 

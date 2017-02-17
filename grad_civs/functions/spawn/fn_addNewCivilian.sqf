@@ -21,7 +21,7 @@ params ["_playerPositions"];
 
 	[_group, _position, 400 - (random 300), [3,6], [0,2,10]] call GRAD_civs_fnc_taskPatrol;
 
-	if (GRAD_CIV_DEBUG) then {
+	if (GRAD_CIV_DEBUG || (!isNil "DEBUG_MODE" && {DEBUG_MODE})) then {
 		[_position] call GRAD_civs_fnc_createDebugMarker; 
 	};
 
