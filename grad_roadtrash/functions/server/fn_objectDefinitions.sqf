@@ -9,9 +9,7 @@ grad_roadTrash_onRoad = [
 	"Land_Garbage_square5_F",
 	"Land_Garbage_line_F",
 	"Land_Garbage_line_F",
-	"Land_Garbage_line_F",
-	"Land_Tyre_F",
-	"Land_tires_EP1"
+	"Land_Garbage_line_F"
 ];
 
 grad_roadTrash_nextToRoad = [
@@ -36,5 +34,7 @@ grad_roadTrash_nextToRoad = [
 	"Land_Volleyball_01_F",
 	"RoadCone",
 	"Land_Sack_F",
-	"Land_CratesPlastic_F"
+	"Land_CratesPlastic_F",
+	"Land_Tyre_F",
+	"Land_tires_EP1"
 ];

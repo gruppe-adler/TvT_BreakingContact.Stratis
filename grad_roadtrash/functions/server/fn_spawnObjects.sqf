@@ -6,19 +6,22 @@ for "_i" from 0 to _count do {
 
 	_objType = "";
 
-	if (isOnRoad _spawnPos) then {
-		_objType = selectRandom grad_roadTrash_onRoad;
-	} else {
-		_objType = selectRandom grad_roadTrash_nextToRoad;
-	};
+	
 
 	_obj = [_objType] call BIS_fnc_createSimpleObject;
 
 	_data = [_objType] call BIS_fnc_simpleObjectData;
 
-	_randomizedSpawnPos = [(_spawnPos select 0) + 5 - random 10, (_spawnPos select 1) + 5 - random 10, 0];
+	_randomizedSpawnPos = [(_spawnPos select 0) + 10 - random 20, (_spawnPos select 1) + 10 - random 20, 0];
+
+	if (isOnRoad _randomizedSpawnPos) then {
+		_objType = selectRandom grad_roadTrash_onRoad;
+	} else {
+		_objType = selectRandom grad_roadTrash_nextToRoad;
+	};
 
 	_obj = [_data, AGLToASL _randomizedSpawnPos, random 360, true] call bis_fnc_createSimpleObject;
+	_obj enableSimulationGlobal false;
 
 	sleep 0.001;
 	diag_log format ["spawning shit no %1", _i];
