@@ -10,14 +10,9 @@ spawnRadioTruck = {
 	sleep 1;
 	[_radioVeh] call clearInventory;
 
-	_terminal = createVehicle ['Land_DataTerminal_01_F', [0,0,0], [], 0, 'NONE'];
-	hideObjectGlobal _terminal;
-
-	missionNameSpace setVariable ["GRAD_tracking_radioVehObj", _radioVeh, true];
-	missionNameSpace setVariable ["GRAD_tracking_terminalObj", _terminal, true];
+	
 	
 	[_radioVeh, _terminal] execVM "grad_tracking\init.sqf";
-
 
 	if (!IS_WOODLAND) then {
 		_radioVeh setObjectTextureGlobal [0,"rhsafrf\addons\rhs_gaz66_camo\data\gaz66_sand_co.paa"];
@@ -38,7 +33,6 @@ spawnRadioTruck = {
 	_radioVeh addItemCargoGlobal ["ACE_SpraypaintGreen",10];
 	_radioVeh addItemCargoGlobal ["ACE_SpraypaintRed",10];
 	_radioVeh addItemCargoGlobal ["ACE_EntrenchingTool",10];
-	if (!FACTIONS_DEFAULT) then {
-		_radioVeh addItemCargoGlobal ["ACE_NVG_Gen2",50];
-	};
+	_radioVeh addItemCargoGlobal ["ACE_NVG_Gen2",50];
+
 };

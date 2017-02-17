@@ -5,15 +5,20 @@ createOpforStuff =  {
 		[_position] call spawnRadioTruck;
 	} else {
 		blufor_teamlead setVariable ["GRAD_isVIP", true, true];
+
+		_terminal = createVehicle ['Land_DataTerminal_01_F', [0,0,0], [], 0, 'NONE'];
+		hideObjectGlobal _terminal;
+
+		missionNameSpace setVariable ["GRAD_tracking_radioVehObj", _radioVeh, true];
+		missionNameSpace setVariable ["GRAD_tracking_terminalObj", _terminal, true];
 		
 		if (!isMultiplayer) then {
-			radio_object = player;
+			[player, _terminal] execVM "grad_tracking\init.sqf";
 		} else {
-			radio_object = blufor_teamlead;
+			[blufor_teamlead, _terminal] execVM "grad_tracking\init.sqf";
 		};
-		radio_object setVariable ["detachableRadio", 0, true];
-		publicVariable "radio_object";
-
+		blufor_teamlead setVariable ["detachableRadio", 0, true];
+		
 		_startVehicle = [_position, 10, "rhsgref_BRDM2_HQ_msv"] call spawnOpforHQ;
 		[_startVehicle] call clearInventory;
 		_startVehicle setObjectTextureGlobal [0, "rhsgref\addons\rhsgref_a2port_armor\brdm2\data\brdm2_3tone_01_co.paa"];

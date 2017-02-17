@@ -29,11 +29,15 @@ fnc_createEntryMouseOver = {
 	_mouseOver ctrlSetBackgroundColor [0,0,0,0.2];
 
 
+	if (_title == '') then {
 	_mouseOver ctrlSetStructuredText parseText ("<t size='0.75' shadow='0' align='center'>" +
 	 "Crew: " + str _crew1 + "<br/>" +
 	 "Cargo: " + str _crew + "<br/>" +
-	 "Max Speed: " + str _speed + " kph" +
+	 "Max Speed: " + str _speed + " kph" + 
 	 "</t>");
+	} else {
+	_mouseOver ctrlSetStructuredText parseText _title;
+	};
 
 	_mouseOver ctrlSetTextColor  [1,1,1,0.5];
 	_mouseOver ctrlSetFontHeight 0.05;

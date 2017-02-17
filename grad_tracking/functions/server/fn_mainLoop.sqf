@@ -68,6 +68,15 @@ GRAD_tracking_mainLoop = [{
     if (GRAD_TICKS_DONE >= GRAD_TICKS_NEEDED) then {
         GRAD_INTERVALS_DONE = GRAD_INTERVALS_DONE + 1;
         GRAD_TICKS_DONE = 0;
+        [
+            position blufor_teamlead, 
+            150, 
+            "rhsusf_launcher_crate", 
+            {
+                (_this select 0) addWeaponCargoGlobal ['rhs_weap_fim92',2]; 
+                (_this select 0) addMagazineCargoGlobal ['rhs_fim92_mag',2];    
+            },
+            west] spawn grad_supplydrops_fnc_createCarrier;
     };
 
     if (grad_tracking_currentLoop < GRAD_SIGNAL_DELAY) then {
