@@ -1,4 +1,4 @@
-grad_interval_nextWarning = 1;
+#include "\z\ace\addons\main\script_component.hpp"
 
 _interval = _this;
 

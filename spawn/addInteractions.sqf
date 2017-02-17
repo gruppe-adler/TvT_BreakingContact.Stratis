@@ -184,8 +184,8 @@ _destroyActionPortableRadio = ["usDestroyMenuPortable", (localize "str_GRAD_dest
 
 // transmission progress check
 _transmissionProgressAction = ["TransmissionProgress", "Check Transmission Progress", "",
- {[{[] call GRAD_tracking_fnc_showTicksInstant;},"BIS_fnc_spawn",true,true] call BIS_fnc_MP;},
-  {side player == east}] call ace_interact_menu_fnc_createAction;
+ {[playerSide] remoteExec ["GRAD_tracking_fnc_showTicksInstant", 2, false];},
+  {playerSide == east}] call ace_interact_menu_fnc_createAction;
 
 ["rhs_gaz66_r142_vv", 0, ["ACE_MainActions"],_transmissionProgressAction] call ace_interact_menu_fnc_addActionToClass;
 

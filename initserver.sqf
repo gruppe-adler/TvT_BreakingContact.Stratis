@@ -45,13 +45,14 @@ publicVariable "JIP_TIME_ALLOWED"; // clients need to know this
 CIVILIAN_TRAFFIC = ["CIVILIAN_TRAFFIC", 999999] call BIS_fnc_getParamValue;
 publicVariable "CIVILIAN_TRAFFIC"; // clients need to know this
 
-FACTIONS_DEFAULT = ["FACTION_MODE", 1] call BIS_fnc_getParamValue == 0;
+FACTIONS_DEFAULT = (["FACTION_MODE", 1] call BIS_fnc_getParamValue) == 1;
 publicVariable "FACTIONS_DEFAULT";
 
 if (!FACTIONS_DEFAULT) then {
 	
 } else {
-	0 = execVM "server\wave_respawn\init.sqf";
+	0 = execVM "server\grad_waverespawn\init.sqf";
+	OPFOR_MONEY = OPFOR_MONEY + 2000;
 };
 
 setCustomWeather = {

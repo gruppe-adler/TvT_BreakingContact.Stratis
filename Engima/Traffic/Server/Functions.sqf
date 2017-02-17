@@ -126,12 +126,11 @@ ENGIMA_TRAFFIC_MoveVehicle = {
         _destinationPos = getPos _destinationSegment;
     };
     
-    _speed = "NORMAL";
+    _speed = selectRandom ["FULL", "NORMAL", "LIMITED"];
     _behaviour = "CARELESS";
-    if (_vehicle distance _destinationPos < 500) then {
-        _speed = "LIMITED";
-        _behaviour = "SAFE";
-    };
+    driver _vehicle disableAI "AUTOTARGET";
+    driver _vehicle disableAI "TARGET";
+    driver _vehicle disableAI "AUTOCOMBAT";
     
     _waypoint = group _vehicle addWaypoint [_destinationPos, 10];
     _waypoint setWaypointBehaviour _behaviour;
