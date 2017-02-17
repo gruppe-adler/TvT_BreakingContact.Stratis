@@ -9,11 +9,11 @@ createOpforStuff =  {
 		_terminal = createVehicle ['Land_DataTerminal_01_F', [0,0,0], [], 0, 'NONE'];
 		hideObjectGlobal _terminal;
 
-		missionNameSpace setVariable ["GRAD_tracking_radioVehObj", _radioVeh, true];
+		missionNameSpace setVariable ["GRAD_tracking_radioVehObj", blufor_teamlead, true];
 		missionNameSpace setVariable ["GRAD_tracking_terminalObj", _terminal, true];
 		
 		if (!isMultiplayer) then {
-			[player, _terminal] execVM "grad_tracking\init.sqf";
+			[blufor_teamlead, _terminal] execVM "grad_tracking\init.sqf";
 		} else {
 			[blufor_teamlead, _terminal] execVM "grad_tracking\init.sqf";
 		};

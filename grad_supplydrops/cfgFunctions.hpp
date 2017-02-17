@@ -13,5 +13,6 @@ class GRAD_supplydrops {
         class createCarrier {};
         class fillInventory {};
         class findNearestMapEdge {};
+        class createKilledEH {};
     };
 };

@@ -1,7 +1,7 @@
-class GRAD_waveRespawn {
+class GRAD_waverespawn {
 
 	class player {
-        file = GRAD_waveRespawn\functions\player;
+        file = grad_waverespawn\functions\player;
 
         class onPlayerKilled {};
         class prepareRespawn {};
@@ -10,7 +10,7 @@ class GRAD_waveRespawn {
     };
 
 	class server {
-        file = GRAD_waveRespawn\functions\server;
+        file = grad_waverespawn\functions\server;
 
         class addPlayerToWaiting {};
         class canRespawn {};

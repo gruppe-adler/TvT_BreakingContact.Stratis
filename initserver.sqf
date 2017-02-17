@@ -51,7 +51,8 @@ publicVariable "FACTIONS_DEFAULT";
 if (!FACTIONS_DEFAULT) then {
 	
 } else {
-	0 = execVM "server\grad_waverespawn\init.sqf";
+	0 = execVM "grad_waverespawn\init.sqf";
+	0 = execVM "grad_roadtrash\init.sqf";
 	OPFOR_MONEY = OPFOR_MONEY + 2000;
 };
 

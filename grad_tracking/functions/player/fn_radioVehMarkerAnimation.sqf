@@ -15,7 +15,7 @@ _pulseDelayBetween = _this select 3;
 _modifier = 1;
 
 if (FACTIONS_DEFAULT) then {
-	_mrk_lastseen setMarkerAlphaLocal 1;
+	mrk_lastseen setMarkerAlphaLocal 1;
 };
 
 mrk_radioVeh setMarkerAlphaLocal 1;
@@ -35,7 +35,7 @@ while {!GRAD_RADIO_VEH_MARKER_HIDDEN} do {
 
 	sleep _pulseSpeed;
 	if (FACTIONS_DEFAULT) then {
-		_mrk_lastseen setMarkerPosLocal GRAD_RADIO_VEH_MARKER_POS;
+		mrk_lastseen setMarkerPosLocal GRAD_RADIO_VEH_MARKER_POS;
 	};
 };
 

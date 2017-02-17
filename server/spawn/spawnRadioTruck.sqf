@@ -10,7 +10,11 @@ spawnRadioTruck = {
 	sleep 1;
 	[_radioVeh] call clearInventory;
 
-	
+	_terminal = createVehicle ['Land_DataTerminal_01_F', [0,0,0], [], 0, 'NONE'];
+	hideObjectGlobal _terminal;
+
+	missionNameSpace setVariable ["GRAD_tracking_radioVehObj", _radioVeh, true];
+	missionNameSpace setVariable ["GRAD_tracking_terminalObj", _terminal, true];
 	
 	[_radioVeh, _terminal] execVM "grad_tracking\init.sqf";
 

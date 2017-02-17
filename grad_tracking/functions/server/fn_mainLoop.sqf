@@ -68,8 +68,9 @@ GRAD_tracking_mainLoop = [{
     if (GRAD_TICKS_DONE >= GRAD_TICKS_NEEDED) then {
         GRAD_INTERVALS_DONE = GRAD_INTERVALS_DONE + 1;
         GRAD_TICKS_DONE = 0;
+        _randomSpawnPos = [position blufor_teamlead, [1000,3000], random 360] call SHK_POS;
         [
-            position blufor_teamlead, 
+            _randomSpawnPos, 
             150, 
             "rhsusf_launcher_crate", 
             {

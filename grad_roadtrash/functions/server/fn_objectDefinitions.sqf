@@ -1,0 +1,40 @@
+grad_roadTrash_onRoad = [
+	"Land_Garbage_square3_F",
+	"Land_Garbage_square5_F",
+	"Land_Garbage_square3_F",
+	"Land_Garbage_square5_F",
+	"Land_Garbage_square3_F",
+	"Land_Garbage_square5_F",
+	"Land_Garbage_square3_F",
+	"Land_Garbage_square5_F",
+	"Land_Garbage_line_F",
+	"Land_Garbage_line_F",
+	"Land_Garbage_line_F",
+	"Land_Tyre_F",
+	"Land_tires_EP1"
+];
+
+grad_roadTrash_nextToRoad = [
+	"Land_Garbage_square3_F",
+	"Land_Garbage_square5_F",
+	"Land_Garbage_square3_F",
+	"Land_Garbage_square5_F",
+	"Land_Garbage_square3_F",
+	"Land_Garbage_square5_F",
+	"Land_Garbage_square3_F",
+	"Land_Garbage_square5_F",
+	"Land_Garbage_line_F",
+	"Land_Garbage_line_F",
+	"Land_Garbage_line_F",
+	"Land_GarbageHeap_02_F",
+	"Land_GarbageHeap_03_F",
+	"Land_GarbageHeap_04_F",
+	"Land_JunkPile_F",
+	"Land_GarbagePallet_F",
+	"Land_GarbageWashingMachine_F",
+	"Land_Football_01_F",
+	"Land_Volleyball_01_F",
+	"RoadCone",
+	"Land_Sack_F",
+	"Land_CratesPlastic_F"
+];

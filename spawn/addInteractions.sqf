@@ -189,6 +189,12 @@ _transmissionProgressAction = ["TransmissionProgress", "Check Transmission Progr
 
 ["rhs_gaz66_r142_vv", 0, ["ACE_MainActions"],_transmissionProgressAction] call ace_interact_menu_fnc_addActionToClass;
 
+_selfRadioProgressCheck = ["TransmissionProgress", "Check Transmission Progress", "",
+ {[playerSide] remoteExec ["GRAD_tracking_fnc_showTicksInstant", 2, false];},
+  {player getVariable ["GRAD_isVIP",false]}] call ace_interact_menu_fnc_createAction;
+
+[typeOf player, 1, ["ACE_SelfActions"], _selfRadioProgressCheck] call ace_interact_menu_fnc_addActionToClass;
+
 
 
 // boat carrying

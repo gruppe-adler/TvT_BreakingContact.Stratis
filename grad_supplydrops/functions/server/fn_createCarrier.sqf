@@ -21,15 +21,15 @@ carrierPos0 = [_dropPosition, 5000, _relDir] call BIS_fnc_relPos;
 carrierPos1 = [_dropPosition, 1000, _relDir] call BIS_fnc_relPos;
 carrierPos2 = [_dropPosition, 0, 0] call BIS_fnc_relPos;
 carrierPos3 = [_dropPosition, 500, _relDir-180] call BIS_fnc_relPos;
-carrierPos4 = [_dropPosition, 2000, _relDir-170] call BIS_fnc_relPos;
-carrierPos5 = [_dropPosition, 4000, _relDir-160] call BIS_fnc_relPos;
-carrierPos6 = [_dropPosition, 6000, _relDir-140] call BIS_fnc_relPos;
-carrierPos7 = [_dropPosition, 8000, _relDir-120] call BIS_fnc_relPos;
-carrierPos8 = [_dropPosition, 10000, _relDir-100] call BIS_fnc_relPos;
-carrierPos9 = [_dropPosition, 12000, _relDir-80] call BIS_fnc_relPos;
-carrierPos10 = [_dropPosition, 14000, _relDir-60] call BIS_fnc_relPos;
-carrierPos11 = [_dropPosition, 16000, _relDir-40] call BIS_fnc_relPos;
-carrierPos12 = [_dropPosition, 18000, _relDir-20] call BIS_fnc_relPos;
+carrierPos4 = [_dropPosition, 2000, _relDir-175] call BIS_fnc_relPos;
+carrierPos5 = [_dropPosition, 4000, _relDir-170] call BIS_fnc_relPos;
+carrierPos6 = [_dropPosition, 6000, _relDir-165] call BIS_fnc_relPos;
+carrierPos7 = [_dropPosition, 8000, _relDir-160] call BIS_fnc_relPos;
+carrierPos8 = [_dropPosition, 10000, _relDir-155] call BIS_fnc_relPos;
+carrierPos9 = [_dropPosition, 12000, _relDir-150] call BIS_fnc_relPos;
+carrierPos10 = [_dropPosition, 14000, _relDir-145] call BIS_fnc_relPos;
+carrierPos11 = [_dropPosition, 16000, _relDir-140] call BIS_fnc_relPos;
+carrierPos12 = [_dropPosition, 18000, _relDir-135] call BIS_fnc_relPos;
 
 {
 	_marker = createMarkerLocal [format["%1", toString _x],_x];
@@ -162,6 +162,8 @@ _crateObj setDamage 0;
 _crateObj allowDamage true;
 
 [_crateObj, _crateCode] call grad_supplydrops_fnc_fillInventory;
+[_crateObj] call grad_supplydrops_fnc_createKilledEH;
+
 
 [getPos _crateObj, _side] remoteExec ["grad_supplydrops_fnc_createDropMarker", 0, true];
 [_side] remoteExec ["grad_supplydrops_fnc_showDropHint", 0, true];

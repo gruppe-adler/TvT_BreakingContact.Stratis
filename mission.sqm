@@ -8,7 +8,7 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=331;
+		nextID=373;
 	};
 	class MarkerIDProvider
 	{
@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={1778.709,10.838064,5976.2944};
-		dir[]={0.95350981,-0.24302316,0.17891124};
-		up[]={0.23891173,0.9699952,0.044828322};
-		aside[]={0.18443632,6.047776e-008,-0.98295915};
+		pos[]={1753.6445,30.462078,5901.2295};
+		dir[]={0.64953756,-0.45093673,0.61237895};
+		up[]={0.32812437,0.89253545,0.30935296};
+		aside[]={0.6860643,2.9965304e-007,-0.72769612};
 	};
 };
 binarizationWanted=0;
@@ -56,14 +56,13 @@ addons[]=
 	"ace_advanced_throwing",
 	"ace_tagging",
 	"acex_sitting",
-	"ace_spectator",
-	"A3_Structures_F_System"
+	"ace_spectator"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=31;
+		items=30;
 		class Item0
 		{
 			className="A3_Ui_F";
@@ -274,13 +273,6 @@ class AddonsMetaData
 			author="ACE-Team";
 			url="http://ace3mod.com/";
 		};
-		class Item30
-		{
-			className="A3_Structures_F";
-			name="Arma 3 - Buildings and Structures";
-			author="Bohemia Interactive";
-			url="http://www.arma3.com";
-		};
 	};
 };
 randomSeed=6764181;
@@ -309,7 +301,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=60;
+		items=59;
 		class Item0
 		{
 			dataType="Marker";
@@ -6961,22 +6953,6 @@ class Mission
 			type="Empty";
 			id=201;
 			atlOffset=-5.5;
-		};
-		class Item59
-		{
-			dataType="Object";
-			class PositionInfo
-			{
-				position[]={1817.9034,5.4999981,5971.2656};
-			};
-			side="Empty";
-			flags=4;
-			class Attributes
-			{
-			};
-			id=261;
-			type="Land_ClutterCutter_large_F";
-			atlOffset=-1.9073486e-006;
 		};
 	};
 	class Connections

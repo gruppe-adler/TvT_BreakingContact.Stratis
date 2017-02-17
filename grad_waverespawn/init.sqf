@@ -10,7 +10,7 @@ if (isServer) then {
 	RESPAWN_AVAILABLE_BLU = 0;
 	RESPAWN_AVAILABLE_OPF = 0;
 
-	[deadPlayersBlu, deadPlayersOpf] call GRAD_waveRespawn_fnc_checkWaiting;
+	[deadPlayersBlu, deadPlayersOpf] call GRAD_waverespawn_fnc_checkWaiting;
 };
 
 if (hasInterface) then {

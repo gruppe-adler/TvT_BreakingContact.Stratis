@@ -1,6 +1,8 @@
-/*    Shows formatted hint during wave respawn time
-*
+/*    
+*	Shows formatted hint during wave respawn time
 */
+
+#include "\z\ace\addons\main\script_component.hpp"
 
 params ["_number"];
 private ["_headline", "_lineBreak", "_text", "_hintArray"];

@@ -6,7 +6,7 @@
 	if (!FACTIONS_DEFAULT) then {
 		
 	} else {
-		0 = execVM "player\wave_respawn\init.sqf";
+		0 = execVM "grad_waverespawn\init.sqf";
 	};
 
 }, []] call CBA_fnc_waitUntilAndExecute;
