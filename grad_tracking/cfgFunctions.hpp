@@ -42,6 +42,7 @@ class GRAD_tracking {
         class setTerminalMarkerStatus {};
         class showTicksInstant {};
         class terminalAttachToVeh {};
+        class terminalCalculateDistanceModifier {};
         class terminalDistanceListenerServer {};
         class terminalDistanceToVehCalc {};
         class terminalExplodeDelayed {};
