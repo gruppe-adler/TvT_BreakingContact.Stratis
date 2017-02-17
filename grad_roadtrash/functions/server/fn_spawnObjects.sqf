@@ -1,14 +1,12 @@
 params ["_position", "_radius", "_count"];
 
+private ["_objType", "_spawnPos"];
+
 for "_i" from 0 to _count do {
 
 	_spawnPos = [_position, [0,_radius], random 360, 0, [1,_radius]] call SHK_pos;
 
-	_objType = "";
-
-	_obj = [_objType] call BIS_fnc_createSimpleObject;
-
-	_data = [_objType] call BIS_fnc_simpleObjectData;
+	
 
 	_randomizedSpawnPos = [(_spawnPos select 0) + 10 - random 20, (_spawnPos select 1) + 10 - random 20, 0];
 
@@ -18,7 +16,10 @@ for "_i" from 0 to _count do {
 		_objType = selectRandom grad_roadTrash_nextToRoad;
 	};
 
+	_data = [_objType] call BIS_fnc_simpleObjectData;
+
 	_obj = [_data, AGLToASL _randomizedSpawnPos, random 360, true] call bis_fnc_createSimpleObject;
+
 	_obj enableSimulationGlobal false;
 
 	sleep 0.001;
