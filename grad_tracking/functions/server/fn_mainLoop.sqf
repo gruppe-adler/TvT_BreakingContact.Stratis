@@ -65,12 +65,10 @@ GRAD_tracking_mainLoop = [{
     if (grad_tracking_currentLoop < GRAD_SIGNAL_DELAY) then {
         grad_tracking_currentLoop = grad_tracking_currentLoop + 1;
     } else {
-        grad_tracking_currentLoop = 0;
+        grad_tracking_currentLoop = 0; // reset delay for position update
 
         if (!GRAD_TERMINAL_ACTIVE) then {
-                [getPos _radioVeh select 0, getPos _radioVeh select 1] call GRAD_tracking_fnc_setRadioVehMarkerPosition;
-            };
-            
+            [getPos _radioVeh select 0, getPos _radioVeh select 1] call GRAD_tracking_fnc_setRadioVehMarkerPosition;
         } else {
             [getPos _radioVeh select 0, getPos _radioVeh select 1] call GRAD_tracking_fnc_setRadioVehMarkerPosition;
             [getPos _terminal select 0, getPos _terminal select 1] call GRAD_tracking_fnc_setTerminalMarkerPosition;
@@ -85,5 +83,6 @@ GRAD_tracking_syncLoop = [{
 
     "mrk_spawn_blufor_land_1" setMarkerPos (call US_VEHICLE_SPAWN);
     "mrk_spawn_opfor_land_1" setMarkerPos (call RUS_VEHICLE_SPAWN);
+    publicVariable "GRAD_TICKS_DONE";
 
 },5,[]] call CBA_fnc_addPerFrameHandler;

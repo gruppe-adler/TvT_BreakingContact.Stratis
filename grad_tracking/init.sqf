@@ -1,12 +1,11 @@
 params ["_radioVeh", "_terminal"];
 
+GRAD_TICKS_DONE = 0;
+
 if (isServer) then {
 
 	GRAD_TICKS_NEEDED = ["GRAD_TICKS_NEEDED", 2700] call BIS_fnc_getParamValue;
 	publicVariable "GRAD_TICKS_NEEDED"; // clients need to know this
-
-	GRAD_TICKS_DONE = 0;
-	publicVariable "GRAD_TICKS_DONE";
 
 	GRAD_INTERVALS_NEEDED = ["GRAD_INTERVALS_NEEDED", 1] call BIS_fnc_getParamValue;
 	publicVariable "GRAD_INTERVALS_NEEDED"; // clients need to know this
@@ -43,6 +42,8 @@ if (isServer) then {
 		GRAD_INTERVALS_NEEDED = 5;
 		GRAD_SIGNAL_DELAY = 30;
 	};
+
+	publicVariable "GRAD_SIGNAL_DELAY";
 	
 	sleep 2;
 

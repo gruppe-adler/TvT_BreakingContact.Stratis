@@ -121,13 +121,11 @@ if (hasInterface) then {
 
 	if (playerSide == west) then {
 		[] execVM "player\bluforBluforTeleportListener.sqf";
-		[] execVM "player\bluforOpforPointsListener.sqf";
 		[] spawn checkJIP;
 	};
 
 	if (playerSide == east) then {
 		[] execVM "player\opforOpforTeleportListener.sqf"; diag_log format ["setup: opforOpforTeleportListener initiated"];
-		[] execVM "player\bluforOpforPointsListener.sqf";
 		[] spawn checkJIP; diag_log format ["setup: createStartHints initiated"];
 		player setVariable ["radioAttached",false]; // for use in detaching radio from radio truck
 	};
