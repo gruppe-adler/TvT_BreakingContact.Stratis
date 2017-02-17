@@ -16,7 +16,7 @@ spawnRadioTruck = {
 	missionNameSpace setVariable ["GRAD_tracking_radioVehObj", _radioVeh, true];
 	missionNameSpace setVariable ["GRAD_tracking_terminalObj", _terminal, true];
 	
-	[_radioVeh, _terminal] execVM "grad_tracking\init.sqf";
+	[[_radioVeh, _terminal], "grad_tracking\init.sqf"] remoteExec ["execVM", 0, true];
 
 	if (!IS_WOODLAND) then {
 		_radioVeh setObjectTextureGlobal [0,"rhsafrf\addons\rhs_gaz66_camo\data\gaz66_sand_co.paa"];

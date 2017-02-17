@@ -22,6 +22,7 @@ GRAD_tracking_mainLoop = [{
 
     // if vehicles are destroyed, end mission
     if (!alive _radioVeh && {(_radioVeh getVariable ["detachableRadio", 0] != 2)}) exitWith {
+        [_handle] call CBA_fnc_removePerFrameHandler; 
         [] call GRAD_tracking_fnc_bluforCaptured;
     };
 

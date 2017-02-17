@@ -15,7 +15,7 @@ createOpforStuff =  {
 		if (!isMultiplayer) then {
 			[blufor_teamlead, _terminal] execVM "grad_tracking\init.sqf";
 		} else {
-			[blufor_teamlead, _terminal] execVM "grad_tracking\init.sqf";
+			[[blufor_teamlead, _terminal], "grad_tracking\init.sqf"] remoteExec ["execVM", 0, true];
 		};
 		blufor_teamlead setVariable ["detachableRadio", 0, true];
 		
