@@ -54,6 +54,7 @@ if (!FACTIONS_DEFAULT) then {
 	0 = execVM "grad_waverespawn\init.sqf";
 	0 = execVM "grad_roadtrash\init.sqf";
 	OPFOR_MONEY = OPFOR_MONEY + 2000;
+	publicVariable "OPFOR_MONEY";
 };
 
 setCustomWeather = {

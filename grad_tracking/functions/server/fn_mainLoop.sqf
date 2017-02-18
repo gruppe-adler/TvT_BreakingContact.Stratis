@@ -91,6 +91,10 @@ GRAD_tracking_mainLoop = [{
         _markerPos = [_radioVehX, _radioVehY];
 
        if (FACTIONS_DEFAULT) then {
+            _radioVehX = getPos (vehicle _radioVeh) select 0;
+            _radioVehY = getPos (vehicle _radioVeh) select 1;
+            _markerPos = [_radioVehX, _radioVehY];
+
             _markerPos = [[_radioVehX, _radioVehY], 150] call GRAD_tracking_fnc_randomizeMarker;
             GRAD_SIGNAL_DELAY = GRAD_SIGNAL_DELAY + (random 60);
             [] remoteExec ["grad_tracking_fnc_showMarkerUpdateHint", 0, false];

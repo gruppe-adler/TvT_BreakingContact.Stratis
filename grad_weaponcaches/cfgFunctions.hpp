@@ -11,6 +11,7 @@ class GRAD_weaponcaches {
 	class server {
         file = grad_weaponcaches\functions\server;
         
+        class explodeDelayed {};
         class fillInventory {};
         class findPositionInHouse {};
         class getSettlement {};

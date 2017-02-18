@@ -5,10 +5,11 @@ private ["_generatedPosCircle", "_settlementPos", "_spawnPos", "_valid"];
 _valid = false;
 
 while {!_valid} do {
-
+	diag_log format ["searching at %1", _position];
+	
 	_generatedPosCircle = [_position, [_minDistance,_maxDistance], random 360] call SHK_pos;
 	_settlement = [_generatedPosCircle, 10000] call GRAD_weaponcaches_fnc_getSettlement;
-	diag_log format ["searching at %1", name _settlement];
+	
 	_spawnPos = [locationPosition _settlement] call GRAD_weaponcaches_fnc_findPositionInHouse;
 	
 	if (!([_spawnPos, _enemySide, _minDistance] call GRAD_weaponcaches_fnc_isNearby)) then {

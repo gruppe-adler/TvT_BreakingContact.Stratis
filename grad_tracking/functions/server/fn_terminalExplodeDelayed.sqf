@@ -1,31 +1,24 @@
-fnc_deleteTestObj = {
-	_this addMPEventHandler ["MPKilled", {
-		_this = _this select 0;
-		{
-			deleteVehicle _x;
-		} forEach (_this getVariable ["effects", []]);
-		if (isServer) then {
-			deleteVehicle _this;
-		};
-	}];
-	_this setDamage 1;
+params ["_terminal"];
+
+if (_terminal getVariable ["grad_explosionReceived",0] == 0) exitWith {
+	_terminal setVariable ["grad_explosionReceived",1, true];
 };
 
-_smoke = "#particlesource" createVehicle position (_this select 0);
+_smoke = "#particlesource" createVehicle position _terminal;
 _smoke setParticleClass "SmallDestructionSmoke";
 
-(_this select 0) setVariable ["isFunctional", false];
+_terminal setVariable ["isFunctional", false];
+removeAllEventHandlers _terminal;
 
 sleep 20;
 deleteVehicle _smoke;
 _ex = createVehicle [
                 "R_TBG32V_F",
-                (_this select 0) modeltoworld [0,0,0],
+                _terminal modeltoworld [0,0,0],
                 [],
                 0,
                 "CAN_COLLIDE"
             ];
-            _ex setVectorDirAndUp [[0,0,1],[0,-1,0]];
-            _ex setVelocity [0,0,-1000];
-            deleteVehicle (_this select 0);
-            deleteVehicle terminal2;
+_ex setVectorDirAndUp [[0,0,1],[0,-1,0]];
+_ex setVelocity [0,0,-1000];
+deleteVehicle _terminal;

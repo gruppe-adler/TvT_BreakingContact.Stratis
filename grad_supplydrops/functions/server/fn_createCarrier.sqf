@@ -162,8 +162,10 @@ _crateObj setDamage 0;
 _crateObj allowDamage true;
 
 [_crateObj, _crateCode] call grad_supplydrops_fnc_fillInventory;
-[_crateObj] call grad_supplydrops_fnc_createKilledEH;
 
+_crateObj addEventHandler ["Explosion",{
+    [_this select 0] spawn GRAD_supplydrops_fnc_explodeDelayed;
+}];
 
 [getPos _crateObj, _side] remoteExec ["grad_supplydrops_fnc_createDropMarker", 0, true];
 [_side] remoteExec ["grad_supplydrops_fnc_showDropHint", 0, true];

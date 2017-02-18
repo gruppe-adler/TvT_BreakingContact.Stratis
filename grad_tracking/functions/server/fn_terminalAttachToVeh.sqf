@@ -19,5 +19,5 @@ publicVariable "_terminal";
 _terminal hideObjectGlobal false;
 
 _terminal addEventHandler ["Explosion",{
-    [_this select 0] call GRAD_tracking_fnc_explodeDelayed;
+    [_this select 0] spawn GRAD_tracking_fnc_explodeDelayed;
 }];

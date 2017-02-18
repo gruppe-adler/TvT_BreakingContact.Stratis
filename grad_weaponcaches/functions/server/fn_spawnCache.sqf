@@ -6,6 +6,13 @@ _crate = createVehicle [_type, _position, [], 0, "NONE"];
 
 [_crate, _code] call grad_weaponcaches_fnc_fillInventory;
 
+_crate addEventHandler ["Explosion",{
+    [_this select 0] spawn GRAD_weaponcaches_fnc_explodeDelayed;
+}];
+
+
+
+
 [_position, 250, _side] remoteExec ["grad_weaponcaches_fnc_createCacheMarker", 0, true];
 
 diag_log format ["successfully created cache at %1" , _position];

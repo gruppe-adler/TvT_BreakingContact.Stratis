@@ -11,8 +11,10 @@ class GRAD_supplydrops {
         file = grad_supplydrops\functions\server;
         
         class createCarrier {};
+        class explodeDelayed {};
+        class execIfLocal {};
         class fillInventory {};
         class findNearestMapEdge {};
-        class createKilledEH {};
+
     };
 };
