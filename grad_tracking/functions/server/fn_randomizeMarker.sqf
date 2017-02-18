@@ -2,7 +2,7 @@ params ["_pos", "_size"];
 
 private ["_posX", "_posY", "_randomElement"];
 
-_randomElement = (_size*2) - (random _size);
+_randomElement = (_size) - (random (_size/2));
 _posX = _pos select 0;
 _posY = _pos select 1;
 
