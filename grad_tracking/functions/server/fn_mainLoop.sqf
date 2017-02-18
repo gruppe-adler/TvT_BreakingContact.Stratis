@@ -17,13 +17,22 @@ GRAD_tracking_mainLoop = [{
     // if all ticks and intervals are reached, end mission
     if (GRAD_INTERVALS_DONE >= GRAD_INTERVALS_NEEDED) exitWith {
         [_handle] call CBA_fnc_removePerFrameHandler;   // remove PFH
-        [] call GRAD_tracking_fnc_bluforCaptured;    // call Mission End
+        
+        if (!FACTIONS_DEFAULT) then {
+            [] call GRAD_tracking_fnc_bluforSurrendered;
+        } else {
+            [] call GRAD_tracking_fnc_bluforCaptured;    // call Mission End
+        };
     };
 
     // if vehicles are destroyed, end mission
     if (!alive _radioVeh && {(_radioVeh getVariable ["detachableRadio", 0] != 2)}) exitWith {
         [_handle] call CBA_fnc_removePerFrameHandler; 
-        [] call GRAD_tracking_fnc_bluforSurrendered;
+        if (!FACTIONS_DEFAULT) then {
+            [] call GRAD_tracking_fnc_bluforCaptured;    // call Mission End
+        } else {
+            [] call GRAD_tracking_fnc_bluforSurrendered;
+        };
     };
 
     // check if cookoff needs fixing
