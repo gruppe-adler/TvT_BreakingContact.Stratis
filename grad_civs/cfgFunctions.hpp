@@ -19,7 +19,6 @@ class GRAD_civs {
 
         class addNewCivilian {};
 		class dressAndBehave {};
-		class findRemovableCivilian {};
         class findSpawnSegment {};
         class getPlayerPositions {};
         class startMainLoop {};

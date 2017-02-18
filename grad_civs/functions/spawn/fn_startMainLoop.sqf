@@ -7,13 +7,6 @@ GRAD_civs_mainLoop = [{
 
     _playerPositions = call GRAD_civs_fnc_getPlayerPositions;
 
-    [
-	    _playerPositions, 
-		GRAD_CIV_MIN_SPAWN_DISTANCE, 
-		GRAD_CIV_MAX_SPAWN_DISTANCE, 
-		GRAD_CIV_ONFOOT_GROUPS
-	] spawn GRAD_civs_fnc_findRemovableCivilian;
-
     if (GRAD_CIV_ONFOOT_COUNT < GRAD_CIV_MAX_COUNT) then {
     	[_playerPositions] call GRAD_civs_fnc_addNewCivilian;
     };
