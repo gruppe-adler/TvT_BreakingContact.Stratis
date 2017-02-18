@@ -40,3 +40,8 @@ opforTeleporting = {
 		}
 	] call BIS_fnc_addStackedEventHandler;
 // };
+
+
+if (DEBUG_MODE) then {
+	[worldSize/2, worldSize/2] call opforTeleporting;
+};
