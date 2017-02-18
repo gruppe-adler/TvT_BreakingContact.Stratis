@@ -19,7 +19,7 @@ fnc_selectNextVehicleInArray = {
 
 	call fnc_refreshGUI;
 
-	diag_log format ["%1 ..... supplies are now %2", _x, _vehicleArrayResorted select 0];
+	diag_log format ["%1 ..... supplies are now %2", _vehicleArray select 0, _vehicleArrayResorted select 0];
 };
 
 fnc_moveFirstToLast = {

@@ -89,7 +89,7 @@ _hideout = [
     [],
     {   
         deleteVehicle (_this select 0);
-        [getpos player, west, {
+        [getpos blufor_teamlead, west, {
             _cache = (_this select 0);
             _cache addMagazineCargoGlobal ['rhs_30Rnd_762x39mm_tracer',20];
             _cache addMagazineCargoGlobal ['rhs_30Rnd_762x39mm',20];

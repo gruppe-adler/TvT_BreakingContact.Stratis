@@ -76,9 +76,8 @@ fnc_createEntries = {
 
 
 		 randIDC = [randIDC] call fnc_getNextIDC;
-		 if (!_isRefresh) then {
-		 	_pic = [picIDC, _createdGui, _picXCoord,_width, _supplyItem select 0 select 0,_amountOfVehicles] spawn fnc_createEntryPicture;
-		 };
+		 
+		 _pic = [picIDC, _createdGui, _picXCoord,_width, _supplyItem select 0 select 0,_amountOfVehicles] spawn fnc_createEntryPicture;
 		 picIDC = [picIDC] call fnc_getNextIDC;
 
 
