@@ -8,12 +8,11 @@ call compile preprocessFileLineNumbers "helpers\findSimplePos.sqf";
 
 0 = execVM "grad_civs\init.sqf";
 
-
+DEBUG_MODE = false;
 if ((["DEBUG_MODE", 0] call BIS_fnc_getParamValue) == 1 || !isMultiplayer) then {
 	DEBUG_MODE = true;
-} else {
-	DEBUG_MODE = false;
 };
+publicVariable "DEBUG_MODE";
 
 // read parameters
 TIME_OF_DAY = ["TIME_OF_DAY", 10] call BIS_fnc_getParamValue;
