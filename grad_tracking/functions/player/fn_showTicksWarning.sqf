@@ -1,18 +1,29 @@
 #include "\z\ace\addons\main\script_component.hpp"
 
-_points = _this;
-_pointsRatio = _points / (GRAD_TICKS_NEEDED * GRAD_INTERVALS_NEEDED);
+private ["_string_1"];
 
-if (_pointsRatio >= grad_ticks_nextWarning) then { // alle 10% die Warnung
-	_string = "";
+ticks = _this;
+ticksRatio = ticks / (GRAD_TICKS_NEEDED * GRAD_INTERVALS_NEEDED);
+
+if (ticksRatio >= grad_ticks_nextWarning) then { // alle 10% die Warnung
+	
+
 
 	if (!FACTIONS_DEFAULT) then {
 		_string_1 = localize "str_GRAD_transmissionTime_1";
 	} else {
 		_string_1 = localize "str_GRAD_transmissionTime_1_mud";
 	};
-	_string = _string_1 + " " + (str (round(_pointsRatio * 100))) + " " + localize "str_GRAD_transmissionTime_2";
+	_string = _string_1 + " " + (str (round(ticksRatio * 100))) + " " + localize "str_GRAD_transmissionTime_2";
 	[_string] call EFUNC(common,displayTextStructured);
 	playSound "beep";
-	grad_ticks_nextWarning = grad_ticks_nextWarning + 0.1;
+	if (grad_ticks_nextWarning >= 0.8) then {
+		if (grad_ticks_nextWarning >= 0.9) then {
+			grad_ticks_nextWarning = grad_ticks_nextWarning + 0.05;
+		} else {
+			grad_ticks_nextWarning = grad_ticks_nextWarning + 0.2;
+		};
+	} else {
+		grad_ticks_nextWarning = grad_ticks_nextWarning + 0.2;
+	};
 };

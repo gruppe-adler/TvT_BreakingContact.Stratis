@@ -2,13 +2,16 @@
 
 params ["_side"];
 
+private ["_string_1"];
+
 if (playerSide == _side) then {
-	_pointsRatio = GRAD_TICKS_DONE / GRAD_TICKS_NEEDED;
+	_ticksRatio = GRAD_TICKS_DONE / GRAD_TICKS_NEEDED;
+
 	if (!FACTIONS_DEFAULT) then {
 		_string_1 = localize "str_GRAD_transmissionTime_1";
 	} else {
 		_string_1 = localize "str_GRAD_transmissionTime_1_mud";
 	};
-	_string = _string_1 + " " + (str (round(_pointsRatio * 100))) + " " + localize "str_GRAD_transmissionTime_2";
+	_string = _string_1 + " " + (str (round(_ticksRatio * 100))) + " " + localize "str_GRAD_transmissionTime_2";
 	[_string] call EFUNC(common,displayTextStructured);
 };
