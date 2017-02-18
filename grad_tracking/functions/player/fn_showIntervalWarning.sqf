@@ -1,5 +1,7 @@
 #include "\z\ace\addons\main\script_component.hpp"
 
+private ["_string"];
+
 _interval = _this;
 
 if (_interval >= grad_interval_nextWarning) then { // alle 10% die Warnung
