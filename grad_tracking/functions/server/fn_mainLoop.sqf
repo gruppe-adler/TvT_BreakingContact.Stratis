@@ -75,7 +75,7 @@ GRAD_tracking_mainLoop = [{
     [!_radioVehIsSending, _radioVeh] call GRAD_tracking_fnc_setRadioVehMarkerStatus;
     [!_terminalIsSending, _terminal] call GRAD_tracking_fnc_setTerminalMarkerStatus;
 
-    if (GRAD_TICKS_DONE >= GRAD_TICKS_NEEDED) then {
+    if (GRAD_TICKS_DONE >= GRAD_TICKS_NEEDED && (time > 10)) then {
         GRAD_INTERVALS_DONE = GRAD_INTERVALS_DONE + 1;
         GRAD_TICKS_DONE = 0;
         _randomSpawnPos = [position blufor_teamlead, [1000,3000], random 360, 0, [1,100]] call SHK_POS;
