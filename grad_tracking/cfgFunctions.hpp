@@ -36,6 +36,7 @@ class GRAD_tracking {
         class radioTruckDeploy {};
         class radioTruckRetract {};
         class radioVehIsSending {};
+        class randomizeMarker {};
         class setRadioVehMarkerPosition {};
         class setRadioVehMarkerStatus {};
         class setTerminalMarkerPosition {};

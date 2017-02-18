@@ -86,10 +86,19 @@ GRAD_tracking_mainLoop = [{
     } else {
         grad_tracking_currentLoop = 0; // reset delay for position update
 
+        _radioVehX = getPos _radioVeh select 0;
+        _radioVehY = getPos _radioVeh select 1;
+        _markerPos = [_radioVehX, _radioVehY];
+
+       if (FACTIONS_DEFAULT) then {
+            _markerPos = [_radioVehX, _radioVehY, 150] call GRAD_tracking_fnc_randomizeMarker;
+            GRAD_SIGNAL_DELAY = GRAD_SIGNAL_DELAY + (random 60);
+       };
+
         if (!GRAD_TERMINAL_ACTIVE) then {
-            [getPos _radioVeh select 0, getPos _radioVeh select 1] call GRAD_tracking_fnc_setRadioVehMarkerPosition;
+            _markerPos call GRAD_tracking_fnc_setRadioVehMarkerPosition;
         } else {
-            [getPos _radioVeh select 0, getPos _radioVeh select 1] call GRAD_tracking_fnc_setRadioVehMarkerPosition;
+            _markerPos call GRAD_tracking_fnc_setRadioVehMarkerPosition;
             [getPos _terminal select 0, getPos _terminal select 1] call GRAD_tracking_fnc_setTerminalMarkerPosition;
         };
     };
