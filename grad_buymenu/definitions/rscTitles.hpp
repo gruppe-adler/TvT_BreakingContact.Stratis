@@ -172,6 +172,27 @@
 		};
 	};
 
+	class gui_intel_paper_markerupdate
+	{
+		idd = -1;
+		duration = 10;
+		name = "gui_intel_paper_markerupdate";
+		fadeOut = 5;
+
+	 	class controls {
+			class gui_intel_paper_markerupdate_pic: RscPicture
+			{
+				idc = -1;
+				x = safeZoneX + safeZoneW - 0.3;
+				y = safeZoneY + safeZoneH - 1.5;
+				w = 0.3;
+				h = 0.4;
+				text = "pic\rus_markerupdate.paa";
+			};
+		};
+	};
+	
+
 	class gui_blufor_pleasewait
 	{
 		idd = -1;
