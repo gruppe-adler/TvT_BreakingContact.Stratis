@@ -5,6 +5,7 @@ class GRAD_supplydrops {
         
         class createDropMarker {};
         class showDropHint {};
+        class showDropDestructionHint {};
     };
 
 	class server {

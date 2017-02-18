@@ -12,9 +12,9 @@ _obj removeAllEventHandlers "Explosion";
 
 sleep 20;
 
-if (GRAD_INTERVALS_NEEDED > 0) then {
-	GRAD_INTERVALS_NEEDED = GRAD_INTERVALS_NEEDED - 1;
-	publicVariable "GRAD_INTERVALS_NEEDED";
+if (GRAD_TICKS_NEEDED > 0) then {
+	GRAD_TICKS_NEEDED = 0;
+	publicVariable "GRAD_TICKS_NEEDED";
 };
 
 deleteVehicle _smoke;
@@ -30,3 +30,4 @@ _ex setVelocity [0,0,-1000];
 deleteVehicle _obj;
 
 
+[west] remoteExec ["grad_supplydrops_fnc_showDropDestructionHint", 0, false];
