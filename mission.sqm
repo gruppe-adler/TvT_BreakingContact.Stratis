@@ -8,7 +8,7 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=373;
+		nextID=379;
 	};
 	class MarkerIDProvider
 	{
@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={1753.6445,30.462078,5901.2295};
-		dir[]={0.64953756,-0.45093673,0.61237895};
-		up[]={0.32812437,0.89253545,0.30935296};
-		aside[]={0.6860643,2.9965304e-007,-0.72769612};
+		pos[]={3387.0933,48.617645,6238.8315};
+		dir[]={-0.31173983,-0.17974761,-0.93315154};
+		up[]={-0.056976251,0.98368651,-0.1705467};
+		aside[]={-0.94857937,-2.0051084e-007,0.31689882};
 	};
 };
 binarizationWanted=0;
@@ -56,13 +56,15 @@ addons[]=
 	"ace_advanced_throwing",
 	"ace_tagging",
 	"acex_sitting",
-	"ace_spectator"
+	"ace_spectator",
+	"A3_Weapons_F_Explosives",
+	"A3_Modules_F_Curator_Mines"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=30;
+		items=31;
 		class Item0
 		{
 			className="A3_Ui_F";
@@ -273,6 +275,13 @@ class AddonsMetaData
 			author="ACE-Team";
 			url="http://ace3mod.com/";
 		};
+		class Item30
+		{
+			className="A3_Weapons_F";
+			name="Arma 3 Alpha - Weapons and Accessories";
+			author="Bohemia Interactive";
+			url="http://www.arma3.com";
+		};
 	};
 };
 randomSeed=6764181;
@@ -301,7 +310,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=59;
+		items=60;
 		class Item0
 		{
 			dataType="Marker";
@@ -6953,6 +6962,46 @@ class Mission
 			type="Empty";
 			id=201;
 			atlOffset=-5.5;
+		};
+		class Item59
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={3460.667,51.928921,6221.96};
+				angles[]={0.014992379,0,6.2506871};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				init="this setdamage 1;";
+			};
+			id=378;
+			type="IEDUrbanBig_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ace_isMedicalFacility";
+					expression="_this setVariable [""ace_medical_isMedicalFacility"",_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
 		};
 	};
 	class Connections
