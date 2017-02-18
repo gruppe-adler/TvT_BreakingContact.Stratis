@@ -12,4 +12,9 @@ if (
 
 if (!([GRAD_RADIO_VEH_MARKER_HIDDEN, _previous] call GRAD_tracking_fnc_booleanEqual)) then {
 	 publicVariable "GRAD_RADIO_VEH_MARKER_HIDDEN";
+
+	 if (FACTIONS_DEFAULT) then {
+	 	GRAD_TICKS_DONE = 0;
+	 	publicVariable "GRAD_TICKS_DONE";
+	 };
 };

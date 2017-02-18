@@ -79,6 +79,7 @@ GRAD_tracking_mainLoop = [{
         GRAD_INTERVALS_DONE = GRAD_INTERVALS_DONE + 1;
         publicVariable "GRAD_INTERVALS_DONE";
         GRAD_TICKS_DONE = 0;
+        publicVariable "GRAD_TICKS_DONE";
         _randomSpawnPos = [position blufor_teamlead, [1000,3000], random 360, 0, [1,100]] call SHK_POS;
         [
             _randomSpawnPos, 
