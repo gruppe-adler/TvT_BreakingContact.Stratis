@@ -91,7 +91,7 @@ GRAD_tracking_mainLoop = [{
         _markerPos = [_radioVehX, _radioVehY];
 
        if (FACTIONS_DEFAULT) then {
-            _markerPos = [_radioVehX, _radioVehY, 150] call GRAD_tracking_fnc_randomizeMarker;
+            _markerPos = [[_radioVehX, _radioVehY], 150] call GRAD_tracking_fnc_randomizeMarker;
             GRAD_SIGNAL_DELAY = GRAD_SIGNAL_DELAY + (random 60);
        };
 
