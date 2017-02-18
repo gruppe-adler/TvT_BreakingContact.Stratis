@@ -48,7 +48,11 @@ _parameters = [
 	"RHS_Ural_Open_Civ_01",
 	"RHS_Ural_Open_Civ_02",
 	"RHS_Ural_Open_Civ_03",
-	"rhsgref_nat_uaz"
+	"rhsgref_nat_uaz",
+	"RDS_JAWA353_Civ_01",
+	"RDS_JAWA353_Civ_01",
+	"RDS_JAWA353_Civ_01",
+	"RDS_tt650_Civ_01"
 	]],
 	["VEHICLES_COUNT", 15],
 	["MIN_SPAWN_DISTANCE", 1500],
