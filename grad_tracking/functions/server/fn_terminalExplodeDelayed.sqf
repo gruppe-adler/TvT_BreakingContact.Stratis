@@ -8,7 +8,7 @@ _smoke = "#particlesource" createVehicle position _terminal;
 _smoke setParticleClass "SmallDestructionSmoke";
 
 _terminal setVariable ["isFunctional", false];
-removeAllEventHandlers _terminal;
+_terminal removeAllEventHandlers "Explosion";
 
 sleep 20;
 deleteVehicle _smoke;
