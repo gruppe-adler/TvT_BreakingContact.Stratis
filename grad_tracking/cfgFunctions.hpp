@@ -14,6 +14,7 @@ class GRAD_tracking {
         class listenerTicks {};
         class radioVehMarkerAnimation {};
         class showIntervalWarning {};
+        class showMarkerUpdateHint {};
         class showTicksInstant {};
         class showTicksWarning {};
         class terminalAddAction {};
