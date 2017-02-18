@@ -10,9 +10,6 @@ _smoke setParticleClass "SmallDestructionSmoke";
 _obj setVariable ["isFunctional", false];
 _obj removeAllEventHandlers "Explosion";
 
-_obj setVariable ["isCookingOff", true, true];
-[_obj] remoteExec ["ace_cookoff_fnc_cookOff",2,false];
-
 sleep 20;
 
 deleteVehicle _smoke;
@@ -26,5 +23,4 @@ _ex = createVehicle [
 _ex setVectorDirAndUp [[0,0,1],[0,-1,0]];
 _ex setVelocity [0,0,-1000];
 deleteVehicle _obj;
-
 

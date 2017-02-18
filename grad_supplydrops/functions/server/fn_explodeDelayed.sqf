@@ -10,9 +10,6 @@ _smoke setParticleClass "SmallDestructionSmoke";
 _obj setVariable ["isFunctional", false];
 _obj removeAllEventHandlers "Explosion";
 
-_obj setVariable ["isCookingOff", true, true];
-[_obj] remoteExec ["ace_cookoff_fnc_cookOff",2,false];
-
 sleep 20;
 
 if (GRAD_INTERVALS_NEEDED > 0) then {
