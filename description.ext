@@ -156,7 +156,7 @@ class Params
   	class FACTION_MODE {
     	title = "Factions fighting";
     	values[] = {0, 1};
-    	texts[] =  {"AFGHAN WARS: Mudschaheddin vs. Sowjets (needs Project OPFOR & CUP TP!)", "CLASSIC: US vs. Russians"};
+    	texts[] =  {"CLASSIC: US vs. Russians", "AFGHAN WARS: Mudschaheddin vs. Sowjets (needs Project OPFOR & CUP TP!)"};
     	default = 1;
   	};
 

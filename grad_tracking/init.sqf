@@ -40,6 +40,7 @@ if (isServer) then {
 	// afghan wars mode
 	if (FACTIONS_DEFAULT) then {
 		GRAD_INTERVALS_NEEDED = 5;
+		publicVariable "GRAD_INTERVALS_NEEDED";
 		GRAD_SIGNAL_DELAY = 30;
 	};
 

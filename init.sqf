@@ -83,7 +83,11 @@ if (hasInterface) then {
 
 
 	checkSpawnButton = {
-		if (str player != "opfor_teamlead") then {
+		_spawnSelector = "opfor_teamlead";
+		if (FACTIONS_DEFAULT) then {
+			_spawnSelector = "blufor_teamlead";
+		};
+		if (str player != _spawnSelector) then {
 			0 = [[worldSize/2,worldSize/2,0],"",1500] execVM "player\setup\establishingShot.sqf";
 		} else {
 		disableSerialization;
