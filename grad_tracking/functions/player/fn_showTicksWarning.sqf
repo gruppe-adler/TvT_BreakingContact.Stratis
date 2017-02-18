@@ -1,7 +1,5 @@
 #include "\z\ace\addons\main\script_component.hpp"
 
-grad_ticks_nextWarning = 0.2;
-
 _points = _this;
 _pointsRatio = _points / (GRAD_TICKS_NEEDED * GRAD_INTERVALS_NEEDED);
 

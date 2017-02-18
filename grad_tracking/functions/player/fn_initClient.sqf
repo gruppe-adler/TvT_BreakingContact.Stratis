@@ -30,6 +30,7 @@ _GRAD_TERMINAL_MARKER_HIDDEN_listener = {
 
 // initial set
 grad_interval_nextWarning = 1;
+grad_ticks_nextWarning = 0.2;
 
 // add listener for intervals
 call GRAD_tracking_fnc_listenerInterval; 
