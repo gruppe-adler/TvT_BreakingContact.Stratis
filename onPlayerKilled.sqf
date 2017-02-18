@@ -14,7 +14,7 @@ if (!isNull _killer) then {
 	[_string] call EFUNC(common,displayTextStructured);
 
 	if (!FACTIONS_DEFAULT) then {
-		[player, _killer] call GRAD_wr_onPlayerKilled;
+		[player, _killer] call GRAD_waverespawn_fnc_onPlayerKilled;
 	};
 } else {
 	[true] call ace_spectator_fnc_setSpectator;
