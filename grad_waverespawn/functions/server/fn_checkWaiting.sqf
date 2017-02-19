@@ -1,26 +1,24 @@
-params ["_blu", "_opf"];
-
 [{
-    params ["_blu", "_handle"];
+    params ["_args", "_handle"];
     if (MISSION_COMPLETED) exitWith {[_handle] call CBA_fnc_removePerFrameHandler};
-    if (count _blu > 0) then {
-    	_respawningUnit = _blu select 0;
+    if (count deadPlayersBlu > 0) then {
+    	_respawningUnit = deadPlayersBlu select 0;
     	[_respawningUnit, WEST] call GRAD_waveRespawn_fnc_canRespawn;
-    	[_respawningUnit] call GRAD_waveRespawn_fnc_removePlayerWaiting;
-    	diag_log format ["checkWaiting releases %1 for respawn", _respawningUnit];
+    	
+    	diag_log format ["checkWaiting checks %1 if respawn is available", _respawningUnit];
 
 	};
    
-} , 1, _blu] call CBA_fnc_addPerFrameHandler;
+} , 2, []] call CBA_fnc_addPerFrameHandler;
 
 [{
-    params ["_opf", "_handle"];
+    params ["_args", "_handle"];
     if (MISSION_COMPLETED) exitWith {[_handle] call CBA_fnc_removePerFrameHandler};
-    if (count _opf > 0) then {
-    	_respawningUnit = _opf select 0;
+    if (count deadPlayersOpf > 0) then {
+    	_respawningUnit = deadPlayersOpf select 0;
     	[_respawningUnit, EAST] call GRAD_waveRespawn_fnc_canRespawn;
-    	[_respawningUnit] call GRAD_waveRespawn_fnc_removePlayerWaiting;
-    	diag_log format ["checkWaiting releases %1 for respawn", _respawningUnit];
+    	
+        diag_log format ["checkWaiting checks %1 if respawn is available", _respawningUnit];
 	};
    
-} , 1, _opf] call CBA_fnc_addPerFrameHandler;
+} , 2, []] call CBA_fnc_addPerFrameHandler;

@@ -6,12 +6,18 @@ switch (_side) do {
 		if (RESPAWN_AVAILABLE_BLU > 0) exitWith {
 			RESPAWN_AVAILABLE_BLU = RESPAWN_AVAILABLE_BLU - 1;
 			[] remoteExec ["GRAD_waveRespawn_fnc_prepareRespawn", _unit, false];
+			[_unit] call GRAD_waveRespawn_fnc_removePlayerWaiting;
+
+			diag_log format ["canRespawn sends prepare to %1", _unit];
 		};
 	};
 	case (EAST): {
 		if (RESPAWN_AVAILABLE_OPF > 0) exitWith {
 			RESPAWN_AVAILABLE_OPF = RESPAWN_AVAILABLE_OPF - 1;
 			[] remoteExec ["GRAD_waveRespawn_fnc_prepareRespawn", _unit, false];
+			[_unit] call GRAD_waveRespawn_fnc_removePlayerWaiting;
+
+			diag_log format ["canRespawn sends prepare to %1", _unit];
 		};
 	};
 };

@@ -51,22 +51,39 @@ if (!FACTIONS_DEFAULT) then {
 
 setCustomWeather = {
 	// skipTime -24;
-	10 setOvercast (_this select 0);
-	10 setRain 0;
+	ACE_RAIN_PARAMS = [rain, 0, 1];	
+	ACE_MISC_PARAMS = [0, 0.1, [random 0.1, 0, 1], 0, 0, 0];
+
 	if ((_this select 0) > 0.5) then {
 		_fogDensity = 0.2;
 		_fogFalloff = 0;
-		10 setFog [_fogDensity, _fogFalloff, 0];
+		// lightnings, rainbow, fogParams, temperatureShift, badWeatherShift, humidityShift
+		ACE_MISC_PARAMS = [0.1, 0.6, [_fogDensity, _fogFalloff, 1], 0, 0, 0];
+
 	};
 	if (_this select 1 && (_this select 0) > 0.7) then {
-		10 setRain 1;
+		// [lastRain, newRain, transitionTime]
+		ACE_RAIN_PARAMS = [rain, 1, 1];		
+
 		_fogDensity = 0.4;
 		_fogFalloff = 0;
-		10 setFog [_fogDensity, _fogFalloff, 1];
+
+		// lightnings, rainbow, fogParams, temperatureShift, badWeatherShift, humidityShift
+		ACE_MISC_PARAMS = [1, 0, [_fogDensity, _fogFalloff, 1], 0, 0, 0];
+		
+		// [currentDirection, directionChange, currentSpeed, speedChange, transitionTime];
+		// currently not working with script error?
+		/*
+			ACE_WIND_PARAMS = [windDir, 180, wind, 30, 1];
+			publicVariable "ACE_WIND_PARAMS"; 
+		*/
+
 	};
 
-	forceWeatherChange;
+	publicVariable "ACE_MISC_PARAMS";
+	publicVariable "ACE_RAIN_PARAMS";
 	// skipTime 24;
+	forceWeatherChange;
 };
 
 

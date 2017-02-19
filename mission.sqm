@@ -8,7 +8,7 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=387;
+		nextID=388;
 	};
 	class MarkerIDProvider
 	{
@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={1397.0565,25,5882.7061};
-		dir[]={0,-0.70710683,0.70710683};
-		up[]={0,0.70710677,0.70710677};
-		aside[]={0.99999994,0,-0};
+		pos[]={1534.7971,55.171555,5888.458};
+		dir[]={0.47977474,-0.34733394,0.80571795};
+		up[]={0.17770544,0.9377414,0.29843274};
+		aside[]={0.85921013,5.8207661e-009,-0.51162732};
 	};
 };
 binarizationWanted=0;
@@ -305,8 +305,10 @@ class Mission
 		day=4;
 		hour=12;
 		minute=0;
-		startFogDecay=0.013;
-		forecastFogDecay=0.013;
+		startFogBase=-1000;
+		forecastFogBase=-1000;
+		startFogDecay=0;
+		forecastFogDecay=0;
 	};
 	class Entities
 	{
@@ -562,11 +564,11 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={1530.9652,0.0089143328,6062.9854};
+				position[]={1530.965,0.008430481,6062.9849};
 			};
 			id=6;
 			type="ace_advanced_ballistics_ModuleSettings";
-			atlOffset=32.320442;
+			atlOffset=32.32;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -911,11 +913,11 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={1563.5178,0.0200515,6063.3872};
+				position[]={1563.5179,0.020545959,6063.3872};
 			};
 			id=9;
 			type="ace_weather_ModuleSettings";
-			atlOffset=28.667526;
+			atlOffset=28.668001;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -933,7 +935,7 @@ class Mission
 									"BOOL"
 								};
 							};
-							value=0;
+							value=1;
 						};
 					};
 				};
@@ -971,7 +973,7 @@ class Mission
 									"BOOL"
 								};
 							};
-							value=0;
+							value=1;
 						};
 					};
 				};
@@ -990,7 +992,7 @@ class Mission
 									"BOOL"
 								};
 							};
-							value=0;
+							value=1;
 						};
 					};
 				};
@@ -1009,7 +1011,7 @@ class Mission
 									"BOOL"
 								};
 							};
-							value=0;
+							value=1;
 						};
 					};
 				};
@@ -1028,7 +1030,7 @@ class Mission
 									"BOOL"
 								};
 							};
-							value=0;
+							value=1;
 						};
 					};
 				};
@@ -1381,11 +1383,11 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={1547.0405,-0.074209139,6063.3867};
+				position[]={1547.041,-0.073665619,6063.3872};
 			};
 			id=18;
 			type="ace_winddeflection_ModuleSettings";
-			atlOffset=30.124529;
+			atlOffset=30.125;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -1441,7 +1443,7 @@ class Mission
 									"SCALAR"
 								};
 							};
-							value=3000;
+							value=1500;
 						};
 					};
 				};
