@@ -24,12 +24,6 @@ publicVariable "WEATHER_SETTING";
 BLUFOR_SPAWN_DISTANCE = ["BLUFOR_SPAWN_DISTANCE", 3000] call BIS_fnc_getParamValue;
 publicVariable "BLUFOR_SPAWN_DISTANCE";
 
-OPFOR_MONEY = ["OPFOR_MONEY", 2000] call BIS_fnc_getParamValue;
-publicVariable "OPFOR_MONEY";
-
-BLUFOR_MONEY = ["BLUFOR_MONEY", 3000] call BIS_fnc_getParamValue;
-publicVariable "BLUFOR_MONEY";
-
 TIME_ACCELERATION = ["TIME_ACCELERATION", 1] call BIS_fnc_getParamValue;
 
 REPLAY_ACCURACY = ["REPLAY_ACCURACY", 4] call BIS_fnc_getParamValue;
@@ -52,8 +46,7 @@ if (!FACTIONS_DEFAULT) then {
 } else {
 	0 = execVM "grad_waverespawn\init.sqf";
 	0 = execVM "grad_roadtrash\init.sqf";
-	OPFOR_MONEY = OPFOR_MONEY + 2000;
-	publicVariable "OPFOR_MONEY";
+	
 };
 
 setCustomWeather = {
@@ -153,6 +146,10 @@ REPLAY_STEPS_PER_TICK = 1;
 
 	moneyOpfor = moneyOpfor + _bonusPerPlayer;
 	moneyBlufor = moneyBlufor + _bonusPerPlayer;
+
+	if (FACTIONS_DEFAULT) then {
+		moneyOpfor = moneyOpfor + 1000;
+	};
 	publicVariable "moneyBlufor";
 	publicVariable "moneyOpfor";
 };

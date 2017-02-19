@@ -14,8 +14,8 @@ if (isServer) then {
 	publicVariable "suppliesOpfor";
 
 	// initial money, also used for tracking money during game
-	moneyBlufor = 3000; // initial money
-	moneyOpfor = 2000;
+	moneyBlufor = ["BLUFOR_MONEY", 3000] call BIS_fnc_getParamValue;
+	moneyOpfor = ["OPFOR_MONEY", 2000] call BIS_fnc_getParamValue;
 	publicVariable "moneyBlufor";
 	publicVariable "moneyOpfor";
 
