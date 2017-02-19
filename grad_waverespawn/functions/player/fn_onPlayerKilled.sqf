@@ -1,6 +1,6 @@
 #include "\z\ace\addons\main\script_component.hpp"
 
-params ["_victim", "_killer"];
+params ["_victim"];
 
 [_victim] remoteExec ["GRAD_waveRespawn_fnc_addPlayerToWaiting", 2, false];
 

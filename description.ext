@@ -287,6 +287,15 @@ class CfgSounds
 		titles[] = {0, ""};
 	};
 
+	class waverespawn_bing
+	{
+		name = "waverespawn_bing";
+		// filename, volume, pitch
+		sound[] = {"grad_waverespawn\data\bing.ogg", 1, 1};
+		// subtitle delay in seconds, subtitle text
+		titles[] = {0, ""};
+	};
+
 };
 
 

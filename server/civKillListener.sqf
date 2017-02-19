@@ -6,12 +6,10 @@ _CIV_KILLED_listener = {
     if (!isNull _killer) then {
 
 	    if (side _killer == west) then {
-	    	RESPAWN_AVAILABLE_OPF = RESPAWN_AVAILABLE_OPF + 1;
-	    	diag_log format ["killer is from west, setting respawn for opfor to %1", RESPAWN_AVAILABLE_OPF];
+	    	[west] call grad_waverespawn_fnc_addRespawnForSide;
 	    };
 	    if (side _killer == east) then {
-	    	RESPAWN_AVAILABLE_BLU = RESPAWN_AVAILABLE_BLU + 1;
-	    	diag_log format ["killer is from east, setting respawn for blufor to %1", RESPAWN_AVAILABLE_BLU];
+	    	[east] call grad_waverespawn_fnc_addRespawnForSide;
 		};
 
    	};

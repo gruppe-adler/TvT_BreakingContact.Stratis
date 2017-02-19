@@ -44,4 +44,5 @@ opforTeleporting = {
 
 if (DEBUG_MODE) then {
 	[worldSize/2, worldSize/2] call opforTeleporting;
+	["teleportClickOpf", "onMapSingleClick"] call BIS_fnc_removeStackedEventHandler;
 };

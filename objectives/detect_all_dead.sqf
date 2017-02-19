@@ -17,10 +17,19 @@ checkForReal = {
 [] spawn {
     
     waitUntil {sleep 1; !isNil "GRAD_TERMINAL_DESTROYED"};
+    OPFOR_PRE_ELIMINATED = false;
+    BLUFOR_PRE_ELIMINATED = false;
 
     while {true} do {
-        OPFOR_PRE_ELIMINATED = (({side _x == east} count playableUnits) + ({side _x == east} count switchableUnits) == 0);
-        BLUFOR_PRE_ELIMINATED = (({side _x == west} count playableUnits)  + ({side _x == west} count switchableUnits) == 0);
+
+
+        if (DEBUG_MODE) then {
+            OPFOR_PRE_ELIMINATED = ({side _x == east} count allUnits);
+            BLUFOR_PRE_ELIMINATED = ({side _x == west} count allUnits);
+        } else {
+            OPFOR_PRE_ELIMINATED = (({side _x == east} count playableUnits) + ({side _x == east} count switchableUnits) == 0);
+            BLUFOR_PRE_ELIMINATED = (({side _x == west} count playableUnits)  + ({side _x == west} count switchableUnits) == 0);
+        };
 
 		if (GRAD_TERMINAL_DESTROYED) exitWith { [] call bluforCaptured; };
 
