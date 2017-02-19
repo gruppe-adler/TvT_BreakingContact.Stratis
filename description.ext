@@ -14,6 +14,7 @@ class CfgFunctions {
 	#include "grad_weaponcaches\cfgFunctions.hpp"
 	#include "grad_waverespawn\cfgFunctions.hpp"
 	#include "grad_roadtrash\cfgFunctions.hpp"
+	#include "grad_emptycars\cfgFunctions.hpp"
 };
 
 class RscTitles {

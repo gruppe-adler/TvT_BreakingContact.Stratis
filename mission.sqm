@@ -8,7 +8,7 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=388;
+		nextID=389;
 	};
 	class MarkerIDProvider
 	{
@@ -17,9 +17,9 @@ class EditorData
 	class Camera
 	{
 		pos[]={1534.7971,55.171555,5888.458};
-		dir[]={0.47977474,-0.34733394,0.80571795};
-		up[]={0.17770544,0.9377414,0.29843274};
-		aside[]={0.85921013,5.8207661e-009,-0.51162732};
+		dir[]={0.43983579,-0.4797785,0.75918585};
+		up[]={0.2405123,0.87738973,0.4151403};
+		aside[]={0.86527658,-1.8626451e-008,-0.5012998};
 	};
 };
 binarizationWanted=0;
@@ -58,7 +58,8 @@ addons[]=
 	"acex_sitting",
 	"ace_spectator",
 	"A3_Weapons_F_Explosives",
-	"A3_Modules_F_Curator_Mines"
+	"A3_Modules_F_Curator_Mines",
+	"A3_Modules_F_ObjectModifiers"
 };
 class AddonsMetaData
 {
@@ -312,7 +313,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=60;
+		items=61;
 		class Item0
 		{
 			dataType="Marker";
@@ -7003,6 +7004,78 @@ class Mission
 					};
 				};
 				nAttributes=1;
+			};
+		};
+		class Item60
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={1605.772,-0.0001411438,6164.7241};
+			};
+			id=388;
+			type="ModuleSimulationManager_F";
+			atlOffset=12.792;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ModuleSimulationManager_F_ExcludeAir";
+					expression="_this setVariable ['ExcludeAir',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=0;
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="ModuleSimulationManager_F_Radius";
+					expression="_this setVariable ['Radius',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=2000;
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="ModuleInfo";
+					expression="false";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=1;
+						};
+					};
+				};
+				nAttributes=3;
 			};
 		};
 	};

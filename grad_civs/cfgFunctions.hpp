@@ -19,6 +19,7 @@ class GRAD_civs {
         file = grad_civs\functions\spawn;
 
         class addNewCivilian {};
+        class clothDefinitions {};
 		class dressAndBehave {};
         class findSpawnSegment {};
         class getPlayerPositions {};

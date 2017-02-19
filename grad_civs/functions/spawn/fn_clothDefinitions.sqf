@@ -1,8 +1,3 @@
-params ["_factionsdefault"];
-
-GRAD_civ_clothes = [];
-GRAD_civ_headgear = [];
-
 GRAD_civ_clothes_MUD = [
 	"LOP_U_AM_Fatigue_01",
     "LOP_U_AM_Fatigue_01_2",
@@ -108,7 +103,7 @@ GRAD_civ_beards = [
     "TRYK_Beard_BK"
 ];
 
-if (_factionsdefault) then {
+if (!FACTIONS_DEFAULT) then {
 	GRAD_civ_headgear = GRAD_civ_headgear_EUR;
 	GRAD_civ_clothes = GRAD_civ_clothes_EUR;
 } else {

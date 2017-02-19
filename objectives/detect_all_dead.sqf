@@ -22,8 +22,8 @@ checkForReal = {
 
     while {true} do {
 
-        OPFOR_PRE_ELIMINATED = ({side _x == east} count allUnits);
-        BLUFOR_PRE_ELIMINATED = ({side _x == west} count allUnits);
+        OPFOR_PRE_ELIMINATED = ({side _x == east && alive _x} count allUnits == 0);
+        BLUFOR_PRE_ELIMINATED = ({side _x == west && alive _x} count allUnits == 0);
         
 		if (GRAD_TERMINAL_DESTROYED) exitWith { [] call bluforCaptured; };
 

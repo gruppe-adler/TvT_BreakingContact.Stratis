@@ -46,6 +46,7 @@ if (!FACTIONS_DEFAULT) then {
 } else {
 	0 = execVM "grad_waverespawn\init.sqf";
 	0 = execVM "grad_roadtrash\init.sqf";
+	0 = execVM "grad_emptycars\init.sqf";
 	
 };
 
