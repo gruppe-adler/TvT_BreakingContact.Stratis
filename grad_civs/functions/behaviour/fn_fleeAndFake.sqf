@@ -12,7 +12,7 @@ _buildingPositions = nearestBuilding _thisUnit buildingPos -1;
 
 	 		
 //hintSilent format ["%1",_bla select 0];
-if (count _buildingPositions > 0) then {
+if (count _buildingPositions > 0 && (random 2) > 1.5) then {
 	_thisUnit setBehaviour "SAFE";
 	_pos = selectRandom _buildingPositions;
 	_thisUnit doMove _pos;
@@ -27,10 +27,8 @@ if (count _buildingPositions > 0) then {
 	
 	_thisUnit playMoveNow 'AinvPknlMstpSnonWnonDnon_1'; 
  	_thisUnit stop true;
- 	_thisUnit disableAI "autoTarget";
- 	_thisUnit disableAI "MOVE";
- 	_thisUnit disableAI "ANIM";
- 	_thisUnit removeAllEventHandlers "FiredNear";
+ 	
+ 	
 
 } else {
 	_pos = [_thisUnit,[50,1000],random 360] call SHK_pos;

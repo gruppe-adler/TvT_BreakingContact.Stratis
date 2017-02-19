@@ -29,11 +29,7 @@ if (count _buildingPositions > 0) then {
 	
 	_thisUnit playMoveNow (selectRandom _animationHiding); 
  	_thisUnit stop true;
- 	_thisUnit disableAI "autoTarget";
- 	_thisUnit disableAI "MOVE";
- 	_thisUnit disableAI "ANIM";
- 	_thisUnit removeAllEventHandlers "FiredNear";
-
+ 	
 } else {
 	_pos = [_thisUnit,[5,20],random 360] call SHK_pos;
 	_thisUnit doMove _pos;
@@ -47,8 +43,5 @@ if (count _buildingPositions > 0) then {
 
 	_thisUnit playMoveNow (selectRandom _animationSitting); 
 	_thisUnit stop true;
- 	_thisUnit disableAI "autoTarget";
- 	_thisUnit disableAI "MOVE";
- 	_thisUnit disableAI "ANIM";
  	_thisUnit removeAllEventHandlers "FiredNear";
 };

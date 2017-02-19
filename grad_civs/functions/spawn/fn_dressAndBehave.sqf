@@ -60,7 +60,7 @@ _addBehaviour = {
 	group (_this select 0) setBehaviour "CARELESS";
 	(_this select 0) disableAI "TARGET";
 	(_this select 0) disableAI "AUTOTARGET";
-	(_this select 0) disableAI "FSM";
+	// (_this select 0) disableAI "FSM";
 };
 
 
