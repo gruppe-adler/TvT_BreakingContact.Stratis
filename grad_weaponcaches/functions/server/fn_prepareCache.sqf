@@ -12,7 +12,7 @@ while {!_valid} do {
 	
 	_spawnPos = [locationPosition _settlement] call GRAD_weaponcaches_fnc_findPositionInHouse;
 	
-	if (!([_spawnPos, _enemySide, _minDistance] call GRAD_weaponcaches_fnc_isNearby)) then {
+	if (!([_spawnPos, _enemySide, _minDistance] call GRAD_weaponcaches_fnc_isNearby) && !(surfaceIsWater _spawnPos)) then {
 		_valid = true;
 	};
 };
