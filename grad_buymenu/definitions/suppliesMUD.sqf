@@ -7,8 +7,8 @@
 _civcar = [
     ["RDS_Lada_Civ_01", "RDS_Lada_Civ_02", "RDS_Lada_Civ_03", "RDS_Gaz24_Civ_01", "RDS_Gaz24_Civ_02", "RDS_Gaz24_Civ_03", "RHS_Ural_Civ_01", "RHS_Ural_Civ_02", "RHS_Ural_Civ_03"],
     "Civ Car (click to change)",
-    10,
-    400,
+    14,
+    200,
     1,
     [],
     {
@@ -26,8 +26,8 @@ _civcar = [
 _motorbike = [
     ["RDS_JAWA353_Civ_01", "RDS_tt650_Civ_01"],
     "Motorbike (click to change)",
-    10,
-    400,
+    14,
+    100,
     1,
     [],
     {

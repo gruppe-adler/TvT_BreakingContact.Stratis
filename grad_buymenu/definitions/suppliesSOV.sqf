@@ -31,9 +31,9 @@ _BRDM = [
     0
 ];   
 
-_BRM1K = [
-    ["rhs_brm1k_msv"],
-    "BRM1K",
+_BMP = [
+    ["rhs_bmp1_msv"],
+    "BMP",
     2,
     1000,
     1,
@@ -47,6 +47,14 @@ _BRM1K = [
 
         _veh addItemCargoGlobal ["rhs_tsh4",3];
         _veh addItemCargoGlobal ["ItemGPS",1];
+        _veh removeMagazinesTurret ["rhs_mag_og15v_20", [0]];
+
+        _veh setObjectTextureGlobal [0,"rhsafrf\addons\rhs_bmp_camo\data\bmp_1_desert_co.paa"];
+        _veh setObjectTextureGlobal [1,"rhsafrf\addons\rhs_bmp_camo\data\bmp_2_desert_co.paa"];
+        _veh setObjectTextureGlobal [2,"rhsafrf\addons\rhs_bmp_camo\data\bmp_3_desert_co.paa"];
+        _veh setObjectTextureGlobal [3,"rhsafrf\addons\rhs_bmp_camo\data\bmp_4_desert_co.paa"];
+        _veh setObjectTextureGlobal [4,"rhsafrf\addons\rhs_bmp_camo\data\bmp_5_desert_co.paa"];
+        _veh setObjectTextureGlobal [5,"rhsafrf\addons\rhs_bmp_camo\data\bmp_6_desert_co.paa"];
 
         ['AddCargoByClass', ['ACE_track', _this select 0, 2], _this select 0] call CBA_fnc_targetEvent;
     },
@@ -73,12 +81,40 @@ _BTR70 = [
         _veh addItemCargoGlobal ["ItemGPS",1];
 
         ['AddCargoByClass', ['ACE_wheel', _this select 0, 2], _this select 0] call CBA_fnc_targetEvent;
+
+        _veh setObjectTextureGlobal [0,"rhsafrf\addons\rhs_btr70_camo\data\btr70_1_sand_co.paa"];
+        _veh setObjectTextureGlobal [1,"rhsafrf\addons\rhs_btr70_camo\data\btr70_2_sand_co.paa"];
     },
     format[''],
     0,
     0
 ];
 
+
+_t72 = [
+    ["rhs_t72ba_tv"],
+    "T-72",
+    1,
+    3500,
+    1,
+    ["hide_com_shield",1,"sightElevationAPFSDS",0],
+    {
+    clearWeaponCargoGlobal (_this select 0);
+    clearItemCargoGlobal (_this select 0);
+    clearBackpackCargoGlobal (_this select 0);
+    clearMagazineCargoGlobal (_this select 0);
+    (_this select 0) addItemCargoGlobal ['ItemGPS',1];
+    ['AddCargoByClass', ['ACE_track', _this select 0, 2], _this select 0] call CBA_fnc_targetEvent;
+    (_this select 0) removeMagazinesTurret ["rhs_mag_3of26_5", [0]];
+    (_this select 0) setObjectTextureGlobal [0,"rhsafrf\addons\rhs_t72_camo\data\rhs_t72b_01a_sand_co.paa"];
+    (_this select 0) setObjectTextureGlobal [1,"rhsafrf\addons\rhs_t72_camo\data\rhs_t72b_02a_sand_co.paa"];
+    (_this select 0) setObjectTextureGlobal [2,"rhsafrf\addons\rhs_t72_camo\data\rhs_t72b_03_sand_co.paa"];
+    (_this select 0) setObjectTextureGlobal [3,"rhsafrf\addons\rhs_t72_camo\data\rhs_t72b_04_sand_co.paa"];
+    },
+    format[''],
+    0,
+    0
+];
 
 _MI8 = [
     ["RHS_Mi8mt_vvsc"],
@@ -126,7 +162,8 @@ _mi24 = [
 
 
 suppliesOpfor setVariable ['BRDM', _BRDM, true];
-suppliesOpfor setVariable ['BRM1K', _BRM1K, true];
 suppliesOpfor setVariable ['BTR70', _BTR70, true];
+suppliesOpfor setVariable ['BMP', _BMP, true];
+suppliesOpfor setVariable ['T72', _t72, true];
 suppliesOpfor setVariable ['MI8', _MI8, true];
 suppliesOpfor setVariable ['MI24', _mi24, true];
