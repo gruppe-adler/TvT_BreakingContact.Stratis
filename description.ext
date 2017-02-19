@@ -57,13 +57,29 @@ class Params
 		default = 8;
 	};
 
-	class WEATHER_SETTING
-  {
-		title = "Weather Settings";
-		values[] = {0,1,2,3};
-		texts[] = {"SUNNY DAY","CLOUDY DAY","RAINY DAY","RANDOM WEATHER"};
-		default = 0;
-  };
+	class WEATHER_OVERCAST
+	{
+		title = "Overcast Settings";
+		values[] = {0, 0.4, 0.5, 1, -1};
+		texts[] = {"SUNNY", "CLOUDY", "SLIGHT RAIN", "HEAVY RAIN", "RANDOM"};
+		default = -1;
+	};
+
+	class WEATHER_FOG
+	{
+		title = "Fog Settings";
+		values[] = {0, 0.05, 0.1, 0.2, 0.5, 1, -1};
+		texts[] = {"None", "0.05", "0.1", "0.2", "0.5", "maximum perversum", "random"};
+		default = -1;
+	};
+
+	class WEATHER_WIND
+	{
+		title = "Wind Settings";
+		values[] = {0, 1, 4, 8, 16, 32, -1};
+		texts[] = {"None", "1 m/s", "4 m/s", "8 m/s", "16 m/s", "maximum perversum", "random"};
+		default = -1;
+	};
 
 	class BLUFOR_SPAWN_DISTANCE
 	{

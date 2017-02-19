@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={1534.7971,55.171555,5888.458};
-		dir[]={0.43983579,-0.4797785,0.75918585};
-		up[]={0.2405123,0.87738973,0.4151403};
-		aside[]={0.86527658,-1.8626451e-008,-0.5012998};
+		pos[]={1546.5286,73.372215,5986.1533};
+		dir[]={0.17609197,-0.65515226,0.734694};
+		up[]={0.15270245,0.75549668,0.63710791};
+		aside[]={0.97246099,5.5501005e-008,-0.23308034};
 	};
 };
 binarizationWanted=0;
@@ -294,11 +294,14 @@ class Mission
 {
 	class Intel
 	{
+		timeOfChanges=3600;
 		startWeather=0;
 		startWind=0;
 		forecastWeather=0;
 		forecastWind=0;
 		forecastWaves=0;
+		rainForced=1;
+		lightningsForced=1;
 		wavesForced=1;
 		windForced=1;
 		year=2015;
@@ -936,7 +939,7 @@ class Mission
 									"BOOL"
 								};
 							};
-							value=1;
+							value=0;
 						};
 					};
 				};
@@ -974,7 +977,7 @@ class Mission
 									"BOOL"
 								};
 							};
-							value=1;
+							value=0;
 						};
 					};
 				};
@@ -993,7 +996,7 @@ class Mission
 									"BOOL"
 								};
 							};
-							value=1;
+							value=0;
 						};
 					};
 				};
@@ -1012,7 +1015,7 @@ class Mission
 									"BOOL"
 								};
 							};
-							value=1;
+							value=0;
 						};
 					};
 				};
@@ -1031,7 +1034,7 @@ class Mission
 									"BOOL"
 								};
 							};
-							value=1;
+							value=0;
 						};
 					};
 				};

@@ -18,8 +18,14 @@ publicVariable "DEBUG_MODE";
 TIME_OF_DAY = ["TIME_OF_DAY", 10] call BIS_fnc_getParamValue;
 publicVariable "TIME_OF_DAY";
 
-WEATHER_SETTING = ["WEATHER_SETTING", 0] call BIS_fnc_getParamValue;
-publicVariable "WEATHER_SETTING";
+WEATHER_OVERCAST = ["WEATHER_OVERCAST", -1] call BIS_fnc_getParamValue;
+publicVariable "WEATHER_OVERCAST";
+
+WEATHER_FOG = ["WEATHER_FOG", -1] call BIS_fnc_getParamValue;
+publicVariable "WEATHER_FOG";
+
+WEATHER_WIND = ["WEATHER_WIND", -1] call BIS_fnc_getParamValue;
+publicVariable "WEATHER_WIND";
 
 BLUFOR_SPAWN_DISTANCE = ["BLUFOR_SPAWN_DISTANCE", 3000] call BIS_fnc_getParamValue;
 publicVariable "BLUFOR_SPAWN_DISTANCE";
@@ -51,39 +57,84 @@ if (!FACTIONS_DEFAULT) then {
 };
 
 setCustomWeather = {
-	// skipTime -24;
-	ACE_RAIN_PARAMS = [rain, 0, 1];	
-	ACE_MISC_PARAMS = [0, 0.1, [random 0.1, 0, 1], 0, 0, 0];
 
-	if ((_this select 0) > 0.5) then {
-		_fogDensity = 0.2;
-		_fogFalloff = 0;
-		// lightnings, rainbow, fogParams, temperatureShift, badWeatherShift, humidityShift
-		ACE_MISC_PARAMS = [0.1, 0.6, [_fogDensity, _fogFalloff, 1], 0, 0, 0];
-
+	// get random shit
+	if (str WEATHER_OVERCAST isEqualTo "-1") then {
+		WEATHER_OVERCAST = [[
+		0.0, 
+		0.1, 
+		0.2, 
+		0.3, 
+		0.4, 
+		0.5, 
+		0.6, 
+		0.7, 
+		0.8, 
+		0.9, 
+		1.0
+		], [
+		0.3,  
+		0.3,  
+		0.1,  
+		0.1,  
+		0.05,  
+		0.025,  
+		0.025,  
+		0.025,  
+		0.025,  
+		0.025,  
+		0.025]] call BIS_fnc_selectRandomWeighted;
 	};
-	if (_this select 1 && (_this select 0) > 0.7) then {
-		// [lastRain, newRain, transitionTime]
-		ACE_RAIN_PARAMS = [rain, 1, 1];		
 
-		_fogDensity = 0.4;
-		_fogFalloff = 0;
-
-		// lightnings, rainbow, fogParams, temperatureShift, badWeatherShift, humidityShift
-		ACE_MISC_PARAMS = [1, 0, [_fogDensity, _fogFalloff, 1], 0, 0, 0];
-		
-		// [currentDirection, directionChange, currentSpeed, speedChange, transitionTime];
-		// currently not working with script error?
-		/*
-			ACE_WIND_PARAMS = [windDir, 180, wind, 30, 1];
-			publicVariable "ACE_WIND_PARAMS"; 
-		*/
-
+	if (str WEATHER_FOG isEqualTo "-1") then {
+		WEATHER_FOG = [[
+		0.0, 
+		0.05,
+		0.1, 
+		0.2, 
+		0.3, 
+		0.4, 
+		0.5, 
+		0.6, 
+		0.7, 
+		0.8, 
+		1.0
+		], [
+		0.3,  
+		0.3,  
+		0.1,  
+		0.1,  
+		0.05,  
+		0.025,  
+		0.025,  
+		0.025,  
+		0.025,  
+		0.025,  
+		0.025]] call BIS_fnc_selectRandomWeighted;
 	};
 
-	publicVariable "ACE_MISC_PARAMS";
-	publicVariable "ACE_RAIN_PARAMS";
-	// skipTime 24;
+	if (str WEATHER_WIND isEqualTo "-1") then {
+		WEATHER_WIND = (random 30) - (random 60);
+	};
+
+	// basics
+	10 setOvercast WEATHER_OVERCAST;
+	10 setFog WEATHER_FOG;
+	setWind [WEATHER_WIND, WEATHER_WIND, true];
+	10 setWindForce 0.1;
+
+	// add specials dependent on values
+	if (WEATHER_OVERCAST > 0.5 && WEATHER_OVERCAST < 0.8) then {
+		10 setRain 0.5;
+		10 setRainbow 0.8;
+	};
+
+	if (WEATHER_OVERCAST >= 0.8) then {
+		10 setRain 1;
+		10 setLightnings 0.8;
+	};
+
+	// enforce changes
 	forceWeatherChange;
 };
 
@@ -93,13 +144,8 @@ setCustomWeather = {
 // set to full moon date
 setDate [2015, 2, 1, TIME_OF_DAY, 1]; // set to 5:00 for perfect full moon
 
-switch (WEATHER_SETTING) do {
-case 0: {[0,false] call setCustomWeather;};
-case 1: {[0.65,false] call setCustomWeather;};
-case 2: {[1,true] call setCustomWeather;};
-case 3: {[random 1,true] call setCustomWeather;};
-default {[0,false] call setCustomWeather;};
-};
+call setCustomWeather;
+
 // set time acceleration
 setTimeMultiplier TIME_ACCELERATION;
 
