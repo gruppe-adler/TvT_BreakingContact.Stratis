@@ -4,7 +4,7 @@
   "version": "0.0.2",
   "dependencies": {
     "grad-fortifications": "^0.3.0",
-    "grad-loadout": "^4.3.0",
+    "grad-loadout": "^4.6.0",
     "grad_replay": "gruppe-adler/grad_replay#master",
     "shk_pos": "gruppe-adler/shk_pos#master"
   }
