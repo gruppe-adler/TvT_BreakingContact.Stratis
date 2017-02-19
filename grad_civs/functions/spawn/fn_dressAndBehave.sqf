@@ -76,7 +76,6 @@ _addKilledNews = {
      GRAD_CIV_ONFOOT_COUNT = GRAD_CIV_ONFOOT_COUNT - 1;
      GRAD_CIV_ONFOOT_GROUPS = GRAD_CIV_ONFOOT_GROUPS - [(_this select 0)];
     }];
-
 };
 
 _addGunfightNewsAndFlee = {
@@ -96,7 +95,6 @@ _addGunfightNewsAndFlee = {
 			[_thisUnit] spawn GRAD_civs_fnc_fleeAndFake;
 		};
     }];
-
 };
 
 // _stripped = [_unit] call _stripHim;

@@ -93,32 +93,32 @@ GRAD_tracking_mainLoop = [{
     };
 
     if (_terminalIsSending || _radioVehIsSending) then {
-					   					 if (grad_tracking_currentLoop < GRAD_SIGNAL_DELAY) then {
-					        grad_tracking_currentLoop = grad_tracking_currentLoop + 1;
-					    } else {
-					        grad_tracking_currentLoop = 0; // reset delay for position update
-					
-					        _radioVehX = getPos _radioVeh select 0;
-					        _radioVehY = getPos _radioVeh select 1;
-					        _markerPos = [_radioVehX, _radioVehY];
-					
-					       if (FACTIONS_DEFAULT) then {
-					            _radioVehX = getPos (vehicle _radioVeh) select 0;
-					            _radioVehY = getPos (vehicle _radioVeh) select 1;
-					            _markerPos = [_radioVehX, _radioVehY];
-					
-					            _markerPos = [[_radioVehX, _radioVehY], 150] call GRAD_tracking_fnc_randomizeMarker;
-					            GRAD_SIGNAL_DELAY = GRAD_SIGNAL_DELAY + (random 60);
-					            [] remoteExec ["grad_tracking_fnc_showMarkerUpdateHint", 0, false];
-					       };
-					
-					        if (!GRAD_TERMINAL_ACTIVE) then {
-					            _markerPos call GRAD_tracking_fnc_setRadioVehMarkerPosition;
-					        } else {
-					            _markerPos call GRAD_tracking_fnc_setRadioVehMarkerPosition;
-					            [getPos _terminal select 0, getPos _terminal select 1] call GRAD_tracking_fnc_setTerminalMarkerPosition;
-					        };
-					    };
+	   	if (grad_tracking_currentLoop < GRAD_SIGNAL_DELAY) then {
+	        grad_tracking_currentLoop = grad_tracking_currentLoop + 1;
+	    } else {
+	        grad_tracking_currentLoop = 0; // reset delay for position update
+
+	        _radioVehX = getPos _radioVeh select 0;
+	        _radioVehY = getPos _radioVeh select 1;
+	        _markerPos = [_radioVehX, _radioVehY];
+
+	       if (FACTIONS_DEFAULT) then {
+	            _radioVehX = getPos (vehicle _radioVeh) select 0;
+	            _radioVehY = getPos (vehicle _radioVeh) select 1;
+	            _markerPos = [_radioVehX, _radioVehY];
+
+	            _markerPos = [[_radioVehX, _radioVehY], 150] call GRAD_tracking_fnc_randomizeMarker;
+	            GRAD_SIGNAL_DELAY = GRAD_SIGNAL_DELAY + (random 60);
+	            [] remoteExec ["grad_tracking_fnc_showMarkerUpdateHint", 0, false];
+	       };
+
+	        if (!GRAD_TERMINAL_ACTIVE) then {
+	            _markerPos call GRAD_tracking_fnc_setRadioVehMarkerPosition;
+	        } else {
+	            _markerPos call GRAD_tracking_fnc_setRadioVehMarkerPosition;
+	            [getPos _terminal select 0, getPos _terminal select 1] call GRAD_tracking_fnc_setTerminalMarkerPosition;
+	        };
+	    };
     };
 
 },1,[_radioVeh, _terminal, _endCondition, _result]] call CBA_fnc_addPerFrameHandler;

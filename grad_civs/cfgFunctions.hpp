@@ -4,6 +4,7 @@ class GRAD_civs {
         file = grad_civs\functions\behaviour;
 
         class findPositionOfInterest {};
+        class fleeAndFake {};
         class fleeYouFool {};
 		class taskPatrol {};
     };

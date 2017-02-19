@@ -6,10 +6,10 @@ _CIV_KILLED_listener = {
     if (!isNull _killer) then {
 
 	    if (side _killer == west) then {
-	    	[west] call grad_waverespawn_fnc_addRespawnForSide;
+	    	[east] call grad_waverespawn_fnc_addRespawnForSide;
 	    };
 	    if (side _killer == east) then {
-	    	[east] call grad_waverespawn_fnc_addRespawnForSide;
+	    	[west] call grad_waverespawn_fnc_addRespawnForSide;
 		};
 
    	};
