@@ -22,15 +22,9 @@ checkForReal = {
 
     while {true} do {
 
-
-        if (DEBUG_MODE) then {
-            OPFOR_PRE_ELIMINATED = ({side _x == east} count allUnits);
-            BLUFOR_PRE_ELIMINATED = ({side _x == west} count allUnits);
-        } else {
-            OPFOR_PRE_ELIMINATED = (({side _x == east} count playableUnits) + ({side _x == east} count switchableUnits) == 0);
-            BLUFOR_PRE_ELIMINATED = (({side _x == west} count playableUnits)  + ({side _x == west} count switchableUnits) == 0);
-        };
-
+        OPFOR_PRE_ELIMINATED = ({side _x == east} count allUnits);
+        BLUFOR_PRE_ELIMINATED = ({side _x == west} count allUnits);
+        
 		if (GRAD_TERMINAL_DESTROYED) exitWith { [] call bluforCaptured; };
 
         if (OPFOR_PRE_ELIMINATED) then {["OPFOR_PRE_ELIMINATED"] spawn checkForReal;};
