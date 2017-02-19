@@ -33,7 +33,7 @@ TFAR, ACE3, RHSAFRF and RHSUSF mods are required. RDS\_CIV is optional (required
 * Radio Truck and Radio Box Sending Modes
 * US Camo automatically chosen (hardcoded for every map) - Russians always use Flora currently
 * BIS Dynamic Groups (`<u>` key)
-* EG-Spectator
+* ACE-Spectator
 * Mission is localized in English and German
 
 ## Parameters
