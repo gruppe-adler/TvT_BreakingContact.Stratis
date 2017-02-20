@@ -4,7 +4,7 @@ params ["_victim"];
 
 [_victim, playerSide] remoteExec ["GRAD_waveRespawn_fnc_addPlayerToWaiting", 0, false];
 
-["You are now in the respawn list."] call EFUNC(common,displayTextStructured); 
+["Checking for respawn..."] call EFUNC(common,displayTextStructured); 
 
 
 switch (playerSide) do {
