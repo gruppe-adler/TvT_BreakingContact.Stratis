@@ -13,7 +13,6 @@ class GRAD_supplydrops {
         
         class createCarrier {};
         class explodeDelayed {};
-        class execIfLocal {};
         class fillInventory {};
         class findNearestMapEdge {};
 

@@ -31,7 +31,6 @@ class GRAD_tracking {
         class bluforCaptured {};
         class bluforSurrendered {};
         class booleanEqual {};
-        class execIfLocal {};
         class mainLoop {};
         class radioTruckCookoffFix {};
         class radioTruckDeploy {};

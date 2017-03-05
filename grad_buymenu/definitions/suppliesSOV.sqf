@@ -140,7 +140,7 @@ _MI8 = [
 
 
 _mi24 = [
-    ["RHS_Mi24Vt_vvsc"],
+    ["RHS_Mi24V_AT_vvsc"],
     "Mi-24",
     1,
     3000,
@@ -154,6 +154,7 @@ _mi24 = [
         clearMagazineCargoGlobal _veh;
         _veh addItemCargoGlobal ["rhs_tsh4",3];
         _veh addItemCargoGlobal ["ItemGPS",1];
+        _veh removeMagazinesTurret ["rhs_mag_s8_40",[-1]]
     },
     format[''],
     0,
