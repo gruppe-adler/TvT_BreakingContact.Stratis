@@ -29,7 +29,7 @@ fnc_createEntries = {
 	};
 
 
-	// waitUntil {!isNull _createdGui};
+	waitUntil {!isNull _createdGui};
 	randIDC = 1000;
 	randIDC = [randIDC] call fnc_getNextIDC;
 	picIDC = 1338;
