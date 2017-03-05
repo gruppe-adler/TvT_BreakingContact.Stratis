@@ -11,3 +11,4 @@
 
 }, []] call CBA_fnc_waitUntilAndExecute;
 
+["hideHud", [false, false, true, true, true, false, false, false]] call ace_common_fnc_showHud; // fix for action menu crosshair info

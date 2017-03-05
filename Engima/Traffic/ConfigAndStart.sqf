@@ -52,6 +52,9 @@ _parameters = [
 	"RDS_JAWA353_Civ_01",
 	"RDS_JAWA353_Civ_01",
 	"RDS_JAWA353_Civ_01",
+	"RDS_tt650_Civ_01",
+	"RDS_tt650_Civ_01",
+	"RDS_tt650_Civ_01",
 	"RDS_tt650_Civ_01"
 	]],
 	["VEHICLES_COUNT", 15],
