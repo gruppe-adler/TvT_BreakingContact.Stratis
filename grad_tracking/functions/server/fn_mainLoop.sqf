@@ -82,14 +82,14 @@ GRAD_tracking_mainLoop = [{
         publicVariable "GRAD_TICKS_DONE";
         _randomSpawnPos = [position blufor_teamlead, [1000,3000], random 360, 0, [1,100]] call SHK_POS;
         [
-            _randomSpawnPos, 
-            150, 
-            "rhsusf_launcher_crate", 
-            {
-                (_this select 0) addWeaponCargoGlobal ['rhs_weap_fim92',2]; 
-                (_this select 0) addMagazineCargoGlobal ['rhs_fim92_mag',2];    
-            },
-            west] spawn grad_supplydrops_fnc_createCarrier;
+        _randomSpawnPos, 
+        150, 
+        "rhsusf_launcher_crate", 
+        {
+            (_this select 0) addWeaponCargoGlobal ['rhs_weap_fim92',1]; 
+            (_this select 0) addMagazineCargoGlobal ['rhs_fim92_mag',1];    
+        },
+        west] spawn grad_supplydrops_fnc_createCarrier;
     };
 
     if (_terminalIsSending || _radioVehIsSending) then {
@@ -107,8 +107,18 @@ GRAD_tracking_mainLoop = [{
 	            _radioVehY = getPos (vehicle _radioVeh) select 1;
 	            _markerPos = [_radioVehX, _radioVehY];
 
-	            _markerPos = [[_radioVehX, _radioVehY], 150] call GRAD_tracking_fnc_randomizeMarker;
-	            GRAD_SIGNAL_DELAY = GRAD_SIGNAL_DELAY + (random 60);
+                if (vehicle _radioVeh != _radioVeh) then {
+                    GRAD_SIGNAL_DELAY = 2;
+                    GRAD_SIGNAL_DELAY_RANDOM = 2;
+                    GRAD_SIGNAL_SIZE = 25;
+                } else {
+                    GRAD_SIGNAL_DELAY = 30;
+                    GRAD_SIGNAL_DELAY_RANDOM = 30;
+                    GRAD_SIGNAL_SIZE = 250;
+                };
+
+	            _markerPos = [[_radioVehX, _radioVehY], GRAD_SIGNAL_SIZE] call GRAD_tracking_fnc_randomizeMarker;
+	            GRAD_SIGNAL_DELAY = GRAD_SIGNAL_DELAY + (random GRAD_SIGNAL_DELAY_RANDOM);
 	            [] remoteExec ["grad_tracking_fnc_showMarkerUpdateHint", 0, false];
 	       };
 

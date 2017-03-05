@@ -167,5 +167,8 @@ _crateObj addEventHandler ["Explosion",{
     [_this select 0] spawn GRAD_supplydrops_fnc_explodeDelayed;
 }];
 
-[getPos _crateObj, _side] remoteExec ["grad_supplydrops_fnc_createDropMarker", 0, true];
-[_side] remoteExec ["grad_supplydrops_fnc_showDropHint", 0, true];
+// changed this to both sides recently out of balancing reasons
+[getPos _crateObj, west] remoteExec ["grad_supplydrops_fnc_createDropMarker", 0, true];
+[getPos _crateObj, east] remoteExec ["grad_supplydrops_fnc_createDropMarker", 0, true];
+[west] remoteExec ["grad_supplydrops_fnc_showDropHint", 0, true];
+[east] remoteExec ["grad_supplydrops_fnc_showDropHint", 0, true];
