@@ -6,12 +6,14 @@
 
 if (IS_WOODLAND) then {
        mrzr4 = "rhsusf_mrzr4_w_mud";
+       mrap = "rhsusf_M1232_usarmy_wd";
        mrap_init = ["DUKE_Hide",1];
        hmmwv_m2 = "rhsusf_m1025_w_m2";
        hemtt_init = ["hide_spare",1];
        hemtt = "rhsusf_M977A4_AMMO_BKIT_M2_usarmy_wd";
     } else {
        mrzr4 = "rhsusf_mrzr4_d_mud";
+       mrap = "rhsusf_M1232_usarmy_d";
        mrap_init = ["DUKE_Hide",1];
        hmmwv_m2 = "rhsusf_m1025_d_m2";
        hemtt_init = ["hide_spare",1];
@@ -67,10 +69,10 @@ _hmmwv_m2 = [
 ];
 
 _mrap = [
-      ["rhsusf_M1232_M2_usarmy_wd"],
-      "MRAP M1232 M2",
+      [mrap],
+      "MRAP M1232",
       6,
-      1500,
+      1300,
       1,
       mrap_init,
       {
