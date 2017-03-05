@@ -33,7 +33,7 @@ class MUD_Desert {
 		};
 		class Medic_F {
 			backpack = "rhs_sidor";
-			addItemsToBackpack[] = {LIST_10("ACE_fieldDressing"), LIST_10("ACE_morphine"), LIST_10("ACE_epinephrine"), LIST_8("ACE_bloodIV_250"), LIST_2("rhs_mag_rgd5")};
+			addItemsToBackpack[] = {LIST_5("rhs_30Rnd_762x39mm"), LIST_10("ACE_fieldDressing"), LIST_10("ACE_morphine"), LIST_10("ACE_epinephrine"), LIST_4("ACE_bloodIV_250"), LIST_2("rhs_mag_rgd5")};
 		};
 		class Soldier_TL_F {
 			primaryWeapon = "rhs_weap_akm_gp25";
