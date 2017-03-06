@@ -3,7 +3,7 @@
 [player, true] call TFAR_fnc_forceSpectator;
 setPlayerRespawnTime 999999;
 
-if (!FACTIONS_DEFAULT || player getVariable ["GRAD_isVIP", false]) then {
+if (!TRACKING_PERSON || player getVariable ["GRAD_isVIP", false]) then {
 		[player, true] call ace_spectator_fnc_stageSpectator;
 	} else {
 		[player] call GRAD_waverespawn_fnc_onPlayerKilled;

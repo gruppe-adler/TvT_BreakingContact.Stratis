@@ -1,9 +1,9 @@
 ["InitializePlayer", [player, true]] call BIS_fnc_dynamicGroups;
 0 = execVM "spawn\addInteractions.sqf";
 
-[{!isNil "FACTIONS_DEFAULT"}, {
+[{!isNil "TRACKING_PERSON"}, {
 
-	if (!FACTIONS_DEFAULT) then {
+	if (!TRACKING_PERSON) then {
 		
 	} else {
 		0 = execVM "grad_waverespawn\init.sqf";

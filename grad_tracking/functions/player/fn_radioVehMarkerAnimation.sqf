@@ -14,7 +14,7 @@ _pulseSpeed = _this select 2;
 _pulseDelayBetween = _this select 3;
 _modifier = 1;
 
-if (!FACTIONS_DEFAULT) then {
+if (!TRACKING_PERSON) then {
 	mrk_radioVeh setMarkerAlphaLocal 1;
 } else {
 	mrk_radioVeh setMarkerSizeLocal [GRAD_SIGNAL_SIZE,GRAD_SIGNAL_SIZE];
@@ -25,7 +25,7 @@ if (!FACTIONS_DEFAULT) then {
 
 while {!GRAD_RADIO_VEH_MARKER_HIDDEN} do {
 
-	if (!FACTIONS_DEFAULT) then {
+	if (!TRACKING_PERSON) then {
 		if (_pulsesize > _pulseMaxSize) then {
 			_pulsesize = 0.01;
 			_modifier = 0.3;
@@ -41,7 +41,8 @@ while {!GRAD_RADIO_VEH_MARKER_HIDDEN} do {
 
 	} else {
 		mrk_lastseen setMarkerPosLocal GRAD_RADIO_VEH_MARKER_POS;
-		mrk_lastseen setMarkerSizeLocal [GRAD_SIGNAL_SIZE,GRAD_SIGNAL_SIZE];
+		mrk_radioVeh setMarkerPosLocal GRAD_RADIO_VEH_MARKER_POS;
+		mrk_radioVeh setMarkerSizeLocal [GRAD_SIGNAL_SIZE,GRAD_SIGNAL_SIZE];
 		sleep 1;
 	};
 };

@@ -1,10 +1,11 @@
 createOpforStuff =  {
 	_position = _this;
 
-	if (!FACTIONS_DEFAULT) then {
+	if (!TRACKING_PERSON) then {
 		[_position] call spawnRadioTruck;
 	} else {
 		blufor_teamlead setVariable ["GRAD_isVIP", true, true];
+		[blufor_teamlead] call GRAD_tracking_fnc_addGetInVehicleEH;
 
 		_terminal = createVehicle ['Land_DataTerminal_01_F', [0,0,0], [], 0, 'NONE'];
 		hideObjectGlobal _terminal;
@@ -38,7 +39,7 @@ createOpforStuff =  {
 createBluforStuff = {
 	_opforposition = _this;
 
-	if (!FACTIONS_DEFAULT) then {
+	if (!TRACKING_PERSON) then {
 	    if (IS_WOODLAND) then {
 	       blufor_hq = "rhsusf_m998_w_4dr";
 	    } else {

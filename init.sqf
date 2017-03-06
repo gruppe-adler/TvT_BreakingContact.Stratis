@@ -14,13 +14,13 @@ disableRemoteSensors true; // disable ai combat ability
 setViewDistance 3500;
 
 // wait until server has decided about parameters
-waitUntil { !isNil "FACTIONS_DEFAULT" };
+waitUntil { !isNil "TRACKING_PERSON" };
 
 
 
 // loadout + wave respawn added
 IS_WOODLAND = ((ISLAND_TARGET_POSITIONS select (ISLANDS find worldName)) select 3);
-if (!FACTIONS_DEFAULT) then {
+if (!TRACKING_PERSON) then {
 	if (IS_WOODLAND) then {
 	// us vs russians
 		["BLU_F", "US_Woodland"] call GRAD_Loadout_fnc_FactionSetLoadout;

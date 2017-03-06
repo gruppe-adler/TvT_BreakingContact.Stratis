@@ -38,7 +38,7 @@ if (isServer) then {
 	GRAD_SIGNAL_DELAY = 1;
 
 	// afghan wars mode
-	if (FACTIONS_DEFAULT) then {
+	if (TRACKING_PERSON) then {
 		GRAD_INTERVALS_NEEDED = 5;
 		publicVariable "GRAD_INTERVALS_NEEDED";
 		GRAD_SIGNAL_DELAY = 30;

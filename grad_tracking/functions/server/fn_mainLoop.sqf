@@ -23,7 +23,7 @@ GRAD_tracking_mainLoop = [{
     if (GRAD_INTERVALS_DONE >= GRAD_INTERVALS_NEEDED) exitWith {
         [_handle] call CBA_fnc_removePerFrameHandler;   // remove PFH
         
-        if (!FACTIONS_DEFAULT) then {
+        if (!TRACKING_PERSON) then {
             [] call GRAD_tracking_fnc_bluforSurrendered;
         } else {
             [] call GRAD_tracking_fnc_bluforCaptured;    // call Mission End
@@ -33,7 +33,7 @@ GRAD_tracking_mainLoop = [{
     // if vehicles are destroyed, end mission
     if (!alive _radioVeh && {(_radioVeh getVariable ["detachableRadio", 0] != 2)}) exitWith {
         [_handle] call CBA_fnc_removePerFrameHandler; 
-        if (!FACTIONS_DEFAULT) then {
+        if (!TRACKING_PERSON) then {
             [] call GRAD_tracking_fnc_bluforCaptured;    // call Mission End
         } else {
             [] call GRAD_tracking_fnc_bluforSurrendered;
@@ -99,25 +99,22 @@ GRAD_tracking_mainLoop = [{
 
     if (_terminalIsSending || _radioVehIsSending) then {
 
-    // check if sender entered/exited vehicle
-    _vehicleEnterChange = (str vehicle _radioVeh != str _radioVeh);
+    
 
 	   	if  (grad_tracking_currentLoop < GRAD_SIGNAL_DELAY && 
-            (_vehicleEnterChange isEqualTo _vehicleEnterChangeTemp) && 
             !_radioVehMarkerStatusChange) then {
 
             grad_tracking_currentLoop = grad_tracking_currentLoop + 1;
 
 	    } else {
 
-            _vehicleEnterChangeTemp = _vehicleEnterChange; // reset for further detection
 	        grad_tracking_currentLoop = 0; // reset delay for position update
 
 	        _radioVehX = getPos _radioVeh select 0;
 	        _radioVehY = getPos _radioVeh select 1;
 	        _markerPos = [_radioVehX, _radioVehY];
 
-	       if (FACTIONS_DEFAULT) then {
+	       if (TRACKING_PERSON) then {
 	            _radioVehX = getPos (vehicle _radioVeh) select 0;
 	            _radioVehY = getPos (vehicle _radioVeh) select 1;
 	            _markerPos = [_radioVehX, _radioVehY];

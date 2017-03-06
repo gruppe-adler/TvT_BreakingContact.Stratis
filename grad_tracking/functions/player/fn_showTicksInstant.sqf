@@ -7,7 +7,7 @@ private ["_string_1"];
 if (playerSide == _side) then {
 	_ticksRatio = GRAD_TICKS_DONE / GRAD_TICKS_NEEDED;
 
-	if (!FACTIONS_DEFAULT) then {
+	if (!TRACKING_PERSON) then {
 		_string_1 = localize "str_GRAD_transmissionTime_1";
 	} else {
 		_string_1 = localize "str_GRAD_transmissionTime_1_mud";

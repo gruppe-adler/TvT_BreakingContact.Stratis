@@ -44,10 +44,10 @@ publicVariable "JIP_TIME_ALLOWED"; // clients need to know this
 CIVILIAN_TRAFFIC = ["CIVILIAN_TRAFFIC", 999999] call BIS_fnc_getParamValue;
 publicVariable "CIVILIAN_TRAFFIC"; // clients need to know this
 
-FACTIONS_DEFAULT = (["FACTION_MODE", 1] call BIS_fnc_getParamValue) == 1;
-publicVariable "FACTIONS_DEFAULT";
+TRACKING_PERSON = (["FACTION_MODE", 1] call BIS_fnc_getParamValue) == 1;
+publicVariable "TRACKING_PERSON";
 
-if (!FACTIONS_DEFAULT) then {
+if (!TRACKING_PERSON) then {
 	
 } else {
 	0 = execVM "grad_waverespawn\init.sqf";
@@ -213,7 +213,7 @@ REPLAY_STEPS_PER_TICK = 1;
 	moneyOpfor = moneyOpfor + _bonusPerPlayer;
 	moneyBlufor = moneyBlufor + _bonusPerPlayer;
 
-	if (FACTIONS_DEFAULT) then {
+	if (TRACKING_PERSON) then {
 		moneyOpfor = moneyOpfor + 1000;
 	};
 	publicVariable "moneyBlufor";

@@ -176,7 +176,7 @@ spawnBluforHQ = {
 	_vehicle1 addItemCargoGlobal ["ACE_SpraypaintRed",10];
 	_vehicle1 addItemCargoGlobal ["ACE_EntrenchingTool",10];
 	
-	if (!FACTIONS_DEFAULT) then {
+	if (!TRACKING_PERSON) then {
 		_vehicle1 addItemCargoGlobal ["ACE_NVG_Gen2",50];
 	};
 	
@@ -200,7 +200,7 @@ spawnBluforHQ = {
 
 	usActionHelper = createVehicle ["Land_SatellitePhone_F", [(getPos _vehicle1 select 0) + 2, (getPos _vehicle1 select 1) - 1, 0.5], [], 0, "NONE"];
 	
-	if (!FACTIONS_DEFAULT) then {
+	if (!TRACKING_PERSON) then {
 		usActionHelper attachTo [_vehicle1, [0,-0.3,1.1]];
 	} else {
 		usActionHelper attachTo [_vehicle1, [0,-0.2,-1.35]];

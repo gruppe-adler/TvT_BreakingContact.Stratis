@@ -103,7 +103,7 @@ GRAD_civ_beards = [
     "TRYK_Beard_BK"
 ];
 
-if (!FACTIONS_DEFAULT) then {
+if (!TRACKING_PERSON) then {
 	GRAD_civ_headgear = GRAD_civ_headgear_EUR;
 	GRAD_civ_clothes = GRAD_civ_clothes_EUR;
 } else {

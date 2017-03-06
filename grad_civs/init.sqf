@@ -1,4 +1,4 @@
-waituntil {!isNil "FACTIONS_DEFAULT"};
+waituntil {!isNil "TRACKING_PERSON"};
 
 GRAD_civ_clothes = [];
 GRAD_civ_headgear = [];
