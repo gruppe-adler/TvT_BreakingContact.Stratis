@@ -17,8 +17,7 @@ _modifier = 1;
 if (!FACTIONS_DEFAULT) then {
 	mrk_radioVeh setMarkerAlphaLocal 1;
 } else {
-	mrk_lastseen setMarkerAlphaLocal 1;
-	mrk_radioVeh setMarkerSizeLocal [150,150];
+	mrk_radioVeh setMarkerSizeLocal [GRAD_SIGNAL_SIZE,GRAD_SIGNAL_SIZE];
 	mrk_radioVeh setMarkerAlphaLocal 0.3;
 };
 
@@ -38,10 +37,11 @@ while {!GRAD_RADIO_VEH_MARKER_HIDDEN} do {
 		mrk_radioVeh setMarkerAlphaLocal 1 - (_pulsesize/_pulseMaxSize);
 		mrk_radioVeh setMarkerSizeLocal [_pulsesize, _pulsesize];
 		
-
 		sleep _pulseSpeed;
+
 	} else {
 		mrk_lastseen setMarkerPosLocal GRAD_RADIO_VEH_MARKER_POS;
+		mrk_lastseen setMarkerSizeLocal [GRAD_SIGNAL_SIZE,GRAD_SIGNAL_SIZE];
 		sleep 1;
 	};
 };

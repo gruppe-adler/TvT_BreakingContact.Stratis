@@ -1,5 +1,7 @@
 params ["_bool", "_radioVeh"];
 
+_return = false;
+
 _previous = GRAD_RADIO_VEH_MARKER_HIDDEN;
 GRAD_RADIO_VEH_MARKER_HIDDEN = _bool;
 
@@ -16,5 +18,9 @@ if (!([GRAD_RADIO_VEH_MARKER_HIDDEN, _previous] call GRAD_tracking_fnc_booleanEq
 	 if (FACTIONS_DEFAULT) then {
 	 	GRAD_TICKS_DONE = 0;
 	 	publicVariable "GRAD_TICKS_DONE";
+
+	 	_return = true;
 	 };
 };
+
+_return

@@ -38,6 +38,7 @@ class GRAD_tracking {
         class radioVehIsSending {};
         class randomizeMarker {};
         class setRadioVehMarkerPosition {};
+        class setRadioVehMarkerSize {};
         class setRadioVehMarkerStatus {};
         class setTerminalMarkerPosition {};
         class setTerminalMarkerStatus {};

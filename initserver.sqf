@@ -114,8 +114,10 @@ setCustomWeather = {
 	};
 
 	if (str WEATHER_WIND isEqualTo "-1") then {
-		WEATHER_WIND = (random 30) - (random 60);
+		WEATHER_WIND = (random 15) - (random 30);
 	};
+
+	diag_log format ["BC setup: setting wind to %1", WEATHER_WIND];
 
 	// basics
 	10 setOvercast WEATHER_OVERCAST;
