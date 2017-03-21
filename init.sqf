@@ -1,6 +1,8 @@
 #include "\z\ace\addons\main\script_component.hpp"
 #include "\z\ace\addons\main\script_macros.hpp"
 
+enableDynamicSimulationSystem true;
+
 0 = [] execVM "grad_buymenu\buymenu_init.sqf";
 
 // islandconfig must be before initgui!

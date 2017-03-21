@@ -11,4 +11,6 @@
 
 }, []] call CBA_fnc_waitUntilAndExecute;
 
-["hideHud", [true, true, true, true, true, true, true, true]] call ace_common_fnc_showHud; // fix for action menu crosshair info
+player addEventHandler ["handleRating", {
+	0
+}];
