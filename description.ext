@@ -174,7 +174,7 @@ class Params
     	title = "Factions fighting";
     	values[] = {0, 1};
     	texts[] =  {"CLASSIC: US vs. Russians", "AFGHAN WARS: Mudschaheddin vs. Sowjets (needs Project OPFOR & CUP TP!)"};
-    	default = 1;
+    	default = 0;
   	};
 
   	class ace_map_BFT_Enabled { //This ia a "BOOL"
