@@ -50,7 +50,7 @@ GRAD_tracking_mainLoop = [{
     _terminalIsSending = [_terminal] call GRAD_tracking_fnc_terminalIsSending;
 
     // check if radio truck is sending alone with terminal detached (he cant do that anymore)
-    if (_terminal getVariable ["detachableRadio", 0] == 2 && _radioVehIsSending) then {
+    if (_radioVeh getVariable ["detachableRadio", 0] == 2 && _radioVehIsSending) then {
         _radioVehIsSending = false;
     };
 
