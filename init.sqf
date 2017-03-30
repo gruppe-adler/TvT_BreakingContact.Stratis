@@ -64,8 +64,9 @@ if (hasInterface) then {
 	[] execVM "player\setup\adjustInitialSpawnPosition.sqf"; diag_log format ["setup: initial spawn position initiated"];
 
 
+	/* SERVER TIME is taken from server pv */
 	checkJIP = {
-		if ((OPFOR_TELEPORT_TARGET select 0 != 0) && didJIP && serverTime > jipTime) then {
+		if ((OPFOR_TELEPORT_TARGET select 0 != 0) && didJIP && SERVER_TIME > jipTime) then {
 			player setDamage 1;
 		} else {
 		if (!didJIP) exitWith {

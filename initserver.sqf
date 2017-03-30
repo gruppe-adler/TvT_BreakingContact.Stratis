@@ -47,6 +47,9 @@ publicVariable "CIVILIAN_TRAFFIC"; // clients need to know this
 TRACKING_PERSON = (["FACTION_MODE", 1] call BIS_fnc_getParamValue) == 1;
 publicVariable "TRACKING_PERSON";
 
+SERVER_TIME = {time};
+publicVariable "SERVER_TIME";
+
 if (!TRACKING_PERSON) then {
 	
 } else {
