@@ -46,7 +46,7 @@ GRAD_tracking_mainLoop = [{
     // who the fuck is sending a signal currently
     _radioVehIsSending = [_radioVeh] call GRAD_tracking_fnc_radioVehIsSending;
 
-    // && (_obj getVariable ["detachableRadio", 0] != 2)
+    
     _terminalIsSending = [_terminal] call GRAD_tracking_fnc_terminalIsSending;
 
     // check if radio truck is sending alone with terminal detached (he cant do that anymore)
@@ -111,7 +111,7 @@ GRAD_tracking_mainLoop = [{
     
 
 	   	if  (grad_tracking_currentLoop < GRAD_SIGNAL_DELAY && 
-            !_radioVehMarkerStatusChange) then {
+            !_radioVehMarkerStatusChange || _terminalIsSending) then {
 
             grad_tracking_currentLoop = grad_tracking_currentLoop + 1;
 
