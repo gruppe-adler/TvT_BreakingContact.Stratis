@@ -36,6 +36,8 @@ if (isServer) then {
 	publicVariable "GRAD_RADIO_VEH_MARKER_POS";
 
 	GRAD_SIGNAL_DELAY = 1;
+	GRAD_SIGNAL_SIZE = 250;
+	publicVariable "GRAD_SIGNAL_SIZE";
 
 	// afghan wars mode
 	if (TRACKING_PERSON) then {
@@ -43,10 +45,7 @@ if (isServer) then {
 		publicVariable "GRAD_INTERVALS_NEEDED";
 		GRAD_SIGNAL_DELAY = 30;
 		GRAD_SIGNAL_DELAY_RANDOM = 30;
-		GRAD_SIGNAL_SIZE = 250;
-
-
-		publicVariable "GRAD_SIGNAL_SIZE";
+		
 	};
 
 	publicVariable "GRAD_SIGNAL_DELAY";
