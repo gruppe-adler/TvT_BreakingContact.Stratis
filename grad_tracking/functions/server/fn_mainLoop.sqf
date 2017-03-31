@@ -51,7 +51,7 @@ GRAD_tracking_mainLoop = [{
 
     // check if radio truck is sending alone with terminal detached (he cant do that anymore)
     // GRAD_TERMINAL_ACTIVE
-    if ((_radioVeh getVariable ["detachableRadio", 0] == 2) && !_terminalIsSending && _radioVehIsSending) then {
+    if (GRAD_TERMINAL && !_terminalIsSending && _radioVehIsSending) then {
         _radioVehIsSending = false;
     };
 
@@ -111,7 +111,7 @@ GRAD_tracking_mainLoop = [{
     
 
 	   	if  (grad_tracking_currentLoop < GRAD_SIGNAL_DELAY && 
-            !_radioVehMarkerStatusChange || _terminalIsSending) then {
+            (!_radioVehMarkerStatusChange || !GRAD_TERMINAL_MARKER_HIDDEN)) then {
 
             grad_tracking_currentLoop = grad_tracking_currentLoop + 1;
 

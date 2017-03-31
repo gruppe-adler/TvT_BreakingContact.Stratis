@@ -103,7 +103,7 @@ GRAD_civ_beards = [
     "TRYK_Beard_BK"
 ];
 
-if (!TRACKING_PERSON) then {
+if (IS_WOODLAND) then {
 	GRAD_civ_headgear = GRAD_civ_headgear_EUR;
 	GRAD_civ_clothes = GRAD_civ_clothes_EUR;
 } else {
