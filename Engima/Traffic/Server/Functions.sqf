@@ -414,10 +414,6 @@ ENGIMA_TRAFFIC_StartTraffic = {
 	            _vehiclesCrew = _result select 1;
 	            _vehiclesGroup = _result select 2;
 
-	            {
-					[_x] call randomCivilian;
-				} forEach _vehiclesCrew;
-	
 	            
 	            // Name vehicle
 	            sleep random 0.1;

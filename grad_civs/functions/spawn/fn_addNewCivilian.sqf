@@ -18,6 +18,7 @@ params ["_playerPositions"];
 	_unit = _group createUnit ["C_man_1", _position, [], 0, "NONE"];
 
 	[_unit] call GRAD_civs_fnc_dressAndBehave;
+	_unit enableDynamicSimulation true;
 
 	[_group, _position, 400 - (random 300), [3,6], [0,2,10]] call GRAD_civs_fnc_taskPatrol;
 

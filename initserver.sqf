@@ -103,17 +103,17 @@ setCustomWeather = {
 		0.8, 
 		1.0
 		], [
-		0.3,  
+		0.5,  
 		0.3,  
 		0.1,  
-		0.1,  
-		0.05,  
-		0.025,  
-		0.025,  
-		0.025,  
-		0.025,  
-		0.025,  
-		0.025]] call BIS_fnc_selectRandomWeighted;
+		0.075,  
+		0.01,  
+		0.005,  
+		0.005,  
+		0.004,  
+		0.003,  
+		0.002,  
+		0.001]] call BIS_fnc_selectRandomWeighted;
 	};
 
 	if (str WEATHER_WIND isEqualTo "-1") then {

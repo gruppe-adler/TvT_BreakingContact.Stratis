@@ -15,6 +15,13 @@ class GRAD_civs {
         class createDebugMarker;
     };
 
+    class player {
+        file = grad_civs\functions\player;
+
+        class checkWeaponOnCivilianPointer {};
+        class playerLoop {};
+    };
+
     class spawn {
         file = grad_civs\functions\spawn;
 
@@ -23,6 +30,6 @@ class GRAD_civs {
 		class dressAndBehave {};
         class findSpawnSegment {};
         class getPlayerPositions {};
-        class startMainLoop {};
+        class serverLoop {};
     };
 };

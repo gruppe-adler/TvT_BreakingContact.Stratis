@@ -87,7 +87,9 @@ _addGunfightNewsAndFlee = {
 
     	if ((_this select 0) getVariable ["GRAD_fleeing",false]) exitWith {};
 
-		_thisUnit = _this select 0;	
+		_thisUnit = _this select 0;
+
+		_thisUnit enableDynamicSimulation false; // exclude as long as unit is moving
 
 		if (random 2 > 1) then {
 			[_thisUnit] spawn GRAD_civs_fnc_fleeYouFool;

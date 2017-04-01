@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={1718.563,35.983055,5926.4722};
-		dir[]={0.55594522,-0.31109768,0.77082175};
-		up[]={0.18198767,0.95037442,0.25232705};
-		aside[]={0.81106615,-3.3958349e-007,-0.58497149};
+		pos[]={1786.3672,26.417294,5908.8262};
+		dir[]={0.020761672,-0.41811979,0.90816945};
+		up[]={0.0095564099,0.90838724,0.41801962};
+		aside[]={0.99975008,-2.4720339e-007,-0.022855883};
 	};
 };
 binarizationWanted=0;
@@ -293,10 +293,23 @@ class AddonsMetaData
 		};
 	};
 };
+class DynamicSimulation
+{
+	class EnableRadiuses
+	{
+		EmptyVehicle=100;
+		Group=100;
+	};
+	class EnableRadiuseCoefs
+	{
+		IsMoving=3;
+	};
+};
 randomSeed=6764181;
 class ScenarioData
 {
 	author="nomisum";
+	wreckRemovalMaxTime=3600;
 };
 class Mission
 {

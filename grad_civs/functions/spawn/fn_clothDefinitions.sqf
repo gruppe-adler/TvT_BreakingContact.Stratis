@@ -103,7 +103,10 @@ GRAD_civ_beards = [
     "TRYK_Beard_BK"
 ];
 
-if (IS_WOODLAND) then {
+// check if woodland param is already set by mission, otherwise spawn euro civs
+_IS_WOODLAND = missionNamespace getVariable ["IS_WOODLAND",true];
+
+if (_IS_WOODLAND) then {
 	GRAD_civ_headgear = GRAD_civ_headgear_EUR;
 	GRAD_civ_clothes = GRAD_civ_clothes_EUR;
 } else {

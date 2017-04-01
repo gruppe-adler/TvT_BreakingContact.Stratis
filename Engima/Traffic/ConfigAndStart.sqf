@@ -62,6 +62,11 @@ _parameters = [
 	["MAX_SPAWN_DISTANCE", 2500],
 	["MIN_SKILL", 1],
 	["MAX_SKILL", 1],
+	["ON_SPAWN_CALLBACK", {
+		{
+			[_x] call GRAD_civs_fnc_dressAndBehave;
+		} forEach crew (_this select 0);
+	}],
 	["DEBUG", false]
 ];
 
