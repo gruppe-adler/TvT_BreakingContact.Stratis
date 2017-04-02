@@ -25,4 +25,8 @@ if (hasInterface) then {
 
 	call GRAD_civs_fnc_playerLoop;
 
+	if (!isNil "DEBUG_MODE" && {DEBUG_MODE}) then {
+		call GRAD_civs_fnc_showWhatTheyThink;
+	};
+
 };

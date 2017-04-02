@@ -6,20 +6,24 @@ class GRAD_civs {
         class findPositionOfInterest {};
         class fleeAndFake {};
         class fleeYouFool {};
+        class stopCiv {};
 		class taskPatrol {};
     };
 
 	class debug {
         file = grad_civs\functions\debug;
 
-        class createDebugMarker;
+        class createDebugMarker {};
+        class showWhatTheyThink {};
     };
 
     class player {
         file = grad_civs\functions\player;
 
+        class addPointerTick {};
         class checkWeaponOnCivilianPointer {};
         class playerLoop {};
+        class removePointerTick {};
     };
 
     class spawn {

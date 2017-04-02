@@ -5,6 +5,7 @@
 
 params ["_unit"];
 
+/*
 _stripHim = {
 	_it = _this select 0;
 	removeAllWeapons _it;
@@ -18,6 +19,7 @@ _stripHim = {
 	_return = true;
 	_return
 };
+*/
 
 
 //_unitLoadout = [[],[],[],[""LOP_U_AM_Fatigue_01"",[]],[],[],""LOP_H_Pakol"","""",[],["""","""","""","""","""",""""]];
@@ -60,7 +62,7 @@ _addBehaviour = {
 	group (_this select 0) setBehaviour "CARELESS";
 	(_this select 0) disableAI "TARGET";
 	(_this select 0) disableAI "AUTOTARGET";
-	// (_this select 0) disableAI "FSM";
+	(_this select 0) disableAI "FSM";
 };
 
 
@@ -92,8 +94,10 @@ _addGunfightNewsAndFlee = {
 		_thisUnit enableDynamicSimulation false; // exclude as long as unit is moving
 
 		if (random 2 > 1) then {
+			diag_log format ["%1 prepares to flee", _thisUnit];
 			[_thisUnit] spawn GRAD_civs_fnc_fleeYouFool;
 		} else {
+			diag_log format ["%1 prepares to fake", _thisUnit];
 			[_thisUnit] spawn GRAD_civs_fnc_fleeAndFake;
 		};
     }];
@@ -101,6 +105,8 @@ _addGunfightNewsAndFlee = {
 
 // _stripped = [_unit] call _stripHim;
 [_unit, _unitLoadout] call _reclotheHim;
+
+_unit setVariable ["asr_ai_exclude", true];
 
 [_unit] call _addKilledNews;
 [_unit] call _addGunfightNewsAndFlee;

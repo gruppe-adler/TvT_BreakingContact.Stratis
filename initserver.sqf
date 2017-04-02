@@ -6,13 +6,13 @@ call compile preprocessfile "node_modules\shk_pos\functions\shk_pos_init.sqf"; /
 // get_slope used in spawnbluforhq.sqf
 call compile preprocessFileLineNumbers "helpers\findSimplePos.sqf";
 
-0 = execVM "grad_civs\init.sqf";
-
 DEBUG_MODE = false;
 if ((["DEBUG_MODE", 0] call BIS_fnc_getParamValue) == 1 || !isMultiplayer) then {
 	DEBUG_MODE = true;
 };
 publicVariable "DEBUG_MODE";
+
+0 = execVM "grad_civs\init.sqf";
 
 // read parameters
 TIME_OF_DAY = ["TIME_OF_DAY", 10] call BIS_fnc_getParamValue;

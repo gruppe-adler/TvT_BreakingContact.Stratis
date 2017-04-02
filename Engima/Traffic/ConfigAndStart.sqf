@@ -67,7 +67,7 @@ _parameters = [
 			[_x] call GRAD_civs_fnc_dressAndBehave;
 		} forEach crew (_this select 0);
 	}],
-	["DEBUG", false]
+	["DEBUG", ((["DEBUG_MODE", 0] call BIS_fnc_getParamValue) == 1 || !isMultiplayer)]
 ];
 
 // Start an instance of the traffic

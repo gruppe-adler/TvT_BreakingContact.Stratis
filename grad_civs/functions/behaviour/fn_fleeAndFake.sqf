@@ -8,6 +8,7 @@ if (vehicle _thisUnit != _thisUnit && random 2 > 0.5) then {
 };
 
 diag_log format ["civ %1 is faking a human", _thisUnit];
+_thisUnit setVariable ["GRAD_civs_currentlyThinking", "who the fuck is shooting, have to run far away"];
 
 _pos = [position _thisUnit] call GRAD_civs_fnc_findPositionOfInterest;
 
@@ -22,6 +23,8 @@ diag_log format ["civ %1 is fake fleeing to %2", _thisUnit, _pos];
 
 sleep 60;
 
-[group _thisUnit, _pos, 400 - (random 300), [3,6], [0,2,10]] call GRAD_civs_fnc_taskPatrol;
+units _group doFollow leader _group;
+[_group, _pos, 400 - (random 300), [3,6], [0,2,10]] call GRAD_civs_fnc_taskPatrol;
+_thisUnit setVariable ["GRAD_civs_currentlyThinking", "task patrol assigned"];
 _thisUnit setVariable ["GRAD_fleeing", false];
 _thisUnit enableDynamicSimulation true;
