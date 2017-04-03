@@ -32,16 +32,18 @@ GRAD_tracking_mainLoop = [{
 
     // if vehicles are destroyed, end mission
     if (!alive _radioVeh && {(_radioVeh getVariable ["detachableRadio", 0] != 2)} && {!CONQUER_MODE}) exitWith {
-            [_handle] call CBA_fnc_removePerFrameHandler; 
-            if (!TRACKING_PERSON) then {
-                [] call GRAD_tracking_fnc_bluforCaptured;    // call Mission End
-            } else {
-                [] call GRAD_tracking_fnc_bluforSurrendered;
-            };
+        [_handle] call CBA_fnc_removePerFrameHandler;
+
+        if (!TRACKING_PERSON) then {
+            [] call GRAD_tracking_fnc_bluforCaptured;    // call Mission End
+        } else {
+            [] call GRAD_tracking_fnc_bluforSurrendered;
         };
+        
     };
     if (!alive _radioVeh && {(_radioVeh getVariable ["detachableRadio", 0] != 2)} && {CONQUER_MODE}) exitWith {
         [_handle] call CBA_fnc_removePerFrameHandler;
+        
         if (!TRACKING_PERSON) then {
             TRUCK_DESTROYED_NOT_CONQUERED = true;    // call Mission End
             publicVariable "TRUCK_DESTROYED_NOT_CONQUERED";
