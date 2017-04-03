@@ -4,7 +4,7 @@ if (isServer) then {
 	GRAD_civ_headgear = [];
 
 	// maximum persons on map
-	GRAD_CIV_MAX_COUNT = 100;
+	GRAD_CIV_MAX_COUNT = 60;
 
 	GRAD_CIV_MIN_SPAWN_DISTANCE = 1000;
 	GRAD_CIV_MAX_SPAWN_DISTANCE = 4500;
