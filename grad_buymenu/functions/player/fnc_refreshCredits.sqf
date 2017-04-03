@@ -2,7 +2,7 @@ fnc_refreshCredits = {
     _title = _this select 0;
     disableSerialization;
 
-    _createdGui = uiNamespace getVariable ['GRAD_buy_menu_var', 0];
+    _createdGui = uiNamespace getVariable ['GRAD_buy_menu_var',displayNull];
     _ctrlCredits = _createdGui displayctrl 2001;
 
     _ctrlCredits ctrlSetStructuredText parseText ("<t color='#ffffff' size='2' shadow='0' align='center'>" + (str _title) + "<t size='1'> cr</t></t>");

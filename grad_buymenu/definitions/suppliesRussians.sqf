@@ -155,7 +155,7 @@ _ammotruck = [
 _uaz = [
     [uaz],
     "UAZ Dshkm",
-    4,
+    3,
     1100,
     1,
     ["cabinlights_hide",0,"light_hide",1],
@@ -177,7 +177,7 @@ _uaz = [
 _btr = [
     ["rhs_btr70_msv"],
     "BTR-70",
-    3,
+    2,
     1500,
     1,
     ["driverViewHatch",0, "commanderViewHatch",0, "cargoHandler1",0, "crate_l1_unhide",1, "crate_l2_unhide",1, "crate_l3_unhide",1, "crate_l4_unhide",1, "crate_r1_unhide",1, "crate_r2_unhide",1, "crate_r3_unhide",1, "crate_r4_unhide",1, "water_1_unhide",1, "water_2_unhide",1, "wheel_1_unhide",1, "wheel_2_unhide",1],
@@ -202,8 +202,8 @@ _btr = [
 _bmp = [
     ["rhs_bmp1_msv"],
     "BMP-1",
-    2,
-    2000,
+    1,
+    3000,
     1,
     ["crate_l1_unhide",1,"crate_l2_unhide",1,"crate_l3_unhide",1,"crate_r1_unhide",1,"crate_r2_unhide",1,"crate_r3_unhide",1,"wood_1_unhide",1,"maljutka_hide_source",1,"cargoHandler1",0],
     {
@@ -215,6 +215,7 @@ _bmp = [
     ['AddCargoByClass', ['ACE_wheel', _this select 0, 2], _this select 0] call CBA_fnc_targetEvent;
     (_this select 0) removeMagazinesTurret ["rhs_mag_og15v_20", [0]];
     call bmp_code;
+    (_this select 0) addItemCargoGlobal ["rhs_tsh4",3];
     },
     format[''],
     0,
@@ -226,7 +227,7 @@ _t72 = [
     ["rhs_t72ba_tv"],
     "T-72",
     1,
-    3500,
+    4000,
     1,
     ["hide_com_shield",1,"sightElevationAPFSDS",0],
     {
@@ -238,6 +239,7 @@ _t72 = [
     ['AddCargoByClass', ['ACE_track', _this select 0, 2], _this select 0] call CBA_fnc_targetEvent;
     (_this select 0) removeMagazinesTurret ["rhs_mag_3of26_5", [0]];
     call t72_code;
+    (_this select 0) addItemCargoGlobal ["rhs_tsh4",3];
     },
     format[''],
     0,

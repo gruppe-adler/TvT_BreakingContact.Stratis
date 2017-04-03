@@ -6,18 +6,18 @@
 
 if (IS_WOODLAND) then {
        mrzr4 = "rhsusf_mrzr4_w_mud";
-       mrap = "rhsusf_M1232_usarmy_wd";
-       mrap_init = ["DUKE_Hide",1];
+       m113 = "rhsusf_m113_usarmy";
        hmmwv_m2 = "rhsusf_m1025_w_m2";
-       hemtt_init = ["hide_spare",1];
-       hemtt = "rhsusf_M977A4_AMMO_BKIT_M2_usarmy_wd";
+       ammocar_init = ["Holder",0,"AddCargoHook_COver",0];
+       ammocar = "rhssaf_m998_olive_2dr_fulltop";
+       mh60 = "RHS_UH60M";
     } else {
        mrzr4 = "rhsusf_mrzr4_d_mud";
-       mrap = "rhsusf_M1232_usarmy_d";
-       mrap_init = ["DUKE_Hide",1];
+       m113 = "rhsusf_m113d_usarmy";
        hmmwv_m2 = "rhsusf_m1025_d_m2";
-       hemtt_init = ["hide_spare",1];
-       hemtt = "rhsusf_M977A4_AMMO_BKIT_M2_usarmy_d";
+       ammocar_init = ["Holder",0,"AddCargoHook_COver",0];
+       ammocar = "rhsusf_m998_d_s_2dr_fulltop";
+       mh60 = "RHS_UH60M_d";
     };
 
 _mrzr4 = [
@@ -51,7 +51,7 @@ _mrzr4 = [
 _hmmwv_m2 = [
       [hmmwv_m2],
       "HMMWV M2",
-      8,
+      4,
       1000,
       1,
       [],
@@ -68,13 +68,13 @@ _hmmwv_m2 = [
       0
 ];
 
-_mrap = [
-      [mrap],
-      "MRAP M1232",
-      6,
+_m113 = [
+      [m113],
+      "M113 M2",
+      2,
       1300,
       1,
-      mrap_init,
+      [],
       {
         clearWeaponCargoGlobal (_this select 0);
         clearItemCargoGlobal (_this select 0);
@@ -88,13 +88,13 @@ _mrap = [
       0
 ];
 
-_ammo = [
-      [hemtt],
-      "Ammo HEMTT M2",
-      4,
+_ammocar = [
+      [ammocar],
+      "HMMWV Ammo",
+      1,
       1500,
       1,
-      hemtt_init,
+      ammocar_init,
       {
         clearWeaponCargoGlobal (_this select 0);
         clearItemCargoGlobal (_this select 0);
@@ -127,7 +127,7 @@ _ammo = [
             {0 = [_this select 0] execVM 'player\carry\createBoat.sqf';},
             {((_this select 0) getVariable ["detachableBoat", 0] > 0)}
           ] call ace_interact_menu_fnc_createAction;
-          ["rhsusf_M977A4_AMMO_BKIT_M2_usarmy_d", 0, ["ACE_MainActions"],_createAssaultBoat] call ace_interact_menu_fnc_addActionToClass;
+          [ammocar, 0, ["ACE_MainActions"],_createAssaultBoat] call ace_interact_menu_fnc_addActionToClass;
       },
       format[''],
       0,
@@ -136,7 +136,7 @@ _ammo = [
 _melb = [
       ["RHS_MELB_MH6M"],
       "MELB",
-      3,
+      1,
       2500,
       1,
       [],
@@ -154,11 +154,11 @@ _melb = [
       0,
       0
 ];
-_ch53 = [
-      ["rhsusf_CH53E_USMC"],
-      "CH-53",
+_mh60 = [
+      [mh60],
+      "MH-60",
       1,
-      4000,
+      4500,
       1,
       [],
       {
@@ -197,8 +197,8 @@ _recon_box = [
 
 suppliesBlufor setVariable['mrzr4', _mrzr4, true];
 suppliesBlufor setVariable['hmmwv_m2', _hmmwv_m2, true];
-suppliesBlufor setVariable['mrap', _mrap, true];
-suppliesBlufor setVariable['ammo', _ammo, true];
+suppliesBlufor setVariable['m113', _m113, true];
+suppliesBlufor setVariable['ammocar', _ammocar, true];
 suppliesBlufor setVariable['melb', _melb, true];
-suppliesBlufor setVariable['ch53', _ch53, true];
+suppliesBlufor setVariable['mh60', _mh60, true];
 suppliesBlufor setVariable['recon_box', _recon_box, true];

@@ -163,7 +163,7 @@ if (hasInterface) then {
 		if (playerSide == west) then {
 			if (!TRACKING_PERSON) then {
 				switch (rank player) do {
-					case "CAPTAIN": { _canBuy = ['mrzr4','hmmwv_m2','mrap','ammo','melb','ch53', 'recon_box']; };
+					case "CAPTAIN": { _canBuy = ['mrzr4','hmmwv_m2','mm113','ammocar','melb','mh60', 'recon_box']; };
 					default { _canBuy = []; };
 				};
 			} else {

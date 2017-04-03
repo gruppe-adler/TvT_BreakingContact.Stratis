@@ -177,6 +177,13 @@ class Params
     	default = 0;
   	};
 
+  	class CONQUER_MODE {
+    	title = "Win Condition - only Classic Mode";
+    	values[] = {0, 1};
+    	texts[] =  {"Conquer Radio Truck", "Destroy Radio Truck"};
+    	default = 0;
+  	};
+
   	class ace_map_BFT_Enabled { //This ia a "BOOL"
     	title = "Bluforce-Tracking active"; //You can use ACE's stringtables
     	ACE_setting = 1;

@@ -23,7 +23,7 @@ fnc_createEntries = {
 	];
 
 	
-	_createdGui = uiNamespace getVariable ['GRAD_buy_menu_var',0];
+	_createdGui = uiNamespace getVariable ['GRAD_buy_menu_var',displayNull];
 	if (!_isRefresh) then {
 		{ctrlShow [_x, false];} forEach _dummyPictureIDCs;
 	};

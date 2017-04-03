@@ -47,8 +47,9 @@ publicVariable "CIVILIAN_TRAFFIC"; // clients need to know this
 TRACKING_PERSON = (["FACTION_MODE", 1] call BIS_fnc_getParamValue) == 1;
 publicVariable "TRACKING_PERSON";
 
-SERVER_TIME = {time};
-publicVariable "SERVER_TIME";
+CONQUER_MODE = (["CONQUER_MODE", 0] call BIS_fnc_getParamValue) == 0;
+TRUCK_DESTROYED_NOT_CONQUERED = false;
+publicVariable "TRUCK_DESTROYED_NOT_CONQUERED";
 
 if (!TRACKING_PERSON) then {
 	
@@ -201,7 +202,7 @@ publicVariable "CIV_GUNFIGHT_POS";
 // replay
 REPLAY_FINISHED = false;
 publicVariable "REPLAY_FINISHED";
-REPLAY_SPEED = 0.02;
+REPLAY_SPEED = 0.05;
 REPLAY_STEPS_PER_TICK = 1;
 
 
