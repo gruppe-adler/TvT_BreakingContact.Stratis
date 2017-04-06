@@ -110,7 +110,7 @@ class Params
 		title = "Length of sending time";
 		values[] = {30, 300, 600, 900, 1800, 2700, 3600, 4500, 5400, 6300};
 		texts[] = {"30s (DEBUG)", "5'","10' (recommended for BC:Afghan Wars), needs to be accomplished 5 times", "15'", "30'", "45' (recommended for BC:Classic)", "1h'", "1h15'","1h30'","1h45'"};
-		default = 4500;
+		default = 2700;
 	};
 
 	class TIME_ACCELERATION
