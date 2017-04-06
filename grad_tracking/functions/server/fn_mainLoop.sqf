@@ -41,6 +41,7 @@ GRAD_tracking_mainLoop = [{
         };
         
     };
+
     if (!alive _radioVeh && {(_radioVeh getVariable ["detachableRadio", 0] != 2)} && {CONQUER_MODE}) exitWith {
         [_handle] call CBA_fnc_removePerFrameHandler;
         
@@ -56,9 +57,7 @@ GRAD_tracking_mainLoop = [{
     [_radioVeh] call GRAD_tracking_fnc_radioTruckCookoffFix;
 
     // who the fuck is sending a signal currently
-    _radioVehIsSending = [_radioVeh] call GRAD_tracking_fnc_radioVehIsSending;
-
-    
+    _radioVehIsSending = [_radioVeh] call GRAD_tracking_fnc_radioVehIsSending;    
     _terminalIsSending = [_terminal] call GRAD_tracking_fnc_terminalIsSending;
 
     // check if radio truck is sending alone with terminal detached (he cant do that anymore)
@@ -99,7 +98,7 @@ GRAD_tracking_mainLoop = [{
 
     // toggle marker visbility
     _radioVehMarkerStatusChange = [!_radioVehIsSending, _radioVeh] call GRAD_tracking_fnc_setRadioVehMarkerStatus;
-    [!_terminalIsSending, _terminal] call GRAD_tracking_fnc_setTerminalMarkerStatus;
+    _terminalMarkerStatusChange = [!_terminalIsSending, _terminal] call GRAD_tracking_fnc_setTerminalMarkerStatus;
 
     if (GRAD_TICKS_DONE >= GRAD_TICKS_NEEDED && (time > 10)) then {
         GRAD_INTERVALS_DONE = GRAD_INTERVALS_DONE + 1;
@@ -123,7 +122,7 @@ GRAD_tracking_mainLoop = [{
     
 
 	   	if  (grad_tracking_currentLoop < GRAD_SIGNAL_DELAY && 
-            (!_radioVehMarkerStatusChange || !GRAD_TERMINAL_MARKER_HIDDEN)) then {
+            (!_radioVehMarkerStatusChange || !_terminalMarkerStatusChange)) then {
 
             grad_tracking_currentLoop = grad_tracking_currentLoop + 1;
 

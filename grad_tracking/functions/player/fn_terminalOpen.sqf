@@ -44,5 +44,5 @@ with uiNamespace do {
 };
 
 GRAD_TERMINAL_ACTIVE = true;
-publicVariable "GRAD_TERMINAL_ACTIVE";
+publicVariableServer "GRAD_TERMINAL_ACTIVE";
 _object setVariable ["RadioInterference",2,true];
