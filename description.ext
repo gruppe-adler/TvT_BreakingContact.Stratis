@@ -76,8 +76,8 @@ class Params
 	class WEATHER_WIND
 	{
 		title = "Wind Settings";
-		values[] = {0, 1, 4, 8, 16, 32, -1};
-		texts[] = {"None", "1 m/s", "4 m/s", "8 m/s", "16 m/s", "maximum perversum", "random"};
+		values[] = {0, 1, 2, 4, 8, 32, -1};
+		texts[] = {"None", "1 m/s", "2 m/s", "4 m/s", "8 m/s", "maximum perversum", "random"};
 		default = -1;
 	};
 
