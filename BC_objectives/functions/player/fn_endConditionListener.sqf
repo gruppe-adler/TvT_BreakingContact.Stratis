@@ -1,55 +1,57 @@
 #include "\z\ace\addons\main\script_component.hpp"
-#include "..\missionMacros.h"
+#include "..\..\..\missionMacros.h"
 
-_BLUFOR_SURRENDERED_listener = {
+_TRANSMISSION_COMPLETE_listener = {
 	if (_this select 1) then {
 		adminLog("blufor surrendered");
 		_string = localize "str_GRAD_winmsg_points";
 		[_string] call EFUNC(common,displayTextStructured);
-		[east] execVM "player\endmission.sqf";
+		[east] spawn BC_objectives_fnc_endMission;
 	};
 };
 
 _BLUFOR_CAPTURED_listener = {
 	if (_this select 1) then {
 		adminLog("blufor captured");
-		[west] execVM "player\endmission.sqf";
+		[west] spawn BC_objectives_fnc_endMission;
 	};
 };
 
 _BLUFOR_ELIMINATED_listener = {
 	if (_this select 1) then {
 		adminLog("mission_complete: blufor loses  by elimination");
-		[east] execVM "player\endmission.sqf";
+		[east] spawn BC_objectives_fnc_endMission;
 	};
 };
 
 _OPFOR_ELIMINATED_listener = {
 	if (_this select 1) then {
 		adminLog("mission_complete: opfor loses  by elimination");
-		[west] execVM "player\endmission.sqf";
+		[west] spawn BC_objectives_fnc_endMission;
 	};
 };
 
 _TRUCK_DESTROYED_NOT_CONQUERED_listener = {
 	if (_this select 1) then {
 		adminLog("mission_complete: draw");
-		[civilian] execVM "player\endmission.sqf";
+		[civilian] spawn BC_objectives_fnc_endMission;
 	};
 };
 
-"BLUFOR_SURRENDERED" addPublicVariableEventHandler _BLUFOR_SURRENDERED_listener;
+"TRANSMISSION_COMPLETE" addPublicVariableEventHandler _TRANSMISSION_COMPLETE_listener;
 "BLUFOR_CAPTURED" addPublicVariableEventHandler _BLUFOR_CAPTURED_listener;
 "BLUFOR_ELIMINATED" addPublicVariableEventHandler _BLUFOR_ELIMINATED_listener;
 "OPFOR_ELIMINATED" addPublicVariableEventHandler _OPFOR_ELIMINATED_listener;
 
-"TRUCK_DESTROYED_NOT_CONQUERED" addPublicVariableEventHandler _TRUCK_DESTROYED_NOT_CONQUERED_listener;
+if (CONQUER_MODE) then {
+	"TRUCK_DESTROYED_NOT_CONQUERED" addPublicVariableEventHandler _TRUCK_DESTROYED_NOT_CONQUERED_listener;
+};
 
 // runs in SP to emulate addPublicVariableEventHandler (which doesnt work in SP)
 if (!isMultiplayer) then {
-	_BLUFOR_SURRENDERED_listener spawn {
-		waitUntil {BLUFOR_SURRENDERED};
-		[0, BLUFOR_SURRENDERED] call _this;
+	_TRANSMISSION_COMPLETE_listener spawn {
+		waitUntil {TRANSMISSION_COMPLETE};
+		[0, TRANSMISSION_COMPLETE] call _this;
 	};
 	_BLUFOR_CAPTURED_listener spawn {
 		waitUntil {BLUFOR_CAPTURED};
@@ -64,9 +66,12 @@ if (!isMultiplayer) then {
 		[0, OPFOR_ELIMINATED] call _this;
 	};
 
-	_TRUCK_DESTROYED_NOT_CONQUERED_listener spawn {
-		waitUntil {TRUCK_DESTROYED_NOT_CONQUERED};
-		[0, TRUCK_DESTROYED_NOT_CONQUERED] call _this;
+
+	if (CONQUER_MODE) then {
+		_TRUCK_DESTROYED_NOT_CONQUERED_listener spawn {
+			waitUntil {TRUCK_DESTROYED_NOT_CONQUERED};
+			[0, TRUCK_DESTROYED_NOT_CONQUERED] call _this;
+		};
 	};
 };
 

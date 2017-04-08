@@ -1,6 +1,12 @@
 ["InitializePlayer", [player, true]] call BIS_fnc_dynamicGroups;
 0 = execVM "spawn\addInteractions.sqf";
-0 = execVM "grad_civs\init.sqf";
+
+waitUntil {!isNil "CIVILIAN_TRAFFIC"};
+
+if (CIVILIAN_TRAFFIC == 1) then {
+	0 = execVM "grad_civs\init.sqf";
+};
+
 
 [{!isNil "TRACKING_PERSON"}, {
 

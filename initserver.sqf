@@ -47,7 +47,9 @@ publicVariable "CIVILIAN_TRAFFIC"; // clients need to know this
 TRACKING_PERSON = (["FACTION_MODE", 1] call BIS_fnc_getParamValue) == 1;
 publicVariable "TRACKING_PERSON";
 
-CONQUER_MODE = (["CONQUER_MODE", 0] call BIS_fnc_getParamValue) == 0;
+CONQUER_MODE = (["CONQUER_MODE", 1] call BIS_fnc_getParamValue) == 0;
+publicVariable "CONQUER_MODE";
+
 TRUCK_DESTROYED_NOT_CONQUERED = false;
 publicVariable "TRUCK_DESTROYED_NOT_CONQUERED";
 
@@ -164,8 +166,8 @@ publicVariable "OPFOR_ELIMINATED";
 
 BLUFOR_CAPTURED = false;
 publicVariable "BLUFOR_CAPTURED";
-BLUFOR_SURRENDERED = false;
-publicVariable "BLUFOR_SURRENDERED";
+TRANSMISSION_COMPLETE = false;
+publicVariable "TRANSMISSION_COMPLETE";
 
 MISSION_COMPLETED = false;
 publicVariable "MISSION_COMPLETED";
@@ -227,8 +229,8 @@ REPLAY_STEPS_PER_TICK = 1;
 if (isClass (configFile >> "CfgPatches" >> "task_force_radio")) then {
 	[] execVM "tfarsettings.sqf";
 };
-[] execVM "objectives\detect_all_dead.sqf";
-	[] execVM "helpers\medical_settings.sqf";
+
+[] execVM "helpers\medical_settings.sqf";
 
 
 [] execVM "server\teleportListener.sqf";

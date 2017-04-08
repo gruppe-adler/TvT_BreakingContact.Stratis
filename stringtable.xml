@@ -94,6 +94,53 @@
 				</German>
 			</Key>
 		</Container>
+		<Container name="tasks">
+			<Key ID="str_GRAD_classicTaskNameOpfor">
+				<Original>Transmit for </Original>
+				<English>Transmit for </English>
+				<German>Funke für </German>
+			</Key>
+			<Key ID="str_GRAD_classicTaskNameBlufor">
+				<Original>Destroy in </Original>
+				<English>Destroy in </English>
+				<German>Zerstöre in </German>
+			</Key>
+			<Key ID="str_GRAD_classicTaskTitleOpfor">
+				<Original>Defend for </Original>
+				<English>Defend for </English>
+				<German>Verteidige für </German>
+			</Key>
+			<Key ID="str_GRAD_classicTaskTitleBlufor">
+				<Original>Destroy in </Original>
+				<English>Destroy in </English>
+				<German>Zerstöre </German>
+			</Key>
+			<Key ID="str_GRAD_classicTaskDescriptionOpfor_1">
+				<Original>Transmit for </Original>
+				<English>Transmit for </English>
+				<German>Übertrage für </German>
+			</Key>
+			<Key ID="str_GRAD_classicTaskDescriptionOpfor_2">
+				<Original>and defend the truck or the terminal. Transmission can be interrupted, you dont have to stay at one place.</Original>
+				<English>and defend the truck or the terminal. Transmission can be interrupted, you dont have to stay at one place.</English>
+				<German>und verteidige Funkwagen oder Terminal. Die Übertragung kann unterbrochen werden, du musst nicht an einer Stelle bleiben.</German>
+			</Key>
+			<Key ID="str_GRAD_classicTaskDescriptionBlufor">
+				<Original>Cancel the Russian transmission by destroying their radio truck or terminal in </Original>
+				<English>Cancel the Russian transmission by destroying their radio truck or terminal in </English>
+				<German>Beende die russische Übertragung durch Zerstörung des Funkwagens oder Funkmoduls in </German>
+			</Key>
+			<Key ID="str_GRAD_classicTaskDescriptionOpfor_conquermode">
+				<Original>Prevent the radio truck from getting destroyed or fallen into enemy hands.</Original>
+				<English>Prevent the radio truck from getting destroyed or fallen into enemy hands.</English>
+				<German>Verhindern Sie, dass der Funkwagen zerstört wird oder in fremde Hände fällt.</German>
+			</Key>
+			<Key ID="str_GRAD_classicTaskDescriptionBlufor_conquermode">
+				<Original>Cancel the Russian transmission and capture their radio truck or terminal. Do not destoy it!</Original>
+				<English>Cancel the Russian transmission and capture their radio truck or terminal. Do not destoy it!</English>
+				<German>Beenden Sie die russische Übertragung und erobern Sie den Funkwagen oder das Terminal. Zerstören Sie es in keinem Fall!</German>
+			</Key>
+		</Container>
 		<Container name="mission setup">
 			<Key ID="str_GRAD_spawn_on_water">
 				<Original>Spawn on water not possible</Original>

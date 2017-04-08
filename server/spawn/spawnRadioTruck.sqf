@@ -18,6 +18,9 @@ spawnRadioTruck = {
 	
 	[[_radioVeh, _terminal], "grad_tracking\init.sqf"] remoteExec ["execVM", 0, true];
 
+	// create tasks
+	[[], "BC_objectives\init.sqf"] remoteExec ["execVM", 0, true];
+
 	if (!IS_WOODLAND) then {
 		_radioVeh setObjectTextureGlobal [0,"rhsafrf\addons\rhs_gaz66_camo\data\gaz66_sand_co.paa"];
 	    _radioVeh setObjectTextureGlobal [1,"rhsafrf\addons\rhs_gaz66\data\tent_co.paa"];
@@ -38,5 +41,6 @@ spawnRadioTruck = {
 	_radioVeh addItemCargoGlobal ["ACE_SpraypaintRed",10];
 	_radioVeh addItemCargoGlobal ["ACE_EntrenchingTool",10];
 	_radioVeh addItemCargoGlobal ["ACE_NVG_Gen2",50];
+	_radioVeh addItemCargoGlobal ["tf_fadak", 10];
 
 };

@@ -15,6 +15,7 @@ class CfgFunctions {
 	#include "grad_waverespawn\cfgFunctions.hpp"
 	#include "grad_roadtrash\cfgFunctions.hpp"
 	#include "grad_emptycars\cfgFunctions.hpp"
+	#include "BC_objectives\cfgFunctions.hpp"
 };
 
 class RscTitles {
@@ -181,7 +182,7 @@ class Params
     	title = "Win Condition - only Classic Mode";
     	values[] = {0, 1};
     	texts[] =  {"Conquer Radio Truck", "Destroy Radio Truck"};
-    	default = 0;
+    	default = 1;
   	};
 
   	class ace_map_BFT_Enabled { //This ia a "BOOL"
