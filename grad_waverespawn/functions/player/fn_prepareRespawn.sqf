@@ -12,4 +12,4 @@ _vehClass createVehicle position player;
 ["Respawned"] call EFUNC(common,displayTextStructured);
 
 [player, false] call TFAR_fnc_forceSpectator;
-[player, false] call ace_spectator_fnc_stageSpectator;
+[false] call ace_spectator_fnc_setSpectator;
