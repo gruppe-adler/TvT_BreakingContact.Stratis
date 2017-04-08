@@ -7,6 +7,16 @@ waitUntil {sleep 1; !isNil "GRAD_TERMINAL_DESTROYED"};
     params ["_args", "_handle"];
     _args params ["_taskBlufor", "_taskOpfor"];
 
+    /* detect all dead */
+    OPFOR_PRE_ELIMINATED = ({side _x == east && alive _x} count allUnits == 0);
+    BLUFOR_PRE_ELIMINATED = ({side _x == west && alive _x} count allUnits == 0);
+    
+    if (GRAD_TERMINAL_DESTROYED) then { [] call GRAD_tracking_fnc_bluforCaptured; };
+
+    if (OPFOR_PRE_ELIMINATED) then {["OPFOR_PRE_ELIMINATED"] spawn BC_objectives_fnc_waitingForUnconscious;};
+    if (BLUFOR_PRE_ELIMINATED) then {["BLUFOR_PRE_ELIMINATED"] spawn BC_objectives_fnc_waitingForUnconscious;};
+
+    /* opfor wins */
     if (TRANSMISSION_COMPLETE || BLUFOR_ELIMINATED) exitWith {
     	 [_handle] call CBA_fnc_removePerFrameHandler;
 
@@ -14,6 +24,7 @@ waitUntil {sleep 1; !isNil "GRAD_TERMINAL_DESTROYED"};
     	 [_taskOpfor,"SUCCEEDED",true] call BIS_fnc_taskSetState;
     };
 
+    /* blufor wins */
     if (OPFOR_ELIMINATED || BLUFOR_CAPTURED) exitWith {
     	 [_handle] call CBA_fnc_removePerFrameHandler;
 
@@ -44,20 +55,6 @@ waitUntil {sleep 1; !isNil "GRAD_TERMINAL_DESTROYED"};
     		};
     	};
     	
-    };
-
-    /* detect all dead */
-    OPFOR_PRE_ELIMINATED = ({side _x == east && alive _x} count allUnits == 0);
-    BLUFOR_PRE_ELIMINATED = ({side _x == west && alive _x} count allUnits == 0);
-    
-	if (GRAD_TERMINAL_DESTROYED) then { [] call GRAD_tracking_fnc_bluforCaptured; };
-
-    if (OPFOR_PRE_ELIMINATED) then {["OPFOR_PRE_ELIMINATED"] spawn BC_objectives_fnc_waitingForUnconscious;};
-    if (BLUFOR_PRE_ELIMINATED) then {["BLUFOR_PRE_ELIMINATED"] spawn BC_objectives_fnc_waitingForUnconscious;};
-
-    if (OPFOR_ELIMINATED || BLUFOR_ELIMINATED) exitWith {
-        publicVariable "OPFOR_ELIMINATED";
-        publicVariable "BLUFOR_ELIMINATED";
     };
 
 },11,[_taskBlufor, _taskOpfor]] call CBA_fnc_addPerFrameHandler;
