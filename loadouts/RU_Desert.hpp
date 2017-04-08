@@ -1,9 +1,9 @@
 class RU_Desert {
 	class AllUnits {
 		primaryWeapon = "rhs_weap_akm";
-		primaryWeaponMagazine = "rhs_30Rnd_762x39mm";
-		secondaryWeaponMagazine = "16Rnd_9x21_Mag";
+		primaryWeaponMagazine = "rhs_30Rnd_762x39mm";		
 		handgunWeapon = "hgun_Rook40_F";
+		handgunWeaponMagazine = "16Rnd_9x21_Mag";
 		uniform = "rhs_uniform_flora_patchless_alt";
 		addItemsToUniform[] = {"rhs_acc_2dpZenit", LIST_6("ACE_fieldDressing"), LIST_2("ACE_morphine"), "ACE_epinephrine", "ACE_Flashlight_MX991", "ACE_key_east", "ACE_MapTools", LIST_2("Chemlight_red"), LIST_2("16Rnd_9x21_Mag")};
 		headgear = "rhs_6b27m_ml";

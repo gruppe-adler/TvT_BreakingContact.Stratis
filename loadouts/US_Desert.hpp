@@ -3,8 +3,8 @@ class US_Desert {
 	class AllUnits {
         primaryWeapon = "rhs_weap_m4a1_carryhandle";
         primaryWeaponMagazine = "rhs_mag_30Rnd_556x45_M855A1_Stanag";
-        secondaryWeaponMagazine = "rhsusf_mag_17Rnd_9x19_JHP";
 		handgunWeapon = "rhsusf_weap_glock17g4";
+		handgunWeaponMagazine = "rhsusf_mag_17Rnd_9x19_JHP";
 		uniform = "rhs_uniform_cu_ocp"; // differentiate desert/woodland
 		addItemsToUniform[] = {"acc_flashlight", LIST_6("ACE_fieldDressing"), LIST_2("ACE_morphine"), "ACE_epinephrine", "ACE_Flashlight_KSF1", "ACE_key_west", "ACE_MapTools", LIST_2("Chemlight_blue"), LIST_2("rhsusf_mag_17Rnd_9x19_JHP")};
 		vest = "rhsusf_iotv_ocp_Squadleader";
