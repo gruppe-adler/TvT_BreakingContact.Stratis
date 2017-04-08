@@ -96,9 +96,9 @@
 		</Container>
 		<Container name="tasks">
 			<Key ID="str_GRAD_classicTaskNameOpfor">
-				<Original>Transmit for </Original>
-				<English>Transmit for </English>
-				<German>Funke für </German>
+				<Original>Transmit for a total of </Original>
+				<English>Transmit for a total of </English>
+				<German>Funke für insgesamt </German>
 			</Key>
 			<Key ID="str_GRAD_classicTaskNameBlufor">
 				<Original>Destroy in </Original>
@@ -106,14 +106,14 @@
 				<German>Zerstöre in </German>
 			</Key>
 			<Key ID="str_GRAD_classicTaskTitleOpfor">
-				<Original>Defend for </Original>
-				<English>Defend for </English>
-				<German>Verteidige für </German>
+				<Original>Transmit for a total of </Original>
+				<English>Transmit for a total of </English>
+				<German>Übertrage für insgesamt </German>
 			</Key>
 			<Key ID="str_GRAD_classicTaskTitleBlufor">
-				<Original>Destroy in </Original>
-				<English>Destroy in </English>
-				<German>Zerstöre </German>
+				<Original>Destroy the transmitter before transmission runs </Original>
+				<English>Destroy the transmitter before transmission runs </English>
+				<German>Zerstöre den Funkwagen vor der Sendezeit von </German>
 			</Key>
 			<Key ID="str_GRAD_classicTaskDescriptionOpfor_1">
 				<Original>Transmit for </Original>

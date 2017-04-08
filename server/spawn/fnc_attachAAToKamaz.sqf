@@ -13,6 +13,9 @@ _manpad setVariable ["attachedToObject", _vehicle, true];
 [_vehicle] remoteExec ["GRAD_addGetInActionAA",0,true];
 [_manpad] remoteExec ["GRAD_addGetOutActionAA",0,true];
 
+[_manpad, false, [0, 0, 0], 0] call ace_dragging_fnc_setCarryable;
+[_manpad, false, [0, 0, 0], 0] call ace_dragging_fnc_setDraggable;
+
 _vehicle addEventHandler ["killed", { 
 	_manpad = (_this select 0) getVariable ["attachedObject", objNull];
 	if (!isNull _manpad) then {
