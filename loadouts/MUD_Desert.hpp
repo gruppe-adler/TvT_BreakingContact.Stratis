@@ -1,6 +1,7 @@
 class MUD_Desert {
 	class AllUnits {
 		primaryWeapon = "rhs_weap_akm";
+		primaryWeaponMagazine = "rhs_30Rnd_762x39mm";
 		uniform = "LOP_U_AM_Fatigue_01";
 		addItemsToUniform[] = {LIST_6("ACE_fieldDressing"), LIST_2("ACE_morphine"), "ACE_epinephrine", "ACE_Flashlight_MX991", "ACE_key_east", "ACE_MapTools", LIST_2("Chemlight_red"), LIST_2("rhs_30Rnd_762x39mm")};
 		headgear = "LOP_H_Turban";
