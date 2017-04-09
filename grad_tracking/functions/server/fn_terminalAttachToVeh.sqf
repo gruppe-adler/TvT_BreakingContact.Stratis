@@ -18,7 +18,3 @@ _radioVeh setVariable ["detachableRadio", 1, true];
 // what did i intent to do here
 
 _terminal hideObjectGlobal false;
-
-_terminal addEventHandler ["Explosion",{
-    [_this select 0] spawn GRAD_tracking_fnc_explodeDelayed;
-}];

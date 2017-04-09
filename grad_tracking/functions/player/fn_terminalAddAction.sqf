@@ -10,4 +10,7 @@ _terminal addAction [
 	nil,1,false,true,"","_target getVariable ['RadioInterference',-1] == 2"
 ];
 
+_terminal addEventHandler ["Explosion",{
+    [_this select 0] spawn GRAD_tracking_fnc_explodeDelayed;
+}];
 // condition: _terminal getVariable ("RadioInterference",false)
