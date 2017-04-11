@@ -9,7 +9,7 @@ if (IS_WOODLAND) then {
        m113 = "rhsusf_m113_usarmy";
        hmmwv_m2 = "rhsusf_m1025_w_m2";
        ammocar_init = ["Holder",0,"AddCargoHook_COver",0];
-       ammocar = "rhssaf_m998_olive_2dr_fulltop";
+       ammocar = "rhsusf_m998_w_s_2dr_fulltop";
        mh60 = "RHS_UH60M";
     } else {
        mrzr4 = "rhsusf_mrzr4_d_mud";
