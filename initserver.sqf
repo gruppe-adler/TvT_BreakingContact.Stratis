@@ -212,7 +212,7 @@ REPLAY_STEPS_PER_TICK = 1;
 // add money from player count
 [] spawn {
 	_playercount = count (call CBA_fnc_players);
-	_bonusPerPlayer = _playercount * 100;
+	_bonusPerPlayer = _playercount * 50;
 
 	waitUntil {!isNil "moneyOpfor" && !isNil "moneyBlufor"};
 
