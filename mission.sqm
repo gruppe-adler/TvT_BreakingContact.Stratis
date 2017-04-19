@@ -42,8 +42,6 @@ addons[]=
 	"ace_repair",
 	"ace_medical",
 	"A3_Characters_F",
-	"asr_ai3_cfgcamouflage",
-	"asr_ai3_cfgvehicles",
 	"ace_nouniformrestrictions",
 	"A3_Modules_F_Curator_Curator",
 	"ace_cargo",
