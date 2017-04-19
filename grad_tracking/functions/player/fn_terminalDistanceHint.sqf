@@ -1,5 +1,7 @@
 params ["_perc"];
 
+if (playerSide != west) exitWith {}; // just to make sure, as playerside is initially bugged
+
 _green = "<t size='2' color='#48c617'>%1 %%</t>";
 _yellow = "<t size='2' color='#e9c138'>%1 %%</t>";
 _red = "<t size='2' color='#c62317'>%1 %%</t>";
