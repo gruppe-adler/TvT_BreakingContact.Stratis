@@ -1,6 +1,6 @@
 params ["_varName"];
 
-
+private ["_bool"];
 
 for [{_i=0}, {_i<20}, {_i=_i+1}] do
 {
