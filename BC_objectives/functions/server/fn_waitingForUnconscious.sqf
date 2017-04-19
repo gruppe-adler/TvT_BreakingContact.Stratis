@@ -1,9 +1,10 @@
 params ["_varName"];
 
-_bool = call compile _varName;
+
 
 for [{_i=0}, {_i<20}, {_i=_i+1}] do
 {
+	_bool = call compile _varName;
 	if (!_bool) exitWith {};
 	sleep 0.5;
 };
