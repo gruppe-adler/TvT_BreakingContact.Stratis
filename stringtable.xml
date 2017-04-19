@@ -276,6 +276,11 @@
 				<English>BLUFOR wins!</English>
 				<German>BLUFOR gewinnt!</German>
 			</Key>
+			<Key ID="str_GRAD_transmissionResult">
+			    <Original>OPFOR transmitted %1 in %2 minutes.</Original>
+			    <English>OPFOR transmitted %1 in %2 minutes.</English>
+			    <German>OPFOR hat %1 in %2 Minuten gesendet.</German>
+			</Key>
 			<Key ID="str_GRAD_thankyouforplaying2">
 				<Original>Thank you for playing.</Original>
 				<English>Thank you for playing.</English>
