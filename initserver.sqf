@@ -122,7 +122,7 @@ setCustomWeather = {
 	};
 
 	if (str WEATHER_WIND isEqualTo "-1") then {
-		WEATHER_WIND = (random 15) - (random 30);
+		WEATHER_WIND = (random 2) - (random 4);
 	};
 
 	diag_log format ["BC setup: setting wind to %1", WEATHER_WIND];
