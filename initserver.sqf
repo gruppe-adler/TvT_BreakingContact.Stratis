@@ -12,7 +12,9 @@ if ((["DEBUG_MODE", 0] call BIS_fnc_getParamValue) == 1 || !isMultiplayer) then 
 };
 publicVariable "DEBUG_MODE";
 
-0 = execVM "grad_civs\init.sqf";
+if (CIVILIAN_TRAFFIC == 1) then {
+	0 = execVM "grad_civs\init.sqf";
+};
 
 // read parameters
 TIME_OF_DAY = ["TIME_OF_DAY", 10] call BIS_fnc_getParamValue;
