@@ -132,6 +132,7 @@ fnc_createEntries = {
 	 		};
 		} forEach _applicableSupplies;
 
+	}, [_createdGui,_givenSupplies,_allowedSupplies,_applicableSupplies,_isRefresh,_dummyPictureIDCs], 2, {}] call CBA_fnc_waitUntilAndExecute;
 
 	_createdGui
 };
