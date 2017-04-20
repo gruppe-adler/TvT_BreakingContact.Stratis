@@ -22,6 +22,7 @@ class RscTitles {
     #include "node_modules\grad-fortifications\dialog\hint\title.hpp"
     #include "grad_buymenu\definitions\rscTitles.hpp"
     #include "grad_supplydrops\rscTitles.hpp"
+	#include "BC_objectives\rscTitles.hpp"
 };
 
 OnLoadMission = "A mobile radio station is trying to get a message sent - their adversaries try to stop them from completing the broadcast";
@@ -191,6 +192,13 @@ class Params
     	values[] = {0, 1}; //setting is a BOOL, but values still need to be numbers, so 0 is false, 1 is true
     	texts[] =  {"False", "True"};
     	default = 1;
+	};
+
+	class PREPARATION_TIME {
+		title = "Preparation time";
+		values[] = {0,60,120,300,480,600,900};
+		texts[] = {"off","1min","2min","5min","8min","10min","15min"};
+		default = 0;
 	};
 };
 

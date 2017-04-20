@@ -253,6 +253,16 @@
 				<English>using all your strength.</English>
 				<German>bewegen, verbrauchen dabei ihre Kraft.</German>
 			</Key>
+			<Key ID="str_GRAD_preparationTime_countdown">
+				<Original>Game starts in: &lt;br/&gt;%1</Original>
+				<English>Game starts in: &lt;br/&gt;%1</English>
+				<German>Spielstart in: &lt;br/&gt;%1</German>
+			</Key>
+			<Key ID="str_GRAD_preparationTime_start">
+				<Original>Game on!</Original>
+				<English>Game on!</English>
+				<German>Spielstart!</German>
+			</Key>
 		</Container>
 		<Container name="mission_end">
 			<Key ID="str_GRAD_winmsg">

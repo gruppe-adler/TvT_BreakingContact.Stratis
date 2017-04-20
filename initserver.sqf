@@ -52,16 +52,19 @@ publicVariable "TRACKING_PERSON";
 CONQUER_MODE = (["CONQUER_MODE", 1] call BIS_fnc_getParamValue) == 0;
 publicVariable "CONQUER_MODE";
 
+PREPARATION_TIME = ["PREPARATION_TIME", 0] call BIS_fnc_getParamValue;
+publicVariable "PREPARATION_TIME";
+
 TRUCK_DESTROYED_NOT_CONQUERED = false;
 publicVariable "TRUCK_DESTROYED_NOT_CONQUERED";
 
 if (!TRACKING_PERSON) then {
-	
+
 } else {
 	0 = execVM "grad_waverespawn\init.sqf";
 	0 = execVM "grad_roadtrash\init.sqf";
 	0 = execVM "grad_emptycars\init.sqf";
-	
+
 };
 
 setCustomWeather = {
@@ -69,55 +72,55 @@ setCustomWeather = {
 	// get random shit
 	if (str WEATHER_OVERCAST isEqualTo "-1") then {
 		WEATHER_OVERCAST = [[
-		0.0, 
-		0.1, 
-		0.2, 
-		0.3, 
-		0.4, 
-		0.5, 
-		0.6, 
-		0.7, 
-		0.8, 
-		0.9, 
+		0.0,
+		0.1,
+		0.2,
+		0.3,
+		0.4,
+		0.5,
+		0.6,
+		0.7,
+		0.8,
+		0.9,
 		1.0
 		], [
-		0.3,  
-		0.3,  
-		0.1,  
-		0.1,  
-		0.05,  
-		0.025,  
-		0.025,  
-		0.025,  
-		0.025,  
-		0.025,  
+		0.3,
+		0.3,
+		0.1,
+		0.1,
+		0.05,
+		0.025,
+		0.025,
+		0.025,
+		0.025,
+		0.025,
 		0.025]] call BIS_fnc_selectRandomWeighted;
 	};
 
 	if (str WEATHER_FOG isEqualTo "-1") then {
 		WEATHER_FOG = [[
-		0.0, 
+		0.0,
 		0.05,
-		0.1, 
-		0.2, 
-		0.3, 
-		0.4, 
-		0.5, 
-		0.6, 
-		0.7, 
-		0.8, 
+		0.1,
+		0.2,
+		0.3,
+		0.4,
+		0.5,
+		0.6,
+		0.7,
+		0.8,
 		1.0
 		], [
-		0.5,  
-		0.3,  
-		0.1,  
-		0.075,  
-		0.01,  
-		0.005,  
-		0.005,  
-		0.004,  
-		0.003,  
-		0.002,  
+		0.5,
+		0.3,
+		0.1,
+		0.075,
+		0.01,
+		0.005,
+		0.005,
+		0.004,
+		0.003,
+		0.002,
 		0.001]] call BIS_fnc_selectRandomWeighted;
 	};
 
