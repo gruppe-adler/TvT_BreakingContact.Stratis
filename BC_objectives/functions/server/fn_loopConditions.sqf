@@ -7,7 +7,7 @@ waitUntil {sleep 1; !isNil "GRAD_TERMINAL_DESTROYED"};
 
 [{
     params ["_args", "_handle"];
-    _args params ["_taskBlufor", "_taskOpfor"];
+    _args params ["_taskBlufor1","_taskBlufor2","_taskOpfor1","_taskOpfor2"];
 
     /* detect all dead */
     OPFOR_PRE_ELIMINATED = ({side _x == east && alive _x} count allUnits == 0);
@@ -89,4 +89,4 @@ waitUntil {sleep 1; !isNil "GRAD_TERMINAL_DESTROYED"};
 
     };
 
-},11,[_taskBlufor, _taskOpfor]] call CBA_fnc_addPerFrameHandler;
+},11,[_taskBlufor1,_taskBlufor2,_taskOpfor1,_taskOpfor2]] call CBA_fnc_addPerFrameHandler;
