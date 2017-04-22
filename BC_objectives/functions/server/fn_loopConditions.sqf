@@ -1,6 +1,6 @@
 params ["_tasksBlufor", "_tasksOpfor"];
 _tasksBlufor params ["_taskBlufor1","_taskBlufor2"];
-_tasksOpfor params ["_tasksOpfor1","_tasksOpfor2"];
+_tasksOpfor params ["_taskOpfor1","_taskOpfor2"];
 
 /* wait until truck exists */
 waitUntil {sleep 1; !isNil "GRAD_TERMINAL_DESTROYED"};
