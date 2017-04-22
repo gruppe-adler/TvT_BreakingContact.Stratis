@@ -16,7 +16,7 @@ if (isServer) then {
 		_tasksBlufor = [_min] call BC_objectives_fnc_classicTasksBluforCreate;
 		_tasksOpfor = [_min] call BC_objectives_fnc_classicTasksOpforCreate;
 
-		[_taskBlufor, _tasksOpfor] call BC_objectives_fnc_loopConditions;
+		[_tasksBlufor, _tasksOpfor] call BC_objectives_fnc_loopConditions;
 	};
 };
 
