@@ -45,19 +45,19 @@ if (isServer) then {
 		publicVariable "GRAD_INTERVALS_NEEDED";
 		GRAD_SIGNAL_DELAY = 30;
 		GRAD_SIGNAL_DELAY_RANDOM = 30;
-		
+
 	};
 
 	publicVariable "GRAD_SIGNAL_DELAY";
-	
+
 	sleep 2;
 
 	[
-		_radioVeh, 
-		_terminal, 
+		_radioVeh,
+		_terminal,
 		MISSION_COMPLETED
 	] call GRAD_tracking_fnc_mainLoop;
-	
+
 
 	call GRAD_tracking_fnc_terminalDistanceListenerServer;
 };

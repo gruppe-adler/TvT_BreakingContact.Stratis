@@ -1,35 +1,61 @@
-params ["_taskBlufor", "_taskOpfor"];
+params ["_tasksBlufor", "_tasksOpfor"];
+_tasksBlufor params ["_taskBlufor1","_taskBlufor2"];
+_tasksOpfor params ["_taskOpfor1","_taskOpfor2"];
 
 /* wait until truck exists */
 waitUntil {sleep 1; !isNil "GRAD_TERMINAL_DESTROYED"};
 
 [{
     params ["_args", "_handle"];
-    _args params ["_taskBlufor", "_taskOpfor"];
+    _args params ["_taskBlufor1","_taskBlufor2","_taskOpfor1","_taskOpfor2"];
 
     /* detect all dead */
     OPFOR_PRE_ELIMINATED = ({side _x == east && alive _x} count allUnits == 0);
     BLUFOR_PRE_ELIMINATED = ({side _x == west && alive _x} count allUnits == 0);
-    
+
     if (GRAD_TERMINAL_DESTROYED) then { [] call GRAD_tracking_fnc_bluforCaptured; };
 
     if (OPFOR_PRE_ELIMINATED) then {["OPFOR_PRE_ELIMINATED"] spawn BC_objectives_fnc_waitingForUnconscious;};
     if (BLUFOR_PRE_ELIMINATED) then {["BLUFOR_PRE_ELIMINATED"] spawn BC_objectives_fnc_waitingForUnconscious;};
 
-    /* opfor wins */
-    if (TRANSMISSION_COMPLETE || BLUFOR_ELIMINATED) exitWith {
-    	 [_handle] call CBA_fnc_removePerFrameHandler;
+    /* opfor wins by transmission*/
+    if (TRANSMISSION_COMPLETE) exitWith {
+        [_handle] call CBA_fnc_removePerFrameHandler;
 
-    	 [_taskBlufor,"FAILED",true] call BIS_fnc_taskSetState;
-    	 [_taskOpfor,"SUCCEEDED",true] call BIS_fnc_taskSetState;
+        [_taskBlufor1,"FAILED",true] call BIS_fnc_taskSetState;
+        [_taskBlufor2,"FAILED",true] call BIS_fnc_taskSetState;
+        [_taskOpfor1,"SUCCEEDED",true] call BIS_fnc_taskSetState;
+        [_taskOpfor2,"CANCELED",true] call BIS_fnc_taskSetState;
     };
 
-    /* blufor wins */
-    if (OPFOR_ELIMINATED || BLUFOR_CAPTURED) exitWith {
-    	 [_handle] call CBA_fnc_removePerFrameHandler;
+    /* opfor wins by elimination*/
+    if (BLUFOR_ELIMINATED) exitWith {
+        [_handle] call CBA_fnc_removePerFrameHandler;
 
-    	 [_taskBlufor,"SUCCEEDED",true] call BIS_fnc_taskSetState;
-    	 [_taskOpfor,"FAILED",true] call BIS_fnc_taskSetState;
+        [_taskBlufor1,"FAILED",true] call BIS_fnc_taskSetState;
+        [_taskBlufor2,"FAILED",true] call BIS_fnc_taskSetState;
+        [_taskOpfor1,"CANCELED",true] call BIS_fnc_taskSetState;
+        [_taskOpfor2,"SUCCEEDED",true] call BIS_fnc_taskSetState;
+    };
+
+    /* blufor wins by capture*/
+    if (BLUFOR_CAPTURED) exitWith {
+        [_handle] call CBA_fnc_removePerFrameHandler;
+
+        [_taskBlufor1,"SUCCEEDED",true] call BIS_fnc_taskSetState;
+        [_taskBlufor2,"CANCELED",true] call BIS_fnc_taskSetState;
+        [_taskOpfor1,"FAILED",true] call BIS_fnc_taskSetState;
+        [_taskOpfor2,"FAILED",true] call BIS_fnc_taskSetState;
+    };
+
+    /* blufor wins by elimination*/
+    if (OPFOR_ELIMINATED) exitWith {
+        [_handle] call CBA_fnc_removePerFrameHandler;
+
+        [_taskBlufor1,"CANCELED",true] call BIS_fnc_taskSetState;
+        [_taskBlufor2,"SUCCEEDED",true] call BIS_fnc_taskSetState;
+        [_taskOpfor1,"FAILED",true] call BIS_fnc_taskSetState;
+        [_taskOpfor2,"FAILED",true] call BIS_fnc_taskSetState;
     };
 
     if (TRUCK_DESTROYED_NOT_CONQUERED) exitWith {
@@ -41,20 +67,26 @@ waitUntil {sleep 1; !isNil "GRAD_TERMINAL_DESTROYED"};
     	_killerSide = side (_radioVeh getVariable ["ace_medical_lastDamageSource", objNull]);
 
     	switch (_killerSide) do {
-    		case west: { 
-    			[_taskBlufor,"FAILED",true] call BIS_fnc_taskSetState;
-    	 		[_taskOpfor,"CANCELED",true] call BIS_fnc_taskSetState;
+    		case west: {
+                [_taskBlufor1,"FAILED",true] call BIS_fnc_taskSetState;
+                [_taskBlufor2,"CANCELED",true] call BIS_fnc_taskSetState;
+           	    [_taskOpfor1,"CANCELED",true] call BIS_fnc_taskSetState;
+                [_taskOpfor2,"CANCELED",true] call BIS_fnc_taskSetState;
     		};
     		case east: {
-    			[_taskBlufor,"FAILED",true] call BIS_fnc_taskSetState;
-    	 		[_taskOpfor,"CANCELED",true] call BIS_fnc_taskSetState;
+                [_taskBlufor1,"CANCELED",true] call BIS_fnc_taskSetState;
+                [_taskBlufor2,"CANCELED",true] call BIS_fnc_taskSetState;
+           	    [_taskOpfor1,"FAILED",true] call BIS_fnc_taskSetState;
+                [_taskOpfor2,"CANCELED",true] call BIS_fnc_taskSetState;
     		};
     		default {
-    			[_taskBlufor,"CANCELED",true] call BIS_fnc_taskSetState;
-    	 		[_taskOpfor,"CANCELED",true] call BIS_fnc_taskSetState;
+                [_taskBlufor1,"CANCELED",true] call BIS_fnc_taskSetState;
+                [_taskBlufor2,"CANCELED",true] call BIS_fnc_taskSetState;
+           	    [_taskOpfor1,"CANCELED",true] call BIS_fnc_taskSetState;
+                [_taskOpfor2,"CANCELED",true] call BIS_fnc_taskSetState;
     		};
     	};
-    	
+
     };
 
-},11,[_taskBlufor, _taskOpfor]] call CBA_fnc_addPerFrameHandler;
+},11,[_taskBlufor1,_taskBlufor2,_taskOpfor1,_taskOpfor2]] call CBA_fnc_addPerFrameHandler;

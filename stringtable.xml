@@ -95,40 +95,40 @@
 			</Key>
 		</Container>
 		<Container name="tasks">
-			<Key ID="str_GRAD_classicTaskNameOpfor">
-				<Original>Transmit for a total of </Original>
-				<English>Transmit for a total of </English>
-				<German>Funke für insgesamt </German>
+			<Key ID="str_GRAD_classicTaskTitleOpfor1">
+				<Original>Transmit for a total of %1 min.</Original>
+				<English>Transmit for a total of %1 min.</English>
+				<German>Übertrage für insgesamt %1 Min.</German>
 			</Key>
-			<Key ID="str_GRAD_classicTaskNameBlufor">
-				<Original>Destroy in </Original>
-				<English>Destroy in </English>
-				<German>Zerstöre in </German>
+			<Key ID="str_GRAD_classicTaskTitleBlufor1">
+				<Original>Destroy the transmitter before transmission runs %1 min.</Original>
+				<English>Destroy the transmitter before transmission runs %1 min.</English>
+				<German>Zerstöre den Funkwagen vor der Sendezeit von %1 Min.</German>
 			</Key>
-			<Key ID="str_GRAD_classicTaskTitleOpfor">
-				<Original>Transmit for a total of </Original>
-				<English>Transmit for a total of </English>
-				<German>Übertrage für insgesamt </German>
+			<Key ID="str_GRAD_classicTaskTitleEliminate">
+				<Original>Eliminate enemies (alt. objective)</Original>
+				<English>Eliminate enemies (alt. objective)</English>
+				<German>Feinde ausschalten (Alternativziel)</German>
 			</Key>
-			<Key ID="str_GRAD_classicTaskTitleBlufor">
-				<Original>Destroy the transmitter before transmission runs </Original>
-				<English>Destroy the transmitter before transmission runs </English>
-				<German>Zerstöre den Funkwagen vor der Sendezeit von </German>
+			<Key ID="str_GRAD_classicTaskDescriptionOpfor1">
+				<Original>Transmit for %1 minutes and defend the truck or the terminal. Transmission can be interrupted, you dont have to stay at one place.</Original>
+				<English>Transmit for %1 minutes and defend the truck or the terminal. Transmission can be interrupted, you dont have to stay at one place.</English>
+				<German>Übertrage für %1 Minuten und verteidige Funkwagen oder Terminal. Die Übertragung kann unterbrochen werden, du musst nicht an einer Stelle bleiben.</German>
 			</Key>
-			<Key ID="str_GRAD_classicTaskDescriptionOpfor_1">
-				<Original>Transmit for </Original>
-				<English>Transmit for </English>
-				<German>Übertrage für </German>
+			<Key ID="str_GRAD_classicTaskDescriptionOpfor2">
+				<Original>Alternatively eliminate all American forces in the area.</Original>
+				<English>Alternatively eliminate all American forces in the area.</English>
+				<German>Schalte alternativ alle amerikanischen Kräfte im Gebiet aus.</German>
 			</Key>
-			<Key ID="str_GRAD_classicTaskDescriptionOpfor_2">
-				<Original>and defend the truck or the terminal. Transmission can be interrupted, you dont have to stay at one place.</Original>
-				<English>and defend the truck or the terminal. Transmission can be interrupted, you dont have to stay at one place.</English>
-				<German>und verteidige Funkwagen oder Terminal. Die Übertragung kann unterbrochen werden, du musst nicht an einer Stelle bleiben.</German>
+			<Key ID="str_GRAD_classicTaskDescriptionBlufor1">
+				<Original>Cancel the Russian transmission by destroying their radio truck or terminal before they can transmit for %1 minutes.</Original>
+				<English>Cancel the Russian transmission by destroying their radio truck or terminal before they can transmit for %1 minutes.</English>
+				<German>Beende die russische Übertragung durch Zerstörung des Funkwagens oder Funkmoduls bevor sie %1 Minuten senden können.</German>
 			</Key>
-			<Key ID="str_GRAD_classicTaskDescriptionBlufor">
-				<Original>Cancel the Russian transmission by destroying their radio truck or terminal in </Original>
-				<English>Cancel the Russian transmission by destroying their radio truck or terminal in </English>
-				<German>Beende die russische Übertragung durch Zerstörung des Funkwagens oder Funkmoduls in </German>
+			<Key ID="str_GRAD_classicTaskDescriptionBlufor2">
+				<Original>Alternatively eliminate all Russian forces in the area, before they complete their transmission.</Original>
+				<English>Alternatively eliminate all Russian forces in the area, before they complete their transmission.</English>
+				<German>Schalte alternativ alle russischen Kräfte im Gebiet aus, bevor diese ihre Übertragung abschließen.</German>
 			</Key>
 			<Key ID="str_GRAD_classicTaskDescriptionOpfor_conquermode">
 				<Original>Prevent the radio truck from getting destroyed or fallen into enemy hands.</Original>
@@ -140,6 +140,42 @@
 				<English>Cancel the Russian transmission and capture their radio truck or terminal. Do not destoy it!</English>
 				<German>Beenden Sie die russische Übertragung und erobern Sie den Funkwagen oder das Terminal. Zerstören Sie es in keinem Fall!</German>
 			</Key>
+			<Key ID="str_GRAD_afghanTaskTitleBlufor1">
+				<Original>Transmit %1x%2 min.</Original>
+				<English>Transmit %1x%2 min.</English>
+				<German>Übertrage %1x%2 Min.</German>
+			</Key>
+			<Key ID="str_GRAD_afghanTaskTitleOpfor1">
+				<Original>Kill Mujahideen Commander</Original>
+				<English>Kill Mujahideen Commander</English>
+				<German>Mudschaheddin Commander töten</German>
+			</Key>
+			<Key ID="str_GRAD_afghanTaskTitleEliminate">
+				<Original>Eliminate enemies (alt. objective)</Original>
+				<English>Eliminate enemies (alt. objective)</English>
+				<German>Feinde ausschalten (Alternativziel)</German>
+			</Key>
+			<Key ID="str_GRAD_afghanTaskDescriptionOpfor1">
+				<Original>Kill the Mujahideen Commander before he can transmit %1x%2 minutes.</Original>
+				<English>Kill the Mujahideen Commander before he can transmit %1x%2 minutes.</English>
+				<German>Töte den Mudschaheddin Commander bevor er %1x%2 Minuten senden kann.</German>
+			</Key>
+			<Key ID="str_GRAD_afghanTaskDescriptionOpfor2">
+				<Original>Alternatively eliminate all Mujahideen forces in the area.</Original>
+				<English>Alternatively eliminate all Mujahideen forces in the area.</English>
+				<German>Schalte alternativ alle Mudschaheddin Kräfte im Gebiet aus.</German>
+			</Key>
+			<Key ID="str_GRAD_afghanTaskDescriptionBlufor1">
+				<Original>Transmit %1x%2 minutes and defend the Commander. If transmission is interrupted, the current interval is reset.</Original>
+				<English>Transmit %1x%2 minutes and defend the Commander. If transmission is interrupted, the current interval is reset.</English>
+				<German>Übertrage für %1x%2 Minuten und verteidige den Commander. Wenn die Übertragung unterbrochen wird, wird das derzeitge Intervall zurückgesetzt.</German>
+			</Key>
+			<Key ID="str_GRAD_afghanTaskDescriptionBlufor2">
+				<Original>Alternatively eliminate all Russian forces in the area.</Original>
+				<English>Alternatively eliminate all Russian forces in the area.</English>
+				<German>Schalte alternativ alle russischen Kräfte im Gebiet aus.</German>
+			</Key>
+
 		</Container>
 		<Container name="mission setup">
 			<Key ID="str_GRAD_spawn_on_water">

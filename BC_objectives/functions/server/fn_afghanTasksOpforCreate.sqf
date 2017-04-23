@@ -1,18 +1,32 @@
-params ["_min"];
+params ["_min","_interval"];
 
-_minutesString = _min + " min";
-
-_taskName = localize "str_GRAD_afghanTaskNameOpfor" + " " + _minutesString;
-_taskDescription_1 =  localize "str_GRAD_afghanTaskDescriptionOpfor_1";
-_taskDescription_2 =  localize "str_GRAD_afghanTaskDescriptionOpfor_2";
-
-_taskDescription =  _taskDescription_1 + " " + _minutesString + " " + _taskDescription_2;
-
-_taskTitle = localize "str_GRAD_afghanTaskTitleOpfor";
-
+_taskName = "opforTask1";
+_taskDescription =  format [localize "str_GRAD_afghanTaskDescriptionOpfor1",_interval,_min];
+_taskTitle = localize "str_GRAD_afghanTaskTitleOpfor1";
 _areaMarkerName = " target area ";
 
-_opforTask = [
+_opforTask1 = [
+	EAST,
+	_taskName,
+	[
+		_taskDescription,
+		_taskTitle,
+		_areaMarkerName
+	],
+	objNull,
+	"AUTOASSIGNED",
+	2,
+	true,
+	"destroy"
+] call BIS_fnc_taskCreate;
+
+
+_taskName = "opforTask2";
+_taskDescription =  localize "str_GRAD_afghanTaskDescriptionOpfor2";
+_taskTitle = localize "str_GRAD_afghanTaskTitleEliminate";
+_areaMarkerName = " target area ";
+
+_opforTask2 = [
 	EAST,
 	_taskName,
 	[
@@ -27,4 +41,4 @@ _opforTask = [
 	"destroy"
 ] call BIS_fnc_taskCreate;
 
-_opforTask
+[_opforTask1,_opforTask2]
