@@ -60,9 +60,11 @@ _aatruck = [
         clearItemCargoGlobal (_this select 0);
         clearBackpackCargoGlobal (_this select 0);
         clearMagazineCargoGlobal (_this select 0);
-         (_this select 0) addItemCargoGlobal ["ItemGPS",1];
+        (_this select 0) addItemCargoGlobal ["ItemGPS",1];
         ['AddCargoByClass', ['ACE_wheel', _this select 0, 2], _this select 0] call CBA_fnc_targetEvent;
         [(_this select 0)] execVM "server\spawn\fnc_attachAAToKamaz.sqf";
+        (_this select 0) addWeaponCargoGlobal ['rhs_weap_igla',1];
+        (_this select 0) addMagazineCargoGlobal ['rhs_mag_9k38_rocket',3];
         call kamaz_code;
     },
     format[''],

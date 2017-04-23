@@ -13,8 +13,10 @@ if (!TRACKING_PERSON || player getVariable ["GRAD_isVIP", false]) then {
 _killer = player getVariable ["ace_medical_lastDamageSource", objNull];
 if (!isNull _killer) then {
 
-	_string = format ['Killed by %1',_killer];
+	_string = format ['Killed by %1',name _killer];
+	_stringHint = "Entering Spectator. Press Key UP for free cam.";
 	systemChat _string;
+	systemChat _stringHint;
 	/* [_string] call EFUNC(common,displayTextStructured);*/
 
 };

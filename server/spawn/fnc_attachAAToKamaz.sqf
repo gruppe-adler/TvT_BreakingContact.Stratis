@@ -1,6 +1,6 @@
 params ["_vehicle"];
 
-_manpad = "rhs_Igla_AA_pod_msv" createVehicle [0,0,0];
+_manpad = "RHS_Stinger_AA_pod_WD" createVehicle [0,0,0];
 
 _manpad attachto[_vehicle,[0.4,-1.5,0.58]];
 
