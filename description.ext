@@ -112,7 +112,7 @@ class Params
 		title = "Length of sending time";
 		values[] = {30, 300, 600, 900, 1800, 2700, 3600, 4500, 5400, 6300};
 		texts[] = {"30s (DEBUG)", "5'","10' (recommended for BC:Afghan Wars), needs to be accomplished 5 times", "15'", "30'", "45' (recommended for BC:Classic)", "1h'", "1h15'","1h30'","1h45'"};
-		default = 2700;
+		default = 3600;
 	};
 
 	class TIME_ACCELERATION
@@ -169,7 +169,7 @@ class Params
     	title = "Civilian Traffic (needs RDS_CIV)";
     	values[] = {0, 1};
     	texts[] =  {"False", "True"};
-    	default = 1;
+    	default = 0;
   	};
 
   	class FACTION_MODE {

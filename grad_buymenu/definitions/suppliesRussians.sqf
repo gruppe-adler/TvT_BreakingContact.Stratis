@@ -49,23 +49,13 @@ if (IS_WOODLAND) then {
 
 
 _aatruck = [
-    ["rhs_kamaz5350_flatbed_msv"],
-    "Kamaz 5350 (MPAD)",
+    ["rhs_Igla_AA_pod_msv"],
+    "AA Manpad",
     2,
     500,
     1,
     [],
     {
-        clearWeaponCargoGlobal (_this select 0);
-        clearItemCargoGlobal (_this select 0);
-        clearBackpackCargoGlobal (_this select 0);
-        clearMagazineCargoGlobal (_this select 0);
-        (_this select 0) addItemCargoGlobal ["ItemGPS",1];
-        ['AddCargoByClass', ['ACE_wheel', _this select 0, 2], _this select 0] call CBA_fnc_targetEvent;
-        [(_this select 0)] execVM "server\spawn\fnc_attachAAToKamaz.sqf";
-        (_this select 0) addWeaponCargoGlobal ['rhs_weap_igla',1];
-        (_this select 0) addMagazineCargoGlobal ['rhs_mag_9k38_rocket',3];
-        call kamaz_code;
     },
     format[''],
     0,
