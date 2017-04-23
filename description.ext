@@ -88,7 +88,7 @@ class Params
 		title = "Spawn Distance BLUFOR";
 		values[] = {1000, 2000, 3000, 4000, 5000, 6000};
 		texts[] = {"1km", "2km", "3km", "4km","5km","6km"};
-		default = 3000;
+		default = 4000;
 	};
 
 	class OPFOR_MONEY
