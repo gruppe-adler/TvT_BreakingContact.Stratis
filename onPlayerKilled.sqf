@@ -14,6 +14,7 @@ _killer = player getVariable ["ace_medical_lastDamageSource", objNull];
 if (!isNull _killer) then {
 
 	_string = format ['Killed by %1',_killer];
-	[_string] call EFUNC(common,displayTextStructured);
+	systemChat _string;
+	/* [_string] call EFUNC(common,displayTextStructured);*/
 
 };
