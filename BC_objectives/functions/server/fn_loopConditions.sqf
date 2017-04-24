@@ -13,9 +13,6 @@ waitUntil {sleep 1; !isNil "GRAD_TERMINAL_DESTROYED"};
     OPFOR_PRE_ELIMINATED = ({side _x isEqualTo east && alive _x} count allUnits == 0);
     BLUFOR_PRE_ELIMINATED = ({side _x isEqualTo west && alive _x} count allUnits == 0);
 
-    diag_log format ["west units alive: %1", {side _x isEqualTo west && alive _x} count allUnits];
-    diag_log format ["east units alive: %1", {side _x isEqualTo east && alive _x} count allUnits];
-
     if (GRAD_TERMINAL_DESTROYED) then { [] call GRAD_tracking_fnc_bluforCaptured; };
 
     if (OPFOR_PRE_ELIMINATED) then {["OPFOR_PRE_ELIMINATED"] spawn BC_objectives_fnc_waitingForUnconscious;};

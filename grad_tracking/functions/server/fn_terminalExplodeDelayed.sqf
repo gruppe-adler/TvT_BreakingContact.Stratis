@@ -22,3 +22,6 @@ _ex = createVehicle [
 _ex setVectorDirAndUp [[0,0,1],[0,-1,0]];
 _ex setVelocity [0,0,-1000];
 deleteVehicle _terminal;
+
+GRAD_TERMINAL_DESTROYED = true;
+publicVariable "GRAD_TERMINAL_DESTROYED";
