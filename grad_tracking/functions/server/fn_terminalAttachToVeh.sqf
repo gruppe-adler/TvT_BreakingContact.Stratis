@@ -3,7 +3,7 @@ params ["_terminal", "_radioVeh"];
 _terminal attachTo [_radioVeh,[0.3,-2.85,0.7]];
 _terminal setVectorDirAndUp [[0,1,0.3],[0,0,0.7]];
 
-[_terminal] remoteExec ["GRAD_tracking_fnc_terminalAddAction", [0, -2] select isMultiplayer, true];
+[_terminal] remoteExec ["GRAD_tracking_fnc_terminalAddAction", 0, true];
 
 _terminal setVariable ["RadioInterference",0,true];
 
