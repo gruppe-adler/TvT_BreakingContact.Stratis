@@ -88,11 +88,8 @@ GRAD_tracking_mainLoop = [{
         _distanceToRadioTruck = _result select 1;
 
         // check if distance changed, if yes, broadcast for client hint
-        if ((_distanceToRadioTruck != _tempDistance) || (_modifier != _tempModifier)) then {
-            GRAD_TERMINAL_DISTANCE = _modifier * 100;
-            publicVariable "GRAD_TERMINAL_DISTANCE";
-        };
-
+	[_modifier, _tempModifier, _tempDistance, _result] call GRAD_tracking_fnc_terminalCalculateDistanceModifier;
+	
         GRAD_TICKS_DONE = GRAD_TICKS_DONE + (1 * _modifier);
     };
 
