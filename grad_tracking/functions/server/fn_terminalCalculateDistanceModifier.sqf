@@ -4,5 +4,5 @@ params ["_modifier", "_tempModifier", "_tempDistance", "_result"];
 // check if distance changed, if yes, broadcast for client hint
 if ((_distanceToRadioVeh != _tempDistance) || (_modifier != _tempModifier)) then {
     GRAD_TERMINAL_DISTANCE = _modifier * 100;
-    publicVariable "GRAD_TERMINAL_DISTANCE";
+    [GRAD_TERMINAL_DISTANCE, 0] call CBA_fnc_publicVariable;
 };
