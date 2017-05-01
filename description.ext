@@ -6,6 +6,7 @@
 #include "node_modules\grad-fortifications\grad_fortifications.hpp"
 
 class CfgFunctions {
+	#include "grad_buymenu\cfgFunctions.hpp"
 	#include "node_modules\grad-loadout\cfgFunctions.hpp"
 	#include "node_modules\grad-fortifications\cfgFunctions.hpp"
 	#include "grad_civs\cfgFunctions.hpp"

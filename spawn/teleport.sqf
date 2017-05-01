@@ -43,6 +43,10 @@ opforTeleporting = {
 
 
 if (DEBUG_MODE) then {
-	[worldSize/2, worldSize/2] call opforTeleporting;
-	["teleportClickOpf", "onMapSingleClick"] call BIS_fnc_removeStackedEventHandler;
+	_road = [[worldSize/2, worldSize/2], 500, []] call BIS_fnc_nearestRoad;
+	if (!isNull _road) then {
+		_pos = getPos _road;
+		_pos call opforTeleporting;
+		["teleportClickOpf", "onMapSingleClick"] call BIS_fnc_removeStackedEventHandler;
+	};
 };

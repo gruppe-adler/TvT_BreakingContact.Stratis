@@ -3,7 +3,8 @@
 	by nomisum
 */
 
-// hide all markers
+// false if you want to spawn in diverse ways (chute/drop etc)
+GRAD_BUYMENU_SINGLE_SPAWN_METHOD = true;
 
 // global values
 if (isServer) then {
@@ -16,6 +17,7 @@ if (isServer) then {
 	// initial money, also used for tracking money during game
 	moneyBlufor = ["BLUFOR_MONEY", 3000] call BIS_fnc_getParamValue;
 	moneyOpfor = ["OPFOR_MONEY", 2000] call BIS_fnc_getParamValue;
+
 	publicVariable "moneyBlufor";
 	publicVariable "moneyOpfor";
 
@@ -141,7 +143,7 @@ if (hasInterface) then {
 		if (playerSide == east) then {
 			if (!TRACKING_PERSON) then {
 				switch (rank player) do {
-					case "CAPTAIN": { _canBuy = ['car', 'aatruck', 'ammotruck', 'uaz', 'btr', 'bmp', 't72', 'transmitter']; };
+					case "CAPTAIN": { _canBuy = ['transportTruck', 'brdm', 'tigr', 'ammotruck', 'uaz', 'btr', 'bmp', 't72', 'transmitter']; };
 					default { _canBuy = []; };
 				};
 			} else {
@@ -163,7 +165,7 @@ if (hasInterface) then {
 		if (playerSide == west) then {
 			if (!TRACKING_PERSON) then {
 				switch (rank player) do {
-					case "CAPTAIN": { _canBuy = ['mrzr4','hmmwv_m2','mm113','ammocar','melb','mh60', 'recon_box']; };
+					case "CAPTAIN": { _canBuy = ['transportHMMWV', 'mrzr4','hmmwv_m2','m113', 'm113heavy','ammocar','melb','mh60']; };
 					default { _canBuy = []; };
 				};
 			} else {
@@ -186,43 +188,7 @@ if (hasInterface) then {
 
 		// G U I   f u n c t i o n s // do not edit below
         call compile preprocessFileLineNumbers "grad_buymenu\currentMenuIDCs.sqf";
-        call compile preprocessFileLineNumbers "grad_buymenu\functions\player\fnc_getNextIDC.sqf";
-		call compile preprocessFileLineNumbers "grad_buymenu\functions\player\fnc_showMarkers.sqf";
-
-		call compile preprocessFileLineNumbers "grad_buymenu\functions\player\fnc_SetModelPitchBankYaw.sqf";
-		call compile preprocessFileLineNumbers "grad_buymenu\functions\player\fnc_calculateValuesColumn.sqf";
-		call compile preprocessFileLineNumbers "grad_buymenu\functions\player\fnc_calculatePicturesColumn.sqf";
-
-		call compile preprocessFileLineNumbers "grad_buymenu\functions\player\fnc_createEntries.sqf";
-		call compile preprocessFileLineNumbers "grad_buymenu\functions\player\fnc_createKeys.sqf";
-
-		call compile preprocessFileLineNumbers "grad_buymenu\functions\player\fnc_createEntryPicture.sqf";
-		call compile preprocessFileLineNumbers "grad_buymenu\functions\player\fnc_createEntryTitle.sqf";
-		call compile preprocessFileLineNumbers "grad_buymenu\functions\player\fnc_createEntryPrice.sqf";
-		call compile preprocessFileLineNumbers "grad_buymenu\functions\player\fnc_createEntryMouseOver.sqf";
-		call compile preprocessFileLineNumbers "grad_buymenu\functions\player\fnc_createEntryMouseOverArea.sqf";
-		call compile preprocessFileLineNumbers "grad_buymenu\functions\player\fnc_createEntryETA.sqf";
-		call compile preprocessFileLineNumbers "grad_buymenu\functions\player\fnc_createEntrySpawnMethod.sqf";
-		call compile preprocessFileLineNumbers "grad_buymenu\functions\player\fnc_createEntrySpawnMethodMouseOverArea.sqf";
-		call compile preprocessFileLineNumbers "grad_buymenu\functions\player\fnc_createEntryBuyButton.sqf";
-		call compile preprocessFileLineNumbers "grad_buymenu\functions\player\fnc_createEntryAmount.sqf";
-		call compile preprocessFileLineNumbers "grad_buymenu\functions\player\fnc_refreshEntryBuyButton.sqf";
-		
-
-
-		call compile preprocessFileLineNumbers "grad_buymenu\functions\player\fnc_createToolbarExitButton.sqf";
-		call compile preprocessFileLineNumbers "grad_buymenu\functions\player\fnc_createToolbarheadline.sqf";
-		call compile preprocessFileLineNumbers "grad_buymenu\functions\player\fnc_createToolbarCredits.sqf";
-
-		call compile preprocessFileLineNumbers "grad_buymenu\functions\player\fnc_addOrder.sqf";
-		call compile preprocessFileLineNumbers "grad_buymenu\functions\player\fnc_refreshCredits.sqf";
-		call compile preprocessFileLineNumbers "grad_buymenu\functions\player\fnc_refreshGUI.sqf";
-
-		call compile preprocessFileLineNumbers "grad_buymenu\functions\player\fnc_moveFirstToLast.sqf";
-		call compile preprocessFileLineNumbers "grad_buymenu\functions\player\fnc_moveDropMarker.sqf";
-		call compile preprocessFileLineNumbers "grad_buymenu\functions\player\fnc_displayWindInfo.sqf";
-		call compile preprocessFileLineNumbers "grad_buymenu\functions\player\api\invalidateSupply.sqf";
-
+       
 
 		// [] spawn fnc_showMarkers; // dont need this for BC
 		
@@ -230,16 +196,6 @@ if (hasInterface) then {
 
 
 if (isServer) then {
-	call compile preprocessFileLineNumbers "grad_buymenu\functions\server\fnc_raiseMoney.sqf";
-	call compile preprocessFileLineNumbers "grad_buymenu\functions\server\fnc_spawnVehicleManager.sqf";
-	call compile preprocessFileLineNumbers "grad_buymenu\functions\server\fnc_spawnChute.sqf";
-	call compile preprocessFileLineNumbers "grad_buymenu\functions\server\fnc_spawnCiv.sqf";
-	call compile preprocessFileLineNumbers "grad_buymenu\functions\server\fnc_spawnSimple.sqf";
-	call compile preprocessFileLineNumbers "grad_buymenu\functions\server\fnc_spawnSlingLoad.sqf";
-	call compile preprocessFileLineNumbers "grad_buymenu\functions\server\fnc_spawnWater.sqf";
-	call compile preprocessFileLineNumbers "grad_buymenu\functions\server\fnc_prepareAfterBuyRefresh.sqf";
-	call compile preprocessFileLineNumbers "grad_buymenu\functions\server\api\fnc_api_createOrder.sqf";
-
-	[] spawn fnc_raiseBluforMoney;
-	[] spawn fnc_raiseOpforMoney;
+	[] spawn GRAD_buymenu_fnc_raiseBluforMoney;
+	[] spawn GRAD_buymenu_fnc_raiseOpforMoney;
 };
