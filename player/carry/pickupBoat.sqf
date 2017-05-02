@@ -129,3 +129,4 @@ if (getFatigue player >= 0.75) then {
 inGameUISetEventHandler ["PrevAction", "false"];
 inGameUISetEventHandler ["NextAction", "false"];
 player setVariable ["carryBoat",0];
+carryBoat allowdamage true;

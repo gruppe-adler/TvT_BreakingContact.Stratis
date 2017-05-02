@@ -7,20 +7,20 @@
 private ["_transportHMMWV"];
 
 if (IS_WOODLAND) then {
-       _transportHMMWV = "rhsusf_m998_d_2dr_fulltop";
+       _transportHMMWV = "rhsusf_m998_w_2dr_fulltop";
        mrzr4 = "rhsusf_mrzr4_w_mud";
        hmmwv_m2 = "rhsusf_m1025_w_m2";
-       m113 = "rhsusf_m113_usarmy";
+       m113 = "rhsusf_m113_usarmy_M240";
        m113heavy = "rhsusf_m113_usarmy";
        ammocar_init = ["hide_CIP",1,"hide_BFT",1,"Hide_A2Bumper",1];
        ammocar = "rhsusf_m998_w_4dr_fulltop";
        uh60 = "RHS_UH60M_MEV2";
     } else {
-       _transportHMMWV = "rhsusf_m998_w_2dr_fulltop";
+       _transportHMMWV = "rhsusf_m998_d_2dr_fulltop";
        mrzr4 = "rhsusf_mrzr4_d_mud";
        hmmwv_m2 = "rhsusf_m1025_d_m2";
-       m113 = "rhsusf_m113d_usarmy";
-       m113heavy = "rhsusf_m113_usarmy";
+       m113 = "rhsusf_m113d_usarmy_M240";
+       m113heavy = "rhsusf_m113d_usarmy";
        ammocar_init = ["hide_CIP",1,"hide_BFT",1,"Hide_A2Bumper",1];
        ammocar = "rhsusf_m998_d_4dr_fulltop";
        uh60 = "RHS_UH60M_MEV2";
@@ -40,7 +40,7 @@ _mrzr4 = [
       _veh addItemCargoGlobal ["U_B_Wetsuit",4];
       _veh addItemCargoGlobal ["V_RebreatherB",4];
       _veh addItemCargoGlobal ["G_B_Diving",4];
-      _veh setVariable ["detachableBoat",1];
+      _veh setVariable ["detachableBoat",1, true];
       _createAssaultBoat = ["CreateBoatAction", "Take Boat", "",
         {0 = [_veh] execVM 'player\carry\createBoat.sqf';},
         {(_veh getVariable ["detachableBoat", 0] > 0)}
