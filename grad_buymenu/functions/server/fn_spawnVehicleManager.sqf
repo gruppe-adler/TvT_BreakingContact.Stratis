@@ -23,9 +23,6 @@ diag_log format ["spawnVehicleManager received order for %1",_spawnObjectType];
 switch (_spawnMethod) do {
 
 	case 0: { [_pos, _spawnObjectType, _postinit, _calls, _selector, _side] call GRAD_buymenu_fnc_spawnSimple; };
-	case 1: { [_pos, _spawnObjectType, _postinit, _calls, _selector, _side] call GRAD_buymenu_fnc_spawnChute; };
-	case 2: { [_pos, _spawnObjectType, _postinit, _calls, _selector, _side] call GRAD_buymenu_fnc_spawnSlingLoad; };
-	case 3: { [_pos, _spawnObjectType, _postinit, _calls, _selector, _side] call GRAD_buymenu_fnc_spawnCiv; };
 	case 4: { [_pos, _spawnObjectType, _postinit, _calls, _selector, _side] call GRAD_buymenu_fnc_spawnWater; };
 	default { diag_log format ["FATAL ERROR , no spawn method"];};
 
