@@ -1,3 +1,5 @@
+if (!TRACKING_PERSON) exitWith {};
+
 _CIV_KILLED_listener = {
     publicVariable "CIV_KILLED";
 
