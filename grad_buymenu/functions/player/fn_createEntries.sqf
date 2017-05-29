@@ -28,7 +28,7 @@ if (!_isRefresh) then {
 };
 
 
-waitUntil {!isNull _createdGui};
+if (isNull _createdGui) exitWith {displayNull};
 randIDC = 1000;
 randIDC = [randIDC] call GRAD_buymenu_fnc_getNextIDC;
 picIDC = 1338;
