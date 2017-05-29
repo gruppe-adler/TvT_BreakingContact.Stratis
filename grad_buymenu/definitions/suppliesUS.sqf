@@ -36,6 +36,7 @@ _mrzr4 = [
     [[], ["tailgateHide",1]],
     {
       _veh = (_this select 0);
+      [_veh] call GRAD_buymenu_fnc_clearInventory;
       _veh addItemCargoGlobal ["ItemGPS",1];
       _veh addItemCargoGlobal ["U_B_Wetsuit",4];
       _veh addItemCargoGlobal ["V_RebreatherB",4];
