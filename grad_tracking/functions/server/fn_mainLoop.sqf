@@ -17,7 +17,7 @@ GRAD_tracking_mainLoop = [{
     _vehicleEnterChangeTemp = false;
 
     // stop loop if necessary
-    if (_endCondition) exitWith { [_handle] call CBA_fnc_removePerFrameHandler; };
+    if (call _endCondition) exitWith { [_handle] call CBA_fnc_removePerFrameHandler; };
 
     // if all ticks and intervals are reached, end mission
     if (GRAD_INTERVALS_DONE >= GRAD_INTERVALS_NEEDED) exitWith {

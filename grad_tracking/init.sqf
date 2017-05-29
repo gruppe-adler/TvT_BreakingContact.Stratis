@@ -55,7 +55,7 @@ if (isServer) then {
 	[
 		_radioVeh,
 		_terminal,
-		MISSION_COMPLETED
+		{MISSION_COMPLETED}
 	] call GRAD_tracking_fnc_mainLoop;
 
 
