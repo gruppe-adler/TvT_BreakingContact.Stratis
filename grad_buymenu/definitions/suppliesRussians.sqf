@@ -65,6 +65,10 @@ _transportTruck = [
     1,
     _initUral,
     {
+         _veh = (_this select 0);
+        [_veh] call GRAD_buymenu_fnc_clearInventory;
+        _veh addItemCargoGlobal ["ItemGPS",1];
+        ['AddCargoByClass', ['ACE_wheel', _this select 0, 2], _this select 0] call CBA_fnc_targetEvent;
     },
     ['1 GPS'],
     0,
@@ -79,6 +83,10 @@ _brdm = [
     1,
     _initBRDM,
     {
+        _veh = (_this select 0);
+        [_veh] call GRAD_buymenu_fnc_clearInventory;
+        _veh addItemCargoGlobal ["ItemGPS",1];
+        ['AddCargoByClass', ['ACE_wheel', _this select 0, 2], _this select 0] call CBA_fnc_targetEvent;
     },
     ['1 GPS'],
     0,
