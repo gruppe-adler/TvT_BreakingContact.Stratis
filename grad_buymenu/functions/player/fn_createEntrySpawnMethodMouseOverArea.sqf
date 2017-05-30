@@ -40,7 +40,7 @@ _ctrlMethodMouseOverArea ctrlAddEventHandler ["MouseExit",{
 	// diag_log format ["mouse left"];
 	false
 }];
-
+/*
 if (_method == 1) then {
     _ctrlMethodMouseOverArea ctrlAddEventHandler ["MouseButtonClick","
       0 = ['plane'] execVM 'grad_buymenu\openMap.sqf';
@@ -50,7 +50,7 @@ if (_method == 1) then {
       0 = ['slingload'] execVM 'grad_buymenu\openMap.sqf';
     "];
 };
-
+*/
 /*
 if (_method == 1) then {
   buttonSetAction [_idc, format["[%1] execVM 'grad_buymenu\openMap.sqf';",_method]];

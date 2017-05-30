@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={3466.3186,84.988792,6221.0381};
-		dir[]={-0.94796371,-0.31776026,0.020278977};
-		up[]={-0.3176938,0.94816715,0.0067960834};
-		aside[]={0.021385785,3.6956044e-007,0.99977702};
+		pos[]={2051.4722,126.53884,5780.3569};
+		dir[]={-0.55158252,-0.25095391,-0.79549509};
+		up[]={-0.14299962,0.96799493,-0.20623505};
+		aside[]={-0.82178986,4.6775676e-007,0.56981295};
 	};
 };
 binarizationWanted=0;
@@ -42,6 +42,8 @@ addons[]=
 	"ace_repair",
 	"ace_medical",
 	"A3_Characters_F",
+	"asr_ai3_cfgcamouflage",
+	"asr_ai3_cfgvehicles",
 	"ace_nouniformrestrictions",
 	"A3_Modules_F_Curator_Curator",
 	"ace_cargo",
@@ -1515,7 +1517,7 @@ class Mission
 			};
 			id=20;
 			type="ACE_moduleRepairSettings";
-			atlOffset=2.4345014;
+			atlOffset=2.356034;
 			class CustomAttributes
 			{
 				class Attribute0

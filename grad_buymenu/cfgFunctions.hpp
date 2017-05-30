@@ -34,15 +34,13 @@ class GRAD_buymenu {
         class createToolbarCredits {};
         class createToolbarExitButton {};
         class createToolbarHeadline {};
-        class displayWindInfo {};
         class getNextIDC {};
         class immediatelyLockButton {};
-        class moveDropMarker {};
         class moveFirstToLast {};
         class refreshCredits {};
         class refreshEntryAmount {};
         class refreshEntryBuyButton {};
-        class RefreshGui {};
+        class refreshGui {};
         class selectNextVehicleInArray {};
         class setModelPitchBankYaw {};
         class showMarkers {};
@@ -53,12 +51,7 @@ class GRAD_buymenu {
 
         class clearInventory {};
         class prepareAfterBuyRefresh {};
-        class raiseBluforMoney {};
-        class raiseOpforMoney {};
-        class spawnChute {};
-        class spawnCiv {};
         class spawnSimple {};
-        class spawnSlingLoad {};
         class spawnVehicleManager {};
         class spawnWater {};
     };
