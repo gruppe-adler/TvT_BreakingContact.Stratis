@@ -193,9 +193,3 @@ if (hasInterface) then {
 		// [] spawn fnc_showMarkers; // dont need this for BC
 		
 };
-
-
-if (isServer) then {
-	[] spawn GRAD_buymenu_fnc_raiseBluforMoney;
-	[] spawn GRAD_buymenu_fnc_raiseOpforMoney;
-};
