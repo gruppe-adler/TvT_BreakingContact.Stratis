@@ -27,8 +27,6 @@ addons[]=
 {
 	"A3_Ui_F",
 	"A3_Characters_F",
-	"asr_ai3_cfgcamouflage",
-	"asr_ai3_cfgvehicles",
 	"A3_Data_F_Exp_A_Virtual",
 	"ace_zeus",
 	"ace_common",
