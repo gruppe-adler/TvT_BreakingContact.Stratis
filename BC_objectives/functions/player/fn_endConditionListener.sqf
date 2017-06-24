@@ -6,7 +6,7 @@ _TRANSMISSION_COMPLETE_listener = {
 		adminLog("blufor surrendered");
 		_string = localize "str_GRAD_winmsg_points";
 		[_string] call EFUNC(common,displayTextStructured);
-		[east] spawn BC_objectives_fnc_endMission;
+		["east"] spawn BC_objectives_fnc_endMission;
 	};
 };
 
