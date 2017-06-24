@@ -3,6 +3,7 @@ class BC_objectives {
 	class player {
 		file = BC_objectives\functions\player;
 
+        class createRadioPositionMarkerLocal {};
 		class endConditionListener {};
 		class endMission {};
         class findRandomPos {};
@@ -17,6 +18,7 @@ class BC_objectives {
         class afghanTasksOpforCreate {};
         class classicTasksBluforCreate {};
         class classicTasksOpforCreate {};
+        class createRadioPositionMarker {};
         class getIslandCfgEntry {};
         class loopConditions {};
 		class startPreparationTime {};

@@ -117,6 +117,14 @@ class Params
 		default = 3600;
 	};
 
+	class GRAD_INTERVALS_NEEDED
+	{
+		title = "Number of random places opfor needs to come closer than 1000m";
+		values[] = {1, 2, 3, 4, 5, 6};
+		texts[] = {"none","2","3","4","5","6"};
+		default = 5;
+	};
+
 	class TIME_ACCELERATION
 	{
 		title = "Time Acceleration";

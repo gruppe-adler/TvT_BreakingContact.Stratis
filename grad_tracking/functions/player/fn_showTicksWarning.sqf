@@ -14,7 +14,10 @@ if (ticksRatio >= grad_ticks_nextWarning) then { // alle 10% die Warnung
 	} else {
 		_string_1 = localize "str_GRAD_transmissionTime_1_mud";
 	};
-	_string = _string_1 + " " + (str (round(ticksRatio * 100))) + " " + localize "str_GRAD_transmissionTime_2";
+
+	_string_2 = " | " + str GRAD_INTERVALS_DONE + "/" + str GRAD_INTERVALS_NEEDED;
+
+	_string = _string_1 + " " + (str (round(ticksRatio * 100))) + " " + localize "str_GRAD_transmissionTime_2" + _string_2;
 	[_string] call EFUNC(common,displayTextStructured);
 	playSound "beep";
 	if (grad_ticks_nextWarning >= 0.8) then {

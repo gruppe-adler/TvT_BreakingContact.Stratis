@@ -2,6 +2,7 @@ spawnRadioTruck = {
 	params ["_position"];
 
 	_radioVeh = [_position, 0, 1, "rhs_gaz66_r142_vv"] call spawnStuff;
+
 	// used for detachable radio unit
 	_radioVeh setVariable ["detachableRadio", 0, true];
  
@@ -30,7 +31,8 @@ spawnRadioTruck = {
 	[[REPLAY_ACCURACY, _radioVeh], "node_modules\grad_replay\GRAD_replay_init.sqf"] remoteExec ["execVM", 0, true];
 
 	// create tasks
-	[[], "BC_objectives\init.sqf"] remoteExec ["execVM", 0, true];
+	[[_position], "BC_objectives\init.sqf"] remoteExec ["execVM", 0, true];
+
 
 	if (!IS_WOODLAND) then {
 		_radioVeh setObjectTextureGlobal [0,"rhsafrf\addons\rhs_gaz66_camo\data\gaz66_sand_co.paa"];
