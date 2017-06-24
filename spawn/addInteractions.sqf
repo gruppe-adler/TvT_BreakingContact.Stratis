@@ -34,7 +34,7 @@ GRAD_addGetOutActionAA = {
 { 
  _flagActionRaise = ["ACE_MainActions", (localize "str_GRAD_flag_raise"), "",
  {0 = [(_this select 0), true] execVM "spawn\flagsOnVehicles.sqf";},
-  {side player == east && isNull ((_this select 0) getVariable ["GRAD_flagObject",objNull])}] call ace_interact_menu_fnc_createAction;
+  {playerSide == east && isNull ((_this select 0) getVariable ["GRAD_flagObject",objNull])}] call ace_interact_menu_fnc_createAction;
 
 [_x, 0, ["ACE_MainActions"], _flagActionRaise] call ace_interact_menu_fnc_addActionToClass;
 
@@ -43,7 +43,7 @@ GRAD_addGetOutActionAA = {
 { 
  _flagActionRemove = ["ACE_MainActions", (localize "str_GRAD_flag_remove"), "",
  {0 = [(_this select 0), false] execVM "spawn\flagsOnVehicles.sqf";},
-  {side player == east && !isNull ((_this select 0) getVariable ["GRAD_flagObject",objNull])}] call ace_interact_menu_fnc_createAction;
+  {playerSide == east && !isNull ((_this select 0) getVariable ["GRAD_flagObject",objNull])}] call ace_interact_menu_fnc_createAction;
 
 [_x, 0, ["ACE_MainActions"], _flagActionRemove] call ace_interact_menu_fnc_addActionToClass;
 
@@ -68,7 +68,7 @@ _removeSpawn = ["ACE_MainActions", (localize "str_GRAD_buy_disable"), "",
 
 _usAction = ["ACE_MainActions", (localize "str_GRAD_buy_vehicles"), "",
  {0 = execVM "grad_buymenu\openMenu.sqf";},
-  {side player == west}] call ace_interact_menu_fnc_createAction;
+  {playerSide == west}] call ace_interact_menu_fnc_createAction;
 
 ["rhsusf_m998_w_4dr", 0, ["ACE_MainActions"], _usAction] call ace_interact_menu_fnc_addActionToClass;
 ["rhsusf_m998_d_4dr", 0, ["ACE_MainActions"], _usAction] call ace_interact_menu_fnc_addActionToClass;
@@ -76,7 +76,7 @@ _usAction = ["ACE_MainActions", (localize "str_GRAD_buy_vehicles"), "",
 
 _rusAction = ["RusBuyMenu", (localize "str_GRAD_buy_vehicles"), "",
 {0 = execVM "grad_buymenu\openMenu.sqf";},
-  {side player == east}] call ace_interact_menu_fnc_createAction;
+  {playerSide == east}] call ace_interact_menu_fnc_createAction;
 ["rhs_gaz66_r142_vv", 0, ["ACE_MainActions"],_rusAction] call ace_interact_menu_fnc_addActionToClass;
 ["rhsgref_BRDM2_HQ_msv", 0, ["ACE_MainActions"],_rusAction] call ace_interact_menu_fnc_addActionToClass;
 
@@ -116,7 +116,7 @@ _deployAction = [
         _isStationary = (speed _radiotruck) == 0;
         _isNotAnimated = ! (_radiotruck getVariable ["GRAD_isAnimating", false]);
 
-        side player == east && _isStationary && _isRetracted && _isNotAnimated;
+        playerSide == east && _isStationary && _isRetracted && _isNotAnimated;
     }
 ] call ace_interact_menu_fnc_createAction;
 ["rhs_gaz66_r142_vv", 0, ["ACE_MainActions"], _deployAction] call ace_interact_menu_fnc_addActionToClass;
@@ -135,7 +135,7 @@ _retractAction = [
         _isStationary = (speed _radiotruck) == 0;
         _isNotAnimated = ! (_radiotruck getVariable ["GRAD_isAnimating", false]);
 
-        side player == east && _isStationary && _isDeployed && _isNotAnimated;
+        playerSide == east && _isStationary && _isDeployed && _isNotAnimated;
     }
 ] call ace_interact_menu_fnc_createAction;
 ["rhs_gaz66_r142_vv", 0, ["ACE_MainActions"], _retractAction] call ace_interact_menu_fnc_addActionToClass;
@@ -148,14 +148,14 @@ _destroyAction = ["usDestroyMenu", (localize "str_GRAD_disable_vehicle"), "",
  {
  [60, [_this select 0], {((_this select 0) select 0) setdamage 1;}, {hint "Cancelled action"}, (localize "str_GRAD_disabling_radio")] call ace_common_fnc_progressBar;
  },
-  {side player == west && !GRAD_TERMINAL}] call ace_interact_menu_fnc_createAction;
+  {playerSide == west && !GRAD_TERMINAL}] call ace_interact_menu_fnc_createAction;
 ["rhs_gaz66_r142_vv", 0, ["ACE_MainActions"],_destroyAction] call ace_interact_menu_fnc_addActionToClass;
 
 _destroyActionPortableRadio = ["usDestroyMenuPortable", (localize "str_GRAD_disable_vehicle"), "",
  {
  [60, [_this select 0], {((_this select 0) select 0) setdamage 1; BLUFOR_CAPTURED = TRUE; publicVariable "BLUFOR_CAPTURED";}, {hint "Cancelled action"}, (localize "str_GRAD_disabling_radio")] call ace_common_fnc_progressBar;
  },
-  {side player == west && GRAD_TERMINAL}] call ace_interact_menu_fnc_createAction;
+  {playerSide == west && GRAD_TERMINAL}] call ace_interact_menu_fnc_createAction;
 ["Land_DataTerminal_01_F", 0, ["ACE_MainActions"],_destroyActionPortableRadio] call ace_interact_menu_fnc_addActionToClass;
 
 
@@ -177,7 +177,7 @@ _destroyActionPortableRadio = ["usDestroyMenuPortable", (localize "str_GRAD_disa
       [[_terminal, true, [0,1.4,0], 270], "ace_dragging_fnc_setdraggable", true, true] call BIS_fnc_MP;
  }, {hint "Cancelled action"}, (localize "str_GRAD_detaching_radio")] call ace_common_fnc_progressBar;
  },
-  {side player == east && ((_this select 0) getVariable ["detachableRadio", 0] == 1)}] call ace_interact_menu_fnc_createAction;
+  {playerSide == east && ((_this select 0) getVariable ["detachableRadio", 0] == 1)}] call ace_interact_menu_fnc_createAction;
 ["rhs_gaz66_r142_vv", 0, ["ACE_MainActions"],_detachRadioAction] call ace_interact_menu_fnc_addActionToClass;
 
 
@@ -224,7 +224,7 @@ _carryAssaultBoat = ["CarryBoatAction", "Carry Boat", "",
  },
   {
   
-    side player == east && ((_this select 0) getVariable ["detachableRadio", 0] == 2) && 
+    playerSide == east && ((_this select 0) getVariable ["detachableRadio", 0] == 2) && 
     (missionNamespace getVariable ["GRAD_tracking_terminalObj", objNull]) distance (_this select 0) < 8
 
   }] call ace_interact_menu_fnc_createAction;

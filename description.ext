@@ -185,7 +185,7 @@ class Params
     	title = "Win Condition - only Classic Mode";
     	values[] = {0, 1};
     	texts[] =  {"Conquer Radio Truck", "Destroy Radio Truck"};
-    	default = 1;
+    	default = 0;
   	};
 
   	class ace_map_BFT_Enabled { //This ia a "BOOL"

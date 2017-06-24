@@ -4,6 +4,14 @@ spawnRadioTruck = {
 	_radioVeh = [_position, 0, 1, "rhs_gaz66_r142_vv"] call spawnStuff;
 	// used for detachable radio unit
 	_radioVeh setVariable ["detachableRadio", 0, true];
+ 
+ 	_radioVeh addMPEventHandler ["MPKilled", {
+ 		params ["_unit", "_killer", "_instigator", "_useEffects"];
+
+ 		_unit setVariable ["BC_lastDamageSource_causedBy", _killer, true];
+ 		_unit setVariable ["ace_medical_lastDamageSource", _killer, true];
+
+ 	}];
 
 	0 = [_radioVeh, true] execVM "spawn\flagsOnVehicles.sqf";
 

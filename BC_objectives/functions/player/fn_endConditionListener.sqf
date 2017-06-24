@@ -13,28 +13,30 @@ _TRANSMISSION_COMPLETE_listener = {
 _BLUFOR_CAPTURED_listener = {
 	if (_this select 1) then {
 		adminLog("blufor captured");
-		[west] spawn BC_objectives_fnc_endMission;
+		["west"] spawn BC_objectives_fnc_endMission;
 	};
 };
 
 _BLUFOR_ELIMINATED_listener = {
 	if (_this select 1) then {
 		adminLog("mission_complete: blufor loses  by elimination");
-		[east] spawn BC_objectives_fnc_endMission;
+		["east"] spawn BC_objectives_fnc_endMission;
 	};
 };
 
 _OPFOR_ELIMINATED_listener = {
 	if (_this select 1) then {
 		adminLog("mission_complete: opfor loses  by elimination");
-		[west] spawn BC_objectives_fnc_endMission;
+		["west"] spawn BC_objectives_fnc_endMission;
 	};
 };
 
 _TRUCK_DESTROYED_NOT_CONQUERED_listener = {
 	if (_this select 1) then {
 		adminLog("mission_complete: draw");
-		[civilian] spawn BC_objectives_fnc_endMission;
+		
+		["draw"] spawn BC_objectives_fnc_endMission;
+		
 	};
 };
 

@@ -9,7 +9,7 @@ _supplyVar = '';
 switch (_side) do {
     case west: {_supplyVar = 'suppliesBlufor';};
     case east: {_supplyVar = 'suppliesOpfor';};
-    default {};
+    default { diag_log format ["fucking fatal error, side of player is b0rked"]; };
 };
 
 _supplies = (missionNamespace getVariable _supplyVar);
