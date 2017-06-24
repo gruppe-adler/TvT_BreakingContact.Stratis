@@ -5,6 +5,7 @@ class BC_objectives {
 
 		class endConditionListener {};
 		class endMission {};
+        class findRandomPos {};
 		class preparationTimeCountdown {};
 
 	};
@@ -16,6 +17,7 @@ class BC_objectives {
         class afghanTasksOpforCreate {};
         class classicTasksBluforCreate {};
         class classicTasksOpforCreate {};
+        class getIslandCfgEntry {};
         class loopConditions {};
 		class startPreparationTime {};
         class waitingForUnconscious {};

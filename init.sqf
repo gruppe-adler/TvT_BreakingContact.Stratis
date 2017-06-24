@@ -6,7 +6,9 @@ enableDynamicSimulationSystem true;
 0 = [] execVM "grad_buymenu\buymenu_init.sqf";
 
 // islandconfig must be before initgui!
-call compile preprocessFile "islandConfig.sqf";
+/* call compile preprocessFile "islandConfig.sqf";*/
+
+
 clearInventory = compile preprocessFile "helpers\clearInventory.sqf";
 spawnStuff = compile preprocessFile "helpers\spawnStuff.sqf";
 
@@ -59,9 +61,10 @@ if (hasInterface) then {
 	call compile preprocessfile "node_modules\shk_pos\functions\shk_pos_init.sqf";
 
   
-
+	/*
 	player allowDamage false;
 	[] execVM "player\setup\adjustInitialSpawnPosition.sqf"; diag_log format ["setup: initial spawn position initiated"];
+	*/
 
 
 	/* SERVER TIME is taken from server pv */
