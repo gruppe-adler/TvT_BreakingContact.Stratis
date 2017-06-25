@@ -21,16 +21,19 @@ if (!TRACKING_PERSON) then {
 	mrk_radioVeh setMarkerAlphaLocal 0.3;
 };
 
+/* _radioPositionMarkers = missionNamespace getVariable ["BC_objectives_radioPositionMarkers", []];*/
+
 while {!GRAD_RADIO_VEH_MARKER_HIDDEN} do {
 
 	// find nearest marker
-	{
-		if ((getMarkerPos _x) distance GRAD_RADIO_VEH_MARKER_POS < 1000) then {
+	/*{
+		if ((getMarkerPos _x) distance GRAD_RADIO_VEH_MARKER_POS < GRAD_MIN_DISTANCE_TO_RADIOPOSITION) then {
 			_x setMarkerColorLocal "ColorYellow";
 		} else {
 			_x setMarkerColorLocal "ColorOpfor";
 		};
-	} forEach localRadioPositionMarkers;
+	} forEach _radioPositionMarkers;
+	*/
 
 	if (!TRACKING_PERSON) then {
 		if (_pulsesize > _pulseMaxSize) then {
@@ -55,9 +58,11 @@ while {!GRAD_RADIO_VEH_MARKER_HIDDEN} do {
 };
 
 // reset radioposition marker color
+/*
 {
 	_x setMarkerColorLocal "ColorOpfor";	
-} forEach localRadioPositionMarkers;
+} forEach _radioPositionMarkers;
+*/
 
 player setVariable ["GRAD_tracking_radioVehAnimation", false];
 call GRAD_tracking_fnc_hintEndTransmission;

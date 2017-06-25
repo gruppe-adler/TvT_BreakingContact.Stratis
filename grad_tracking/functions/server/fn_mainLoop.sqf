@@ -16,6 +16,35 @@ GRAD_tracking_mainLoop = [{
     _vehicleEnterChange = false;
     _vehicleEnterChangeTemp = false;
 
+    _localRadioPositions = missionNamespace getVariable ["BC_objectives_radioPositions", []];
+    /////////////////////
+    _nearestMarker = [_localRadioPositions, _radioVeh] call BIS_fnc_nearestPosition;
+    _nearestMarkerString = ("GRAD_TRACKING_CURRENTMARKER_" + (str _nearestMarker));
+
+    _isCloseEnough = false;
+    
+    _currentActiveMarkerProgress = missionNameSpace getVariable [_nearestMarkerString, 0];
+
+    /* diag_log format ["_currentActiveMarkerProgress is %1 / %2", _currentActiveMarkerProgress, _nearestMarkerString]; */
+
+    GRAD_TICKS_DONE = _currentActiveMarkerProgress;
+
+    {
+        _x setMarkerColor "ColorOpfor";
+    } forEach _localRadioPositions;
+
+    // check if no marker is left over
+    if (!(_nearestMarker isEqualTo [0,0,0])) then {
+        if ((getMarkerPos _nearestMarker) distance _radioVeh < GRAD_MIN_DISTANCE_TO_RADIOPOSITION) then {
+            _isCloseEnough = true;
+        };
+    };
+
+
+    // _terminalPos = getPos _terminal;
+
+    ///////////////////////////////
+
     // stop loop if necessary
     if (call _endCondition) exitWith { [_handle] call CBA_fnc_removePerFrameHandler; };
 
@@ -69,13 +98,24 @@ GRAD_tracking_mainLoop = [{
     _bothAreSending = (_terminalIsSending && _radioVehIsSending);
 
     // add one tick  if only vehicle is sending
-    if (_radioVehIsSending && !_bothAreSending && !GRAD_TERMINAL) then {
+    if (_radioVehIsSending && !_bothAreSending && !GRAD_TERMINAL && _isCloseEnough) then {
         GRAD_TICKS_DONE = GRAD_TICKS_DONE + 1;
+
+        missionNameSpace setVariable [_nearestMarkerString, GRAD_TICKS_DONE];
+
+        _nearestMarker setMarkerColor "ColorYellow";
+        _ticksRatio = GRAD_TICKS_DONE/GRAD_TICKS_NEEDED;
+        _nearestMarker setMarkerText (" " + (str (round(_ticksRatio * 100))) + " %");
     };
 
     // add only terminal is sending, add half a tick
-    if (!_radioVehIsSending && _terminalIsSending) then {
+    if (!_radioVehIsSending && _terminalIsSending && _isCloseEnough) then {
         GRAD_TICKS_DONE = GRAD_TICKS_DONE + 0.5;
+        missionNameSpace setVariable [_nearestMarkerString, GRAD_TICKS_DONE];
+
+        _nearestMarker setMarkerColor "ColorYellow";
+        _ticksRatio = GRAD_TICKS_DONE/GRAD_TICKS_NEEDED;
+        _nearestMarker setMarkerText (" " + (str (round(_ticksRatio * 100))) + " %");
     };
 
     // if truck and terminal are sending, add terminal to truck distance dependent tick
@@ -91,6 +131,12 @@ GRAD_tracking_mainLoop = [{
 	[_modifier, _tempModifier, _tempDistance, _result] call GRAD_tracking_fnc_terminalCalculateDistanceModifier;
 	
         GRAD_TICKS_DONE = GRAD_TICKS_DONE + (1 * _modifier);
+
+        missionNameSpace setVariable [_nearestMarkerString, GRAD_TICKS_DONE];
+
+        _nearestMarker setMarkerColor "ColorYellow";
+        _ticksRatio = GRAD_TICKS_DONE/GRAD_TICKS_NEEDED;
+        _nearestMarker setMarkerText (" " + (str (round(_ticksRatio * 100))) + " %");
     };
 
     // toggle marker visbility
@@ -100,18 +146,26 @@ GRAD_tracking_mainLoop = [{
     if (GRAD_TICKS_DONE >= GRAD_TICKS_NEEDED && (time > 10)) then {
         GRAD_INTERVALS_DONE = GRAD_INTERVALS_DONE + 1;
         publicVariable "GRAD_INTERVALS_DONE";
+
+        _nearestMarker setMarkerColor "ColorGreen";
+        _nearestMarker setMarkerText (" DONE");
+        _localRadioPositions = _localRadioPositions - [_nearestMarker];
+        missionNamespace setVariable ["BC_objectives_radioPositions", _localRadioPositions];
+
         GRAD_TICKS_DONE = 0;
         publicVariable "GRAD_TICKS_DONE";
-        _randomSpawnPos = [position blufor_teamlead, [1000,3000], random 360, 0, [1,100]] call SHK_POS;
-        [
-        _randomSpawnPos, 
-        150, 
-        "rhsusf_launcher_crate", 
-        {
-            (_this select 0) addWeaponCargoGlobal ['rhs_weap_fim92',1]; 
-            (_this select 0) addMagazineCargoGlobal ['rhs_fim92_mag',1];    
-        },
-        west] spawn grad_supplydrops_fnc_createCarrier;
+        if (TRACKING_PERSON) then {
+            _randomSpawnPos = [position blufor_teamlead, [1000,3000], random 360, 0, [1,100]] call SHK_POS;
+            [
+            _randomSpawnPos, 
+            150, 
+            "rhsusf_launcher_crate", 
+            {
+                (_this select 0) addWeaponCargoGlobal ['rhs_weap_fim92',1]; 
+                (_this select 0) addMagazineCargoGlobal ['rhs_fim92_mag',1];    
+            },
+            west] spawn grad_supplydrops_fnc_createCarrier;
+        };
     };
 
     if (_terminalIsSending || _radioVehIsSending) then {

@@ -1,11 +1,10 @@
 // init needs to be spawned on server only
 params ["_position"];
 
-localRadioPositionMarkers = [];
-[_position, 5] call BC_objectives_fnc_createRadioPositionMarker;
-
 
 if (isServer) then {
+
+	[_position] call BC_objectives_fnc_createRadioPositionMarker;
 
 	if (PREPARATION_TIME > 0) then {[PREPARATION_TIME] call BC_objectives_fnc_startPreparationTime};
 

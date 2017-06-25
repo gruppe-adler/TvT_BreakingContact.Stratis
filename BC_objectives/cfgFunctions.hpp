@@ -3,11 +3,11 @@ class BC_objectives {
 	class player {
 		file = BC_objectives\functions\player;
 
-        class createRadioPositionMarkerLocal {};
 		class endConditionListener {};
 		class endMission {};
         class findRandomPos {};
 		class preparationTimeCountdown {};
+        class revealRadioPositionMarkers {};
 
 	};
 
