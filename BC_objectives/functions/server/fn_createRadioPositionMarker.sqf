@@ -35,5 +35,5 @@ for "_i" from 0 to (_count - 1) do {
 
 };
 
-missionNamespace setVariable ["BC_objectives_radioPositions", _radioPositionMarkers];
+missionNamespace setVariable ["BC_objectives_radioPositions", _radioPositionMarkers, true];
 [_radioPositionMarkers] remoteExec ["BC_objectives_fnc_revealRadioPositionMarkers", 0, true];

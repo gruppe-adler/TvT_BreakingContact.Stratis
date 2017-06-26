@@ -4,6 +4,8 @@ if ((["GRAD_INTERVALS_NEEDED", 1] call BIS_fnc_getParamValue) isEqualTo 1) exitW
 
 if (playerSide isEqualTo west) exitWith { diag_log format ["hiding radio position markers for %1", playerSide]; };
 
+diag_log format ["setting marker alpha %1 to 1 for %2", _markers, playerside];
+
 {
 	_x setMarkerAlphaLocal 1;
 } forEach _markers;

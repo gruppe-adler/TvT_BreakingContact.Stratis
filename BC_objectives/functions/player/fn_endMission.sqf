@@ -69,8 +69,26 @@ waitUntil {REPLAY_FINISHED};
 
 openMap [false,false];
 
+
+// TODO this is most ugly but necessary for debug currently
 if (!(_winner isEqualTo "draw")) then {
-	["end1", ((str playerSide) isEqualTo _winner)] call BIS_fnc_endMission; // TODO have nice endings
+	switch (_winner) do {
+		case "west": { 
+			if (side player == east) then { ["end1", false] call BIS_fnc_endMission; };  
+			if (side player == west) then { ["end1", true] call BIS_fnc_endMission; }; 
+			default { ["end1", true] call BIS_fnc_endMission;  };
+		};
+
+		case "east": { 
+			if (side player == east) then { ["end1", true] call BIS_fnc_endMission; }; 
+			if (side player == west) then { ["end1", false] call BIS_fnc_endMission; }; 
+			default { ["end1", true] call BIS_fnc_endMission;  };
+		};
+
+		default { diag_log format ["winner is neither east nor west?!"]; };
+
+		diag_log format ["side player is %1, _winner is %2", side player, _winner];
+	};
 } else {
-	["draw", !((str playerSide) isEqualTo _killerSide)] call BIS_fnc_endMission; // TODO have nice endings	
+	["draw", !((str playerSide) isEqualTo _killerSide)] call BIS_fnc_endMission;	
 };
