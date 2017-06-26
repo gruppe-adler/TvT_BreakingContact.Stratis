@@ -1,4 +1,4 @@
-params ["_radioVeh", "_terminal"];
+params ["_radioVeh", "_terminal", "_position"];
 
 GRAD_TICKS_DONE = 0;
 
@@ -53,6 +53,8 @@ if (isServer) then {
 	};
 
 	publicVariable "GRAD_SIGNAL_DELAY";
+
+	[_position] call GRAD_tracking_fnc_createRadioPositionMarker;
 
 	sleep 2;
 

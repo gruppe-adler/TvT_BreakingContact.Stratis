@@ -1,6 +1,12 @@
-params ["_location", "_color", "_text"];
+params ["_locationname", "_color", ["_text", ""]];
 
-_markerName = format["marker_radio_%1", name _location];
+_markerName = format["marker_radio_%1", _locationname];
+_markerName = _markerName splitString " " joinString ""; // remove whitespaces
 
-_marker setMarkerColorLocal _color;
-_marker setMarkerTextLocal _text;
+/* diag_log format ["setting color and text for %1", _markerName]; */
+
+_markerName setMarkerColorLocal _color;
+
+if (!(_text isEqualTo "")) then {
+	_markerName setMarkerTextLocal _text;
+};

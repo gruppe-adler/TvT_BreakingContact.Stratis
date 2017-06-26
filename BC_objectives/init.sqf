@@ -4,8 +4,6 @@ params ["_position"];
 
 if (isServer) then {
 
-	[_position] call BC_objectives_fnc_createRadioPositionMarker;
-
 	if (PREPARATION_TIME > 0) then {[PREPARATION_TIME] call BC_objectives_fnc_startPreparationTime};
 
 	_min = str ((["GRAD_TICKS_NEEDED", 2700] call BIS_fnc_getParamValue)/60);

@@ -7,6 +7,7 @@ class GRAD_tracking {
         class createMarkerLastSeen {};
         class createMarkerRadioVeh {};
         class createMarkerTerminal {};
+        class createRadioPositionMarkerLocal {};
         class ensureRadioVehMarkerAnimation {};
         class ensureTerminalMarkerAnimation {};
         class hintEndTransmission {};
@@ -33,6 +34,7 @@ class GRAD_tracking {
         class bluforCaptured {};
         class bluforSurrendered {};
         class booleanEqual {};
+        class createRadioPositionMarker {};
         class mainLoop {};
         class radioTruckCookoffFix {};
         class radioTruckDeploy {};

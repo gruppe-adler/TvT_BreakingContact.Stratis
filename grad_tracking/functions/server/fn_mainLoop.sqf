@@ -6,7 +6,7 @@ _result = [1,0];
 
 grad_tracking_currentLoop = 0;
 
-waitUntil { count (missionNamespace getVariable ["BC_objectives_radioLocations", []]) > 0 };
+/* waitUntil { (count (missionNamespace getVariable ["GRAD_tracking_radioPositions", []])) > 0 }; */
 
 GRAD_tracking_mainLoop = [{
 
@@ -18,14 +18,19 @@ GRAD_tracking_mainLoop = [{
     _vehicleEnterChange = false;
     _vehicleEnterChangeTemp = false;
 
-    _localRadioLocations = missionNamespace getVariable ["BC_objectives_radioLocations", []];
+    _localRadioLocations = missionNamespace getVariable ["GRAD_tracking_radioPositions", []];
     /////////////////////
     _currentLocation = [_localRadioLocations, _radioVeh] call BIS_fnc_nearestPosition;
-    diag_log format ["currentLocation is %1, _localRadioLocations are %2", _currentLocation, _localRadioLocations];
+    diag_log format ["currentLocation is %1, _localRadioLocations are %2", text _currentLocation, _localRadioLocations];
 
-    _currentLocationName = name _currentLocation;
+    _currentLocationName = text _currentLocation;
 
     _isCloseEnough = false;
+    _locationsAvailable = false;
+    
+    if (count _localRadioLocations > 0) then {
+        _locationsAvailable = true;
+    };  
     
     _currentActiveMarkerProgress = missionNameSpace getVariable [_currentLocationName, 0];
 
@@ -34,14 +39,14 @@ GRAD_tracking_mainLoop = [{
     GRAD_TICKS_DONE = _currentActiveMarkerProgress;
 
     [
-            _currentLocation, 
+            _currentLocationName, 
             "ColorOpfor", 
-            (" " + (str (round(_ticksRatio * 100))) + " %")
+            ""
     ] remoteExec ["GRAD_tracking_fnc_setMarkerColorAndText", east, false];
 
-    // check if no marker is left over
-    if (!(_currentLocation isEqualTo [0,0,0])) then {
-        if ((getMarkerPos _currentLocation) distance _radioVeh < GRAD_MIN_DISTANCE_TO_RADIOPOSITION) then {
+    // check if no location is left over
+    if (_locationsAvailable) then {
+        if ((getPos _currentLocation) distance _radioVeh < GRAD_MIN_DISTANCE_TO_RADIOPOSITION) then {
             _isCloseEnough = true;
         };
     };
@@ -111,11 +116,13 @@ GRAD_tracking_mainLoop = [{
 
         _ticksRatio = GRAD_TICKS_DONE/GRAD_TICKS_NEEDED;
 
-        [
-            _currentLocation, 
-            "ColorYellow", 
-            (" " + (str (round(_ticksRatio * 100))) + " %")
-        ] remoteExec ["GRAD_tracking_fnc_setMarkerColorAndText", east, false];
+        if (_locationsAvailable) then {
+            [
+                _currentLocationName, 
+                "ColorYellow", 
+                (" " + (str (round(_ticksRatio * 100))) + " %")
+            ] remoteExec ["GRAD_tracking_fnc_setMarkerColorAndText", east, false];
+        };
         
     };
 
@@ -126,11 +133,13 @@ GRAD_tracking_mainLoop = [{
 
         _ticksRatio = GRAD_TICKS_DONE/GRAD_TICKS_NEEDED;
         
-        [
-            _currentLocation, 
-            "ColorYellow", 
-            (" " + (str (round(_ticksRatio * 100))) + " %")
-        ] remoteExec ["GRAD_tracking_fnc_setMarkerColorAndText", east, false];
+        if (_locationsAvailable) then {
+            [
+                _currentLocationName, 
+                "ColorYellow", 
+                (" " + (str (round(_ticksRatio * 100))) + " %")
+            ] remoteExec ["GRAD_tracking_fnc_setMarkerColorAndText", east, false];
+        };
     };
 
     // if truck and terminal are sending, add terminal to truck distance dependent tick
@@ -151,11 +160,13 @@ GRAD_tracking_mainLoop = [{
 
         _ticksRatio = GRAD_TICKS_DONE/GRAD_TICKS_NEEDED;
 
-        [
-            _currentLocation, 
-            "ColorYellow", 
-            (" " + (str (round(_ticksRatio * 100))) + " %")
-        ] remoteExec ["GRAD_tracking_fnc_setMarkerColorAndText", east, false];
+        if (_locationsAvailable) then {
+            [
+                _currentLocationName, 
+                "ColorYellow", 
+                (" " + (str (round(_ticksRatio * 100))) + " %")
+            ] remoteExec ["GRAD_tracking_fnc_setMarkerColorAndText", east, false];
+        };
     };
 
     // toggle marker visbility
@@ -166,14 +177,17 @@ GRAD_tracking_mainLoop = [{
         GRAD_INTERVALS_DONE = GRAD_INTERVALS_DONE + 1;
         publicVariable "GRAD_INTERVALS_DONE";
 
-        [
-            _currentLocation, 
-            "ColorGreen", 
-            " DONE"
-        ] remoteExec ["GRAD_tracking_fnc_setMarkerColorAndText", east, false];
+        if (_locationsAvailable) then {
+            [
+                _currentLocationName, 
+                "ColorGreen", 
+                " DONE"
+            ] remoteExec ["GRAD_tracking_fnc_setMarkerColorAndText", east, false];
 
         _localRadioLocations = _localRadioLocations - [_currentLocation];
-        missionNamespace setVariable ["BC_objectives_radioLocations", _localRadioLocations, true];
+        missionNamespace setVariable ["GRAD_tracking_radioPositions", _localRadioLocations, true];
+        
+        };
 
         GRAD_TICKS_DONE = 0;
         publicVariable "GRAD_TICKS_DONE";

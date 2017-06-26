@@ -16,5 +16,5 @@ for "_i" from 0 to (_count - 1) do {
 
 };
 
-missionNamespace setVariable ["BC_objectives_radioPositions", _selectedLocations, true];
-[_selectedLocations] remoteExec ["BC_objectives_fnc_createRadioPositionMarkerLocal", east, true];
+missionNamespace setVariable ["GRAD_tracking_radioPositions", _selectedLocations, true];
+[_selectedLocations] remoteExec ["GRAD_tracking_fnc_createRadioPositionMarkerLocal", east, true];
