@@ -70,7 +70,7 @@ waitUntil {REPLAY_FINISHED};
 openMap [false,false];
 
 if (!(_winner isEqualTo "draw")) then {
-	["end1", (str playerSide isEqualTo _winner)] call BIS_fnc_endMission; // TODO have nice endings
+	["end1", ((str playerSide) isEqualTo _winner)] call BIS_fnc_endMission; // TODO have nice endings
 } else {
-	["draw", !(str playerSide isEqualTo _killerSide)] call BIS_fnc_endMission; // TODO have nice endings	
+	["draw", !((str playerSide) isEqualTo _killerSide)] call BIS_fnc_endMission; // TODO have nice endings	
 };
