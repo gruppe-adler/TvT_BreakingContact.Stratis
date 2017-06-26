@@ -23,7 +23,7 @@ waitUntil { !isNil "TRACKING_PERSON" };
 
 
 // loadout + wave respawn added
-IS_WOODLAND = ((ISLAND_TARGET_POSITIONS select (ISLANDS find worldName)) select 3);
+IS_WOODLAND = ["woodland",true] call BC_objectives_fnc_getIslandCfgEntry;
 if (!TRACKING_PERSON) then {
 	if (IS_WOODLAND) then {
 	// us vs russians
