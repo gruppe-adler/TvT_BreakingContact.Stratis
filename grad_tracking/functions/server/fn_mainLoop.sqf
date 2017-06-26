@@ -47,6 +47,10 @@ GRAD_tracking_mainLoop = [{
         };
 
         if (GRAD_TERMINAL_ACTIVE) then {
+            _currentLocation = [_localRadioLocations, _terminal] call BIS_fnc_nearestPosition;
+            _currentActiveMarkerProgress = missionNameSpace getVariable [_currentLocationName, 0];
+             GRAD_TICKS_DONE = _currentActiveMarkerProgress;
+
             if ((getPos _currentLocation) distance _terminal < GRAD_MIN_DISTANCE_TO_RADIOPOSITION) then {
                 _terminalIsCloseEnough = true;
             };
@@ -150,6 +154,7 @@ GRAD_tracking_mainLoop = [{
     // add only terminal is sending, add half a tick
     if (!_radioVehIsSending && _terminalIsSending && _terminalIsCloseEnough) then {
         GRAD_TICKS_DONE = GRAD_TICKS_DONE + 0.5;
+
         missionNameSpace setVariable [_currentLocationName, GRAD_TICKS_DONE];
 
         _ticksRatio = GRAD_TICKS_DONE/GRAD_TICKS_NEEDED;
