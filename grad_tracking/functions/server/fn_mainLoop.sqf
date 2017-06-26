@@ -6,6 +6,8 @@ _result = [1,0];
 
 grad_tracking_currentLoop = 0;
 
+waitUntil { count (missionNamespace getVariable ["BC_objectives_radioLocations", []]) > 0 };
+
 GRAD_tracking_mainLoop = [{
 
     params ["_args", "_handle"];
@@ -16,26 +18,30 @@ GRAD_tracking_mainLoop = [{
     _vehicleEnterChange = false;
     _vehicleEnterChangeTemp = false;
 
-    _localRadioPositions = missionNamespace getVariable ["BC_objectives_radioPositions", []];
+    _localRadioLocations = missionNamespace getVariable ["BC_objectives_radioLocations", []];
     /////////////////////
-    _nearestMarker = [_localRadioPositions, _radioVeh] call BIS_fnc_nearestPosition;
-    _nearestMarkerString = ("GRAD_TRACKING_CURRENTMARKER_" + (str _nearestMarker));
+    _currentLocation = [_localRadioLocations, _radioVeh] call BIS_fnc_nearestPosition;
+    diag_log format ["currentLocation is %1, _localRadioLocations are %2", _currentLocation, _localRadioLocations];
+
+    _currentLocationName = name _currentLocation;
 
     _isCloseEnough = false;
     
-    _currentActiveMarkerProgress = missionNameSpace getVariable [_nearestMarkerString, 0];
+    _currentActiveMarkerProgress = missionNameSpace getVariable [_currentLocationName, 0];
 
-    /* diag_log format ["_currentActiveMarkerProgress is %1 / %2", _currentActiveMarkerProgress, _nearestMarkerString]; */
+    /* diag_log format ["_currentActiveMarkerProgress is %1 / %2", _currentActiveMarkerProgress, _currentLocationName]; */
 
     GRAD_TICKS_DONE = _currentActiveMarkerProgress;
 
-    {
-        _x setMarkerColor "ColorOpfor";
-    } forEach _localRadioPositions;
+    [
+            _currentLocation, 
+            "ColorOpfor", 
+            (" " + (str (round(_ticksRatio * 100))) + " %")
+    ] remoteExec ["GRAD_tracking_fnc_setMarkerColorAndText", east, false];
 
     // check if no marker is left over
-    if (!(_nearestMarker isEqualTo [0,0,0])) then {
-        if ((getMarkerPos _nearestMarker) distance _radioVeh < GRAD_MIN_DISTANCE_TO_RADIOPOSITION) then {
+    if (!(_currentLocation isEqualTo [0,0,0])) then {
+        if ((getMarkerPos _currentLocation) distance _radioVeh < GRAD_MIN_DISTANCE_TO_RADIOPOSITION) then {
             _isCloseEnough = true;
         };
     };
@@ -101,12 +107,12 @@ GRAD_tracking_mainLoop = [{
     if (_radioVehIsSending && !_bothAreSending && !GRAD_TERMINAL && _isCloseEnough) then {
         GRAD_TICKS_DONE = GRAD_TICKS_DONE + 1;
 
-        missionNameSpace setVariable [_nearestMarkerString, GRAD_TICKS_DONE];
+        missionNameSpace setVariable [_currentLocationName, GRAD_TICKS_DONE];
 
         _ticksRatio = GRAD_TICKS_DONE/GRAD_TICKS_NEEDED;
 
         [
-            _nearestMarker, 
+            _currentLocation, 
             "ColorYellow", 
             (" " + (str (round(_ticksRatio * 100))) + " %")
         ] remoteExec ["GRAD_tracking_fnc_setMarkerColorAndText", east, false];
@@ -116,12 +122,12 @@ GRAD_tracking_mainLoop = [{
     // add only terminal is sending, add half a tick
     if (!_radioVehIsSending && _terminalIsSending && _isCloseEnough) then {
         GRAD_TICKS_DONE = GRAD_TICKS_DONE + 0.5;
-        missionNameSpace setVariable [_nearestMarkerString, GRAD_TICKS_DONE];
+        missionNameSpace setVariable [_currentLocationName, GRAD_TICKS_DONE];
 
         _ticksRatio = GRAD_TICKS_DONE/GRAD_TICKS_NEEDED;
         
         [
-            _nearestMarker, 
+            _currentLocation, 
             "ColorYellow", 
             (" " + (str (round(_ticksRatio * 100))) + " %")
         ] remoteExec ["GRAD_tracking_fnc_setMarkerColorAndText", east, false];
@@ -141,12 +147,12 @@ GRAD_tracking_mainLoop = [{
 	
         GRAD_TICKS_DONE = GRAD_TICKS_DONE + (1 * _modifier);
 
-        missionNameSpace setVariable [_nearestMarkerString, GRAD_TICKS_DONE];
+        missionNameSpace setVariable [_currentLocationName, GRAD_TICKS_DONE];
 
         _ticksRatio = GRAD_TICKS_DONE/GRAD_TICKS_NEEDED;
 
         [
-            _nearestMarker, 
+            _currentLocation, 
             "ColorYellow", 
             (" " + (str (round(_ticksRatio * 100))) + " %")
         ] remoteExec ["GRAD_tracking_fnc_setMarkerColorAndText", east, false];
@@ -159,15 +165,15 @@ GRAD_tracking_mainLoop = [{
     if (GRAD_TICKS_DONE >= GRAD_TICKS_NEEDED && (time > 10)) then {
         GRAD_INTERVALS_DONE = GRAD_INTERVALS_DONE + 1;
         publicVariable "GRAD_INTERVALS_DONE";
-        
+
         [
-            _nearestMarker, 
+            _currentLocation, 
             "ColorGreen", 
             " DONE"
         ] remoteExec ["GRAD_tracking_fnc_setMarkerColorAndText", east, false];
 
-        _localRadioPositions = _localRadioPositions - [_nearestMarker];
-        missionNamespace setVariable ["BC_objectives_radioPositions", _localRadioPositions];
+        _localRadioLocations = _localRadioLocations - [_currentLocation];
+        missionNamespace setVariable ["BC_objectives_radioLocations", _localRadioLocations, true];
 
         GRAD_TICKS_DONE = 0;
         publicVariable "GRAD_TICKS_DONE";
