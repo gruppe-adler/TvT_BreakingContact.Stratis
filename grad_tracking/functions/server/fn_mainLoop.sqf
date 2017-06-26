@@ -13,31 +13,30 @@ GRAD_tracking_mainLoop = [{
     params ["_args", "_handle"];
     _args params ["_radioVeh", "_terminal", "_endCondition", "_result"];
 
-    private ["_vehicleEnterChange"];
+    private ["_vehicleEnterChange", "_currentLocation", "_currentLocationName"];
 
     _vehicleEnterChange = false;
     _vehicleEnterChangeTemp = false;
-
-    _localRadioLocations = missionNamespace getVariable ["GRAD_tracking_radioPositions", []];
-    /////////////////////
-    _currentLocation = [_localRadioLocations, _radioVeh] call BIS_fnc_nearestPosition;
-    diag_log format ["currentLocation is %1, _localRadioLocations are %2", text _currentLocation, _localRadioLocations];
-
-    _currentLocationName = text _currentLocation;
-
     _isCloseEnough = false;
     _locationsAvailable = false;
+
+    _localRadioLocations = missionNamespace getVariable ["GRAD_tracking_radioPositions", []];
     
+    // nearestPosition wont work well with empty input
     if (count _localRadioLocations > 0) then {
         _locationsAvailable = true;
-    };  
+
+        _currentLocation = [_localRadioLocations, _radioVeh] call BIS_fnc_nearestPosition;
+        /* diag_log format ["currentLocation is %1, _localRadioLocations are %2", text _currentLocation, _localRadioLocations];*/
+
+        _currentLocationName = text _currentLocation;
     
-    _currentActiveMarkerProgress = missionNameSpace getVariable [_currentLocationName, 0];
+        _currentActiveMarkerProgress = missionNameSpace getVariable [_currentLocationName, 0];
 
-    /* diag_log format ["_currentActiveMarkerProgress is %1 / %2", _currentActiveMarkerProgress, _currentLocationName]; */
+        /* diag_log format ["_currentActiveMarkerProgress is %1 / %2", _currentActiveMarkerProgress, _currentLocationName]; */
 
-    GRAD_TICKS_DONE = _currentActiveMarkerProgress;
-
+        GRAD_TICKS_DONE = _currentActiveMarkerProgress;
+    };
 
 
     // check if no location is left over
