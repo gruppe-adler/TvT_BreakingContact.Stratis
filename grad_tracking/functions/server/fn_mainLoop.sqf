@@ -18,6 +18,7 @@ GRAD_tracking_mainLoop = [{
     _vehicleEnterChange = false;
     _vehicleEnterChangeTemp = false;
     _isCloseEnough = false;
+    _terminalIsCloseEnough = false;
     _locationsAvailable = false;
 
     _localRadioLocations = missionNamespace getVariable ["GRAD_tracking_radioPositions", []];
@@ -43,6 +44,12 @@ GRAD_tracking_mainLoop = [{
     if (_locationsAvailable) then {
         if ((getPos _currentLocation) distance _radioVeh < GRAD_MIN_DISTANCE_TO_RADIOPOSITION) then {
             _isCloseEnough = true;
+        };
+
+        if (GRAD_TERMINAL_ACTIVE) then {
+            if ((getPos _currentLocation) distance _terminal < GRAD_MIN_DISTANCE_TO_RADIOPOSITION) then {
+                _terminalIsCloseEnough = true;
+            };
         };
     };
 
@@ -139,7 +146,7 @@ GRAD_tracking_mainLoop = [{
     };
 
     // add only terminal is sending, add half a tick
-    if (!_radioVehIsSending && _terminalIsSending && _isCloseEnough) then {
+    if (!_radioVehIsSending && _terminalIsSending && _terminalIsCloseEnough) then {
         GRAD_TICKS_DONE = GRAD_TICKS_DONE + 0.5;
         missionNameSpace setVariable [_currentLocationName, GRAD_TICKS_DONE];
 
