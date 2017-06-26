@@ -38,17 +38,30 @@ GRAD_tracking_mainLoop = [{
 
     GRAD_TICKS_DONE = _currentActiveMarkerProgress;
 
-    [
-            _currentLocationName, 
-            "ColorOpfor", 
-            ""
-    ] remoteExec ["GRAD_tracking_fnc_setMarkerColorAndText", east, false];
+
 
     // check if no location is left over
     if (_locationsAvailable) then {
         if ((getPos _currentLocation) distance _radioVeh < GRAD_MIN_DISTANCE_TO_RADIOPOSITION) then {
             _isCloseEnough = true;
         };
+    };
+
+    // make everything red which isnt in use
+    _allOtherLocations = _localRadioLocations;
+
+    if (_isCloseEnough) then {
+        _allOtherLocations = _localRadioLocations - [_currentLocation];
+    };
+
+    if (count _allOtherLocations > 0) then {
+        {
+            [
+                    text _x, 
+                    "ColorOpfor", 
+                    ""
+            ] remoteExec ["GRAD_tracking_fnc_setMarkerColorAndText", east, false];
+        } forEach _allOtherLocations;
     };
 
 
