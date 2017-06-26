@@ -162,7 +162,7 @@ GRAD_tracking_mainLoop = [{
     };
 
     // if truck and terminal are sending, add terminal to truck distance dependent tick
-    if (_bothAreSending) then {
+    if (_bothAreSending && _terminalIsCloseEnough) then {
         _tempModifier = _result select 0;
         _tempDistance = _result select 1;
 
@@ -171,7 +171,7 @@ GRAD_tracking_mainLoop = [{
         _distanceToRadioTruck = _result select 1;
 
         // check if distance changed, if yes, broadcast for client hint
-	[_modifier, _tempModifier, _tempDistance, _result] call GRAD_tracking_fnc_terminalCalculateDistanceModifier;
+	    [_modifier, _tempModifier, _tempDistance, _result] call GRAD_tracking_fnc_terminalCalculateDistanceModifier;
 	
         GRAD_TICKS_DONE = GRAD_TICKS_DONE + (1 * _modifier);
 
