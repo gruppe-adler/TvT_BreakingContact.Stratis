@@ -23,13 +23,13 @@ for "_i" from 0 to (_count - 1) do {
 
 	_pos = locationPosition (_selectedLocations select _i);
 
-	_marker = createMarker [format["global_radio_location_%1", toString _pos],_pos];
+	_marker = createMarkerLocal [format["global_radio_location_%1", toString _pos],_pos];
 	// diag_log format ["GRAD_CIV_DEBUG: Marker %1 created", _marker];
-	_marker setMarkerShape "ICON";
-	_marker setMarkerType "hd_flag";
-	_marker setMarkerAlpha 0;
-	_marker setMarkerColor "ColorOpfor";
-	_marker setMarkerText " 0 %";
+	_marker setMarkerShapeLocal "ICON";
+	_marker setMarkerTypeLocal "hd_flag";
+	_marker setMarkerAlphaLocal 0;
+	_marker setMarkerColorLocal "ColorOpfor";
+	_marker setMarkerTextLocal " 0 %";
 
 	_radioPositionMarkers = _radioPositionMarkers + [_marker];
 
