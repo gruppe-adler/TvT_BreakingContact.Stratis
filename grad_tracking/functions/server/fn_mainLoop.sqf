@@ -28,14 +28,8 @@ GRAD_tracking_mainLoop = [{
         _locationsAvailable = true;
 
         _currentLocation = [_localRadioLocations, _radioVeh] call BIS_fnc_nearestPosition;
-        /* diag_log format ["currentLocation is %1, _localRadioLocations are %2", text _currentLocation, _localRadioLocations];*/
-
         _currentLocationName = text _currentLocation;
-    
         _currentActiveMarkerProgress = missionNameSpace getVariable [_currentLocationName, 0];
-
-        /* diag_log format ["_currentActiveMarkerProgress is %1 / %2", _currentActiveMarkerProgress, _currentLocationName]; */
-
         GRAD_TICKS_DONE = _currentActiveMarkerProgress;
     };
 
@@ -48,6 +42,7 @@ GRAD_tracking_mainLoop = [{
 
         if (GRAD_TERMINAL_ACTIVE) then {
             _currentLocation = [_localRadioLocations, _terminal] call BIS_fnc_nearestPosition;
+            _currentLocationName = text _currentLocation;
             _currentActiveMarkerProgress = missionNameSpace getVariable [_currentLocationName, 0];
              GRAD_TICKS_DONE = _currentActiveMarkerProgress;
 
