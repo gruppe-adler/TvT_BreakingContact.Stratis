@@ -19,7 +19,7 @@ _unit addEventHandler ["FiredNear",{
 	_sideShooter = side _shooter;
 
 	_panic = _unit getVariable ["GRAD_civs_brainPanic", 0];
-	if (_panic < 1) then {
+	if (_panic < 0.9) then {
 		_unit setVariable ["GRAD_civs_brainPanic", _panic + 0.1];
 	} else {
 		[_unit, _shooter] call GRAD_civs_fnc_fleeYouFool;
