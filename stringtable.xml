@@ -96,14 +96,14 @@
 		</Container>
 		<Container name="tasks">
 			<Key ID="str_GRAD_classicTaskTitleOpfor1">
-				<Original>Transmit for a total of %1 min.</Original>
-				<English>Transmit for a total of %1 min.</English>
-				<German>Übertrage für insgesamt %1 Min.</German>
+				<Original>Transmit on %1 locations for %2 min each.</Original>
+				<English>Transmit on %1 locations for %2 min each.</English>
+				<German>Übertrage an %1 Punkten für je %2 Min.</German>
 			</Key>
 			<Key ID="str_GRAD_classicTaskTitleBlufor1">
-				<Original>Destroy the transmitter before transmission runs %1 min.</Original>
-				<English>Destroy the transmitter before transmission runs %1 min.</English>
-				<German>Zerstöre den Funkwagen vor der Sendezeit von %1 Min.</German>
+				<Original>Destroy the transmitter before transmission runs on %1 locations for %2 min each.</Original>
+				<English>Destroy the transmitter before transmission runs on %1 locations for %2 min each.</English>
+				<German>Zerstöre den Funkwagen vor Vollendung der Sendung an %1 Punkten für je %2 Min.</German>
 			</Key>
 			<Key ID="str_GRAD_classicTaskTitleEliminate">
 				<Original>Eliminate enemies (alt. objective)</Original>
@@ -111,9 +111,9 @@
 				<German>Feinde ausschalten (Alternativziel)</German>
 			</Key>
 			<Key ID="str_GRAD_classicTaskDescriptionOpfor1">
-				<Original>Transmit for %1 minutes and defend the truck or the terminal. Transmission can be interrupted, you dont have to stay at one place.</Original>
-				<English>Transmit for %1 minutes and defend the truck or the terminal. Transmission can be interrupted, you dont have to stay at one place.</English>
-				<German>Übertrage für %1 Minuten und verteidige Funkwagen oder Terminal. Die Übertragung kann unterbrochen werden, du musst nicht an einer Stelle bleiben.</German>
+				<Original>Transmit on %1 locations for %2 min each and defend the truck or the terminal. Transmission can be interrupted, you dont have to stay at one place.</Original>
+				<English>Transmit on %1 locations for %2 min each and defend the truck or the terminal. Transmission can be interrupted, you dont have to stay at one place.</English>
+				<German>Übertrage an %1 Punkten für je %2 Minuten und verteidige Funkwagen oder Terminal. Die Übertragung kann unterbrochen werden, du musst nicht an einer Stelle bleiben.</German>
 			</Key>
 			<Key ID="str_GRAD_classicTaskDescriptionOpfor2">
 				<Original>Alternatively eliminate all American forces in the area.</Original>

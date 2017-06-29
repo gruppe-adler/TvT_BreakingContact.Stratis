@@ -176,10 +176,10 @@ class Params
 	};
 
   	class CIVILIAN_TRAFFIC {
-    	title = "Civilian Traffic (needs RDS_CIV)";
+    	title = "Civilian Traffic (supports RDS CIV and LOPs afghan militia)";
     	values[] = {0, 1};
     	texts[] =  {"False", "True"};
-    	default = 0;
+    	default = 1;
   	};
 
   	class FACTION_MODE {

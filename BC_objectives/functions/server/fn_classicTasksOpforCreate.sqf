@@ -1,8 +1,8 @@
-params ["_min"];
+params ["_count", "_min"];
 
 _taskName = "opforTask1";
-_taskDescription = format [localize "str_GRAD_classicTaskDescriptionOpfor1",_min];
-_taskTitle = format [localize "str_GRAD_classicTaskTitleOpfor1",_min];
+_taskDescription = format [localize "str_GRAD_classicTaskDescriptionOpfor1",_count, _min];
+_taskTitle = format [localize "str_GRAD_classicTaskTitleOpfor1",_count, _min];
 _areaMarkerName = " target area ";
 
 _opforTask1 = [

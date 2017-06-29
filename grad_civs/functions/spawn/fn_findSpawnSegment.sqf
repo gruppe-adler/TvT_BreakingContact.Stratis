@@ -1,5 +1,7 @@
 /* blatantly ripped and modified from engima traffic */
 
+/*
+
 private ["_refPlayerPos", "_roadSegments", "_roadSegment", "_isOk", "_tries", "_result", "_spawnDistanceDiff", "_refPosX", "_refPosY", "_dir", "_tooFarAwayFromAll", "_tooClose", "_tooCloseToAnotherVehicle"];
 
 // 
@@ -90,3 +92,6 @@ _result = getPos _roadSegment;
 diag_log format ["found spawn %2 for civ in %1 tries", _tries, _result];
 
 _result
+
+
+*/

@@ -52,7 +52,7 @@ GRAD_tracking_mainLoop = [{
         };
     };
 
-    diag_log format ["_isCloseEnough is %1, _terminalIsCloseEnough is %2", _isCloseEnough, _terminalIsCloseEnough];
+    /* diag_log format ["_isCloseEnough is %1, _terminalIsCloseEnough is %2", _isCloseEnough, _terminalIsCloseEnough];*/
 
     // make everything red which isnt in use
     _allOtherLocations = _localRadioLocations;

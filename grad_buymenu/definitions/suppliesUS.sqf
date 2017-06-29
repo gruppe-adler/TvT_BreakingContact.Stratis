@@ -171,7 +171,7 @@ _ammocar = [
       0
 ];
 _melb = [
-      ["RHS_MELB_MH6M"],
+      ["RHS_MELB_H6M"],
       "MELB",
       1,
       2500,
@@ -185,7 +185,7 @@ _melb = [
       [_veh] call ace_fastroping_fnc_equipFRIES;
       _veh disableTIEquipment true;
       },
-      ['1 GPS','No Thermals','Benches','FRIES equipped'],
+      ['1 GPS','NO Thermals','NO Benches','FRIES equipped'],
       0,
       0
 ];

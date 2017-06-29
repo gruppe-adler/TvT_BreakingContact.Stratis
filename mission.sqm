@@ -8,7 +8,7 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=666;
+		nextID=709;
 	};
 	class MarkerIDProvider
 	{
@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={1745.6189,63.421326,6024.8281};
-		dir[]={-0.43132871,-0.45802218,0.77732319};
-		up[]={-0.22223629,0.88893318,0.40050489};
-		aside[]={0.87442398,-2.0046718e-007,0.48521125};
+		pos[]={1966.4926,13.247398,5949.436};
+		dir[]={0.24726513,-0.33683702,0.90851784};
+		up[]={0.088457562,0.94156164,0.32501605};
+		aside[]={0.96490371,5.2212272e-008,-0.26261082};
 	};
 };
 binarizationWanted=0;
@@ -51,13 +51,14 @@ addons[]=
 	"A3_Modules_F_ObjectModifiers",
 	"ace_respawn",
 	"ace_cargo",
-	"ace_weather"
+	"ace_weather",
+	"ace_hearing"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=27;
+		items=28;
 		class Item0
 		{
 			className="A3_Ui_F";
@@ -247,6 +248,13 @@ class AddonsMetaData
 			author="ACE-Team";
 			url="http://ace3mod.com/";
 		};
+		class Item27
+		{
+			className="ace_hearing";
+			name="ACE3 - Hearing";
+			author="ACE-Team";
+			url="http://ace3mod.com/";
+		};
 	};
 };
 class DynamicSimulation
@@ -254,7 +262,8 @@ class DynamicSimulation
 	class EnableRadiuses
 	{
 		EmptyVehicle=100;
-		Group=100;
+		Vehicle=450;
+		Group=150;
 	};
 	class EnableRadiuseCoefs
 	{
@@ -293,7 +302,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=65;
+		items=66;
 		class Item0
 		{
 			dataType="Marker";
@@ -6919,6 +6928,97 @@ class Mission
 					};
 				};
 				nAttributes=6;
+			};
+		};
+		class Item65
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={1592.995,-0.00029754639,6058.3701};
+			};
+			id=666;
+			type="ACE_ModuleHearing";
+			atlOffset=18.373901;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ACE_ModuleHearing_autoAddEarplugsToUnits";
+					expression="_this setVariable ['autoAddEarplugsToUnits',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=0;
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="ACE_ModuleHearing_EnableCombatDeafness";
+					expression="_this setVariable ['EnableCombatDeafness',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=0;
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="ACE_ModuleHearing_enabledForZeusUnits";
+					expression="_this setVariable ['enabledForZeusUnits',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=0;
+						};
+					};
+				};
+				class Attribute3
+				{
+					property="ACE_ModuleHearing_DisableEarRinging";
+					expression="_this setVariable ['DisableEarRinging',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=1;
+						};
+					};
+				};
+				nAttributes=4;
 			};
 		};
 	};

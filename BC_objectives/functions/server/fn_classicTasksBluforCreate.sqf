@@ -1,8 +1,8 @@
-params ["_min"];
+params ["_count", "_min"];
 
 _taskName = "bluforTask1";
-_taskDescription = format [localize "str_GRAD_classicTaskDescriptionBlufor1",_min];
-_taskTitle = format [localize "str_GRAD_classicTaskTitleBlufor1",_min];
+_taskDescription = format [localize "str_GRAD_classicTaskDescriptionBlufor1",_count, _min];
+_taskTitle = format [localize "str_GRAD_classicTaskTitleBlufor1",_count, _min];
 _areaMarkerName = " target area ";
 
 _bluforTask1 = [

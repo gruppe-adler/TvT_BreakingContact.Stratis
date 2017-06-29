@@ -1,5 +1,5 @@
 /* blatantly ripped from engima traffic */
-
+/*
 _allPlayerPositionsTemp = [];
 _allPlayerPositions = [];
 
@@ -19,3 +19,4 @@ if (count _allPlayerPositionsTemp > 0) then {
 };
 
 _allPlayerPositions
+*/

@@ -1,46 +1,51 @@
+_civ = driver cursorTarget;
+_pointingCache = player getVariable ["GRAD_civs_mePointingAt", objNull];
+
 if (!weaponLowered player) then {
-   
-   _currentCiv = player getVariable ["GRAD_isPointingAtObj", objNull];
+      
+      if ( 
+          (side cursorTarget) == civilian && 
+          {alive cursorTarget} && 
+          {(count (crew cursorTarget)) > 0} && // is not empty vehicle
+          {player distance cursorTarget < (20 + random 40)} && // detection distance
+          ([objNull, "VIEW"] checkVisibility [eyePos _civ, eyePos player] == 1)
+          ) then {
+       
+          /*  && // some randomization for detection range
+          {(if (getDir player > getDir cursorTarget > )}*/
 
-   /* if cursortarget is not of man/car anymore */
-   if (!(cursorTarget isKindOf "Car" || cursorTarget isKindOf "Man")) exitWith {
+          _guysPointingAtCiv = _civ getVariable ["GRAD_civs_isPointedAtBy",[]];
 
+          // we are already targeting someone
+          if (!isNull _pointingCache) then {
 
-      /* remove my marker on civ, if i dont target him anymore */
-      if (!(_currentCiv isEqualTo (driver cursorTarget))) then {
+              _guysPointingAtPointingCache = _pointingCache getVariable ["GRAD_civs_isPointedAtBy",[]];
 
-        
-        [_currentCiv] call GRAD_civs_fnc_removePointerTick;
-      };
-   };
-
-   // make sure driver is taken, check later for crew. default is object itself.
-   _possibleCiv = driver cursorTarget; 
-
-   if (_possibleCiv getVariable ["GRAD_isFleeing", false]) exitWith {};
-
-   /* check if cached civ is the same as the new target and exit*/
-   if (!isNull _currentCiv && {!(_possibleCiv isEqualTo _currentCiv)}) exitWith {
-
-   };
-
-   /* if civ is civ, alive and closer than 50m, make him target */
-   if ( (side _possibleCiv) == civilian && {alive _possibleCiv} && {player distance _possibleCiv < 50}) then {
-     _civ = _possibleCiv;
-
-     /* if i dont already point at him */
-     if (isNull _currentCiv) then {
-      [_civ] remoteExec ["GRAD_civs_fnc_stopCiv", [2,0] select (isMultiplayer && isDedicated), false];
-     };
-
-     [_civ] call GRAD_civs_fnc_addPointerTick;
-     
-   };
+              if (_pointingCache isEqualTo _civ) then {
+                  // do nothing, because we are still pointing at the same guy
+              } else {
+                  if (player in _guysPointingAtPointingCache) then {
+                      // remove myself from pointer list of former pointer target
+                      _pointingCache setVariable ["GRAD_civs_isPointedAtBy", _guysPointingAtPointingCache - [player], true];
+                      player setVariable ["GRAD_civs_mePointingAt", objNull];
+                  };
+                  // add myself to pointer list
+                  _civ setVariable ["GRAD_civs_isPointedAtBy", _guysPointingAtCiv + [player], true];
+                  player setVariable ["GRAD_civs_mePointingAt", _civ];
+              };
+          } else {
+            _civ setVariable ["GRAD_civs_isPointedAtBy", _guysPointingAtCiv + [player], true];
+            player setVariable ["GRAD_civs_mePointingAt", _civ];
+            [_civ] remoteExec ["GRAD_civs_fnc_stopCiv", [2,0] select (isMultiplayer && isDedicated), false];
+          };
+    };  
 } else {
-  /* lowering weapon should remove civ pointer as well */
-  _currentCiv = player getVariable ["GRAD_isPointingAtObj", objNull];
+   
+    _guysPointingAtPointingCache = _pointingCache getVariable ["GRAD_civs_isPointedAtBy",[]];
 
-  if (!isNull _currentCiv) then {
-    [_currentCiv] call GRAD_civs_fnc_removePointerTick;
-  };
+    if (!(isNull _pointingCache)) then {
+        _pointingCache setVariable ["GRAD_civs_isPointedAtBy", _guysPointingAtPointingCache - [player], true];
+        player setVariable ["GRAD_civs_mePointingAt", objNull];
+    };
+
 };

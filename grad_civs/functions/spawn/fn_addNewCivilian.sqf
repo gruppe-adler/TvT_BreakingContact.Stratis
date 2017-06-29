@@ -1,4 +1,4 @@
-params ["_playerPositions"];
+/* params ["_playerPositions"];
 
 [_playerPositions] spawn {
 	params ["_playerPositions"];
@@ -14,7 +14,7 @@ params ["_playerPositions"];
 
 	diag_log format ["%1", _position];
 
-	_group = createGroup [civilian, true]; // todo: adapt to 1.67 [civilian, true]
+	_group = createGroup [civilian, true];
 	_unit = _group createUnit ["C_man_1", _position, [], 0, "NONE"];
 	
 
@@ -37,3 +37,4 @@ params ["_playerPositions"];
 	diag_log format ["added civilian on foot, now %1", GRAD_CIV_ONFOOT_COUNT];
 
 };
+*/
