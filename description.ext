@@ -1,7 +1,12 @@
+// ISLAND CONFIGS
 #include "cfgIslands.hpp"
 
+// BUY MENU
 #include "grad_buymenu\definitions\_defines.hpp"
 #include "grad_buymenu\definitions\_dialogs.hpp"
+
+// GCAM
+#include "gcam\gcam_component.hpp"
 
 #define MODULES_DIRECTORY node_modules
 #include "node_modules\grad-fortifications\grad_fortifications.hpp"

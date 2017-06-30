@@ -3,9 +3,11 @@
 [player, true] call TFAR_fnc_forceSpectator;
 setPlayerRespawnTime 999999;
 
-[true] call ace_spectator_fnc_setSpectator;
+/* [true] call ace_spectator_fnc_setSpectator; */
+
 
 _killer = player getVariable ["ace_medical_lastDamageSource", objNull];
+
 if (!isNull _killer) then {
 
 	_string = format ['Killed by %1',name _killer];
@@ -13,5 +15,8 @@ if (!isNull _killer) then {
 	systemChat _string;
 	systemChat _stringHint;
 	/* [_string] call EFUNC(common,displayTextStructured);*/
-
+	_handle = [ _killer ] execVM "gcam\gcam.sqf";
+} else {
+	_randomGuy = selectRandom (playableUnits + switchableUnits - allDeadMen);
+	_handle = [ _randomGuy ] execVM "gcam\gcam.sqf";
 };

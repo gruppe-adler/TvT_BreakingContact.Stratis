@@ -69,6 +69,8 @@ waitUntil {REPLAY_FINISHED};
 
 openMap [false,false];
 
+GCamKill = true;
+
 
 // TODO this is most ugly but necessary for debug currently
 if (!(_winner isEqualTo "draw")) then {
