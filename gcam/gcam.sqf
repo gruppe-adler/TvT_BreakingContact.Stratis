@@ -3402,7 +3402,7 @@ while {_l} do
 	};
 
 
-	if ( (!(LIMITQUIT) and _ku == KEYQUIT) or ( GCamKill ) then
+	if ( (!(LIMITQUIT) and _ku == KEYQUIT) or ( GCamKill ) ) then
 	{
 		if ( GCamKill ) then { _quit = true };
 
