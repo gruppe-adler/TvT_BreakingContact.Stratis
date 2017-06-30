@@ -113,7 +113,7 @@ class Params
 	{
 		title = "Length of sending time";
 		values[] = {30, 300, 600, 900, 1800, 2700, 3600, 4500, 5400, 6300};
-		texts[] = {"30s (DEBUG)", "5'","10' (recommended for BC:Afghan Wars), needs to be accomplished 5 times", "15'", "30'", "45' (recommended for BC:Classic)", "1h'", "1h15'","1h30'","1h45'"};
+		texts[] = {"30s (DEBUG)", "5'","10' (recommended for 3 radio positions)", "15'", "30'", "45' (recommended for 1 radio position)", "1h'", "1h15'","1h30'","1h45'"};
 		default = 30;
 	};
 
@@ -182,15 +182,9 @@ class Params
     	default = 1;
   	};
 
-  	class FACTION_MODE {
-    	title = "Factions fighting";
-    	values[] = {0, 1};
-    	texts[] =  {"CLASSIC: US vs. Russians", "AFGHAN WARS: Mudschaheddin vs. Sowjets (needs Project OPFOR & CUP TP!)"};
-    	default = 0;
-  	};
 
   	class CONQUER_MODE {
-    	title = "Win Condition - only Classic Mode";
+    	title = "Win Condition";
     	values[] = {0, 1};
     	texts[] =  {"Conquer Radio Truck", "Destroy Radio Truck"};
     	default = 0;

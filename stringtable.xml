@@ -32,67 +32,6 @@
 					Beide Seiten können eine Auswahl von Fahrzeugen an ihrer Basis kaufen (ACE-Interaktion). Kaufen ist nur für die Commander möglich. Während die Amerikaner sich auf leichte, mobile Fahrzeuge und Luftüberlegenheit verlassen, haben die Russen stärker gepanzerte Fahrzeuge zur Verfügung. Für jeden Spieler auf dem Server gibt es einen kleinen Geldbonus.
 				</German>
 			</Key>
-			<Key ID="str_GRAD_ravenTitle">
-				<Original>RAVEN Operation</Original>
-				<English>RAVEN Operation</English>
-				<German>RAVEN Bedienung</German>
-			</Key>
-			<Key ID="str_GRAD_ravenUsage">
-				<Original>
-					&lt;font size='20' color='#c0c0c0'&gt;Launch&lt;/font&gt;&lt;br/&gt;
-					&lt;br/&gt;1. Place backpack on the ground.&lt;br/&gt;2. Assemble RQ-11 Raven.&lt;br/&gt;3. Pick up the drone and launch it.
-					&lt;br/&gt;4. Use the GCS or pick it up. Anyone can carry it, but only the soldier who launched the drone can use it.
-					&lt;br/&gt;&lt;br/&gt;&lt;font size='20' color='#c0c0c0'&gt;Operation&lt;/font&gt;&lt;br/&gt;
-					&lt;br/&gt;Use the Ground Control System (GCS) to:
-					&lt;br/&gt;* Set a new target. The drone will move to it and circle it autonomously.
-					&lt;br/&gt;* Turn on the Minicam. The minicam displays the camera feed even when you are carrying the GCS.
-					&lt;br/&gt;* Autoland. The drone will automatically return to the GCS location and land.
-					&lt;br/&gt;* View the camera feed. See 'Controls'.
-					&lt;br/&gt;* Adjust the orbit radius and altitude.
-					&lt;br/&gt;* Automatically track and follow a target.
-					&lt;br/&gt;* Mark target on the map (side channel).
-					&lt;br/&gt;&lt;br/&gt;&lt;font size='20' color='#c0c0c0'&gt;Controls&lt;/font&gt;&lt;br/&gt;
-					&lt;br/&gt;Camera feed controls:
-					&lt;br/&gt;* J   - display controls on-screen
-					&lt;br/&gt;* G   - close camera feed
-				</Original>
-				<English>
-					&lt;font size='20' color='#c0c0c0'&gt;Launch&lt;/font&gt;&lt;br/&gt;
-					&lt;br/&gt;1. Place backpack on the ground.&lt;br/&gt;2. Assemble RQ-11 Raven.&lt;br/&gt;3. Pick up the drone and launch it.
-					&lt;br/&gt;4. Use the GCS or pick it up. Anyone can carry it, but only the soldier who launched the drone can use it.
-					&lt;br/&gt;&lt;br/&gt;&lt;font size='20' color='#c0c0c0'&gt;Operation&lt;/font&gt;&lt;br/&gt;
-					&lt;br/&gt;Use the Ground Control System (GCS) to:
-					&lt;br/&gt;* Set a new target. The drone will move to it and circle it autonomously.
-					&lt;br/&gt;* Turn on the Minicam. The minicam displays the camera feed even when you are carrying the GCS.
-					&lt;br/&gt;* Autoland. The drone will automatically return to the GCS location and land.
-					&lt;br/&gt;* View the camera feed. See 'Controls'.
-					&lt;br/&gt;* Adjust the orbit radius and altitude.
-					&lt;br/&gt;* Automatically track and follow a target.
-					&lt;br/&gt;* Mark target on the map (side channel).
-					&lt;br/&gt;&lt;br/&gt;&lt;font size='20' color='#c0c0c0'&gt;Controls&lt;/font&gt;&lt;br/&gt;
-					&lt;br/&gt;Camera feed controls:
-					&lt;br/&gt;* J   - display controls on-screen
-					&lt;br/&gt;* G   - close camera feed
-				</English>
-				<German>
-					&lt;font size='20' color='#c0c0c0'&gt;Start&lt;/font&gt;&lt;br/&gt;
-					&lt;br/&gt;1. Rucksack auf den Boden legen.&lt;br/&gt;2. RQ-11 Raven zusammenbauen.&lt;br/&gt;3. Drohne aufheben und starten.
-					&lt;br/&gt;4. GCS benutzen oder mitnehmen. Jeder kann das GCS tragen, aber nur wer die Drohne gestartet hat kann es benutzen.
-					&lt;br/&gt;&lt;br/&gt;&lt;font size='20' color='#c0c0c0'&gt;Bedienung&lt;/font&gt;&lt;br/&gt;
-					&lt;br/&gt;Benutzen Sie das Ground Control System (GCS) um:
-					&lt;br/&gt;* Ein neues Ziel zu setzen. Die Drohne wird autonom zu ihrem neuen Ziel fliegen und es umkreisen.
-					&lt;br/&gt;* Die Minicam einzuschalten. Die Minicam zeigt die Übertragung auch während Sie das GCS tragen.
-					&lt;br/&gt;* Automatisch zu landen. Die Drohne fliegt automatisch die Position des GCS an und landet.
-					&lt;br/&gt;* Die Übertragung anzuzeigen. Siehe Steuerung.
-					&lt;br/&gt;* Den Radius und die Flughöhe anzupassen.
-					&lt;br/&gt;* Automatisch das Ziel zu verfolgen.
-					&lt;br/&gt;* Das Ziel auf der Karte zu markieren (side channel).
-					&lt;br/&gt;&lt;br/&gt;&lt;font size='20' color='#c0c0c0'&gt;Controls&lt;/font&gt;&lt;br/&gt;
-					&lt;br/&gt;Camera Feed Steuerung:
-					&lt;br/&gt;* J   - Steuerung auf dem Bildschirm anzeigen
-					&lt;br/&gt;* G   - Übertragung schließen
-				</German>
-			</Key>
 		</Container>
 		<Container name="tasks">
 			<Key ID="str_GRAD_classicTaskTitleOpfor1">
@@ -140,42 +79,6 @@
 				<English>Cancel the Russian transmission and capture their radio truck or terminal. Do not destoy it!</English>
 				<German>Beenden Sie die russische Übertragung und erobern Sie den Funkwagen oder das Terminal. Zerstören Sie es in keinem Fall!</German>
 			</Key>
-			<Key ID="str_GRAD_afghanTaskTitleBlufor1">
-				<Original>Transmit %1x%2 min.</Original>
-				<English>Transmit %1x%2 min.</English>
-				<German>Übertrage %1x%2 Min.</German>
-			</Key>
-			<Key ID="str_GRAD_afghanTaskTitleOpfor1">
-				<Original>Kill Mujahideen Commander</Original>
-				<English>Kill Mujahideen Commander</English>
-				<German>Mudschaheddin Commander töten</German>
-			</Key>
-			<Key ID="str_GRAD_afghanTaskTitleEliminate">
-				<Original>Eliminate enemies (alt. objective)</Original>
-				<English>Eliminate enemies (alt. objective)</English>
-				<German>Feinde ausschalten (Alternativziel)</German>
-			</Key>
-			<Key ID="str_GRAD_afghanTaskDescriptionOpfor1">
-				<Original>Kill the Mujahideen Commander before he can transmit %1x%2 minutes.</Original>
-				<English>Kill the Mujahideen Commander before he can transmit %1x%2 minutes.</English>
-				<German>Töte den Mudschaheddin Commander bevor er %1x%2 Minuten senden kann.</German>
-			</Key>
-			<Key ID="str_GRAD_afghanTaskDescriptionOpfor2">
-				<Original>Alternatively eliminate all Mujahideen forces in the area.</Original>
-				<English>Alternatively eliminate all Mujahideen forces in the area.</English>
-				<German>Schalte alternativ alle Mudschaheddin Kräfte im Gebiet aus.</German>
-			</Key>
-			<Key ID="str_GRAD_afghanTaskDescriptionBlufor1">
-				<Original>Transmit %1x%2 minutes and defend the Commander. If transmission is interrupted, the current interval is reset.</Original>
-				<English>Transmit %1x%2 minutes and defend the Commander. If transmission is interrupted, the current interval is reset.</English>
-				<German>Übertrage für %1x%2 Minuten und verteidige den Commander. Wenn die Übertragung unterbrochen wird, wird das derzeitge Intervall zurückgesetzt.</German>
-			</Key>
-			<Key ID="str_GRAD_afghanTaskDescriptionBlufor2">
-				<Original>Alternatively eliminate all Russian forces in the area.</Original>
-				<English>Alternatively eliminate all Russian forces in the area.</English>
-				<German>Schalte alternativ alle russischen Kräfte im Gebiet aus.</German>
-			</Key>
-
 		</Container>
 		<Container name="mission setup">
 			<Key ID="str_GRAD_spawn_on_water">
@@ -258,11 +161,6 @@
 				<Original> %.</Original>
 				<English> %.</English>
 				<German> % gesendet.</German>
-			</Key>
-			<Key ID="str_GRAD_transmissionTime_1_mud">
-				<Original>The Mudschaheddin already sent </Original>
-				<English>The Mudschaheddin already sent </English>
-				<German>Die Mudschaheddin haben schon </German>
 			</Key>
 			<Key ID="str_GRAD_lastTransmission">
 				<Original>Last transmission</Original>

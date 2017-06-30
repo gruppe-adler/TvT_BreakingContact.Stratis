@@ -27,12 +27,6 @@ spawnRadioTruck = {
 	
 	[[_radioVeh, _terminal, _position], "grad_tracking\init.sqf"] remoteExec ["execVM", 0, true];
 
-	// create replay
-	[[REPLAY_ACCURACY, _radioVeh], "node_modules\grad_replay\GRAD_replay_init.sqf"] remoteExec ["execVM", 0, true];
-
-	// create tasks
-	[[], "BC_objectives\init.sqf"] remoteExec ["execVM", 0, true];
-
 
 	if (!IS_WOODLAND) then {
 		_radioVeh setObjectTextureGlobal [0,"rhsafrf\addons\rhs_gaz66_camo\data\gaz66_sand_co.paa"];
@@ -55,5 +49,16 @@ spawnRadioTruck = {
 	_radioVeh addItemCargoGlobal ["ACE_EntrenchingTool",10];
 	_radioVeh addItemCargoGlobal ["ACE_NVG_Gen2",50];
 	_radioVeh addItemCargoGlobal ["tf_fadak", 10];
+
+
+	// delay task creation and replay recording a bit
+
+	sleep 10;
+
+	// create replay
+	[[REPLAY_ACCURACY, _radioVeh], "node_modules\grad_replay\GRAD_replay_init.sqf"] remoteExec ["execVM", 0, true];
+
+	// create tasks
+	[[], "BC_objectives\init.sqf"] remoteExec ["execVM", 0, true];
 
 };

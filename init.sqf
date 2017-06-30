@@ -17,31 +17,19 @@ spawnStuff = compile preprocessFile "helpers\spawnStuff.sqf";
 disableRemoteSensors true; // disable ai combat ability
 setViewDistance 3500;
 
-// wait until server has decided about parameters
-waitUntil { !isNil "TRACKING_PERSON" };
-
-
 
 // loadout + wave respawn added
 IS_WOODLAND = ["woodland",true] call BC_objectives_fnc_getIslandCfgEntry;
-if (!TRACKING_PERSON) then {
-	if (IS_WOODLAND) then {
-	// us vs russians
-		["BLU_F", "US_Woodland"] call GRAD_Loadout_fnc_FactionSetLoadout;
-		["OPF_F", "RU_Woodland"] call GRAD_Loadout_fnc_FactionSetLoadout;
-	} else {
-		["BLU_F", "US_Desert"] call GRAD_Loadout_fnc_FactionSetLoadout;
-		["OPF_F", "RU_Desert"] call GRAD_Loadout_fnc_FactionSetLoadout;
-	};
-} else {
-	// sovjets vs mudschaheddin
-	["BLU_F", "MUD_Desert"] call GRAD_Loadout_fnc_FactionSetLoadout;
-	["OPF_F", "SOV_Desert"] call GRAD_Loadout_fnc_FactionSetLoadout;
 
-	// add wave respawn
-	[] execVM "grad_waverespawn\init.sqf";
-	[] execVM "grad_supplydrops\init.sqf";
+if (IS_WOODLAND) then {
+// us vs russians
+	["BLU_F", "US_Woodland"] call GRAD_Loadout_fnc_FactionSetLoadout;
+	["OPF_F", "RU_Woodland"] call GRAD_Loadout_fnc_FactionSetLoadout;
+} else {
+	["BLU_F", "US_Desert"] call GRAD_Loadout_fnc_FactionSetLoadout;
+	["OPF_F", "RU_Desert"] call GRAD_Loadout_fnc_FactionSetLoadout;
 };
+
 
 call compile preprocessfile "loadouts\setLoadoutRandomization.sqf";
 

@@ -36,23 +36,15 @@ if (isServer) then {
 	publicVariable "GRAD_RADIO_VEH_MARKER_POS";
 
 	GRAD_SIGNAL_DELAY = 1;
+	publicVariable "GRAD_SIGNAL_DELAY";
+
 	GRAD_SIGNAL_SIZE = 250;
 	publicVariable "GRAD_SIGNAL_SIZE";
 
 	GRAD_MIN_DISTANCE_TO_RADIOPOSITION = 1000;
 	if (GRAD_INTERVALS_NEEDED isEqualTo 1) then { GRAD_MIN_DISTANCE_TO_RADIOPOSITION = 100000; };
 	publicVariable "GRAD_MIN_DISTANCE_TO_RADIOPOSITION";
-
-	// afghan wars mode
-	if (TRACKING_PERSON) then {
-		GRAD_INTERVALS_NEEDED = 5;
-		publicVariable "GRAD_INTERVALS_NEEDED";
-		GRAD_SIGNAL_DELAY = 30;
-		GRAD_SIGNAL_DELAY_RANDOM = 30;
-
-	};
-
-	publicVariable "GRAD_SIGNAL_DELAY";
+	
 
 	[_position] call GRAD_tracking_fnc_createRadioPositionMarker;
 

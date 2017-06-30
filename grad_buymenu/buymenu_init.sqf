@@ -120,16 +120,11 @@ if (isServer) then {
 	publicVariable "SPAWN_APPROACH_BLUFOR";
 	publicVariable "SPAWN_APPROACH_OPFOR";
 
-	waitUntil { !isNil "TRACKING_PERSON" };
-
 	// broadcast supplies definitions
-	if (!TRACKING_PERSON) then {
-		0 = [] execVM "grad_buymenu\definitions\suppliesUS.sqf";
-		0 = [] execVM "grad_buymenu\definitions\suppliesRussians.sqf";
-	} else {
-		0 = [] execVM "grad_buymenu\definitions\suppliesMUD.sqf";
-		0 = [] execVM "grad_buymenu\definitions\suppliesSOV.sqf";
-	};
+	
+	0 = [] execVM "grad_buymenu\definitions\suppliesUS.sqf";
+	0 = [] execVM "grad_buymenu\definitions\suppliesRussians.sqf";
+	
 
 };
 
@@ -141,17 +136,10 @@ if (hasInterface) then {
 
 		_canBuy = [];
 		if (playerSide == east) then {
-			if (!TRACKING_PERSON) then {
-				switch (rank player) do {
-					case "CAPTAIN": { _canBuy = ['transportTruck', 'brdm', 'tigr', 'ammotruck', 'uaz', 'btr', 'bmp', 't72', 'transmitter']; };
-					default { _canBuy = []; };
-				};
-			} else {
-				switch (rank player) do {
-					case "CAPTAIN": { _canBuy = ['civcar', 'motorbike', 'landrover', 'uazspg9']; };
-					default { _canBuy = []; };
-				};
-			};
+			switch (rank player) do {
+				case "CAPTAIN": { _canBuy = ['transportTruck', 'brdm', 'tigr', 'ammotruck', 'uaz', 'btr', 'bmp', 't72', 'transmitter']; };
+				default { _canBuy = []; };
+			};	
 
 			player setVariable ["GRAD_canBuy", _canBuy];
 
@@ -163,17 +151,12 @@ if (hasInterface) then {
 			player setVariable ['GRAD_buymenu_spawn_land', {getMarkerPos spawnMarkerOpforLand}];
 		};
 		if (playerSide == west) then {
-			if (!TRACKING_PERSON) then {
-				switch (rank player) do {
-					case "CAPTAIN": { _canBuy = ['transportHMMWV', 'mrzr4','hmmwv_m2','m113', 'm113heavy','ammocar','melb','mh60']; };
-					default { _canBuy = []; };
-				};
-			} else {
-				switch (rank player) do {
-					case "CAPTAIN": { _canBuy = ['BRDM','BTR70','BMP','T72','MI8','MI24']; };
-					default { _canBuy = []; };
-				};
+			
+			switch (rank player) do {
+				case "CAPTAIN": { _canBuy = ['transportHMMWV', 'mrzr4','hmmwv_m2','m113', 'm113heavy','ammocar','melb','mh60']; };
+				default { _canBuy = []; };
 			};
+			
 
 			player setVariable ["GRAD_canBuy", _canBuy];
 

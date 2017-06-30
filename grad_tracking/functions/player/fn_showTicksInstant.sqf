@@ -8,11 +8,9 @@ if (playerSide == _side) then {
 	
 	_ticksRatio = GRAD_TICKS_DONE / GRAD_TICKS_NEEDED;
 
-	if (!TRACKING_PERSON) then {
-		_string_1 = localize "str_GRAD_transmissionTime_1";
-	} else {
-		_string_1 = localize "str_GRAD_transmissionTime_1_mud";
-	};
+	
+	_string_1 = localize "str_GRAD_transmissionTime_1";
+	
 
 	_string_2 = " | " + str GRAD_INTERVALS_DONE + "/" + str GRAD_INTERVALS_NEEDED;
 

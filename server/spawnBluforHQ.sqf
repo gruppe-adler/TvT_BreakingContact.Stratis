@@ -177,9 +177,8 @@ spawnBluforHQ = {
 	_vehicle1 addItemCargoGlobal ["ACE_EntrenchingTool",10];
 	_vehicle1 addItemCargoGlobal ["tf_anprc148jem", 10];
 	
-	if (!TRACKING_PERSON) then {
-		_vehicle1 addItemCargoGlobal ["ACE_NVG_Gen2",50];
-	};
+	_vehicle1 addItemCargoGlobal ["ACE_NVG_Gen2",50];
+	
 	
 	_vehicle1 addItemCargoGlobal ["ItemGPS",1];
 	_vehicle1 setVariable ["detachableBoat",2];
@@ -201,11 +200,9 @@ spawnBluforHQ = {
 
 	usActionHelper = createVehicle ["Land_SatellitePhone_F", [(getPos _vehicle1 select 0) + 2, (getPos _vehicle1 select 1) - 1, 0.5], [], 0, "NONE"];
 	
-	if (!TRACKING_PERSON) then {
-		usActionHelper attachTo [_vehicle1, [0,-0.3,1.1]];
-	} else {
-		usActionHelper attachTo [_vehicle1, [0,-0.2,-1.35]];
-	};
+	
+	usActionHelper attachTo [_vehicle1, [0,-0.3,1.1]];
+	
 
 	/* listener to remove spawn pad and actionhelper, when its time */
 	BUY_OPTION_BLUFOR = {

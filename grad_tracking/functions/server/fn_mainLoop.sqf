@@ -83,34 +83,21 @@ GRAD_tracking_mainLoop = [{
     if (GRAD_INTERVALS_DONE >= GRAD_INTERVALS_NEEDED) exitWith {
         [_handle] call CBA_fnc_removePerFrameHandler;   // remove PFH
         
-        if (!TRACKING_PERSON) then {
-            [] call GRAD_tracking_fnc_bluforSurrendered;
-        } else {
-            [] call GRAD_tracking_fnc_bluforCaptured;    // call Mission End
-        };
+        [] call GRAD_tracking_fnc_bluforSurrendered;
     };
 
     // if vehicles are destroyed, end mission
     if (!alive _radioVeh && {(_radioVeh getVariable ["detachableRadio", 0] != 2)} && {!CONQUER_MODE}) exitWith {
         [_handle] call CBA_fnc_removePerFrameHandler;
-
-        if (!TRACKING_PERSON) then {
-            [] call GRAD_tracking_fnc_bluforCaptured;    // call Mission End
-        } else {
-            [] call GRAD_tracking_fnc_bluforSurrendered;
-        };
         
+        [] call GRAD_tracking_fnc_bluforCaptured;    // call Mission End        
     };
 
     if (!alive _radioVeh && {(_radioVeh getVariable ["detachableRadio", 0] != 2)} && {CONQUER_MODE}) exitWith {
         [_handle] call CBA_fnc_removePerFrameHandler;
         
-        if (!TRACKING_PERSON) then {
-            TRUCK_DESTROYED_NOT_CONQUERED = true;    // call Mission End
-            publicVariable "TRUCK_DESTROYED_NOT_CONQUERED";
-        } else {
-            [] call GRAD_tracking_fnc_bluforSurrendered;
-        };
+        TRUCK_DESTROYED_NOT_CONQUERED = true;    // call Mission End
+        publicVariable "TRUCK_DESTROYED_NOT_CONQUERED";
     };
 
     // check if cookoff needs fixing
@@ -212,18 +199,6 @@ GRAD_tracking_mainLoop = [{
 
         GRAD_TICKS_DONE = 0;
         publicVariable "GRAD_TICKS_DONE";
-        if (TRACKING_PERSON) then {
-            _randomSpawnPos = [position blufor_teamlead, [1000,3000], random 360, 0, [1,100]] call SHK_POS;
-            [
-            _randomSpawnPos, 
-            150, 
-            "rhsusf_launcher_crate", 
-            {
-                (_this select 0) addWeaponCargoGlobal ['rhs_weap_fim92',1]; 
-                (_this select 0) addMagazineCargoGlobal ['rhs_fim92_mag',1];    
-            },
-            west] spawn grad_supplydrops_fnc_createCarrier;
-        };
     };
 
     if (_terminalIsSending || _radioVehIsSending) then {
@@ -242,19 +217,6 @@ GRAD_tracking_mainLoop = [{
 	        _radioVehX = getPos _radioVeh select 0;
 	        _radioVehY = getPos _radioVeh select 1;
 	        _markerPos = [_radioVehX, _radioVehY];
-
-	       if (TRACKING_PERSON) then {
-	            _radioVehX = getPos (vehicle _radioVeh) select 0;
-	            _radioVehY = getPos (vehicle _radioVeh) select 1;
-	            _markerPos = [_radioVehX, _radioVehY];
-
-                [str vehicle _radioVeh != str _radioVeh] call GRAD_tracking_fnc_setRadioVehMarkerSize;
-
-	            _markerPos = [[_radioVehX, _radioVehY], GRAD_SIGNAL_SIZE] call GRAD_tracking_fnc_randomizeMarker;
-                [] remoteExec ["grad_tracking_fnc_showMarkerUpdateHint", 0, false];
-
-	            GRAD_SIGNAL_DELAY = GRAD_SIGNAL_DELAY + (random GRAD_SIGNAL_DELAY_RANDOM);
-	       };
 
 	        if (!GRAD_TERMINAL_ACTIVE) then {
 	            _markerPos call GRAD_tracking_fnc_setRadioVehMarkerPosition;

@@ -14,12 +14,8 @@ _pulseSpeed = _this select 2;
 _pulseDelayBetween = _this select 3;
 _modifier = 1;
 
-if (!TRACKING_PERSON) then {
-	mrk_radioVeh setMarkerAlphaLocal 1;
-} else {
-	mrk_radioVeh setMarkerSizeLocal [GRAD_SIGNAL_SIZE,GRAD_SIGNAL_SIZE];
-	mrk_radioVeh setMarkerAlphaLocal 0.3;
-};
+mrk_radioVeh setMarkerAlphaLocal 1;
+
 
 /* _radioPositionMarkers = missionNamespace getVariable ["BC_objectives_radioPositionMarkers", []];*/
 
@@ -35,26 +31,21 @@ while {!GRAD_RADIO_VEH_MARKER_HIDDEN} do {
 	} forEach _radioPositionMarkers;
 	*/
 
-	if (!TRACKING_PERSON) then {
-		if (_pulsesize > _pulseMaxSize) then {
-			_pulsesize = 0.01;
-			_modifier = 0.3;
-			sleep _pulseDelayBetween;
-		};
-
-		_pulsesize = _pulsesize + _modifier;
-		_modifier = _modifier + 0.1;
-		mrk_radioVeh setMarkerAlphaLocal 1 - (_pulsesize/_pulseMaxSize);
-		mrk_radioVeh setMarkerSizeLocal [_pulsesize, _pulsesize];
-		
-		sleep _pulseSpeed;
-
-	} else {
-		mrk_lastseen setMarkerPosLocal GRAD_RADIO_VEH_MARKER_POS;
-		mrk_radioVeh setMarkerPosLocal GRAD_RADIO_VEH_MARKER_POS;
-		mrk_radioVeh setMarkerSizeLocal [GRAD_SIGNAL_SIZE,GRAD_SIGNAL_SIZE];
-		sleep 1;
+	
+	if (_pulsesize > _pulseMaxSize) then {
+		_pulsesize = 0.01;
+		_modifier = 0.3;
+		sleep _pulseDelayBetween;
 	};
+
+	_pulsesize = _pulsesize + _modifier;
+	_modifier = _modifier + 0.1;
+	mrk_radioVeh setMarkerAlphaLocal 1 - (_pulsesize/_pulseMaxSize);
+	mrk_radioVeh setMarkerSizeLocal [_pulsesize, _pulsesize];
+	
+	sleep _pulseSpeed;
+
+	
 };
 
 // reset radioposition marker color

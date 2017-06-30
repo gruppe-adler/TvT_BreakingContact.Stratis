@@ -47,9 +47,6 @@ if (CIVILIAN_TRAFFIC == 1) then {
 	0 = execVM "grad_civs\init.sqf";
 };
 
-TRACKING_PERSON = (["FACTION_MODE", 1] call BIS_fnc_getParamValue) == 1;
-publicVariable "TRACKING_PERSON";
-
 CONQUER_MODE = (["CONQUER_MODE", 1] call BIS_fnc_getParamValue) == 0;
 publicVariable "CONQUER_MODE";
 
@@ -59,14 +56,6 @@ publicVariable "PREPARATION_TIME";
 TRUCK_DESTROYED_NOT_CONQUERED = false;
 publicVariable "TRUCK_DESTROYED_NOT_CONQUERED";
 
-if (!TRACKING_PERSON) then {
-
-} else {
-	0 = execVM "grad_waverespawn\init.sqf";
-	0 = execVM "grad_roadtrash\init.sqf";
-	0 = execVM "grad_emptycars\init.sqf";
-
-};
 
 setCustomWeather = {
 
@@ -225,9 +214,6 @@ REPLAY_STEPS_PER_TICK = 1;
 	moneyOpfor = moneyOpfor + _bonusPerPlayer;
 	moneyBlufor = moneyBlufor + _bonusPerPlayer;
 
-	if (TRACKING_PERSON) then {
-		moneyOpfor = moneyOpfor + 1000;
-	};
 	publicVariable "moneyBlufor";
 	publicVariable "moneyOpfor";
 };

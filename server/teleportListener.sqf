@@ -1,30 +1,8 @@
 createOpforStuff =  {
 	_position = _this;
 
-	if (!TRACKING_PERSON) then {
-		[_position] call spawnRadioTruck;
-	} else {
-		blufor_teamlead setVariable ["GRAD_isVIP", true, true];
-		[blufor_teamlead] call GRAD_tracking_fnc_addGetInVehicleEH;
-
-		_terminal = createVehicle ['Land_DataTerminal_01_F', [0,0,0], [], 0, 'NONE'];
-		hideObjectGlobal _terminal;
-
-		missionNameSpace setVariable ["GRAD_tracking_radioVehObj", blufor_teamlead, true];
-		missionNameSpace setVariable ["GRAD_tracking_terminalObj", _terminal, true];
-		
-		if (!isMultiplayer) then {
-			[blufor_teamlead, _terminal] execVM "grad_tracking\init.sqf";
-		} else {
-			[[blufor_teamlead, _terminal], "grad_tracking\init.sqf"] remoteExec ["execVM", 0, true];
-		};
-		blufor_teamlead setVariable ["detachableRadio", 0, true];
-		
-		_startVehicle = [_position, 10, "rhsgref_BRDM2_HQ_msv"] call spawnOpforHQ;
-		[_startVehicle] call clearInventory;
-		_startVehicle setObjectTextureGlobal [0, "rhsgref\addons\rhsgref_a2port_armor\brdm2\data\brdm2_3tone_01_co.paa"];
-        _startVehicle setObjectTextureGlobal [1, "rhsgref\addons\rhsgref_a2port_armor\brdm2\data\brdm2_3tone_02_co.paa"];
-	};
+	[_position] call spawnRadioTruck;
+	
 
 	0 = [] execVM "server\spawn\showLeaderInformation.sqf";
 
@@ -38,16 +16,12 @@ createOpforStuff =  {
 
 createBluforStuff = {
 	_opforposition = _this;
-
-	if (!TRACKING_PERSON) then {
-	    if (IS_WOODLAND) then {
-	       blufor_hq = "rhsusf_m998_w_4dr";
-	    } else {
-	       blufor_hq = "rhsusf_m998_d_4dr";
-	    };
-	} else {
-		blufor_hq = "LOP_AM_Landrover_M2";
-	};
+	
+    if (IS_WOODLAND) then {
+       blufor_hq = "rhsusf_m998_w_4dr";
+    } else {
+       blufor_hq = "rhsusf_m998_d_4dr";
+    };
 
 	_spawnVehicle = [_opforposition, BLUFOR_SPAWN_DISTANCE, blufor_hq] call spawnBluforHQ;
 

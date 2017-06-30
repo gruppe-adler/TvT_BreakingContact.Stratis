@@ -7,13 +7,8 @@ ticksRatio = ticks / (GRAD_TICKS_NEEDED * GRAD_INTERVALS_NEEDED);
 
 if (ticksRatio >= grad_ticks_nextWarning) then { // alle 10% die Warnung
 	
-
-
-	if (!TRACKING_PERSON) then {
-		_string_1 = localize "str_GRAD_transmissionTime_1";
-	} else {
-		_string_1 = localize "str_GRAD_transmissionTime_1_mud";
-	};
+	_string_1 = localize "str_GRAD_transmissionTime_1";
+	
 
 	_string_2 = " | " + str GRAD_INTERVALS_DONE + "/" + str GRAD_INTERVALS_NEEDED;
 
