@@ -2341,7 +2341,7 @@ _ResetCamera =
 		_tx_crewname = name _o;
 	};
 
-	if (SHOWUNITNAME) then { titleText[ format[ "%1 : %2\n%3", getText( configFile >> "CfgVehicles" >> (typeOf _o) >> "displayName" ), _tx_crewname, group _o], "plain down", _w*40 ] };
+	if (SHOWUNITNAME) then { titleText[ format[ "%1 : %2\n%3\n%4", getText( configFile >> "CfgVehicles" >> (typeOf _o) >> "displayName" ), _tx_crewname, group _o, side _o], "plain down", _w*40 ] };
 
 	ctrlSetFocus (findDisplay 5100 displayCtrl 100);
 };
@@ -2356,6 +2356,8 @@ _ehid_mousezchange = (findDisplay 46) displayAddEventHandler ["MouseZChanged", "
 _ehid_mousebd = (findDisplay 46) displayAddEventHandler ["MouseButtonDown", "GCam_MD = _this"];
 _ehid_mousebu = (findDisplay 46) displayAddEventHandler ["MouseButtonUp", "GCam_MU = _this"];
 
+/* diag_log format ["gcam debug: this is %1", _this]; */
+
 if (isNil "_this") then
 { _o = player }
 else
@@ -2363,6 +2365,8 @@ else
 if (isNil"_o") then { _o = player };
 _o_l = _o;
 _initobject = _o;
+
+player setVariable ["GRAD_gcamspec_currentlyWatched", _o];
 
 _dr = ((getdir _o)-90)*-1;
 _dv = INITCAMAGL;
@@ -2783,6 +2787,8 @@ while {_l} do
 			call _ResetCamera;
 			_o_l = _o;
 
+			player setVariable ["GRAD_gcamspec_currentlyWatched", _o];
+
 			_li_ol = [ nearestObjects [_o, ["AllVehicles"], DETECTOBJECTDISTANCE] ] call _SelectObjects;
 			[_li_ol] call _ListObjects;
 		};
@@ -2807,6 +2813,8 @@ while {_l} do
 			_cgk = _kd;
 			call _ResetCamera;
 			_o_l = _o;
+
+			player setVariable ["GRAD_gcamspec_currentlyWatched", _o];
 
 			_li_ol = [ nearestObjects [_o, ["AllVehicles"], DETECTOBJECTDISTANCE] ] call _SelectObjects;
 			[_li_ol] call _ListObjects;
@@ -3408,7 +3416,9 @@ while {_l} do
 
 		if ( _ku == KEYQUIT ) then
 		{
-			setMousePosition [0.500,0.575];
+			_quit = true;
+			
+			/* setMousePosition [0.500,0.575];
 
 			createDialog "GCam_Dialog_Quit";
 			waitUntil{ctrlShown(findDisplay 5102 displayCtrl 0)};
@@ -3447,7 +3457,9 @@ while {_l} do
 
 			GCam_KD set [1, -1];
 			GCam_KU set [1, -1];
+		*/
 		};
+
 
 		if (_quit) then
 		{
@@ -3476,6 +3488,33 @@ while {_l} do
 			_initobject switchCamera _initcamview;
 			_c cameraEffect ["Terminate", "BACK"];
 			camDestroy _c;
+
+			//////////////
+
+			// enter full spec
+			[player, false] call ace_spectator_fnc_stageSpectator;
+			[true] call ace_spectator_fnc_setSpectator;
+			player setVariable ["GRAD_gcamSpec_isStaged", false];
+
+			["grad_gcamspec", "gcam_toggle", "hit space to toggle gcam", {
+				
+				// kill everything
+				[false] call ace_spectator_fnc_setSpectator;
+				[player, false] call ace_spectator_fnc_stageSpectator;
+
+				// readd stage spec and gcam
+				[player, true] call ace_spectator_fnc_stageSpectator;
+				[player] execVM "grad_gcamspec\gcam\gcam.sqf";
+				player setVariable ["GRAD_gcamSpec_isStaged", true];
+
+				hintsilent "ON";
+				
+			}, { 
+				"" 
+			}, [57, [false, false, true]]] call cba_fnc_addKeybind;
+
+			hintsilent "OFF";
+			//////////////
 
 			_l = false;
 		};

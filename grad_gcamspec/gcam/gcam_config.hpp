@@ -43,7 +43,7 @@
 
 // Enable / disable accTime function. ( true | false )
 // accTime is changed in Unit List.
-#define SHOWTIMEACC true
+#define SHOWTIMEACC false
 
 // Enable / disable warhead and ejected unit chasing function. ( true | false )
 // Chase trigger is set in Unit List or T key.

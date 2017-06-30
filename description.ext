@@ -6,7 +6,7 @@
 #include "grad_buymenu\definitions\_dialogs.hpp"
 
 // GCAM
-#include "gcam\gcam_component.hpp"
+#include "grad_gcamSpec\gcam\gcam_component.hpp"
 
 #define MODULES_DIRECTORY node_modules
 #include "node_modules\grad-fortifications\grad_fortifications.hpp"
@@ -23,6 +23,7 @@ class CfgFunctions {
 	#include "grad_roadtrash\cfgFunctions.hpp"
 	#include "grad_emptycars\cfgFunctions.hpp"
 	#include "BC_objectives\cfgFunctions.hpp"
+	#include "grad_gcamSpec\cfgFunctions.hpp"
 };
 
 class RscTitles {
