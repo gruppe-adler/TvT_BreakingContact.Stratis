@@ -46,7 +46,7 @@ respawnDelay = 9999999;
 
 respawn = 3;
 respawnTemplates[] = {"ace_spectator"};
-
+respawnButton = 1;
 
 
 class Header
