@@ -1,3 +1,5 @@
+#define MODULES_DIRECTORY node_modules
+
 // ISLAND CONFIGS
 #include "cfgIslands.hpp"
 
@@ -8,7 +10,7 @@
 // GCAM
 #include "grad_gcamSpec\gcam\gcam_component.hpp"
 
-#define MODULES_DIRECTORY node_modules
+
 #include "node_modules\grad-fortifications\grad_fortifications.hpp"
 
 class CfgFunctions {
@@ -24,6 +26,7 @@ class CfgFunctions {
 	#include "grad_emptycars\cfgFunctions.hpp"
 	#include "BC_objectives\cfgFunctions.hpp"
 	#include "grad_gcamSpec\cfgFunctions.hpp"
+	#include "node_modules\grad_replay\cfgFunctions.hpp"
 };
 
 class RscTitles {
@@ -144,7 +147,7 @@ class Params
 		title = "InGame Replay Accuracy";
 		values[] = {1,2,3,4,5};
 		texts[] = {"every 1s","every 2s","every 3s","every 4s","every 5s"};
-		default = 4;
+		default = 1;
 	};
 
 	class AR3PLAY_ENABLE_REPLAY
