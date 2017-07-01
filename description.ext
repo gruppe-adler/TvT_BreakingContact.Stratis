@@ -48,7 +48,6 @@ loadScreen = "pic\loading.jpg";
 respawnDelay = 9999999;
 
 respawn = 3;
-respawnTemplates[] = {"BASE", "ace_spectator"};
 respawnButton = 1;
 
 

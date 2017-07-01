@@ -4,29 +4,26 @@ openMap [false, false];
 if (player getVariable ["grad_gcamspec_firstSpawn", true]) exitWith {
 	player setVariable ["grad_gcamspec_firstSpawn", false];
 };
+["Terminate"] call BIS_fnc_EGSpectator;
+// put player somewhere
 
-_killer = player getVariable ["ace_medical_lastDamageSource", objNull];
-_randomGuy = selectRandom (playableUnits + switchableUnits - allDeadMen);
+player setPos [0,0,100];
+player enableSimulation false;
+player enableSimulationGlobal false;
+player hideObjectGlobal true;
+player allowDamage false;
+player setVariable ["ace_medical_allowDamage", false];
 
-if (!isNull _killer) then {
-
-	_string = format ['Killed by %1',name _killer];
-	_stringHint = "Entering Spectator. Press Key UP for free cam.";
-	systemChat _string;
-	systemChat _stringHint;
-};
+_focus = player getVariable ["GRAD_gcamspec_currentFocus", player];
 
 if (player getVariable ["grad_gcamspec", false]) then {
-	[true] call ace_spectator_fnc_setSpectator;
-	player setVariable ["grad_gcamspec", false];
-} else {
-	[player, true] call ace_spectator_fnc_stageSpectator;
-
-	if (!isNull _killer) then {
-		[_killer] execVM "grad_gcamspec\gcam\gcam.sqf";
-	} else {
-		[_randomGuy] execVM "grad_gcamspec\gcam\gcam.sqf";
-	};
 	
+	[_focus] execVM "grad_gcamspec\gcam\gcam.sqf";
+	player setVariable ["grad_gcamspec", false];
+	[player] joinsilent SPEC_GROUP; 
+
+} else {
+	setPlayerRespawnTime 999999;
+	["Initialize", [player, [west, east], true, true, true, false, true, true, true, true]] call BIS_fnc_EGSpectator;
 	player setVariable ["grad_gcamspec", true];
 };

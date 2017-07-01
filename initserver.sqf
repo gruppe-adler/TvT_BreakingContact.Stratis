@@ -203,6 +203,11 @@ REPLAY_SPEED = 0.05;
 REPLAY_STEPS_PER_TICK = 1;
 
 
+// spectator side center
+SPEC_CENTER = createCenter independent;
+SPEC_GROUP = createGroup [SPEC_CENTER, false];
+publicVariable "SPEC_GROUP";
+
 
 // add money from player count
 [] spawn {

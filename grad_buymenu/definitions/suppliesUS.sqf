@@ -193,7 +193,7 @@ _uh60 = [
       [uh60],
       "UH-60",
       1,
-      3000,
+      2500,
       1,
       [[], ["doors_hide",0,"Holder",0,"AddCargoHook_COver",0]],
       {
