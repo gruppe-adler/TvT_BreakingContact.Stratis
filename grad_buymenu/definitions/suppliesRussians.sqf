@@ -62,7 +62,7 @@ _transportTruck = [
     "Ural Transport",
     4,
     200,
-    1,
+    0,
     _initUral,
     {
          _veh = (_this select 0);
@@ -100,7 +100,7 @@ _tigr = [
     "TIGR-M",
     4,
     500,
-    1,
+    2,
     [[],[]],
     {
         _veh = (_this select 0);
@@ -118,7 +118,7 @@ _ammotruck = [
     "GAZ-66 Ammo",
     1,
     1000,
-    1,
+    3,
     [[], ["light_hide",1]],
     {
         _veh = (_this select 0);
@@ -174,7 +174,7 @@ _uaz = [
     "UAZ Dshkm",
     2,
     1000,
-    1,
+    4,
     [[], ["cabinlights_hide",0,"light_hide",1]],
     {
     _veh = (_this select 0);
@@ -194,7 +194,7 @@ _btr = [
     "BTR-70",
     2,
     1300,
-    1,
+    5,
     [[], ["driverViewHatch",0, "commanderViewHatch",0, "cargoHandler1",0, "crate_l1_unhide",1, "crate_l2_unhide",1, "crate_l3_unhide",1, "crate_l4_unhide",1, "crate_r1_unhide",1, "crate_r2_unhide",1, "crate_r3_unhide",1, "crate_r4_unhide",1, "water_1_unhide",1, "water_2_unhide",1, "wheel_1_unhide",1, "wheel_2_unhide",1]],
     {
     clearWeaponCargoGlobal (_this select 0);
@@ -219,7 +219,7 @@ _bmp = [
     "BMP-1",
     1,
     2000,
-    1,
+    6,
     _initBMP,
     {
     clearWeaponCargoGlobal (_this select 0);
@@ -243,7 +243,7 @@ _t72 = [
     "T-72",
     1,
     3500,
-    1,
+    7,
     _initT72,
     {
     clearWeaponCargoGlobal (_this select 0);
@@ -267,7 +267,7 @@ _transmitter = [
     "Radio Relay",
     1,
     1500,
-    1,
+    8,
     [[], []],
     {
         deleteVehicle (_this select 0);
@@ -276,6 +276,26 @@ _transmitter = [
         [_terminal, _radioVeh] call GRAD_tracking_fnc_terminalAttachToVeh;
     },
     ['Sends with 50% strength and up to 100% combined w/ radio truck. Send attached and detached. Radio truck loses standalone transmission ability.'],
+    0,
+    0
+];
+
+_truckarmor = [
+    ["Land_WeldingTrolley_01_F"],
+    "Truck Armor",
+    2,
+    500,
+    9,
+    [[], []],
+    {
+        deleteVehicle (_this select 0);
+        _radioVeh = missionNameSpace getVariable ["GRAD_tracking_radioVehObj", objNull];
+        _armorLevel = _radioVeh getVariable ["BC_objectives_armorLevel", 0];
+        [_radioVeh] call BC_objectives_fnc_removeTruckArmor;
+        [_radioVeh, _armorLevel + 1] call BC_objectives_fnc_applyTruckArmor;
+        _radioVeh setVariable ["BC_objectives_armorLevel", 1];
+    },
+    ['Selfmade armor for radio truck to protect its tires against small arms fire.'],
     0,
     0
 ];
@@ -289,3 +309,4 @@ suppliesOpfor setVariable ['bmp', _bmp, true];
 suppliesOpfor setVariable ['btr', _btr, true];
 suppliesOpfor setVariable ['t72', _t72, true];
 suppliesOpfor setVariable ['transmitter', _transmitter, true];
+suppliesOpfor setVariable ['truckarmor', _truckarmor, true];

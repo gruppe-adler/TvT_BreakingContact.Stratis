@@ -9,8 +9,8 @@ _selector = _this select 4;
 
 _mouseOverArea =  _display ctrlCreate ["RscStructuredText", _idc];
 
-_mouseOverArea ctrlSetPosition [_xPos, safeZoneY, _width, (safeZoneY + safeZoneH)/1.4];
-_mouseOverArea ctrlSetBackgroundColor [0,0,0,0];
+_mouseOverArea ctrlSetPosition [_xPos, safeZoneY, _width, (safeZoneY + safeZoneH)];
+_mouseOverArea ctrlSetBackgroundColor [0,0,0,0.01];
 
 
 _mouseOverArea ctrlAddEventHandler ["MouseEnter",{

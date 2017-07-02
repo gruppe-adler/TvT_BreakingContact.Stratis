@@ -13,12 +13,12 @@ class BC_objectives {
     class server {
         file = BC_objectives\functions\server;
 
-        class afghanTasksBluforCreate {};
-        class afghanTasksOpforCreate {};
+        class applyTruckArmor {};
         class classicTasksBluforCreate {};
         class classicTasksOpforCreate {};
         class getIslandCfgEntry {};
         class loopConditions {};
+        class removeTruckArmor {};
 		class startPreparationTime {};
         class waitingForUnconscious {};
 

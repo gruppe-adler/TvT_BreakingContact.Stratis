@@ -39,12 +39,12 @@ _amountOfVehicles = count _applicableSupplies;
 _applicableSupplies = [
 	_applicableSupplies,
 	[],
-	{(_givenSupplies getVariable _x) select 3 },
+	{(_givenSupplies getVariable _x) select 4 },
 	"ASCEND"
 ] call BIS_fnc_sortBy;
 
 // sort boxes
-
+/*
 {
 // diag_log format ["sort before: %1", _applicableSupplies];
   if (_x == "recon_box" || _x == "transmitter" || _x == "ammo_box") then {
@@ -54,6 +54,7 @@ _applicableSupplies = [
   	diag_log format ["sort after %1", _applicableSupplies];
   };
 } forEach _applicableSupplies;
+*/
 
 [randIDC, _createdGui] call GRAD_buymenu_fnc_createKeys;
 
@@ -68,6 +69,7 @@ _applicableSupplies = [
 	_picXCoord = _picMeasurements select 0;
 
 
+	
 	 randIDC = [randIDC] call GRAD_buymenu_fnc_getNextIDC;
 	 if (!_isRefresh) then {
 	 	_btn = [randIDC, _createdGui, _xCoord, _width, _x] spawn GRAD_buymenu_fnc_createEntryMouseOverArea;
@@ -110,9 +112,9 @@ _applicableSupplies = [
 	 	_amount = [randIDC, _createdGui, _xCoord, _width,_supplyItem select 8] spawn GRAD_buymenu_fnc_createEntrySpawnMethodMouseOverArea;
 	 };
 
+	 
 	 // randIDC = [randIDC] call fnc_getNextIDC;
 	 // _eta = [randIDC, _createdGui, _xCoord, _width,_supplyItem select 4] spawn fnc_createEntryETA;
-
 	 randIDC = [randIDC] call GRAD_buymenu_fnc_getNextIDC;
 	 if (count _allowedSupplies > 0) then {
 	 	if (_isRefresh) then {
@@ -121,6 +123,8 @@ _applicableSupplies = [
 				_btn = [randIDC, _createdGui, _xCoord, _width, _x, _givenSupplies, _supplyItem select 8, _supplyItem select 9, _supplyItem select 3] spawn GRAD_buymenu_fnc_createEntryBuyButton;
 			};
 		};
+
+
 
 		
 

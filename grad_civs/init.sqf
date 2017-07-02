@@ -1,4 +1,4 @@
-GRAD_CIV_DEBUG = true;
+GRAD_CIV_DEBUG = false;
 
 if (isServer) then {
 

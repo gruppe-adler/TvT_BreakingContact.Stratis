@@ -32,7 +32,7 @@ _mrzr4 = [
     "MRZR4",
     4,
     200,
-    1,
+    0,
     [[], ["tailgateHide",1]],
     {
       _veh = (_this select 0);
@@ -76,7 +76,7 @@ _hmmwv_m2 = [
       "HMMWV M2",
       4,
       1000,
-      1,
+      2,
       [[], true],
       {
       _veh = (_this select 0);
@@ -95,7 +95,7 @@ _m113 = [
       "M113 M240",
       2,
       1300,
-      1,
+      3,
       [[], ["IFF_Panels_Hide",1]],
       {
       _veh = (_this select 0);
@@ -114,7 +114,7 @@ _m113heavy = [
       "M113 M2",
       2,
       1400,
-      1,
+      4,
       [[], ["IFF_Panels_Hide",1]],
       {
       _veh = (_this select 0);
@@ -134,7 +134,7 @@ _ammocar = [
       "HMMWV Ammo",
       1,
       1500,
-      1,
+      5,
       ammocar_init,
       {
       _veh = (_this select 0);
@@ -175,7 +175,7 @@ _melb = [
       "MELB",
       1,
       2500,
-      1,
+      6,
       [[], []],
       {
       _veh = (_this select 0);
@@ -194,7 +194,7 @@ _uh60 = [
       "UH-60",
       1,
       2500,
-      1,
+      7,
       [[], ["doors_hide",0,"Holder",0,"AddCargoHook_COver",0]],
       {
       _veh = (_this select 0);
