@@ -22,6 +22,8 @@ waitUntil {sleep 1; !isNil "GRAD_TERMINAL_DESTROYED"};
     if (TRANSMISSION_COMPLETE) exitWith {
         [_handle] call CBA_fnc_removePerFrameHandler;
 
+        call GRAD_replay_fnc_stopRecord;
+
         [_taskBlufor1,"FAILED",true] call BIS_fnc_taskSetState;
         [_taskBlufor2,"FAILED",true] call BIS_fnc_taskSetState;
         [_taskOpfor1,"SUCCEEDED",true] call BIS_fnc_taskSetState;
@@ -31,6 +33,8 @@ waitUntil {sleep 1; !isNil "GRAD_TERMINAL_DESTROYED"};
     /* opfor wins by elimination*/
     if (BLUFOR_ELIMINATED) exitWith {
         [_handle] call CBA_fnc_removePerFrameHandler;
+
+        call GRAD_replay_fnc_stopRecord;
 
         [_taskBlufor1,"FAILED",true] call BIS_fnc_taskSetState;
         [_taskBlufor2,"FAILED",true] call BIS_fnc_taskSetState;
@@ -42,6 +46,8 @@ waitUntil {sleep 1; !isNil "GRAD_TERMINAL_DESTROYED"};
     if (BLUFOR_CAPTURED) exitWith {
         [_handle] call CBA_fnc_removePerFrameHandler;
 
+        call GRAD_replay_fnc_stopRecord;
+
         [_taskBlufor1,"SUCCEEDED",true] call BIS_fnc_taskSetState;
         [_taskBlufor2,"CANCELED",true] call BIS_fnc_taskSetState;
         [_taskOpfor1,"FAILED",true] call BIS_fnc_taskSetState;
@@ -52,6 +58,8 @@ waitUntil {sleep 1; !isNil "GRAD_TERMINAL_DESTROYED"};
     if (OPFOR_ELIMINATED) exitWith {
         [_handle] call CBA_fnc_removePerFrameHandler;
 
+        call GRAD_replay_fnc_stopRecord;
+
         [_taskBlufor1,"CANCELED",true] call BIS_fnc_taskSetState;
         [_taskBlufor2,"SUCCEEDED",true] call BIS_fnc_taskSetState;
         [_taskOpfor1,"FAILED",true] call BIS_fnc_taskSetState;
@@ -60,6 +68,8 @@ waitUntil {sleep 1; !isNil "GRAD_TERMINAL_DESTROYED"};
 
     if (TRUCK_DESTROYED_NOT_CONQUERED) exitWith {
     	[_handle] call CBA_fnc_removePerFrameHandler;
+
+        call GRAD_replay_fnc_stopRecord;
 
     	_radioVeh = missionNameSpace getVariable ["GRAD_tracking_radioVehObj", objNull];
         _terminal = missionNameSpace getVariable ["GRAD_tracking_terminalObj", objNull];

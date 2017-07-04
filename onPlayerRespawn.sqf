@@ -8,9 +8,15 @@ if (player getVariable ["grad_gcamspec_firstSpawn", true]) exitWith {
 // put player somewhere
 
 player setPos [0,0,100];
-player enableSimulation false;
-player enableSimulationGlobal false;
-player hideObjectGlobal true;
+
+if (isMultiplayer) then {
+	player enableSimulationGlobal false;
+	player hideObjectGlobal true;
+} else {
+	player enableSimulation false;
+	player hideObject true;
+};
+
 player allowDamage false;
 player setVariable ["ace_medical_allowDamage", false];
 
