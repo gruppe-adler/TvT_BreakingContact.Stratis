@@ -16,8 +16,8 @@
 // Show unit type in Unit List and Map. ( true | false )
 #define LISTFRIENDLY true
 #define LISTENEMY true
-#define LISTCIVILIAN true
-#define LISTANIMAL true
+#define LISTCIVILIAN false
+#define LISTANIMAL false
 
 // Radius distance to which units is listed in Unit List and groups showed in Map.
 // ( Recommended 1000-3000, viewDistance is graphic option value )
