@@ -182,6 +182,7 @@ spawnBluforHQ = {
 	
 	_vehicle1 addItemCargoGlobal ["ItemGPS",1];
 	_vehicle1 setVariable ["detachableBoat",2];
+	_vehicle1 setVariable ["GRAD_replay_track", true];
 
 	_vehicle2 setVariable ["GRAD_spawnType","blufor", true];
 	[_vehicle2, true, [0,0.5,0.5], 180] remoteExec ["ace_dragging_fnc_setCarryable", 0, true];

@@ -16,13 +16,16 @@ if (IS_WOODLAND) then {
        _initT72 = [["standard",1], ["hide_com_shield",1,"sightElevationAPFSDS",0]];
        tigr = "rhs_tigr_m_vdv";
        uaz = "rhsgref_nat_uaz_dshkm";
-       /*
+       
        bmp_code = {};
+
        btr_code = {};
-       */
+       
        gaz_code = {};
        
        kamaz_code = {};
+       
+       t72_code = {};
     } else {
        _initUral = [["rhs_sand",1], ["light_hide",1]];
        _initBMP = [["rhs_sand",1], ["crate_l1_unhide",1,"crate_l2_unhide",1,"crate_l3_unhide",1,"crate_r1_unhide",1,"crate_r2_unhide",1,"crate_r3_unhide",1,"wood_1_unhide",1,"maljutka_hide_source",1,"cargoHandler1",0]];
@@ -31,7 +34,7 @@ if (IS_WOODLAND) then {
        _initT72 = [["rhs_sand",1], ["hide_com_shield",1,"sightElevationAPFSDS",0]];
        tigr = "rhs_tigr_m_3camo_vdv";
        uaz = "rhsgref_cdf_b_reg_uaz_dshkm";
-       /*
+       
        bmp_code = {
         (_this select 0) setObjectTextureGlobal [0,"rhsafrf\addons\rhs_bmp_camo\data\bmp_1_desert_co.paa"];
         (_this select 0) setObjectTextureGlobal [1,"rhsafrf\addons\rhs_bmp_camo\data\bmp_2_desert_co.paa"];
@@ -40,17 +43,25 @@ if (IS_WOODLAND) then {
         (_this select 0) setObjectTextureGlobal [4,"rhsafrf\addons\rhs_bmp_camo\data\bmp_5_desert_co.paa"];
         (_this select 0) setObjectTextureGlobal [5,"rhsafrf\addons\rhs_bmp_camo\data\bmp_6_desert_co.paa"];
         };
+        
         btr_code = {
         (_this select 0) setObjectTextureGlobal [0,"rhsafrf\addons\rhs_btr70_camo\data\btr70_1_sand_co.paa"];
         (_this select 0) setObjectTextureGlobal [1,"rhsafrf\addons\rhs_btr70_camo\data\btr70_2_sand_co.paa"];
         };
-        */
+        
         gaz_code = {
         (_this select 0) setObjectTextureGlobal [0,"rhsafrf\addons\rhs_gaz66_camo\data\gaz66_sand_co.paa"];
         (_this select 0) setObjectTextureGlobal [1,"rhsafrf\addons\rhs_gaz66\data\tent_co.paa"];
         (_this select 0) setObjectTextureGlobal [2,"rhsafrf\addons\rhs_gaz66_camo\data\rhs_gaz66_kung_sand_co.paa"];
         (_this select 0) setObjectTextureGlobal [3,"rhsafrf\addons\rhs_gaz66_camo\data\rhs_gaz66_ap2kung_sand_co.paa"];
         (_this select 0) setObjectTextureGlobal [4,"rhsafrf\addons\rhs_gaz66_camo\data\rhs_gaz66_repkung_sand_co.paa"];
+        };
+
+        t72_code = {
+        (_this select 0) setObjectTextureGlobal [0,"rhsafrf\addons\rhs_t72_camo\data\rhs_t72b_01a_sand_co.paa"];
+        (_this select 0) setObjectTextureGlobal [1,"rhsafrf\addons\rhs_t72_camo\data\rhs_t72b_02a_sand_co.paa"];
+        (_this select 0) setObjectTextureGlobal [2,"rhsafrf\addons\rhs_t72_camo\data\rhs_t72b_03_sand_co.paa"];
+        (_this select 0) setObjectTextureGlobal [3,"rhsafrf\addons\rhs_t72_camo\data\rhs_t72b_04_sand_co.paa"];
         };
         
         

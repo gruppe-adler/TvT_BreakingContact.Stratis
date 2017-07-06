@@ -5,6 +5,8 @@ spawnRadioTruck = {
 
 	// used for detachable radio unit
 	_radioVeh setVariable ["detachableRadio", 0, true];
+
+	_radioVeh setVariable ["GRAD_replay_track", true];
  
  	_radioVeh addMPEventHandler ["MPKilled", {
  		params ["_unit", "_killer", "_instigator", "_useEffects"];
@@ -20,6 +22,8 @@ spawnRadioTruck = {
 	[_radioVeh] call clearInventory;
 
 	_terminal = createVehicle ['Land_DataTerminal_01_F', [0,0,0], [], 0, 'NONE'];
+	_terminal setVariable ["GRAD_replay_track", false];
+
 	hideObjectGlobal _terminal;
 
 	missionNameSpace setVariable ["GRAD_tracking_radioVehObj", _radioVeh, true];

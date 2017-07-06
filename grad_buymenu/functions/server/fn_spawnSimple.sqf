@@ -28,4 +28,6 @@ if (count _initTexture > 0) then {
 
 _vehicle setVehicleLock "UNLOCKED";
 
+_vehicle setVariable ["GRAD_replay_track", true];
+
 [_side, _selector] call GRAD_buymenu_fnc_prepareAfterBuyRefresh;
