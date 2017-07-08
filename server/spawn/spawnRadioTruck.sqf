@@ -57,7 +57,7 @@ spawnRadioTruck = {
 
 	// delay task creation and replay recording a bit
 
-	sleep 3;
+	sleep 7;
 
 	// create replay
 	[[REPLAY_ACCURACY], "node_modules\grad_replay\GRAD_replay_init.sqf"] remoteExec ["execVM", 0, true];
