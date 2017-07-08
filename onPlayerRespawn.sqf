@@ -3,6 +3,7 @@ openMap [false, false];
 
 if (player getVariable ["grad_gcamspec_firstSpawn", true]) exitWith {
 	player setVariable ["grad_gcamspec_firstSpawn", false];
+	player setVariable ["GRAD_replay_track", true];
 };
 ["Terminate"] call BIS_fnc_EGSpectator;
 // put player somewhere
