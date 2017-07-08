@@ -5,10 +5,6 @@ enableDynamicSimulationSystem true;
 
 0 = [] execVM "grad_buymenu\buymenu_init.sqf";
 
-// islandconfig must be before initgui!
-/* call compile preprocessFile "islandConfig.sqf";*/
-
-
 clearInventory = compile preprocessFile "helpers\clearInventory.sqf";
 spawnStuff = compile preprocessFile "helpers\spawnStuff.sqf";
 
