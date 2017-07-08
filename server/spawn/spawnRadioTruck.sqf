@@ -22,7 +22,7 @@ spawnRadioTruck = {
 	[_radioVeh] call clearInventory;
 
 	_terminal = createVehicle ['Land_DataTerminal_01_F', [0,0,0], [], 0, 'NONE'];
-	_terminal setVariable ["GRAD_replay_track", false];
+	_terminal setVariable ["GRAD_replay_track", true];
 
 	hideObjectGlobal _terminal;
 
