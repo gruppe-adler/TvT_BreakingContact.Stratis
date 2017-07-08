@@ -1,7 +1,7 @@
 {
   "name": "tvt-breaking-contact",
   "description": "Asymmetric TvT scenario for Arma3",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "dependencies": {
     "grad-fortifications": "^0.3.0",
     "grad-loadout": "^4.6.0",
