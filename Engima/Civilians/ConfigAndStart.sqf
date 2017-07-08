@@ -40,6 +40,9 @@ _parameters = [
 		_civ call GRAD_civs_fnc_dressAndBehave;
 		[_civ] call GRAD_civs_fnc_addConversationAnswers;
 		[_civ] call GRAD_civs_fnc_addBrainEventhandler;
+		if (!isNil "GRAD_REPLAY_CIVILIAN_ONFOOT_TRACKED" && {GRAD_REPLAY_CIVILIAN_ONFOOT_TRACKED}) then {
+			_civ setVariable ["GRAD_replay_track", true];
+		};
 	}],
 	["ON_UNIT_REMOVE_CALLBACK", { true }],
 	["DEBUG", false]
