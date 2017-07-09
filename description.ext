@@ -122,7 +122,7 @@ class Params
 		title = "Length of sending time";
 		values[] = {30, 300, 600, 900, 1800, 2700, 3600, 4500, 5400, 6300};
 		texts[] = {"30s (DEBUG)", "5'","10' (recommended for 3 radio positions)", "15'", "30'", "45' (recommended for 1 radio position)", "1h'", "1h15'","1h30'","1h45'"};
-		default = 30;
+		default = 600;
 	};
 
 	class GRAD_INTERVALS_NEEDED
@@ -130,7 +130,7 @@ class Params
 		title = "Number of random places opfor needs to come closer than 1000m";
 		values[] = {1, 2, 3, 4, 5, 6};
 		texts[] = {"none","2","3","4","5","6"};
-		default = 3;
+		default = 1;
 	};
 
 	class TIME_ACCELERATION
