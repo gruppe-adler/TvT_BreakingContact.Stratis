@@ -56,7 +56,6 @@ if (isServer) then {
 		{MISSION_COMPLETED}
 	] call GRAD_tracking_fnc_mainLoop;
 
-
 	call GRAD_tracking_fnc_terminalDistanceListenerServer;
 };
 
