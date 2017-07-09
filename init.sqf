@@ -13,7 +13,6 @@ spawnStuff = compile preprocessFile "helpers\spawnStuff.sqf";
 disableRemoteSensors true; // disable ai combat ability
 setViewDistance 3500;
 
-
 // loadout + wave respawn added
 IS_WOODLAND = ["woodland",true] call BC_objectives_fnc_getIslandCfgEntry;
 
@@ -25,7 +24,6 @@ if (IS_WOODLAND) then {
 	["BLU_F", "US_Desert"] call GRAD_Loadout_fnc_FactionSetLoadout;
 	["OPF_F", "RU_Desert"] call GRAD_Loadout_fnc_FactionSetLoadout;
 };
-
 
 call compile preprocessfile "loadouts\setLoadoutRandomization.sqf";
 
