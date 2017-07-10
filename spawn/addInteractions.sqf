@@ -102,6 +102,7 @@ _selfRadioStop = ["ACE_SelfActions", "Stop calling US agents", "",
 
 // RADIO TRUCK DEPLOY
 
+/*
 _deployAction = [
     "RusRadioDeploy",
     (localize "str_GRAD_radio_deploy"),
@@ -139,7 +140,7 @@ _retractAction = [
     }
 ] call ace_interact_menu_fnc_createAction;
 ["rhs_gaz66_r142_vv", 0, ["ACE_MainActions"], _retractAction] call ace_interact_menu_fnc_addActionToClass;
-
+*/
 
 
 // RADIO TRUCK/BOX DESTROY
