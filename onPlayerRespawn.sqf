@@ -10,13 +10,14 @@ if (player getVariable ["grad_gcamspec_firstSpawn", true]) exitWith {
 
 player setPos [0,0,100];
 
-if (isMultiplayer) then {
-	player enableSimulationGlobal false;
-	player hideObjectGlobal true;
-} else {
+if (!isMultiplayer) then {
 	player enableSimulation false;
 	player hideObject true;
+} else {
+	[player] remoteExec ["GRAD_replay_fnc_setMeSpectator", 2, false];
 };
+
+
 
 player allowDamage false;
 player setVariable ["ace_medical_allowDamage", false];

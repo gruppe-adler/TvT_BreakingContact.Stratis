@@ -4,11 +4,12 @@ _pointingCache = player getVariable ["GRAD_civs_mePointingAt", objNull];
 if (!weaponLowered player) then {
       
       if ( 
-          (side cursorTarget) == civilian && 
-          {alive cursorTarget} && 
-          {(count (crew cursorTarget)) > 0} && // is not empty vehicle
-          {player distance cursorTarget < (20 + random 40)} && // detection distance
-          ([objNull, "VIEW"] checkVisibility [eyePos _civ, eyePos player] == 1)
+          (side _civ) == civilian && 
+          {alive _civ} && 
+          {(count (crew _civ)) > 0} && // is not empty vehicle
+          {player distance _civ < (20 + random 40)} && // detection distance
+          ([objNull, "VIEW"] checkVisibility [eyePos _civ, eyePos player] == 1) &&
+          !isPlayer _civ
           ) then {
        
           /*  && // some randomization for detection range
@@ -36,7 +37,7 @@ if (!weaponLowered player) then {
           } else {
             _civ setVariable ["GRAD_civs_isPointedAtBy", _guysPointingAtCiv + [player], true];
             player setVariable ["GRAD_civs_mePointingAt", _civ];
-            [_civ] remoteExec ["GRAD_civs_fnc_stopCiv", [2,0] select (isMultiplayer && isDedicated), false];
+            [_civ] remoteExec ["GRAD_civs_fnc_stopCiv", _civ, false]; // execute where civ is local
           };
     };  
 } else {
