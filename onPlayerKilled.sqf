@@ -6,6 +6,7 @@ params ["_player", "_killer"];
 setPlayerRespawnTime 0;
 
 player setVariable ["GRAD_replay_persistentName", name player, true];
+player setVariable ["GRAD_replay_playerPosition", getPos player, true];
 
 if (!(_killer isEqualTo player)) then {
 

@@ -8,8 +8,7 @@ if (player getVariable ["grad_gcamspec_firstSpawn", true]) exitWith {
 ["Terminate"] call BIS_fnc_EGSpectator;
 // put player somewhere
 
-player setPos [0,0,100];
-
+// disable simulation, hide player
 if (!isMultiplayer) then {
 	player enableSimulation false;
 	player hideObject true;
@@ -17,10 +16,17 @@ if (!isMultiplayer) then {
 	[player] remoteExec ["GRAD_replay_fnc_setMeSpectator", 2, false];
 };
 
+// float above death position
+_deathPos = player getVariable ["GRAD_replay_playerPosition", [worldSize/2, worldSize/2]];
+player setPosATL [_deathPos select 0, _deathPos select 1, 10];
 
-
+// disable damage
 player allowDamage false;
 player setVariable ["ace_medical_allowDamage", false];
+
+// move player to GUER side
+[player] joinsilent SPEC_GROUP;
+
 
 _focus = player getVariable ["GRAD_gcamspec_currentFocus", player];
 
@@ -28,7 +34,6 @@ if (player getVariable ["grad_gcamspec", false]) then {
 	
 	[_focus] execVM "grad_gcamspec\gcam\gcam.sqf";
 	player setVariable ["grad_gcamspec", false];
-	[player] joinsilent SPEC_GROUP; 
 
 } else {
 	setPlayerRespawnTime 999999;

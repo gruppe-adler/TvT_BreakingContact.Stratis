@@ -118,6 +118,7 @@ _acx = 0.0;
 _acy = 0.0;
 _acz = 0.0;
 _op = visiblePosition player;
+_killer = player getVariable ["GRAD_gcamspec_currentFocus", player];
 _cp = [0.0,0.0,0.0];
 _cp_r = [0.0,0.0,0.0];
 _cfzm = sin((_zm / 1.8) * 90);
@@ -2358,11 +2359,13 @@ _ehid_mousebu = (findDisplay 46) displayAddEventHandler ["MouseButtonUp", "GCam_
 
 /* diag_log format ["gcam debug: this is %1", _this]; */
 
+//////////////////////// player replaced by _killer
+
 if (isNil "_this") then
-{ _o = player }
+{ _o = _killer }
 else
 { _o = vehicle (_this select 0) };
-if (isNil"_o") then { _o = player };
+if (isNil"_o") then { _o = _killer };
 _o_l = _o;
 _initobject = _o;
 
@@ -3492,6 +3495,7 @@ while {_l} do
 			//////////////
 
 			// enter full spec
+			/*
 			[player, false] call ace_spectator_fnc_stageSpectator;
 			[true] call ace_spectator_fnc_setSpectator;
 			player setVariable ["GRAD_gcamSpec_isStaged", false];
@@ -3514,6 +3518,7 @@ while {_l} do
 			}, [57, [false, false, true]]] call cba_fnc_addKeybind;
 
 			hintsilent "OFF";
+			*/
 			//////////////
 
 			_l = false;
@@ -3573,11 +3578,14 @@ while {_l} do
 			if (count _li_ol != 0 and !(isNull _lostchk)) then
 			{
 				_o = vehicle(_li_ol select 0);
-			}
+			};
+			//////////////// removed else, player focus please
+			/*
 			else
 			{
-				_o = vehicle player;
+				_o = vehicle player; 
 			};
+			*/
 		};
 
 		lbClear 50;
