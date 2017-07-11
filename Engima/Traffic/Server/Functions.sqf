@@ -161,7 +161,7 @@ ENGIMA_TRAFFIC_MoveVehicle = {
     }
     else {
 		_roadSegments = ENGIMA_TRAFFIC_roadSegments select _currentInstanceIndex;
-        _destinationSegment = _roadSegments select floor random count _roadSegments;
+        _destinationSegment = selectRandom _roadSegments;
         _destinationPos = getPos _destinationSegment;
     };
 
@@ -229,7 +229,7 @@ ENGIMA_TRAFFIC_StartTraffic = {
 
 	    _spawnDistanceDiff = _maxSpawnDistance - _minSpawnDistance;
 	    _roadSegment = "NULL";
-	    _refPlayerPos = (_allPlayerPositions selectRandom _allPlayerPositions);
+	    _refPlayerPos = selectRandom _allPlayerPositions;
 	    _areaMarkerName = ENGIMA_TRAFFIC_areaMarkerNames select _currentInstanceIndex;
 
 	    _isOk = false;
@@ -245,7 +245,7 @@ ENGIMA_TRAFFIC_StartTraffic = {
 	        _roadSegments = [_refPosX, _refPosY] nearRoads (_spawnDistanceDiff / 2);
 
 	        if (count _roadSegments > 0) then {
-	            _roadSegment = _roadSegments select floor random count _roadSegments;
+	            _roadSegment = selectRandom _roadSegments;
 
 	            // Check if road segment is ok
 	            _tooFarAwayFromAll = true;
@@ -407,7 +407,7 @@ ENGIMA_TRAFFIC_StartTraffic = {
 	                default { _roadSegments = ENGIMA_TRAFFIC_roadSegments select _currentInstanceIndex };
 	            };
 
-	            _destinationSegment = _roadSegments select floor random count _roadSegments;
+	            _destinationSegment = selectRandom _roadSegments;
 	            _destinationPos = getPos _destinationSegment;
 
 	            _direction = ((_destinationPos select 0) - (getPos _spawnSegment select 0)) atan2 ((_destinationPos select 1) - (getposATL _spawnSegment select 1));

@@ -103,17 +103,17 @@ class Params
 
 	class OPFOR_MONEY
 	{
-		title = "Finances OPFOR";
-		values[] = {1000, 2000, 3000, 4000, 5000, 6000};
-		texts[] = {"1000k","2000k","3000k","4000k","5000k","6000k"};
+		title = "Finances OPFOR (+50 per player)";
+		values[] = {0, 1000, 2000, 3000, 4000, 5000, 6000};
+		texts[] = {"zero", "1000k","2000k","3000k","4000k","5000k","6000k"};
 		default = 2000;
 	};
 
 	class BLUFOR_MONEY
 	{
-		title = "Finances BLUFOR";
-		values[] = {1000, 2000, 3000, 4000, 5000, 6000};
-		texts[] = {"1000k","2000k","3000k","4000k","5000k","6000k"};
+		title = "Finances BLUFOR (+50 per player)";
+		values[] = {0, 1000, 2000, 3000, 4000, 5000, 6000};
+		texts[] = {"zero", "1000k","2000k","3000k","4000k","5000k","6000k"};
 		default = 3000;
 	};
 

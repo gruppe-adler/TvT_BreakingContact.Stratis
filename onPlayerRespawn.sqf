@@ -30,6 +30,8 @@ player setVariable ["ace_medical_allowDamage", false];
 
 _focus = player getVariable ["GRAD_gcamspec_currentFocus", player];
 
+if (missionNamespace getVariable ["GRAD_replay_isRunning", false]) exitWith {};
+
 if (player getVariable ["grad_gcamspec", false]) then {
 	
 	[_focus] execVM "grad_gcamspec\gcam\gcam.sqf";
