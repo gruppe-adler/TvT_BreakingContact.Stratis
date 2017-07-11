@@ -229,7 +229,7 @@ ENGIMA_TRAFFIC_StartTraffic = {
 
 	    _spawnDistanceDiff = _maxSpawnDistance - _minSpawnDistance;
 	    _roadSegment = "NULL";
-	    _refPlayerPos = (_allPlayerPositions select floor random count _allPlayerPositions);
+	    _refPlayerPos = (_allPlayerPositions selectRandom _allPlayerPositions);
 	    _areaMarkerName = ENGIMA_TRAFFIC_areaMarkerNames select _currentInstanceIndex;
 
 	    _isOk = false;
@@ -331,9 +331,9 @@ ENGIMA_TRAFFIC_StartTraffic = {
 		_allPlayerPositionsTemp = [];
 		if (isMultiplayer) then {
 			{
-				if (isPlayer _x) then {
-					_allPlayerPositionsTemp = _allPlayerPositionsTemp + [position vehicle _x];
-				};
+				
+				_allPlayerPositionsTemp = _allPlayerPositionsTemp + [position vehicle _x]; // playable ai shouldnt be near spawn either
+				
 			} foreach (playableUnits);
 		}
 		else {
