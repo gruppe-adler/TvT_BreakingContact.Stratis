@@ -27,6 +27,7 @@ if (IS_WOODLAND) then {
 
 call compile preprocessfile "loadouts\setLoadoutRandomization.sqf";
 
+
 // paramsarray select 12 is BFT module in editor
 waitUntil {!isNil "JIP_TIME_ALLOWED"};
 jipTime = JIP_TIME_ALLOWED;
