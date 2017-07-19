@@ -12,9 +12,9 @@ if (player getVariable ["grad_gcamspec_firstSpawn", true]) exitWith {
 // float above death position
 _deathPos = player getVariable ["GRAD_replay_playerPosition", getPosATL (selectRandom (playableUnits + switchableUnits))];
 // move player to side logic
-_spectator = (createGroup sideLogic) createUnit ["VirtualCurator_F", _deathPos, [], 0, "FORM"];
-selectPlayer _spectator;
-//[player] joinsilent SPEC_GROUP;
+// _spectator = (createGroup sideLogic) createUnit ["VirtualCurator_F", _deathPos, [], 0, "FORM"];
+// selectPlayer _spectator;
+[player] joinsilent SPEC_GROUP;
 
 
 // disable simulation, hide player
