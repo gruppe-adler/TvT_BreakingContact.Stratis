@@ -34,13 +34,13 @@ player setVariable ["ace_medical_allowDamage", false];
 _focus = player getVariable ["GRAD_gcamspec_currentFocus", player];
 
 if (missionNamespace getVariable ["GRAD_replay_isRunning", false]) exitWith {
-
+	call GRAD_replay_fnc_preparePlaybackClient;
 };
 
-if (player getVariable ["grad_gcamspec", false]) then {
+if (missionNamespace getVariable ["grad_replay_player_gcamspec", false]) then {
 	
 	[_focus] execVM "grad_gcamspec\gcam\gcam.sqf";
-	player setVariable ["grad_gcamspec", false];
+	missionNamespace setVariable ["grad_replay_player_gcamspec", false];
 	[player, false] call TFAR_fnc_forceSpectator;
 	player setVariable ["tf_voiceVolume", 0, true];
     player setVariable ["tf_globalVolume", 0, true];
@@ -49,6 +49,6 @@ if (player getVariable ["grad_gcamspec", false]) then {
 } else {
 	setPlayerRespawnTime 999999;
 	["Initialize", [player, [west, east], true, true, true, false, true, true, true, true]] call BIS_fnc_EGSpectator;
-	player setVariable ["grad_gcamspec", true];
+	missionNamespace setVariable ["grad_replay_player_gcamspec", true];
 	[player, true] call TFAR_fnc_forceSpectator;
 };
