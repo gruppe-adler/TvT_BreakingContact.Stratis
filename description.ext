@@ -146,7 +146,7 @@ class Params
 		title = "InGame Replay Accuracy";
 		values[] = {1,2,3,4,5};
 		texts[] = {"every 1s","every 2s","every 3s","every 4s","every 5s"};
-		default = 1;
+		default = 2;
 	};
 
 	class AR3PLAY_ENABLE_REPLAY
