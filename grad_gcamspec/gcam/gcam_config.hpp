@@ -11,7 +11,7 @@
 #define CFTRK 0.3
 
 // Zoom Speed ( Recommended 0.0-1.0 )
-#define CFWHEEL 0.3
+#define CFWHEEL 0.1
 
 // Show unit type in Unit List and Map. ( true | false )
 #define LISTFRIENDLY true
