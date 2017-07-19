@@ -1,5 +1,5 @@
 if (player getVariable ["grad_gcamspec_firstSpawn", true]) exitWith {
-	player setVariable ["grad_gcamspec_firstSpawn", false];
+	player setVariable ["grad_gcamspec_firstSpawn", false, true];
 	player setVariable ["GRAD_replay_track", true, true];
 
 	hint "";
