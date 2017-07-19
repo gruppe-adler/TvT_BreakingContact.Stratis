@@ -8,7 +8,7 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=722;
+		nextID=723;
 	};
 	class MarkerIDProvider
 	{
@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={1892.7234,92.088013,5560.2686};
-		dir[]={-0.80240142,-0.40977511,0.43396538};
-		up[]={-0.36044905,0.91217804,0.1949434};
-		aside[]={0.47573927,2.8245267e-007,0.87963825};
+		pos[]={1707.8741,31.704334,5507.9292};
+		dir[]={-0.81673807,-0.449613,-0.36177871};
+		up[]={-0.41109976,0.89321643,-0.18209846};
+		aside[]={-0.40502051,3.2718526e-007,0.91436207};
 	};
 };
 binarizationWanted=0;
@@ -27,7 +27,9 @@ addons[]=
 {
 	"A3_Ui_F",
 	"A3_Characters_F",
+	"asr_ai3_cfgcamouflage",
 	"ace_nouniformrestrictions",
+	"asr_ai3_cfgvehicles",
 	"A3_Data_F_Exp_A_Virtual",
 	"ace_zeus",
 	"ace_common",
