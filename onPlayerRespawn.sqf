@@ -8,37 +8,47 @@ if (player getVariable ["grad_gcamspec_firstSpawn", true]) exitWith {
 ["Terminate"] call BIS_fnc_EGSpectator;
 // put player somewhere
 
+
+// float above death position
+_deathPos = player getVariable ["GRAD_replay_playerPosition", getPosATL (selectRandom (playableUnits + switchableUnits))];
+// move player to side logic
+_spectator = (createGroup sideLogic) createUnit ["VirtualCurator_F", _deathPos, [], 0, "FORM"];
+selectPlayer _spectator;
+//[player] joinsilent SPEC_GROUP;
+
+
 // disable simulation, hide player
 if (!isMultiplayer) then {
 	player enableSimulation false;
 	player hideObject true;
 } else {
-	[player] remoteExec ["GRAD_replay_fnc_setMeSpectator", 2, false];
+	[player, _deathPos] remoteExec ["GRAD_replay_fnc_setMeSpectator", 2, false];
 };
 
-// float above death position
-_deathPos = player getVariable ["GRAD_replay_playerPosition", [worldSize/2, worldSize/2]];
-player setPosATL [_deathPos select 0, _deathPos select 1, 10];
 
 // disable damage
 player allowDamage false;
 player setVariable ["ace_medical_allowDamage", false];
 
-// move player to GUER side
-[player] joinsilent SPEC_GROUP;
-
 
 _focus = player getVariable ["GRAD_gcamspec_currentFocus", player];
 
-if (missionNamespace getVariable ["GRAD_replay_isRunning", false]) exitWith {};
+if (missionNamespace getVariable ["GRAD_replay_isRunning", false]) exitWith {
+
+};
 
 if (player getVariable ["grad_gcamspec", false]) then {
 	
 	[_focus] execVM "grad_gcamspec\gcam\gcam.sqf";
 	player setVariable ["grad_gcamspec", false];
+	[player, false] call TFAR_fnc_forceSpectator;
+	player setVariable ["tf_voiceVolume", 0, true];
+    player setVariable ["tf_globalVolume", 0, true];
+	player setVariable ["tf_unable_to_use_radio", true, true];
 
 } else {
 	setPlayerRespawnTime 999999;
 	["Initialize", [player, [west, east], true, true, true, false, true, true, true, true]] call BIS_fnc_EGSpectator;
 	player setVariable ["grad_gcamspec", true];
+	[player, true] call TFAR_fnc_forceSpectator;
 };
