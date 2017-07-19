@@ -1,12 +1,14 @@
 spawnRadioTruck = {
 	params ["_position"];
 
-	_radioVeh = [_position, 0, 1, "rhs_gaz66_r142_vv"] call spawnStuff;
+	_classname = "rhs_gaz66_r142_vv";
+	_spawnpos = [_position, 0, 1, _classname] call findSimplePos;
+	_radioVeh = _classname createVehicle _spawnpos;
 
 	// used for detachable radio unit
 	_radioVeh setVariable ["detachableRadio", 0, true];
 
-	_radioVeh setVariable ["GRAD_replay_track", true];
+	_radioVeh setVariable ["GRAD_replay_track", true, true];
  
  	_radioVeh addMPEventHandler ["MPKilled", {
  		params ["_unit", "_killer", "_instigator", "_useEffects"];
