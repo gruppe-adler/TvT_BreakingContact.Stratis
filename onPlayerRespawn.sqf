@@ -39,10 +39,7 @@ if (missionNamespace getVariable ["grad_replay_player_gcamspec", false]) then {
 
 	[_focus] execVM "grad_gcamspec\gcam\gcam.sqf";
 	missionNamespace setVariable ["grad_replay_player_gcamspec", false];
-	[player, false] call TFAR_fnc_forceSpectator;
-	player setVariable ["tf_voiceVolume", 0, true];
-    player setVariable ["tf_globalVolume", 0, true];
-	player setVariable ["tf_unable_to_use_radio", true, true];
+	[player, true] call TFAR_fnc_forceSpectator;
 
 } else {
 	setPlayerRespawnTime 999999;

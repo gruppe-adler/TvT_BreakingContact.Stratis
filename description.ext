@@ -130,7 +130,7 @@ class Params
 		title = "Number of random places opfor needs to come closer than 1000m";
 		values[] = {1, 2, 3, 4, 5, 6};
 		texts[] = {"none","2","3","4","5","6"};
-		default = 1;
+		default = 3;
 	};
 
 	class TIME_ACCELERATION
