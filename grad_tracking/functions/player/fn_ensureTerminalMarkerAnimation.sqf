@@ -1,6 +1,6 @@
 private ["_maxSize", "_size", "_animationSpeed", "_delayBetweenPulse"];
 
-_maxSize = 100; 
+_maxSize = GRAD_SIGNAL_SIZE*0.75; 
 _size = 0.01;
 _animationSpeed = 0.02;
 _delayBetweenPulse = GRAD_SIGNAL_DELAY;

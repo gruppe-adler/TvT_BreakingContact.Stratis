@@ -3,7 +3,6 @@ class GRAD_tracking {
 	class player {
         file = grad_tracking\functions\player;
 
-        class addGetInVehicleEH {};
         class createMarkerLastSeen {};
         class createMarkerRadioVeh {};
         class createMarkerTerminal {};
@@ -41,8 +40,6 @@ class GRAD_tracking {
         class radioTruckRetract {};
         class radioVehIsSending {};
         class randomizeMarker {};
-        class registerVehicleEnter {};
-        class registerVehicleExit {};
         class setRadioVehMarkerPosition {};
         class setRadioVehMarkerSize {};
         class setRadioVehMarkerStatus {};
