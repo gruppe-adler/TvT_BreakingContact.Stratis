@@ -229,6 +229,89 @@ class ace_map_BFT_HideAiGroups {
 	};
 };
 
+class CfgDebriefing
+{  
+	class OpforWinsByElimination
+	{
+		title = "Opfor wins";
+		subtitle = "by elimination";
+		description = "All Blufor units are eliminated.";
+		picture = "pic\gruppe-adler.paa";
+	};
+
+	class OpforWinsByTransmission
+	{
+		title = "Opfor wins";
+		subtitle = "by completing transmission";
+		description = "Opfor managed to complete their transmission. Too slow Blufor, next time hurry up!";
+		picture = "pic\gruppe-adler.paa";
+	};
+
+	class OpforWinsByBluforDestroyingTheTruck
+	{
+		title = "Opfor wins";
+		subtitle = "The radio truck was destroyed by Blufor";
+		description = "Next time better make sure where to shoot at.";
+		picture = "pic\gruppe-adler.paa";
+	};
+
+	class BluforWinsByElimination
+	{
+		title = "Blufor wins";
+		subtitle = "by elimination";
+		description = "All Opfor units are eliminated.";
+		picture = "pic\gruppe-adler.paa";
+	};
+
+	class BluforWinsByDestruction
+	{
+		title = "Blufor wins";
+		subtitle = "by destroying the radio unit";
+		description = "Blufor managed to destroy the radio unit. Opfor, you had one job!";
+		picture = "pic\gruppe-adler.paa";
+	};
+
+	class BluforWinsByConquering
+	{
+		title = "Blufor wins";
+		subtitle = "by conquering the radio unit";
+		description = "Blufor managed to conquer the radio unit. Opfor, you had one job!";
+		picture = "pic\gruppe-adler.paa";
+	};
+
+	class BluforWinsByOpforDestroyingTheTruck
+	{
+		title = "Blufor wins";
+		subtitle = "The radio truck was destroyed by Opfor";
+		description = "Next time better make sure where to shoot at.";
+		picture = "pic\gruppe-adler.paa";
+	};
+
+	class DrawRadioTruckDestroyed
+	{
+		title = "No one wins";
+		subtitle = "The radio truck was destroyed by unknown source";
+		description = "Next time better make sure where to shoot at.";
+		picture = "pic\gruppe-adler.paa";
+	};
+
+	class DrawError
+	{
+		title = "No one wins";
+		subtitle = "End mission error: couldnt decide on winner";
+		description = "Blame nomisum, as always.";
+		picture = "pic\gruppe-adler.paa";
+	};
+};
+
+class CfgDebriefingSections
+{
+	class TransmissionTime
+	{
+		title = "Transmission Completion";
+		variable = "BC_transmissionPercentage";
+	};
+};
 
 class CfgSounds
 {

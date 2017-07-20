@@ -161,6 +161,7 @@ publicVariable "OPFOR_ELIMINATED";
 
 BLUFOR_CAPTURED = false;
 publicVariable "BLUFOR_CAPTURED";
+
 TRANSMISSION_COMPLETE = false;
 publicVariable "TRANSMISSION_COMPLETE";
 

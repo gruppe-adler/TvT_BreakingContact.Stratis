@@ -34,6 +34,7 @@ class GRAD_tracking {
         class bluforSurrendered {};
         class booleanEqual {};
         class createRadioPositionMarker {};
+        class getTransmissionPercentage {};
         class mainLoop {};
         class radioTruckCookoffFix {};
         class radioTruckDeploy {};

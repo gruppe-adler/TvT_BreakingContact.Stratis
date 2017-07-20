@@ -6,36 +6,45 @@ _TRANSMISSION_COMPLETE_listener = {
 		adminLog("blufor surrendered");
 		_string = localize "str_GRAD_winmsg_points";
 		[_string] call EFUNC(common,displayTextStructured);
-		["east"] spawn BC_objectives_fnc_endMission;
+		_transmissionPercentage = call GRAD_tracking_fnc_getTransmissionPercentage;
+		missionNamespace setVariable ["BC_transmissionPercentage", str _transmissionPercentage, true];
+		["east", "transmission"] spawn BC_objectives_fnc_endMission;
 	};
 };
 
 _BLUFOR_CAPTURED_listener = {
 	if (_this select 1) then {
 		adminLog("blufor captured");
-		["west"] spawn BC_objectives_fnc_endMission;
+		_transmissionPercentage = call GRAD_tracking_fnc_getTransmissionPercentage;
+		missionNamespace setVariable ["BC_transmissionPercentage", str _transmissionPercentage, true];
+		["west", "captured"] spawn BC_objectives_fnc_endMission;
 	};
 };
 
 _BLUFOR_ELIMINATED_listener = {
 	if (_this select 1) then {
 		adminLog("mission_complete: blufor loses  by elimination");
-		["east"] spawn BC_objectives_fnc_endMission;
+		_transmissionPercentage = call GRAD_tracking_fnc_getTransmissionPercentage;
+		missionNamespace setVariable ["BC_transmissionPercentage", str _transmissionPercentage, true];
+		["east", "elimination"] spawn BC_objectives_fnc_endMission;
 	};
 };
 
 _OPFOR_ELIMINATED_listener = {
 	if (_this select 1) then {
 		adminLog("mission_complete: opfor loses  by elimination");
-		["west"] spawn BC_objectives_fnc_endMission;
+		_transmissionPercentage = call GRAD_tracking_fnc_getTransmissionPercentage;
+		missionNamespace setVariable ["BC_transmissionPercentage", str _transmissionPercentage, true];
+		["west", "elimination"] spawn BC_objectives_fnc_endMission;
 	};
 };
 
 _TRUCK_DESTROYED_NOT_CONQUERED_listener = {
 	if (_this select 1) then {
 		adminLog("mission_complete: draw");
-		
-		["draw"] spawn BC_objectives_fnc_endMission;
+		_transmissionPercentage = call GRAD_tracking_fnc_getTransmissionPercentage;
+		missionNamespace setVariable ["BC_transmissionPercentage", str _transmissionPercentage, true];
+		["draw", "destroyed"] spawn BC_objectives_fnc_endMission;
 		
 	};
 };
