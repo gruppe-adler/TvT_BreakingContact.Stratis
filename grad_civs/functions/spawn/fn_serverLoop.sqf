@@ -5,14 +5,9 @@
 
     _playerPositions = call GRAD_civs_fnc_getPlayerPositions;
 
-    // panic cooldown for all units
+   
     {
-    	_panic = _x getVariable ["GRAD_civs_brainPanic", 0];
-
-    	if (_panic > 0) then {
-    		_x setVariable ["GRAD_civs_brainPanic", _panic - 0.05];
-    	};
-
+    
         _stopOrder = _x getVariable ["GRAD_civs_brainStop", 0];
 
         if (_stopOrder > 0) then {
