@@ -1,7 +1,7 @@
 _civ = driver cursorTarget;
 _pointingCache = player getVariable ["GRAD_civs_mePointingAt", objNull];
 
-if (!weaponLowered player) then {
+if (!weaponLowered player && isNull objectParent player) then {
       
       if ( 
           (side _civ) == civilian && 
