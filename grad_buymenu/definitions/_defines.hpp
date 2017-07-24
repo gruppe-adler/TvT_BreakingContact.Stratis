@@ -146,6 +146,8 @@ class RscStructuredTextHeadline
 };
 
 
+
+
 class RscText
 {
     access = 0;

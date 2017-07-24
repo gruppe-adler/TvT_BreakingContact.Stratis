@@ -89,7 +89,7 @@ _transportTruck = [
 _brdm = [
     ["rhsgref_BRDM2_HQ_b"],
     "BRDM PKT",
-    4,
+    2,
     300,
     1,
     _initBRDM,
@@ -203,7 +203,7 @@ _uaz = [
 _btr = [
     ["rhs_btr70_msv"],
     "BTR-70",
-    2,
+    1,
     1300,
     5,
     [[], ["driverViewHatch",0, "commanderViewHatch",0, "cargoHandler1",0, "crate_l1_unhide",1, "crate_l2_unhide",1, "crate_l3_unhide",1, "crate_l4_unhide",1, "crate_r1_unhide",1, "crate_r2_unhide",1, "crate_r3_unhide",1, "crate_r4_unhide",1, "water_1_unhide",1, "water_2_unhide",1, "wheel_1_unhide",1, "wheel_2_unhide",1]],
