@@ -4,11 +4,11 @@ _count = ["GRAD_INTERVALS_NEEDED", 1] call BIS_fnc_getParamValue;
 
 /* if (_count isEqualTo 1) exitWith { diag_log format ["no random locations necessary"]; }; */
 
-_possibleLocations = nearestLocations [_center, ["NameCity", "NameCityCapital", "NameVillage"], 5500, _center];
+_possibleLocations = nearestLocations [_center, ["NameCity", "NameCityCapital", "NameVillage"], worldSize, _center];
 
 _selectedLocations = [];
 
-for "_i" from 0 to (_count - 1) do {
+for "_i" from 0 to ((count _possibleLocations) - 1) do {
 
 	if (count _possibleLocations < 1) exitWith {
 		diag_log format ["ERROR when creating radio locations: not enough villages in reach."]
