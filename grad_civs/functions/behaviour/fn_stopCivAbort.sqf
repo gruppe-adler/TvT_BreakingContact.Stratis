@@ -22,7 +22,7 @@ if (!isNull _vehicle && {(canMove _vehicle)}) then {
         } forEach units _civGroup;
 
         (units _civGroup) orderGetIn true;
-        diag_log format ["%1 ordered to get in", leader _civGroup];
+        /* diag_log format ["%1 ordered to get in", leader _civGroup]; */
 
         if (GRAD_CIV_DEBUG) then {
             (leader _civGroup) setVariable ["GRAD_civs_currentlyThinking", "lets get in", true];

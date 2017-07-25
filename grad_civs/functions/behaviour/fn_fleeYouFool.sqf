@@ -1,6 +1,6 @@
 params ["_unit", ["_shooter", objNull]];
 
-if (_unit getVariable ["GRAD_civs_brainPanic", 0] > 0.5) exitWith { diag_log format ["%1 already fleeing", _unit]; };
+if (_unit getVariable ["GRAD_civs_isFleeing", false]) exitWith { diag_log format ["%1 already fleeing", _unit]; };
 
 CIV_GUNFIGHT_POS = (position _unit);
 diag_log format ["civ gunfight at %1",CIV_GUNFIGHT_POS];
@@ -29,7 +29,7 @@ if (!isNull _car) then {
 		[{playSound3D ["a3\sounds_f\weapons\horns\truck_horn_2.wss", _this];}, [_car], 1 + random 2] call CBA_fnc_waitAndExecute;
 		
 
-		_unit setVariable ["GRAD_civs_currentlyThinking", "driving away as fast as i can", true];
+		// _unit setVariable ["GRAD_civs_currentlyThinking", "driving away as fast as i can", true];
 	} else {
 
 		doStop _unit;
@@ -41,7 +41,7 @@ if (!isNull _car) then {
 		_targetPosition = [_escapePosition] call GRAD_civs_fnc_findPositionOfInterest;
 		_unit doMove _targetPosition;
 
-		_unit setVariable ["GRAD_civs_currentlyThinking", "running away as fast as i can, my car is broke", true];
+		// _unit setVariable ["GRAD_civs_currentlyThinking", "running away as fast as i can, my car is broke", true];
 
 	};
 } else {
@@ -50,5 +50,5 @@ if (!isNull _car) then {
 	_targetPosition = [_escapePosition] call GRAD_civs_fnc_findPositionOfInterest;
 	_unit doMove _targetPosition;
 
-	_unit setVariable ["GRAD_civs_currentlyThinking", "running away as fast as i can", true];
+	// _unit setVariable ["GRAD_civs_currentlyThinking", "running away as fast as i can", true];
 };

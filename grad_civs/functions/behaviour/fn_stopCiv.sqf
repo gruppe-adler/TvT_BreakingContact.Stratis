@@ -3,18 +3,16 @@ params ["_civ"];
 _civ = driver _civ;
 _civGroup = group _civ;
 
-_panic = _civ getVariable ["GRAD_civs_brainPanic", 0];
-
 if (_civ getVariable ["GRAD_civs_stopScriptRunning", false]) exitWith {
-    diag_log format ["already one instance of stopciv running"];
+    /* diag_log format ["already one instance of stopciv running"]; */
 };
 
 if (_civ getVariable ["GRAD_civs_isFleeing", false]) exitWith { 
-    _civ setVariable ["GRAD_civs_currentlyThinking", "i wont stop, i'm already fleeing for gods sake", true];
+    //_civ setVariable ["GRAD_civs_currentlyThinking", "i wont stop, i'm already fleeing for gods sake", true];
 };
 
 
-diag_log format ["stopping civ"];
+/* diag_log format ["stopping civ"];*/
 
 _civ setVariable ["GRAD_civs_stopScriptRunning", true];
 
