@@ -12,7 +12,7 @@
 _parameters = [
 	["SIDE", civilian],
 	["VEHICLES", GRAD_civ_vehicles],
-	["VEHICLES_COUNT", 15],
+	["VEHICLES_COUNT", 10],
 	["MIN_SPAWN_DISTANCE", 800],
 	["MAX_SPAWN_DISTANCE", 2000],
 	["MIN_SKILL", 0],

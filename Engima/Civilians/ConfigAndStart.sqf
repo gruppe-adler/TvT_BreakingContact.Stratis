@@ -29,7 +29,7 @@ _parameters = [
 "C_man_sport_1_F_asia"
 	]],
 	["UNITS_PER_BUILDING", 0.1],
-	["MAX_GROUPS_COUNT", 40],
+	["MAX_GROUPS_COUNT", 20],
 	["MIN_SPAWN_DISTANCE", 1000],
 	["MAX_SPAWN_DISTANCE", 1500],
 	["BLACKLIST_MARKERS", []],

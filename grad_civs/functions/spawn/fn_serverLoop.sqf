@@ -3,7 +3,7 @@
 
     if (MISSION_COMPLETED) exitWith { [_handle] call CBA_fnc_removePerFrameHandler; };
 
-    _playerPositions = call GRAD_civs_fnc_getPlayerPositions;
+    // _playerPositions = call GRAD_civs_fnc_getPlayerPositions;
 
    
     {

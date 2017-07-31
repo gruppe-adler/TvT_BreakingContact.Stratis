@@ -3,7 +3,7 @@ GRAD_CIV_DEBUG = false;
 if (isServer) then {
 
 	// maximum persons on map
-	GRAD_CIV_MAX_COUNT = 30;
+	GRAD_CIV_MAX_COUNT = 15;
 
 	GRAD_CIV_MIN_SPAWN_DISTANCE = 1000;
 	GRAD_CIV_MAX_SPAWN_DISTANCE = 4500;
