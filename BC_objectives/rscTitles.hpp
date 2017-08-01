@@ -1,10 +1,10 @@
 #define CT_STRUCTURED_TEXT          13
 #define ST_LEFT                     0x00
 
-#define GRAD_PREPARATIONTIME_W      pixelGridNoUIScale * pixelW * 10
-#define GRAD_PREPARATIONTIME_H      pixelGridNoUIScale * pixelH * 3
+#define GRAD_PREPARATIONTIME_W      safeZoneW/10
+#define GRAD_PREPARATIONTIME_H      safeZoneH/14
 #define GRAD_PREPARATIONTIME_X      safeZoneX + safeZoneW - GRAD_PREPARATIONTIME_W
-#define GRAD_PREPARATIONTIME_Y      safeZoneY + pixelGridNoUIScale * pixelH * 30
+#define GRAD_PREPARATIONTIME_Y      safeZoneY + safeZoneH/2
 
 class grad_preparationTime {
     idd = -1;
