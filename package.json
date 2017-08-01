@@ -3,6 +3,7 @@
   "description": "Asymmetric TvT scenario for Arma3",
   "version": "0.0.3",
   "dependencies": {
+    "grad-customGear": "^2.0.0",
     "grad-fortifications": "^0.3.0",
     "grad-loadout": "^4.6.0",
     "grad_replay": "gruppe-adler/grad_replay#master",

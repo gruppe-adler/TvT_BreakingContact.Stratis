@@ -12,6 +12,7 @@
 
 
 #include "node_modules\grad-fortifications\grad_fortifications.hpp"
+#include "node_modules\grad-customGear\saveDialog\dialog.hpp"
 
 class CfgFunctions {
 	#include "grad_buymenu\cfgFunctions.hpp"
@@ -27,6 +28,7 @@ class CfgFunctions {
 	#include "BC_objectives\cfgFunctions.hpp"
 	#include "grad_gcamSpec\cfgFunctions.hpp"
 	#include "node_modules\grad_replay\cfgFunctions.hpp"
+	#include "node_modules\grad-customGear\cfgFunctions.hpp"
 };
 
 class RscTitles {
@@ -34,6 +36,10 @@ class RscTitles {
     #include "grad_buymenu\definitions\rscTitles.hpp"
     #include "grad_supplydrops\rscTitles.hpp"
 	#include "BC_objectives\rscTitles.hpp"
+};
+
+class CfgNotifications {
+    #include "node_modules\grad-customGear\cfgNotifications.hpp"
 };
 
 OnLoadMission = "A mobile radio station is trying to get a message sent - their adversaries try to stop them from completing the broadcast";
@@ -450,6 +456,15 @@ class Loadouts {
 		#include "loadouts\SOV_Desert.hpp"
 		#include "loadouts\MUD_Desert.hpp"
 	};
+};
+
+class CfgGradCustomGear {
+    allowHelmet = 0;
+    allowGoggles = 1;
+    allowSimpleScopes = 1;
+    allowMagnifyingScopes = 0;
+    allowMarksmanScopes = 0;
+    actionsOnMissionStart = 1;
 };
 
 class CfgGradFortifications {
