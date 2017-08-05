@@ -38,15 +38,18 @@ if (isServer) then {
 	GRAD_SIGNAL_DELAY = 1;
 	publicVariable "GRAD_SIGNAL_DELAY";
 
-	GRAD_SIGNAL_SIZE = 250;
+	
+
+	GRAD_MIN_DISTANCE_TO_RADIOPOSITION = 1000;
+
+	GRAD_SIGNAL_SIZE = GRAD_MIN_DISTANCE_TO_RADIOPOSITION/2;
 	publicVariable "GRAD_SIGNAL_SIZE";
 
-	GRAD_MIN_DISTANCE_TO_RADIOPOSITION = 250;
 	if (GRAD_INTERVALS_NEEDED isEqualTo 1) then { GRAD_MIN_DISTANCE_TO_RADIOPOSITION = 100000; };
 	publicVariable "GRAD_MIN_DISTANCE_TO_RADIOPOSITION";
 	
 
-	[_position] call GRAD_tracking_fnc_createRadioPositionMarker;
+	
 
 	sleep 2;
 

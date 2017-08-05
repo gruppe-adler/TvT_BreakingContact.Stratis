@@ -20,34 +20,52 @@ GRAD_tracking_mainLoop = [{
     _isCloseEnough = false;
     _terminalIsCloseEnough = false;
     _locationsAvailable = false;
+    _finishedClose = false;
 
     _localRadioLocations = missionNamespace getVariable ["GRAD_tracking_radioPositions", []];
+    _finishedRadioLocations = missionNamespace getVariable ["GRAD_tracking_radioPositionsFinished", []];
     
     // nearestPosition wont work well with empty input
-    if (count _localRadioLocations > 0) then {
+    if (count _localRadioLocations > 0 || count _finishedRadioLocations > 0) then {
         _locationsAvailable = true;
 
-        _currentLocation = [_localRadioLocations, _radioVeh] call BIS_fnc_nearestPosition;
-        _currentLocationName = text _currentLocation;
-        _currentActiveMarkerProgress = missionNameSpace getVariable [_currentLocationName, 0];
-        GRAD_TICKS_DONE = _currentActiveMarkerProgress;
+        _currentLocation = [_localRadioLocations, getPos _radioVeh] call BIS_fnc_nearestPosition;
+        _finishedLocation = [_finishedRadioLocations, getPos _radioVeh] call BIS_fnc_nearestPosition;
+
+        if (_finishedLocation distance _radioVeh < GRAD_MIN_DISTANCE_TO_RADIOPOSITION/2) then {
+            _finishedClose = true;
+        } else {
+
+            // drop new marker if necessary
+            if (_currentLocation distance _radioVeh > GRAD_MIN_DISTANCE_TO_RADIOPOSITION) then {
+                _currentLocation = [getPos _radioVeh] call GRAD_tracking_fnc_createRadioPositionMarker;
+            };
+
+            _currentLocationName = str _currentLocation;
+            _currentActiveMarkerProgress = missionNameSpace getVariable [_currentLocationName, 0];
+            GRAD_TICKS_DONE = _currentActiveMarkerProgress;
+        };  
     };
 
 
     // check if no location is left over
     if (_locationsAvailable) then {
-        if ((getPos _currentLocation) distance _radioVeh < GRAD_MIN_DISTANCE_TO_RADIOPOSITION) then {
+        if (_currentLocation distance _radioVeh < GRAD_MIN_DISTANCE_TO_RADIOPOSITION/2) then {
             _isCloseEnough = true;
         };
 
-        if (GRAD_TERMINAL_ACTIVE) then {
-            _currentLocation = [_localRadioLocations, _terminal] call BIS_fnc_nearestPosition;
-            _currentLocationName = text _currentLocation;
-            _currentActiveMarkerProgress = missionNameSpace getVariable [_currentLocationName, 0];
-             GRAD_TICKS_DONE = _currentActiveMarkerProgress;
+        if (_finishedLocation distance _terminal < GRAD_MIN_DISTANCE_TO_RADIOPOSITION/2) then {
+            _finishedClose = true;
+        } else {
+            if (GRAD_TERMINAL_ACTIVE) then {
+                _currentLocation = [_localRadioLocations, _terminal] call BIS_fnc_nearestPosition;
+                _currentLocationName = str _currentLocation;
+                _currentActiveMarkerProgress = missionNameSpace getVariable [_currentLocationName, 0];
+                 GRAD_TICKS_DONE = _currentActiveMarkerProgress;
 
-            if ((getPos _currentLocation) distance _terminal < GRAD_MIN_DISTANCE_TO_RADIOPOSITION) then {
-                _terminalIsCloseEnough = true;
+                if (_currentLocation distance _terminal < GRAD_MIN_DISTANCE_TO_RADIOPOSITION/2) then {
+                    _terminalIsCloseEnough = true;
+                };
             };
         };
     };
@@ -64,7 +82,7 @@ GRAD_tracking_mainLoop = [{
     if (count _allOtherLocations > 0) then {
         {
             [
-                    text _x, 
+                    str _x, 
                     "ColorOpfor", 
                     ""
             ] remoteExec ["GRAD_tracking_fnc_setMarkerColorAndText", east, false];
@@ -116,42 +134,57 @@ GRAD_tracking_mainLoop = [{
     _bothAreSending = (_terminalIsSending && _radioVehIsSending);
 
     // add one tick  if only vehicle is sending
-    if (_radioVehIsSending && !_bothAreSending && !GRAD_TERMINAL && _isCloseEnough) then {
-        GRAD_TICKS_DONE = GRAD_TICKS_DONE + 1;
+    if (_radioVehIsSending && !_bothAreSending && !GRAD_TERMINAL && !_finishedClose) then {
+        if (!_locationsAvailable) then {
+            _currentLocation = [getPos _radioVeh] call GRAD_tracking_fnc_createRadioPositionMarker;
+            _locationsAvailable = true;
+        } else {
+            if (_locationsAvailable) then {
+                if (_isCloseEnough) then {
+                    GRAD_TICKS_DONE = GRAD_TICKS_DONE + 1;
 
-        missionNameSpace setVariable [_currentLocationName, GRAD_TICKS_DONE];
+                    missionNameSpace setVariable [_currentLocationName, GRAD_TICKS_DONE];
 
-        _ticksRatio = GRAD_TICKS_DONE/GRAD_TICKS_NEEDED;
-
-        if (_locationsAvailable) then {
-            [
-                _currentLocationName, 
-                "ColorYellow", 
-                (" " + (str (round(_ticksRatio * 100))) + " %")
-            ] remoteExec ["GRAD_tracking_fnc_setMarkerColorAndText", east, false];
+                    _ticksRatio = GRAD_TICKS_DONE/GRAD_TICKS_NEEDED;
+                
+                    [
+                        _currentLocationName, 
+                        "ColorYellow", 
+                        (" " + (str (round(_ticksRatio * 100))) + " %")
+                    ] remoteExec ["GRAD_tracking_fnc_setMarkerColorAndText", east, false];
+                };
+            };
         };
         
     };
 
     // add only terminal is sending, add half a tick
-    if (!_radioVehIsSending && _terminalIsSending && _terminalIsCloseEnough) then {
-        GRAD_TICKS_DONE = GRAD_TICKS_DONE + 0.5;
+    if (!_radioVehIsSending && _terminalIsSending && !_finishedClose) then {
+        if (!_locationsAvailable) then {
+            _currentLocation = [getPos _radioVeh] call GRAD_tracking_fnc_createRadioPositionMarker;
+            _locationsAvailable = true;
+        } else {
+            if (_locationsAvailable) then {
+                    if (_terminalIsCloseEnough) then {
 
-        missionNameSpace setVariable [_currentLocationName, GRAD_TICKS_DONE];
+                    GRAD_TICKS_DONE = GRAD_TICKS_DONE + 0.5;
 
-        _ticksRatio = GRAD_TICKS_DONE/GRAD_TICKS_NEEDED;
-        
-        if (_locationsAvailable) then {
-            [
-                _currentLocationName, 
-                "ColorYellow", 
-                (" " + (str (round(_ticksRatio * 100))) + " %")
-            ] remoteExec ["GRAD_tracking_fnc_setMarkerColorAndText", east, false];
+                    missionNameSpace setVariable [_currentLocationName, GRAD_TICKS_DONE];
+
+                    _ticksRatio = GRAD_TICKS_DONE/GRAD_TICKS_NEEDED;
+
+                    [
+                        _currentLocationName, 
+                        "ColorYellow", 
+                        (" " + (str (round(_ticksRatio * 100))) + " %")
+                    ] remoteExec ["GRAD_tracking_fnc_setMarkerColorAndText", east, false];
+                };
+            };
         };
     };
 
     // if truck and terminal are sending, add terminal to truck distance dependent tick
-    if (_bothAreSending && _terminalIsCloseEnough) then {
+    if (_bothAreSending && !_finishedClose) then {
         _tempModifier = _result select 0;
         _tempDistance = _result select 1;
 
@@ -159,21 +192,29 @@ GRAD_tracking_mainLoop = [{
         _modifier = _result select 0;
         _distanceToRadioTruck = _result select 1;
 
-        // check if distance changed, if yes, broadcast for client hint
-	    [_modifier, _tempModifier, _tempDistance, _result] call GRAD_tracking_fnc_terminalCalculateDistanceModifier;
-	
-        GRAD_TICKS_DONE = GRAD_TICKS_DONE + (1 * _modifier);
+        if (!_locationsAvailable) then {
+            _currentLocation = [getPos _radioVeh] call GRAD_tracking_fnc_createRadioPositionMarker;
+            _locationsAvailable = true;
+        } else {
+             if (_locationsAvailable) then {
+                if (_terminalIsCloseEnough) then {
+                    // check if distance changed, if yes, broadcast for client hint
+            	    [_modifier, _tempModifier, _tempDistance, _result] call GRAD_tracking_fnc_terminalCalculateDistanceModifier;
+            	
+                    GRAD_TICKS_DONE = GRAD_TICKS_DONE + (1 * _modifier);
 
-        missionNameSpace setVariable [_currentLocationName, GRAD_TICKS_DONE];
+                    missionNameSpace setVariable [_currentLocationName, GRAD_TICKS_DONE];
 
-        _ticksRatio = GRAD_TICKS_DONE/GRAD_TICKS_NEEDED;
+                    _ticksRatio = GRAD_TICKS_DONE/GRAD_TICKS_NEEDED;
 
-        if (_locationsAvailable) then {
-            [
-                _currentLocationName, 
-                "ColorYellow", 
-                (" " + (str (round(_ticksRatio * 100))) + " %")
-            ] remoteExec ["GRAD_tracking_fnc_setMarkerColorAndText", east, false];
+               
+                    [
+                        _currentLocationName, 
+                        "ColorYellow", 
+                        (" " + (str (round(_ticksRatio * 100))) + " %")
+                    ] remoteExec ["GRAD_tracking_fnc_setMarkerColorAndText", east, false];
+                };
+            };
         };
     };
 
@@ -181,7 +222,7 @@ GRAD_tracking_mainLoop = [{
     _radioVehMarkerStatusChange = [!_radioVehIsSending, _radioVeh] call GRAD_tracking_fnc_setRadioVehMarkerStatus;
     _terminalMarkerStatusChange = [!_terminalIsSending, _terminal] call GRAD_tracking_fnc_setTerminalMarkerStatus;
 
-    if (GRAD_TICKS_DONE >= GRAD_TICKS_NEEDED && (time > 10)) then {
+    if (GRAD_TICKS_DONE >= GRAD_TICKS_NEEDED && (time > 10) && !_finishedClose) then {
         GRAD_INTERVALS_DONE = GRAD_INTERVALS_DONE + 1;
         publicVariable "GRAD_INTERVALS_DONE";
 
@@ -193,7 +234,9 @@ GRAD_tracking_mainLoop = [{
             ] remoteExec ["GRAD_tracking_fnc_setMarkerColorAndText", east, false];
 
         _localRadioLocations = _localRadioLocations - [_currentLocation];
-        missionNamespace setVariable ["GRAD_tracking_radioPositions", _localRadioLocations, true];
+        missionNamespace setVariable ["GRAD_tracking_radioPositions", _localRadioLocations];
+        _finishedRadioLocations = _finishedRadioLocations + [_currentLocation];
+        missionNamespace setVariable ["GRAD_tracking_radioPositionsFinished", _finishedRadioLocations];
         
         };
 
