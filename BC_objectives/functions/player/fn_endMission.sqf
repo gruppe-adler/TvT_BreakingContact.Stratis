@@ -69,7 +69,6 @@ waitUntil {REPLAY_FINISHED};
 
 GCamKill = true;
 
-
 // TODO this is most ugly but necessary for debug currently
 switch (_result) do {
 	case "elimination": {
