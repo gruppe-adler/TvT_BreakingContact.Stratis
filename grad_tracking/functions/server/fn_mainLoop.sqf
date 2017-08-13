@@ -63,7 +63,7 @@ GRAD_tracking_mainLoop = [{
     _currentLocationName = str _currentLocation;
     _currentActiveMarkerProgress = missionNameSpace getVariable [_currentLocationName, 0];
     GRAD_TICKS_DONE = _currentActiveMarkerProgress;
-    diag_log format ["currentLocationName is %1, _locationsCreated is %2", _currentLocation, _locationsCreated];
+    // diag_log format ["currentLocationName is %1, _locationsCreated is %2", _currentLocation, _locationsCreated];
     
  
 
@@ -134,7 +134,7 @@ GRAD_tracking_mainLoop = [{
 
     // add one tick  if only vehicle is sending
     if (_radioVehIsSending && !_bothAreSending && !GRAD_TERMINAL && !_finishedCloserThanUnfinished && _isCloseEnough) then {
-           diag_log ["entering onetick snippet radioveh"];
+           // diag_log ["entering onetick snippet radioveh"];
 
             GRAD_TICKS_DONE = GRAD_TICKS_DONE + 1;
 
@@ -152,7 +152,7 @@ GRAD_tracking_mainLoop = [{
 
     // add only terminal is sending, add half a tick
     if (!_radioVehIsSending && _terminalIsSending && !_finishedCloserThanUnfinished && _isCloseEnough) then {
-        diag_log ["entering halftick snippet"];
+        // diag_log ["entering halftick snippet"];
 
         GRAD_TICKS_DONE = GRAD_TICKS_DONE + 0.5;
 
@@ -169,7 +169,7 @@ GRAD_tracking_mainLoop = [{
 
     // if truck and terminal are sending, add terminal to truck distance dependent tick
     if (_bothAreSending && !_finishedCloserThanUnfinished && _isCloseEnough) then {
-        diag_log ["entering onetick snippet both"];
+        // diag_log ["entering onetick snippet both"];
         _tempModifier = _result select 0;
         _tempDistance = _result select 1;
 
