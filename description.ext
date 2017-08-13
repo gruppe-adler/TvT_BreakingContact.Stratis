@@ -113,7 +113,7 @@ class Params
 		title = "Finances OPFOR (+50 per player)";
 		values[] = {0, 1000, 2000, 3000, 4000, 5000, 6000};
 		texts[] = {"zero", "1000k","2000k","3000k","4000k","5000k","6000k"};
-		default = 2000;
+		default = 0;
 	};
 
 	class BLUFOR_MONEY
@@ -121,7 +121,7 @@ class Params
 		title = "Finances BLUFOR (+50 per player)";
 		values[] = {0, 1000, 2000, 3000, 4000, 5000, 6000};
 		texts[] = {"zero", "1000k","2000k","3000k","4000k","5000k","6000k"};
-		default = 3000;
+		default = 0;
 	};
 
 	class GRAD_TICKS_NEEDED
@@ -129,7 +129,7 @@ class Params
 		title = "Length of sending time";
 		values[] = {30, 300, 600, 900, 1800, 2700, 3600, 4500, 5400, 6300};
 		texts[] = {"30s (DEBUG)", "5'","10' (recommended for 3 radio positions)", "15'", "30'", "45' (recommended for 1 radio position)", "1h'", "1h15'","1h30'","1h45'"};
-		default = 30;
+		default = 600;
 	};
 
 	class GRAD_INTERVALS_NEEDED
