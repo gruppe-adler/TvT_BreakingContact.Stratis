@@ -22,6 +22,10 @@ GRAD_tracking_mainLoop = [{
     _locationsAvailable = false;
     _finishedClose = false;
 
+     // who the fuck is sending a signal currently
+    _radioVehIsSending = [_radioVeh] call GRAD_tracking_fnc_radioVehIsSending;    
+    _terminalIsSending = [_terminal] call GRAD_tracking_fnc_terminalIsSending;
+
     _localRadioLocations = missionNamespace getVariable ["GRAD_tracking_radioPositions", []];
     _finishedRadioLocations = missionNamespace getVariable ["GRAD_tracking_radioPositionsFinished", []];
     
@@ -32,12 +36,14 @@ GRAD_tracking_mainLoop = [{
         _currentLocation = [_localRadioLocations, getPos _radioVeh] call BIS_fnc_nearestPosition;
         _finishedLocation = [_finishedRadioLocations, getPos _radioVeh] call BIS_fnc_nearestPosition;
 
-        if (_finishedLocation distance _radioVeh < GRAD_MIN_DISTANCE_TO_RADIOPOSITION/2) then {
+        if (_finishedLocation distance _radioVeh <= GRAD_MIN_DISTANCE_TO_RADIOPOSITION) then {
             _finishedClose = true;
         } else {
 
             // drop new marker if necessary
-            if (_currentLocation distance _radioVeh > GRAD_MIN_DISTANCE_TO_RADIOPOSITION) then {
+            if (_currentLocation distance _radioVeh > GRAD_MIN_DISTANCE_TO_RADIOPOSITION &&
+                 ([_radioVeh] call GRAD_tracking_fnc_radioVehIsSending || [_terminal] call GRAD_tracking_fnc_terminalIsSending)
+                 ) then {
                 _currentLocation = [getPos _radioVeh] call GRAD_tracking_fnc_createRadioPositionMarker;
             };
 
@@ -54,10 +60,10 @@ GRAD_tracking_mainLoop = [{
             _isCloseEnough = true;
         };
 
-        if (_finishedLocation distance _terminal < GRAD_MIN_DISTANCE_TO_RADIOPOSITION/2) then {
+        if (_finishedLocation distance _terminal <= GRAD_MIN_DISTANCE_TO_RADIOPOSITION) then {
             _finishedClose = true;
         } else {
-            if (GRAD_TERMINAL_ACTIVE) then {
+            if (_terminalIsSending) then {
                 _currentLocation = [_localRadioLocations, _terminal] call BIS_fnc_nearestPosition;
                 _currentLocationName = str _currentLocation;
                 _currentActiveMarkerProgress = missionNameSpace getVariable [_currentLocationName, 0];
@@ -121,9 +127,7 @@ GRAD_tracking_mainLoop = [{
     // check if cookoff needs fixing
     [_radioVeh] call GRAD_tracking_fnc_radioTruckCookoffFix;
 
-    // who the fuck is sending a signal currently
-    _radioVehIsSending = [_radioVeh] call GRAD_tracking_fnc_radioVehIsSending;    
-    _terminalIsSending = [_terminal] call GRAD_tracking_fnc_terminalIsSending;
+   
 
     // check if radio truck is sending alone with terminal detached (he cant do that anymore)
     // GRAD_TERMINAL_ACTIVE

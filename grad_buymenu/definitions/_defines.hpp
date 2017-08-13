@@ -87,6 +87,19 @@
 #define GUI_GRID_WAbs    (1)
 #define GUI_GRID_HAbs    (1)
 
+class RscSlider
+{
+	style = "0x400 + 0x10";
+	type = 43;  // this is the more "modern" slider. Type = 3 is the old dull one.
+	shadow = 0;
+	color[] = {1,1,1,0.4};
+	colorActive[] = {1,1,1,1};
+	colorDisabled[] = {0.5,0.5,0.5,0.2};
+	arrowEmpty = "\A3\ui_f\data\gui\cfg\slider\arrowEmpty_ca.paa";
+	arrowFull = "\A3\ui_f\data\gui\cfg\slider\arrowFull_ca.paa";
+	border = "\A3\ui_f\data\gui\cfg\slider\border_ca.paa";
+	thumb = "\A3\ui_f\data\gui\cfg\slider\thumb_ca.paa";
+};
 
 class RscStructuredText
 {
