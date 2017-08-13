@@ -194,7 +194,7 @@ class Params
     	title = "Civilian Traffic (supports RDS CIV and LOPs afghan militia)";
     	values[] = {0, 1};
     	texts[] =  {"False", "True"};
-    	default = 1;
+    	default = 0;
   	};
 
 
