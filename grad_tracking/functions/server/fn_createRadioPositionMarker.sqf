@@ -1,7 +1,7 @@
 params ["_center"];
 
 _currentLocations = missionNamespace getVariable ["GRAD_tracking_radioPositions", []];
-_finishedLocations = missionNamespace getVariable ["GRAD_tracking_radioPositionsFinished" []];
+_finishedLocations = missionNamespace getVariable ["GRAD_tracking_radioPositionsFinished", []];
 _addLocation = _currentLocations + [_center];
 
 _anotherCloseBy = false;
@@ -12,7 +12,7 @@ _anotherCloseBy = false;
 	};
 } forEach _currentLocations + _finishedLocations;
 
-
+// rescue exit if flag is planted too close to other flags
 if (_anotherCloseBy) exitWith { [0,0,0]; };
 
 missionNamespace setVariable ["GRAD_tracking_radioPositions", _addLocation];

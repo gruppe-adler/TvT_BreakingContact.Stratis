@@ -66,7 +66,6 @@ MISSION_COMPLETED = true; publicVariable "MISSION_COMPLETED";
 
 waitUntil {REPLAY_FINISHED};
 
-openMap [false,false];
 
 GCamKill = true;
 
