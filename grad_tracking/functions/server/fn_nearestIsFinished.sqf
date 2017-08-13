@@ -16,6 +16,6 @@ if (count _finishedRadioLocations > 0) then {
 };
 
 // diag_log format ["_nearestIsFinished %1,  _currentLocation %2, _finishedLocation %3, _finishedRadioLocations %4", 
-_nearestIsFinished, _currentLocation, _finishedLocation, _finishedRadioLocations];
+// _nearestIsFinished, _currentLocation, _finishedLocation, _finishedRadioLocations];
 
 _nearestIsFinished
