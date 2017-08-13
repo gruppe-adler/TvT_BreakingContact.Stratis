@@ -7,6 +7,8 @@ missionNamespace setVariable ["GRAD_tracking_radioPositions", _addLocation];
 [_center] remoteExec ["GRAD_tracking_fnc_createRadioPositionMarkerLocal", east, true];
 
 // execute on server to have reference points
-[_center] call GRAD_tracking_fnc_createRadioPositionMarkerLocal;
+if (isMultiplayer) then {
+	[_center] call GRAD_tracking_fnc_createRadioPositionMarkerLocal;
+};
 
 _center

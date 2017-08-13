@@ -54,7 +54,7 @@ GRAD_tracking_mainLoop = [{
         };
     };
 
-    if (_radioVehIsSending || _terminalIsSending) then {
+    if (_radioVehIsSending || _terminalIsSending && !_finishedCloserThanUnfinished) then {
         if (_currentLocation distance _activeItem > GRAD_MIN_DISTANCE_TO_RADIOPOSITION || !_locationsCreated) then {
             _currentLocation = [getPos _activeItem] call GRAD_tracking_fnc_createRadioPositionMarker;
         };
@@ -74,17 +74,19 @@ GRAD_tracking_mainLoop = [{
 
     if (_isCloseEnough) then {
         _allOtherLocations = _allOtherLocations - [_currentLocation];
+
+        if (count _allOtherLocations > 0) then {
+            {
+                [
+                        str _x, 
+                        "ColorOpfor", 
+                        ""
+                ] remoteExec ["GRAD_tracking_fnc_setMarkerColorAndText", east, false];
+            } forEach _allOtherLocations;
+        };
     };
 
-    if (count _allOtherLocations > 0) then {
-        {
-            [
-                    str _x, 
-                    "ColorOpfor", 
-                    ""
-            ] remoteExec ["GRAD_tracking_fnc_setMarkerColorAndText", east, false];
-        } forEach _allOtherLocations;
-    };
+    
 
 
     // _terminalPos = getPos _terminal;
