@@ -41,7 +41,7 @@ GRAD_tracking_mainLoop = [{
 
     
 
-    diag_log format ["_finishedCloserThanUnfinished is %1", _finishedCloserThanUnfinished];
+    // diag_log format ["_finishedCloserThanUnfinished is %1", _finishedCloserThanUnfinished];
    
     // nearestPosition wont work well with empty input
    
@@ -93,7 +93,7 @@ GRAD_tracking_mainLoop = [{
 
     ///////////////////////////////
 
-    diag_log format ["endcondition is %1", _endCondition];
+    
 
     // stop loop if necessary
     if (call _endCondition) exitWith { [_handle] call CBA_fnc_removePerFrameHandler; };
@@ -134,7 +134,7 @@ GRAD_tracking_mainLoop = [{
 
     // add one tick  if only vehicle is sending
     if (_radioVehIsSending && !_bothAreSending && !GRAD_TERMINAL && !_finishedCloserThanUnfinished && _isCloseEnough) then {
-            diag_log ["entering onetick snippet radioveh"];
+           diag_log ["entering onetick snippet radioveh"];
 
             GRAD_TICKS_DONE = GRAD_TICKS_DONE + 1;
 
@@ -201,11 +201,12 @@ GRAD_tracking_mainLoop = [{
 
     if (GRAD_TICKS_DONE >= GRAD_TICKS_NEEDED && (time > 10) && !_finishedCloserThanUnfinished) then {
             
-        _allOtherLocations = _allLocations - [_currentLocation];
-        missionNamespace setVariable ["GRAD_tracking_radioPositions", _allOtherLocations];
         _finishedRadioLocations = missionNamespace getVariable ["GRAD_tracking_radioPositionsFinished", []];
         _finishedRadioLocations = _finishedRadioLocations + [_currentLocation];
         missionNamespace setVariable ["GRAD_tracking_radioPositionsFinished", _finishedRadioLocations];
+
+        _allOtherLocations = _allLocations - [_currentLocation];
+        missionNamespace setVariable ["GRAD_tracking_radioPositions", _allOtherLocations];
 
         GRAD_INTERVALS_DONE = GRAD_INTERVALS_DONE + 1;
         publicVariable "GRAD_INTERVALS_DONE";
