@@ -36,6 +36,7 @@ class GRAD_tracking {
         class createRadioPositionMarker {};
         class getTransmissionPercentage {};
         class mainLoop {};
+        class nearestIsFinished {};
         class radioTruckCookoffFix {};
         class radioTruckDeploy {};
         class radioTruckRetract {};
