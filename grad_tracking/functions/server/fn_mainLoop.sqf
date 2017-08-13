@@ -54,8 +54,10 @@ GRAD_tracking_mainLoop = [{
         };
     };
 
-    if (_currentLocation distance _radioVeh > GRAD_MIN_DISTANCE_TO_RADIOPOSITION && (_radioVehIsSending || _terminalIsSending)) then {
-        _currentLocation = [getPos _radioVeh] call GRAD_tracking_fnc_createRadioPositionMarker;
+    if (_radioVehIsSending || _terminalIsSending) then {
+        if (_currentLocation distance _activeItem > GRAD_MIN_DISTANCE_TO_RADIOPOSITION || !_locationsCreated) then {
+            _currentLocation = [getPos _activeItem] call GRAD_tracking_fnc_createRadioPositionMarker;
+        };
     };
 
     _currentLocationName = str _currentLocation;
@@ -196,6 +198,13 @@ GRAD_tracking_mainLoop = [{
     _terminalMarkerStatusChange = [!_terminalIsSending, _terminal] call GRAD_tracking_fnc_setTerminalMarkerStatus;
 
     if (GRAD_TICKS_DONE >= GRAD_TICKS_NEEDED && (time > 10) && !_finishedCloserThanUnfinished) then {
+            
+        _allOtherLocations = _allLocations - [_currentLocation];
+        missionNamespace setVariable ["GRAD_tracking_radioPositions", _allOtherLocations];
+        _finishedRadioLocations = missionNamespace getVariable ["GRAD_tracking_radioPositionsFinished", []];
+        _finishedRadioLocations = _finishedRadioLocations + [_currentLocation];
+        missionNamespace setVariable ["GRAD_tracking_radioPositionsFinished", _finishedRadioLocations];
+
         GRAD_INTERVALS_DONE = GRAD_INTERVALS_DONE + 1;
         publicVariable "GRAD_INTERVALS_DONE";
 
@@ -204,13 +213,7 @@ GRAD_tracking_mainLoop = [{
                 _currentLocationName, 
                 "ColorGreen", 
                 " DONE"
-            ] remoteExec ["GRAD_tracking_fnc_setMarkerColorAndText", east, false];
-
-        _allOtherLocations = _allLocations - [_currentLocation];
-        missionNamespace setVariable ["GRAD_tracking_radioPositions", _allOtherLocations];
-        _finishedRadioLocations = _finishedRadioLocations + [_currentLocation];
-        missionNamespace setVariable ["GRAD_tracking_radioPositionsFinished", _finishedRadioLocations];
-        
+            ] remoteExec ["GRAD_tracking_fnc_setMarkerColorAndText", east, false];        
         };
 
         GRAD_TICKS_DONE = 0;
