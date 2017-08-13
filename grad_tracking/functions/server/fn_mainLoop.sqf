@@ -138,7 +138,7 @@ GRAD_tracking_mainLoop = [{
 
             GRAD_TICKS_DONE = GRAD_TICKS_DONE + 1;
 
-            missionNameSpace setVariable [_currentLocationName, GRAD_TICKS_DONE];
+            missionNameSpace setVariable [_currentLocationName, GRAD_TICKS_DONE, true];
 
             _ticksRatio = GRAD_TICKS_DONE/GRAD_TICKS_NEEDED;
         
@@ -156,7 +156,7 @@ GRAD_tracking_mainLoop = [{
 
         GRAD_TICKS_DONE = GRAD_TICKS_DONE + 0.5;
 
-        missionNameSpace setVariable [_currentLocationName, GRAD_TICKS_DONE];
+        missionNameSpace setVariable [_currentLocationName, GRAD_TICKS_DONE, true];
 
         _ticksRatio = GRAD_TICKS_DONE/GRAD_TICKS_NEEDED;
 
@@ -182,7 +182,7 @@ GRAD_tracking_mainLoop = [{
 	
         GRAD_TICKS_DONE = GRAD_TICKS_DONE + (1 * _modifier);
 
-        missionNameSpace setVariable [_currentLocationName, GRAD_TICKS_DONE];
+        missionNameSpace setVariable [_currentLocationName, GRAD_TICKS_DONE, true];
 
         _ticksRatio = GRAD_TICKS_DONE/GRAD_TICKS_NEEDED;
 
@@ -203,10 +203,10 @@ GRAD_tracking_mainLoop = [{
             
         _finishedRadioLocations = missionNamespace getVariable ["GRAD_tracking_radioPositionsFinished", []];
         _finishedRadioLocations = _finishedRadioLocations + [_currentLocation];
-        missionNamespace setVariable ["GRAD_tracking_radioPositionsFinished", _finishedRadioLocations];
+        missionNamespace setVariable ["GRAD_tracking_radioPositionsFinished", _finishedRadioLocations, true];
 
         _allOtherLocations = _allLocations - [_currentLocation];
-        missionNamespace setVariable ["GRAD_tracking_radioPositions", _allOtherLocations];
+        missionNamespace setVariable ["GRAD_tracking_radioPositions", _allOtherLocations, true];
 
         GRAD_INTERVALS_DONE = GRAD_INTERVALS_DONE + 1;
         publicVariable "GRAD_INTERVALS_DONE";

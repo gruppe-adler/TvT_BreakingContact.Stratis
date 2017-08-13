@@ -15,7 +15,7 @@ _anotherCloseBy = false;
 // rescue exit if flag is planted too close to other flags
 if (_anotherCloseBy) exitWith { [0,0,0]; };
 
-missionNamespace setVariable ["GRAD_tracking_radioPositions", _addLocation];
+missionNamespace setVariable ["GRAD_tracking_radioPositions", _addLocation, true];
 [_center] remoteExec ["GRAD_tracking_fnc_createRadioPositionMarkerLocal", east, true];
 
 // execute on server to have reference points
