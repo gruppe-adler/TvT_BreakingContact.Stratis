@@ -3,7 +3,8 @@
 params ["_winner", "_result"];
 
 
-sleep 3;
+uiSleep 3;
+
 
 _radioVeh = missionNameSpace getVariable ["GRAD_tracking_radioVehObj", objNull];
 _killer = _radioVeh getVariable ["ace_medical_lastDamageSource", objNull];
@@ -65,7 +66,6 @@ MISSION_COMPLETED = true; publicVariable "MISSION_COMPLETED";
 [player, true] call TFAR_fnc_forceSpectator;
 
 waitUntil {REPLAY_FINISHED};
-
 
 GCamKill = true;
 
