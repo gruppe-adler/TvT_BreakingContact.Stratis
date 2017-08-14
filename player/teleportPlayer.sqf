@@ -4,7 +4,6 @@
 _location = _this select 0;
 _distance = _this select 1;
 
-
 ["Preparing teleport..."] call EFUNC(common,displayTextStructured);
 cutText ["", "BLACK OUT", 0.1];
 if (str player != "opfor_teamlead") then { sleep (random 10);};
