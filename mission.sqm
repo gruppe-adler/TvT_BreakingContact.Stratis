@@ -6294,7 +6294,26 @@ class Mission
 						};
 					};
 				};
-				nAttributes=3;
+				class Attribute3
+				{
+					property="ace_captives_moduleSettings_requireSurrenderAi";
+					expression="_this setVariable ['requireSurrenderAi',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=0;
+						};
+					};
+				};
+				nAttributes=4;
 			};
 		};
 		class Item41
@@ -6400,7 +6419,26 @@ class Mission
 						};
 					};
 				};
-				nAttributes=1;
+				class Attribute1
+				{
+					property="ACE_ModuleInteraction_DisableNegativeRating";
+					expression="_this setVariable ['DisableNegativeRating',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=0;
+						};
+					};
+				};
+				nAttributes=2;
 			};
 		};
 		class Item43
@@ -7796,25 +7834,6 @@ class Mission
 			{
 				class Attribute0
 				{
-					property="ace_spectator_moduleSettings_sidesFilter";
-					expression="_this setVariable ['sidesFilter',_value,true];";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"SCALAR"
-								};
-							};
-							value=3;
-						};
-					};
-				};
-				class Attribute1
-				{
 					property="ace_spectator_moduleSettings_cameraModes";
 					expression="_this setVariable ['cameraModes',_value,true];";
 					class Value
@@ -7832,26 +7851,7 @@ class Mission
 						};
 					};
 				};
-				class Attribute2
-				{
-					property="ace_spectator_moduleSettings_unitsFilter";
-					expression="_this setVariable ['unitsFilter',_value,true];";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"SCALAR"
-								};
-							};
-							value=3;
-						};
-					};
-				};
-				class Attribute3
+				class Attribute1
 				{
 					property="ace_spectator_moduleSettings_visionModes";
 					expression="_this setVariable ['visionModes',_value,true];";
@@ -7870,7 +7870,26 @@ class Mission
 						};
 					};
 				};
-				nAttributes=4;
+				class Attribute2
+				{
+					property="ace_spectator_moduleSettings_enableAI";
+					expression="_this setVariable ['enableAI',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=0;
+						};
+					};
+				};
+				nAttributes=3;
 			};
 		};
 		class Item60
@@ -8404,8 +8423,8 @@ class Mission
 				};
 				class Attribute3
 				{
-					property="ace_weather_ModuleSettings_syncRain";
-					expression="_this setVariable ['syncRain',_value,true];";
+					property="ace_weather_ModuleSettings_syncWind";
+					expression="_this setVariable ['syncWind',_value,true];";
 					class Value
 					{
 						class data
@@ -8440,26 +8459,7 @@ class Mission
 						};
 					};
 				};
-				class Attribute5
-				{
-					property="ace_weather_ModuleSettings_syncWind";
-					expression="_this setVariable ['syncWind',_value,true];";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"BOOL"
-								};
-							};
-							value=0;
-						};
-					};
-				};
-				nAttributes=6;
+				nAttributes=5;
 			};
 		};
 		class Item65

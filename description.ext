@@ -16,6 +16,7 @@
 #include "node_modules\grad_replay\ui\dialog.hpp"
 
 class CfgFunctions {
+	#include "grad_islands\cfgFunctions.hpp"
 	#include "grad_buymenu\cfgFunctions.hpp"
 	#include "node_modules\grad-loadout\cfgFunctions.hpp"
 	#include "node_modules\grad-fortifications\cfgFunctions.hpp"

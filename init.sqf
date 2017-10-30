@@ -14,7 +14,7 @@ disableRemoteSensors true; // disable ai combat ability
 setViewDistance 3500;
 
 // loadout + wave respawn added
-IS_WOODLAND = ["woodland",true] call BC_objectives_fnc_getIslandCfgEntry;
+IS_WOODLAND = ["isWoodland",true] call BC_objectives_fnc_getIslandCfgEntry;
 
 if (IS_WOODLAND) then {
 // us vs russians

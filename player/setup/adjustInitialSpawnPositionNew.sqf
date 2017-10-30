@@ -3,15 +3,15 @@ private _alternativeSpawnsOutsideMap = [[-2500,-500],[-500,-2500],[-2500,500]];
 
 private _waterAroundMap = ["waterAroundMap",false] call BC_objectives_fnc_getIslandCfgEntry;
 private _playerPositionsForCurrentWorld = 	[
-	["startPosOpf",[0,0,0]] call BC_objectives_fnc_getIslandCfgEntry,
-	["startPosBlu",[0,0,0]] call BC_objectives_fnc_getIslandCfgEntry,
-	["startPosInd",[0,0,0]] call BC_objectives_fnc_getIslandCfgEntry
+	[(missionConfigFile >> "CfgIslands" >> worldName), "spawnPosOpf", [0,0,0]] call BIS_fnc_returnConfigEntry,
+	[(missionConfigFile >> "CfgIslands" >> worldName), "spawnPosBlu", [0,0,0]] call BIS_fnc_returnConfigEntry,
+	[(missionConfigFile >> "CfgIslands" >> worldName), "spawnPosInd", [0,0,0]] call BIS_fnc_returnConfigEntry
 ];
 
 //overwrite with zeus-set positions
-if (!isNil "BC_objectives_startPosOpf") then {_playerPositionsForCurrentWorld set [0,BC_objectives_startPosOpf]};
-if (!isNil "BC_objectives_startPosBlu") then {_playerPositionsForCurrentWorld set [1,BC_objectives_startPosBlu]};
-if (!isNil "BC_objectives_startPosInd") then {_playerPositionsForCurrentWorld set [2,BC_objectives_startPosInd]};
+if (!isNil "BC_objectives_spawnPosOpf") then {_playerPositionsForCurrentWorld set [0,BC_objectives_spawnPosOpf]};
+if (!isNil "BC_objectives_spawnPosBlu") then {_playerPositionsForCurrentWorld set [1,BC_objectives_spawnPosBlu]};
+if (!isNil "BC_objectives_spawnPosInd") then {_playerPositionsForCurrentWorld set [2,BC_objectives_spawnPosInd]};
 
 
 if (isServer) then {
