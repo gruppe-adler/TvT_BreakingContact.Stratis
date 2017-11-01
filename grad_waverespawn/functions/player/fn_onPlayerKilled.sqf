@@ -9,15 +9,15 @@ params ["_victim"];
 
 switch (playerSide) do {
 	case (west) do {
-		[[west], [east, civilian, independent]] call ace_spectator_fnc_updateSpectatableSides;
+		[[west], [east, civilian, independent]] call ace_spectator_fnc_updateSides;
 		[[1], [0,2]] call ace_spectator_fnc_updateCameraModes;
 	};
 	case (east) do {
-		[[east], [west, civilian, independent]] call ace_spectator_fnc_updateSpectatableSides;
+		[[east], [west, civilian, independent]] call ace_spectator_fnc_updateSides;
 		[[1], [0,2]] call ace_spectator_fnc_updateCameraModes;
 	};
 	default {
-		[[east,west,civilian, independent], []] call ace_spectator_fnc_updateSpectatableSides;
+		[[east,west,civilian, independent], []] call ace_spectator_fnc_updateSides;
 		[[1], [0,2]] call ace_spectator_fnc_updateCameraModes;
 	};
 };

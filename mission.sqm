@@ -8,7 +8,7 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=730;
+		nextID=731;
 	};
 	class MarkerIDProvider
 	{
@@ -47,12 +47,12 @@ addons[]=
 	"ace_advanced_fatigue",
 	"ace_advanced_throwing",
 	"ace_tagging",
-	"ace_spectator",
 	"A3_Modules_F_ObjectModifiers",
 	"ace_respawn",
 	"ace_cargo",
 	"ace_weather",
-	"ace_hearing"
+	"ace_hearing",
+	"ace_spectator"
 };
 class AddonsMetaData
 {
@@ -215,43 +215,43 @@ class AddonsMetaData
 		};
 		class Item22
 		{
-			className="ace_spectator";
-			name="ACE3 - Spectator";
-			author="ACE-Team";
-			url="http://ace3mod.com/";
-		};
-		class Item23
-		{
 			className="A3_Modules_F";
 			name="Arma 3 Alpha - Scripted Modules";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item24
+		class Item23
 		{
 			className="ace_respawn";
 			name="ACE3 - Respawn";
 			author="ACE-Team";
 			url="http://ace3mod.com/";
 		};
-		class Item25
+		class Item24
 		{
 			className="ace_cargo";
 			name="ACE3 - Cargo";
 			author="ACE-Team";
 			url="http://ace3mod.com/";
 		};
-		class Item26
+		class Item25
 		{
 			className="ace_weather";
 			name="ACE3 - Weather";
 			author="ACE-Team";
 			url="http://ace3mod.com/";
 		};
-		class Item27
+		class Item26
 		{
 			className="ace_hearing";
 			name="ACE3 - Hearing";
+			author="ACE-Team";
+			url="http://ace3mod.com/";
+		};
+		class Item27
+		{
+			className="ace_spectator";
+			name="ACE3 - Spectator";
 			author="ACE-Team";
 			url="http://ace3mod.com/";
 		};
@@ -7825,78 +7825,6 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={1660.9871,1.5258789e-005,6016.1289};
-			};
-			id=199;
-			type="ace_spectator_moduleSettings";
-			atlOffset=16.313999;
-			class CustomAttributes
-			{
-				class Attribute0
-				{
-					property="ace_spectator_moduleSettings_cameraModes";
-					expression="_this setVariable ['cameraModes',_value,true];";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"SCALAR"
-								};
-							};
-							value=0;
-						};
-					};
-				};
-				class Attribute1
-				{
-					property="ace_spectator_moduleSettings_visionModes";
-					expression="_this setVariable ['visionModes',_value,true];";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"SCALAR"
-								};
-							};
-							value=0;
-						};
-					};
-				};
-				class Attribute2
-				{
-					property="ace_spectator_moduleSettings_enableAI";
-					expression="_this setVariable ['enableAI',_value,true];";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"BOOL"
-								};
-							};
-							value=0;
-						};
-					};
-				};
-				nAttributes=3;
-			};
-		};
-		class Item60
-		{
-			dataType="Logic";
-			class PositionInfo
-			{
 				position[]={1605.772,-0.0001411438,6164.7241};
 			};
 			id=388;
@@ -7964,7 +7892,7 @@ class Mission
 				nAttributes=3;
 			};
 		};
-		class Item61
+		class Item60
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -8017,7 +7945,7 @@ class Mission
 				nAttributes=2;
 			};
 		};
-		class Item62
+		class Item61
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -8299,7 +8227,7 @@ class Mission
 				nAttributes=14;
 			};
 		};
-		class Item63
+		class Item62
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -8352,7 +8280,7 @@ class Mission
 				nAttributes=2;
 			};
 		};
-		class Item64
+		class Item63
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -8462,7 +8390,7 @@ class Mission
 				nAttributes=5;
 			};
 		};
-		class Item65
+		class Item64
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -8551,6 +8479,78 @@ class Mission
 					};
 				};
 				nAttributes=4;
+			};
+		};
+		class Item65
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={1663.2815,0,6002.835};
+			};
+			id=730;
+			type="ace_spectator_moduleSettings";
+			atlOffset=15.396551;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ace_spectator_moduleSettings_cameraModes";
+					expression="_this setVariable ['cameraModes',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=0;
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="ace_spectator_moduleSettings_visionModes";
+					expression="_this setVariable ['visionModes',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=0;
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="ace_spectator_moduleSettings_enableAI";
+					expression="_this setVariable ['enableAI',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=1;
+						};
+					};
+				};
+				nAttributes=3;
 			};
 		};
 	};
