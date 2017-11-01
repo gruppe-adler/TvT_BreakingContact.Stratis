@@ -4,9 +4,9 @@
   "version": "0.0.3",
   "dependencies": {
     "grad-customGear": "^2.0.0",
-    "grad-fortifications": "^0.3.0",
-    "grad-loadout": "^4.6.0",
-    "grad_replay": "gruppe-adler/grad_replay#master",
-    "shk_pos": "gruppe-adler/shk_pos#master"
+    "grad-fortifications": "^0.3.6",
+    "grad-loadout": "^4.7.0",
+    "grad_replay": "github:gruppe-adler/grad_replay#master",
+    "shk_pos": "github:gruppe-adler/shk_pos#master"
   }
 }
