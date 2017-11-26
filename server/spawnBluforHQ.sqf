@@ -199,17 +199,11 @@ spawnBluforHQ = {
 	BLUFOR_TELEPORT_TARGET = getPos (_bluforSpawnSuccess select 2);
 	publicVariableServer "BLUFOR_TELEPORT_TARGET";
 
-	usActionHelper = createVehicle ["Land_SatellitePhone_F", [(getPos _vehicle1 select 0) + 2, (getPos _vehicle1 select 1) - 1, 0.5], [], 0, "NONE"];
-	
-	
-	usActionHelper attachTo [_vehicle1, [0,-0.3,1.1]];
-	
+
 
 	/* listener to remove spawn pad and actionhelper, when its time */
 	BUY_OPTION_BLUFOR = {
 		if (BUY_OPTION_BLUFOR) exitWith {};
-		detach usActionHelper;
-		deleteVehicle usActionHelper;
 		hideObjectGlobal US_SPAWN_PAD;
 	};
 	"BUY_OPTION_BLUFOR" addPublicVariableEventHandler BUY_OPTION_BLUFOR;
