@@ -7,8 +7,8 @@ _areaMarkerName = " target area ";
 _type = "destroy";
 
 if (CONQUER_MODE) then {
-	_taskDescription = format ["str_GRAD_classicTaskDescriptionBlufor_conquermode", _count, _min];
-	_taskTitle = format ["str_GRAD_classicTaskTitleBlufor_conquermode", _count, _min];
+	_taskDescription = format [localize "str_GRAD_classicTaskDescriptionBlufor_conquermode", _count, _min];
+	_taskTitle = format [localize "str_GRAD_classicTaskTitleBlufor_conquermode", _count, _min];
 };
 
 _bluforTask1 = [

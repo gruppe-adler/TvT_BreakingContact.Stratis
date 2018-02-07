@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={1806.8368,8.2286224,5989.4399};
-		dir[]={-0.068263024,-0.25989005,0.96323639};
-		up[]={-0.018372573,0.96563697,0.25924712};
-		aside[]={0.99751163,-1.238659e-007,0.070692122};
+		pos[]={1537.4937,18.053417,5035.0273};
+		dir[]={-0.32464081,-0.38212377,-0.8652373};
+		up[]={-0.13424887,0.92409688,-0.35780555};
+		aside[]={-0.93629736,-1.6935519e-007,0.35130218};
 	};
 };
 binarizationWanted=0;
@@ -7217,29 +7217,6 @@ class Mission
 			id=162;
 			type="ACE_moduleAllowConfigExport";
 			atlOffset=10.647746;
-			class CustomAttributes
-			{
-				class Attribute0
-				{
-					property="ACE_moduleAllowConfigExport_allowconfigurationExport";
-					expression="_this setVariable ['allowconfigurationExport',_value,true];";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"BOOL"
-								};
-							};
-							value=1;
-						};
-					};
-				};
-				nAttributes=1;
-			};
 		};
 		class Item52
 		{
@@ -8294,8 +8271,8 @@ class Mission
 			{
 				class Attribute0
 				{
-					property="ace_weather_ModuleSettings_useACEWeather";
-					expression="_this setVariable ['useACEWeather',_value,true];";
+					property="ace_weather_ModuleSettings_enabled";
+					expression="_this setVariable ['enabled',_value,true];";
 					class Value
 					{
 						class data
@@ -8307,14 +8284,33 @@ class Mission
 									"BOOL"
 								};
 							};
-							value=0;
+							value=1;
 						};
 					};
 				};
 				class Attribute1
 				{
-					property="ace_weather_ModuleSettings_serverUpdateInterval";
-					expression="_this setVariable ['serverUpdateInterval',_value,true];";
+					property="ace_weather_ModuleSettings_windSimulation";
+					expression="_this setVariable ['windSimulation',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=1;
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="ace_weather_ModuleSettings_updateInterval";
+					expression="_this setVariable ['updateInterval',_value,true];";
 					class Value
 					{
 						class data
@@ -8330,64 +8326,7 @@ class Mission
 						};
 					};
 				};
-				class Attribute2
-				{
-					property="ace_weather_ModuleSettings_syncMisc";
-					expression="_this setVariable ['syncMisc',_value,true];";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"BOOL"
-								};
-							};
-							value=0;
-						};
-					};
-				};
-				class Attribute3
-				{
-					property="ace_weather_ModuleSettings_syncWind";
-					expression="_this setVariable ['syncWind',_value,true];";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"BOOL"
-								};
-							};
-							value=0;
-						};
-					};
-				};
-				class Attribute4
-				{
-					property="ace_weather_ModuleSettings_enableServerController";
-					expression="_this setVariable ['enableServerController',_value,true];";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"BOOL"
-								};
-							};
-							value=0;
-						};
-					};
-				};
-				nAttributes=5;
+				nAttributes=3;
 			};
 		};
 		class Item64

@@ -34,18 +34,7 @@ if (missionNamespace getVariable ["GRAD_replay_isRunning", false]) exitWith {
 	[] call GRAD_replay_fnc_preparePlaybackClient;
 };
 
-if (missionNamespace getVariable ["grad_replay_player_gcamspec", false]) then {
-	// ["Terminate"] call BIS_fnc_EGSpectator;
 
-
-	[_focus] execVM "grad_gcamspec\gcam\gcam.sqf";
-	missionNamespace setVariable ["grad_replay_player_gcamspec", false];
-	[player, true] call TFAR_fnc_forceSpectator;
-
-} else {
-	setPlayerRespawnTime 999999;
-	[true] call ace_spectator_fnc_setSpectator;
-	// ["Initialize", [player, [west, east], true, true, true, false, true, true, true, true]] call BIS_fnc_EGSpectator;
-	missionNamespace setVariable ["grad_replay_player_gcamspec", true];
-	[player, true] call TFAR_fnc_forceSpectator;
-};
+setPlayerRespawnTime 999999;
+[true] call ace_spectator_fnc_setSpectator;
+[player, true] call TFAR_fnc_forceSpectator;

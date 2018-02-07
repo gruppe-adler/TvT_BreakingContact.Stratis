@@ -15,4 +15,4 @@ player addEventHandler ["handleRating", {
 }];
 
 // disable spectating the fucking civs
-[[west, east], [civilian, independent]] call ace_spectator_fnc_updateSpectatableSides;
+[[west, east], [civilian, independent]] call ace_spectator_fnc_updateSides;

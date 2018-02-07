@@ -40,14 +40,14 @@
 				<German>Übertrage an %1 Punkten für je %2 Min.</German>
 			</Key>
 			<Key ID="str_GRAD_classicTaskTitleBlufor">
-				<Original>Destroy the transmitter before transmission runs on %1 locations for %2 min each.</Original>
-				<English>Destroy the transmitter before transmission runs on %1 locations for %2 min each.</English>
-				<German>Zerstöre den Funkwagen vor Vollendung der Sendung an %1 Punkten für je %2 Min.</German>
+				<Original>Destroy the radio truck</Original>
+				<English>Destroy the radio truck</English>
+				<German>Zerstöre den Funkwagen</German>
 			</Key>
 			<Key ID="str_GRAD_classicTaskTitleBlufor_conquermode">
-				<Original>Destroy the transmitter before transmission runs on %1 locations for %2 min each.</Original>
-				<English>Destroy the transmitter before transmission runs on %1 locations for %2 min each.</English>
-				<German>Zerstöre den Funkwagen vor Vollendung der Sendung an %1 Punkten für je %2 Min.</German>
+				<Original>Destroy the transmitter, dont destroy the truck.</Original>
+				<English>Destroy the transmitter, dont destroy the truck.</English>
+				<German>Zerstöre das Funkmodul, nicht den Funkwagen.</German>
 			</Key>
 			<Key ID="str_GRAD_classicTaskTitleEliminate">
 				<Original>Eliminate enemies (alt. objective)</Original>
