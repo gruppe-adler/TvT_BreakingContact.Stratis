@@ -5,7 +5,7 @@ waitUntil {player == player};
 // spawn outside of map on flat terrain if possible
 _alternativeSpawnsOutsideMap = [[-2500,-500],[-500,-2500]];
 
-// _playerPositionsForCurrentWorld = ISLAND_TARGET_POSITIONS select (ISLANDS find worldName);
+
 
 _playerPositionsForCurrentWorld = if (side player == west) then { 
 	["spawnPosBlu"] call GRAD_islands_fnc_getIslandCfgValue

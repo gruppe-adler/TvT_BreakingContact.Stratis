@@ -39,7 +39,12 @@
 				<English>Transmit on %1 locations for %2 min each.</English>
 				<German>Übertrage an %1 Punkten für je %2 Min.</German>
 			</Key>
-			<Key ID="str_GRAD_classicTaskTitleBlufor1">
+			<Key ID="str_GRAD_classicTaskTitleBlufor">
+				<Original>Destroy the transmitter before transmission runs on %1 locations for %2 min each.</Original>
+				<English>Destroy the transmitter before transmission runs on %1 locations for %2 min each.</English>
+				<German>Zerstöre den Funkwagen vor Vollendung der Sendung an %1 Punkten für je %2 Min.</German>
+			</Key>
+			<Key ID="str_GRAD_classicTaskTitleBlufor_conquermode">
 				<Original>Destroy the transmitter before transmission runs on %1 locations for %2 min each.</Original>
 				<English>Destroy the transmitter before transmission runs on %1 locations for %2 min each.</English>
 				<German>Zerstöre den Funkwagen vor Vollendung der Sendung an %1 Punkten für je %2 Min.</German>
@@ -59,7 +64,7 @@
 				<English>Alternatively eliminate all American forces in the area.</English>
 				<German>Schalte alternativ alle amerikanischen Kräfte im Gebiet aus.</German>
 			</Key>
-			<Key ID="str_GRAD_classicTaskDescriptionBlufor1">
+			<Key ID="str_GRAD_classicTaskDescriptionBlufor">
 				<Original>Cancel the Russian transmission by destroying their radio truck or terminal before they can transmit for %1 minutes.</Original>
 				<English>Cancel the Russian transmission by destroying their radio truck or terminal before they can transmit for %1 minutes.</English>
 				<German>Beende die russische Übertragung durch Zerstörung des Funkwagens oder Funkmoduls bevor sie %1 Minuten senden können.</German>
@@ -75,9 +80,9 @@
 				<German>Verhindern Sie, dass der Funkwagen zerstört wird oder in fremde Hände fällt.</German>
 			</Key>
 			<Key ID="str_GRAD_classicTaskDescriptionBlufor_conquermode">
-				<Original>Cancel the Russian transmission and capture their radio truck or terminal. Do not destoy it!</Original>
-				<English>Cancel the Russian transmission and capture their radio truck or terminal. Do not destoy it!</English>
-				<German>Beenden Sie die russische Übertragung und erobern Sie den Funkwagen oder das Terminal. Zerstören Sie es in keinem Fall!</German>
+				<Original>Cancel the Russian transmission and capture their radio truck or terminal (ACE-Interact). Do not destoy it in any case! Transmissions must take place on %1 locations for %2 min each for Opfor to win.</Original>
+				<English>Cancel the Russian transmission and capture their radio truck or terminal (ACE-Interact). Do not destoy it in any case! Transmissions must take place on %1 locations for %2 min each for Opfor to win.</English>
+				<German>Beenden Sie die russische Übertragung und erobern Sie den Funkwagen oder das Terminal (ACE-Interact). Zerstören Sie es in keinem Fall! Die Übertragung muss an %1 Orten für je %2 min stattfinden, damit Opfor gewinnt.</German>
 			</Key>
 		</Container>
 		<Container name="mission setup">
