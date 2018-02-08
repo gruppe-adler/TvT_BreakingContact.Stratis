@@ -34,7 +34,6 @@ GRAD_detachThatFlag = {
 _vehicleFlagDefinitions = [
 	["rhs_tigr_m_vdv",[-1.1,1.2,1.2],[0,-0.2,1]],
 	["rhs_tigr_m_3camo_vdv",[-1.1,1.2,1.2],[0,-0.2,1]],
-	["rhs_kamaz5350_flatbed_msv",[1.1,2.9,1.3],[0,0,0]],
 	["rhsgref_cdf_b_reg_uaz_dshkm", [0.8,-1.15,1.3], [0,0,0]],
 	["rhsgref_nat_uaz_dshkm", [0.8,-1.15,1.3], [0,0,0]],
 	["rhs_gaz66_repair_vdv",[1.1,-1.9,2.2], [0,0,0]],
