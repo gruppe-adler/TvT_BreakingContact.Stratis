@@ -21,7 +21,6 @@ class CfgFunctions {
 	#include "grad_tracking\cfgFunctions.hpp"
 	#include "grad_supplydrops\cfgFunctions.hpp"
 	#include "grad_weaponcaches\cfgFunctions.hpp"
-	#include "grad_waverespawn\cfgFunctions.hpp"
 	#include "grad_roadtrash\cfgFunctions.hpp"
 	#include "grad_emptycars\cfgFunctions.hpp"
 	#include "BC_objectives\cfgFunctions.hpp"
@@ -350,18 +349,6 @@ class CfgSounds
 		name = "signal_distortion";
 		// filename, volume, pitch
 		sound[] = {"sounds\signal_distortion.ogg", 0.5, 1};
-		// subtitle delay in seconds, subtitle text
-		titles[] = {0, ""};
-	};
-
-
-
-
-	class waverespawn_bing
-	{
-		name = "waverespawn_bing";
-		// filename, volume, pitch
-		sound[] = {"grad_waverespawn\data\bing.ogg", 1, 1};
 		// subtitle delay in seconds, subtitle text
 		titles[] = {0, ""};
 	};
