@@ -19,7 +19,6 @@ class CfgFunctions {
 	#include "node_modules\grad-fortifications\cfgFunctions.hpp"
 	#include "grad_civs\cfgFunctions.hpp"
 	#include "grad_tracking\cfgFunctions.hpp"
-	#include "grad_supplydrops\cfgFunctions.hpp"
 	#include "grad_weaponcaches\cfgFunctions.hpp"
 	#include "grad_roadtrash\cfgFunctions.hpp"
 	#include "grad_emptycars\cfgFunctions.hpp"
@@ -31,7 +30,6 @@ class CfgFunctions {
 class RscTitles {
     #include "node_modules\grad-fortifications\dialog\hint\title.hpp"
     #include "grad_buymenu\definitions\rscTitles.hpp"
-    #include "grad_supplydrops\rscTitles.hpp"
 	#include "BC_objectives\rscTitles.hpp"
 };
 
