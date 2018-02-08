@@ -17,8 +17,6 @@ _OPFOR_TELEPORT_TARGET_listener = {
 	[_pos] call createOpforMarker;
 
 	closeDialog 0;
-
-	// 0 = [] execVM "player\spawn\showSetupInformation.sqf";
 };
 
 "OPFOR_TELEPORT_TARGET" addPublicVariableEventHandler _OPFOR_TELEPORT_TARGET_listener;

@@ -6,7 +6,6 @@ enableDynamicSimulationSystem true;
 0 = [] execVM "grad_buymenu\buymenu_init.sqf";
 
 clearInventory = compile preprocessFile "helpers\clearInventory.sqf";
-spawnStuff = compile preprocessFile "helpers\spawnStuff.sqf";
 
 
 // optimize for PVP
