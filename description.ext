@@ -12,6 +12,7 @@
 #include "node_modules\grad_replay\ui\dialog.hpp"
 
 class CfgFunctions {
+	#include "grad_carryBoat\cfgFunctions.hpp"
 	#include "grad_islands\cfgFunctions.hpp"
 	#include "grad_buymenu\cfgFunctions.hpp"
 	#include "node_modules\grad-loadout\cfgFunctions.hpp"
@@ -233,7 +234,7 @@ class ace_map_BFT_HideAiGroups {
 };
 
 class CfgDebriefing
-{  
+{
 	class OpforWinsByElimination
 	{
 		title = "Opfor wins";
@@ -318,7 +319,8 @@ class CfgDebriefingSections
 
 class CfgSounds
 {
-	sounds[] = {beam,beep,signal_lost,signal_distortion,pick,strain1,strain2,strain3,strain4,release_easy,release_medium,release_hard};
+	#include "grad_carryBoat\cfgSounds.hpp"
+	sounds[] = {beam,beep,signal_lost,signal_distortion};
 	class beam
 	{
 		name = "beam";
@@ -353,70 +355,7 @@ class CfgSounds
 	};
 
 
-	class pick
-	{
-		name = "pick";
-		// filename, volume, pitch
-		sound[] = {"sounds\carry\pick.ogg", 1, 1};
-		// subtitle delay in seconds, subtitle text
-		titles[] = {0, ""};
-	};
-	class strain1
-	{
-		name = "strain1";
-		// filename, volume, pitch
-		sound[] = {"sounds\carry\strain1.ogg", 1, 1};
-		// subtitle delay in seconds, subtitle text
-		titles[] = {0, ""};
-	};
-	class strain2
-	{
-		name = "strain2";
-		// filename, volume, pitch
-		sound[] = {"sounds\carry\strain2.ogg", 1, 1};
-		// subtitle delay in seconds, subtitle text
-		titles[] = {0, ""};
-	};
-	class strain3
-	{
-		name = "strain3";
-		// filename, volume, pitch
-		sound[] = {"sounds\carry\strain3.ogg", 1, 1};
-		// subtitle delay in seconds, subtitle text
-		titles[] = {0, ""};
-	};
-	class strain4
-	{
-		name = "strain4";
-		// filename, volume, pitch
-		sound[] = {"sounds\carry\strain4.ogg", 1, 1};
-		// subtitle delay in seconds, subtitle text
-		titles[] = {0, ""};
-	};
-	class release_easy
-	{
-		name = "release_easy";
-		// filename, volume, pitch
-		sound[] = {"sounds\carry\release_easy.ogg", 1, 1};
-		// subtitle delay in seconds, subtitle text
-		titles[] = {0, ""};
-	};
-	class release_medium
-	{
-		name = "release_medium";
-		// filename, volume, pitch
-		sound[] = {"sounds\carry\release_medium.ogg", 1, 1};
-		// subtitle delay in seconds, subtitle text
-		titles[] = {0, ""};
-	};
-	class release_hard
-	{
-		name = "release_hard";
-		// filename, volume, pitch
-		sound[] = {"sounds\carry\release_hard.ogg", 1, 1};
-		// subtitle delay in seconds, subtitle text
-		titles[] = {0, ""};
-	};
+
 
 	class waverespawn_bing
 	{
