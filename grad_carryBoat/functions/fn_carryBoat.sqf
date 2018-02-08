@@ -5,6 +5,6 @@ private _count = (_parentObj getVariable ["grad_carryBoatCargo", 1]);
 (_parentObj setVariable ["grad_carryBoatCargo", _count - 1]);
 _boat allowDamage false;
 
-hint "bla";
+player setVariable ["GRAD_carryBoat_boatObj", _boat];
 
 [_boat] spawn GRAD_carryBoat_fnc_pickupBoat;

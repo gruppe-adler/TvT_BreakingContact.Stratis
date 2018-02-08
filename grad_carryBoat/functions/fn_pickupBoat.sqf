@@ -3,131 +3,89 @@
 
 /*
 
-"carryBoat" Variable
+"GRAD_carryBoat_status" Variable
 
 0 - not carrying anything
 1 - carrying a boat
 2 - pressed mouse button to place boat
 
 */
-hint "bla2";
 
-carryBoat = _this select 0; // "B_Boat_Transport_01_F" createVehicleLocal [position player select 0,position player select 1,100];
+params ["_boat"];
+// "B_Boat_Transport_01_F" createVehicleLocal [position player select 0,position player select 1,100];
 [player] call ace_weaponselect_fnc_putWeaponAway;
 sleep 1;
 
 // sounds
-_strains = [
+private _strains = [
 "strain1",
 "strain2",
 "strain3",
 "strain4"
 ];
 
-
-interpretMouseClick = {
-  if ((_this select 1) == 0) then {
-    player setVariable ["carryBoat",2];
-  };
-  // hintSilent format ["%1",_this];
-};
-
-interpretMouseWheel = {
-  _min = 1;
-  _max = 2;
-  if ((_this select 1) > 1 && (carryAttachH < _max)) then {
-    carryAttachH = carryAttachH + 0.1;
-    addCamShake [4, 1, 2];
-  };
-  if ((_this select 1) < -1 && (carryAttachH > _min)) then {
-    carryAttachH = carryAttachH - 0.1;
-    addCamShake [4, 1, 2];
-  };
-  carryBoat attachTo [player,[carryAttachX, carryAttachY, carryAttachH]];
-  // hintSilent format ["%1",_this];
-};
-
-
 [localize "str_GRAD_carry_place","",""] call EFUNC(interaction,showMouseHint);
-_mouseClickEH = (findDisplay 46) displayAddEventHandler ["MouseButtonDown", "_this call interpretMouseClick"];
-_mouseWheelEH = (findDisplay 46) displayAddEventHandler ["MouseZChanged", "_this call interpretMouseWheel"];
+
+private _mouseClickEH = (findDisplay 46) displayAddEventHandler [
+      "MouseButtonDown",
+      "_this call GRAD_carryBoat_fnc_interpretMouseClick"
+];
+private _mouseWheelEH = (findDisplay 46) displayAddEventHandler [
+      "MouseZChanged",
+      "_this call GRAD_carryBoat_fnc_interpretMouseWheel"
+];
 
 inGameUISetEventHandler ["PrevAction", "true"];
 inGameUISetEventHandler ["NextAction", "true"];
 
 
 
-carryAttachX = 0;
-carryAttachY = 4.5;
-carryAttachH = 1.5;
+private _carryAttachX = 0;
+private _carryAttachY = 4.5;
+private _carryAttachH = 1.5;
 
 
-carryBoat attachTo [player,[carryAttachX, carryAttachY, carryAttachH]];
-player setVariable ["carryBoat",1];
+_boat attachTo [player,[_carryAttachX, _carryAttachY, _carryAttachH]];
+player setVariable ["GRAD_carryBoat_status",1];
 addCamShake [5, 1, 10];
-playSound selectRandom ["pick"];
+playSound "pick";
 
 
+[{
+    params ["_args", "_handle"];
+    _args params ["_boat", "_strains"];
 
+    // dropped boat, exit loop
+    if (player getVariable ["GRAD_carryBoat_status",0] != 1) exitWith {
+          [_handle] call CBA_fnc_removePerFrameHandler;
+          [_boat] call GRAD_carryBoat_fnc_dropBoat;
+    };
 
-// hintSilent parseText format ["<t size='1'>" + "str_GRAD_carry_hint1" + "</t><br/><t size='2'>%1 s<br/>" +"</t><t size='1'>" + "str_GRAD_carry_hint1" + "</t>",_maxTime];
+    // drain fatigue
+    player setFatigue ((getFatigue player) + 0.05);
 
-// sound and fatigues
-[_strains] spawn {
-  _sounds = _this select 0;
+    // add camshake
+    if (getFatigue player > 0.5 && getFatigue player < 0.7) then {
+        addCamShake [2, 1, 2];
+    };
 
-      while {(player getVariable ["carryBoat",0] == 1)} do {
-
-        
-        player setFatigue ((getFatigue player) + 0.05);
-
-            if (getFatigue player > 0.5 && getFatigue player < 0.7) then {
-                addCamShake [2, 1, 2];
-            };
-
-            if (getFatigue player >= 0.7 && getFatigue player < 0.9) then {
-                addCamShake [3, 1, 5];
-                if (random 10 > 9) then {
-                playSound (selectrandom _sounds);
-              };
-            };
-
-            if (getFatigue player >= 0.9) then {
-              addCamShake [5, 1, 10];
-              if (random 3 > 2) then {
-                playSound (selectrandom _sounds);
-              };
-            };
-
-            if (getFatigue player > 0.9) then {
-              player setVariable ["carryBoat",2];
-            };
-        sleep 1;
+    // play sounds
+    if (getFatigue player >= 0.7 && getFatigue player < 0.9) then {
+        addCamShake [3, 1, 5];
+        if (random 10 > 9) then {
+        playSound (selectrandom _strains);
       };
-};
+    };
 
-waitUntil {(player getVariable ["carryBoat",0] == 2)};
+    if (getFatigue player >= 0.9) then {
+      addCamShake [5, 1, 10];
+      if (random 3 > 2) then {
+        playSound (selectrandom _strains);
+      };
+    };
 
-detach carryBoat;
-addCamShake [10, 1, 3];
-carryBoat setVelocity [velocity player select 0, velocity player select 1, 1];
-(findDisplay 46) displayRemoveEventHandler ["MouseButtonDown", _mouseClickEH];
-(findDisplay 46) displayRemoveEventHandler ["MouseZChanged", _mouseWheelEH];
+    if (getFatigue player > 0.9) then {
+      player setVariable ["GRAD_carryBoat_status",2];
+    };
 
-// play sound depending on fatigue
-if (getFatigue player < 0.4) then {
-  playSound "release_easy";
-};
-if (getFatigue player >= 0.4 && getFatigue player < 0.75) then {
-  playSound "release_medium";
-};
-if (getFatigue player >= 0.75) then {
-  playSound "release_hard";
-};
-
-[] call EFUNC(interaction,hideMouseHint);
-
-inGameUISetEventHandler ["PrevAction", "false"];
-inGameUISetEventHandler ["NextAction", "false"];
-player setVariable ["carryBoat",0];
-carryBoat allowdamage true;
+},1, [_boat, _strains]] call CBA_fnc_addPerFrameHandler;

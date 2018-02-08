@@ -4,6 +4,9 @@ class GRAD_carryBoat {
         file = grad_carryBoat\functions;
 
         class carryBoat;
+				class dropBoat;
+				class interpretMouseClick;
+				class interpretMouseWheel;
         class pickupBoat;
     };
 };
