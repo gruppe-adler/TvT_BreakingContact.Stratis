@@ -41,12 +41,7 @@ _mrzr4 = [
       _veh addItemCargoGlobal ["U_B_Wetsuit",4];
       _veh addItemCargoGlobal ["V_RebreatherB",4];
       _veh addItemCargoGlobal ["G_B_Diving",4];
-      _veh setVariable ["detachableBoat",1, true];
-      _createAssaultBoat = ["CreateBoatAction", "Take Boat", "",
-        {0 = [_veh] execVM 'player\carry\createBoat.sqf';},
-        {(_veh getVariable ["detachableBoat", 0] > 0)}
-      ] call ace_interact_menu_fnc_createAction;
-      [mrzr4, 0, ["ACE_MainActions"],_createAssaultBoat] call ace_interact_menu_fnc_addActionToClass;
+      _veh setVariable ["grad_carryBoatCargo",1, true];
     },
     ['4x Diving Equipment', '1x Detachable Boat'],
     0,
@@ -163,7 +158,7 @@ _ammocar = [
       _veh addMagazineCargoGlobal ['ACE_HuntIR_M203',4];
       ['AddCargoByClass', ['ACE_wheel', _veh, 3], _veh] call CBA_fnc_targetEvent;
       ['AddCargoByClass', ['ACE_Track', _veh, 1], _veh] call CBA_fnc_targetEvent;
-   
+
 
       },
       ['1 GPS', 'Ammunition incl AT4', 'Medic Stuff', 'Hunt IR'],
