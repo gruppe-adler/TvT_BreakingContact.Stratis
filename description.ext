@@ -9,7 +9,7 @@
 
 #include "node_modules\grad-fortifications\grad_fortifications.hpp"
 #include "node_modules\grad-customGear\saveDialog\dialog.hpp"
-#include "node_modules\grad_replay\ui\dialog.hpp"
+#include "node_modules\grad-replay\ui\dialog.hpp"
 
 class CfgFunctions {
 	#include "grad_carryBoat\cfgFunctions.hpp"
@@ -23,7 +23,7 @@ class CfgFunctions {
 	#include "grad_roadtrash\cfgFunctions.hpp"
 	#include "grad_emptycars\cfgFunctions.hpp"
 	#include "BC_objectives\cfgFunctions.hpp"
-	#include "node_modules\grad_replay\cfgFunctions.hpp"
+	#include "node_modules\grad-replay\cfgFunctions.hpp"
 	#include "node_modules\grad-customGear\cfgFunctions.hpp"
 };
 
