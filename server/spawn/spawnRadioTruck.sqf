@@ -62,7 +62,7 @@ spawnRadioTruck = {
 	sleep 7;
 
 	// create replay
-	[[REPLAY_ACCURACY], "node_modules\grad_replay\GRAD_replay_init.sqf"] remoteExec ["execVM", 0, true];
+	[[REPLAY_ACCURACY], "node_modules\grad-replay\GRAD_replay_init.sqf"] remoteExec ["execVM", 0, true];
 
 	// create tasks
 	[[], "BC_objectives\init.sqf"] remoteExec ["execVM", 0, true];
