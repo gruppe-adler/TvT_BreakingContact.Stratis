@@ -1,34 +1,3 @@
-// GET IN / OUT AA
-GRAD_addGetInActionAA = {
-  params ["_vehicle"];
-  _vehicle addAction ["Get In AA", {
-    [_this select 0, _this select 1] spawn {
-    (_this select 1) switchMove "ACE_Climb";
-      sleep 1.2;
-    (_this select 1) moveInTurret [(_this select 0) getVariable ['attachedObject',objNull], [0]];
-    };
-
-  }, nil, 1, false, true, "",
-  "!isNull (_target getVariable ['attachedObject',objNull]) &&
-  alive (_target getVariable ['attachedObject',objNull]) &&
-  !(vehicle _this == _target) &&
-  {count crew (_target getVariable ['attachedObject',objNull]) < 1}",
-  5, false];
-};
-
-GRAD_addGetOutActionAA = {
-  params ["_manpad"];
-  _manpad addAction ["Get Out", {
-    moveOut (_this select 1);
-    _dir = getDir (_this select 0);
-    (_this select 1) setDir _dir - 180;
-    (_this select 1) switchMove "AcrgPknlMstpSnonWnonDnon_AmovPercMstpSnonWnonDnon_getOutMedium";
-    (_this select 1) setPos (((_this select 0) getVariable ['attachedToObject',objNull]) modelToWorld [0.5,-3.5,-1]);
-  }, nil, 1, false, true, "vehicle _this == _target",
-  "",
-  1, false];
-};
-
 // FLAGS
 
 {
