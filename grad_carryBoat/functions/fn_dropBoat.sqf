@@ -1,7 +1,7 @@
 #include "\z\ace\addons\main\script_component.hpp"
 #include "\z\ace\addons\main\script_macros.hpp"
 
-params ["_boat"];
+params ["_boat", "_mouseClickEH", "_mouseWheelEH"];
 
 detach _boat;
 addCamShake [10, 1, 3];

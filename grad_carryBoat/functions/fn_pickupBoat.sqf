@@ -53,12 +53,12 @@ playSound "pick";
 
 [{
     params ["_args", "_handle"];
-    _args params ["_boat", "_strains"];
+    _args params ["_boat", "_strains", "_mouseClickEH", "_mouseWheelEH"];
 
     // dropped boat, exit loop
     if (player getVariable ["GRAD_carryBoat_status",0] != 1) exitWith {
           [_handle] call CBA_fnc_removePerFrameHandler;
-          [_boat] call GRAD_carryBoat_fnc_dropBoat;
+          [_boat, _mouseClickEH, _mouseWheelEH] call GRAD_carryBoat_fnc_dropBoat;
     };
 
     // drain fatigue
@@ -88,4 +88,4 @@ playSound "pick";
       player setVariable ["GRAD_carryBoat_status",2];
     };
 
-},1, [_boat, _strains]] call CBA_fnc_addPerFrameHandler;
+},1, [_boat, _strains, _mouseClickEH, _mouseWheelEH]] call CBA_fnc_addPerFrameHandler;
