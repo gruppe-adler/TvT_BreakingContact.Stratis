@@ -4,9 +4,6 @@ createOpforStuff =  {
 	[_position] call spawnRadioTruck;
 	
 
-	0 = [] execVM "server\spawn\showLeaderInformation.sqf";
-
-
 	if (!isMultiplayer) then {
 		_opfor_marker_start = createMarker ["debug_opfor_marker_start", (call RUS_VEHICLE_SPAWN)];
 		_opfor_marker_start setMarkerType "hd_start";

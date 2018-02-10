@@ -85,7 +85,6 @@ if (hasInterface) then {
 
 	[] execVM "player\setup\helpBriefing.sqf"; diag_log format ["setup: briefing initiated"];
 
-	[] execVM "spawn\assaultBoatAssemblingSystem.sqf";
 	[] execVM "player\civKillListener.sqf";
 	[] execVM "player\civGunfightListener.sqf";
 	[] execVM "player\startMarkerListener.sqf";
