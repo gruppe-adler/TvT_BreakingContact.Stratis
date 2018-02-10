@@ -102,6 +102,11 @@ if (isServer) then {
 	spawnMarkerOpforPlane = (spawnArrayOpforPlane select _randOpfInd);
 	spawnMarkerOpforHelicopter = (spawnArrayOpforHelicopter select _randOpfInd);
 
+	vehicleListBlufor = ['transportTruck', 'brdm', 'tigr', 'ammotruck', 'uaz', 'btr', 'bmp', 't72', 'transmitter', 'truckarmor'];
+	vehicleListOpfor = ['transportHMMWV', 'mrzr4','hmmwv_m2','m113', 'm113heavy','ammocar','melb','mh60'];
+	publicVariable "vehicleListBlufor";
+	publicVariable "vehicleListOpfor";
+
 	publicVariable "spawnMarkerBluforLand";
 	publicVariable "spawnMarkerBluforWater";
 	publicVariable "spawnMarkerCivilianBlufor";
@@ -137,7 +142,7 @@ if (hasInterface) then {
 		_canBuy = [];
 		if (playerSide == east) then {
 			switch (rank player) do {
-				case "CAPTAIN": { _canBuy = ['transportTruck', 'brdm', 'tigr', 'ammotruck', 'uaz', 'btr', 'bmp', 't72', 'transmitter', 'truckarmor']; };
+				case "CAPTAIN": { _canBuy = vehicleListOpfor; };
 				default { _canBuy = []; };
 			};	
 
@@ -153,7 +158,7 @@ if (hasInterface) then {
 		if (playerSide == west) then {
 			
 			switch (rank player) do {
-				case "CAPTAIN": { _canBuy = ['transportHMMWV', 'mrzr4','hmmwv_m2','m113', 'm113heavy','ammocar','melb','mh60']; };
+				case "CAPTAIN": { _canBuy = vehicleListBlufor; };
 				default { _canBuy = []; };
 			};
 			

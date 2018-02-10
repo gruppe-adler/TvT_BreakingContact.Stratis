@@ -16,6 +16,7 @@ class GRAD_buymenu {
         file = grad_buymenu\functions\player;
 
         class addOrder {};
+        class allowPlayerToBuy {};
         class calculatePicturesColumn {};
         class calculateValuesColumn {};
         class createEntries {};
