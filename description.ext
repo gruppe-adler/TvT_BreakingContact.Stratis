@@ -19,8 +19,6 @@ class CfgFunctions {
 	#include "node_modules\grad-fortifications\cfgFunctions.hpp"
 	#include "grad_civs\cfgFunctions.hpp"
 	#include "grad_tracking\cfgFunctions.hpp"
-	#include "grad_weaponcaches\cfgFunctions.hpp"
-	#include "grad_roadtrash\cfgFunctions.hpp"
 	#include "grad_emptycars\cfgFunctions.hpp"
 	#include "BC_objectives\cfgFunctions.hpp"
 	#include "node_modules\grad-replay\cfgFunctions.hpp"
