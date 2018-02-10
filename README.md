@@ -50,8 +50,8 @@ TFAR, ACE3, RHSAFRF and RHSUSF mods are required. RDS\_CIV is optional (required
  
 ## Supported Maps
 
-Altis, Bornholm, Chernarus, Chernarus Summer, Clafghan, Esseker, FATA, Gorgona, Capraia, Kunduz, Namalsk, Panthera, N'Ziwasogo, United Sahrani, Stratis, Sugarlake, Takistan, Thirks, VT5, Bystrica, Zargabad . 
-To play on one of those islands, change the file name's terrain part (_"Stratis"_) into one of [these](compatibleIslands.txt)
+Altis,Beketov,Bornholm,Bootcamp_ACR,Chernarus,Chernarus_Summer,dingor,FDF_Isle1_a,fallujah,Esseker,Gorgona,IsolaDiCapraia,Kunduz,lingor3,lythium,Malden,mbg_celle2,namalsk,prei_khmaoch_luong,ProvingGrounds_PMC,Panthera3,Sara_dbe1,Shapur_BAF,SugarLake,Stratis,Thirsk,Woodland_ACR,Zargabad,clafghan,fata,saru,takistan,Tanoa,taviana,vt5,xcam_prototype,pja305
+To play on one of those islands, change the file name's terrain part (_"Stratis"_) into one of the above [these](compatibleIslands.txt)
 
 ## Hints
 * Admin slot is Zeus to fight bugs
@@ -60,7 +60,7 @@ To play on one of those islands, change the file name's terrain part (_"Stratis"
 * For every player there is a little bonus in money
 * Russians might redeploy, the sum of deployed time counts for winning
 * Best played in a roughly 2:1 attacker defender ratio
-* You can eradicate the helipad in the buy menu when you are fully equipped to hide your spawn
+* You can eradicate the spawn cone with ace interact to hide your spawn position
 
 ----
 
