@@ -371,9 +371,6 @@ class Loadouts {
 		#include "loadouts\US_Woodland.hpp"
 		#include "loadouts\RU_Desert.hpp"
 		#include "loadouts\RU_Woodland.hpp"
-
-		#include "loadouts\SOV_Desert.hpp"
-		#include "loadouts\MUD_Desert.hpp"
 	};
 };
 
