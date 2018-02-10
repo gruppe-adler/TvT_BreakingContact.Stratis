@@ -44,6 +44,8 @@ private _carryAttachX = 0;
 private _carryAttachY = 4.5;
 private _carryAttachH = 1.5;
 
+_boat setVariable ["GRAD_carryBoat_attachPosition", [_carryAttachX, _carryAttachY, _carryAttachH]];
+
 
 _boat attachTo [player,[_carryAttachX, _carryAttachY, _carryAttachH]];
 player setVariable ["GRAD_carryBoat_status",1];
