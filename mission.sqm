@@ -8,7 +8,7 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=731;
+		nextID=737;
 	};
 	class MarkerIDProvider
 	{
@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={1537.4937,18.053417,5035.0273};
-		dir[]={-0.3175039,-0.35744411,0.87833714};
-		up[]={-0.12152959,0.9339202,0.33619314};
-		aside[]={0.94047523,-1.656008e-007,0.33996651};
+		pos[]={1503.8999,24.179209,5046.562};
+		dir[]={0.85014057,-0.38720495,-0.35695106};
+		up[]={0.35705438,0.92197466,-0.14991595};
+		aside[]={-0.38715073,-3.0966476e-007,-0.92206657};
 	};
 };
 binarizationWanted=0;
@@ -275,9 +275,6 @@ class ScenarioData
 {
 	author="nomisum";
 	wreckRemovalMaxTime=3600;
-};
-class CustomAttributes
-{
 };
 class Mission
 {

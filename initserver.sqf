@@ -11,6 +11,16 @@ if ((["DEBUG_MODE", 0] call BIS_fnc_getParamValue) == 1 || !isMultiplayer) then 
 };
 publicVariable "DEBUG_MODE";
 
+
+addMissionEventHandler ["HandleDisconnect",{
+    params [["_unit",objNull]];
+    if (_unit getVariable ["GRAD_loadout_applicationCount",0] < 1) then {
+        deleteVehicle _unit;
+    };
+    false
+}];
+
+
 // read parameters
 TIME_OF_DAY = ["TIME_OF_DAY", 10] call BIS_fnc_getParamValue;
 publicVariable "TIME_OF_DAY";

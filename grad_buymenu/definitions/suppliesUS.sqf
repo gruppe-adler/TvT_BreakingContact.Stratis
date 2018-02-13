@@ -14,7 +14,7 @@ if (IS_WOODLAND) then {
        m113heavy = "rhsusf_m113_usarmy";
        ammocar_init = ["hide_CIP",1,"hide_BFT",1,"Hide_A2Bumper",1];
        ammocar = "rhsusf_m998_w_4dr_fulltop";
-       uh60 = "RHS_UH60M_MEV2";
+       uh60 = "RHS_UH60M2";
     } else {
        _transportHMMWV = "rhsusf_m998_d_2dr_fulltop";
        mrzr4 = "rhsusf_mrzr4_d_mud";
@@ -23,7 +23,7 @@ if (IS_WOODLAND) then {
        m113heavy = "rhsusf_m113d_usarmy";
        ammocar_init = ["hide_CIP",1,"hide_BFT",1,"Hide_A2Bumper",1];
        ammocar = "rhsusf_m998_d_4dr_fulltop";
-       uh60 = "RHS_UH60M_MEV2";
+       uh60 = "RHS_UH60M2";
     };
 
 
@@ -197,8 +197,6 @@ _uh60 = [
       _veh addItemCargoGlobal ['ACE_NVG_Wide',2];
       _veh addItemCargoGlobal ["ItemGPS",1];
       [_veh] call ace_fastroping_fnc_equipFRIES;
-      _veh setObjectTextureGlobal [0, "rhsusf\addons\rhsusf_a2port_air\UH60M\Data\uh60m_fuselage_co.paa"];
-      _veh setObjectTextureGlobal [1, "rhsusf\addons\rhsusf_a2port_air\UH60M\Data\uh60m_engine_co.paa"];
       },
       ['1 GPS', 'FRIES equipped'],
       0,
