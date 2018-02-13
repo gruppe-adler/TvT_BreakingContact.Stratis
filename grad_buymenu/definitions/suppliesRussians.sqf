@@ -90,7 +90,7 @@ _brdm = [
     ["rhsgref_BRDM2_HQ_b"],
     "BRDM PKT",
     2,
-    300,
+    500,
     1,
     _initBRDM,
     {
@@ -229,7 +229,7 @@ _bmp = [
     ["rhs_bmp1_msv"],
     "BMP-1",
     1,
-    2000,
+    1700,
     6,
     _initBMP,
     {
@@ -253,7 +253,7 @@ _t72 = [
     ["rhs_t72ba_tv"],
     "T-72",
     1,
-    3500,
+    2500,
     7,
     _initT72,
     {
