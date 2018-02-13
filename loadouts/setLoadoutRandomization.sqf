@@ -38,7 +38,6 @@
             _value =  selectRandom [
             	"rhs_weap_m4a1_carryhandle",
             	"rhs_weap_m4a1_carryhandle_grip2",
-            	"rhs_weap_m4a1_carryhandle_pmag",
             	"rhs_weap_m4a1_carryhandle_grip"
             ];
         } else { if (_value == "rhs_weap_m249_pip_L") then {

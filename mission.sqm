@@ -17,9 +17,9 @@ class EditorData
 	class Camera
 	{
 		pos[]={1537.4937,18.053417,5035.0273};
-		dir[]={-0.32464081,-0.38212377,-0.8652373};
-		up[]={-0.13424887,0.92409688,-0.35780555};
-		aside[]={-0.93629736,-1.6935519e-007,0.35130218};
+		dir[]={-0.3175039,-0.35744411,0.87833714};
+		up[]={-0.12152959,0.9339202,0.33619314};
+		aside[]={0.94047523,-1.656008e-007,0.33996651};
 	};
 };
 binarizationWanted=0;
@@ -275,6 +275,9 @@ class ScenarioData
 {
 	author="nomisum";
 	wreckRemovalMaxTime=3600;
+};
+class CustomAttributes
+{
 };
 class Mission
 {
