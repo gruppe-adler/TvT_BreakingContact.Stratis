@@ -5,6 +5,8 @@
 
 **Arma3 TvT scenario**
 
+![](http://forum.gruppe-adler.de/uploads/files/1443827796096-loading.jpg)
+
 # The Scenario
 
 BLUFOR must prevent OPFOR from sending a signal for a total of X minutes.
