@@ -8,7 +8,7 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=752;
+		nextID=757;
 	};
 	class MarkerIDProvider
 	{
@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={1598.5441,10.500992,5046.3457};
-		dir[]={0.84974068,-0.35846624,-0.38671544};
-		up[]={0.32631987,0.93351787,-0.14850526};
-		aside[]={-0.41424301,-5.5751298e-007,-0.91022843};
+		pos[]={1539.9521,20.21517,5042.2461};
+		dir[]={0.020753911,-0.37828162,0.92552263};
+		up[]={0.008479733,0.92566252,0.37824494};
+		aside[]={0.99981076,-4.8145012e-007,-0.022418592};
 	};
 };
 binarizationWanted=0;
@@ -302,7 +302,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=66;
+		items=70;
 		class Item0
 		{
 			dataType="Marker";
@@ -8490,6 +8490,446 @@ class Mission
 					};
 				};
 				nAttributes=3;
+			};
+		};
+		class Item66
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={999.59094,5.3729019,5700.9072};
+			};
+			isPlayable=1;
+			id=753;
+			type="VirtualSpectator_F";
+			atlOffset=59.363842;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="AllowFreeCamera";
+					expression="_this setVariable ['AllowFreeCamera', _value];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=1;
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="WhitelistedSides";
+					expression="_this setVariable ['WhitelistedSides', _value];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"ARRAY"
+								};
+							};
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="ShowFocusInfo";
+					expression="_this setVariable ['ShowFocusInfo', _value];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=1;
+						};
+					};
+				};
+				class Attribute3
+				{
+					property="AllowAi";
+					expression="_this setVariable ['AllowAi', _value];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=0;
+						};
+					};
+				};
+				class Attribute4
+				{
+					property="Allow3PPCamera";
+					expression="_this setVariable ['Allow3PPCamera', _value];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=1;
+						};
+					};
+				};
+				nAttributes=5;
+			};
+		};
+		class Item67
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={1099.1538,-7.5757561,5700.9072};
+			};
+			isPlayable=1;
+			id=754;
+			type="VirtualSpectator_F";
+			atlOffset=46.324871;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="AllowFreeCamera";
+					expression="_this setVariable ['AllowFreeCamera', _value];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=1;
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="WhitelistedSides";
+					expression="_this setVariable ['WhitelistedSides', _value];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"ARRAY"
+								};
+							};
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="ShowFocusInfo";
+					expression="_this setVariable ['ShowFocusInfo', _value];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=1;
+						};
+					};
+				};
+				class Attribute3
+				{
+					property="AllowAi";
+					expression="_this setVariable ['AllowAi', _value];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=0;
+						};
+					};
+				};
+				class Attribute4
+				{
+					property="Allow3PPCamera";
+					expression="_this setVariable ['Allow3PPCamera', _value];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=1;
+						};
+					};
+				};
+				nAttributes=5;
+			};
+		};
+		class Item68
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={1000.0428,-9.4208488,5601.5664};
+			};
+			isPlayable=1;
+			id=755;
+			type="VirtualSpectator_F";
+			atlOffset=61.297138;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="AllowFreeCamera";
+					expression="_this setVariable ['AllowFreeCamera', _value];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=1;
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="WhitelistedSides";
+					expression="_this setVariable ['WhitelistedSides', _value];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"ARRAY"
+								};
+							};
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="ShowFocusInfo";
+					expression="_this setVariable ['ShowFocusInfo', _value];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=1;
+						};
+					};
+				};
+				class Attribute3
+				{
+					property="AllowAi";
+					expression="_this setVariable ['AllowAi', _value];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=0;
+						};
+					};
+				};
+				class Attribute4
+				{
+					property="Allow3PPCamera";
+					expression="_this setVariable ['Allow3PPCamera', _value];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=1;
+						};
+					};
+				};
+				nAttributes=5;
+			};
+		};
+		class Item69
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={1099.6057,-20.131138,5601.5664};
+			};
+			isPlayable=1;
+			id=756;
+			type="VirtualSpectator_F";
+			atlOffset=48.325672;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="AllowFreeCamera";
+					expression="_this setVariable ['AllowFreeCamera', _value];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=1;
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="WhitelistedSides";
+					expression="_this setVariable ['WhitelistedSides', _value];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"ARRAY"
+								};
+							};
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="ShowFocusInfo";
+					expression="_this setVariable ['ShowFocusInfo', _value];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=1;
+						};
+					};
+				};
+				class Attribute3
+				{
+					property="AllowAi";
+					expression="_this setVariable ['AllowAi', _value];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=0;
+						};
+					};
+				};
+				class Attribute4
+				{
+					property="Allow3PPCamera";
+					expression="_this setVariable ['Allow3PPCamera', _value];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=1;
+						};
+					};
+				};
+				nAttributes=5;
 			};
 		};
 	};
