@@ -7,7 +7,7 @@ class US_Woodland: US_Desert {
 		headgear = "rhsusf_mich_helmet_marpatwd";
 	};
 
-	class Type {
+	class Type: Type {
 		class Soldier_F {
 			vest = "rhsusf_spc";
 		};
