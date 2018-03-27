@@ -8,22 +8,22 @@ class US_Woodland: US_Desert {
 	};
 
 	class Type: Type {
-		class Soldier_F {
+		class Soldier_F: Soldier_F {
 			vest = "rhsusf_spc";
 		};
-		class Soldier_AR_F {
+		class Soldier_AR_F: Soldier_AR_F {
 			vest = "rhsusf_spc_mg";
 		};
-		class Soldier_AT_F {
+		class Soldier_AT_F: Soldier_AT_F {
 			vest = "rhsusf_spc_patchless";
 		};
-		class Soldier_A_F {
+		class Soldier_A_F: Soldier_A_F {
 			vest = "rhsusf_spc_light";
 		};
-		class Medic_F {
+		class Medic_F: Medic_F {
 			vest = "rhsusf_spc_corpsman";
 		};
-		class Soldier_TL_F {
+		class Soldier_TL_F: Soldier_TL_F {
 			vest = "rhsusf_spc_marksman";
 			backpack = "tf_rt1523g_big_bwmod";
 		};
@@ -33,7 +33,7 @@ class US_Woodland: US_Desert {
 			backpack = "tf_rt1523g_big_bwmod";
 		};
 		class officer_F: Soldier_SL_F {};
-		class Crew_F {
+		class Crew_F: Crew_F {
 			vest = "rhsusf_spc_crewman";
 			headgear = "rhsusf_cvc_green_helmet";
 		};
