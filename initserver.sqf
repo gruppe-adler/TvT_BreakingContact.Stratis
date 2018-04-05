@@ -238,9 +238,6 @@ if (isClass (configFile >> "CfgPatches" >> "task_force_radio")) then {
 };
 
 [] execVM "helpers\medical_settings.sqf";
-
-
-[] execVM "server\teleportListener.sqf";
 [] execVM "server\civKillListener.sqf";
 [] execVM "server\civGunfightListener.sqf";
 

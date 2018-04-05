@@ -29,9 +29,6 @@ if (_side isEqualTo west) then {
       "mrk_spawn_blufor_land_1" setMarkerPos (call US_VEHICLE_SPAWN);
       "respawn_west" setMarkerPos (call US_VEHICLE_SPAWN);
 
-      BLUFOR_TELEPORT_TARGET = getPos _startVehicle;
-      publicVariableServer "BLUFOR_TELEPORT_TARGET";
-
       debugLog("blufor published target");
       diag_log format ["creating blufor stuff on position: %1",call US_VEHICLE_SPAWN];
 

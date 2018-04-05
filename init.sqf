@@ -87,18 +87,15 @@ if (hasInterface) then {
 
 	[] execVM "player\civKillListener.sqf";
 	[] execVM "player\civGunfightListener.sqf";
-	[] execVM "player\startMarkerListener.sqf";
 
 	waitUntil {!isNil "OPFOR_TELEPORT_TARGET"};
 	waitUntil {!isNil "BLUFOR_TELEPORT_TARGET"};
 
 	if (playerSide == west) then {
-		[] execVM "player\bluforBluforTeleportListener.sqf";
 		[] spawn checkJIP;
 	};
 
 	if (playerSide == east) then {
-		[] execVM "player\opforOpforTeleportListener.sqf"; diag_log format ["setup: opforOpforTeleportListener initiated"];
 		[] spawn checkJIP; diag_log format ["setup: createStartHints initiated"];
 		player setVariable ["radioAttached",false]; // for use in detaching radio from radio truck
 	};
