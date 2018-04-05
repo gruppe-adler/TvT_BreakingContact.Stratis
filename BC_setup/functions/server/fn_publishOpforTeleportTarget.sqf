@@ -16,3 +16,6 @@ waitUntil {
 
 [OPFOR_TELEPORT_TARGET, 50] remoteExec ["BC_setup_fnc_teleportPlayer", east, true];
 [OPFOR_TELEPORT_TARGET, RUS_VEHICLE_SPAWN, east] remoteExec ["BC_setup_fnc_createStartMarker", east, true];
+
+// leader information for both sides
+[] call BC_setup_fnc_showLeaderInformation;

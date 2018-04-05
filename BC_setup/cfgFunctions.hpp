@@ -14,6 +14,7 @@ class BC_setup {
         class chooseSpawn;
         class createStartMarker;
         class disableSpawn;
+        class initialSpawnClient;
         class isOnWater;
         class teleportPlayer;
 	};
@@ -22,12 +23,15 @@ class BC_setup {
 		file = BC_setup\functions\server;
 
         class clearInventory;
+        class findRandomPos;
         class findSpawnPosition;
         class getMapSize;
         class getSlope;
+        class initialSpawnServer;
         class isInsideMap;
         class publishBluforTeleportTarget;
         class publishOpforTeleportTarget;
+        class showLeaderInformation;
         class spawnStartVehicle;
 	};
 };

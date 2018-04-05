@@ -4,9 +4,8 @@ class BC_objectives {
 		file = BC_objectives\functions\player;
 
         class endConditionListener {};
-		class endMission {};
-        class findRandomPos {};
-		class preparationTimeCountdown {};
+		    class endMission {};
+		    class preparationTimeCountdown {};
 
 	};
 
@@ -19,7 +18,7 @@ class BC_objectives {
         class getIslandCfgEntry {};
         class loopConditions {};
         class removeTruckArmor {};
-		class startPreparationTime {};
+		    class startPreparationTime {};
         class waitingForUnconscious {};
 
     };

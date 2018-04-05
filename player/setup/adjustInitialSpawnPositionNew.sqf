@@ -38,7 +38,7 @@ if (isServer) then {
 					default {_playerPositionsForCurrentWorld select 1};
 				};
 
-				_tmpPos = [_targetPosition,[0,10],[0,360]] call BC_objectives_fnc_findRandomPos;
+				_tmpPos = [_targetPosition,[0,10],[0,360]] call BC_setup_fnc_findRandomPos;
 				_x setPos _tmpPos;
 				_x switchmove "AmovPercMstpSnonWnonDnon";
  			};
@@ -58,7 +58,7 @@ if (!hasInterface) exitWith {};
 		default {_playerPositionsForCurrentWorld select 1};
 	};
 
-	_tmpPos = [_targetPosition,[0,10],[0,360]] call BC_objectives_fnc_findRandomPos;
+	_tmpPos = [_targetPosition,[0,10],[0,360]] call BC_setup_fnc_findRandomPos;
 	player setPos [_tmpPos select 0, _tmpPos select 1, 0]; // force to ZERO height
 	player switchmove "AmovPercMstpSnonWnonDnon";
 }, [_playerPositionsForCurrentWorld]] call CBA_fnc_waitUntilAndExecute;
