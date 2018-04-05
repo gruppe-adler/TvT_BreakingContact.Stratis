@@ -16,20 +16,26 @@ class CfgFunctions {
 	#include "grad_carryBoat\cfgFunctions.hpp"
 	#include "grad_islands\cfgFunctions.hpp"
 	#include "grad_buymenu\cfgFunctions.hpp"
-	#include "node_modules\grad-loadout\cfgFunctions.hpp"
-	#include "node_modules\grad-fortifications\cfgFunctions.hpp"
+  #include "grad_civMarker\cfgFunctions.hpp"
 	#include "grad_civs\cfgFunctions.hpp"
 	#include "grad_tracking\cfgFunctions.hpp"
 	#include "grad_emptycars\cfgFunctions.hpp"
+
+  #include "BC_flagsOnVehicles\cfgFunctions.hpp"
 	#include "BC_objectives\cfgFunctions.hpp"
+  #include "BC_setup\cfgFunctions.hpp"
+
 	#include "node_modules\grad-replay\cfgFunctions.hpp"
 	#include "node_modules\grad-customGear\cfgFunctions.hpp"
+  #include "node_modules\grad-loadout\cfgFunctions.hpp"
+	#include "node_modules\grad-fortifications\cfgFunctions.hpp"
 };
 
 class RscTitles {
     #include "node_modules\grad-fortifications\dialog\hint\title.hpp"
     #include "grad_buymenu\definitions\rscTitles.hpp"
-	#include "BC_objectives\rscTitles.hpp"
+	  #include "BC_objectives\rscTitles.hpp"
+    #include "BC_setup\rscTitles.hpp"
 };
 
 class CfgNotifications {
