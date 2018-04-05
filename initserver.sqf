@@ -238,30 +238,19 @@ if (isClass (configFile >> "CfgPatches" >> "task_force_radio")) then {
 };
 
 [] execVM "helpers\medical_settings.sqf";
-[] execVM "server\civKillListener.sqf";
-[] execVM "server\civGunfightListener.sqf";
+[] call grad_civMarker_fnc_civGunfightListener;
+[] call grad_civMarker_fnc_civKilledListener;
 
 
-	if (!isMultiplayer) then {
- 	[] spawn {
- 		{
-			if (!isPlayer _x) then {
-				sleep 1;
-				_x setVariable ["BIS_noCoreConversations", true];
-			};
-			0 = [_x] execVM "server\teleportAI.sqf";
-		} forEach allUnits;
- 	};
-	} else {
- 	[] spawn {
- 		{
- 			if (!isPlayer _x) then {
-	 			sleep 0.5;
-	 			_x setVariable ["BIS_noCoreConversations", true];
-				0 = [_x] execVM "server\teleportAI.sqf";
- 			};
- 		} forEach allUnits;
- 	};
+
+[] spawn {
+	{
+  		if (!isPlayer _x) then {
+  			sleep 0.5;
+  			_x setVariable ["BIS_noCoreConversations", true];
+  		0 = [_x] call BC_setup_fnc_teleportAI;
+  		};
+  } forEach allUnits;
 };
 
 

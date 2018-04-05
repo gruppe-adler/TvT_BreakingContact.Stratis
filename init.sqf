@@ -9,9 +9,6 @@ enableDynamicSimulationSystem true;
 disableRemoteSensors true; // disable ai combat ability
 setViewDistance 3500;
 
-// loadout + wave respawn added
-IS_WOODLAND = ["isWoodland",true] call BC_objectives_fnc_getIslandCfgEntry;
-
 if (IS_WOODLAND) then {
 // us vs russians
 	["BLU_F", "US_Woodland"] call GRAD_Loadout_fnc_FactionSetLoadout;
@@ -40,15 +37,6 @@ if (hasInterface) then {
 		if (!didJIP) exitWith {
 			[] call checkSpawnButton;
 		};
-
-		waitUntil {!isNull player};
-
-		if (playerSide == east) then {
-				[OPFOR_TELEPORT_TARGET, 50] execVM "player\teleportPlayer.sqf";
-			}
-			else {
-				[BLUFOR_TELEPORT_TARGET, 50] execVM "player\teleportPlayer.sqf";
-			};
 		};
 	};
 
@@ -56,7 +44,7 @@ if (hasInterface) then {
 	checkSpawnButton = {
 		_spawnSelector = "opfor_teamlead";
 		if (str player != _spawnSelector) then {
-			0 = [[worldSize/2,worldSize/2,0],"",1500] execVM "player\setup\establishingShot.sqf";
+			0 = [[worldSize/2,worldSize/2,0],"",1500] spawn BC_setup_fnc_establishingShot;
 		} else {
 		disableSerialization;
 		waitUntil {!(isNull ([] call BIS_fnc_displayMission))};
@@ -79,10 +67,7 @@ if (hasInterface) then {
 		};
 	};
 
-	[] execVM "player\setup\helpBriefing.sqf"; diag_log format ["setup: briefing initiated"];
-
-	[] execVM "player\civKillListener.sqf";
-	[] execVM "player\civGunfightListener.sqf";
+	[] call BC_setup_fnc_addBriefing;
 
 	waitUntil {!isNil "OPFOR_TELEPORT_TARGET"};
 	waitUntil {!isNil "BLUFOR_TELEPORT_TARGET"};

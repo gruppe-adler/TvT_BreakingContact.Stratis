@@ -15,7 +15,6 @@ class BC_objectives {
         class applyTruckArmor {};
         class classicTasksBluforCreate {};
         class classicTasksOpforCreate {};
-        class getIslandCfgEntry {};
         class loopConditions {};
         class removeTruckArmor {};
 		    class startPreparationTime {};
