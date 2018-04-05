@@ -1,52 +1,29 @@
 #include "\z\ace\addons\main\script_component.hpp"
 #include "..\missionMacros.h"
 
-checkWater = {
-	_return = false;
-	if (surfaceIsWater _this) then {
-		_string = localize "str_GRAD_spawn_on_water";
-		[_string] call EFUNC(common,displayTextStructured); //
-		_return = true;
-	};
-	_return
-};
-
-opforTeleporting = {
-	OPFOR_TELEPORT_TARGET = _this;
-	publicVariableServer "OPFOR_TELEPORT_TARGET";
-	debugLog("opfor published target");
-
-	OPFOR_TELEPORTED = true;
-	publicVariable "OPFOR_TELEPORTED";
-};
-
-// executed on player only anyway?!
-// if (player == opfor_teamlead) then {
-
-	[
-		"teleportClickOpf",
-		"onMapSingleClick",
-		{
-			debugLog("opfor lead clicked on map");
-			try {
-				if (_pos call checkWater) exitWith {};
-				["teleportClickOpf", "onMapSingleClick"] call BIS_fnc_removeStackedEventHandler;
-				_pos call opforTeleporting;
-				playSound ['click', true];
-				["Preparing Spawn..."] call EFUNC(common,displayTextStructured);
-			} catch {
-				hint str _exception;
-			};
-		}
-	] call BIS_fnc_addStackedEventHandler;
-// };
+[
+	"teleportClickOpf",
+	"onMapSingleClick",
+	{
+		debugLog("opfor lead clicked on map");
+		try {
+			if (_pos call BC_setup_fnc_isOnWater) exitWith {};
+			["teleportClickOpf", "onMapSingleClick"] call BIS_fnc_removeStackedEventHandler;
+			[_pos] remoteExec ["BC_setup_fnc_publishOpforTeleportTarget", [0,-2] select isDedicated];
+			playSound ['click', true];
+			["Preparing Spawn..."] call EFUNC(common,displayTextStructured);
+		} catch {
+			hint str _exception;
+		};
+	}
+] call BIS_fnc_addStackedEventHandler;
 
 
 if (DEBUG_MODE) then {
-	_road = [[worldSize/2, worldSize/2], 500, []] call BIS_fnc_nearestRoad;
+	private _road = [[worldSize/2, worldSize/2], 500, []] call BIS_fnc_nearestRoad;
 	if (!isNull _road) then {
 		_pos = getPos _road;
-		_pos call opforTeleporting;
+		[_pos] remoteExec ["BC_setup_fnc_publishOpforTeleportTarget", [0,-2] select isDedicated];
 		["teleportClickOpf", "onMapSingleClick"] call BIS_fnc_removeStackedEventHandler;
 	};
 };

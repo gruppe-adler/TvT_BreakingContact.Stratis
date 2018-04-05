@@ -1,45 +1,23 @@
-createOpforStuff =  {
-	_position = _this;
-
-	[_position] call spawnRadioTruck;
-	
-
-	if (!isMultiplayer) then {
-		_opfor_marker_start = createMarker ["debug_opfor_marker_start", (call RUS_VEHICLE_SPAWN)];
-		_opfor_marker_start setMarkerType "hd_start";
-		_opfor_marker_start setMarkerColor "ColorOpfor";
-	};
-};
-
-createBluforStuff = {
-	_opforposition = _this;
-	
-    if (IS_WOODLAND) then {
-       blufor_hq = "rhsusf_m998_w_4dr";
-    } else {
-       blufor_hq = "rhsusf_m998_d_4dr";
-    };
-
-	_spawnVehicle = [_opforposition, BLUFOR_SPAWN_DISTANCE, blufor_hq] call spawnBluforHQ;
-
-	if (!isMultiplayer) then {
-		_blufor_marker_start = createMarker ["debug_blufor_marker_start", (call US_VEHICLE_SPAWN)];
-		_blufor_marker_start setMarkerType "hd_start";
-		_blufor_marker_start setMarkerColor "ColorBlufor";
-	};
-};
-
 _OPFOR_TELEPORT_TARGET_listener = {
 	_pos = _this select 1;
-	_pos spawn createOpforStuff;
+  [_pos, 0, "rhs_gaz66_r142_vv"] spawn BC_setup_fnc_spawnStartVehicle;
+
 	publicVariable "OPFOR_TELEPORT_TARGET";
-	_pos spawn createBluforStuff;
+
 };
 
 
 _BLUFOR_TELEPORT_TARGET_listener = {
 	_pos = _this select 1;
-	publicVariable "BLUFOR_TELEPORT_TARGET";
+
+  if (IS_WOODLAND) then {
+     blufor_hq = "rhsusf_m998_w_4dr";
+  } else {
+     blufor_hq = "rhsusf_m998_d_4dr";
+  };
+
+	[_pos, BLUFOR_SPAWN_DISTANCE, blufor_hq] spawn BC_setup_fnc_spawnStartVehicle;
+  publicVariable "BLUFOR_TELEPORT_TARGET";
 };
 
 

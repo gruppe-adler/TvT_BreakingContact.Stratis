@@ -243,9 +243,6 @@ if (isClass (configFile >> "CfgPatches" >> "task_force_radio")) then {
 [] execVM "server\teleportListener.sqf";
 [] execVM "server\civKillListener.sqf";
 [] execVM "server\civGunfightListener.sqf";
-[] execVM "server\spawn\spawnRadioTruck.sqf";
-
-call compile preprocessFileLineNumbers "server\spawnBluforHQ.sqf";
 
 
 	if (!isMultiplayer) then {

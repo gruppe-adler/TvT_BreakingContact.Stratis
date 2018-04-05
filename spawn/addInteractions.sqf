@@ -2,7 +2,7 @@
 
 {
  _flagActionRaise = ["ACE_MainActions", (localize "str_GRAD_flag_raise"), "",
- {0 = [(_this select 0), true] execVM "spawn\flagsOnVehicles.sqf";},
+ {0 = [(_this select 0), true] call BC_flagsOnVehicles_fnc_toggleFlag;},
   {(side player == east) && isNull ((_this select 0) getVariable ["GRAD_flagObject",objNull])}] call ace_interact_menu_fnc_createAction;
 
 [_x, 0, ["ACE_MainActions"], _flagActionRaise] call ace_interact_menu_fnc_addActionToClass;
@@ -11,7 +11,7 @@
 
 {
  _flagActionRemove = ["ACE_MainActions", (localize "str_GRAD_flag_remove"), "",
- {0 = [(_this select 0), false] execVM "spawn\flagsOnVehicles.sqf";},
+ {0 = [(_this select 0), false] call BC_flagsOnVehicles_fnc_toggleFlag;},
   {(side player == east) && !isNull ((_this select 0) getVariable ["GRAD_flagObject",objNull])}] call ace_interact_menu_fnc_createAction;
 
 [_x, 0, ["ACE_MainActions"], _flagActionRemove] call ace_interact_menu_fnc_addActionToClass;
