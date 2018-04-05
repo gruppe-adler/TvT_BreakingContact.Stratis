@@ -1,18 +1,21 @@
 class BC_setup {
 
-	class client {
-		file = BC_setup\functions\client;
-
-        class disableSpawn;
-        class isOnWater;
-        class teleportPlayer;
-	};
-
   class definitions {
-		file = BC_setup\definitions;
+    file = BC_setup\definitions;
 
         class configureBluforStartVehicle;
         class configureOpforStartVehicle;
+  };
+
+	class client {
+		file = BC_setup\functions\client;
+
+        class addInteractions;
+        class chooseSpawn;
+        class createStartMarker;
+        class disableSpawn;
+        class isOnWater;
+        class teleportPlayer;
 	};
 
   class server {

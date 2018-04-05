@@ -15,7 +15,7 @@ _vehicle addMPEventHandler ["MPKilled", {
 0 = [_vehicle, true] call BC_flagsOnVehicles_fnc_toggleFlag;
 
 sleep 1;
-[_vehicle] call clearInventory;
+[_vehicle] call BC_setup_fnc_clearInventory;
 
 _terminal = createVehicle ['Land_DataTerminal_01_F', [0,0,0], [], 0, 'NONE'];
 _terminal setVariable ["GRAD_replay_track", true, true];

@@ -87,7 +87,7 @@
 #define GUI_GRID_WAbs    (1)
 #define GUI_GRID_HAbs    (1)
 
-class BC_buymenu_RscSlider
+class BC_setup_RscSlider
 {
 	style = "0x400 + 0x10";
 	type = 43;  // this is the more "modern" slider. Type = 3 is the old dull one.
@@ -101,7 +101,7 @@ class BC_buymenu_RscSlider
 	thumb = "\A3\ui_f\data\gui\cfg\slider\thumb_ca.paa";
 };
 
-class BC_buymenu_RscStructuredText
+class BC_setup_RscStructuredText
 {
     access = 0;
 	idc = -1;
@@ -120,7 +120,7 @@ class BC_buymenu_RscStructuredText
     shadow = 0;
 };
 
-class BC_buymenu_RscStructuredTextTooltip
+class BC_setup_RscStructuredTextTooltip
 {
     access = 0;
     idc = -1;
@@ -139,7 +139,7 @@ class BC_buymenu_RscStructuredTextTooltip
     shadow = 0;
 };
 
-class BC_buymenu_RscStructuredTextHeadline
+class BC_setup_RscStructuredTextHeadline
 {
     access = 0;
 	idc = -1;
@@ -161,7 +161,7 @@ class BC_buymenu_RscStructuredTextHeadline
 
 
 
-class BC_buymenu_RscText
+class BC_setup_RscText
 {
     access = 0;
     idc = -1;
@@ -182,7 +182,7 @@ class BC_buymenu_RscText
 
 };
 
-class BC_buymenu_RscPicture
+class BC_setup_RscPicture
 {
     access = 0;
     idc = -1;
@@ -202,7 +202,7 @@ class BC_buymenu_RscPicture
     h = 0.15;
 };
 
-class BC_buymenu_RscButton
+class BC_setup_RscButton
 {
 
    access = 0;
@@ -236,7 +236,7 @@ class BC_buymenu_RscButton
     period = 0;
 };
 
-class BC_buymenu_RscButtonSmall
+class BC_setup_RscButtonSmall
 {
 
     access = 0;
@@ -270,7 +270,7 @@ class BC_buymenu_RscButtonSmall
     borderSize = 0;
 };
 
-class BC_buymenu_RscFrame
+class BC_setup_RscFrame
 {
     type = CT_STATIC;
     idc = -1;
@@ -283,7 +283,7 @@ class BC_buymenu_RscFrame
     text = "";
 };
 
-class BC_buymenu_RscBackground
+class BC_setup_RscBackground
 {
    type = CT_STATIC;
     idc = -1;
@@ -296,7 +296,7 @@ class BC_buymenu_RscBackground
     text = "";
 
 };
-class BC_buymenu_RscModel {
+class BC_setup_RscModel {
         onObjectMoved = "systemChat str _this";
         idc = -1;
         type = CT_OBJECT_CONTAINER;
@@ -313,7 +313,7 @@ class BC_buymenu_RscModel {
         enableZoom = 1;
         zoomDuration = 0.001;
 };
-class BC_buymenu_RscCombo {
+class BC_setup_RscCombo {
     	access = 0;
     	type = 4;
     	colorSelect[] =
@@ -422,7 +422,7 @@ class BC_buymenu_RscCombo {
        };
 };
 
-class BC_buymenu_RscMapControl
+class BC_setup_RscMapControl
 {
   access = 0;
   idc = -1;

@@ -5,9 +5,6 @@ enableDynamicSimulationSystem true;
 
 0 = [] execVM "grad_buymenu\buymenu_init.sqf";
 
-clearInventory = compile preprocessFile "helpers\clearInventory.sqf";
-
-
 // optimize for PVP
 disableRemoteSensors true; // disable ai combat ability
 setViewDistance 3500;

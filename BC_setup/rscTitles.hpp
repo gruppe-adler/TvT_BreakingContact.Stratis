@@ -1,3 +1,5 @@
+#include "rscDefines.hpp"
+
 	class gui_pleasewait
 	{
 		idd = -1;
@@ -8,7 +10,7 @@
 		onLoad = "uiNamespace setVariable ['GRAD_rattrap_loading', (_this select 0)];";
 
 	 	class controls {
-			class gui_pleasewait_pic: RscPicture
+			class gui_pleasewait_pic: BC_setup_RscPicture
 			{
 				idc = -1;
 				x = 10 * GUI_GRID_W + GUI_GRID_X;
@@ -17,7 +19,7 @@
 				h = (10 * GUI_GRID_H) * 3/4;
 				text = "pic\loading_pic.jpg";
 			};
-			class gui_pleasewait_txt : RscStructuredText {
+			class gui_pleasewait_txt : BC_setup_RscStructuredText {
 				idc = 4444;
 				text = "<t size='1' shadow='0' align='center'>Emergency Landing Zone Search.</t>";
 				color[] = {1,1,1,0.3};
@@ -38,7 +40,7 @@
 		fadeOut = 5;
 
 	 	class controls {
-			class gui_intel_paper_pic_us: RscPicture
+			class gui_intel_paper_pic_us: BC_setup_RscPicture
 			{
 				idc = -1;
 				x = safeZoneX + safeZoneW - 0.3;
@@ -58,7 +60,7 @@
 		fadeOut = 5;
 
 	 	class controls {
-			class gui_intel_paper_pic_us: RscPicture
+			class gui_intel_paper_pic_us: BC_setup_RscPicture
 			{
 				idc = -1;
 				x = safeZoneX + safeZoneW - 0.3;
@@ -78,7 +80,7 @@
 		fadeOut = 5;
 
 	 	class controls {
-			class gui_intel_paper_pic_us_lost: RscPicture
+			class gui_intel_paper_pic_us_lost: BC_setup_RscPicture
 			{
 				idc = -1;
 				x = safeZoneX + safeZoneW - 0.3;
@@ -98,7 +100,7 @@
 		fadeOut = 5;
 
 	 	class controls {
-			class gui_intel_paper_pic_rus: RscPicture
+			class gui_intel_paper_pic_rus: BC_setup_RscPicture
 			{
 				idc = -1;
 				x = safeZoneX + safeZoneW - 0.3;
@@ -118,7 +120,7 @@
 		fadeOut = 5;
 
 	 	class controls {
-			class gui_intel_paper_pic_rus_lost: RscPicture
+			class gui_intel_paper_pic_rus_lost: BC_setup_RscPicture
 			{
 				idc = -1;
 				x = safeZoneX + safeZoneW - 0.3;
@@ -138,7 +140,7 @@
 		fadeOut = 5;
 
 	 	class controls {
-			class gui_intel_paper_pic_killed: RscPicture
+			class gui_intel_paper_pic_killed: BC_setup_RscPicture
 			{
 				idc = -1;
 				x = safeZoneX + safeZoneW - 0.3;
@@ -160,7 +162,7 @@
 
 	 	class controls {
 
-			class gui_intel_paper_pic_gunfight: RscPicture
+			class gui_intel_paper_pic_gunfight: BC_setup_RscPicture
 			{
 				idc = -1;
 				x = safeZoneX + safeZoneW - 0.3;
@@ -180,7 +182,7 @@
 		fadeOut = 5;
 
 	 	class controls {
-			class gui_intel_paper_markerupdate_pic: RscPicture
+			class gui_intel_paper_markerupdate_pic: BC_setup_RscPicture
 			{
 				idc = -1;
 				x = safeZoneX + safeZoneW - 0.3;
@@ -200,7 +202,7 @@
 		fadeIn = 1;
 
 	 	class controls {
-			class gui_blufor_pleasewait_pic: RscPicture
+			class gui_blufor_pleasewait_pic: BC_setup_RscPicture
 			{
 				idc = -1;
 				x = 10 * GUI_GRID_W + GUI_GRID_X;
@@ -220,7 +222,7 @@
 		fadeIn = 1;
 
 	 	class controls {
-			class gui_opfor_pleasewait_pic: RscPicture
+			class gui_opfor_pleasewait_pic: BC_setup_RscPicture
 			{
 				idc = -1;
 				x = 10 * GUI_GRID_W + GUI_GRID_X;

@@ -1,7 +1,7 @@
 [] execVM "player\setup\adjustInitialSpawnPositionNew.sqf";
 
 ["InitializePlayer", [player, true]] call BIS_fnc_dynamicGroups;
-0 = execVM "spawn\addInteractions.sqf";
+[] call BC_setup_fnc_addInteractions; // add interactions
 
 waitUntil {!isNil "CIVILIAN_TRAFFIC"};
 
