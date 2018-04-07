@@ -1,4 +1,4 @@
-grad_emptycars_types = [
+[
 "RDS_Gaz24_Civ_01",
 "RDS_Gaz24_Civ_02",
 "RDS_Gaz24_Civ_03",
@@ -38,4 +38,4 @@ grad_emptycars_types = [
 "RDS_JAWA353_Civ_01",
 "RDS_JAWA353_Civ_01",
 "RDS_tt650_Civ_01"
-];
+]

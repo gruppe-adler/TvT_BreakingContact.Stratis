@@ -1,4 +1,4 @@
-params ["_position", "_radius", "_count"];
+params ["_position", "_radius", "_count", "_types"];
 
 private ["_objType", "_spawnPos"];
 
@@ -18,7 +18,7 @@ for "_i" from 0 to _count do {
       _i = _i - 1;
       sleep 0.001;
     } else {
-      [_randomizedSpawnPos] call grad_emptycars_fnc_spawnCar;
+      [_randomizedSpawnPos, selectRandom _types] call grad_emptycars_fnc_spawnCar;
       sleep 0.001;
     };
   };

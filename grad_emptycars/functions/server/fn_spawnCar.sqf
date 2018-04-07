@@ -1,6 +1,4 @@
-params ["_pos"];
-
-private objType = selectRandom grad_emptycars_types;
+params ["_pos", "_objType"];
 
 private _obj = _objType createVehicle _pos;
 _obj setVehicleLock "LOCKED";
