@@ -25,3 +25,5 @@ if (playerSide == west) then {
     player setVariable ['GRAD_buymenu_spawn_water', {getMarkerPos spawnMarkerBluforWater}];
     player setVariable ['GRAD_buymenu_spawn_land', {getMarkerPos spawnMarkerBluforLand}];
 };
+
+hint "You are the one able to buy stuff for your team at the start vehicle.";
