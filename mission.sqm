@@ -339,7 +339,7 @@ class Mission
 					class Attributes
 					{
 						rank="CAPTAIN";
-						init="0 = [this] execVM ""dynamicGroups\createCommand.sqf"";";
+						init="[this, 'Command'] call BC_setup_fnc_registerDynamicGroup;";
 						name="opfor_teamlead";
 						description="Commander (must be selected) @Command";
 						isPlayer=1;
@@ -455,7 +455,7 @@ class Mission
 					class Attributes
 					{
 						rank="CAPTAIN";
-						init="0 = [this] execVM ""dynamicGroups\createCommand.sqf"";";
+						init="[this, 'Command'] call BC_setup_fnc_registerDynamicGroup;";
 						name="blufor_teamlead";
 						description="Commander (must be selected) @Command";
 						isPlayable=1;
@@ -569,7 +569,7 @@ class Mission
 					class Attributes
 					{
 						rank="LIEUTENANT";
-						init="0 = [this] execVM ""dynamicGroups\createAlpha.sqf"";";
+						init="[this, 'Alpha'] call BC_setup_fnc_registerDynamicGroup;";
 						description="Squad Leader@Alpha";
 						isPlayable=1;
 					};
@@ -700,7 +700,7 @@ class Mission
 					class Attributes
 					{
 						rank="CAPTAIN";
-						init="0 = [this] execVM ""dynamicGroups\createAlpha.sqf"";";
+						init="[this, 'Alpha'] call BC_setup_fnc_registerDynamicGroup;";
 						description="Squad Leader@Alpha";
 						isPlayable=1;
 					};
@@ -1355,7 +1355,7 @@ class Mission
 					class Attributes
 					{
 						rank="CAPTAIN";
-						init="0 = [this] execVM ""dynamicGroups\createBravo.sqf"";";
+						init="[this, 'Bravo'] call BC_setup_fnc_registerDynamicGroup;";
 						description="Squad Leader@Bravo";
 						isPlayable=1;
 					};
@@ -2010,7 +2010,7 @@ class Mission
 					class Attributes
 					{
 						rank="CAPTAIN";
-						init="0 = [this] execVM ""dynamicGroups\createCharlie.sqf"";";
+						init="[this, 'Charlie'] call BC_setup_fnc_registerDynamicGroup;";
 						description="Squad Leader@Charlie";
 						isPlayable=1;
 					};
@@ -2665,7 +2665,7 @@ class Mission
 					class Attributes
 					{
 						rank="LIEUTENANT";
-						init="0 = [this] execVM ""dynamicGroups\createFoxtrot.sqf"";";
+						init="[this, 'Foxtrot'] call BC_setup_fnc_registerDynamicGroup;";
 						description="Crewman-Commander@Foxtrot";
 						isPlayable=1;
 					};
@@ -2797,7 +2797,7 @@ class Mission
 					class Attributes
 					{
 						rank="LIEUTENANT";
-						init="0 = [this] execVM ""dynamicGroups\createGolf.sqf"";";
+						init="[this, 'Golf'] call BC_setup_fnc_registerDynamicGroup;";
 						description="Crewman-Commander@Golf";
 						isPlayable=1;
 					};
@@ -2929,7 +2929,7 @@ class Mission
 					class Attributes
 					{
 						rank="LIEUTENANT";
-						init="0 = [this] execVM ""dynamicGroups\createHotel.sqf"";";
+						init="[this, 'Hotel'] call BC_setup_fnc_registerDynamicGroup;";
 						description="Crewman-Commander@Hotel";
 						isPlayable=1;
 					};
@@ -3061,7 +3061,7 @@ class Mission
 					class Attributes
 					{
 						rank="LIEUTENANT";
-						init="0 = [this] execVM ""dynamicGroups\createIndia.sqf"";";
+						init="[this, 'India'] call BC_setup_fnc_registerDynamicGroup;";
 						description="Crewman-Commander@India";
 						isPlayable=1;
 					};
@@ -3651,7 +3651,7 @@ class Mission
 					class Attributes
 					{
 						rank="LIEUTENANT";
-						init="0 = [this] execVM ""dynamicGroups\createBravo.sqf"";";
+						init="[this, 'Bravo'] call BC_setup_fnc_registerDynamicGroup;";
 						description="Squad Leader@Bravo";
 						isPlayable=1;
 					};
@@ -4223,7 +4223,7 @@ class Mission
 					class Attributes
 					{
 						rank="LIEUTENANT";
-						init="0 = [this] execVM ""dynamicGroups\createCharlie.sqf"";";
+						init="[this, 'Charlie'] call BC_setup_fnc_registerDynamicGroup;";
 						description="Squad Leader@Charlie";
 						isPlayable=1;
 					};
@@ -4795,7 +4795,7 @@ class Mission
 					class Attributes
 					{
 						rank="LIEUTENANT";
-						init="0 = [this] execVM ""dynamicGroups\createFoxtrot.sqf"";";
+						init="[this, 'Foxtrot'] call BC_setup_fnc_registerDynamicGroup;";
 						description="Crewman-Commander@Foxtrot";
 						isPlayable=1;
 					};
@@ -4988,7 +4988,7 @@ class Mission
 					class Attributes
 					{
 						rank="LIEUTENANT";
-						init="0 = [this] execVM ""dynamicGroups\createGolf.sqf"";";
+						init="[this, 'Golf'] call BC_setup_fnc_registerDynamicGroup;";
 						description="Crewman-Commander@Golf";
 						isPlayable=1;
 					};
@@ -5120,7 +5120,7 @@ class Mission
 					class Attributes
 					{
 						rank="LIEUTENANT";
-						init="0 = [this] execVM ""dynamicGroups\createHotel.sqf"";";
+						init="[this, 'Hotel'] call BC_setup_fnc_registerDynamicGroup;";
 						description="Crewman-Commander@Hotel";
 						isPlayable=1;
 					};
@@ -5252,7 +5252,7 @@ class Mission
 					class Attributes
 					{
 						rank="LIEUTENANT";
-						init="0 = [this] execVM ""dynamicGroups\createAir.sqf"";";
+						init="[this, 'Air'] call BC_setup_fnc_registerDynamicGroup;";
 						description="Helicopter Pilot@Air";
 						isPlayable=1;
 					};

@@ -37,6 +37,7 @@ class BC_setup {
         class isInsideMap;
         class publishBluforTeleportTarget;
         class publishOpforTeleportTarget;
+        class registerDynamicGroup;
         class showLeaderInformation;
         class spawnStartVehicle;
         class teleportAI;
