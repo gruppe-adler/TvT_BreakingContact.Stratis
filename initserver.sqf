@@ -4,6 +4,7 @@
 call compile preprocessfile "node_modules\shk_pos\functions\shk_pos_init.sqf"; // absolute basic!
 
 [] call BC_setup_fnc_initialSpawnServer;
+[] call GRAD_emptyCars_fnc_init;
 
 DEBUG_MODE = false;
 if ((["DEBUG_MODE", 0] call BIS_fnc_getParamValue) == 1 || !isMultiplayer) then {
