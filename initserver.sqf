@@ -15,9 +15,7 @@ publicVariable "DEBUG_MODE";
 
 addMissionEventHandler ["HandleDisconnect",{
     params [["_unit",objNull]];
-    if (_unit getVariable ["GRAD_loadout_applicationCount",0] < 1) then {
-        deleteVehicle _unit;
-    };
+
     if (_unit getVariable ["BC_spawnSelector", false] && !OPFOR_TELEPORTED) then {
         private _spawnSelector = [east, _unit] call BC_setup_fnc_getHighestRankOfSide;
         _spawnSelector setVariable ["BC_spawnSelector", true];
@@ -27,6 +25,9 @@ addMissionEventHandler ["HandleDisconnect",{
         private _potentToBuy = [side _unit, _unit] call BC_setup_fnc_getHighestRankOfSide;
         _potentToBuy setVariable ["BC_potentToBuy", true];
         [] remoteExec ["BC_setup_fnc_setPlayerPotentToBuy", _potentToBuy];
+    };
+    if (_unit getVariable ["GRAD_loadout_applicationCount",0] < 1) then {
+        deleteVehicle _unit;
     };
     false
 }];
