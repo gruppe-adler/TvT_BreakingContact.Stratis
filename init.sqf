@@ -40,45 +40,11 @@ if (hasInterface) then {
 		};
 	};
 
-
-	checkSpawnButton = {
-		_spawnSelector = "opfor_teamlead";
-		if (str player != _spawnSelector) then {
-			0 = [[worldSize/2,worldSize/2,0],"",1500] spawn BC_setup_fnc_establishingShot;
-		} else {
-		disableSerialization;
-		waitUntil {!(isNull ([] call BIS_fnc_displayMission))};
-			cheffeKeyEH = ([] call BIS_fnc_displayMission) displayAddEventHandler [
-				"KeyDown",
-				format ["
-						if (OPFOR_TELEPORT_TARGET select 0 != 0) then {
-							([] call BIS_fnc_displayMission) displayRemoveEventHandler ['KeyDown', cheffeKeyEH];
-
-							playSound ['click', true];
-
-						};
-
-						if (_this select 1 == 57) then {0 = createDialog 'gui_spawn_opfor'; true};
-					"]
-			];
-			0 = createDialog "gui_spawn_opfor";
-			waitUntil {(OPFOR_TELEPORT_TARGET select 0 != 0)};
-			([] call BIS_fnc_displayMission) displayRemoveEventHandler ['KeyDown', cheffeKeyEH];
-		};
-	};
-
 	[] call BC_setup_fnc_addBriefing;
 
 	waitUntil {!isNil "OPFOR_TELEPORT_TARGET"};
 	waitUntil {!isNil "BLUFOR_TELEPORT_TARGET"};
 
-	if (playerSide == west) then {
-		[] spawn checkJIP;
-	};
-
-	if (playerSide == east) then {
-		[] spawn checkJIP; diag_log format ["setup: createStartHints initiated"];
-		player setVariable ["radioAttached",false]; // for use in detaching radio from radio truck
-	};
+	[[worldSize/2,worldSize/2,0],"",1500] spawn BC_setup_fnc_establishingShot;
 
 };

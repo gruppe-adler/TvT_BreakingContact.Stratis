@@ -1,3 +1,5 @@
+player setVariable ["radioAttached",false]; // for use in detaching radio from radio truck
+
 // create initial markers
 mrk_lastSeen = call GRAD_tracking_fnc_createMarkerLastSeen;
 mrk_radioVeh = call GRAD_tracking_fnc_createMarkerRadioVeh;
@@ -12,7 +14,7 @@ _GRAD_RADIO_VEH_MARKER_HIDDEN_listener = {
 	if (_this select 1) then {
 		mrk_radioVeh setMarkerAlphaLocal 0;
 	} else {
-		[] call GRAD_tracking_fnc_ensureRadioVehMarkerAnimation;	
+		[] call GRAD_tracking_fnc_ensureRadioVehMarkerAnimation;
 	};
 };
 
@@ -33,7 +35,7 @@ grad_interval_nextWarning = 1;
 grad_ticks_nextWarning = 0.2;
 
 // add listener for intervals
-call GRAD_tracking_fnc_listenerInterval; 
+call GRAD_tracking_fnc_listenerInterval;
 call GRAD_tracking_fnc_listenerTicks;
 
 

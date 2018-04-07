@@ -18,6 +18,7 @@ class BC_setup {
         class establishingShot;
         class initialSpawnClient;
         class isOnWater;
+        class openSpawnDialog;
         class teleportPlayer;
 	};
 
@@ -28,6 +29,7 @@ class BC_setup {
         class defineWoodland { preInit = 1; };
         class findRandomPos;
         class findSpawnPosition;
+        class getHighestRankOfSide;
         class getIslandCfgEntry { preInit = 1; };
         class getMapSize;
         class getSlope;

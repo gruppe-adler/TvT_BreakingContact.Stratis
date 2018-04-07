@@ -17,9 +17,13 @@ addMissionEventHandler ["HandleDisconnect",{
     if (_unit getVariable ["GRAD_loadout_applicationCount",0] < 1) then {
         deleteVehicle _unit;
     };
+    if (_unit getVariable ["BC_spawnSelector", false] && !OPFOR_TELEPORTED) then {
+        private _spawnSelector = [east] call BC_setup_fnc_getHighestRankOfSide;
+        _spawnSelector setVariable ["BC_spawnSelector", true];
+        [] remoteExec ["BC_setup_fnc_openSpawnDialog", _spawnSelector];
+    };
     false
 }];
-
 
 // read parameters
 TIME_OF_DAY = ["TIME_OF_DAY", 10] call BIS_fnc_getParamValue;
@@ -241,7 +245,10 @@ if (isClass (configFile >> "CfgPatches" >> "task_force_radio")) then {
 [] call grad_civMarker_fnc_civGunfightListener;
 [] call grad_civMarker_fnc_civKilledListener;
 
-
+// let highest player rank choose spawn
+private _spawnSelector = [east] call BC_setup_fnc_getHighestRankOfSide;
+_spawnSelector setVariable ["BC_spawnSelector", true];
+[] remoteExec ["BC_setup_fnc_openSpawnDialog", _spawnSelector];
 
 [] spawn {
 	{
