@@ -18,9 +18,14 @@ addMissionEventHandler ["HandleDisconnect",{
         deleteVehicle _unit;
     };
     if (_unit getVariable ["BC_spawnSelector", false] && !OPFOR_TELEPORTED) then {
-        private _spawnSelector = [east] call BC_setup_fnc_getHighestRankOfSide;
+        private _spawnSelector = [east, _unit] call BC_setup_fnc_getHighestRankOfSide;
         _spawnSelector setVariable ["BC_spawnSelector", true];
         [] remoteExec ["BC_setup_fnc_openSpawnDialog", _spawnSelector];
+    };
+    if (_unit getVariable ["BC_potentToBuy", false]) then {
+        private _potentToBuy = [side _unit, _unit] call BC_setup_fnc_getHighestRankOfSide;
+        _potentToBuy setVariable ["BC_potentToBuy", true];
+        [] remoteExec ["BC_setup_fnc_setPlayerPotentToBuy", _potentToBuy];
     };
     false
 }];

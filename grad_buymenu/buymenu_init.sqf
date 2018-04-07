@@ -88,7 +88,7 @@ if (isServer) then {
 		case 4: { {deleteVehicle _x} forEach list trg_base_opfor_1; {deleteVehicle _x} forEach list trg_base_opfor_2; {deleteVehicle _x} forEach list trg_base_opfor_3; };
 		default {};
 	};*/
-	
+
 
 	spawnMarkerBluforLand = (spawnArrayBluforLand select _randBluInd);
 	spawnMarkerBluforWater = (spawnArrayBluforWater select _randBluInd);
@@ -126,58 +126,21 @@ if (isServer) then {
 	publicVariable "SPAWN_APPROACH_OPFOR";
 
 	// broadcast supplies definitions
-	
+
 	0 = [] execVM "grad_buymenu\definitions\suppliesUS.sqf";
 	0 = [] execVM "grad_buymenu\definitions\suppliesRussians.sqf";
-	
 
+  // set highest player rank able to buy
+  {
+    private _potentToBuy = [_x] call BC_setup_fnc_getHighestRankOfSide;
+    _potentToBuy setVariable ["BC_potentToBuy", true];
+    [] remoteExec ["BC_setup_fnc_setPlayerPotentToBuy", _potentToBuy];
+  } forEach [west, east];
 };
 
 
-// arrays of menu content
-
 if (hasInterface) then {
 		buyMenuOpen = false; // checks if player has gui open
-
-		_canBuy = [];
-		if (playerSide == east) then {
-			switch (rank player) do {
-				case "CAPTAIN": { _canBuy = vehicleListOpfor; };
-				default { _canBuy = []; };
-			};	
-
-			player setVariable ["GRAD_canBuy", _canBuy];
-
-			player setVariable ['GRAD_buymenu_money', {moneyOpfor}, true];
-			player setVariable ['GRAD_buymenu_money_name', "moneyOpfor", true];
-			player setVariable ['GRAD_buymenu_supplies', {suppliesOpfor}, true];
-			player setVariable ['GRAD_buymenu_supplies_name', "suppliesOpfor", true];
-			player setVariable ['GRAD_buymenu_spawn_water', {getMarkerPos spawnMarkerOpforWater}];
-			player setVariable ['GRAD_buymenu_spawn_land', {getMarkerPos spawnMarkerOpforLand}];
-		};
-		if (playerSide == west) then {
-			
-			switch (rank player) do {
-				case "CAPTAIN": { _canBuy = vehicleListBlufor; };
-				default { _canBuy = []; };
-			};
-			
-
-			player setVariable ["GRAD_canBuy", _canBuy];
-
-			player setVariable ['GRAD_buymenu_money', {moneyBlufor}, true];
-			player setVariable ['GRAD_buymenu_money_name', "moneyBlufor", true];
-			player setVariable ['GRAD_buymenu_supplies', {suppliesBlufor}, true];
-			player setVariable ['GRAD_buymenu_supplies_name', "suppliesBlufor", true];
-
-			player setVariable ['GRAD_buymenu_spawn_water', {getMarkerPos spawnMarkerBluforWater}];
-			player setVariable ['GRAD_buymenu_spawn_land', {getMarkerPos spawnMarkerBluforLand}];
-		};
-
 		// G U I   f u n c t i o n s // do not edit below
         call compile preprocessFileLineNumbers "grad_buymenu\currentMenuIDCs.sqf";
-       
-
-		// [] spawn fnc_showMarkers; // dont need this for BC
-		
 };

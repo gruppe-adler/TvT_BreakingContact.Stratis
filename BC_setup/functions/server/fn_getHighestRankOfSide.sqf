@@ -1,4 +1,4 @@
-params ["_side"];
+params ["_side", ["_excludeUnit", objNull]];
 
 private _sideUnits = [];
 private _return = objNull;
@@ -9,6 +9,10 @@ private _return = objNull;
         _sideUnits pushback _x;
     };
 } forEach (playableUnits + switchableUnits);
+
+if (!isNull _excludeUnit && (_sideUnits find _excludeUnit > -1)) then {
+    _sideUnits = _sideUnits - [_excludeUnit];
+};
 
 // extract highest rank of side
 {
