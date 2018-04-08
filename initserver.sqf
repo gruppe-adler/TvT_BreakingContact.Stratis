@@ -244,10 +244,6 @@ publicVariable "SPEC_GROUP";
 	publicVariable "moneyOpfor";
 };
 
-if (isClass (configFile >> "CfgPatches" >> "task_force_radio")) then {
-	[] execVM "tfarsettings.sqf";
-};
-
 [] execVM "helpers\medical_settings.sqf";
 [] call grad_civMarker_fnc_civGunfightListener;
 [] call grad_civMarker_fnc_civKilledListener;
