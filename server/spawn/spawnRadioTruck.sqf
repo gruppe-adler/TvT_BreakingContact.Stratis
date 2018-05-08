@@ -9,7 +9,7 @@ spawnRadioTruck = {
 	_radioVeh setVariable ["detachableRadio", 0, true];
 
 	_radioVeh setVariable ["GRAD_replay_track", true, true];
- 
+
  	_radioVeh addMPEventHandler ["MPKilled", {
  		params ["_unit", "_killer", "_instigator", "_useEffects"];
 
@@ -30,7 +30,7 @@ spawnRadioTruck = {
 
 	missionNameSpace setVariable ["GRAD_tracking_radioVehObj", _radioVeh, true];
 	missionNameSpace setVariable ["GRAD_tracking_terminalObj", _terminal, true];
-	
+
 	[[_radioVeh, _terminal, _position], "grad_tracking\init.sqf"] remoteExec ["execVM", 0, true];
 
 
@@ -62,7 +62,7 @@ spawnRadioTruck = {
 	sleep 7;
 
 	// create replay
-	[[REPLAY_ACCURACY], "node_modules\grad-replay\GRAD_replay_init.sqf"] remoteExec ["execVM", 0, true];
+	[[REPLAY_ACCURACY], "node_modules\@gruppe-adler\replay\GRAD_replay_init.sqf"] remoteExec ["execVM", 0, true];
 
 	// create tasks
 	[[], "BC_objectives\init.sqf"] remoteExec ["execVM", 0, true];
