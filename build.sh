@@ -39,7 +39,7 @@ fi
 
 cwd=`pwd`
 
-#npm install
+npm install
 
 builddir="$cwd/../tmp-build"
 mkdir -p "$builddir"
