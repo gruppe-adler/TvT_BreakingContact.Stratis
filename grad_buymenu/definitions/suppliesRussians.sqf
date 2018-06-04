@@ -294,14 +294,14 @@ _transmitter = [
 _truckarmor = [
     ["Land_WeldingTrolley_01_F"],
     "Truck Armor",
-    2,
+    1,
     500,
     9,
     [[], []],
     {
         deleteVehicle (_this select 0);
-        _radioVeh = missionNameSpace getVariable ["GRAD_tracking_radioVehObj", objNull];
-        _armorLevel = _radioVeh getVariable ["BC_objectives_armorLevel", 0];
+        private _radioVeh = missionNameSpace getVariable ["GRAD_tracking_radioVehObj", objNull];
+        private _armorLevel = _radioVeh getVariable ["BC_objectives_armorLevel", 0];
         [_radioVeh] call BC_objectives_fnc_removeTruckArmor;
         [_radioVeh, _armorLevel + 1] call BC_objectives_fnc_applyTruckArmor;
         _radioVeh setVariable ["BC_objectives_armorLevel", 1];

@@ -23,6 +23,12 @@ spawnRadioTruck = {
 	sleep 1;
 	[_radioVeh] call clearInventory;
 
+	 
+    private _armorLevel = _radioVeh getVariable ["BC_objectives_armorLevel", 0];
+    [_radioVeh] call BC_objectives_fnc_removeTruckArmor;
+    [_radioVeh, _armorLevel + 1] call BC_objectives_fnc_applyTruckArmor;
+    _radioVeh setVariable ["BC_objectives_armorLevel", 1];
+
 	_terminal = createVehicle ['Land_DataTerminal_01_F', [0,0,0], [], 0, 'NONE'];
 	_terminal setVariable ["GRAD_replay_track", true, true];
 
