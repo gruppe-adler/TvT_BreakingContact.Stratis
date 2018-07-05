@@ -1,22 +1,23 @@
 params ["_center", "_items", "_spawnDistance", "_searchDistance"];
+_items params ["_startVehicleClass", "_coneClass"];
 
-_result = [nil,nil];
+private _result = [nil,nil];
 
-_mapSizeArray = [] call BC_setup_fnc_getMapSize;
+private _mapSizeArray = [] call BC_setup_fnc_getMapSize;
 _mapSizeArray params ["_mapSize", "_mapSizeKnown"];
 
-_iterationNothing = 0;
-_iterationOutside = 0;
-_iterationSlope = 0;
-_iterationSecondPos = 0;
-_iterationTooClose = 0;
+private _iterationNothing = 0;
+private _iterationOutside = 0;
+private _iterationSlope = 0;
+private _iterationSecondPos = 0;
+private _iterationTooClose = 0;
 
-_found = false;
+private _found = false;
 
-_testPos1 = [0,0,0];
-_testPos2 = [0,0,0];
+private _testPos1 = [0,0,0];
+private _testPos2 = [0,0,0];
 
-_startTime = time;
+private _startTime = time;
 
 while {!_found} do {
 
@@ -44,7 +45,7 @@ while {!_found} do {
         _iterationOutside = _iterationOutside + 1;
          _found = false;
       } else {
-        if ([_testPos1, 5] call BC_setup_fnc_get_slope > 0.4) then {_result = [nil,nil];
+        if ([_testPos1, 5] call BC_setup_fnc_getSlope > 0.4) then {_result = [nil,nil];
           _iterationSlope = _iterationSlope + 1;
           _found = false;
         } else {
@@ -59,7 +60,7 @@ while {!_found} do {
               _iterationTooClose = _iterationTooClose + 1;
               _found = false;
             } else {
-              if ([_testPos2, 5] call BC_setup_fnc_get_slope > 0.4) then {
+              if ([_testPos2, 5] call BC_setup_fnc_getSlope > 0.4) then {
                 _result = [nil,nil];
                 _iterationSlope = _iterationSlope + 1;
                 _found = false;
@@ -72,8 +73,8 @@ while {!_found} do {
   sleep 0.0001;
 };
 
-private _vehicle = createVehicle [(_items select 0), _testPos1, [], 2, "CAN_COLLIDE"];
-private _cone = createVehicle [(_items select 1), _testPos2, [], 0, "CAN_COLLIDE"];
+private _vehicle = createVehicle [_startVehicleClass, _testPos1, [], 2, "CAN_COLLIDE"];
+private _cone = createVehicle [_coneClass, _testPos2, [], 0, "CAN_COLLIDE"];
 
 _result = [_vehicle, _cone];
 

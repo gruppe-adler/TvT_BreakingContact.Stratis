@@ -1,5 +1,5 @@
 #include "\z\ace\addons\main\script_component.hpp"
-#include "..\missionMacros.h"
+#include "..\..\..\missionMacros.h"
 
 [
 	"teleportClickOpf",

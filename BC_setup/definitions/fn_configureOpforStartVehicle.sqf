@@ -25,7 +25,7 @@ hideObjectGlobal _terminal;
 missionNameSpace setVariable ["GRAD_tracking_radioVehObj", _vehicle, true];
 missionNameSpace setVariable ["GRAD_tracking_terminalObj", _terminal, true];
 
-[[_vehicle, _terminal, _position], "grad_tracking\init.sqf"] remoteExec ["execVM", 0, true];
+[[_vehicle, _terminal], "grad_tracking\init.sqf"] remoteExec ["execVM", 0, true];
 
 
 if (!IS_WOODLAND) then {
@@ -41,7 +41,6 @@ _vehicle animate ["light_hide",1];
 sleep 0.1;
 
 
-[getPos _vehicle, 50, "Land_ClutterCutter_large_F"] call BC_setup_fnc_spawnStartVehicle;
 _vehicle addItemCargoGlobal ["ACE_SpraypaintBlack",10];
 _vehicle addItemCargoGlobal ["ACE_SpraypaintBlue",10];
 _vehicle addItemCargoGlobal ["ACE_SpraypaintGreen",10];

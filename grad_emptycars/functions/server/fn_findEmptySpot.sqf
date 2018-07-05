@@ -6,9 +6,10 @@ for "_i" from 0 to _count do {
 
 	_spawnPos = [_position, [0,_radius], random 360, 0, [1,_radius]] call SHK_pos;
 
-  private _location = locationPosition (nearestLocation [_position, ""]);
+  private _location = nearestLocation [_position, ""];
+  private _locationPosition = locationPosition _location;
 
-  if (_position distance2D _location > size _location && _i > 0) then {
+  if (_position distance2D _locationPosition > (size _location select 0) && _i > 0) then {
       _i = _i - 1;
       sleep 0.001;
   } else {

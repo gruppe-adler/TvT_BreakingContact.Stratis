@@ -1,5 +1,44 @@
 #include "rscDefines.hpp"
 
+
+
+class gui_spawn_waitplease
+{
+		idd = 8020;
+		movingenable = 0;
+		enableSimulation = 1;
+		enableDisplay = 1;
+		objects[] = {};
+
+		class ControlsBackground
+		{
+			class gui_spawn_waitplease_bg: BC_setup_RscBackground
+			{
+				idc = 8021;
+				x = 10 * GUI_GRID_W + GUI_GRID_X;
+				y = 0 * GUI_GRID_H + GUI_GRID_Y;
+				w = 20 * GUI_GRID_W;
+				h = 10 * GUI_GRID_H;
+				colorBackground[] = {0,0,0,0.8};
+			};
+		};
+
+		class Controls {
+
+			class btn_wait_opfor: BC_setup_RscStructuredText
+			{
+				idc = 8022;
+				text = $STR_GRAD_choose_spawn_location;
+				x = 16 * GUI_GRID_W + GUI_GRID_X;
+				y = 2 * GUI_GRID_H + GUI_GRID_Y;
+				w = 12 * GUI_GRID_W;
+				h = 3 * GUI_GRID_H;
+				colorBackground[] = {0,0,0,1};
+
+			};
+		};
+};
+
 	class gui_pleasewait
 	{
 		idd = -1;

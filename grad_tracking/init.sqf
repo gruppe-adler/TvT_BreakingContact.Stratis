@@ -1,4 +1,4 @@
-params ["_radioVeh", "_terminal", "_position"];
+params ["_radioVeh", "_terminal"];
 
 GRAD_TICKS_DONE = 0;
 

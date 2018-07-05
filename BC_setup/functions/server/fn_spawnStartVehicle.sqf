@@ -1,7 +1,10 @@
+// [EAST, getPos _vehicle, 50, "Land_ClutterCutter_large_F"] 
 params ["_side", "_centerPosition", "_distance", "_vehicleclass"];
 
 _searchDistance = 10; // threshold to search for alternative positions
 
+
+diag_log format ["_vehicleclass %1", _vehicleclass];
 
 _spawnedVehicles = [
     _centerPosition,
@@ -42,7 +45,7 @@ if (_side isEqualTo west) then {
 
       [_startVehicle] call BC_setup_fnc_configureOpforStartVehicle;
 
-      RUS_SPAWN_PAD = _cone;
+      RUS_SPAWN_PAD = _startCone;
       publicVariable "RUS_SPAWN_PAD";
 
       RUS_VEHICLE_SPAWN = {getPos RUS_SPAWN_PAD};

@@ -9,8 +9,9 @@
 
 #include "node_modules\grad-fortifications\grad_fortifications.hpp"
 #include "node_modules\grad-customGear\saveDialog\dialog.hpp"
-#include "node_modules\grad-replay\ui\defines.hpp"
-#include "node_modules\grad-replay\ui\dialog.hpp"
+#include "node_modules\@gruppe-adler\replay\ui\defines.hpp"
+#include "node_modules\@gruppe-adler\replay\ui\dialog.hpp"
+#include "BC_setup\rscDialogs.hpp"
 
 class CfgFunctions {
 	#include "grad_carryBoat\cfgFunctions.hpp"
@@ -25,7 +26,7 @@ class CfgFunctions {
 	#include "BC_objectives\cfgFunctions.hpp"
   #include "BC_setup\cfgFunctions.hpp"
 
-	#include "node_modules\grad-replay\cfgFunctions.hpp"
+	#include "node_modules\@gruppe-adler\replay\cfgFunctions.hpp"
 	#include "node_modules\grad-customGear\cfgFunctions.hpp"
   #include "node_modules\grad-loadout\cfgFunctions.hpp"
 	#include "node_modules\grad-fortifications\cfgFunctions.hpp"
@@ -33,8 +34,8 @@ class CfgFunctions {
 
 class RscTitles {
     #include "node_modules\grad-fortifications\dialog\hint\title.hpp"
-    #include "grad_buymenu\definitions\rscTitles.hpp"
-	  #include "BC_objectives\rscTitles.hpp"
+    // #include "grad_buymenu\definitions\rscTitles.hpp"
+	#include "BC_objectives\rscTitles.hpp"
     #include "BC_setup\rscTitles.hpp"
 };
 

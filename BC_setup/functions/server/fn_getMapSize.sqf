@@ -1,6 +1,6 @@
 // check for arma3 map size
-_mapSizeDetected = worldSize;
-_mapSizeDetectedKnown = true;
+private _mapSizeDetected = worldSize;
+private _mapSizeDetectedKnown = true;
 
 // check for utes/chernarus
 if (_mapSizeDetected < 2000) then {
@@ -23,4 +23,6 @@ if (_mapSizeDetected < 2000) then {
   diag_log format ["Calculating Spawnpos: Map Size is  %1.",
   _mapSizeDetected];
 };
+
+
 [_mapSizeDetected,_mapSizeDetectedKnown]

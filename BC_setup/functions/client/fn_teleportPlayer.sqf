@@ -27,3 +27,5 @@ cutText ["", "PLAIN"];
 
 ["<img size= '6' shadow='false' image='pic\kv13gaopt.paa'/><br/>
 <t size='.9' color='#FFFFFF'>Breaking Contact</t>",0,0,2,2] spawn BIS_fnc_dynamicText;
+
+BIS_fnc_establishingShot_skip = true; // just in case its necessary

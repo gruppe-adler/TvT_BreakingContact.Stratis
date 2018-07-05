@@ -17,10 +17,10 @@ _vehicleFlagDefinitions = [
 	diag_log format ["comparing %1 to %2", typeof _vehicle, _x select 0];
   if ((typeOf _vehicle) isEqualTo (_x select 0)) exitWith {
   		if (_raise) then {
-  			[_vehicle, _x select 1, _x select 2] call BC_flagsOnVehicles_fnc_attachThatFlag;
+  			[_vehicle, _x select 1, _x select 2] call BC_flagsOnVehicles_fnc_attachFlag;
   			_vehicle addEventHandler ["killed", "[_this select 0] call BC_flagsOnVehicles_fnc_detachThatFlag;"];
   		} else {
-  			[_vehicle] call BC_flagsOnVehicles_fnc_detachThatFlag;
+  			[_vehicle] call BC_flagsOnVehicles_fnc_detachFlag;
   		};
   };
 
