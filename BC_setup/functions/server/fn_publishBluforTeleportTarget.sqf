@@ -12,7 +12,7 @@ waitUntil {
     !isNil "US_VEHICLE_SPAWN"
 };
 
-BLUFOR_TELEPORT_TARGET = position _startVehicle;
+BLUFOR_TELEPORT_TARGET = getPos _startVehicle;
 publicVariable "BLUFOR_TELEPORT_TARGET";
 
 BLUFOR_TELEPORTED = true;

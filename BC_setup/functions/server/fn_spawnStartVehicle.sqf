@@ -2,7 +2,7 @@
 params ["_side", "_centerPosition", "_distance", "_vehicleclass"];
 
 _searchDistance = 10; // threshold to search for alternative positions
-
+_startVehicle = objNull;
 
 diag_log format ["_vehicleclass %1", _vehicleclass];
 
@@ -65,7 +65,7 @@ if (_side isEqualTo west) then {
 
       sleep 7;
 
-      [[REPLAY_ACCURACY], "node_modules\grad-replay\GRAD_replay_init.sqf"] remoteExec ["execVM", 0, true];
+      [[REPLAY_ACCURACY], "node_modules\@gruppe-adler\grad-replay\GRAD_replay_init.sqf"] remoteExec ["execVM", 0, true];
 
     	// create tasks
     	[[], "BC_objectives\init.sqf"] remoteExec ["execVM", 0, true];
