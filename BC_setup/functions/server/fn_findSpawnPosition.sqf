@@ -1,4 +1,4 @@
-params ["_center", "_items", "_spawnDistance", "_searchDistance"];
+params ["_center", "_items", "_spawnDistance", "_searchDistance", "_side"];
 _items params ["_startVehicleClass", "_coneClass"];
 
 private _result = [nil,nil];
@@ -75,6 +75,9 @@ while {!_found} do {
 
 private _vehicle = createVehicle [_startVehicleClass, _testPos1, [], 2, "CAN_COLLIDE"];
 private _cone = createVehicle [_coneClass, _testPos2, [], 0, "CAN_COLLIDE"];
+
+private _string = format ["BC_startVehicle_%1", _side];
+missionNamespace setVariable [_string, _side, true];
 
 _result = [_vehicle, _cone];
 

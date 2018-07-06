@@ -253,8 +253,8 @@ GRAD_tracking_mainLoop = [{
 GRAD_tracking_syncLoop = [{
     params ["_args", "_handle"];
 
-    "mrk_spawn_blufor_land_1" setMarkerPos (call US_VEHICLE_SPAWN);
-    "mrk_spawn_opfor_land_1" setMarkerPos (call RUS_VEHICLE_SPAWN);
+    "mrk_spawn_blufor_land_1" setMarkerPos ([west] call BC_setup_fnc_getSpawnPos);
+    "mrk_spawn_opfor_land_1" setMarkerPos ([east] call BC_setup_fnc_getSpawnPos);
     publicVariable "GRAD_TICKS_DONE";
 
 },5,[]] call CBA_fnc_addPerFrameHandler;

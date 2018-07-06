@@ -34,6 +34,8 @@ class BC_setup {
         class getIslandCfgEntry { preInit = 1; };
         class getMapSize;
         class getSlope;
+        class getSpawnPos;
+        class getStartVehiclePos;
         class initialSpawnServer;
         class isInsideMap;
         class publishBluforTeleportTarget;

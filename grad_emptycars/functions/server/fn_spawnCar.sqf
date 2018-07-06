@@ -1,6 +1,6 @@
 params ["_pos", "_objType"];
 
-private _obj = _objType createVehicle _pos;
+private _obj = createVehicle [_objType, _pos, [], 0, "CAN_COLLIDE"];
 _obj setVehicleLock "LOCKED";
 _obj setVariable ["ace_vehiclelock_lockSide", civilian, true];
 [_obj] call BC_setup_fnc_clearInventory;
