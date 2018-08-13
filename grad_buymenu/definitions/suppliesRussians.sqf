@@ -277,7 +277,7 @@ _transmitter = [
     ["Land_DataTerminal_01_F"],
     "Radio Relay",
     1,
-    1500,
+    600,
     8,
     [[], []],
     {
