@@ -13,13 +13,21 @@
 #include "node_modules\@gruppe-adler\replay\ui\dialog.hpp"
 #include "BC_setup\rscDialogs.hpp"
 
-class CfgFunctions {     #include "grad_carryBoat\cfgFunctions.hpp"     #include "grad_islands\cfgFunctions.hpp"     #include "grad_buymenu\cfgFunctions.hpp"
-  #include "grad_civMarker\cfgFunctions.hpp"     #include "grad_civs\cfgFunctions.hpp"     #include "grad_tracking\cfgFunctions.hpp"     #include "grad_emptycars\cfgFunctions.hpp"
-
-  #include "BC_flagsOnVehicles\cfgFunctions.hpp"     #include "BC_objectives\cfgFunctions.hpp"
-  #include "BC_setup\cfgFunctions.hpp"
-     #include "node_modules\@gruppe-adler\replay\cfgFunctions.hpp"     #include "node_modules\grad-customGear\cfgFunctions.hpp"
-  #include "node_modules\grad-loadout\cfgFunctions.hpp"     #include "node_modules\grad-fortifications\cfgFunctions.hpp"
+class CfgFunctions {     
+    #include "grad_carryBoat\cfgFunctions.hpp"
+    #include "grad_islands\cfgFunctions.hpp"
+    #include "grad_buymenu\cfgFunctions.hpp"
+    #include "grad_civMarker\cfgFunctions.hpp"
+    #include "grad_civs\cfgFunctions.hpp"
+    #include "grad_tracking\cfgFunctions.hpp"
+    #include "grad_emptycars\cfgFunctions.hpp"
+    #include "BC_flagsOnVehicles\cfgFunctions.hpp"
+    #include "BC_objectives\cfgFunctions.hpp"
+    #include "BC_setup\cfgFunctions.hpp"
+    #include "node_modules\@gruppe-adler\replay\cfgFunctions.hpp"
+    #include "node_modules\grad-customGear\cfgFunctions.hpp"
+    #include "node_modules\grad-loadout\cfgFunctions.hpp"
+    #include "node_modules\grad-fortifications\cfgFunctions.hpp"
 };
 
 class RscTitles {
@@ -53,7 +61,7 @@ class Header
 
 
 class Params
-{     class TIME_OF_DAY     {     	title = "Time of Day";     	values[] = {0,1,2,3,4,5,6,6.5,7,8,9,10,11,12,13,14,15,16,16.5,17,17.5,18,19,20,21,22,23};     	texts[] = {"00:00","01:00","02:00","03:00","04:00","05:00 - Full Moon","06:00","06:30 - Dawn","07:00 - Sunrise","08:00","09:00","10:00","11:00","12:00","13:00","14:00","15:00","16:00","16:30 - Sunset will arrive","17:00 - Sunset","17:30 - Dusk","18:00 - really dark already","19:00","20:00","21:00","22:00","23:00 - Moon Rise"};     	default = 8;     };
+{    class TIME_OF_DAY     {     	title = "Time of Day";     	values[] = {0,1,2,3,4,5,6,6.5,7,8,9,10,11,12,13,14,15,16,16.5,17,17.5,18,19,20,21,22,23};     	texts[] = {"00:00","01:00","02:00","03:00","04:00","05:00 - Full Moon","06:00","06:30 - Dawn","07:00 - Sunrise","08:00","09:00","10:00","11:00","12:00","13:00","14:00","15:00","16:00","16:30 - Sunset will arrive","17:00 - Sunset","17:30 - Dusk","18:00 - really dark already","19:00","20:00","21:00","22:00","23:00 - Moon Rise"};     	default = 8;     };
      class WEATHER_OVERCAST     {     	title = "Overcast Settings";     	values[] = {0, 0.4, 0.5, 1, -1};     	texts[] = {"SUNNY", "CLOUDY", "SLIGHT RAIN", "HEAVY RAIN", "RANDOM"};     	default = -1;     };
      class WEATHER_FOG     {     	title = "Fog Settings";     	values[] = {0, 0.05, 0.1, 0.2, 0.5, 1, -1};     	texts[] = {"None", "0.05", "0.1", "0.2", "0.5", "maximum perversum", "random"};     	default = 0.05;     };
      class WEATHER_WIND     {     	title = "Wind Settings";     	values[] = {0, 1, 2, 4, 8, 32, -1};     	texts[] = {"None", "1 m/s", "2 m/s", "4 m/s", "8 m/s", "maximum perversum", "random"};     	default = 1;     };
@@ -89,8 +97,14 @@ class Params
     	ACE_setting = 1;
     	values[] = {0, 1}; //setting is a BOOL, but values still need to be numbers, so 0 is false, 1 is true
     	texts[] =  {"False", "True"};
-    	default = 1;     };
-     class PREPARATION_TIME {     	title = "Preparation time";     	values[] = {0,60,120,180,240,300,480,600,900};     	texts[] = {"off","1min","2min","3min","4min","5min","8min","10min","15min"};     	default = 300;     };
+    	default = 1;     
+    };
+     class PREPARATION_TIME {     	
+        title = "Preparation time";     	
+        values[] = {0,60,120,180,240,300,480,600,900};     	
+        texts[] = {"off","1min","2min","3min","4min","5min","8min","10min","15min"};     	
+        default = 300;     
+    };
 };
 
 class ACE_Settings {
