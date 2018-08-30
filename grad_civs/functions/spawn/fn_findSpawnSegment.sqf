@@ -55,7 +55,8 @@ while {!_isOk} do {
             };
             
             sleep 0.01;
-        } foreach _allPlayerPositions;     
+        } foreach _allPlayerPositions;
+	
         {
             private ["_unit"];
             if (count units _x == 0) exitWith {
@@ -68,7 +69,8 @@ while {!_isOk} do {
             };
             
             sleep 0.01;
-        } foreach _civilianGroups;     	
+        } foreach _civilianGroups;
+		
                 
         _isOk = true;
         
@@ -81,7 +83,8 @@ while {!_isOk} do {
         _isOk = false;
         _tries = _tries + 1;
     };
-         sleep 0.1;
+    
+	sleep 0.1;
 };
 
 _result = getPos _roadSegment;

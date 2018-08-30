@@ -2,7 +2,8 @@
 // TODO NOT NEEDED?
 
 params ["_pos"];
-     
+
+	
 _name = format ["marker_radio_%1", str _pos];
 _name = _name splitString " " joinString ""; // remove whitespaces
 

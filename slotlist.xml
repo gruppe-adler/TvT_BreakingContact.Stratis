@@ -1,2 +1,70 @@
-<match>     <company side="opfor" callsign="OPFOR">     	<platoon callsign="Command" natosymbol="hq">     		<slot shortcode="CMD" description="Commander"/>     		<slot shortcode="CMA" description="Command Assistant"/>     		<squad callsign="Teams" natosymbol="inf">     			<slot shortcode="SQL" description="Squad Leader"/>     			<slot shortcode="SQM" description="Squad Medic"/>     			<fireteam>     				<slot shortcode="ATL" description="Alpha Leader"/>     				<slot shortcode="MG" description="MG Gunner"/>     				<slot shortcode="MGA" description="MG Assistant"/>     				<slot shortcode="AT" description="AT Specialist"/>     				<slot shortcode="R" description="Rifleman"/>     				<slot shortcode="R" description="Rifleman"/>     			</fireteam>     			<fireteam>     				<slot shortcode="BTL" description="Bravo Leader"/>     				<slot shortcode="MG" description="MG Gunner"/>     				<slot shortcode="MGA" description="MG Assistant"/>     				<slot shortcode="AT" description="AT Specialist"/>     				<slot shortcode="R" description="Rifleman"/>     				<slot shortcode="R" description="Rifleman"/>     			</fireteam>     			<fireteam>     				<slot shortcode="CTL" description="Charlie Leader"/>     				<slot shortcode="MG" description="MG Gunner"/>     				<slot shortcode="MGA" description="MG Assistant"/>     				<slot shortcode="AT" description="AT Specialist"/>     				<slot shortcode="R" description="Rifleman"/>     				<slot shortcode="R" description="Rifleman"/>     			</fireteam>     		</squad>     	</platoon>     </company>     <company side="blufor" callsign="BLUFOR">     	<platoon callsign="Command" natosymbol="hq">     		<slot shortcode="CMD" description="Commander"/>     		<slot shortcode="CMA" description="Command Assistant"/>     		<squad callsign="Teams" natosymbol="inf">     			<slot shortcode="SQL" description="squad leader"/>     			<slot shortcode="SQM" description="squad medic"/>     			<fireteam>     				<slot shortcode="ATL" description="Alpha Leader"/>     				<slot shortcode="MG" description="MG Gunner"/>     				<slot shortcode="MGA" description="MG Assistant"/>     				<slot shortcode="AT" description="AT Specialist"/>     				<slot shortcode="R" description="Rifleman"/>     				<slot shortcode="R" description="Rifleman"/>     			</fireteam>     			<fireteam>     				<slot shortcode="BTL" description="Bravo Leader"/>     				<slot shortcode="MG" description="MG Gunner"/>     				<slot shortcode="MGA" description="MG Assistant"/>     				<slot shortcode="AT" description="AT Specialist"/>     				<slot shortcode="R" description="Rifleman"/>     				<slot shortcode="R" description="Rifleman"/>     			</fireteam>     			<fireteam>     				<slot shortcode="CTL" description="Charlie Leader"/>     				<slot shortcode="MG" description="MG Gunner"/>     				<slot shortcode="MGA" description="MG Assistant"/>     				<slot shortcode="AT" description="AT Specialist"/>     				<slot shortcode="R" description="Rifleman"/>     				<slot shortcode="R" description="Rifleman"/>     			</fireteam>     		</squad>     	</platoon>     </company>
+<match>
+	<company side="opfor" callsign="OPFOR">
+		<platoon callsign="Command" natosymbol="hq">
+			<slot shortcode="CMD" description="Commander"/>
+			<slot shortcode="CMA" description="Command Assistant"/>
+			<squad callsign="Teams" natosymbol="inf">
+				<slot shortcode="SQL" description="Squad Leader"/>
+				<slot shortcode="SQM" description="Squad Medic"/>
+				<fireteam>
+					<slot shortcode="ATL" description="Alpha Leader"/>
+					<slot shortcode="MG" description="MG Gunner"/>
+					<slot shortcode="MGA" description="MG Assistant"/>
+					<slot shortcode="AT" description="AT Specialist"/>
+					<slot shortcode="R" description="Rifleman"/>
+					<slot shortcode="R" description="Rifleman"/>
+				</fireteam>
+				<fireteam>
+					<slot shortcode="BTL" description="Bravo Leader"/>
+					<slot shortcode="MG" description="MG Gunner"/>
+					<slot shortcode="MGA" description="MG Assistant"/>
+					<slot shortcode="AT" description="AT Specialist"/>
+					<slot shortcode="R" description="Rifleman"/>
+					<slot shortcode="R" description="Rifleman"/>
+				</fireteam>
+				<fireteam>
+					<slot shortcode="CTL" description="Charlie Leader"/>
+					<slot shortcode="MG" description="MG Gunner"/>
+					<slot shortcode="MGA" description="MG Assistant"/>
+					<slot shortcode="AT" description="AT Specialist"/>
+					<slot shortcode="R" description="Rifleman"/>
+					<slot shortcode="R" description="Rifleman"/>
+				</fireteam>
+			</squad>
+		</platoon>
+	</company>
+	<company side="blufor" callsign="BLUFOR">
+		<platoon callsign="Command" natosymbol="hq">
+			<slot shortcode="CMD" description="Commander"/>
+			<slot shortcode="CMA" description="Command Assistant"/>
+			<squad callsign="Teams" natosymbol="inf">
+				<slot shortcode="SQL" description="squad leader"/>
+				<slot shortcode="SQM" description="squad medic"/>
+				<fireteam>
+					<slot shortcode="ATL" description="Alpha Leader"/>
+					<slot shortcode="MG" description="MG Gunner"/>
+					<slot shortcode="MGA" description="MG Assistant"/>
+					<slot shortcode="AT" description="AT Specialist"/>
+					<slot shortcode="R" description="Rifleman"/>
+					<slot shortcode="R" description="Rifleman"/>
+				</fireteam>
+				<fireteam>
+					<slot shortcode="BTL" description="Bravo Leader"/>
+					<slot shortcode="MG" description="MG Gunner"/>
+					<slot shortcode="MGA" description="MG Assistant"/>
+					<slot shortcode="AT" description="AT Specialist"/>
+					<slot shortcode="R" description="Rifleman"/>
+					<slot shortcode="R" description="Rifleman"/>
+				</fireteam>
+				<fireteam>
+					<slot shortcode="CTL" description="Charlie Leader"/>
+					<slot shortcode="MG" description="MG Gunner"/>
+					<slot shortcode="MGA" description="MG Assistant"/>
+					<slot shortcode="AT" description="AT Specialist"/>
+					<slot shortcode="R" description="Rifleman"/>
+					<slot shortcode="R" description="Rifleman"/>
+				</fireteam>
+			</squad>
+		</platoon>
+	</company>
 </match>

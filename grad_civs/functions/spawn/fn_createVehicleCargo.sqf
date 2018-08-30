@@ -12,5 +12,6 @@ _crewCargo call GRAD_civs_fnc_dressAndBehave;
 _crewCargo assignAsCargo _car1;
 _crewCargo moveInCargo _car1;
 
-if (!isNil "GRAD_REPLAY_CIVILIAN_TRAFFIC_TRACKED" && {GRAD_REPLAY_CIVILIAN_TRAFFIC_TRACKED}) then {     _crewCargo setVariable ["GRAD_replay_track", true];
+if (!isNil "GRAD_REPLAY_CIVILIAN_TRAFFIC_TRACKED" && {GRAD_REPLAY_CIVILIAN_TRAFFIC_TRACKED}) then {
+	_crewCargo setVariable ["GRAD_replay_track", true];
 };

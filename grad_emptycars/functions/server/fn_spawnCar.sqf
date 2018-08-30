@@ -7,7 +7,8 @@ _obj setVariable ["ace_vehiclelock_lockSide", civilian, true];
 
 private _road = [getPos _obj] call BIS_fnc_nearestRoad;
 
-if (!isNull _road) then {     private _roadConnectedTo = roadsConnectedTo _road;
+if (!isNull _road) then {
+	private _roadConnectedTo = roadsConnectedTo _road;
  	
     // yes there are roads without connections
     if (count _roadConnectedTo > 0) then {
@@ -19,5 +20,10 @@ if (!isNull _road) then {     private _roadConnectedTo = roadsConnectedTo _road;
   _obj setDir (random 360);
 };
 
-if (!isMultiplayer) then {     	[_pos] call grad_emptycars_fnc_createDebugMarker;     } else {     	if (DEBUG_MODE) then {     		[_pos] call grad_emptycars_fnc_createDebugMarker;     	};
+if (!isMultiplayer) then {
+		[_pos] call grad_emptycars_fnc_createDebugMarker;
+	} else {
+		if (DEBUG_MODE) then {
+			[_pos] call grad_emptycars_fnc_createDebugMarker;
+		};
 };

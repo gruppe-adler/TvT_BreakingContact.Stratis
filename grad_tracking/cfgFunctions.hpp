@@ -1,5 +1,6 @@
 class GRAD_tracking {
-     class player {
+
+	class player {
         file = grad_tracking\functions\player;
 
         class createMarkerLastSeen {};
@@ -25,7 +26,8 @@ class GRAD_tracking {
         class terminalMarkerAnimation {};
         class terminalOpen {};
     };
-     class server {
+
+	class server {
         file = grad_tracking\functions\server;
         
         class bluforCaptured {};

@@ -9,7 +9,8 @@ for "_i" from 0 to _count do {
     ["NameCity","NameCityCapital", "NameVillage"], 
     _radius
   ]);
-     private _spawnPos = [
+
+	private _spawnPos = [
       locationPosition _randomLocation, 
       [0,50], 
       random 360, 

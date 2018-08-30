@@ -26,7 +26,8 @@
                 _x doFollow _x;
             };
         };
-     } forEach (allunits - playableUnits - switchableUnits);
+
+	} forEach (allunits - playableUnits - switchableUnits);
 
     /*
     if (GRAD_CIV_ONFOOT_COUNT < GRAD_CIV_MAX_COUNT) then {

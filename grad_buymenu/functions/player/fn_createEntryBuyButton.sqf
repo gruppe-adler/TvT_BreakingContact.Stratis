@@ -21,7 +21,9 @@ _moneyVar = player getVariable "GRAD_buymenu_money_name";
 _money = missionNamespace getVariable _moneyVar;
 
 _newMoney = _money - _cost;
-if (_newMoney < 0) exitWith {     _btn ctrlSetTextColor  [0.8,0.2,0.2,1];     ctrlSetText [_idc, localize 'str_GRAD_buy_tooexpensive'];
+if (_newMoney < 0) exitWith {
+	_btn ctrlSetTextColor  [0.8,0.2,0.2,1];
+	ctrlSetText [_idc, localize 'str_GRAD_buy_tooexpensive'];
     ctrlEnable [_idc, false];
 
     GRAD_buymenu_currentMenuBuyButtonIDCs setVariable [_selector, _idc];
@@ -31,7 +33,11 @@ if (_newMoney < 0) exitWith {     _btn ctrlSetTextColor  [0.8,0.2,0.2,1];     ct
 
 buttonSetAction [_idc, format["['%1', %2] call GRAD_buymenu_fnc_addOrder;", _selector, _spawnMethod]];
 
-switch (_status) do {     case 0: {ctrlEnable [_idc, true];  _btn ctrlSetText (localize "str_GRAD_buy_order_hint");};     case 1: {ctrlEnable [_idc, false]; _btn ctrlSetText (localize "str_GRAD_buy_calling");};     case 2: {ctrlEnable [_idc, false]; _btn ctrlSetText (localize "str_GRAD_buy_noleft");};     default {};
+switch (_status) do {
+	case 0: {ctrlEnable [_idc, true];  _btn ctrlSetText (localize "str_GRAD_buy_order_hint");};
+	case 1: {ctrlEnable [_idc, false]; _btn ctrlSetText (localize "str_GRAD_buy_calling");};
+	case 2: {ctrlEnable [_idc, false]; _btn ctrlSetText (localize "str_GRAD_buy_noleft");};
+	default {};
 };
 
 GRAD_buymenu_currentMenuBuyButtonIDCs setVariable [_selector, _idc];

@@ -6,5 +6,12 @@ _animationSpeed = 0.02; // delay between growth steps
 _delayBetweenPulse = GRAD_SIGNAL_DELAY;
 _isRunning = player getVariable ["GRAD_tracking_radioVehAnimation",false];
 
-if (!_isRunning) then {          [     	_size,     	_maxSize,     	_animationSpeed,     	_delayBetweenPulse     ] spawn GRAD_tracking_fnc_radioVehMarkerAnimation;
+if (!_isRunning) then {
+	
+	[
+		_size,
+		_maxSize,
+		_animationSpeed,
+		_delayBetweenPulse
+	] spawn GRAD_tracking_fnc_radioVehMarkerAnimation;
 };
