@@ -9,9 +9,9 @@ private _road = [getPos _vehicle] call BIS_fnc_nearestRoad;
 if (!isNull _road) then {
      private _roadConnectedTo = roadsConnectedTo _road;
      if (count _roadConnectedTo > 0) then {
-	      _connectedRoad = _roadConnectedTo select 0;
-	      _direction = [_road, _connectedRoad] call BIS_fnc_DirTo;
-	      _vehicle setDir _direction;
+          _connectedRoad = _roadConnectedTo select 0;
+          _direction = [_road, _connectedRoad] call BIS_fnc_DirTo;
+          _vehicle setDir _direction;
       };
 };
 

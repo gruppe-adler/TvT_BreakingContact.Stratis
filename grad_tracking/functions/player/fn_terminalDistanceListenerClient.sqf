@@ -6,7 +6,7 @@ _GRAD_TERMINAL_DISTANCE_listener = {
 
 "GRAD_TERMINAL_DISTANCE" addPublicVariableEventHandler _GRAD_TERMINAL_DISTANCE_listener;
 
-// runs in SP to emulate addPublicVariableEventHandler (which doesnt work in SP)
+// only works once, not really feasible in sp
 if (!isMultiplayer) then {
      _GRAD_TERMINAL_DISTANCE_listener spawn {
           waitUntil {GRAD_TERMINAL_DISTANCE != 0};
