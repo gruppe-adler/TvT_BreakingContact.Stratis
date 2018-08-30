@@ -5,7 +5,7 @@ private _return = objNull;
 
 // get all units of side
 {
-    if (side _x isEqualTo _side && isPlayer _x) then {
+    if (side _x isEqualTo _side) then {
         _sideUnits pushback _x;
     };
 } forEach (playableUnits + switchableUnits);

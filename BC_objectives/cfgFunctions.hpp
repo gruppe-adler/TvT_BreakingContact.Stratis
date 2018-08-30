@@ -1,11 +1,18 @@
 class BC_objectives {
 
+    class common {
+        file = BC_objectives\functions\common;
+
+        class init;
+
+    };
+
 	class player {
 		file = BC_objectives\functions\player;
 
         class endConditionListener {};
-		    class endMission {};
-		    class preparationTimeCountdown {};
+	    class endMission {};
+	    class preparationTimeCountdown {};
 
 	};
 
@@ -17,7 +24,7 @@ class BC_objectives {
         class classicTasksOpforCreate {};
         class loopConditions {};
         class removeTruckArmor {};
-		    class startPreparationTime {};
+		class startPreparationTime {};
         class waitingForUnconscious {};
 
     };

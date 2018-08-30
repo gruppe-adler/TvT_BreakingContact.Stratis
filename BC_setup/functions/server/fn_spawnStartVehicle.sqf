@@ -78,10 +78,10 @@ if (_side isEqualTo west) then {
 
       sleep 7;
 
-      [[REPLAY_ACCURACY], "node_modules\@gruppe-adler\replay\GRAD_replay_init.sqf"] remoteExec ["execVM", 0, true];
+      [REPLAY_ACCURACY] remoteExec ["GRAD_replay_fnc_init", 0, true];
 
     	// create tasks
-    	[[], "BC_objectives\init.sqf"] remoteExec ["execVM", 0, true];
+    	[] remoteExec ["BC_objectives_fnc_init", 0, true];
 };
 
 _startVehicle

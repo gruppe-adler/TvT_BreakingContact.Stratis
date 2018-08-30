@@ -1,11 +1,10 @@
 params ["_side"];
 
 private _string = format ["BC_startVehicle_%1", _side];
-private _vehicle = missionNamespace getVariable [_string, objNull];
-private _position = [0,0,0];
+private _position = missionNamespace getVariable [_string, []];
 
-if (!isNull _vehicle) then {
-	_position = getPos _vehicle;
+if (count _position isEqualTo 0) then {
+	_position = [0,0,0]; // fallback, but should never happen
 };
 
 _position

@@ -133,8 +133,8 @@ if (isServer) then {
   // set highest player rank able to buy
   {
     private _potentToBuy = [_x] call BC_setup_fnc_getHighestRankOfSide;
-    _potentToBuy setVariable ["BC_potentToBuy", true];
-    [] remoteExec ["BC_setup_fnc_setPlayerPotentToBuy", _potentToBuy];
+    _potentToBuy setVariable ["BC_potentToBuy", true, true];
+    [] remoteExec ["GRAD_buymenu_fnc_setPlayerPotentToBuy", _potentToBuy];
   } forEach [west, east];
 };
 
