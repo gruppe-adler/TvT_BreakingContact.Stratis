@@ -5,17 +5,10 @@ class BC_setup {
 
         class configureBluforStartVehicle;
         class configureOpforStartVehicle;
-<<<<<<< HEAD
-    };
-    
-    class client {     	
-        file = BC_setup\functions\client;
-=======
   };
 
 	class client {
 		file = BC_setup\functions\client;
->>>>>>> parent of 83e541e... tab to spaces
 
         class addBriefing;
         class addInteractions;
@@ -27,19 +20,11 @@ class BC_setup {
         class isOnWater;
         class openSpawnDialog;
         class teleportPlayer;
-<<<<<<< HEAD
         class TFARsettings { preInit = 1; }; 
     };
 
-    class server {     	
-        file = BC_setup\functions\server;
-=======
-        class TFARsettings { preInit = 1; };
-	};
-
   class server {
 		file = BC_setup\functions\server;
->>>>>>> parent of 83e541e... tab to spaces
 
         class clearInventory;
         class defineWoodland { preInit = 1; };
@@ -58,11 +43,6 @@ class BC_setup {
         class registerDynamicGroup;
         class showLeaderInformation;
         class spawnStartVehicle;
-<<<<<<< HEAD
         class teleportAI;     
     };
-=======
-        class teleportAI;
-	};
->>>>>>> parent of 83e541e... tab to spaces
 };
