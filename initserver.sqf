@@ -156,10 +156,14 @@ publicVariable "SPEC_GROUP";
 
 
 // add money from player count
-[] spawn {     _playercount = count (call CBA_fnc_players);     _bonusPerPlayer = _playercount * 50;
+[] spawn {     
+    _playercount = count (call CBA_fnc_players);     
+    _bonusPerPlayer = _playercount * 50;
      waitUntil {!isNil "moneyOpfor" && !isNil "moneyBlufor"};
-     moneyOpfor = moneyOpfor + _bonusPerPlayer;     moneyBlufor = moneyBlufor + _bonusPerPlayer;
-     publicVariable "moneyBlufor";     publicVariable "moneyOpfor";
+     moneyOpfor = moneyOpfor + _bonusPerPlayer;     
+     moneyBlufor = moneyBlufor + _bonusPerPlayer;
+     publicVariable "moneyBlufor";     
+     publicVariable "moneyOpfor";
 };
 
 [] execVM "helpers\medical_settings.sqf";
