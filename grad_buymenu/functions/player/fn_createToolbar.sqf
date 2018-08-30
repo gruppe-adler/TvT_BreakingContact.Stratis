@@ -10,7 +10,7 @@ _credits_width = (safeZoneX + safeZoneW)/8;
 _exit_width = (safeZoneX + safeZoneW)/10;
 
 if (_isRefresh) exitWith {
- 	_credits = [2001, _tgui, _credits_x, _credits_width, _tmoney, _isRefresh] spawn GRAD_buymenu_fnc_createToolbarCredits;
+      _credits = [2001, _tgui, _credits_x, _credits_width, _tmoney, _isRefresh] spawn GRAD_buymenu_fnc_createToolbarCredits;
 };
 
 _credits = [2001, _tgui, _credits_x, _credits_width, _tmoney, _isRefresh] spawn GRAD_buymenu_fnc_createToolbarCredits;

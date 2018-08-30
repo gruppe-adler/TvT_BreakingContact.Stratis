@@ -1,6 +1,6 @@
 class GRAD_civs {
 
-	class behaviour {
+     class behaviour {
         file = grad_civs\functions\behaviour;
 
         class addBrainEventhandler {};
@@ -10,10 +10,10 @@ class GRAD_civs {
         class getOpposingDirection {};
         class stopCiv {};
         class stopCivAbort {};
-		class taskPatrol {};
+          class taskPatrol {};
     };
 
-	class debug {
+     class debug {
         file = grad_civs\functions\debug;
 
         class createDebugMarker {};
@@ -42,7 +42,7 @@ class GRAD_civs {
         class clothDefinitions {};
         class createVehicleCargo {};
         class createVehicleDriver {};
-		class dressAndBehave {};
+          class dressAndBehave {};
         class findSpawnSegment {};
         class getPlayerPositions {};
         class serverLoop {};

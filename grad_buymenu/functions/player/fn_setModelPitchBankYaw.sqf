@@ -32,7 +32,7 @@ if (_aroundZ != 0) then {
     _dirY = (_dirY * cos _aroundZ) + (_dirXTemp * sin _aroundZ);        
     _upXTemp = _upX; 
     _upX = (_upXTemp * cos _aroundZ) - (_upY * sin _aroundZ); 
-    _upY = (_upY * cos _aroundZ) + (_upXTemp * sin _aroundZ); 		
+    _upY = (_upY * cos _aroundZ) + (_upXTemp * sin _aroundZ);           
 }; 
 
 _dir = [_dirX,_dirY,_dirZ]; 

@@ -8,20 +8,20 @@ _alternativeSpawnsOutsideMap = [[-2500,-500],[-500,-2500]];
 
 
 _playerPositionsForCurrentWorld = if (side player == west) then { 
-	["spawnPosBlu"] call GRAD_islands_fnc_getIslandCfgValue
+     ["spawnPosBlu"] call GRAD_islands_fnc_getIslandCfgValue
 } else { 
-	["spawnPosOpf"] call GRAD_islands_fnc_getIslandCfgValue
+     ["spawnPosOpf"] call GRAD_islands_fnc_getIslandCfgValue
 };
 
 /*
 if !(_playerPositionsForCurrentWorld select 2) then {
-	_playerPositionsForCurrentWorld = _alternativeSpawnsOutsideMap;
+     _playerPositionsForCurrentWorld = _alternativeSpawnsOutsideMap;
 };
 
 
 _playerPosition = _playerPositionsForCurrentWorld select 1;
 if (side player == blufor) then {
-	_playerPosition = _playerPositionsForCurrentWorld select 0;
+     _playerPosition = _playerPositionsForCurrentWorld select 0;
 };
 */
 diag_log format["moving player to %1 ...", _playerPositionsForCurrentWorld];

@@ -178,8 +178,8 @@ GRAD_tracking_mainLoop = [{
         _distanceToRadioTruck = _result select 1;
         
         // check if distance changed, if yes, broadcast for client hint
-	    [_modifier, _tempModifier, _tempDistance, _result] call GRAD_tracking_fnc_terminalCalculateDistanceModifier;
-	
+         [_modifier, _tempModifier, _tempDistance, _result] call GRAD_tracking_fnc_terminalCalculateDistanceModifier;
+     
         GRAD_TICKS_DONE = GRAD_TICKS_DONE + (1 * _modifier);
 
         missionNameSpace setVariable [_currentLocationName, GRAD_TICKS_DONE, true];
@@ -225,26 +225,26 @@ GRAD_tracking_mainLoop = [{
 
     if (_terminalIsSending || _radioVehIsSending) then {
 
-	   	if  (grad_tracking_currentLoop < GRAD_SIGNAL_DELAY && 
+             if  (grad_tracking_currentLoop < GRAD_SIGNAL_DELAY && 
             (!_radioVehMarkerStatusChange || !_terminalMarkerStatusChange)) then {
 
             grad_tracking_currentLoop = grad_tracking_currentLoop + 1;
 
-	    } else {
+         } else {
 
-	        grad_tracking_currentLoop = 0; // reset delay for position update
+             grad_tracking_currentLoop = 0; // reset delay for position update
 
-	        _radioVehX = getPos _radioVeh select 0;
-	        _radioVehY = getPos _radioVeh select 1;
-	        _markerPos = [_radioVehX, _radioVehY];
+             _radioVehX = getPos _radioVeh select 0;
+             _radioVehY = getPos _radioVeh select 1;
+             _markerPos = [_radioVehX, _radioVehY];
 
-	        if (!GRAD_TERMINAL_ACTIVE) then {
-	            _markerPos call GRAD_tracking_fnc_setRadioVehMarkerPosition;
-	        } else {
-	            _markerPos call GRAD_tracking_fnc_setRadioVehMarkerPosition;
-	            [getPos _terminal select 0, getPos _terminal select 1] call GRAD_tracking_fnc_setTerminalMarkerPosition;
-	        };
-	    };
+             if (!GRAD_TERMINAL_ACTIVE) then {
+                 _markerPos call GRAD_tracking_fnc_setRadioVehMarkerPosition;
+             } else {
+                 _markerPos call GRAD_tracking_fnc_setRadioVehMarkerPosition;
+                 [getPos _terminal select 0, getPos _terminal select 1] call GRAD_tracking_fnc_setTerminalMarkerPosition;
+             };
+         };
     };
 
 },1,[_radioVeh, _terminal, _endCondition, _result]] call CBA_fnc_addPerFrameHandler;

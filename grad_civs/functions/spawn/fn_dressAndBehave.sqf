@@ -7,17 +7,17 @@ params ["_unit"];
 _unit setVariable ["asr_ai_exclude", true];
 /*
 _stripHim = {
-	_it = _this select 0;
-	removeAllWeapons _it;
-	removeAllItems _it;
-	removeAllAssignedItems _it;
-	removeUniform _it;
-	removeVest _it;
-	removeBackpack _it;
-	removeHeadgear _it;
-	removeGoggles _it;
-	_return = true;
-	_return
+     _it = _this select 0;
+     removeAllWeapons _it;
+     removeAllItems _it;
+     removeAllAssignedItems _it;
+     removeUniform _it;
+     removeVest _it;
+     removeBackpack _it;
+     removeHeadgear _it;
+     removeGoggles _it;
+     _return = true;
+     _return
 };
 */
 
@@ -28,38 +28,38 @@ _unitLoadout = [[],[],[],[selectRandom GRAD_civ_clothes,[]],[],[],selectRandom G
 
 
 _reclotheHim = {
-	params ["_guy", "_loadout"];
-	
-	_guy setUnitLoadout _loadout;
+     params ["_guy", "_loadout"];
+     
+     _guy setUnitLoadout _loadout;
 
-	[[_guy, selectRandom GRAD_civ_faces], "setCustomFace"] call BIS_fnc_MP;
-	_guy setVariable ["BIS_noCoreConversations", true];
-	
+     [[_guy, selectRandom GRAD_civ_faces], "setCustomFace"] call BIS_fnc_MP;
+     _guy setVariable ["BIS_noCoreConversations", true];
+     
 };
 
 _addBeard = {
-	params ["_guy"];
+     params ["_guy"];
 
-	_firstBeard = GRAD_civ_beards select 0;
-	// add beards if possible
-	if (!(isClass (configfile >> "CfgGlasses" >> "TRYK_Beard"))) exitWith {};
+     _firstBeard = GRAD_civ_beards select 0;
+     // add beards if possible
+     if (!(isClass (configfile >> "CfgGlasses" >> "TRYK_Beard"))) exitWith {};
 
-   	_guy addGoggles selectRandom GRAD_civ_beards;
+        _guy addGoggles selectRandom GRAD_civ_beards;
 };
 
 _addBackpack = {
-	params ["_unit"];
+     params ["_unit"];
 
-	if (random 2 > 1) then {
-		_unit addBackpackGlobal "rhs_sidor";
-	};
+     if (random 2 > 1) then {
+          _unit addBackpackGlobal "rhs_sidor";
+     };
 };
 
 
 
 _addBehaviour = {
-	group (_this select 0) setBehaviour "CARELESS";
-	(_this select 0) disableAI "FSM";
+     group (_this select 0) setBehaviour "CARELESS";
+     (_this select 0) disableAI "FSM";
 };
 
 

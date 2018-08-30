@@ -9,12 +9,12 @@ islands=`cat compatibleIslands.txt`
 ### AS AS USER, DONT EDIT BELOW THIS LINE ###
 
 if [[ ! -f $cpbo_path ]]; then
-	cpbo_path="./cpbo.exe"
+     cpbo_path="./cpbo.exe"
 fi
 
 if [[ ! -f $cpbo_path ]]; then
-	echo "warning: cpbo path not found, will not build pbo files!"
-	exit 1
+     echo "warning: cpbo path not found, will not build pbo files!"
+     exit 1
 fi
 
 
@@ -25,16 +25,16 @@ head=`git reflog --decorate -1 --no-color`
 version=`echo $head | sed -re 's/^.*tag: ([0-9a-z\.\-]+).*$/\1/'`
 
 if [[ "$head" == "$version" ]]; then
-	# ...if not, use commit hash
-	#	version=`echo $head | grep --color=never -o -E '^[0-9a-f]+'`
-	version=`echo $head | sed -re 's/^([0-9a-f]+).*$/\1/g'`
+     # ...if not, use commit hash
+     #     version=`echo $head | grep --color=never -o -E '^[0-9a-f]+'`
+     version=`echo $head | sed -re 's/^([0-9a-f]+).*$/\1/g'`
 fi
 
 echo "current version: $version"
 
 if [[ $version == "" ]]; then
-	echo "cant find tag OR commit hash. are you sure we're having a .git directory here?"
-	exit 2
+     echo "cant find tag OR commit hash. are you sure we're having a .git directory here?"
+     exit 2
 fi
 
 cwd=`pwd`
@@ -59,13 +59,13 @@ echo "done (probably)"
 pbofilename="${tmpdir}.pbo"
 
 if [[ ! -f "$pbofilename" ]]; then
-	echo "örks"
-	exit 2
+     echo "örks"
+     exit 2
 fi
 
 echo "copying pbo for different islands..."
 for island in $islands; do
-	cp "$pbofilename" "${builddir}/${missionname}_${version}.${island}.pbo"
+     cp "$pbofilename" "${builddir}/${missionname}_${version}.${island}.pbo"
 done
 
 echo "done. clean up..."

@@ -7,20 +7,20 @@
  * Returns: Value associated with key. ObjNull if no key was found.
  */
 ENGIMA_TRAFFIC_GetParamValue = {
-  	private ["_params", "_key"];
-  	private ["_value"];
+       private ["_params", "_key"];
+       private ["_value"];
 
-   	_params = _this select 0;
-   	_key = _this select 1;
-	_value = if (count _this > 2) then { _this select 2 } else { objNull };
+        _params = _this select 0;
+        _key = _this select 1;
+     _value = if (count _this > 2) then { _this select 2 } else { objNull };
 
-   	{
-   		if (_x select 0 == _key) then {
-   			_value = _x select 1;
-   		};
-   	} foreach (_params);
-    	
-   	_value
+        {
+             if (_x select 0 == _key) then {
+                  _value = _x select 1;
+             };
+        } foreach (_params);
+         
+        _value
 };
 
 /*
@@ -30,15 +30,15 @@ ENGIMA_TRAFFIC_GetParamValue = {
  * Returns: true if marker exists, else false.
  */
 ENGIMA_TRAFFIC_MarkerExists = {
-	private ["_exists", "_marker"];
+     private ["_exists", "_marker"];
 
-	_marker = _this select 0;
+     _marker = _this select 0;
 
-	_exists = false;
-	if (((getMarkerPos _marker) select 0) != 0 || ((getMarkerPos _marker) select 1 != 0)) then {
-		_exists = true;
-	};
-	_exists
+     _exists = false;
+     if (((getMarkerPos _marker) select 0) != 0 || ((getMarkerPos _marker) select 1 != 0)) then {
+          _exists = true;
+     };
+     _exists
 };
 
 /*
@@ -51,29 +51,29 @@ ENGIMA_TRAFFIC_MarkerExists = {
  */
 ENGIMA_TRAFFIC_PositionIsInsideMarker = {
     private ["_markerName", "_pos"];
-	private ["_isInside", "_px", "_py", "_mpx", "_mpy", "_msx", "_msy", "_ma", "_xmin", "_xmax", "_ymin", "_ymax", "_rpx", "_rpy", "_res"];
+     private ["_isInside", "_px", "_py", "_mpx", "_mpy", "_msx", "_msy", "_ma", "_xmin", "_xmax", "_ymin", "_ymax", "_rpx", "_rpy", "_res"];
 
-	_pos = _this select 0;
-	_markerName = _this select 1;
+     _pos = _this select 0;
+     _markerName = _this select 1;
 
-	_px = _pos select 0;
-	_py = _pos select 1;
-	_mpx = (getMarkerPos _markerName) select 0;
-	_mpy = (getMarkerPos _markerName) select 1;
-	_msx = (getMarkerSize _markerName) select 0;
-	_msy = (getMarkerSize _markerName) select 1;
-	_ma = -(markerDir _markerName);
+     _px = _pos select 0;
+     _py = _pos select 1;
+     _mpx = (getMarkerPos _markerName) select 0;
+     _mpy = (getMarkerPos _markerName) select 1;
+     _msx = (getMarkerSize _markerName) select 0;
+     _msy = (getMarkerSize _markerName) select 1;
+     _ma = -(markerDir _markerName);
 
-	_xmin = _mpx - _msx;
-	_xmax = _mpx + _msx;
-	_ymin = _mpy - _msy;
-	_ymax = _mpy + _msy;
+     _xmin = _mpx - _msx;
+     _xmax = _mpx + _msx;
+     _ymin = _mpy - _msy;
+     _ymax = _mpy + _msy;
 
-	//Now, rotate point to investigate around markers center in order to check against a nonrotated marker
-	_rpx = ( (_px - _mpx) * cos(_ma) ) + ( (_py - _mpy) * sin(_ma) ) + _mpx;
-	_rpy = (-(_px - _mpx) * sin(_ma) ) + ( (_py - _mpy) * cos(_ma) ) + _mpy;
+     //Now, rotate point to investigate around markers center in order to check against a nonrotated marker
+     _rpx = ( (_px - _mpx) * cos(_ma) ) + ( (_py - _mpy) * sin(_ma) ) + _mpx;
+     _rpy = (-(_px - _mpx) * sin(_ma) ) + ( (_py - _mpy) * cos(_ma) ) + _mpy;
 
-	_isInside = false;
+     _isInside = false;
 
     if (markerShape _markerName == "RECTANGLE") then {
         if (((_rpx > _xmin) && (_rpx < _xmax)) && ((_rpy > _ymin) && (_rpy < _ymax))) then
@@ -90,5 +90,5 @@ ENGIMA_TRAFFIC_PositionIsInsideMarker = {
         };
     };
 
-	_isInside
+     _isInside
 };

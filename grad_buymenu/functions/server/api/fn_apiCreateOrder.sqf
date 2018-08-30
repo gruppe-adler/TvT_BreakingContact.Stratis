@@ -16,9 +16,9 @@ _cost = _supplyItem select 3;
 
 _newMoney = _money - _cost;
 if (_newMoney < 0) exitWith {
-	// [_money] spawn GRAD_buymenu_fnc_refreshCredits;
-	// _supplyItem set [9, 3];
-	diag_log format ["createOrder: too expensive, exiting..."];
+     // [_money] spawn GRAD_buymenu_fnc_refreshCredits;
+     // _supplyItem set [9, 3];
+     diag_log format ["createOrder: too expensive, exiting..."];
 };
 
 _newAvailableAmount = _amount - 1;
@@ -31,21 +31,21 @@ missionNamespace setVariable [_moneyVar, _newMoney, true];
 
 _supplyItem set [2, _newAvailableAmount];
 if (_newAvailableAmount == 0)  then {
-	_supplyItem set [9, 2]; // block button forever
+     _supplyItem set [9, 2]; // block button forever
 } else {
-	_supplyItem set [9, 1]; // block button for delivery
+     _supplyItem set [9, 1]; // block button for delivery
 };
 _supplies setVariable [_selector, _supplyItem, true]; // unfortunately necessary to force-refresh the property
 missionNamespace setVariable [_supplyVar, _supplies, true];
 
 [
-	_neworder getVariable 'position',
-	_neworder getVariable 'classname',
-	_neworder getVariable 'init',
-	_neworder getVariable 'calls',
-	_neworder getVariable 'method',
-	_neworder getVariable 'selector',
-	side _player
+     _neworder getVariable 'position',
+     _neworder getVariable 'classname',
+     _neworder getVariable 'init',
+     _neworder getVariable 'calls',
+     _neworder getVariable 'method',
+     _neworder getVariable 'selector',
+     side _player
 ] spawn GRAD_buymenu_fnc_spawnVehicleManager;
 
 deleteVehicle _neworder;

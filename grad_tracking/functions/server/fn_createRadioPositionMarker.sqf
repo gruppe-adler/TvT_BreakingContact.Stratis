@@ -7,9 +7,9 @@ _addLocation = _currentLocations + [_center];
 _anotherCloseBy = false;
 
 {
-	if (_x distance _center < GRAD_MIN_DISTANCE_TO_RADIOPOSITION) then {
-		_anotherCloseBy = true;
-	};
+     if (_x distance _center < GRAD_MIN_DISTANCE_TO_RADIOPOSITION) then {
+          _anotherCloseBy = true;
+     };
 } forEach _currentLocations + _finishedLocations;
 
 // rescue exit if flag is planted too close to other flags
@@ -20,7 +20,7 @@ missionNamespace setVariable ["GRAD_tracking_radioPositions", _addLocation, true
 
 // execute on server to have reference points
 if (isMultiplayer) then {
-	[_center] call GRAD_tracking_fnc_createRadioPositionMarkerLocal;
+     [_center] call GRAD_tracking_fnc_createRadioPositionMarkerLocal;
 };
 
 _center

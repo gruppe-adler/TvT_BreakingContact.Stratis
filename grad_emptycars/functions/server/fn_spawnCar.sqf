@@ -8,9 +8,9 @@ _obj setVehicleLock "LOCKED";
 _obj setVariable ["ace_vehiclelock_lockSide", civilian, true];
 
 if (!isMultiplayer) then {
-		[_pos] call grad_emptycars_fnc_createDebugMarker;
-	} else {
-		if (DEBUG_MODE) then {
-			[_pos] call grad_emptycars_fnc_createDebugMarker;
-		};
+          [_pos] call grad_emptycars_fnc_createDebugMarker;
+     } else {
+          if (DEBUG_MODE) then {
+               [_pos] call grad_emptycars_fnc_createDebugMarker;
+          };
 };

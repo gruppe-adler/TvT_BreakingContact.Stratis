@@ -1,14 +1,14 @@
 class BC_objectives {
 
-	class player {
-		file = BC_objectives\functions\player;
+     class player {
+          file = BC_objectives\functions\player;
 
         class endConditionListener {};
-		class endMission {};
+          class endMission {};
         class findRandomPos {};
-		class preparationTimeCountdown {};
+          class preparationTimeCountdown {};
 
-	};
+     };
 
     class server {
         file = BC_objectives\functions\server;
@@ -19,7 +19,7 @@ class BC_objectives {
         class getIslandCfgEntry {};
         class loopConditions {};
         class removeTruckArmor {};
-		class startPreparationTime {};
+          class startPreparationTime {};
         class waitingForUnconscious {};
 
     };

@@ -36,9 +36,9 @@
         _value = param [0];
         if (_value == "rhs_weap_m4a1_carryhandle") then {
             _value =  selectRandom [
-            	"rhs_weap_m4a1_carryhandle",
-            	"rhs_weap_m4a1_carryhandle_grip2",
-            	"rhs_weap_m4a1_carryhandle_grip"
+                 "rhs_weap_m4a1_carryhandle",
+                 "rhs_weap_m4a1_carryhandle_grip2",
+                 "rhs_weap_m4a1_carryhandle_grip"
             ];
         } else { if (_value == "rhs_weap_m249_pip_L") then {
             _value = selectRandom [

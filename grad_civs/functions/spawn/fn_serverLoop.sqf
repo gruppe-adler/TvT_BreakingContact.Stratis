@@ -27,11 +27,11 @@
             };
         };
 
-	} forEach (allunits - playableUnits - switchableUnits);
+     } forEach (allunits - playableUnits - switchableUnits);
 
     /*
     if (GRAD_CIV_ONFOOT_COUNT < GRAD_CIV_MAX_COUNT) then {
-    	[_playerPositions] call GRAD_civs_fnc_addNewCivilian;
+         [_playerPositions] call GRAD_civs_fnc_addNewCivilian;
     };
     */
 

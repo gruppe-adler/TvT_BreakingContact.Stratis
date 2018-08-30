@@ -14,10 +14,10 @@ _mouseOverArea ctrlSetBackgroundColor [0,0,0,0.01];
 
 
 _mouseOverArea ctrlAddEventHandler ["MouseEnter",{
-	ctrlShow [ctrlidc (_this select 0) + 3,true]; false
+     ctrlShow [ctrlidc (_this select 0) + 3,true]; false
 }];
 _mouseOverArea ctrlAddEventHandler ["MouseExit",{
-	ctrlShow [ctrlidc (_this select 0) + 3,false]; false
+     ctrlShow [ctrlidc (_this select 0) + 3,false]; false
 }];
 
 _mouseOverArea setVariable ["GRAD_vehicleIndex" ,_selector];
@@ -28,7 +28,7 @@ _mouseOverArea ctrlAddEventHandler ["MouseButtonClick", {
 
 
 
-//	_mouseOverArea ctrlAddEventHandler ["onMouseMoving", {[_display displayCtrl ctrlidc (_idc-1), _this select 1, _this select 2] call fnc_rotatePicture;}];
+//     _mouseOverArea ctrlAddEventHandler ["onMouseMoving", {[_display displayCtrl ctrlidc (_idc-1), _this select 1, _this select 2] call fnc_rotatePicture;}];
 
 
 // systemchat format ["%1", allMouseOver select _mouseOverSelector];

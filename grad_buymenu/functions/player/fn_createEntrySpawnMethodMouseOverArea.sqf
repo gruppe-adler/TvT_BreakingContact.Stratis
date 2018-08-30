@@ -29,16 +29,16 @@ _ctrlMethodMouseOverArea ctrlSetTextColor [0,0,0,0];
 
 _ctrlMethodMouseOverArea ctrlAddEventHandler ["MouseEnter",{
    findDisplay 1337 displayCtrl (ctrlidc (_this select 0) - 1) ctrlSetTextColor [0.756,0.643,0.243,1];
-	 findDisplay 1337 displayCtrl (ctrlidc (_this select 0) - 1) ctrlCommit 0;
-	 // diag_log format ["mouse entered"];
-	 false
+      findDisplay 1337 displayCtrl (ctrlidc (_this select 0) - 1) ctrlCommit 0;
+      // diag_log format ["mouse entered"];
+      false
 }];
 
 _ctrlMethodMouseOverArea ctrlAddEventHandler ["MouseExit",{
   findDisplay 1337 displayCtrl (ctrlidc (_this select 0) - 1) ctrlSetTextColor [0.2,0.2,0.2,1];
   findDisplay 1337 displayCtrl (ctrlidc (_this select 0) - 1) ctrlCommit 0;
-	// diag_log format ["mouse left"];
-	false
+     // diag_log format ["mouse left"];
+     false
 }];
 /*
 if (_method == 1) then {

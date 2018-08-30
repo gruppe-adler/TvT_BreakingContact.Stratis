@@ -13,5 +13,5 @@ _crewCargo assignAsCargo _car1;
 _crewCargo moveInCargo _car1;
 
 if (!isNil "GRAD_REPLAY_CIVILIAN_TRAFFIC_TRACKED" && {GRAD_REPLAY_CIVILIAN_TRAFFIC_TRACKED}) then {
-	_crewCargo setVariable ["GRAD_replay_track", true];
+     _crewCargo setVariable ["GRAD_replay_track", true];
 };

@@ -4,22 +4,22 @@
 params ["_pos", "_trackingPrecision"];
 
 randomize_coord = {
-	params ["_coord","_precision"];
-	_coord + random(_precision * 2) - _precision
+     params ["_coord","_precision"];
+     _coord + random(_precision * 2) - _precision
 };
 
 randomize_pos =
 {
-	params ["_pos","_precision"];
-	private ["_randomizedPos", "_trueX", "_trueY"];
-	_trueX = _pos select 0;
-	_trueY = _pos select 1;
-	_randomizedPos = [
-	[_trueX,_precision] call randomize_coord,
-	[_trueY,_precision] call randomize_coord,
-	_pos select 2
-	];
-	_randomizedPos
+     params ["_pos","_precision"];
+     private ["_randomizedPos", "_trueX", "_trueY"];
+     _trueX = _pos select 0;
+     _trueY = _pos select 1;
+     _randomizedPos = [
+     [_trueX,_precision] call randomize_coord,
+     [_trueY,_precision] call randomize_coord,
+     _pos select 2
+     ];
+     _randomizedPos
 };
 
 

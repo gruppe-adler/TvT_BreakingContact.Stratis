@@ -28,18 +28,18 @@ that starts the traffic is beneath. This code are to be put in Engima\Traffic\Co
 
 // Set traffic parameters.
 _parameters = [
-	["SIDE", civilian],
-	["VEHICLES", ["C_Offroad_01_F", "C_Offroad_01_repair_F", "C_Quadbike_01_F", "C_Hatchback_01_F", "C_Hatchback_01_sport_F", "C_SUV_01_F", "C_Van_01_transport_F", "C_Van_01_box_F", "C_Van_01_fuel_F"]],
-	["VEHICLES_COUNT", 10],
-	["MIN_SPAWN_DISTANCE", 800],
-	["MAX_SPAWN_DISTANCE", 1200],
-	["MIN_SKILL", 0.4],
-	["MAX_SKILL", 0.6],
-	["AREA_MARKER", "EnemyMarker1"],
-	["HIDE_AREA_MARKER", true],
-	["ON_SPAWN_CALLBACK", { hint ("Vehicle of type " + typeOf (_this select 0) + " created!")],
-	["ON_REMOVE_CALLBACK", { hint "Vehicle of type " + typename _this + " removed!"; }],
-	["DEBUG", true]
+     ["SIDE", civilian],
+     ["VEHICLES", ["C_Offroad_01_F", "C_Offroad_01_repair_F", "C_Quadbike_01_F", "C_Hatchback_01_F", "C_Hatchback_01_sport_F", "C_SUV_01_F", "C_Van_01_transport_F", "C_Van_01_box_F", "C_Van_01_fuel_F"]],
+     ["VEHICLES_COUNT", 10],
+     ["MIN_SPAWN_DISTANCE", 800],
+     ["MAX_SPAWN_DISTANCE", 1200],
+     ["MIN_SKILL", 0.4],
+     ["MAX_SKILL", 0.6],
+     ["AREA_MARKER", "EnemyMarker1"],
+     ["HIDE_AREA_MARKER", true],
+     ["ON_SPAWN_CALLBACK", { hint ("Vehicle of type " + typeOf (_this select 0) + " created!")],
+     ["ON_REMOVE_CALLBACK", { hint "Vehicle of type " + typename _this + " removed!"; }],
+     ["DEBUG", true]
 ];
 
 // Start an instance of the traffic

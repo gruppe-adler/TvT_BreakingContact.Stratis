@@ -7,7 +7,7 @@ call compile preprocessFileLineNumbers "helpers\findSimplePos.sqf";
 
 DEBUG_MODE = false;
 if ((["DEBUG_MODE", 0] call BIS_fnc_getParamValue) == 1 || !isMultiplayer) then {
-	DEBUG_MODE = true;
+     DEBUG_MODE = true;
 };
 publicVariable "DEBUG_MODE";
 
@@ -53,7 +53,7 @@ publicVariable "CIVILIAN_TRAFFIC"; // clients need to know this
 
 
 if (CIVILIAN_TRAFFIC == 1) then {
-	0 = execVM "grad_civs\init.sqf";
+     0 = execVM "grad_civs\init.sqf";
 };
 
 CONQUER_MODE = (["CONQUER_MODE", 1] call BIS_fnc_getParamValue) == 0;
@@ -68,86 +68,86 @@ publicVariable "TRUCK_DESTROYED_NOT_CONQUERED";
 
 setCustomWeather = {
 
-	// get random shit
-	if (str WEATHER_OVERCAST isEqualTo "-1") then {
-		WEATHER_OVERCAST = [[
-		0.0,
-		0.1,
-		0.2,
-		0.3,
-		0.4,
-		0.5,
-		0.6,
-		0.7,
-		0.8,
-		0.9,
-		1.0
-		], [
-		0.3,
-		0.3,
-		0.1,
-		0.1,
-		0.05,
-		0.025,
-		0.025,
-		0.025,
-		0.025,
-		0.025,
-		0.025]] call BIS_fnc_selectRandomWeighted;
-	};
+     // get random shit
+     if (str WEATHER_OVERCAST isEqualTo "-1") then {
+          WEATHER_OVERCAST = [[
+          0.0,
+          0.1,
+          0.2,
+          0.3,
+          0.4,
+          0.5,
+          0.6,
+          0.7,
+          0.8,
+          0.9,
+          1.0
+          ], [
+          0.3,
+          0.3,
+          0.1,
+          0.1,
+          0.05,
+          0.025,
+          0.025,
+          0.025,
+          0.025,
+          0.025,
+          0.025]] call BIS_fnc_selectRandomWeighted;
+     };
 
-	if (str WEATHER_FOG isEqualTo "-1") then {
-		WEATHER_FOG = [[
-		0.0,
-		0.05,
-		0.1,
-		0.2,
-		0.3,
-		0.4,
-		0.5,
-		0.6,
-		0.7,
-		0.8,
-		1.0
-		], [
-		0.5,
-		0.3,
-		0.1,
-		0.075,
-		0.01,
-		0.005,
-		0.005,
-		0.004,
-		0.003,
-		0.002,
-		0.001]] call BIS_fnc_selectRandomWeighted;
-	};
+     if (str WEATHER_FOG isEqualTo "-1") then {
+          WEATHER_FOG = [[
+          0.0,
+          0.05,
+          0.1,
+          0.2,
+          0.3,
+          0.4,
+          0.5,
+          0.6,
+          0.7,
+          0.8,
+          1.0
+          ], [
+          0.5,
+          0.3,
+          0.1,
+          0.075,
+          0.01,
+          0.005,
+          0.005,
+          0.004,
+          0.003,
+          0.002,
+          0.001]] call BIS_fnc_selectRandomWeighted;
+     };
 
-	if (str WEATHER_WIND isEqualTo "-1") then {
-		WEATHER_WIND = (random 2) - (random 4);
-	};
+     if (str WEATHER_WIND isEqualTo "-1") then {
+          WEATHER_WIND = (random 2) - (random 4);
+     };
 
-	diag_log format ["BC setup: setting wind to %1", WEATHER_WIND];
+     diag_log format ["BC setup: setting wind to %1", WEATHER_WIND];
 
-	// basics
-	10 setOvercast WEATHER_OVERCAST;
-	10 setFog WEATHER_FOG;
-	setWind [WEATHER_WIND, WEATHER_WIND, true];
-	10 setWindForce 0.1;
+     // basics
+     10 setOvercast WEATHER_OVERCAST;
+     10 setFog WEATHER_FOG;
+     setWind [WEATHER_WIND, WEATHER_WIND, true];
+     10 setWindForce 0.1;
 
-	// add specials dependent on values
-	if (WEATHER_OVERCAST > 0.5 && WEATHER_OVERCAST < 0.8) then {
-		10 setRain 0.5;
-		10 setRainbow 0.8;
-	};
+     // add specials dependent on values
+     if (WEATHER_OVERCAST > 0.5 && WEATHER_OVERCAST < 0.8) then {
+          10 setRain 0.5;
+          10 setRainbow 0.8;
+     };
 
-	if (WEATHER_OVERCAST >= 0.8) then {
-		10 setRain 1;
-		10 setLightnings 0.8;
-	};
+     if (WEATHER_OVERCAST >= 0.8) then {
+          10 setRain 1;
+          10 setLightnings 0.8;
+     };
 
-	// enforce changes
-	forceWeatherChange;
+     // enforce changes
+     forceWeatherChange;
 };
 
 
@@ -221,20 +221,20 @@ publicVariable "SPEC_GROUP";
 
 // add money from player count
 [] spawn {
-	_playercount = count (call CBA_fnc_players);
-	_bonusPerPlayer = _playercount * 50;
+     _playercount = count (call CBA_fnc_players);
+     _bonusPerPlayer = _playercount * 50;
 
-	waitUntil {!isNil "moneyOpfor" && !isNil "moneyBlufor"};
+     waitUntil {!isNil "moneyOpfor" && !isNil "moneyBlufor"};
 
-	moneyOpfor = moneyOpfor + _bonusPerPlayer;
-	moneyBlufor = moneyBlufor + _bonusPerPlayer;
+     moneyOpfor = moneyOpfor + _bonusPerPlayer;
+     moneyBlufor = moneyBlufor + _bonusPerPlayer;
 
-	publicVariable "moneyBlufor";
-	publicVariable "moneyOpfor";
+     publicVariable "moneyBlufor";
+     publicVariable "moneyOpfor";
 };
 
 if (isClass (configFile >> "CfgPatches" >> "task_force_radio")) then {
-	[] execVM "tfarsettings.sqf";
+     [] execVM "tfarsettings.sqf";
 };
 
 [] execVM "helpers\medical_settings.sqf";
@@ -248,26 +248,26 @@ if (isClass (configFile >> "CfgPatches" >> "task_force_radio")) then {
 call compile preprocessFileLineNumbers "server\spawnBluforHQ.sqf";
 
 
-	if (!isMultiplayer) then {
- 	[] spawn {
- 		{
-			if (!isPlayer _x) then {
-				sleep 1;
-				_x setVariable ["BIS_noCoreConversations", true];
-			};
-			0 = [_x] execVM "server\teleportAI.sqf";
-		} forEach allUnits;
- 	};
-	} else {
- 	[] spawn {
- 		{
- 			if (!isPlayer _x) then {
-	 			sleep 0.5;
-	 			_x setVariable ["BIS_noCoreConversations", true];
-				0 = [_x] execVM "server\teleportAI.sqf";
- 			};
- 		} forEach allUnits;
- 	};
+     if (!isMultiplayer) then {
+      [] spawn {
+           {
+               if (!isPlayer _x) then {
+                    sleep 1;
+                    _x setVariable ["BIS_noCoreConversations", true];
+               };
+               0 = [_x] execVM "server\teleportAI.sqf";
+          } forEach allUnits;
+      };
+     } else {
+      [] spawn {
+           {
+                if (!isPlayer _x) then {
+                     sleep 0.5;
+                     _x setVariable ["BIS_noCoreConversations", true];
+                    0 = [_x] execVM "server\teleportAI.sqf";
+                };
+           } forEach allUnits;
+      };
 };
 
 

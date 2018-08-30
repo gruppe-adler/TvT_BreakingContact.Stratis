@@ -7,7 +7,7 @@ class GRAD_emptycars {
         
     };
 
-	class server {
+     class server {
         file = grad_emptycars\functions\server;
         
         class definitions {};
