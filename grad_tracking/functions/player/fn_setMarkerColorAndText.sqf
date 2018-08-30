@@ -7,6 +7,5 @@ _markerName = _markerName splitString " " joinString ""; // remove whitespaces
 
 _markerName setMarkerColorLocal _color;
 
-if (!(_text isEqualTo "")) then {
-	_markerName setMarkerTextLocal _text;
+if (!(_text isEqualTo "")) then {     _markerName setMarkerTextLocal _text;
 };

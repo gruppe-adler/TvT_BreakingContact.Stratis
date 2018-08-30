@@ -1,7 +1,6 @@
 params ["_terminal"];
 
-if (_terminal getVariable ["grad_explosionReceived",0] == 0) exitWith {
-	_terminal setVariable ["grad_explosionReceived",1, true];
+if (_terminal getVariable ["grad_explosionReceived",0] == 0) exitWith {     _terminal setVariable ["grad_explosionReceived",1, true];
 };
 
 _smoke = "#particlesource" createVehicle position _terminal;

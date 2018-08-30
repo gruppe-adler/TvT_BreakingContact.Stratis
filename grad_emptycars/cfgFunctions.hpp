@@ -6,8 +6,7 @@ class GRAD_emptycars {
         class createDebugMarker;
 
     };
-
-	class server {
+     class server {
         file = grad_emptycars\functions\server;
 
         class definitions {};

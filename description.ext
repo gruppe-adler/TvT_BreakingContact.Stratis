@@ -13,29 +13,18 @@
 #include "node_modules\@gruppe-adler\replay\ui\dialog.hpp"
 #include "BC_setup\rscDialogs.hpp"
 
-class CfgFunctions {
-	#include "grad_carryBoat\cfgFunctions.hpp"
-	#include "grad_islands\cfgFunctions.hpp"
-	#include "grad_buymenu\cfgFunctions.hpp"
-  #include "grad_civMarker\cfgFunctions.hpp"
-	#include "grad_civs\cfgFunctions.hpp"
-	#include "grad_tracking\cfgFunctions.hpp"
-	#include "grad_emptycars\cfgFunctions.hpp"
+class CfgFunctions {     #include "grad_carryBoat\cfgFunctions.hpp"     #include "grad_islands\cfgFunctions.hpp"     #include "grad_buymenu\cfgFunctions.hpp"
+  #include "grad_civMarker\cfgFunctions.hpp"     #include "grad_civs\cfgFunctions.hpp"     #include "grad_tracking\cfgFunctions.hpp"     #include "grad_emptycars\cfgFunctions.hpp"
 
-  #include "BC_flagsOnVehicles\cfgFunctions.hpp"
-	#include "BC_objectives\cfgFunctions.hpp"
+  #include "BC_flagsOnVehicles\cfgFunctions.hpp"     #include "BC_objectives\cfgFunctions.hpp"
   #include "BC_setup\cfgFunctions.hpp"
-
-	#include "node_modules\@gruppe-adler\replay\cfgFunctions.hpp"
-	#include "node_modules\grad-customGear\cfgFunctions.hpp"
-  #include "node_modules\grad-loadout\cfgFunctions.hpp"
-	#include "node_modules\grad-fortifications\cfgFunctions.hpp"
+     #include "node_modules\@gruppe-adler\replay\cfgFunctions.hpp"     #include "node_modules\grad-customGear\cfgFunctions.hpp"
+  #include "node_modules\grad-loadout\cfgFunctions.hpp"     #include "node_modules\grad-fortifications\cfgFunctions.hpp"
 };
 
 class RscTitles {
     #include "node_modules\grad-fortifications\dialog\hint\title.hpp"
-    // #include "grad_buymenu\definitions\rscTitles.hpp"
-	#include "BC_objectives\rscTitles.hpp"
+    // #include "grad_buymenu\definitions\rscTitles.hpp"     #include "BC_objectives\rscTitles.hpp"
     #include "BC_setup\rscTitles.hpp"
 };
 
@@ -59,136 +48,26 @@ respawnButton = 1;
 respawnTemplates[] = {"ace_spectator"};
 
 class Header
-{
-	gameType = Seize;
-	minPlayers = 15;
-	maxPlayers = 118;
+{     gameType = Seize;     minPlayers = 15;     maxPlayers = 118;
 };
 
 
 class Params
-{
-	class TIME_OF_DAY
-	{
-		title = "Time of Day";
-		values[] = {0,1,2,3,4,5,6,6.5,7,8,9,10,11,12,13,14,15,16,16.5,17,17.5,18,19,20,21,22,23};
-		texts[] = {"00:00","01:00","02:00","03:00","04:00","05:00 - Full Moon","06:00","06:30 - Dawn","07:00 - Sunrise","08:00","09:00","10:00","11:00","12:00","13:00","14:00","15:00","16:00","16:30 - Sunset will arrive","17:00 - Sunset","17:30 - Dusk","18:00 - really dark already","19:00","20:00","21:00","22:00","23:00 - Moon Rise"};
-		default = 8;
-	};
-
-	class WEATHER_OVERCAST
-	{
-		title = "Overcast Settings";
-		values[] = {0, 0.4, 0.5, 1, -1};
-		texts[] = {"SUNNY", "CLOUDY", "SLIGHT RAIN", "HEAVY RAIN", "RANDOM"};
-		default = -1;
-	};
-
-	class WEATHER_FOG
-	{
-		title = "Fog Settings";
-		values[] = {0, 0.05, 0.1, 0.2, 0.5, 1, -1};
-		texts[] = {"None", "0.05", "0.1", "0.2", "0.5", "maximum perversum", "random"};
-		default = 0.05;
-	};
-
-	class WEATHER_WIND
-	{
-		title = "Wind Settings";
-		values[] = {0, 1, 2, 4, 8, 32, -1};
-		texts[] = {"None", "1 m/s", "2 m/s", "4 m/s", "8 m/s", "maximum perversum", "random"};
-		default = 1;
-	};
-
-	class BLUFOR_SPAWN_DISTANCE
-	{
-		title = "Spawn Distance BLUFOR";
-		values[] = {1000, 2000, 3000, 4000, 5000, 6000};
-		texts[] = {"1km", "2km", "3km", "4km","5km","6km"};
-		default = 4000;
-	};
-
-	class OPFOR_MONEY
-	{
-		title = "Finances OPFOR (+50 per player)";
-		values[] = {0, 250, 500, 1000, 2000, 3000, 4000, 5000, 6000};
-		texts[] = {"zero", "250", "500", "1000k","2000k","3000k","4000k","5000k","6000k"};
-		default = 500;
-	};
-
-	class BLUFOR_MONEY
-	{
-		title = "Finances BLUFOR (+50 per player)";
-		values[] = {0, 250, 500, 1000, 2000, 3000, 4000, 5000, 6000};
-		texts[] = {"zero", "250", "500", "1000k","2000k","3000k","4000k","5000k","6000k"};
-		default = 500;
-	};
-
-	class GRAD_TICKS_NEEDED
-	{
-		title = "Length of sending time";
-		values[] = {30, 300, 600, 900, 1320, 1800, 2700, 3600, 4500, 5400, 6300};
-		texts[] = {"30s (DEBUG)", "5'","10' (recommended for 3 radio positions)", "15'", "22' (recommended for 2 radio positions)", "30'", "45' (recommended for 1 radio position)", "1h'", "1h15'","1h30'","1h45'"};
-		default = 1320;
-	};
-
-	class GRAD_INTERVALS_NEEDED
-	{
-		title = "Number of random places opfor needs to come closer than 1000m";
-		values[] = {1, 2, 3, 4, 5, 6};
-		texts[] = {"none","2","3","4","5","6"};
-		default = 2;
-	};
-
-	class TIME_ACCELERATION
-	{
-		title = "Time Acceleration";
-		values[] = {1,2,4};
-		texts[] = {"normal","2h in 1h","4h in 1h"};
-		default = 1;
-	};
-
-	class REPLAY_ACCURACY
-	{
-		title = "InGame Replay Accuracy";
-		values[] = {1,2,3,4,5};
-		texts[] = {"every 1s","every 2s","every 3s","every 4s","every 5s"};
-		default = 3;
-	};
-
-	class AR3PLAY_ENABLE_REPLAY
-	{
-		title = "enable replay";
-		values[] = {false, true};
-		texts[] = {"no", "yes"};
-		default = true;
-		isGlobal = 0;
-	};
-
-	class AR3PLAY_IS_STREAMABLE
-	{
-		title = "enable live stream (needs 'enable replay')";
-		values[] = {false, true};
-		texts[] = {"no","yes"};
-		default = 0;
-		isGlobal = 0;
-	};
-
-	class DEBUG_MODE
-	{
-		title = "Enable Debug Log";
-		values[] = {false, true};
-		texts[] = {"no","yes"};
-		default = 0;
-	};
-
-	class JIP_TIME_ALLOWED
-	{
-		title = "JIP allowed for";
-		values[] = {60, 180, 600, 1800, 999999};
-		texts[] = {"1min","3min","10min","30min","always (16h)"};
-		default = 999999;
-	};
+{     class TIME_OF_DAY     {     	title = "Time of Day";     	values[] = {0,1,2,3,4,5,6,6.5,7,8,9,10,11,12,13,14,15,16,16.5,17,17.5,18,19,20,21,22,23};     	texts[] = {"00:00","01:00","02:00","03:00","04:00","05:00 - Full Moon","06:00","06:30 - Dawn","07:00 - Sunrise","08:00","09:00","10:00","11:00","12:00","13:00","14:00","15:00","16:00","16:30 - Sunset will arrive","17:00 - Sunset","17:30 - Dusk","18:00 - really dark already","19:00","20:00","21:00","22:00","23:00 - Moon Rise"};     	default = 8;     };
+     class WEATHER_OVERCAST     {     	title = "Overcast Settings";     	values[] = {0, 0.4, 0.5, 1, -1};     	texts[] = {"SUNNY", "CLOUDY", "SLIGHT RAIN", "HEAVY RAIN", "RANDOM"};     	default = -1;     };
+     class WEATHER_FOG     {     	title = "Fog Settings";     	values[] = {0, 0.05, 0.1, 0.2, 0.5, 1, -1};     	texts[] = {"None", "0.05", "0.1", "0.2", "0.5", "maximum perversum", "random"};     	default = 0.05;     };
+     class WEATHER_WIND     {     	title = "Wind Settings";     	values[] = {0, 1, 2, 4, 8, 32, -1};     	texts[] = {"None", "1 m/s", "2 m/s", "4 m/s", "8 m/s", "maximum perversum", "random"};     	default = 1;     };
+     class BLUFOR_SPAWN_DISTANCE     {     	title = "Spawn Distance BLUFOR";     	values[] = {1000, 2000, 3000, 4000, 5000, 6000};     	texts[] = {"1km", "2km", "3km", "4km","5km","6km"};     	default = 4000;     };
+     class OPFOR_MONEY     {     	title = "Finances OPFOR (+50 per player)";     	values[] = {0, 250, 500, 1000, 2000, 3000, 4000, 5000, 6000};     	texts[] = {"zero", "250", "500", "1000k","2000k","3000k","4000k","5000k","6000k"};     	default = 500;     };
+     class BLUFOR_MONEY     {     	title = "Finances BLUFOR (+50 per player)";     	values[] = {0, 250, 500, 1000, 2000, 3000, 4000, 5000, 6000};     	texts[] = {"zero", "250", "500", "1000k","2000k","3000k","4000k","5000k","6000k"};     	default = 500;     };
+     class GRAD_TICKS_NEEDED     {     	title = "Length of sending time";     	values[] = {30, 300, 600, 900, 1320, 1800, 2700, 3600, 4500, 5400, 6300};     	texts[] = {"30s (DEBUG)", "5'","10' (recommended for 3 radio positions)", "15'", "22' (recommended for 2 radio positions)", "30'", "45' (recommended for 1 radio position)", "1h'", "1h15'","1h30'","1h45'"};     	default = 1320;     };
+     class GRAD_INTERVALS_NEEDED     {     	title = "Number of random places opfor needs to come closer than 1000m";     	values[] = {1, 2, 3, 4, 5, 6};     	texts[] = {"none","2","3","4","5","6"};     	default = 2;     };
+     class TIME_ACCELERATION     {     	title = "Time Acceleration";     	values[] = {1,2,4};     	texts[] = {"normal","2h in 1h","4h in 1h"};     	default = 1;     };
+     class REPLAY_ACCURACY     {     	title = "InGame Replay Accuracy";     	values[] = {1,2,3,4,5};     	texts[] = {"every 1s","every 2s","every 3s","every 4s","every 5s"};     	default = 3;     };
+     class AR3PLAY_ENABLE_REPLAY     {     	title = "enable replay";     	values[] = {false, true};     	texts[] = {"no", "yes"};     	default = true;     	isGlobal = 0;     };
+     class AR3PLAY_IS_STREAMABLE     {     	title = "enable live stream (needs 'enable replay')";     	values[] = {false, true};     	texts[] = {"no","yes"};     	default = 0;     	isGlobal = 0;     };
+     class DEBUG_MODE     {     	title = "Enable Debug Log";     	values[] = {false, true};     	texts[] = {"no","yes"};     	default = 0;     };
+     class JIP_TIME_ALLOWED     {     	title = "JIP allowed for";     	values[] = {60, 180, 600, 1800, 999999};     	texts[] = {"1min","3min","10min","30min","always (16h)"};     	default = 999999;     };
 
   	class CIVILIAN_TRAFFIC {
     	title = "Civilian Traffic (supports RDS CIV and LOPs afghan militia)";
@@ -210,176 +89,49 @@ class Params
     	ACE_setting = 1;
     	values[] = {0, 1}; //setting is a BOOL, but values still need to be numbers, so 0 is false, 1 is true
     	texts[] =  {"False", "True"};
-    	default = 1;
-	};
-
-	class PREPARATION_TIME {
-		title = "Preparation time";
-		values[] = {0,60,120,180,240,300,480,600,900};
-		texts[] = {"off","1min","2min","3min","4min","5min","8min","10min","15min"};
-		default = 300;
-	};
+    	default = 1;     };
+     class PREPARATION_TIME {     	title = "Preparation time";     	values[] = {0,60,120,180,240,300,480,600,900};     	texts[] = {"off","1min","2min","3min","4min","5min","8min","10min","15min"};     	default = 300;     };
 };
 
 class ACE_Settings {
     class ace_map_BFT_Interval {
     value = 1;
-    typeName = "SCALAR";
-	};
+    typeName = "SCALAR";     };
 class ace_map_BFT_Enabled {
     value = 0;
-    typeName = "BOOL";
-	};
+    typeName = "BOOL";     };
 class ace_map_BFT_HideAiGroups {
     value = 0;
-    typeName = "BOOL";
-	};
+    typeName = "BOOL";     };
 };
 
 class CfgDebriefing
-{
-	class OpforWinsByElimination
-	{
-		title = "Opfor wins";
-		subtitle = "by elimination";
-		description = "All Blufor units are eliminated.";
-		picture = "pic\gruppe-adler.paa";
-	};
-
-	class OpforWinsByTransmission
-	{
-		title = "Opfor wins";
-		subtitle = "by completing transmission";
-		description = "Opfor managed to complete their transmission. Too slow Blufor, next time hurry up!";
-		picture = "pic\gruppe-adler.paa";
-	};
-
-	class OpforWinsByBluforDestroyingTheTruck
-	{
-		title = "Opfor wins";
-		subtitle = "The radio truck was destroyed by Blufor";
-		description = "Next time better make sure where to shoot at.";
-		picture = "pic\gruppe-adler.paa";
-	};
-
-	class BluforWinsByElimination
-	{
-		title = "Blufor wins";
-		subtitle = "by elimination";
-		description = "All Opfor units are eliminated.";
-		picture = "pic\gruppe-adler.paa";
-	};
-
-	class BluforWinsByDestruction
-	{
-		title = "Blufor wins";
-		subtitle = "by destroying the radio unit";
-		description = "Blufor managed to destroy the radio unit. Opfor, you had one job!";
-		picture = "pic\gruppe-adler.paa";
-	};
-
-	class BluforWinsByConquering
-	{
-		title = "Blufor wins";
-		subtitle = "by conquering the radio unit";
-		description = "Blufor managed to conquer the radio unit. Opfor, you had one job!";
-		picture = "pic\gruppe-adler.paa";
-	};
-
-	class BluforWinsByOpforDestroyingTheTruck
-	{
-		title = "Blufor wins";
-		subtitle = "The radio truck was destroyed by Opfor";
-		description = "Next time better make sure where to shoot at.";
-		picture = "pic\gruppe-adler.paa";
-	};
-
-	class DrawRadioTruckDestroyed
-	{
-		title = "No one wins";
-		subtitle = "The radio truck was destroyed by unknown source";
-		description = "Next time better make sure where to shoot at.";
-		picture = "pic\gruppe-adler.paa";
-	};
-
-	class DrawError
-	{
-		title = "No one wins";
-		subtitle = "End mission error: couldnt decide on winner";
-		description = "Blame nomisum, as always.";
-		picture = "pic\gruppe-adler.paa";
-	};
+{     class OpforWinsByElimination     {     	title = "Opfor wins";     	subtitle = "by elimination";     	description = "All Blufor units are eliminated.";     	picture = "pic\gruppe-adler.paa";     };
+     class OpforWinsByTransmission     {     	title = "Opfor wins";     	subtitle = "by completing transmission";     	description = "Opfor managed to complete their transmission. Too slow Blufor, next time hurry up!";     	picture = "pic\gruppe-adler.paa";     };
+     class OpforWinsByBluforDestroyingTheTruck     {     	title = "Opfor wins";     	subtitle = "The radio truck was destroyed by Blufor";     	description = "Next time better make sure where to shoot at.";     	picture = "pic\gruppe-adler.paa";     };
+     class BluforWinsByElimination     {     	title = "Blufor wins";     	subtitle = "by elimination";     	description = "All Opfor units are eliminated.";     	picture = "pic\gruppe-adler.paa";     };
+     class BluforWinsByDestruction     {     	title = "Blufor wins";     	subtitle = "by destroying the radio unit";     	description = "Blufor managed to destroy the radio unit. Opfor, you had one job!";     	picture = "pic\gruppe-adler.paa";     };
+     class BluforWinsByConquering     {     	title = "Blufor wins";     	subtitle = "by conquering the radio unit";     	description = "Blufor managed to conquer the radio unit. Opfor, you had one job!";     	picture = "pic\gruppe-adler.paa";     };
+     class BluforWinsByOpforDestroyingTheTruck     {     	title = "Blufor wins";     	subtitle = "The radio truck was destroyed by Opfor";     	description = "Next time better make sure where to shoot at.";     	picture = "pic\gruppe-adler.paa";     };
+     class DrawRadioTruckDestroyed     {     	title = "No one wins";     	subtitle = "The radio truck was destroyed by unknown source";     	description = "Next time better make sure where to shoot at.";     	picture = "pic\gruppe-adler.paa";     };
+     class DrawError     {     	title = "No one wins";     	subtitle = "End mission error: couldnt decide on winner";     	description = "Blame nomisum, as always.";     	picture = "pic\gruppe-adler.paa";     };
 };
 
 class CfgDebriefingSections
-{
-	class TransmissionTime
-	{
-		title = "Transmission Completion";
-		variable = "BC_transmissionPercentage";
-	};
+{     class TransmissionTime     {     	title = "Transmission Completion";     	variable = "BC_transmissionPercentage";     };
 };
 
 class CfgSounds
-{
-	#include "grad_carryBoat\cfgSounds.hpp"
-	sounds[] = {beam,beep,signal_lost,signal_distortion};
-	class beam
-	{
-		name = "beam";
-		// filename, volume, pitch
-		sound[] = {"sounds\beam.ogg", 1, 1};
-		// subtitle delay in seconds, subtitle text
-		titles[] = {0, ""};
-	};
-	class beep
-	{
-		name = "beep";
-		// filename, volume, pitch
-		sound[] = {"sounds\beep2.ogg", 1, 1};
-		// subtitle delay in seconds, subtitle text
-		titles[] = {0, ""};
-	};
-	class signal_lost
-	{
-		name = "signal_lost";
-		// filename, volume, pitch
-		sound[] = {"sounds\signal_lost.ogg", 1, 1};
-		// subtitle delay in seconds, subtitle text
-		titles[] = {0, ""};
-	};
-	class signal_distortion
-	{
-		name = "signal_distortion";
-		// filename, volume, pitch
-		sound[] = {"sounds\signal_distortion.ogg", 0.5, 1};
-		// subtitle delay in seconds, subtitle text
-		titles[] = {0, ""};
-	};
+{     #include "grad_carryBoat\cfgSounds.hpp"     sounds[] = {beam,beep,signal_lost,signal_distortion};     class beam     {     	name = "beam";     	// filename, volume, pitch     	sound[] = {"sounds\beam.ogg", 1, 1};     	// subtitle delay in seconds, subtitle text     	titles[] = {0, ""};     };     class beep     {     	name = "beep";     	// filename, volume, pitch     	sound[] = {"sounds\beep2.ogg", 1, 1};     	// subtitle delay in seconds, subtitle text     	titles[] = {0, ""};     };     class signal_lost     {     	name = "signal_lost";     	// filename, volume, pitch     	sound[] = {"sounds\signal_lost.ogg", 1, 1};     	// subtitle delay in seconds, subtitle text     	titles[] = {0, ""};     };     class signal_distortion     {     	name = "signal_distortion";     	// filename, volume, pitch     	sound[] = {"sounds\signal_distortion.ogg", 0.5, 1};     	// subtitle delay in seconds, subtitle text     	titles[] = {0, ""};     };
 
 };
 
 
 
 
-class Loadouts {
-	#include "LIST_N.hpp"
-
-	resetLoadout = 1;
-	handleRadios = 1;
-
-	class AllUnits {
-		binoculars = "Binocular";
-		map = "ItemMap";
-		compass = "ItemCompass";
-		watch = "ItemWatch";
-	};
-	class Faction {
-		#include "loadouts\US_Desert.hpp"
-		#include "loadouts\US_Woodland.hpp"
-		#include "loadouts\RU_Desert.hpp"
-		#include "loadouts\RU_Woodland.hpp"
-	};
+class Loadouts {     #include "LIST_N.hpp"
+     resetLoadout = 1;     handleRadios = 1;
+     class AllUnits {     	binoculars = "Binocular";     	map = "ItemMap";     	compass = "ItemCompass";     	watch = "ItemWatch";     };     class Faction {     	#include "loadouts\US_Desert.hpp"     	#include "loadouts\US_Woodland.hpp"     	#include "loadouts\RU_Desert.hpp"     	#include "loadouts\RU_Woodland.hpp"     };
 };
 
 class CfgGradCustomGear {
@@ -391,8 +143,7 @@ class CfgGradCustomGear {
     actionsOnMissionStart = 1;
 };
 
-class CfgGradFortifications {
-	boundingBoxSizeFactor = 1;
+class CfgGradFortifications {     boundingBoxSizeFactor = 1;
     canDemolishDefault = 1;
     demolitionTimeFactor = 1;
     playerInventorySize = 1;
@@ -415,27 +166,20 @@ class CfgGradFortifications {
         canFloat = 0;
         canCollide = 0;
         size = 1;
-        demolitionTime = 10;
-	};
+        demolitionTime = 10;     };
 
     class rhs_Flag_DNR_F {
     	boundingBoxSize = 0.1;
     	canFloat = 0;
     	canCollide = 1;
     	size = 0.5;
-    	demolitionTime = 3;
-	};
-
-	class Land_Wreck_Ural_F {
-		boundingBoxSize = 0.9;
+    	demolitionTime = 3;     };
+     class Land_Wreck_Ural_F {     	boundingBoxSize = 0.9;
         canFloat = 0;
         canCollide = 0;
         size = 1;
-        demolitionTime = 30;
-	};
-
-	class Land_Wreck_UAZ_F {
-		boundingBoxSize = 0.9;
+        demolitionTime = 30;     };
+     class Land_Wreck_UAZ_F {     	boundingBoxSize = 0.9;
         canFloat = 0;
         canCollide = 0;
         size = 1;
@@ -447,30 +191,23 @@ class CfgGradFortifications {
     	canFloat = 0;
     	canCollide = 1;
     	size = 0.5;
-    	demolitionTime = 10;
-	};
-
-	class MetalBarrel_burning_F {
+    	demolitionTime = 10;     };
+     class MetalBarrel_burning_F {
     	boundingBoxSize = 0.9;
     	canFloat = 0;
     	canCollide = 1;
     	size = 0.5;
-    	demolitionTime = 5;
-	};
-
-	class Campfire_burning_F {
+    	demolitionTime = 5;     };
+     class Campfire_burning_F {
     	boundingBoxSize = 0.9;
     	canFloat = 0;
     	canCollide = 1;
     	size = 0.5;
-    	demolitionTime = 5;
-	};
-
-	class Land_PortableLight_single_F {
+    	demolitionTime = 5;     };
+     class Land_PortableLight_single_F {
     	boundingBoxSize = 0.9;
     	canFloat = 0;
     	canCollide = 1;
     	size = 0.5;
-    	demolitionTime = 5;
-	};
+    	demolitionTime = 5;     };
 };

@@ -17,7 +17,6 @@ _crewDriver action ["lightOn", _car0];
 
 _crewDriver setVariable ["GRAD_civs_carOwnerOf", _car0];
 
-if (!isNil "GRAD_REPLAY_CIVILIAN_TRAFFIC_TRACKED" && {GRAD_REPLAY_CIVILIAN_TRAFFIC_TRACKED}) then {
-	_crewDriver setVariable ["GRAD_replay_track", true];
+if (!isNil "GRAD_REPLAY_CIVILIAN_TRAFFIC_TRACKED" && {GRAD_REPLAY_CIVILIAN_TRAFFIC_TRACKED}) then {     _crewDriver setVariable ["GRAD_replay_track", true];
 };
 // hintsilent format ["ordered %1 to enter %2", _crewDriver,_car0];

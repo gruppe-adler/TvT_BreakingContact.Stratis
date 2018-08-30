@@ -1,6 +1,4 @@
-/*
-	air drop script by nomisum
-	dependency: RHS
+/*     air drop script by nomisum     dependency: RHS
 */
 
 params ["_pos", "_spawnObjectType", "_postinit", "_calls", "_spawnMethod", "_selector", "_side"];
@@ -21,9 +19,6 @@ _spawnObjectType = _spawnObjectType select 0;
 diag_log format ["spawnVehicleManager received order for %1",_spawnObjectType];
 
 switch (_spawnMethod) do {
-
-	case 0: { [_pos, _spawnObjectType, _postinit, _calls, _selector, _side] call GRAD_buymenu_fnc_spawnSimple; };
-	case 4: { [_pos, _spawnObjectType, _postinit, _calls, _selector, _side] call GRAD_buymenu_fnc_spawnWater; };
-	default { diag_log format ["FATAL ERROR , no spawn method"];};
+     case 0: { [_pos, _spawnObjectType, _postinit, _calls, _selector, _side] call GRAD_buymenu_fnc_spawnSimple; };     case 4: { [_pos, _spawnObjectType, _postinit, _calls, _selector, _side] call GRAD_buymenu_fnc_spawnWater; };     default { diag_log format ["FATAL ERROR , no spawn method"];};
 
 };

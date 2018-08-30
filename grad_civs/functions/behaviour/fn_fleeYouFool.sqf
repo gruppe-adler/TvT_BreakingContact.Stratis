@@ -17,38 +17,17 @@ _car = if ((vehicle _unit) isKindOf 'LandVehicle') then { vehicle _unit } else {
 
 
 if (!isNull _car) then {
-
-	if (canMove _car && {fuel _car > 0}) then {
-
-		_escapePosition = [_unit, _shooter, 1000] call GRAD_civs_fnc_getOpposingDirection;
-
-		_unit doMove _escapePosition;
-		_unit setSpeedMode "FULL";
-		_unit setVariable ["GRAD_civs_isFleeing", true];
-
-		[{playSound3D ["a3\sounds_f\weapons\horns\truck_horn_2.wss", _this];}, [_car], 1 + random 2] call CBA_fnc_waitAndExecute;
-		
-
-		// _unit setVariable ["GRAD_civs_currentlyThinking", "driving away as fast as i can", true];
-	} else {
-
-		doStop _unit;
-
-	    { unassignVehicle _x } forEach crew _car;
-
-	    { doGetOut _x } forEach crew _car;
-		_escapePosition = [_unit, _shooter, 100] call GRAD_civs_fnc_getOpposingDirection;
-		_targetPosition = [_escapePosition] call GRAD_civs_fnc_findPositionOfInterest;
-		_unit doMove _targetPosition;
-
-		// _unit setVariable ["GRAD_civs_currentlyThinking", "running away as fast as i can, my car is broke", true];
-
-	};
+     if (canMove _car && {fuel _car > 0}) then {
+     	_escapePosition = [_unit, _shooter, 1000] call GRAD_civs_fnc_getOpposingDirection;
+     	_unit doMove _escapePosition;     	_unit setSpeedMode "FULL";     	_unit setVariable ["GRAD_civs_isFleeing", true];
+     	[{playSound3D ["a3\sounds_f\weapons\horns\truck_horn_2.wss", _this];}, [_car], 1 + random 2] call CBA_fnc_waitAndExecute;     	
+     	// _unit setVariable ["GRAD_civs_currentlyThinking", "driving away as fast as i can", true];     } else {
+     	doStop _unit;
+         { unassignVehicle _x } forEach crew _car;
+         { doGetOut _x } forEach crew _car;     	_escapePosition = [_unit, _shooter, 100] call GRAD_civs_fnc_getOpposingDirection;     	_targetPosition = [_escapePosition] call GRAD_civs_fnc_findPositionOfInterest;     	_unit doMove _targetPosition;
+     	// _unit setVariable ["GRAD_civs_currentlyThinking", "running away as fast as i can, my car is broke", true];
+     };
 } else {
-
-	_escapePosition = [_unit, _shooter, 200] call GRAD_civs_fnc_getOpposingDirection;
-	_targetPosition = [_escapePosition] call GRAD_civs_fnc_findPositionOfInterest;
-	_unit doMove _targetPosition;
-
-	// _unit setVariable ["GRAD_civs_currentlyThinking", "running away as fast as i can", true];
+     _escapePosition = [_unit, _shooter, 200] call GRAD_civs_fnc_getOpposingDirection;     _targetPosition = [_escapePosition] call GRAD_civs_fnc_findPositionOfInterest;     _unit doMove _targetPosition;
+     // _unit setVariable ["GRAD_civs_currentlyThinking", "running away as fast as i can", true];
 };

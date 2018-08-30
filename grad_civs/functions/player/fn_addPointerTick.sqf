@@ -3,8 +3,7 @@ params ["_unit"];
 /* raise pointing tickets */
 _otherUnits = _unit getVariable ["GRAD_civs_isPointedAtBy",[]];
 
-if (player in _otherUnits) exitWith {
-	diag_log format ["player already in other units"];
+if (player in _otherUnits) exitWith {     diag_log format ["player already in other units"];
 };
 
 /* raise pointing counter globally */

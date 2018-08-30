@@ -23,10 +23,8 @@ _neworder setVariable ['calls', _calls, true];
 _neworder setVariable ['method', _method, true];
 _neworder setVariable ['selector', _selector, true];
 
-if (_method != 4) then {
-	_neworder setVariable ['position', call (player getVariable "GRAD_buymenu_spawn_land"), true];
-} else {
-	_neworder setVariable ['position', call (player getVariable "GRAD_buymenu_spawn_water"), true];
+if (_method != 4) then {     _neworder setVariable ['position', call (player getVariable "GRAD_buymenu_spawn_land"), true];
+} else {     _neworder setVariable ['position', call (player getVariable "GRAD_buymenu_spawn_water"), true];
 };
 
 [player, _neworder] remoteExecCall ["GRAD_buymenu_fnc_apiCreateOrder", 2];

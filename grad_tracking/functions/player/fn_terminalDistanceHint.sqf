@@ -14,6 +14,4 @@ if (_perc <= 70) then { _result = _red; };
 
 _string = "<t size='1.25' 'color='#ff0000'>%1</t>";
 
-hintSilent parseText format[
-	"<t size='1.25'>" + (localize "str_GRAD_radio_signalstrength") + "</t><br/>" + 
-	_result + "<t size='1.25'> percent.</t>", _perc];
+hintSilent parseText format[     "<t size='1.25'>" + (localize "str_GRAD_radio_signalstrength") + "</t><br/>" +      _result + "<t size='1.25'> percent.</t>", _perc];

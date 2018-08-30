@@ -1,9 +1,5 @@
-if (player getVariable ["grad_gcamspec_firstSpawn", true]) exitWith {
-	player setVariable ["grad_gcamspec_firstSpawn", false, true];
-	player setVariable ["GRAD_replay_track", true, true];
-
-	hint "";
-	openMap [false, false];
+if (player getVariable ["grad_gcamspec_firstSpawn", true]) exitWith {     player setVariable ["grad_gcamspec_firstSpawn", false, true];     player setVariable ["GRAD_replay_track", true, true];
+     hint "";     openMap [false, false];
 };
 
 // move player to side civilian
@@ -13,8 +9,7 @@ if (player getVariable ["grad_gcamspec_firstSpawn", true]) exitWith {
 player allowDamage false;
 player setVariable ["ace_medical_allowDamage", false];
 
-if (missionNamespace getVariable ["GRAD_replay_isRunning", false]) exitWith {
-	[] call GRAD_replay_fnc_preparePlaybackClient;
+if (missionNamespace getVariable ["GRAD_replay_isRunning", false]) exitWith {     [] call GRAD_replay_fnc_preparePlaybackClient;
 };
 
 

@@ -11,16 +11,14 @@ class GRAD_buymenu {
 
         class apiCreateOrder;
     };
-
-	class player {
+     class player {
         file = grad_buymenu\functions\player;
 
         class addOrder;
         class allowPlayerToBuy;
         class calculatePicturesColumn;
         class calculateValuesColumn;
-        class createEntries;
-		    class createEntryAmount;
+        class createEntries;     	    class createEntryAmount;
         class createEntryBuyButton;
         class createEntryETA;
         class createEntryMouseOver;
@@ -47,8 +45,7 @@ class GRAD_buymenu {
         class setPlayerPotentToBuy;
         class showMarkers;
     };
-
-	class server {
+     class server {
         file = grad_buymenu\functions\server;
 
         class clearInventory;

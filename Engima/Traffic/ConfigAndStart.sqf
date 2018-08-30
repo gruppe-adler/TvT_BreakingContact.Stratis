@@ -9,20 +9,9 @@
  private ["_parameters"];
 
 // Set traffic parameters.
-_parameters = [
-	["SIDE", civilian],
-	["VEHICLES", GRAD_civ_vehicles],
-	["VEHICLES_COUNT", 10],
-	["MIN_SPAWN_DISTANCE", 800],
-	["MAX_SPAWN_DISTANCE", 2000],
-	["MIN_SKILL", 0],
-	["MAX_SKILL", 0],
+_parameters = [     ["SIDE", civilian],     ["VEHICLES", GRAD_civ_vehicles],     ["VEHICLES_COUNT", 10],     ["MIN_SPAWN_DISTANCE", 800],     ["MAX_SPAWN_DISTANCE", 2000],     ["MIN_SKILL", 0],     ["MAX_SKILL", 0],
   	["AREA_MARKER", ""],
-  	["ON_SPAWN_CALLBACK", {
-		// check grad_civs_fnc_createvehicle
-	}],
-	["ON_REMOVE_CALLBACK", { true }],
-	["DEBUG", false]
+  	["ON_SPAWN_CALLBACK", {     	// check grad_civs_fnc_createvehicle     }],     ["ON_REMOVE_CALLBACK", { true }],     ["DEBUG", false]
 ];
 
 // Start an instance of the traffic

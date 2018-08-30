@@ -5,13 +5,11 @@
 
 waitUntil {!isNil "CIVILIAN_TRAFFIC"};
 
-if (CIVILIAN_TRAFFIC == 1) then {
-	0 = execVM "grad_civs\init.sqf";
+if (CIVILIAN_TRAFFIC == 1) then {     0 = execVM "grad_civs\init.sqf";
 };
 
 
-player addEventHandler ["handleRating", {
-	0
+player addEventHandler ["handleRating", {     0
 }];
 
 // disable spectating the fucking civs

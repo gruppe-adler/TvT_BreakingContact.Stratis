@@ -13,11 +13,9 @@ _mouseOverArea ctrlSetPosition [_xPos, safeZoneY, _width, (safeZoneY + safeZoneH
 _mouseOverArea ctrlSetBackgroundColor [0,0,0,0.01];
 
 
-_mouseOverArea ctrlAddEventHandler ["MouseEnter",{
-	ctrlShow [ctrlidc (_this select 0) + 3,true]; false
+_mouseOverArea ctrlAddEventHandler ["MouseEnter",{     ctrlShow [ctrlidc (_this select 0) + 3,true]; false
 }];
-_mouseOverArea ctrlAddEventHandler ["MouseExit",{
-	ctrlShow [ctrlidc (_this select 0) + 3,false]; false
+_mouseOverArea ctrlAddEventHandler ["MouseExit",{     ctrlShow [ctrlidc (_this select 0) + 3,false]; false
 }];
 
 _mouseOverArea setVariable ["GRAD_vehicleIndex" ,_selector];

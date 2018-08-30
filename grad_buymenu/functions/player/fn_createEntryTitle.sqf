@@ -3,17 +3,10 @@ disableSerialization;
 params ["_idc", "_display", "_xPos", "_width", "_class", "_mouseOverSelector", ["_title",""]];
 
 
-/*
-	_idc = _this select 0;
-	_display = _this select 1;
-	_xPos = _this select 2;
-	_width = _this select 3;
-	_class = _this select 4;
-	_mouseOverSelector = _this select 5;
+/*     _idc = _this select 0;     _display = _this select 1;     _xPos = _this select 2;     _width = _this select 3;     _class = _this select 4;     _mouseOverSelector = _this select 5;
 */
 
-if (_title == "") then {
-	_title = getText ( configFile >> "CfgVehicles" >> _class >> "DisplayName" ); // _this select 4; // wont be used anymore - config now
+if (_title == "") then {     _title = getText ( configFile >> "CfgVehicles" >> _class >> "DisplayName" ); // _this select 4; // wont be used anymore - config now
 };
 
 _ctrlTitle =  _display ctrlCreate ["RscStructuredText", _idc];

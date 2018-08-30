@@ -11,15 +11,12 @@ ENGIMA_CIVILIANS_MAXWAITINGTIME = 300; // Maximum standing still time in seconds
 ENGIMA_CIVILIANS_RUNNINGCHANCE = 0.05; // Chance of running instead of walking
 
 // Civilian personalities
-ENGIMA_CIVILIANS_BEHAVIOURS = [
-	["CITIZEN", 100] // Default citizen with ordinary behaviour. Spawns in a house and walks to another house, and so on...
+ENGIMA_CIVILIANS_BEHAVIOURS = [     ["CITIZEN", 100] // Default citizen with ordinary behaviour. Spawns in a house and walks to another house, and so on...
 ];
 
 // Do not edit anything beneath this line!
 
 ENGIMA_CIVILIANS_INSTANCE_NO = 0;
 
-if (isServer) then {
-	call compile preprocessFileLineNumbers "Engima\Civilians\Server\ServerFunctions.sqf";
-	call compile preprocessFileLineNumbers "Engima\Civilians\ConfigAndStart.sqf";
+if (isServer) then {     call compile preprocessFileLineNumbers "Engima\Civilians\Server\ServerFunctions.sqf";     call compile preprocessFileLineNumbers "Engima\Civilians\ConfigAndStart.sqf";
 };
