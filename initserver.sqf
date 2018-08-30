@@ -13,6 +13,7 @@ if ((["DEBUG_MODE", 0] call BIS_fnc_getParamValue) == 1 || !isMultiplayer) then 
 publicVariable "DEBUG_MODE";
 
 
+
 addMissionEventHandler ["HandleDisconnect",{
     params [["_unit",objNull]];
 
