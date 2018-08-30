@@ -3,14 +3,16 @@ params ["_spawn_pos", "_classname", "_init", "_call", "_selector", "_side"];
 _initTexture = _init select 0;
 _initAnimationsource = _init select 1;
 
-_vehicle = createVehicle [_classname, _spawn_pos, [], 0, "NONE"];
+private _vehicle = createVehicle [_classname, _spawn_pos, [], 0, "NONE"];
 
-_road = [getPos _vehicle] call BIS_fnc_nearestRoad;
+private _road = [getPos _vehicle] call BIS_fnc_nearestRoad;
 if (!isNull _road) then {
-     _roadConnectedTo = roadsConnectedTo _road;
-      _connectedRoad = _roadConnectedTo select 0;
-      _direction = [_road, _connectedRoad] call BIS_fnc_DirTo;
-      _vehicle setDir _direction;
+     private _roadConnectedTo = roadsConnectedTo _road;
+     if (count _roadConnectedTo > 0) then {
+	      _connectedRoad = _roadConnectedTo select 0;
+	      _direction = [_road, _connectedRoad] call BIS_fnc_DirTo;
+	      _vehicle setDir _direction;
+      };
 };
 
 [_vehicle] call _call;
