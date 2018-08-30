@@ -13,7 +13,6 @@
 #include "node_modules\@gruppe-adler\replay\ui\dialog.hpp"
 #include "BC_setup\rscDialogs.hpp"
 
-<<<<<<< HEAD
 class CfgFunctions {     
     #include "grad_carryBoat\cfgFunctions.hpp"
     #include "grad_islands\cfgFunctions.hpp"
@@ -29,25 +28,7 @@ class CfgFunctions {
     #include "node_modules\grad-customGear\cfgFunctions.hpp"
     #include "node_modules\grad-loadout\cfgFunctions.hpp"
     #include "node_modules\grad-fortifications\cfgFunctions.hpp"
-=======
-class CfgFunctions {
-	#include "grad_carryBoat\cfgFunctions.hpp"
-	#include "grad_islands\cfgFunctions.hpp"
-	#include "grad_buymenu\cfgFunctions.hpp"
-  #include "grad_civMarker\cfgFunctions.hpp"
-	#include "grad_civs\cfgFunctions.hpp"
-	#include "grad_tracking\cfgFunctions.hpp"
-	#include "grad_emptycars\cfgFunctions.hpp"
 
-  #include "BC_flagsOnVehicles\cfgFunctions.hpp"
-	#include "BC_objectives\cfgFunctions.hpp"
-  #include "BC_setup\cfgFunctions.hpp"
-
-	#include "node_modules\@gruppe-adler\replay\cfgFunctions.hpp"
-	#include "node_modules\grad-customGear\cfgFunctions.hpp"
-  #include "node_modules\grad-loadout\cfgFunctions.hpp"
-	#include "node_modules\grad-fortifications\cfgFunctions.hpp"
->>>>>>> parent of 83e541e... tab to spaces
 };
 
 class RscTitles {
