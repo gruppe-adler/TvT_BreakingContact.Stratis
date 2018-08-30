@@ -7,7 +7,7 @@
 private ["_initUral", "_initBRDM", "_initBMP", "_initBTR", "_initT72"];
 
 // camo shit, todo: make function
-if (IS_WOODLAND) then {
+if (BC_IS_WOODLAND) then {
        _initUral = [["standard",1], ["light_hide",1]];
        
        _initBMP = [["standard",1], ["crate_l1_unhide",1,"crate_l2_unhide",1,"crate_l3_unhide",1,"crate_r1_unhide",1,"crate_r2_unhide",1,"crate_r3_unhide",1,"wood_1_unhide",1,"maljutka_hide_source",1,"cargoHandler1",0]];

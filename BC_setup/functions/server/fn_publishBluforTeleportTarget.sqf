@@ -2,7 +2,7 @@ params ["_position"];
 
 blufor_hq = "rhsusf_m998_d_4dr";
 
-if (IS_WOODLAND) then {
+if (BC_IS_WOODLAND) then {
    blufor_hq = "rhsusf_m998_w_4dr";
 };
 

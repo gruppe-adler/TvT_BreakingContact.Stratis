@@ -6,7 +6,7 @@
 
 private ["_transportHMMWV"];
 
-if (IS_WOODLAND) then {
+if (BC_IS_WOODLAND) then {
        _transportHMMWV = "rhsusf_m998_w_2dr_fulltop";
        mrzr4 = "rhsusf_mrzr4_w_mud";
        hmmwv_m2 = "rhsusf_m1025_w_m2";

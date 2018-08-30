@@ -104,11 +104,11 @@ GRAD_civ_beards = [
 ];
 
 // check if woodland param is already set by mission, otherwise spawn euro civs
-_IS_WOODLAND = missionNamespace getVariable ["IS_WOODLAND",false];
+_BC_IS_WOODLAND = missionNamespace getVariable ["BC_IS_WOODLAND",false];
 
 
 
-if (_IS_WOODLAND) then {
+if (_BC_IS_WOODLAND) then {
 	// check if rds is available
 	if (!(isClass (configfile >> "CfgVehicles" >> "RDS_Gaz24_Civ_01"))) exitWith {};
 	GRAD_civ_headgear = GRAD_civ_headgear_EUR;

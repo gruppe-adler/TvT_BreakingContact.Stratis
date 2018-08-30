@@ -19,7 +19,7 @@ _bluforCredits = _this select 1;
 fillOpforSupplies = {
 
       // woodland camo?
-    if (IS_WOODLAND) then {
+    if (BC_IS_WOODLAND) then {
        tigr = "rhs_tigr_m_vdv";
     } else {
         tigr = "rhs_tigr_m_3camo_vdv";
@@ -227,7 +227,7 @@ fillOpforSupplies = {
 fillUSSupplies = {
 
     // woodland camo?
-    if (IS_WOODLAND) then {
+    if (BC_IS_WOODLAND) then {
        hmmwv_transport = "rhsusf_m998_w_2dr_fulltop";
         hmmwv_m2 = "rhsusf_m1025_w_m2";
         m113_m2 = "rhsusf_m113_usarmy";

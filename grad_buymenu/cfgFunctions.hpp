@@ -20,7 +20,7 @@ class GRAD_buymenu {
         class calculatePicturesColumn;
         class calculateValuesColumn;
         class createEntries;
-		    class createEntryAmount;
+		class createEntryAmount;
         class createEntryBuyButton;
         class createEntryETA;
         class createEntryMouseOver;
