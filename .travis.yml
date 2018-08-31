@@ -4,14 +4,8 @@ python:
 install:
 - pip install sqflint
 before_script:
-- mkdir -p x/cba && wget "http://gruppe-adler.de/api/travis/cba.tar.gz" && tar -xf cba.tar.gz -C x/cba
-- mkdir -p z/ace && wget "http://gruppe-adler.de/api/travis/ace.tar.gz" && tar -xf ace.tar.gz -C z/ace
-- for INCLUDEFILE in `grep -lire '^\s*#include'`; do sed -i '/#include/s/\\/\//g' "$INCLUDEFILE"; done
-- for INCLUDEFILE in `grep -lire '^\s*#include'`; do sed -i '/#include/s/\/x\/cba/x\/cba/' "$INCLUDEFILE"; done
-- for INCLUDEFILE in `grep -lire '^\s*#include'`; do sed -i '/#include/s/\/z\/ace/z\/ace/' "$INCLUDEFILE"; done
-- for MACROFILE in `find . -iname '*.cpp' -or -iname '*.hpp' -or -iname '*.h'`; do sed -i -e 's/##//g' "$MACROFILE"; done
+- tools/preprocess.sh             
 script:
-- for SQFFILE in `find . -iname '*.sqf'`; do cpp -iquote ./ "$SQFFILE" "${SQFFILE}.1" && mv  "${SQFFILE}.1" "$SQFFILE"; done
 - for SQFFILE in `find . -iname '*.sqf'`; do sed -i -E 's/^#.*//g' "$SQFFILE"; done # remove hash comments, they confuse the hell out of sqflint
 - sqflint -d . -ee
 notifications:
