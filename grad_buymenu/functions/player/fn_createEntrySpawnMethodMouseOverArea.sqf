@@ -43,11 +43,11 @@ _ctrlMethodMouseOverArea ctrlAddEventHandler ["MouseExit",{
 /*
 if (_method == 1) then {
     _ctrlMethodMouseOverArea ctrlAddEventHandler ["MouseButtonClick","
-      0 = ['plane'] execVM 'grad_buymenu\openMap.sqf';
+      ['plane'] execVM 'grad_buymenu\openMap.sqf';
     "];
 } else {
     _ctrlMethodMouseOverArea ctrlAddEventHandler ["MouseButtonClick","
-      0 = ['slingload'] execVM 'grad_buymenu\openMap.sqf';
+      ['slingload'] execVM 'grad_buymenu\openMap.sqf';
     "];
 };
 */

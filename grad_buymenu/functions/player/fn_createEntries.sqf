@@ -8,12 +8,12 @@ _allowedSupplies = player getVariable ["GRAD_canBuy", []];
 // info: changed this part for BC, only one guy can buy anyway, but all can see
 _applicableSupplies = [];
 {
-	
+
 		_applicableSupplies pushBack _x;
 } forEach (allVariables _givenSupplies);
 
 if (!_isRefresh) then {
-	0 = createDialog "GRAD_buy_menu";
+	createDialog "GRAD_buy_menu";
 	buyMenuOpen = true;
 };
 
@@ -48,7 +48,7 @@ _applicableSupplies = [
 {
 // diag_log format ["sort before: %1", _applicableSupplies];
   if (_x == "recon_box" || _x == "transmitter" || _x == "ammo_box") then {
-  	
+
   	_applicableSupplies = _applicableSupplies - [_x];
   	_applicableSupplies pushBack _x;
   	diag_log format ["sort after %1", _applicableSupplies];
@@ -69,7 +69,7 @@ _applicableSupplies = [
 	_picXCoord = _picMeasurements select 0;
 
 
-	
+
 	 randIDC = [randIDC] call GRAD_buymenu_fnc_getNextIDC;
 	 if (!_isRefresh) then {
 	 	_btn = [randIDC, _createdGui, _xCoord, _width, _x] spawn GRAD_buymenu_fnc_createEntryMouseOverArea;
@@ -101,7 +101,7 @@ _applicableSupplies = [
 	 } else {
 	 	_amount = [randIDC, _createdGui, _xCoord, _width,_supplyItem select 2] spawn GRAD_buymenu_fnc_createEntryAmount;
 	 };
-	 
+
 	 randIDC = [randIDC] call GRAD_buymenu_fnc_getNextIDC;
 	 if (!_isRefresh && !GRAD_BUYMENU_SINGLE_SPAWN_METHOD) then {
 	 	_amount = [randIDC, _createdGui, _xCoord, _width,_supplyItem select 8] spawn GRAD_buymenu_fnc_createEntrySpawnMethod;
@@ -112,7 +112,7 @@ _applicableSupplies = [
 	 	_amount = [randIDC, _createdGui, _xCoord, _width,_supplyItem select 8] spawn GRAD_buymenu_fnc_createEntrySpawnMethodMouseOverArea;
 	 };
 
-	 
+
 	 // randIDC = [randIDC] call fnc_getNextIDC;
 	 // _eta = [randIDC, _createdGui, _xCoord, _width,_supplyItem select 4] spawn fnc_createEntryETA;
 	 randIDC = [randIDC] call GRAD_buymenu_fnc_getNextIDC;
@@ -126,7 +126,7 @@ _applicableSupplies = [
 
 
 
-		
+
 
 } forEach _applicableSupplies;
 

@@ -65,7 +65,7 @@ publicVariable "CIVILIAN_TRAFFIC"; // clients need to know this
 
 
 if (CIVILIAN_TRAFFIC == 1) then {
-	0 = execVM "grad_civs\init.sqf";
+	execVM "grad_civs\init.sqf";
 };
 
 CONQUER_MODE = (["CONQUER_MODE", 1] call BIS_fnc_getParamValue) == 0;
@@ -261,7 +261,7 @@ _spawnSelector setVariable ["BC_spawnSelector", true];
   		if (!isPlayer _x) then {
   			sleep 0.5;
   			_x setVariable ["BIS_noCoreConversations", true];
-  		0 = [_x] call BC_setup_fnc_teleportAI;
+  		  [_x] call BC_setup_fnc_teleportAI;
   		};
   } forEach allUnits;
 };
