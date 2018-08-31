@@ -3,7 +3,7 @@
 
 enableDynamicSimulationSystem true;
 
-0 = [] execVM "grad_buymenu\buymenu_init.sqf";
+[] execVM "grad_buymenu\buymenu_init.sqf";
 
 clearInventory = compile preprocessFile "helpers\clearInventory.sqf";
 
@@ -60,7 +60,7 @@ if (hasInterface) then {
      checkSpawnButton = {
           _spawnSelector = "opfor_teamlead";
           if (str player != _spawnSelector) then {
-               0 = [[worldSize/2,worldSize/2,0],"",1500] execVM "player\setup\establishingShot.sqf";
+               [[worldSize/2,worldSize/2,0],"",1500] execVM "player\setup\establishingShot.sqf";
           } else {
           disableSerialization;
           waitUntil {!(isNull ([] call BIS_fnc_displayMission))};
@@ -77,7 +77,7 @@ if (hasInterface) then {
                               if (_this select 1 == 57) then {0 = createDialog 'gui_spawn_opfor'; true};
                          "]
                ];
-               0 = createDialog "gui_spawn_opfor";
+               createDialog "gui_spawn_opfor";
                waitUntil {(OPFOR_TELEPORT_TARGET select 0 != 0)};
                ([] call BIS_fnc_displayMission) displayRemoveEventHandler ['KeyDown', cheffeKeyEH];
           };

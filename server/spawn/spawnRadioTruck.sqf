@@ -18,12 +18,12 @@ spawnRadioTruck = {
 
       }];
 
-     0 = [_radioVeh, true] execVM "spawn\flagsOnVehicles.sqf";
+     [_radioVeh, true] execVM "spawn\flagsOnVehicles.sqf";
 
      sleep 1;
      [_radioVeh] call clearInventory;
 
-      
+
     private _armorLevel = _radioVeh getVariable ["BC_objectives_armorLevel", 0];
     [_radioVeh] call BC_objectives_fnc_removeTruckArmor;
     [_radioVeh, _armorLevel + 1] call BC_objectives_fnc_applyTruckArmor;

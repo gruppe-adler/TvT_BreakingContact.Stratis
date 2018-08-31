@@ -1,9 +1,9 @@
 #include "..\missionMacros.h"
 
 
-
 _CIV_KILLED_listener = {
-     0 = [CIV_KILLED] execVM "player\civKilledMarker.sqf";
+     [CIV_KILLED] execVM "player\civKilledMarker.sqf";
+     nil;
 };
 
 "CIV_KILLED" addPublicVariableEventHandler _CIV_KILLED_listener;
