@@ -10,9 +10,9 @@ waitUntil {!(isNull ([] call BIS_fnc_displayMission))};
 
         };
 
-        if (_this select 1 == 57) then {0 = createDialog 'gui_spawn_opfor'; true};
+        if (_this select 1 == 57) then {createDialog 'gui_spawn_opfor'; true};
       "]
   ];
-  0 = createDialog "gui_spawn_opfor";
+  createDialog "gui_spawn_opfor";
   waitUntil {(OPFOR_TELEPORT_TARGET select 0 != 0)};
   ([] call BIS_fnc_displayMission) displayRemoveEventHandler ['KeyDown', cheffeKeyEH];

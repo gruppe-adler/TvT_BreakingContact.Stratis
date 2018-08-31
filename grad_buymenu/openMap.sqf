@@ -21,7 +21,7 @@ if (_side == "west") then {
 
 disableSerialization;
 
-0 = createDialog "GRAD_buy_menu_select_airdrop";
+createDialog "GRAD_buy_menu_select_airdrop";
 waitUntil {dialog};
 
 _createdGui = uiNamespace getVariable ['GRAD_buy_menu_select_airdrop',0];
@@ -39,8 +39,8 @@ _comboA = 2339;
 
 _createdGui displayCtrl 2338 ctrlMapCursor ["","HC_overFriendly"];
 
-// _createdGui displayCtrl 2338 ctrlAddEventHandler ["onMouseButtonDown","0 = [_this] execVM 'grad_buymenu\createDropMarker.sqf'; "];
-// onMapSingleClick "0 = [_pos,currentMarkerToMove] execVM 'grad_buymenu\moveDropMarker.sqf;'";
+// _createdGui displayCtrl 2338 ctrlAddEventHandler ["onMouseButtonDown","[_this] execVM 'grad_buymenu\createDropMarker.sqf'; "];
+// onMapSingleClick "[_pos,currentMarkerToMove] execVM 'grad_buymenu\moveDropMarker.sqf;'";
 ["GRAD_mapClickListener", "onMapSingleClick", {
 	[_pos,currentMarkerToMove] spawn fnc_moveDropMarker;
 	["GRAD_mapClickListener", "onMapSingleClick"] call BIS_fnc_removeStackedEventHandler;

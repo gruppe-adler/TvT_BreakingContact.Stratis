@@ -127,8 +127,8 @@ if (isServer) then {
 
     // broadcast supplies definitions
 
-    0 = [] execVM "grad_buymenu\definitions\suppliesUS.sqf";
-    0 = [] execVM "grad_buymenu\definitions\suppliesRussians.sqf";
+    [] execVM "grad_buymenu\definitions\suppliesUS.sqf";
+    [] execVM "grad_buymenu\definitions\suppliesRussians.sqf";
 
   // set highest player rank able to buy
   {

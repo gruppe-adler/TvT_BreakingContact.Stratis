@@ -2,7 +2,7 @@
 
 {
  _flagActionRaise = ["ACE_MainActions", (localize "str_GRAD_flag_raise"), "",
- {0 = [(_this select 0), true] call BC_flagsOnVehicles_fnc_toggleFlag;},
+ {[(_this select 0), true] call BC_flagsOnVehicles_fnc_toggleFlag;},
   {(side player == east) && isNull ((_this select 0) getVariable ["GRAD_flagObject",objNull])}] call ace_interact_menu_fnc_createAction;
 
 [_x, 0, ["ACE_MainActions"], _flagActionRaise] call ace_interact_menu_fnc_addActionToClass;
@@ -11,7 +11,7 @@
 
 {
  _flagActionRemove = ["ACE_MainActions", (localize "str_GRAD_flag_remove"), "",
- {0 = [(_this select 0), false] call BC_flagsOnVehicles_fnc_toggleFlag;},
+ {[(_this select 0), false] call BC_flagsOnVehicles_fnc_toggleFlag;},
   {(side player == east) && !isNull ((_this select 0) getVariable ["GRAD_flagObject",objNull])}] call ace_interact_menu_fnc_createAction;
 
 [_x, 0, ["ACE_MainActions"], _flagActionRemove] call ace_interact_menu_fnc_addActionToClass;
@@ -25,7 +25,8 @@
 
 _removeSpawn = ["ACE_MainActions", (localize "str_GRAD_buy_disable"), "",
  {
-    [_this select 0] execVM "spawn\disableSpawn.sqf";
+    private _thisThing = _this select 0;
+    [_thisThing] execVM "spawn\disableSpawn.sqf";
   },
   {true}] call ace_interact_menu_fnc_createAction;
 
@@ -36,7 +37,7 @@ _removeSpawn = ["ACE_MainActions", (localize "str_GRAD_buy_disable"), "",
 // BUY
 
 _usAction = ["ACE_MainActions", (localize "str_GRAD_buy_vehicles"), "",
- {0 = execVM "grad_buymenu\openMenu.sqf";},
+ {execVM "grad_buymenu\openMenu.sqf";},
   {(side player == west)}] call ace_interact_menu_fnc_createAction;
 
 ["rhsusf_m998_w_4dr", 0, ["ACE_MainActions"], _usAction] call ace_interact_menu_fnc_addActionToClass;
@@ -44,7 +45,7 @@ _usAction = ["ACE_MainActions", (localize "str_GRAD_buy_vehicles"), "",
 ["LOP_AM_Landrover_M2", 0, ["ACE_MainActions"],_usAction] call ace_interact_menu_fnc_addActionToClass;
 
 _rusAction = ["RusBuyMenu", (localize "str_GRAD_buy_vehicles"), "",
-{0 = execVM "grad_buymenu\openMenu.sqf";},
+{execVM "grad_buymenu\openMenu.sqf";},
   {(side player == east)}] call ace_interact_menu_fnc_createAction;
 ["rhs_gaz66_r142_vv", 0, ["ACE_MainActions"],_rusAction] call ace_interact_menu_fnc_addActionToClass;
 ["rhsgref_BRDM2_HQ_msv", 0, ["ACE_MainActions"],_rusAction] call ace_interact_menu_fnc_addActionToClass;
@@ -169,14 +170,14 @@ _selfRadioProgressCheck = ["TransmissionProgress", "Check Transmission Progress"
 
 // boat carrying
 _carryAssaultBoat = ["CarryBoatAction", "Carry Boat", "",
-  {0 = [_target] spawn GRAD_carryBoat_fnc_pickupBoat;},
+  {[_target] spawn GRAD_carryBoat_fnc_pickupBoat;},
   {(count (crew _target) == 0)}] call ace_interact_menu_fnc_createAction;
 
 ["B_Boat_Transport_01_F", 0, ["ACE_MainActions"],_carryAssaultBoat] call ace_interact_menu_fnc_addActionToClass;
 
 // boat picking from container
 _createAssaultBoat = ["CreateBoatAction", "Take Boat", "",
-  {0 = [_target] call GRAD_carryBoat_fnc_createBoat;},
+  {[_target] call GRAD_carryBoat_fnc_createBoat;},
   {(_target getVariable ["grad_carryBoatCargo", 0] > 0)}
 ] call ace_interact_menu_fnc_createAction;
 

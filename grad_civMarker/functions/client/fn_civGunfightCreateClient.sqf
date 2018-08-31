@@ -25,7 +25,7 @@ if (_distanceTown < _distanceVillage) then {
 
 
 
-sleep _delay/2;
+sleep (_delay/2);
 
 
 

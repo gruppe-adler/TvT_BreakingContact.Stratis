@@ -6,7 +6,7 @@
 waitUntil {!isNil "CIVILIAN_TRAFFIC"};
 
 if (CIVILIAN_TRAFFIC == 1) then {
-	0 = execVM "grad_civs\init.sqf";
+	execVM "grad_civs\init.sqf";
 };
 
 

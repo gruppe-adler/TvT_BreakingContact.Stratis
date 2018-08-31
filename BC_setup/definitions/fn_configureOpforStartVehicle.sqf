@@ -12,7 +12,7 @@ _vehicle addMPEventHandler ["MPKilled", {
 
 }];
 
-0 = [_vehicle, true] call BC_flagsOnVehicles_fnc_toggleFlag;
+[_vehicle, true] call BC_flagsOnVehicles_fnc_toggleFlag;
 
 sleep 1;
 [_vehicle] call BC_setup_fnc_clearInventory;
