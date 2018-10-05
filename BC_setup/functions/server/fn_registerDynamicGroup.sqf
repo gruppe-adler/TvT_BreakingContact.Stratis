@@ -1,3 +1,7 @@
+/*
+[this, 'Command'] call mission_helpers_fnc_registerDynamicGroup;
+*/
+
 params ["_unit", "_groupCallsign"];
 
 if (isServer) then {
