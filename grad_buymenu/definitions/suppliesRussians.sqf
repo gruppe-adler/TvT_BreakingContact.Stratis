@@ -80,6 +80,7 @@ _transportTruck = [
         [_veh] call GRAD_buymenu_fnc_clearInventory;
         _veh addItemCargoGlobal ["ItemGPS",1];
         ['AddCargoByClass', ['ACE_wheel', _this select 0, 2], _this select 0] call CBA_fnc_targetEvent;
+        _veh setVariable ["ace_vehiclelock_lockSide", east, true];
     },
     ['1 GPS'],
     0,
@@ -98,6 +99,7 @@ _brdm = [
         [_veh] call GRAD_buymenu_fnc_clearInventory;
         _veh addItemCargoGlobal ["ItemGPS",1];
         ['AddCargoByClass', ['ACE_wheel', _this select 0, 2], _this select 0] call CBA_fnc_targetEvent;
+        _veh setVariable ["ace_vehiclelock_lockSide", east, true];
     },
     ['1 GPS'],
     0,
@@ -118,6 +120,7 @@ _tigr = [
         [_veh] call GRAD_buymenu_fnc_clearInventory;
         _veh addItemCargoGlobal ["ItemGPS",1];
         ['AddCargoByClass', ['ACE_wheel', _this select 0, 2], _this select 0] call CBA_fnc_targetEvent;
+        _veh setVariable ["ace_vehiclelock_lockSide", east, true];
     },
     ['1 GPS'],
     0,
@@ -173,6 +176,8 @@ _ammotruck = [
         [_veh, "Land_Wreck_UAZ_F", 1] call grad_fortifications_fnc_addFort;
         [_veh, "rhs_Flag_DNR_F", 4] call grad_fortifications_fnc_addFort;
 
+        _veh setVariable ["ace_vehiclelock_lockSide", east, true];
+
     },
     ['1 GPS','1 Dshkm', 'Fortifications', 'Ammunition'],
     0,
@@ -192,6 +197,8 @@ _uaz = [
     [_veh] call GRAD_buymenu_fnc_clearInventory;    
     (_this select 0) addItemCargoGlobal ["ItemGPS",1];
     ['AddCargoByClass', ['ACE_wheel', _this select 0, 2], _this select 0] call CBA_fnc_targetEvent;
+    _veh setVariable ["ace_vehiclelock_lockSide", east, true];
+
     },
     ['1 GPS'],
     0,
@@ -216,6 +223,8 @@ _btr = [
 
     (_this select 0) addItemCargoGlobal ["rhs_tsh4",3];
     (_this select 0) addItemCargoGlobal ["ItemGPS",1];
+
+    (_this select 0) setVariable ["ace_vehiclelock_lockSide", east, true];
 
     call btr_code;
     },
@@ -242,6 +251,7 @@ _bmp = [
     (_this select 0) removeMagazinesTurret ["rhs_mag_og15v_20", [0]];
     call bmp_code;
     (_this select 0) addItemCargoGlobal ["rhs_tsh4",3];
+    (_this select 0) setVariable ["ace_vehiclelock_lockSide", east, true];
     },
     ['No HE ammunition.', 'Comes with 3 TSH-4 Caps.'],
     0,
@@ -266,6 +276,7 @@ _t72 = [
     (_this select 0) removeMagazinesTurret ["rhs_mag_3of26_5", [0]];
     call t72_code;
     (_this select 0) addItemCargoGlobal ["rhs_tsh4",3];
+    (_this select 0) setVariable ["ace_vehiclelock_lockSide", east, true];
     },
     ['No HE ammunition.', 'Comes with 3 TSH-4 Caps.'],
     0,
