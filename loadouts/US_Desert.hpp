@@ -10,7 +10,7 @@ class US_Desert {
           vest = "rhsusf_iotv_ocp_Squadleader";
           backpack = "rhsusf_assault_eagleaiii_coy";
           headgear = "rhsusf_mich_helmet_marpatd_headset";
-          radio = "tf_anprc148jem";
+          radio = "TFAR_anprc152";
      };
 
      class Type {

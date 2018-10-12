@@ -175,7 +175,7 @@ spawnBluforHQ = {
      _vehicle1 addItemCargoGlobal ["ACE_SpraypaintGreen",10];
      _vehicle1 addItemCargoGlobal ["ACE_SpraypaintRed",10];
      _vehicle1 addItemCargoGlobal ["ACE_EntrenchingTool",10];
-     _vehicle1 addItemCargoGlobal ["tf_anprc148jem", 10];
+     _vehicle1 addItemCargoGlobal ["TFAR_anprc152", 10];
      
      _vehicle1 addItemCargoGlobal ["ACE_NVG_Gen2",50];
      

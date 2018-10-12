@@ -22,7 +22,7 @@ class RU_Woodland: RU_Desert {
           };
           class Soldier_TL_F: Soldier_TL_F {
                vest = "rhs_6b23_digi_6sh92_radio";
-               backpack = "tf_mr3000_bwmod";
+               backpack = "TFAR_mr3000_rhs";
           };
           class Soldier_SL_F: Soldier_TL_F {
                vest = "rhs_6b23_6sh116";

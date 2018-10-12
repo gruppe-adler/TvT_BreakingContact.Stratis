@@ -52,7 +52,7 @@ class RU_Desert {
                primaryWeapon = "rhs_weap_akm_gp25";
                vest = "rhs_6b23_ML_6sh92_radio";
                addItemsToVest[] = {LIST_4("rhs_30Rnd_762x39mm"), LIST_3("rhs_30Rnd_762x39mm_tracer"), "SmokeShell"};
-               backpack = "tf_mr3000_bwmod_tropen";
+               backpack = "TFAR_mr3000_multicam";
                addItemsToBackpack[] = {LIST_2("rhs_mag_rgd5"), LIST_4("rhs_GRD40_White"), LIST_2("rhs_GRD40_Green"), LIST_2("rhs_GRD40_Red"), LIST_3("rhs_VG40OP_green"), LIST_2("rhs_VG40OP_white")};
                gps = "ItemGPS";
           };
