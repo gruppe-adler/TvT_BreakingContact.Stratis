@@ -51,6 +51,17 @@ class CfgIslands {
         };
     };
 
+    class Anizay {
+        displayName = "Anizay";
+        type = "middle eastern";
+        isWoodland = false;
+        spawnPosBlu[] = {8580.41,6290.2,0};
+        spawnPosOpf[] = {8581.45,7719.97,0};
+        previewCamPos[] = {8580.41,6290.2,0};
+        previewCamTarget[] = {8581.45,7719.97,0};
+        locationBlacklist[] = {};
+    };
+
     class Beketov {
         displayName = "Beketov";
         type = "russian";
