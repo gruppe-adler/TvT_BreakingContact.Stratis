@@ -1,4 +1,3 @@
-[![Build Status](https://travis-ci.org/gruppe-adler/TvT_BreakingContact.Stratis.svg)](https://travis-ci.org/gruppe-adler/TvT_BreakingContact.Stratis)
 [![Issues](https://img.shields.io/github/issues/gruppe-adler/TvT_BreakingContact.Stratis.svg)](https://github.com/gruppe-adler/TvT_BreakingContact.Stratis/issues)
 
 # Breaking Contact
