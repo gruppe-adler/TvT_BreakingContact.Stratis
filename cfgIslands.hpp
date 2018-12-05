@@ -51,7 +51,7 @@ class CfgIslands {
         };
     };
 
-    class Anizay {
+    class tem_anizay {
         displayName = "Anizay";
         type = "middle eastern";
         isWoodland = false;
