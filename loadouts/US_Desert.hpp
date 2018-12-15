@@ -30,9 +30,9 @@ class US_Desert {
           class Soldier_AT_F {
                secondaryWeapon = "rhs_weap_M136_hedp";
                vest = "rhsusf_iotv_ocp_Repair";
-               addItemsToVest[] = {LIST_5("rhs_mag_30Rnd_556x45_M855A1_Stanag"), LIST_6("rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Yellow"), LIST_2("SmokeShell"), LIST_2("SmokeShellRed")};
+               addItemsToVest[] = {LIST_5("rhs_mag_30Rnd_556x45_M855A1_Stanag"), LIST_2("rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Yellow"), LIST_2("SmokeShell"), LIST_2("SmokeShellRed")};
                backpack = "B_Carryall_khk";
-               addItemsToBackpack[] = {LIST_3("rhs_mag_30Rnd_556x45_M855A1_Stanag"), LIST_3("rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Yellow")};
+               addItemsToBackpack[] = {LIST_3("rhs_mag_30Rnd_556x45_M855A1_Stanag"), LIST_1("rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Yellow")};
           };
           class Soldier_A_F {
                primaryWeaponOptics = "rhsusf_acc_eotech_xps3";

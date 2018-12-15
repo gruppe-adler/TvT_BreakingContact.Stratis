@@ -9,8 +9,8 @@
 
 #include "node_modules\grad-fortifications\grad_fortifications.hpp"
 #include "node_modules\grad-customGear\saveDialog\dialog.hpp"
-#include "node_modules\@gruppe-adler\replay\ui\defines.hpp"
-#include "node_modules\@gruppe-adler\replay\ui\dialog.hpp"
+#include "grad-replay\ui\defines.hpp"
+#include "grad-replay\ui\dialog.hpp"
 
 class CfgFunctions {
      #include "grad_carryBoat\cfgFunctions.hpp"
@@ -22,7 +22,7 @@ class CfgFunctions {
      #include "grad_tracking\cfgFunctions.hpp"
      #include "grad_emptycars\cfgFunctions.hpp"
      #include "BC_objectives\cfgFunctions.hpp"
-     #include "node_modules\@gruppe-adler\replay\cfgFunctions.hpp"
+     #include "grad-replay\cfgFunctions.hpp"
      #include "node_modules\grad-customGear\cfgFunctions.hpp"
 };
 
@@ -122,7 +122,7 @@ class Params
           title = "Length of sending time";
           values[] = {30, 300, 600, 900, 1320, 1800, 2700, 3600, 4500, 5400, 6300};
           texts[] = {"30s (DEBUG)", "5'","10' (recommended for 3 radio positions)", "15'", "22' (recommended for 2 radio positions)", "30'", "45' (recommended for 1 radio position)", "1h'", "1h15'","1h30'","1h45'"};
-          default = 1320;
+          default = 1800;
      };
 
      class GRAD_INTERVALS_NEEDED
@@ -146,7 +146,7 @@ class Params
           title = "InGame Replay Accuracy";
           values[] = {1,2,3,4,5};
           texts[] = {"every 1s","every 2s","every 3s","every 4s","every 5s"};
-          default = 3;
+          default = 5;
      };
 
      class AR3PLAY_ENABLE_REPLAY
@@ -210,7 +210,7 @@ class Params
           title = "Preparation time";
           values[] = {0,60,120,180,240,300,480,600,900};
           texts[] = {"off","1min","2min","3min","4min","5min","8min","10min","15min"};
-          default = 300;
+          default = 480;
      };
 };
 
@@ -360,6 +360,7 @@ class Loadouts {
 
      resetLoadout = 1;
      handleRadios = 1;
+     perPlayerDelay = 2;
 
      class AllUnits {
           binoculars = "Binocular";
