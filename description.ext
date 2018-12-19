@@ -18,7 +18,6 @@ class CfgFunctions {
     #include "grad_islands\cfgFunctions.hpp"
     #include "grad_buymenu\cfgFunctions.hpp"
     #include "grad_civMarker\cfgFunctions.hpp"
-    #include "grad_civs\cfgFunctions.hpp"
     #include "grad_tracking\cfgFunctions.hpp"
     #include "grad_emptycars\cfgFunctions.hpp"
     #include "BC_flagsOnVehicles\cfgFunctions.hpp"

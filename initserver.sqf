@@ -64,9 +64,7 @@ CIVILIAN_TRAFFIC = ["CIVILIAN_TRAFFIC", 999999] call BIS_fnc_getParamValue;
 publicVariable "CIVILIAN_TRAFFIC"; // clients need to know this
 
 
-if (CIVILIAN_TRAFFIC == 1) then {
-	execVM "grad_civs\init.sqf";
-};
+// todo activate grad civs
 
 CONQUER_MODE = (["CONQUER_MODE", 1] call BIS_fnc_getParamValue) == 0;
 publicVariable "CONQUER_MODE";

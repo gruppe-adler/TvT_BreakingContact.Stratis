@@ -5,9 +5,7 @@
 
 waitUntil {!isNil "CIVILIAN_TRAFFIC"};
 
-if (CIVILIAN_TRAFFIC == 1) then {
-	execVM "grad_civs\init.sqf";
-};
+// todo activate grad civs
 
 
 player addEventHandler ["handleRating", {
