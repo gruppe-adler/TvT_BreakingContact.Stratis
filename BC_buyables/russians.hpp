@@ -1,7 +1,3 @@
-vehicleMarkers = 1;
-tracking = 1;
-trackingTag = "myMission";
-
 //a different set of buyables
 class RussianStuff {        
     class Vehicles {
