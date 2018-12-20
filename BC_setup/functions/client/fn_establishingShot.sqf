@@ -464,9 +464,10 @@ if (isNil "BIS_fnc_establishingShot_skip") then {
 					/* waitUntil {scriptDone BIS_fnc_establishingShot_SITREP || !(isNil "BIS_fnc_establishingShot_skip")};*/
 						
 					if (playerSide == east) then {
-					cutRsc ["gui_opfor_pleasewait","PLAIN",0];
+						 100 cutRsc ["gui_opfor_pleasewait", "PLAIN",0];
+					
 					} else {
-					cutRsc ["gui_blufor_pleasewait","PLAIN",0];
+						("BIS_layerEstShot" call BIS_fnc_rscLayer) cutRsc ["gui_blufor_pleasewait","PLAIN",0];
 					};
 
 					private ["_time"];
