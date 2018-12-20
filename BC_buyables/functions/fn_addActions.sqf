@@ -20,7 +20,7 @@ if (hasInterface) then {
             _cone,
             "Vehicle Supply",
             "Buy Vehicles",
-            {side player == WEST}
+            {side player == EAST}
             ] call grad_lbm_fnc_addInteraction;
         };
 

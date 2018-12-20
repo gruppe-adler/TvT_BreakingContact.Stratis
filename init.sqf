@@ -7,7 +7,6 @@ enableDynamicSimulationSystem true;
 
 // optimize for PVP
 disableRemoteSensors true; // disable ai combat ability
-setViewDistance 3500;
 
 if (BC_IS_WOODLAND) then {
 // us vs russians
@@ -18,7 +17,7 @@ if (BC_IS_WOODLAND) then {
 	["OPF_F", "RU_Desert"] call GRAD_Loadout_fnc_FactionSetLoadout;
 };
 
-call compile preprocessfile "loadouts\setLoadoutRandomization.sqf";
+call compile preprocessfile "BC_loadouts\setLoadoutRandomization.sqf";
 
 
 waitUntil {!isNil "JIP_TIME_ALLOWED"};

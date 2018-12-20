@@ -134,6 +134,20 @@ class Params
         default = 500;
     };
 
+    class FACTION_OPFOR {
+        title = "Faction OPFOR";
+        values[] = {0};
+        texts[] =  {"Russia"};
+        default = 0;
+    };
+
+    class FACTION_BLUFOR {
+        title = "Faction BLUFOR";
+        values[] = {0};
+        texts[] =  {"USA"};
+        default = 0;
+    };
+
     class GRAD_TICKS_NEEDED
     {
         title = "Length of sending time";
@@ -144,7 +158,7 @@ class Params
 
     class GRAD_INTERVALS_NEEDED
     {
-        title = "Number of random places opfor needs to come closer than 1000m";
+        title = "Number of random places opfor needs to transmit at";
         values[] = {1, 2, 3, 4, 5, 6};
         texts[] = {"none","2","3","4","5","6"};
         default = 2;
@@ -166,24 +180,6 @@ class Params
         default = 3;
     };
 
-    class AR3PLAY_ENABLE_REPLAY
-    {
-        title = "enable replay";
-        values[] = {false, true};
-        texts[] = {"no", "yes"};
-        default = true;
-        isGlobal = 0;
-    };
-
-    class AR3PLAY_IS_STREAMABLE
-    {
-        title = "enable live stream (needs 'enable replay')";
-        values[] = {false, true};
-        texts[] = {"no","yes"};
-        default = 0;
-        isGlobal = 0;
-    };
-
     class DEBUG_MODE
     {
         title = "Enable Debug Log";
@@ -201,12 +197,11 @@ class Params
     };
 
     class CIVILIAN_TRAFFIC {
-        title = "Civilian Traffic (supports RDS CIV and LOPs afghan militia)";
+        title = "Civilian Traffic (supports RDS CIV)";
         values[] = {0, 1};
         texts[] =  {"False", "True"};
         default = 0;
     };
-
 
     class CONQUER_MODE {
         title = "Win Condition";
@@ -215,10 +210,10 @@ class Params
         default = 0;
     };
 
-    class ace_map_BFT_Enabled { //This ia a "BOOL"
-        title = "Bluforce-Tracking active"; //You can use ACE's stringtables
+    class ace_map_BFT_Enabled { 
+        title = "Bluforce-Tracking active";
         ACE_setting = 1;
-        values[] = {0, 1}; //setting is a BOOL, but values still need to be numbers, so 0 is false, 1 is true
+        values[] = {0, 1};
         texts[] =  {"False", "True"};
         default = 1;     
     };
@@ -227,21 +222,6 @@ class Params
         values[] = {0,60,120,180,240,300,480,600,900};      
         texts[] = {"off","1min","2min","3min","4min","5min","8min","10min","15min"};        
         default = 300;     
-    };
-};
-
-class ACE_Settings {
-    class ace_map_BFT_Interval {
-    value = 1;
-    typeName = "SCALAR";
-    };
-class ace_map_BFT_Enabled {
-    value = 0;
-    typeName = "BOOL";
-    };
-class ace_map_BFT_HideAiGroups {
-    value = 0;
-    typeName = "BOOL";
     };
 };
 
@@ -384,10 +364,10 @@ class Loadouts {
         watch = "ItemWatch";
     };
     class Faction {
-        #include "loadouts\US_Desert.hpp"
-        #include "loadouts\US_Woodland.hpp"
-        #include "loadouts\RU_Desert.hpp"
-        #include "loadouts\RU_Woodland.hpp"
+        #include "BC_loadouts\US_Desert.hpp"
+        #include "BC_loadouts\US_Woodland.hpp"
+        #include "BC_loadouts\RU_Desert.hpp"
+        #include "BC_loadouts\RU_Woodland.hpp"
     };
 };
 

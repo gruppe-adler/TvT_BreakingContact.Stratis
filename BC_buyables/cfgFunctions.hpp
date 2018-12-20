@@ -4,7 +4,7 @@ class BC_buyables {
         file = BC_buyables\functions;
 
         class addActions { preInit = 1; };
-        class init;
+        class init { preInit = 1; };
         class setPlayerPotentToBuy;
     };
 };
