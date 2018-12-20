@@ -4,46 +4,23 @@ class RussianStuff {
         displayName = "Vehicles";
         kindOf = "Vehicles";
 
-        class rhsgref_nat_ural {
+        class RHS_Ural_MSV_01 {
             displayName = "Ural";
             description = "The workhorse of your army.";
             price = 10;
             stock = 7;
-            code = "
-                private _vehicle = (_this select 2);
-                _vehicle addItemCargoGlobal ['ItemGPS',1];
-                ['AddCargoByClass', ['ACE_wheel', _vehicle, 2], _vehicle] call CBA_fnc_targetEvent;
-                ";
+            code = "";
             spawnEmpty = true;
             condition = "!BC_IS_WOODLAND";
+            vehicleInit = "[['standard',1], ['light_hide',1]]";
         };
 
-        class rhsgref_nat_ural {
-            displayName = "Ural";
-            description = "The workhorse of your army.";
-            price = 10;
-            stock = 7;
-            code = "
-                private _vehicle = (_this select 2);
-                _vehicle addItemCargoGlobal ['ItemGPS',1];
-                ['AddCargoByClass', ['ACE_wheel', _vehicle, 2], _vehicle] call CBA_fnc_targetEvent;
-                ";
-            spawnEmpty = true;
+        class RHS_Ural_VV_01: RHS_Ural_MSV_01 {
             condition = "BC_IS_WOODLAND";
+            vehicleInit = "[['rhs_sand',1], ['light_hide',1]]";
         };
 
-        class rhsgref_BRDM2_HQ_b {
-            displayName = "BRDM PKT";
-            description = "A decent armored allround vehicle.";
-            price = 10;
-            stock = 7;
-            code = "
-                private _vehicle = (_this select 2);
-                _vehicle addItemCargoGlobal ['ItemGPS',1];
-                ['AddCargoByClass', ['ACE_wheel', _vehicle, 2], _vehicle] call CBA_fnc_targetEvent;
-                ";
-            spawnEmpty = true;
-            condition = "!BC_IS_WOODLAND";
-        };
+
+        
     };
 };
