@@ -6,7 +6,7 @@ _result = [1,0];
 
 grad_tracking_currentLoop = 0;
 
-/* waitUntil { (count (missionNamespace getVariable ["GRAD_tracking_radioPositions", []])) > 0 }; */
+
 
 GRAD_tracking_mainLoop = [{
 
@@ -214,9 +214,9 @@ GRAD_tracking_mainLoop = [{
         if (_locationsCreated) then {
             [
                 _currentLocationName, 
-                "ColorGreen", 
+                "ColorGreen",
                 " DONE"
-            ] remoteExec ["GRAD_tracking_fnc_setMarkerColorAndText", east, false];        
+            ] remoteExec ["GRAD_tracking_fnc_setMarkerColorAndText", east, true];        
         };
 
         GRAD_TICKS_DONE = 0;
