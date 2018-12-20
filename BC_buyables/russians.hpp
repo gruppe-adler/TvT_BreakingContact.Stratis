@@ -4,27 +4,46 @@ class RussianStuff {
         displayName = "Vehicles";
         kindOf = "Vehicles";
 
-        class C_Hatchback_01_sport_F {
-            displayName = "Hatchback (Sport)";
-            description = "This thing is quick";
-            price = 4000;
-            stock = 10;
-            picture = "myPictureFolder\sportscar.paa";  //this item uses a custom picture
-            code = "(_this select 2) setFuel 0.5";  //this car will spawn with half a tank of gas                
+        class rhsgref_nat_ural {
+            displayName = "Ural";
+            description = "The workhorse of your army.";
+            price = 10;
+            stock = 7;
+            code = "
+                private _vehicle = (_this select 2);
+                _vehicle addItemCargoGlobal ['ItemGPS',1];
+                ['AddCargoByClass', ['ACE_wheel', _vehicle, 2], _vehicle] call CBA_fnc_targetEvent;
+                ";
             spawnEmpty = true;
+            condition = "!BC_IS_WOODLAND";
         };
-    };
 
-    class Items {
-        displayName = "Items";
-        kindOf = "Items";
+        class rhsgref_nat_ural {
+            displayName = "Ural";
+            description = "The workhorse of your army.";
+            price = 10;
+            stock = 7;
+            code = "
+                private _vehicle = (_this select 2);
+                _vehicle addItemCargoGlobal ['ItemGPS',1];
+                ['AddCargoByClass', ['ACE_wheel', _vehicle, 2], _vehicle] call CBA_fnc_targetEvent;
+                ";
+            spawnEmpty = true;
+            condition = "BC_IS_WOODLAND";
+        };
 
-        class ACE_fieldDressing {
-            displayName = "Bandages (x10)";
-            description = "10 simple bandages in sterile packaging.";
-            amount = 10;
-            price = 100;
-            stock = 40;     //note that a total of 400 bandages can be bought (in sets of 10)
+        class rhsgref_BRDM2_HQ_b {
+            displayName = "BRDM PKT";
+            description = "A decent armored allround vehicle.";
+            price = 10;
+            stock = 7;
+            code = "
+                private _vehicle = (_this select 2);
+                _vehicle addItemCargoGlobal ['ItemGPS',1];
+                ['AddCargoByClass', ['ACE_wheel', _vehicle, 2], _vehicle] call CBA_fnc_targetEvent;
+                ";
+            spawnEmpty = true;
+            condition = "!BC_IS_WOODLAND";
         };
     };
 };
