@@ -3,8 +3,6 @@
 
 enableDynamicSimulationSystem true;
 
-[] execVM "grad_buymenu\buymenu_init.sqf";
-
 // optimize for PVP
 disableRemoteSensors true; // disable ai combat ability
 

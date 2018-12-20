@@ -34,25 +34,6 @@ _removeSpawn = ["ACE_MainActions", (localize "str_GRAD_buy_disable"), "",
 
 
 
-// BUY
-
-_usAction = ["ACE_MainActions", (localize "str_GRAD_buy_vehicles"), "",
- {execVM "grad_buymenu\openMenu.sqf";},
-  {(side player == west)}] call ace_interact_menu_fnc_createAction;
-
-["rhsusf_m998_w_4dr", 0, ["ACE_MainActions"], _usAction] call ace_interact_menu_fnc_addActionToClass;
-["rhsusf_m998_d_4dr", 0, ["ACE_MainActions"], _usAction] call ace_interact_menu_fnc_addActionToClass;
-["LOP_AM_Landrover_M2", 0, ["ACE_MainActions"],_usAction] call ace_interact_menu_fnc_addActionToClass;
-
-_rusAction = ["RusBuyMenu", (localize "str_GRAD_buy_vehicles"), "",
-{execVM "grad_buymenu\openMenu.sqf";},
-  {(side player == east)}] call ace_interact_menu_fnc_createAction;
-["rhs_gaz66_r142_vv", 0, ["ACE_MainActions"],_rusAction] call ace_interact_menu_fnc_addActionToClass;
-["rhsgref_BRDM2_HQ_msv", 0, ["ACE_MainActions"],_rusAction] call ace_interact_menu_fnc_addActionToClass;
-
-
-
-
 // SOVIET MODE SELF RADIO
 
 _selfRadioStart = ["ACE_SelfActions", "Start calling US agents", "",

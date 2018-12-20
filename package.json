@@ -4,7 +4,6 @@
   "version": "0.0.3",
   "dependencies": {
     "@gruppe-adler/replay": "^1.2.0",
-    "grad-customGear": "^2.0.0",
     "grad-fortifications": "^0.3.6",
     "grad-listbuymenu": "^0.7.1",
     "grad-loadout": "^4.10.2",

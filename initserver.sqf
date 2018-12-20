@@ -4,7 +4,7 @@
 call compile preprocessfile "node_modules\shk_pos\functions\shk_pos_init.sqf"; // absolute basic!
 
 [] call BC_setup_fnc_initialSpawnServer;
-[] call GRAD_emptyCars_fnc_init;
+
 
 DEBUG_MODE = false;
 if ((["DEBUG_MODE", 0] call BIS_fnc_getParamValue) == 1 || !isMultiplayer) then {
@@ -25,7 +25,7 @@ addMissionEventHandler ["HandleDisconnect",{
     if (_unit getVariable ["BC_potentToBuy", false]) then {
         private _potentToBuy = [side _unit, _unit] call BC_setup_fnc_getHighestRankOfSide;
         _potentToBuy setVariable ["BC_potentToBuy", true, true];
-        [] remoteExec ["GRAD_buymenu_fnc_setPlayerPotentToBuy", _potentToBuy];
+        [] remoteExec ["GRAD_buyables_fnc_setPlayerPotentToBuy", _potentToBuy];
     };
     if (_unit getVariable ["GRAD_loadout_applicationCount",0] < 1) then {
         deleteVehicle _unit;
@@ -255,6 +255,9 @@ _spawnSelector setVariable ["BC_spawnSelector", true];
 [] remoteExec ["BC_setup_fnc_openSpawnDialog", _spawnSelector];
 
 [] spawn {
+    waitUntil {
+      BLUFOR_TELEPORT_TARGET select 0 != 0
+    };
 	{
   		if (!isPlayer _x) then {
   			sleep 0.5;

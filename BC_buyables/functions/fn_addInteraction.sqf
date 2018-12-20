@@ -1,6 +1,8 @@
+if (!hasInterface) exitWith {};
 
-if (hasInterface) then {
-    ["startVehicle", { 
+diag_log "added CBA eh";
+
+["startVehicle", { 
 
         params ["_startVehicle", "_cone", "_side"];
 
@@ -8,21 +10,24 @@ if (hasInterface) then {
             [_startVehicle,
             "AmericanStuff",
             _startVehicle,
-            _cone,
+            getPos _cone,
             "Vehicle Supply",
             "Buy Vehicles",
             {side player == WEST}
             ] call grad_lbm_fnc_addInteraction;
+
+            diag_log "added CBA lbm addInteraction";
         } else {
             [_startVehicle,
             "RussianStuff",
             _startVehicle,
-            _cone,
+            getPos _cone,
             "Vehicle Supply",
             "Buy Vehicles",
             {side player == EAST}
             ] call grad_lbm_fnc_addInteraction;
+
+            diag_log "added CBA lbm addInteraction";
         };
 
     }] call CBA_fnc_addEventHandler;
-};
