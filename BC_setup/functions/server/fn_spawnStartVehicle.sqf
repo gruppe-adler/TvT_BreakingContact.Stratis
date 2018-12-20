@@ -27,6 +27,8 @@ if (_side isEqualTo west) then {
       US_SPAWN_PAD = _startCone;
       publicVariable "US_SPAWN_PAD";
 
+      ["startVehicle",[_startVehicle, _startCone, west]] call CBA_fnc_globalEvent;
+
       private _string = format ["BC_spawnPos_%1", west];
       private _pos = getPos _startVehicle;
       missionNamespace setVariable [_string, _pos, true];
@@ -56,6 +58,8 @@ if (_side isEqualTo west) then {
 
       RUS_SPAWN_PAD = _startCone;
       publicVariable "RUS_SPAWN_PAD";
+
+      ["startVehicle",[_startVehicle, _startCone, east]] call CBA_fnc_globalEvent;
 
       private _string = format ["BC_spawnPos_%1", east];
       private _pos = getPos RUS_SPAWN_PAD;

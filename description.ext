@@ -44,6 +44,15 @@ class CfgNotifications {
     #include "node_modules\grad-customGear\cfgNotifications.hpp"
 };
 
+class CfgGradBuymenu {
+    vehicleMarkers = 1;
+    tracking = 1;
+    trackingTag = "myMission";
+
+    #include "BC_buyables\americans.hpp"
+    #include "BC_buyables\russians.hpp"
+};
+
 OnLoadMission = "A mobile radio station is trying to get a message sent - their adversaries try to stop them from completing the broadcast";
 author = "Fusselwurm, McDiod & Nomisum for Gruppe Adler";  //appears as author in overview and loading screen
 overviewText = "US vs. Russians"; //appears in overview and loading screen
