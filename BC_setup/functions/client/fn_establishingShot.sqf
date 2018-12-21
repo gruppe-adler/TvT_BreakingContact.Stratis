@@ -464,10 +464,10 @@ if (isNil "BIS_fnc_establishingShot_skip") then {
 					/* waitUntil {scriptDone BIS_fnc_establishingShot_SITREP || !(isNil "BIS_fnc_establishingShot_skip")};*/
 						
 					if (playerSide == east) then {
-						 100 cutRsc ["gui_opfor_pleasewait", "PLAIN",0];
+						100 cutRsc ["gui_opfor_pleasewait", "PLAIN",0];
 					
 					} else {
-						("BIS_layerEstShot" call BIS_fnc_rscLayer) cutRsc ["gui_blufor_pleasewait","PLAIN",0];
+						100 cutRsc ["gui_blufor_pleasewait","PLAIN",0];
 					};
 
 					private ["_time"];
@@ -495,6 +495,8 @@ if (_mode == 0) then {
 
 	// Static fade-out
 	2 fadeSound 0;
+
+	100 cutFadeOut 2;
 
 	("BIS_layerStatic" call BIS_fnc_rscLayer) cutRsc ["RscStatic", "PLAIN"];
 	waitUntil {!(isNull (uiNamespace getVariable "RscStatic_display"))};

@@ -8,7 +8,7 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=937;
+		nextID=951;
 	};
 	class MarkerIDProvider
 	{
@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={1781.9084,17.407801,5919.478};
-		dir[]={-0.52311045,-0.51596028,0.67848021};
-		up[]={-0.31512818,0.85651177,0.40872467};
-		aside[]={0.79201156,9.1321999e-007,0.61064857};
+		pos[]={1776.6168,13.859867,5933.4341};
+		dir[]={-0.58626926,-0.48050836,0.65240359};
+		up[]={-0.32128257,0.87686539,0.35752872};
+		aside[]={0.7438696,2.2582244e-006,0.66846806};
 	};
 };
 binarizationWanted=0;
@@ -43,8 +43,8 @@ addons[]=
 	"rhs_c_trucks",
 	"rhsusf_c_melb",
 	"rhsusf_c_Cougar",
-	"rhs_c_t72",
-	"rhs_c_bmp"
+	"rhs_c_bmp",
+	"rhs_c_tanks"
 };
 class AddonsMetaData
 {
@@ -175,15 +175,15 @@ class AddonsMetaData
 		};
 		class Item18
 		{
-			className="rhs_c_t72";
-			name="T-72 Series Tanks";
+			className="rhs_c_bmp";
+			name="BMP-1 & 2 IFV";
 			author="Red Hammer Studios";
 			url="http://www.rhsmods.org/";
 		};
 		class Item19
 		{
-			className="rhs_c_bmp";
-			name="BMP-1 & 2 IFV";
+			className="rhs_c_tanks";
+			name="T-80 Series Tanks";
 			author="Red Hammer Studios";
 			url="http://www.rhsmods.org/";
 		};
@@ -9196,7 +9196,7 @@ class Mission
 			dataType="Comment";
 			class PositionInfo
 			{
-				position[]={1780.9922,5.5,5957.9941};
+				position[]={1787.8921,5.5,5956.5};
 			};
 			title="LOGISTICS - Symbolischer Preis, nicht limitiert";
 			id=774;
@@ -9206,7 +9206,7 @@ class Mission
 			dataType="Comment";
 			class PositionInfo
 			{
-				position[]={1783.6532,5.5,5945.2476};
+				position[]={1787.423,5.5,5935.4053};
 			};
 			title="SUPPORT - two of three - > 40 Spieler";
 			id=775;
@@ -9216,7 +9216,7 @@ class Mission
 			dataType="Comment";
 			class PositionInfo
 			{
-				position[]={1768.4913,5.5,5948.6274};
+				position[]={1762.7795,5.5,5950.3052};
 			};
 			title="RECON - two of three - > 20 Spieler";
 			id=776;
@@ -9226,7 +9226,7 @@ class Mission
 			dataType="Comment";
 			class PositionInfo
 			{
-				position[]={1775.1595,5.5,5937.3188};
+				position[]={1772.287,5.5,5925.6626};
 			};
 			title="ARMOR - one of two - > 60 Spieler";
 			id=777;
@@ -9254,7 +9254,7 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={1761.0654,8.173564,5837.9546};
+				position[]={1762.3619,8.173564,5836.8188};
 				angles[]={-0,0.22886969,0};
 			};
 			side="Empty";
@@ -9312,7 +9312,7 @@ class Mission
 			dataType="Comment";
 			class PositionInfo
 			{
-				position[]={1737.954,5.5,5847.7759};
+				position[]={1739.4951,5.5,5850.2681};
 			};
 			title="RECON - two of three - > 20 Spieler";
 			id=784;
@@ -9332,7 +9332,7 @@ class Mission
 			dataType="Comment";
 			class PositionInfo
 			{
-				position[]={1745.4084,5.5,5824.6001};
+				position[]={1744.7516,5.5,5823.6479};
 			};
 			title="LOGISTICS - Symbolischer Preis, nicht limitiert";
 			id=786;
@@ -9358,7 +9358,7 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={1765.8105,7.5487332,5945.0176};
+				position[]={1764.522,7.5487332,5945.1309};
 				angles[]={-0,3.417501,0};
 			};
 			side="Empty";
@@ -9547,7 +9547,7 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={1786.92,7.8361897,5940.1128};
+				position[]={1787.1929,7.8361897,5939.7583};
 				angles[]={-0,3.4121358,0};
 			};
 			side="Empty";
@@ -9579,7 +9579,7 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={1764.9779,8.1740847,5836.6343};
+				position[]={1768.6711,8.1740847,5835.813};
 				angles[]={-0,0.19310327,0};
 			};
 			side="Empty";
@@ -9595,7 +9595,7 @@ class Mission
 			dataType="Comment";
 			class PositionInfo
 			{
-				position[]={1766.3682,5.5,5839.8438};
+				position[]={1768.3362,5.5,5840.2876};
 			};
 			title="ammo + boats";
 			id=901;
@@ -9605,7 +9605,7 @@ class Mission
 			dataType="Comment";
 			class PositionInfo
 			{
-				position[]={1762.255,5.5,5841.0688};
+				position[]={1763.9753,5.5,5839.418};
 			};
 			title="m2 m113";
 			id=902;
@@ -9635,7 +9635,7 @@ class Mission
 			dataType="Comment";
 			class PositionInfo
 			{
-				position[]={1737.1689,5.5,5846.291};
+				position[]={1735.0618,5.5,5838.9248};
 			};
 			title="mrap 6p";
 			id=905;
@@ -9665,7 +9665,7 @@ class Mission
 			dataType="Comment";
 			class PositionInfo
 			{
-				position[]={1732.3679,5.5,5847.7158};
+				position[]={1733.2639,5.5,5847.5664};
 			};
 			title="oh-6m recon";
 			id=909;
@@ -9675,7 +9675,7 @@ class Mission
 			dataType="Comment";
 			class PositionInfo
 			{
-				position[]={1777.718,5.5,5942.707};
+				position[]={1772.8835,5.5,5940.0234};
 			};
 			title="ammo + fortifications";
 			id=910;
@@ -9685,7 +9685,7 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={1757.5913,8.2330093,5838.9243};
+				position[]={1756.0798,8.2330093,5839.7144};
 				angles[]={-0,0.23960602,0};
 			};
 			side="Empty";
@@ -9702,7 +9702,7 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={1729.8661,7.4401751,5844.104};
+				position[]={1728.9795,7.4401751,5844.2661};
 				angles[]={-0,0.23818384,0};
 			};
 			side="Empty";
@@ -9917,7 +9917,7 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={1736.1525,8.3721609,5843.4155};
+				position[]={1735.9099,8.3721609,5843.8545};
 				angles[]={-0,0.26058573,0};
 			};
 			side="Empty";
@@ -9929,22 +9929,6 @@ class Mission
 			type="rhsusf_CGRCAT1A2_usmc_wd";
 		};
 		class Item79
-		{
-			dataType="Object";
-			class PositionInfo
-			{
-				position[]={1767.8301,7.5709114,5929.998};
-				angles[]={-0,3.4476547,0};
-			};
-			side="Empty";
-			flags=4;
-			class Attributes
-			{
-			};
-			id=929;
-			type="rhs_t72bd_tv";
-		};
-		class Item80
 		{
 			dataType="Object";
 			class PositionInfo
@@ -10212,6 +10196,292 @@ class Mission
 				{
 					property="crate_r1_unhide";
 					expression="[_this,_value,'crate_r1_unhide'] call rhs_fnc_setHabarEden";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=1;
+						};
+					};
+				};
+				nAttributes=14;
+			};
+		};
+		class Item80
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={1767.83,7.1591787,5929.998};
+				angles[]={0,3.4476535,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=938;
+			type="rhs_t80bvk";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="rhs_decalNumber_type";
+					expression="_this setVariable ['rhs_decalNumber_type', _value];[_this,[['Number', cRHST80NumberPlaces, _value]]] call rhs_fnc_decalsInit";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="Default";
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="rhs_decalHonor";
+					expression="if(parseNumber _value >= 0)then{ [_this, [ [ 'Label', cRHST80HnrSymPlaces,  _this getVariable ['rhs_decalHonor_type','Honor'],call compile _value] ] ] call rhs_fnc_decalsInit};";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="-1";
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="rhs_ammoslot_1_type";
+					expression="_this setVariable ['rhs_ammoslot_1_type', _value];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="rhs_mag_3bm46_10";
+						};
+					};
+				};
+				class Attribute3
+				{
+					property="rhs_ammoslot_2_type";
+					expression="_this setVariable ['rhs_ammoslot_2_type', _value];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="rhs_mag_3bk31_8";
+						};
+					};
+				};
+				class Attribute4
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="[[[[""FirstAidKit"",""Medikit""],[10,1]],[[""rhs_30Rnd_545x39_7N10_AK"",""rhs_mag_rgd5"",""rhs_mag_nspn_red""],[10,10,10]],[[""ToolKit""],[1]],[[],[]]],false]";
+						};
+					};
+				};
+				class Attribute5
+				{
+					property="rhs_ammoslot_3_type";
+					expression="_this setVariable ['rhs_ammoslot_3_type', _value];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="rhs_mag_3of26_6";
+						};
+					};
+				};
+				class Attribute6
+				{
+					property="sideskirt_unhide";
+					expression="[_this,_value,'sideskirt_unhide'] call rhs_fnc_setHabarEden";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=1;
+						};
+					};
+				};
+				class Attribute7
+				{
+					property="rhs_decalArmy_type";
+					expression="_this setVariable ['rhs_decalArmy_type', _value];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="Army";
+						};
+					};
+				};
+				class Attribute8
+				{
+					property="rhs_decalArmy";
+					expression="if(parseNumber _value >= 0)then{ [_this, [ [ 'Label', cRHST80ArmSymPlaces,  _this getVariable ['rhs_decalArmy_type','Army'],call compile _value] ] ] call rhs_fnc_decalsInit};";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="-1";
+						};
+					};
+				};
+				class Attribute9
+				{
+					property="rhs_searchlight";
+					expression="[_this,_value] call rhs_fnc_t80_searchlightTexture ";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=0;
+						};
+					};
+				};
+				class Attribute10
+				{
+					property="fbskirt_unhide";
+					expression="[_this,_value,'fbskirt_unhide'] call rhs_fnc_setHabarEden";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=0;
+						};
+					};
+				};
+				class Attribute11
+				{
+					property="log_unhide";
+					expression="[_this,_value,'log_unhide'] call rhs_fnc_setHabarEden";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=1;
+						};
+					};
+				};
+				class Attribute12
+				{
+					property="rhs_decalHonor_type";
+					expression="_this setVariable ['rhs_decalHonor_type', _value];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="Honor";
+						};
+					};
+				};
+				class Attribute13
+				{
+					property="ftskirt_unhide";
+					expression="[_this,_value,'ftskirt_unhide'] call rhs_fnc_setHabarEden";
 					class Value
 					{
 						class data

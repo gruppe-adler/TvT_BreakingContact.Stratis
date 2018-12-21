@@ -12,6 +12,8 @@
 #include "node_modules\grad-listBuymenu\grad_listBuymenu.hpp"
 
 class CfgFunctions {     
+    #include "BC_buymenu\cfgFunctions.hpp"
+
     #include "grad_carryBoat\cfgFunctions.hpp"
     #include "grad_islands\cfgFunctions.hpp"
     #include "grad_civMarker\cfgFunctions.hpp"
