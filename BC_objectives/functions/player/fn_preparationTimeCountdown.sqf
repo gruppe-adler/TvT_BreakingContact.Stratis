@@ -1,5 +1,3 @@
-
-
 params [["_timeLeft",0]];
 
 if (!hasInterface) exitWith {};
