@@ -1,3 +1,9 @@
+/*
+    
+    all logic belongs to us
+
+*/
+
 params ["_parameter", "_increaseValue"];
 _parameter params ["_control", "_button", "_xPos", "_yPos", "_shift", "_ctrl", "_alt"];
 
@@ -19,6 +25,12 @@ private _cargoCount = _parentControl getVariable ["cargo", 0];
 private _ctrlCrewCount = _parentControl getVariable ["ctrlCrew", controlNull];
 private _ctrlCargoCount = _parentControl getVariable ["ctrlCargo", controlNull];
 
+private _data = _parentControl getVariable ["data", []];
+private _catPlusMinusButtons = _ctrlChosenInThisCat getVariable ["catPlusMinusButtons", []];
+
+private _catFormatting = "<t size='1' align='center' color='#999999'>";
+private _catFormattingMaxed = "<t size='1' align='center' color='#66AA66'>";
+
 if (_increaseValue) then {
     _itemValue = _itemValue + 1;
     _catValue = _catValue + 1;
@@ -28,8 +40,19 @@ if (_increaseValue) then {
 };
 
 // dont allow overall count above max count
-if (_catValue > _valueMaxInThisCat) exitWith {
-    // todo disable all cat buttons even before
+if (_catValue >= _valueMaxInThisCat) then {
+    {
+        _x params ["_btnPlus", "_btnMinus"];
+        _btnPlus ctrlEnable false;
+    } forEach _catPlusMinusButtons;
+
+    // indicate change in header
+    _catFormatting = _catFormattingMaxed;
+} else {
+    {
+        _x params ["_btnPlus", "_btnMinus"];
+        _btnPlus ctrlEnable true; 
+    } forEach _catPlusMinusButtons;
 };
 
 _ctrlChosenInThisCat setVariable ["value", _catValue];
@@ -52,8 +75,10 @@ if (_itemValue < 1) then {
 // set cargo and crew count
 if (_increaseValue) then {
     [true, _ctrlCrewCount, _ctrlCargoCount, _crewCount, _cargoCount] call BC_buymenu_fnc_adjustCrewCargoCount;
+    [true, _data] call BC_buymenu_fnc_changeQueue;
 } else {
     [false, _ctrlCrewCount, _ctrlCargoCount, _crewCount, _cargoCount] call BC_buymenu_fnc_adjustCrewCargoCount;
+    [false, _data] call BC_buymenu_fnc_changeQueue;
 };
 
 // systemChat format ["%1, %2", _parentControl, _itemValue];
@@ -66,8 +91,7 @@ _parentControl ctrlCommit 0;
 
 
 _ctrlChosenInThisCat ctrlSetStructuredText parseText (
-    "<t size='1' align='center' color='#333333'>" + 
-    str _catValue + "/" + str _maxValue + "</t>"
+    _catFormatting + str _catValue + "/" + str _maxValue + "</t>"
 );
 
 _ctrlChosenInThisCat ctrlCommit 0;

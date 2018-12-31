@@ -4,8 +4,8 @@ class BC_buymenu {
         file = BC_buymenu\functions;
 
         class adjustCrewCargoCount;
+        class changeQueue;
         class createGUI;
-        class decreaseValue;
-        class increaseValue;
+        class changeValue;
     };
 };

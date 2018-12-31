@@ -1,3 +1,5 @@
+#include "..\dialog\baseRsc.hpp"
+
 params ["_baseConfigName"];
 // prepare data
 //private _baseConfigName = "RussianStuff";
@@ -167,10 +169,8 @@ _ctrlCargoCount ctrlCommit 0;
 
         (_data select _i-1) params ["_classname", "_displayName", "_maxCount", "_description", "_code", "_picturePath", "_crew", "_cargo", "_speed"];
 
-        // _cargoCountDisplay = _cargoCountDisplay + _cargo;
-        // _crewCountDisplay = _crewCountDisplay + _crew;
         
-
+        // ctrlItemCount is our all knowing item
         private _ctrlItemCount = _display ctrlCreate ["RscStructuredText", -1];
         private _valueItemCount = _ctrlItemCount getVariable ["value", 0];
         _ctrlItemCount setVariable ["value", _valueItemCount];
@@ -181,6 +181,7 @@ _ctrlCargoCount ctrlCommit 0;
         _ctrlItemCount setVariable ["cargo", _cargo];
         _ctrlItemCount setVariable ["ctrlCrew", _ctrlCrewCount];
         _ctrlItemCount setVariable ["ctrlCargo", _ctrlCargoCount];
+        _ctrlItemCount setVariable ["data", _data];
         _ctrlItemCount ctrlsetFont "RobotoCondensedBold";
         _ctrlItemCount ctrlSetBackgroundColor [0,0,0,0];
         _ctrlItemCount ctrlSetStructuredText parseText ("<t size='1.5' align='center' shadow='0' color='#999999'>" + str _valueItemCount + "</t>");
@@ -206,7 +207,7 @@ _ctrlCargoCount ctrlCommit 0;
         _picture ctrlCommit 0;
 
 
-        private _btnPlus = _display ctrlCreate ["RscStructuredText", -1];
+        private _btnPlus = _display ctrlCreate ["grad_buymenu_RscButton", -1];
         _btnPlus ctrlsetFont "RobotoCondensedBold";
         _btnPlus ctrlSetBackgroundColor [0,0,0,1];
         _btnPlus ctrlsetText "+";
@@ -223,12 +224,12 @@ _ctrlCargoCount ctrlCommit 0;
         };
         _btnPlus ctrlAddEventHandler [
             "MouseButtonDown",
-            "[_this, true] call BC_buymenu_fnc_increaseValue;"
+            "[_this, true] call BC_buymenu_fnc_changeValue;"
         ];
         _btnPlus ctrlCommit 0;
 
 
-        private _btnMinus = _display ctrlCreate ["RscButton", -1];
+        private _btnMinus = _display ctrlCreate ["grad_buymenu_RscButton", -1];
         _btnMinus ctrlsetFont "RobotoCondensedBold";
         _btnMinus ctrlSetBackgroundColor [0,0,0,1];
         _btnMinus ctrlsetText "-";
@@ -246,16 +247,20 @@ _ctrlCargoCount ctrlCommit 0;
         };
         _btnMinus ctrlAddEventHandler [
             "MouseButtonDown",
-            "[_this, false] call BC_buymenu_fnc_increaseValue;"
+            "[_this, false] call BC_buymenu_fnc_changeValue;"
         ];
         _btnMinus ctrlCommit 0;
 
         // add plus and minus to parent ctrl
         _ctrlItemCount setVariable ["connectedButtons", [_btnPlus, _btnMinus]];
 
+        // parent cat control stores plus and minus buttons to disable/enable
+        private _plusMinusButtons = _ctrlChosenInThisCat getVariable ["catPlusMinusButtons", []];
+        _plusMinusButtons pushBack [_btnPlus, _btnMinus];
+        _ctrlChosenInThisCat setVariable ["catPlusMinusButtons", _plusMinusButtons];
+        _ctrlChosenInThisCat ctrlCommit 0;
 
-
-        private _subline = _display ctrlCreate ["RscButton", -1];
+        private _subline = _display ctrlCreate ["grad_buymenu_RscButton", -1];
         _subline ctrlsetFont "RobotoCondensedBold";
         _subline ctrlSetBackgroundColor [0,0,0,0];
         _subline ctrlSetStructuredText parseText ("<t size='0.7' align='center' shadow='0' color='#999999'>" + _displayName + "</t>");
