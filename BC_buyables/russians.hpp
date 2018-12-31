@@ -4,7 +4,7 @@ class RussianStuff {
     class Logistics {
         displayName = "Logistics";
         kindOf = "Vehicles";
-        canBuyCount = 9;
+        maxBuyCount = 9;
 
         class RHS_Ural_MSV_01 {
             displayName = "Ural";
@@ -43,7 +43,7 @@ class RussianStuff {
     class Recon {
         displayName = "Recon";
         kindOf = "Vehicles";
-        canBuyCount = 2;
+        maxBuyCount = 2;
 
         class rhs_tigr_m_vdv {
             displayName = "Tigr-M";
@@ -100,7 +100,7 @@ class RussianStuff {
     class Support {
         displayName = "Support";
         kindOf = "Vehicles";
-        canBuyCount = 2;
+        maxBuyCount = 2;
 
         class rhsgref_BRDM2_HQ_msv {
             displayName = "BRDM-HQ";
@@ -155,7 +155,7 @@ class RussianStuff {
     class Armor {
         displayName = "Armor";
         kindOf = "Vehicles";
-        canBuyCount = 1;
+        maxBuyCount = 1;
 
         class rhs_t80bvk {
             displayName = "T80-BVK";
@@ -193,7 +193,7 @@ class RussianStuff {
     class Special {
         displayName = "Special";
         kindOf = "Vehicles";
-        canBuyCount = 2;
+        maxBuyCount = 2;
 
         class Land_DataTerminal_01_F {
             displayName = "Radio Relay Terminal";

@@ -8,7 +8,7 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=959;
+		nextID=976;
 	};
 	class MarkerIDProvider
 	{
@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={1747.6108,24.705154,5925.7295};
-		dir[]={0.85099447,-0.47210065,-0.23059231};
-		up[]={0.45583501,0.88141966,-0.12352017};
-		aside[]={-0.26156151,2.2549648e-006,-0.9652909};
+		pos[]={1741.0862,15.325656,5847.6025};
+		dir[]={0.26039112,-0.45322102,-0.85261077};
+		up[]={0.13240869,0.89134002,-0.43355584};
+		aside[]={-0.95645916,3.7369318e-007,-0.29210693};
 	};
 };
 binarizationWanted=0;
@@ -9552,22 +9552,6 @@ class Mission
 		};
 		class Item65
 		{
-			dataType="Object";
-			class PositionInfo
-			{
-				position[]={1768.6711,8.1740847,5835.813};
-				angles[]={0,0.19310327,0};
-			};
-			side="Empty";
-			flags=4;
-			class Attributes
-			{
-			};
-			id=900;
-			type="rhsusf_m113_usarmy_unarmed";
-		};
-		class Item66
-		{
 			dataType="Comment";
 			class PositionInfo
 			{
@@ -9576,7 +9560,7 @@ class Mission
 			title="ammo + boats";
 			id=901;
 		};
-		class Item67
+		class Item66
 		{
 			dataType="Comment";
 			class PositionInfo
@@ -9586,7 +9570,7 @@ class Mission
 			title="m2 m113";
 			id=902;
 		};
-		class Item68
+		class Item67
 		{
 			dataType="Comment";
 			class PositionInfo
@@ -9596,7 +9580,7 @@ class Mission
 			title="m2 truck";
 			id=903;
 		};
-		class Item69
+		class Item68
 		{
 			dataType="Comment";
 			class PositionInfo
@@ -9606,7 +9590,7 @@ class Mission
 			title="m2";
 			id=904;
 		};
-		class Item70
+		class Item69
 		{
 			dataType="Comment";
 			class PositionInfo
@@ -9616,7 +9600,7 @@ class Mission
 			title="mrap 6p";
 			id=905;
 		};
-		class Item71
+		class Item70
 		{
 			dataType="Comment";
 			class PositionInfo
@@ -9626,7 +9610,7 @@ class Mission
 			title="tow";
 			id=907;
 		};
-		class Item72
+		class Item71
 		{
 			dataType="Comment";
 			class PositionInfo
@@ -9636,7 +9620,7 @@ class Mission
 			title="uh60 transport";
 			id=908;
 		};
-		class Item73
+		class Item72
 		{
 			dataType="Comment";
 			class PositionInfo
@@ -9646,7 +9630,7 @@ class Mission
 			title="oh-6m recon";
 			id=909;
 		};
-		class Item74
+		class Item73
 		{
 			dataType="Comment";
 			class PositionInfo
@@ -9656,7 +9640,7 @@ class Mission
 			title="ammo + fortifications";
 			id=910;
 		};
-		class Item75
+		class Item74
 		{
 			dataType="Object";
 			class PositionInfo
@@ -9673,7 +9657,7 @@ class Mission
 			type="rhsusf_M1083A1P2_B_M2_WD_fmtv_usarmy";
 			atlOffset=4.7683716e-007;
 		};
-		class Item76
+		class Item75
 		{
 			dataType="Object";
 			class PositionInfo
@@ -9888,7 +9872,7 @@ class Mission
 				nAttributes=1;
 			};
 		};
-		class Item77
+		class Item76
 		{
 			dataType="Object";
 			class PositionInfo
@@ -9904,7 +9888,7 @@ class Mission
 			id=928;
 			type="rhsusf_CGRCAT1A2_usmc_wd";
 		};
-		class Item78
+		class Item77
 		{
 			dataType="Object";
 			class PositionInfo
@@ -10190,7 +10174,7 @@ class Mission
 				nAttributes=14;
 			};
 		};
-		class Item79
+		class Item78
 		{
 			dataType="Object";
 			class PositionInfo
@@ -10476,13 +10460,13 @@ class Mission
 				nAttributes=14;
 			};
 		};
-		class Item80
+		class Item79
 		{
 			dataType="Object";
 			class PositionInfo
 			{
 				position[]={1779.4471,7.8652868,5942.064};
-				angles[]={-0,3.4280682,0};
+				angles[]={0,3.4280682,0};
 			};
 			side="Empty";
 			flags=4;
@@ -10491,6 +10475,46 @@ class Mission
 			};
 			id=951;
 			type="rhsgref_BRDM2_HQ_msv";
+		};
+		class Item80
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={1767.5537,8.174077,5834.7227};
+				angles[]={0,0.22886503,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=962;
+			type="rhsusf_m113_usarmy_M240";
+			atlOffset=-7.6293945e-006;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="[[[[""rhs_weap_m4_carryhandle"",""FirstAidKit"",""Medikit""],[4,10,2]],[[""rhs_mag_30Rnd_556x45_M855A1_Stanag"",""rhs_mag_M433_HEDP"",""rhsusf_100Rnd_556x45_soft_pouch"",""rhs_mag_M441_HE"",""rhs_mag_m714_White"",""rhs_mag_m662_red"",""rhs_mag_m67"",""rhs_mag_m18_green"",""rhs_mag_m18_red"",""rhs_mag_an_m8hc""],[50,20,11,20,8,4,10,4,4,10]],[[""ToolKit""],[1]],[[""rhsusf_falconii""],[4]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
 		};
 	};
 };

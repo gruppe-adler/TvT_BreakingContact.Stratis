@@ -1,6 +1,6 @@
-
+params ["_baseConfigName"];
 // prepare data
-private _baseConfigName = "RussianStuff";
+//private _baseConfigName = "RussianStuff";
 private _baseConfig = missionConfigFile >> "CfgGradBuymenu" >> _baseConfigName;
 private _allCategories = "true" configClasses _baseConfig;
 private _categoriesExtracted = [];
@@ -15,7 +15,7 @@ private _categoriesExtracted = [];
         private _categoryName = [(_config >> "displayName"), "text", ""] call CBA_fnc_getConfigEntry;
         if (_categoryName == "") then {_categoryName = _configName};
 
-        private _canBuyCount = [(_config >> "canBuyCount"), "number", 0] call CBA_fnc_getConfigEntry;
+        private _valueMaxInThisCat = [(_config >> "maxBuyCount"), "number", 0] call CBA_fnc_getConfigEntry;
 
 
         ///////
@@ -54,7 +54,7 @@ private _categoriesExtracted = [];
 
 
         _categoriesExtracted pushBack [
-            _categoryName, _canBuyCount, _allItemsExtracted
+            _categoryName, _valueMaxInThisCat, _allItemsExtracted
         ];
     };
 } forEach _allCategories;
@@ -95,16 +95,31 @@ _bgHeadline ctrlCommit 0;
 private _crewCountDisplay = 0;
 private _cargoCountDisplay = 0;
 
+private _ctrlCrewCount = _display ctrlCreate ["RscStructuredText", -1];
+_ctrlCrewCount ctrlsetFont "RobotoCondensed";
+_ctrlCrewCount ctrlSetBackgroundColor [1,0,0,0];
+_ctrlCrewCount ctrlSetStructuredText parseText ("<t size='1.5' align='center' color='#999999'>" + str _crewCountDisplay + " </t><br/><t size='0.5' align='center' color='#666666'>Crew" + "</t>");
+_ctrlCrewCount ctrlSetPosition [_columnWidth*23 + safeZoneX, safeZoneY + _rowHeight, _columnWidth, _rowHeight*3];
+_ctrlCrewCount ctrlCommit 0;
+
+private _ctrlCargoCount = _display ctrlCreate ["RscStructuredText", -1];
+_ctrlCargoCount ctrlsetFont "RobotoCondensed";
+_ctrlCargoCount ctrlSetBackgroundColor [1,0,0,0];
+_ctrlCargoCount ctrlSetStructuredText parseText ("<t size='1.5' align='center' color='#999999'>" + str _cargoCountDisplay + " </t><br/><t size='0.5' align='center' color='#666666'>Cargo" + "</t>");
+_ctrlCargoCount ctrlSetPosition [_columnWidth*24 + safeZoneX, safeZoneY + _rowHeight, _columnWidth, _rowHeight*3];
+_ctrlCargoCount ctrlCommit 0;
+
+
 {   
     private _multiplicator = _x;
     private _category = _categoriesExtracted select _forEachIndex select 0;
-    private _canBuyCount = _categoriesExtracted select _forEachIndex select 1;
+    private _valueMaxInThisCat = _categoriesExtracted select _forEachIndex select 1;
     private _data = _categoriesExtracted select _forEachIndex select 2;
     if (count _data < 1) exitWith {};
 
     
 
-    copyToClipBoard str (_data);
+    // copyToClipBoard str (_data);
    
 
     private _column = _display ctrlCreate ["RscText", -1];
@@ -130,45 +145,52 @@ private _cargoCountDisplay = 0;
     ];
     _headline ctrlCommit 0;
 
-    private _chosenCount = _display ctrlCreate ["RscStructuredText", -1];
-    _chosenCount ctrlsetFont "RobotoCondensedBold";
-    _chosenCount ctrlSetBackgroundColor [0,0,0,0];
-    _chosenCount ctrlSetTextColor [1,1,1,1];
-    private _currentValue = _chosenCount getVariable ["value", 0];
-
-    _chosenCount ctrlSetStructuredText parseText ("<t size='1' align='center' color='#333333'>" + str _currentValue + "/" + str _canBuyCount + "</t>");
-    _chosenCount setVariable ["value", _currentValue];
-    _chosenCount setVariable ["maxValue", _canBuyCount];
-    _chosenCount ctrlSetPosition [
+    private _ctrlChosenInThisCat = _display ctrlCreate ["RscStructuredText", -1];
+    _ctrlChosenInThisCat ctrlsetFont "RobotoCondensedBold";
+    _ctrlChosenInThisCat ctrlSetBackgroundColor [0,0,0,0];
+    _ctrlChosenInThisCat ctrlSetTextColor [1,1,1,1];
+    private _valueChosenInThisCat = _ctrlChosenInThisCat getVariable ["value", 0];
+    _ctrlChosenInThisCat setVariable ["value", _valueChosenInThisCat];
+    _ctrlChosenInThisCat ctrlSetStructuredText parseText ("<t size='1' align='center' color='#333333'>" + str _valueChosenInThisCat + "/" + str _valueMaxInThisCat + "</t>");
+    _ctrlChosenInThisCat setVariable ["maxValue", _valueMaxInThisCat];
+    _ctrlChosenInThisCat ctrlSetPosition [
         _columnWidth * _multiplicator + safezoneX + _columnWidth, 
         _rowHeight * 6 + safezoneY, 
         _columnWidth * 4,
         _rowHeight * 1.5 
     ];
-    _chosenCount ctrlCommit 0;
+    _ctrlChosenInThisCat ctrlCommit 0;
 
 
 
     for "_i" from 1 to (count _data) do {
 
-        (_data select _i-1) params ["_classname", "_displayName", "_count", "_description", "_code", "_picturePath", "_crew", "_cargo", "_speed"];
-        _displayName = _displayName;
+        (_data select _i-1) params ["_classname", "_displayName", "_maxCount", "_description", "_code", "_picturePath", "_crew", "_cargo", "_speed"];
 
-        _cargoCountDisplay = _cargoCountDisplay + _cargo;
-        _crewCountDisplay = _crewCountDisplay + _crew;
-        private _countSelected = 0;
+        // _cargoCountDisplay = _cargoCountDisplay + _cargo;
+        // _crewCountDisplay = _crewCountDisplay + _crew;
+        
 
-        private _count = _display ctrlCreate ["RscStructuredText", -1];
-        _count ctrlsetFont "RobotoCondensedBold";
-        _count ctrlSetBackgroundColor [0,0,0,0];
-        _count ctrlSetStructuredText parseText ("<t size='1.5' align='center' shadow='0' color='#999999'>" + str _countSelected + "</t>");
-        _count ctrlSetPosition [
+        private _ctrlItemCount = _display ctrlCreate ["RscStructuredText", -1];
+        private _valueItemCount = _ctrlItemCount getVariable ["value", 0];
+        _ctrlItemCount setVariable ["value", _valueItemCount];
+        _ctrlItemCount setVariable ["maxValue", _maxCount];
+        _ctrlItemCount setVariable ["ctrlChosenInThisCat", _ctrlChosenInThisCat];
+        _ctrlItemCount setVariable ["valueMaxInThisCat", _valueMaxInThisCat];
+        _ctrlItemCount setVariable ["crew", _crew];
+        _ctrlItemCount setVariable ["cargo", _cargo];
+        _ctrlItemCount setVariable ["ctrlCrew", _ctrlCrewCount];
+        _ctrlItemCount setVariable ["ctrlCargo", _ctrlCargoCount];
+        _ctrlItemCount ctrlsetFont "RobotoCondensedBold";
+        _ctrlItemCount ctrlSetBackgroundColor [0,0,0,0];
+        _ctrlItemCount ctrlSetStructuredText parseText ("<t size='1.5' align='center' shadow='0' color='#999999'>" + str _valueItemCount + "</t>");
+        _ctrlItemCount ctrlSetPosition [
             _columnWidth * _multiplicator + safezoneX  + _columnWidth,
              (_i * (_rowHeight * 8) + safezoneY) + _rowHeight,
             _columnWidth/2,
             _rowHeight * 6
         ];
-        _count ctrlCommit 0;
+        _ctrlItemCount ctrlCommit 0;
 
 
         private _picture = _display ctrlCreate ["RscPictureKeepAspect", -1];
@@ -184,11 +206,10 @@ private _cargoCountDisplay = 0;
         _picture ctrlCommit 0;
 
 
-        private _btnPlus = _display ctrlCreate ["RscButton", -1];
+        private _btnPlus = _display ctrlCreate ["RscStructuredText", -1];
         _btnPlus ctrlsetFont "RobotoCondensedBold";
         _btnPlus ctrlSetBackgroundColor [0,0,0,1];
         _btnPlus ctrlsetText "+";
-        // _btnPlus ctrlSetStructuredText parseText "<t size='1' align='center' shadow='0' color='#999999'>+</t>";
         _btnPlus ctrlSetPosition [
             _columnWidth * _multiplicator + safezoneX  + _columnWidth * 4 + _columnWidth/2,
              (_i * (_rowHeight * 8) + safezoneY) - _rowHeight/4,
@@ -196,16 +217,13 @@ private _cargoCountDisplay = 0;
             _rowHeight * 2
         ];
         _btnPlus ctrlSetTooltip "Increase Count";
-        private _currentValue = _count getVariable ["countCtrl", 0];
-        _btnPlus setVariable ["countCtrl", _count];
-        _btnPlus setVariable ["countCtrlValue", _currentValue];
-        
-        _btnPlus setVariable ["countCtrlTotal", _chosenCount];
-        _btnPlus setVariable ["countCtrlTotalValue", _canBuyCount];
-
+        _btnPlus setVariable ["parentControl", _ctrlItemCount];
+        if (_valueItemCount > _maxCount) then {
+            _btnPlus ctrlEnable false;
+        };
         _btnPlus ctrlAddEventHandler [
-            "MouseButtonClick",
-            "[_this] execVM 'BC_buymenu\functions\fn_increaseValue.sqf';"
+            "MouseButtonDown",
+            "[_this, true] call BC_buymenu_fnc_increaseValue;"
         ];
         _btnPlus ctrlCommit 0;
 
@@ -222,11 +240,22 @@ private _cargoCountDisplay = 0;
             _rowHeight * 2
         ];
         _btnMinus ctrlSetTooltip "Reduce Count";
+        _btnMinus setVariable ["parentControl", _ctrlItemCount];
+        if (_valueItemCount == 0) then {
+            _btnMinus ctrlEnable false;
+        };
+        _btnMinus ctrlAddEventHandler [
+            "MouseButtonDown",
+            "[_this, false] call BC_buymenu_fnc_increaseValue;"
+        ];
         _btnMinus ctrlCommit 0;
 
+        // add plus and minus to parent ctrl
+        _ctrlItemCount setVariable ["connectedButtons", [_btnPlus, _btnMinus]];
 
 
-        private _subline = _display ctrlCreate ["RscStructuredText", -1];
+
+        private _subline = _display ctrlCreate ["RscButton", -1];
         _subline ctrlsetFont "RobotoCondensedBold";
         _subline ctrlSetBackgroundColor [0,0,0,0];
         _subline ctrlSetStructuredText parseText ("<t size='0.7' align='center' shadow='0' color='#999999'>" + _displayName + "</t>");
@@ -255,17 +284,3 @@ private _cargoCountDisplay = 0;
 } forEach [
     0,5,10,15,20
 ];
-
-private _crewCount = _display ctrlCreate ["RscStructuredText", -1];
-_crewCount ctrlsetFont "RobotoCondensed";
-_crewCount ctrlSetBackgroundColor [1,0,0,0];
-_crewCount ctrlSetStructuredText parseText ("<t size='1.5' align='center' color='#999999'>" + str _crewCountDisplay + " </t><br/><t size='0.5' align='center' color='#666666'>Crew" + "</t>");
-_crewCount ctrlSetPosition [_columnWidth*23 + safeZoneX, safeZoneY + _rowHeight, _columnWidth, _rowHeight*3];
-_crewCount ctrlCommit 0;
-
-private _cargoCount = _display ctrlCreate ["RscStructuredText", -1];
-_cargoCount ctrlsetFont "RobotoCondensed";
-_cargoCount ctrlSetBackgroundColor [1,0,0,0];
-_cargoCount ctrlSetStructuredText parseText ("<t size='1.5' align='center' color='#999999'>" + str _cargoCountDisplay + " </t><br/><t size='0.5' align='center' color='#666666'>Cargo" + "</t>");
-_cargoCount ctrlSetPosition [_columnWidth*24 + safeZoneX, safeZoneY + _rowHeight, _columnWidth, _rowHeight*3];
-_cargoCount ctrlCommit 0;
