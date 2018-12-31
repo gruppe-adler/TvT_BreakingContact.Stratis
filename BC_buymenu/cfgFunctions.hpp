@@ -5,6 +5,7 @@ class BC_buymenu {
 
         class adjustCrewCargoCount;
         class buyStuff;
+        class buyVehicle;
         class changeQueue;
         class createGUI;
         class changeValue;

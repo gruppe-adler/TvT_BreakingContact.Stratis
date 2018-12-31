@@ -18,7 +18,7 @@ copyToClipboard str _buyQueue;
     // diag_log format ["_data %1", _data];
     // diag_log format ["_baseConfigName %1, _categoryConfigName %2, _itemConfigName %3", _baseConfigName, _categoryConfigName, _itemConfigName];
 
-    [player, player, 0, _code, _baseConfigName, _categoryConfigName, _itemConfigName, _spawnCone] call GRAD_lbm_fnc_buyVehicle;
+    [player, player, 0, _code, _baseConfigName, _categoryConfigName, _itemConfigName, _spawnCone] call BC_buymenu_fnc_buyVehicle;
 
 } forEach _buyQueue;
 
