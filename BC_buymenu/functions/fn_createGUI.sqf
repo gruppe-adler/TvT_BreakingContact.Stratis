@@ -55,9 +55,10 @@ private _categoriesExtracted = [];
                     _picturePath = getText (configfile >> "CfgVehicles" >> _itemConfigName >> "editorPreview");
                 };
 
-                _allItemsExtracted pushBack [_itemConfigName, _displayName, _stock, _description, _code, _picturePath, _crew, _cargo, _speed, _baseConfig, _config, _itemConfigName, _spawnCone];
+                _allItemsExtracted pushBack [_itemConfigName, _displayName, _stock, _description, _code, _picturePath, _crew, _cargo, _speed, _baseConfigName, _categoryName, _itemConfigName, _spawnCone];
                 // diag_log str (_allItemsExtracted);
                 // copyToClipboard str (_allItemsExtracted);
+                
             };
         } forEach _allItems;
         ///////
@@ -182,7 +183,7 @@ _ctrlTotalSideCount ctrlCommit 0;
 
     for "_i" from 1 to (count _data) do {
 
-        (_data select _i-1) params [
+        (_data select (_i-1)) params [
             "_classname",
             "_displayName",
             "_maxCount",
@@ -194,7 +195,7 @@ _ctrlTotalSideCount ctrlCommit 0;
             "_speed",
             "_baseConfigName",
             "_categoryName",
-            "_config",
+            "_itemConfigName",
             "_spawnCone"
         ];
 
@@ -212,7 +213,7 @@ _ctrlTotalSideCount ctrlCommit 0;
         _ctrlItemCount setVariable ["cargo", _cargo];
         _ctrlItemCount setVariable ["ctrlCrew", _ctrlCrewCount];
         _ctrlItemCount setVariable ["ctrlCargo", _ctrlCargoCount];
-        _ctrlItemCount setVariable ["data", _data select _i];
+        _ctrlItemCount setVariable ["data", (_data select (_i-1))];
         _ctrlItemCount ctrlsetFont "RobotoCondensedBold";
         _ctrlItemCount ctrlSetBackgroundColor [0,0,0,0];
         _ctrlItemCount ctrlSetStructuredText parseText ("<t size='1.5' align='center' shadow='0' color='#999999'>" + str _valueItemCount + "</t>");

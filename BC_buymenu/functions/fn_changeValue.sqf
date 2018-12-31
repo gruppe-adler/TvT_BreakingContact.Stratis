@@ -31,6 +31,8 @@ private _ctrlCargoCount = _parentControl getVariable ["ctrlCargo", controlNull];
 private _data = _parentControl getVariable ["data", []];
 private _catPlusMinusButtons = _ctrlChosenInThisCat getVariable ["catPlusMinusButtons", []];
 
+diag_log format ["_data in changeValue %1", _data];
+
 private _catFormatting = "<t size='1' align='center' color='#999999'>";
 private _catFormattingMaxed = "<t size='1' align='center' color='#66AA66'>";
 

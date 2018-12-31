@@ -7,36 +7,19 @@ _display closeDisplay 1;
 
 private _buyQueue = missionNamespace getVariable ["BC_buymenu_vehicleSpawnQueue", []];
 
-
+copyToClipboard str _buyQueue;
 
 {
   
     private _data = _x;
 
-    _data params ["_classname", 
-    "_displayName", 
-    "_maxCount", 
-    "_description", 
-    "_code", 
-    "_picturePath", 
-    "_crew", 
-    "_cargo", 
-    "_speed", 
-    "_baseConfigName", 
-    "_categoryConfigName", 
-    "_itemConfigName",
-    "_spawnCone"];
+    _data params ["_classname", "_displayName", "_maxCount", "_description", "_code", "_picturePath", "_crew", "_cargo", "_speed", "_baseConfigName", "_categoryConfigName", "_itemConfigName", "_spawnCone"];
 
-    diag_log format ["_data %1", _data];
+    // diag_log format ["_data %1", _data];
+    // diag_log format ["_baseConfigName %1, _categoryConfigName %2, _itemConfigName %3", _baseConfigName, _categoryConfigName, _itemConfigName];
 
-    // params ["_buyer","_account","_price","_code","_baseConfigName","_categoryConfigName","_itemConfigName","_vehiclespawn"];
-    [player,
-     player,
-     0,
-     _code,
-     _baseConfigName,
-     _categoryConfigName,
-     _itemConfigName,
-     _spawnCone] call GRAD_lbm_fnc_buyVehicle;
+    [player, player, 0, _code, _baseConfigName, _categoryConfigName, _itemConfigName, _spawnCone] call GRAD_lbm_fnc_buyVehicle;
 
 } forEach _buyQueue;
+
+missionNamespace setVariable ["BC_buymenu_vehicleSpawnQueue", []];
