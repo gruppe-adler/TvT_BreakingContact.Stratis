@@ -12,7 +12,7 @@ class AmericanStuff {
             price = 10;
             stock = 7;
             code = "";
-            spawnEmpty = true;
+            spawnEmpty = 1;
             condition = "BC_IS_WOODLAND";
             vehicleInit = "['rhs_woodland',1],['hide_cover',0,'hide_spare',0,'hide_scaffold',0,'hide_bench',0]";
         };
@@ -28,7 +28,7 @@ class AmericanStuff {
             price = 10;
             stock = 7;
             code = "";
-            spawnEmpty = true;
+            spawnEmpty = 1;
             condition = "BC_IS_WOODLAND";
             vehicleInit = "['mud_olive',1],['tailgateHide',0,'tailgate_open',0,'cage_fold',0]";
         };
@@ -51,7 +51,7 @@ class AmericanStuff {
             price = 10;
             stock = 7;
             code = "";
-            spawnEmpty = true;
+            spawnEmpty = 1;
             vehicleInit = "[[],[]]";
         };
 
@@ -61,7 +61,7 @@ class AmericanStuff {
             price = 10;
             stock = 7;
             code = "";
-            spawnEmpty = true;
+            spawnEmpty = 1;
             condition = "BC_IS_WOODLAND";
             vehicleInit = "['rhs_woodland',1],['DUKE_Hide',1]";
         };
@@ -78,7 +78,7 @@ class AmericanStuff {
             price = 10;
             stock = 7;
             code = "";
-            spawnEmpty = true;
+            spawnEmpty = 1;
             condition = "BC_IS_WOODLAND";
             vehicleInit = "['standard',1],['hide_snorkel',1,'hide_CIP',1,'hide_BFT',0,'hide_Antenna',0,'hide_A2_Parts',0,'Hide_A2Bumper',0,'Hide_Brushguard',1]";
         };
@@ -102,7 +102,7 @@ class AmericanStuff {
             price = 0;
             stock = 7;
             code = "";
-            spawnEmpty = true;
+            spawnEmpty = 1;
             condition = "BC_IS_WOODLAND";
             vehicleInit = "nil,['hide_cover',0,'hide_spare',0,'hide_scaffold',0,'hide_bench',0]";
         };
@@ -118,7 +118,7 @@ class AmericanStuff {
             price = 0;
             stock = 7;
             code = "";
-            spawnEmpty = true;
+            spawnEmpty = 1;
             condition = "BC_IS_WOODLAND";
             vehicleInit = "['standard',1],['IFF_Panels_Hide',1]";
         };
@@ -134,7 +134,7 @@ class AmericanStuff {
             price = 0;
             stock = 7;
             code = "";
-            spawnEmpty = true;
+            spawnEmpty = 1;
             condition = "BC_IS_WOODLAND";
             vehicleInit = "[['olive', 1], ['driverViewHatch',0,'commanderViewHatch',0,'hatchCommander',1]]";
         };
@@ -157,7 +157,7 @@ class AmericanStuff {
             price = 0;
             stock = 7;
             code = "";
-            spawnEmpty = true;
+            spawnEmpty = 1;
             condition = "BC_IS_WOODLAND";
             vehicleInit = "['standard',1], ['hide_snorkel',1,'hide_CIP',0,'hide_BFT',0,'hide_Antenna',0,'hide_A2_Parts',0,'Hide_A2Bumper',0,'Hide_Brushguard',1]";
         };
@@ -173,7 +173,7 @@ class AmericanStuff {
             price = 0;
             stock = 7;
             code = "";
-            spawnEmpty = true;
+            spawnEmpty = 1;
             vehicleInit = "[['standard',1], ['crate_l1_unhide',1,'crate_l2_unhide',1,'crate_l3_unhide',1,'crate_r1_unhide',1,'crate_r2_unhide',1,'crate_r3_unhide',1,'wood_1_unhide',1,'maljutka_hide_source',1,'cargoHandler1',0]]";
         };
     };
@@ -187,27 +187,27 @@ class AmericanStuff {
             displayName = "Boats + Diving Equipments";
             description = "Get it in the Start Vehicle (ACE Interaction).";
             price = 0;
-            stock = 7;
+            stock = 1;
             code = "";
-            spawnEmpty = true;
+            spawnEmpty = 1;
         };
 
         class rhsusf_explosive_m112 {
             displayName = "Breaching Equipment";
             description = "Explosives and Wirecutter in Start Vehicle.";
             price = 0;
-            stock = 7;
+            stock = 1;
             code = "";
-            spawnEmpty = true;
+            spawnEmpty = 1;
         };
 
         class Land_JumpTarget_F {
             displayName = "Hunt IR Equipment";
             description = "Hunt IR Equipment in Start Vehicle.";
             price = 0;
-            stock = 7;
+            stock = 1;
             code = "";
-            spawnEmpty = true;
+            spawnEmpty = 1;
         };
     };
 };

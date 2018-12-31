@@ -1,4 +1,10 @@
-params ["_baseConfigName"];
+/*
+
+    ["AmericanStuff", US_SPAWN_PAD] call BC_buymenu_fnc_createGUI;
+
+*/
+
+params ["_baseConfigName", "_spawnCone"];
 // prepare data
 //private _baseConfigName = "RussianStuff";
 private _baseConfig = missionConfigFile >> "CfgGradBuymenu" >> _baseConfigName;
@@ -30,6 +36,8 @@ private _categoriesExtracted = [];
                 private _itemConfigName = configName _config;
                 private _displayName = [(_config >> "displayName"), "text", [_itemConfigName] call grad_lbm_fnc_getDisplayName] call CBA_fnc_getConfigEntry;
                 private _price = [(_config >> "price"), "number", 999999] call CBA_fnc_getConfigEntry;
+                private _stock = [(_config >> "stock"), "number", 999999] call CBA_fnc_getConfigEntry;
+                
                 private _description = [(_config >> "description"), "text", [_itemConfigName] call grad_lbm_fnc_getDescription] call CBA_fnc_getConfigEntry;
                 private _code = compile ([(_config >> "code"), "text", ""] call CBA_fnc_getConfigEntry);
                 private _picturePath = [(_config >> "picture"), "text", ""] call CBA_fnc_getConfigEntry;
@@ -47,7 +55,9 @@ private _categoriesExtracted = [];
                     _picturePath = getText (configfile >> "CfgVehicles" >> _itemConfigName >> "editorPreview");
                 };
 
-                _allItemsExtracted pushBack [_itemConfigName, _displayName, _price, _description, _code, _picturePath, _crew, _cargo, _speed];
+                _allItemsExtracted pushBack [_itemConfigName, _displayName, _stock, _description, _code, _picturePath, _crew, _cargo, _speed, _baseConfig, _config, _itemConfigName, _spawnCone];
+                // diag_log str (_allItemsExtracted);
+                // copyToClipboard str (_allItemsExtracted);
             };
         } forEach _allItems;
         ///////
@@ -172,7 +182,21 @@ _ctrlTotalSideCount ctrlCommit 0;
 
     for "_i" from 1 to (count _data) do {
 
-        (_data select _i-1) params ["_classname", "_displayName", "_maxCount", "_description", "_code", "_picturePath", "_crew", "_cargo", "_speed"];
+        (_data select _i-1) params [
+            "_classname",
+            "_displayName",
+            "_maxCount",
+            "_description",
+            "_code",
+            "_picturePath",
+            "_crew",
+            "_cargo",
+            "_speed",
+            "_baseConfigName",
+            "_categoryName",
+            "_config",
+            "_spawnCone"
+        ];
 
         
         // ctrlItemCount is our all knowing item
@@ -188,7 +212,7 @@ _ctrlTotalSideCount ctrlCommit 0;
         _ctrlItemCount setVariable ["cargo", _cargo];
         _ctrlItemCount setVariable ["ctrlCrew", _ctrlCrewCount];
         _ctrlItemCount setVariable ["ctrlCargo", _ctrlCargoCount];
-        _ctrlItemCount setVariable ["data", _data];
+        _ctrlItemCount setVariable ["data", _data select _i];
         _ctrlItemCount ctrlsetFont "RobotoCondensedBold";
         _ctrlItemCount ctrlSetBackgroundColor [0,0,0,0];
         _ctrlItemCount ctrlSetStructuredText parseText ("<t size='1.5' align='center' shadow='0' color='#999999'>" + str _valueItemCount + "</t>");
@@ -291,8 +315,14 @@ _ctrlTotalSideCount ctrlCommit 0;
         _screenWidth - _columnWidth * 2,
         _rowHeight * 3 
     ];
+    _button ctrlAddEventHandler [
+            "MouseButtonClick",
+            "[] call BC_buymenu_fnc_buyStuff;"
+        ];
     _button ctrlCommit 0;
 
 } forEach [
     0,5,10,15,20
 ];
+
+uiNamespace setVariable ["BC_buymenu_display", _display];

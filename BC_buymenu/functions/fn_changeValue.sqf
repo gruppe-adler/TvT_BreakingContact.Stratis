@@ -92,7 +92,7 @@ if (_increaseValue) then {
 // disableSerialization;
 
 _parentControl ctrlSetStructuredText parseText (
-    "<t size='1.5' align='center' shadow='0' color='#333'>" + str _itemValue + "</t>"
+    "<t size='1.5' align='center' shadow='0' color='#333333'>" + str _itemValue + "</t>"
 ); 
 _parentControl ctrlCommit 0;
 

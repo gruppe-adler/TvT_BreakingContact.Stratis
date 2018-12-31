@@ -308,6 +308,7 @@ class CfgDebriefingSections
 class CfgSounds
 {
     #include "grad_carryBoat\cfgSounds.hpp"
+    #include "BC_buymenu\cfgSounds.hpp"
     sounds[] = {beam,beep,signal_lost,signal_distortion};
     class beam
     {

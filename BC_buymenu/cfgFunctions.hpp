@@ -4,8 +4,10 @@ class BC_buymenu {
         file = BC_buymenu\functions;
 
         class adjustCrewCargoCount;
+        class buyStuff;
         class changeQueue;
         class createGUI;
         class changeValue;
+        class dropMoney;
     };
 };

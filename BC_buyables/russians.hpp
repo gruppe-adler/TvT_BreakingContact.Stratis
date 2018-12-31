@@ -12,7 +12,7 @@ class RussianStuff {
             price = 10;
             stock = 7;
             code = "";
-            spawnEmpty = true;
+            spawnEmpty = 1;
             condition = "BC_IS_WOODLAND";
             vehicleInit = "[['standard',1], ['light_hide',1]]";
         };
@@ -28,7 +28,7 @@ class RussianStuff {
             price = 10;
             stock = 7;
             code = "";
-            spawnEmpty = true;
+            spawnEmpty = 1;
             condition = "BC_IS_WOODLAND";
             vehicleInit = "[[], ['cabinlights_hide',0,'light_hide',1]]";
         };
@@ -51,7 +51,7 @@ class RussianStuff {
             price = 10;
             stock = 7;
             code = "";
-            spawnEmpty = true;
+            spawnEmpty = 1;
             condition = "BC_IS_WOODLAND";
             vehicleInit = "[[],[]]";
         };
@@ -67,7 +67,7 @@ class RussianStuff {
             price = 10;
             stock = 7;
             code = "";
-            spawnEmpty = true;
+            spawnEmpty = 1;
             condition = "BC_IS_WOODLAND";
             vehicleInit = "[[], ['cabinlights_hide',0,'light_hide',1]]";
         };
@@ -84,7 +84,7 @@ class RussianStuff {
             price = 10;
             stock = 7;
             code = "";
-            spawnEmpty = true;
+            spawnEmpty = 1;
             condition = "BC_IS_WOODLAND";
             vehicleInit = "[[], ['cabinlights_hide',0,'light_hide',1]]";
         };
@@ -108,7 +108,7 @@ class RussianStuff {
             price = 0;
             stock = 7;
             code = "";
-            spawnEmpty = true;
+            spawnEmpty = 1;
             condition = "BC_IS_WOODLAND";
             vehicleInit = "[['olive', 1], ['driverViewHatch',0,'commanderViewHatch',0,'hatchCommander',1]]";
         };
@@ -124,7 +124,7 @@ class RussianStuff {
             price = 0;
             stock = 7;
             code = "";
-            spawnEmpty = true;
+            spawnEmpty = 1;
             condition = "BC_IS_WOODLAND";
             vehicleInit = "[['olive', 1], ['driverViewHatch',0,'commanderViewHatch',0,'hatchCommander',1]]";
         };
@@ -140,7 +140,7 @@ class RussianStuff {
             price = 0;
             stock = 7;
             code = "";
-            spawnEmpty = true;
+            spawnEmpty = 1;
             condition = "BC_IS_WOODLAND";
             vehicleInit = "[['olive', 1], ['driverViewHatch',0,'commanderViewHatch',0,'hatchCommander',1]]";
         };
@@ -163,14 +163,14 @@ class RussianStuff {
             price = 0;
             stock = 7;
             code = "";
-            spawnEmpty = true;
+            spawnEmpty = 1;
             condition = "BC_IS_WOODLAND";
             vehicleInit = "[['standard',1], ['hide_com_shield',1,'sightElevationAPFSDS',0]]";
         };
 
         class rhs_t80bk: rhs_t80bvk {
             condition = "!BC_IS_WOODLAND";
-            vehicleInit = "[['rhs_sand',1], ['hide_com_shield',1,'sightElevationAPFSDS',0]];"
+            vehicleInit = "[['rhs_sand',1], ['hide_com_shield',1,'sightElevationAPFSDS',0]]";
         };
 
         class rhs_bmp1d_msv {
@@ -179,7 +179,7 @@ class RussianStuff {
             price = 0;
             stock = 7;
             code = "";
-            spawnEmpty = true;
+            spawnEmpty = 1;
             condition = "BC_IS_WOODLAND";
             vehicleInit = "[['standard',1], ['crate_l1_unhide',1,'crate_l2_unhide',1,'crate_l3_unhide',1,'crate_r1_unhide',1,'crate_r2_unhide',1,'crate_r3_unhide',1,'wood_1_unhide',1,'maljutka_hide_source',1,'cargoHandler1',0]]";
         };
@@ -201,7 +201,7 @@ class RussianStuff {
             price = 0;
             stock = 7;
             code = "";
-            spawnEmpty = true;
+            spawnEmpty = 1;
         };
 
         class Land_BagFence_Round_F {
@@ -210,7 +210,7 @@ class RussianStuff {
             price = 0;
             stock = 7;
             code = "";
-            spawnEmpty = true;
+            spawnEmpty = 1;
         };
 
         class Land_WeldingTrolley_01_F {
@@ -219,7 +219,7 @@ class RussianStuff {
             price = 0;
             stock = 7;
             code = "";
-            spawnEmpty = true;
+            spawnEmpty = 1;
         };
     };
 };
