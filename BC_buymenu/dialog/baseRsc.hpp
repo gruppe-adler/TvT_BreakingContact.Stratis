@@ -66,6 +66,10 @@ class grad_buymenu_RscPictureKeepAspect: grad_buymenu_RscPicture {
 
 
 class grad_buymenu_RscButton {
+	x = 0;
+	y = 0;
+	w = 0.15;
+	h = 0.1;
 	access = 0;
 	type = CT_BUTTON;
 	style = ST_RIGHT;
@@ -75,7 +79,7 @@ class grad_buymenu_RscButton {
 	colorBackground[] = {0,0,0,0.8};
 	colorFocused[] = {1,1,1,0.5};
 	colorBackgroundActive[] = {1,1,1,0.8}; // hover
-	colorBackgroundDisabled[] = {0.3,0.3,0.3,1};
+	colorBackgroundDisabled[] = {0.3,0.3,0.3,0.3};
 	colorBackgroundFocused[] = {0,0,0,0.5};
 	colorShadow[] = {0,0,0,0};
 	colorBorder[] = {0,0,0,1};
@@ -94,7 +98,7 @@ class grad_buymenu_RscButton {
 	sizeEx = 0.04;
 	offsetX = 0.003;
 	offsetY = 0.003;
-	offsetPressedX = 0.002;
-	offsetPressedY = 0.002;
+	offsetPressedX = 0.000;
+	offsetPressedY = 0.001;
 	borderSize = 0;
 };

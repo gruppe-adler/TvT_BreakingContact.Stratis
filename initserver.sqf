@@ -254,6 +254,7 @@ private _spawnSelector = [east] call BC_setup_fnc_getHighestRankOfSide;
 _spawnSelector setVariable ["BC_spawnSelector", true];
 [] remoteExec ["BC_setup_fnc_openSpawnDialog", _spawnSelector];
 
+/*
 [] spawn {
     waitUntil {
       BLUFOR_TELEPORT_TARGET select 0 != 0
@@ -266,6 +267,6 @@ _spawnSelector setVariable ["BC_spawnSelector", true];
   		};
   } forEach allUnits;
 };
-
+*/
 
 diag_log format ["setup: server done"];

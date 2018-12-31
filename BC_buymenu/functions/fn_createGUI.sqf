@@ -1,5 +1,3 @@
-#include "..\dialog\baseRsc.hpp"
-
 params ["_baseConfigName"];
 // prepare data
 //private _baseConfigName = "RussianStuff";
@@ -96,21 +94,28 @@ _bgHeadline ctrlCommit 0;
 
 private _crewCountDisplay = 0;
 private _cargoCountDisplay = 0;
+private _valueTotalSideCount = playerside countSide allUnits;
 
 private _ctrlCrewCount = _display ctrlCreate ["RscStructuredText", -1];
 _ctrlCrewCount ctrlsetFont "RobotoCondensed";
 _ctrlCrewCount ctrlSetBackgroundColor [1,0,0,0];
 _ctrlCrewCount ctrlSetStructuredText parseText ("<t size='1.5' align='center' color='#999999'>" + str _crewCountDisplay + " </t><br/><t size='0.5' align='center' color='#666666'>Crew" + "</t>");
-_ctrlCrewCount ctrlSetPosition [_columnWidth*23 + safeZoneX, safeZoneY + _rowHeight, _columnWidth, _rowHeight*3];
+_ctrlCrewCount ctrlSetPosition [_columnWidth*22 + safeZoneX, safeZoneY + _rowHeight, _columnWidth, _rowHeight*3];
 _ctrlCrewCount ctrlCommit 0;
 
 private _ctrlCargoCount = _display ctrlCreate ["RscStructuredText", -1];
 _ctrlCargoCount ctrlsetFont "RobotoCondensed";
 _ctrlCargoCount ctrlSetBackgroundColor [1,0,0,0];
 _ctrlCargoCount ctrlSetStructuredText parseText ("<t size='1.5' align='center' color='#999999'>" + str _cargoCountDisplay + " </t><br/><t size='0.5' align='center' color='#666666'>Cargo" + "</t>");
-_ctrlCargoCount ctrlSetPosition [_columnWidth*24 + safeZoneX, safeZoneY + _rowHeight, _columnWidth, _rowHeight*3];
+_ctrlCargoCount ctrlSetPosition [_columnWidth*23 + safeZoneX, safeZoneY + _rowHeight, _columnWidth, _rowHeight*3];
 _ctrlCargoCount ctrlCommit 0;
 
+private _ctrlTotalSideCount = _display ctrlCreate ["RscStructuredText", -1];
+_ctrlTotalSideCount ctrlsetFont "RobotoCondensed";
+_ctrlTotalSideCount ctrlSetBackgroundColor [1,0,0,0];
+_ctrlTotalSideCount ctrlSetStructuredText parseText ("<t size='1.5' align='center' color='#999999'>" + str _valueTotalSideCount + " </t><br/><t size='0.5' align='center' color='#666666'>Your Side" + "</t>");
+_ctrlTotalSideCount ctrlSetPosition [_columnWidth*24 + safeZoneX, safeZoneY + _rowHeight, _columnWidth, _rowHeight*3];
+_ctrlTotalSideCount ctrlCommit 0;
 
 {   
     private _multiplicator = _x;
@@ -175,6 +180,8 @@ _ctrlCargoCount ctrlCommit 0;
         private _valueItemCount = _ctrlItemCount getVariable ["value", 0];
         _ctrlItemCount setVariable ["value", _valueItemCount];
         _ctrlItemCount setVariable ["maxValue", _maxCount];
+        _ctrlItemCount setVariable ["ctrlTotalSideCount", _ctrlTotalSideCount];
+        _ctrlItemCount setVariable ["valueTotalSideCount", _valueTotalSideCount];
         _ctrlItemCount setVariable ["ctrlChosenInThisCat", _ctrlChosenInThisCat];
         _ctrlItemCount setVariable ["valueMaxInThisCat", _valueMaxInThisCat];
         _ctrlItemCount setVariable ["crew", _crew];
@@ -260,7 +267,7 @@ _ctrlCargoCount ctrlCommit 0;
         _ctrlChosenInThisCat setVariable ["catPlusMinusButtons", _plusMinusButtons];
         _ctrlChosenInThisCat ctrlCommit 0;
 
-        private _subline = _display ctrlCreate ["grad_buymenu_RscButton", -1];
+        private _subline = _display ctrlCreate ["RscStructuredText", -1];
         _subline ctrlsetFont "RobotoCondensedBold";
         _subline ctrlSetBackgroundColor [0,0,0,0];
         _subline ctrlSetStructuredText parseText ("<t size='0.7' align='center' shadow='0' color='#999999'>" + _displayName + "</t>");
@@ -274,7 +281,7 @@ _ctrlCargoCount ctrlCommit 0;
     };
 
 
-    private _button = _display ctrlCreate ["RscStructuredText", -1];
+    private _button = _display ctrlCreate ["grad_buymenu_RscButton", -1];
     _button ctrlsetFont "RobotoCondensedBold";
     _button ctrlSetBackgroundColor [108/255,170/255,204/255,1]; // 108, 170, 204
     _button ctrlSetStructuredText parseText "<t size='2.5' align='center' shadow='0' color='#20333D'>S P A W N</t>";
