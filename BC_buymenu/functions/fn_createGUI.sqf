@@ -55,7 +55,7 @@ private _categoriesExtracted = [];
                     _picturePath = getText (configfile >> "CfgVehicles" >> _itemConfigName >> "editorPreview");
                 };
 
-                _allItemsExtracted pushBack [_itemConfigName, _displayName, _stock, _description, _code, _picturePath, _crew, _cargo, _speed, _baseConfigName, _categoryName, _itemConfigName, _spawnCone];
+                _allItemsExtracted pushBack [_itemConfigName, _displayName, _stock, _description, _code, _picturePath, _crew, _cargo, _speed, _baseConfigName, _categoryName, _itemConfigName];
                 // diag_log str (_allItemsExtracted);
                 // copyToClipboard str (_allItemsExtracted);
                 
@@ -65,7 +65,7 @@ private _categoriesExtracted = [];
 
 
         _categoriesExtracted pushBack [
-            _categoryName, _valueMaxInThisCat, _allItemsExtracted
+            _categoryName, _valueMaxInThisCat, _spawnCone, _allItemsExtracted
         ];
     };
 } forEach _allCategories;
@@ -103,21 +103,21 @@ _bgHeadline ctrlSetPosition [safezoneX, safeZoneY, _screenWidth, _rowHeight*3];
 _bgHeadline ctrlCommit 0;
 
 
-private _crewCountDisplay = 0;
-private _cargoCountDisplay = 0;
+private _valueTotalCrewCount = 0;
+private _valueTotalCargoCount = 0;
 private _valueTotalSideCount = playerside countSide allUnits;
 
 private _ctrlCrewCount = _display ctrlCreate ["RscStructuredText", -1];
 _ctrlCrewCount ctrlsetFont "RobotoCondensed";
 _ctrlCrewCount ctrlSetBackgroundColor [1,0,0,0];
-_ctrlCrewCount ctrlSetStructuredText parseText ("<t size='1.5' align='center' color='#999999'>" + str _crewCountDisplay + " </t><br/><t size='0.5' align='center' color='#666666'>Crew" + "</t>");
+_ctrlCrewCount ctrlSetStructuredText parseText ("<t size='1.5' align='center' color='#999999'>" + str _valueTotalCrewCount + " </t><br/><t size='0.5' align='center' color='#666666'>Crew" + "</t>");
 _ctrlCrewCount ctrlSetPosition [_columnWidth*22 + safeZoneX, safeZoneY + _rowHeight, _columnWidth, _rowHeight*3];
 _ctrlCrewCount ctrlCommit 0;
 
 private _ctrlCargoCount = _display ctrlCreate ["RscStructuredText", -1];
 _ctrlCargoCount ctrlsetFont "RobotoCondensed";
 _ctrlCargoCount ctrlSetBackgroundColor [1,0,0,0];
-_ctrlCargoCount ctrlSetStructuredText parseText ("<t size='1.5' align='center' color='#999999'>" + str _cargoCountDisplay + " </t><br/><t size='0.5' align='center' color='#666666'>Cargo" + "</t>");
+_ctrlCargoCount ctrlSetStructuredText parseText ("<t size='1.5' align='center' color='#999999'>" + str _valueTotalCargoCount + " </t><br/><t size='0.5' align='center' color='#666666'>Cargo" + "</t>");
 _ctrlCargoCount ctrlSetPosition [_columnWidth*23 + safeZoneX, safeZoneY + _rowHeight, _columnWidth, _rowHeight*3];
 _ctrlCargoCount ctrlCommit 0;
 
@@ -128,11 +128,14 @@ _ctrlTotalSideCount ctrlSetStructuredText parseText ("<t size='1.5' align='cente
 _ctrlTotalSideCount ctrlSetPosition [_columnWidth*24 + safeZoneX, safeZoneY + _rowHeight, _columnWidth, _rowHeight*3];
 _ctrlTotalSideCount ctrlCommit 0;
 
+[false, _ctrlCrewCount, _ctrlCargoCount, _ctrlTotalSideCount, 0, 0, _valueTotalSideCount] call BC_buymenu_fnc_adjustCrewCargoCount;
+
 {   
     private _multiplicator = _x;
     private _category = _categoriesExtracted select _forEachIndex select 0;
     private _valueMaxInThisCat = _categoriesExtracted select _forEachIndex select 1;
-    private _data = _categoriesExtracted select _forEachIndex select 2;
+    private _spawnCone = _categoriesExtracted select _forEachIndex select 2;
+    private _data = _categoriesExtracted select _forEachIndex select 3;
     if (count _data < 1) exitWith {};
 
     
@@ -195,20 +198,20 @@ _ctrlTotalSideCount ctrlCommit 0;
             "_speed",
             "_baseConfigName",
             "_categoryName",
-            "_itemConfigName",
-            "_spawnCone"
+            "_itemConfigName"
         ];
 
         
         // ctrlItemCount is our all knowing item
         private _ctrlItemCount = _display ctrlCreate ["RscStructuredText", -1];
-        private _valueItemCount = _ctrlItemCount getVariable ["value", 0];
+        private _valueItemCount = [_baseConfigName, _classname] call BC_buymenu_fnc_getGlobalCount;
         _ctrlItemCount setVariable ["value", _valueItemCount];
         _ctrlItemCount setVariable ["maxValue", _maxCount];
         _ctrlItemCount setVariable ["ctrlTotalSideCount", _ctrlTotalSideCount];
         _ctrlItemCount setVariable ["valueTotalSideCount", _valueTotalSideCount];
         _ctrlItemCount setVariable ["ctrlChosenInThisCat", _ctrlChosenInThisCat];
         _ctrlItemCount setVariable ["valueMaxInThisCat", _valueMaxInThisCat];
+        _ctrlItemCount setVariable ["baseConfigName", _baseConfigName];
         _ctrlItemCount setVariable ["crew", _crew];
         _ctrlItemCount setVariable ["cargo", _cargo];
         _ctrlItemCount setVariable ["ctrlCrew", _ctrlCrewCount];
@@ -246,7 +249,7 @@ _ctrlTotalSideCount ctrlCommit 0;
         _btnPlus ctrlSetPosition [
             _columnWidth * _multiplicator + safezoneX  + _columnWidth * 4 + _columnWidth/2,
              (_i * (_rowHeight * 8) + safezoneY) - _rowHeight/4,
-            _columnWidth/2,
+            _columnWidth/1.5,
             _rowHeight * 2
         ];
         _btnPlus ctrlSetTooltip "Increase Count";
@@ -269,7 +272,7 @@ _ctrlTotalSideCount ctrlCommit 0;
         _btnMinus ctrlSetPosition [
             _columnWidth * _multiplicator + safezoneX  + _columnWidth * 4 + _columnWidth/2,
              (_i * (_rowHeight * 8) + safezoneY) + _rowHeight * 2,
-            _columnWidth/2,
+            _columnWidth/1.5,
             _rowHeight * 2
         ];
         _btnMinus ctrlSetTooltip "Reduce Count";
@@ -306,7 +309,7 @@ _ctrlTotalSideCount ctrlCommit 0;
     };
 
 
-    private _button = _display ctrlCreate ["grad_buymenu_RscButton", -1];
+    private _button = _display ctrlCreate ["RscStructuredText", -1];
     _button ctrlsetFont "RobotoCondensedBold";
     _button ctrlSetBackgroundColor [108/255,170/255,204/255,1]; // 108, 170, 204
     _button ctrlSetStructuredText parseText "<t size='2.5' align='center' shadow='0' color='#20333D'>S P A W N</t>";
@@ -316,6 +319,15 @@ _ctrlTotalSideCount ctrlCommit 0;
         _screenWidth - _columnWidth * 2,
         _rowHeight * 3 
     ];
+    _button ctrlEnable true;
+    _button ctrlAddEventHandler [
+            "MouseEnter",
+            "(_this select 0) ctrlSetBackgroundColor [88/255, 150/255, 184/255,1];"
+        ];
+    _button ctrlAddEventHandler [
+            "MouseExit",
+            "(_this select 0) ctrlSetBackgroundColor [108/255, 170/255, 204/255,1];"
+        ];
     _button ctrlAddEventHandler [
             "MouseButtonClick",
             "[] call BC_buymenu_fnc_buyStuff;"
@@ -327,3 +339,4 @@ _ctrlTotalSideCount ctrlCommit 0;
 ];
 
 uiNamespace setVariable ["BC_buymenu_display", _display];
+uiNamespace setVariable ["BC_buymenu_spawnCone", _spawnCone];

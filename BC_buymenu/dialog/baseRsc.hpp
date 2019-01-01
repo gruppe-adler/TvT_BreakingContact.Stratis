@@ -72,7 +72,7 @@ class grad_buymenu_RscButton {
 	h = 0.1;
 	access = 0;
 	type = CT_BUTTON;
-	style = ST_RIGHT;
+	style = ST_CENTER;
 	text = "";
 	colorText[] = {1,1,1,1};
 	colorDisabled[] = {1,1,1,0.1};
@@ -91,7 +91,7 @@ class grad_buymenu_RscButton {
 	animTextureNormal = "\A3\ui_f\data\GUI\RscCommon\RscShortcutButton\normal_ca.paa";
 	animTextureDisabled = "\A3\ui_f\data\GUI\RscCommon\RscShortcutButton\normal_ca.paa";
 	animTextureOver = "\A3\ui_f\data\GUI\RscCommon\RscShortcutButton\over_ca.paa";
-	animTextureFocused = "\A3\ui_f\data\GUI\RscCommon\RscShortcutButton\focus_ca.paa";
+	animTextureFocused = "\A3\ui_f\data\GUI\RscCommon\RscShortcutButton\normal_ca.paa";
 	animTexturePressed = "\A3\ui_f\data\GUI\RscCommon\RscShortcutButton\down_ca.paa";
 	shadow = 0;
 	font = "RobotoCondensed";

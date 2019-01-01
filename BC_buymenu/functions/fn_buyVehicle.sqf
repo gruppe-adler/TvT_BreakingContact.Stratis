@@ -3,34 +3,21 @@
 *   ripoff from grad-lbm, tweaked to prefer roads    
 */
 
-params ["_buyer","_account","_price","_code","_baseConfigName","_categoryConfigName","_itemConfigName","_vehiclespawn"];
+params ["_buyer","_account","_price","_code","_baseConfigName","_categoryConfigName","_itemConfigName","_spawnPosition", "_spawnDir"];
 
-diag_log format ["%1 - %2 - %3", _baseConfigName, _categoryConfigName, _itemConfigName];
+// diag_log format ["%1 - %2 - %3", _baseConfigName, _categoryConfigName, _itemConfigName];
 
 private _spawnEmpty = [(missionConfigFile >> "CfgGradBuymenu" >> _baseConfigName >> _categoryConfigName >> _itemConfigName >> "spawnEmpty"), "number", -1] call CBA_fnc_getConfigEntry;
 if (_spawnEmpty == -1) then {
     _spawnEmpty = [(missionConfigFile >> "CfgGradBuymenu" >> _baseConfigName >> _categoryConfigName >> "spawnEmpty"), "number", 0] call CBA_fnc_getConfigEntry;
 };
 
-private _minDistance = 0;
-if (_vehiclespawn isEqualType objNull) then {
-    _minDistance = 15;
-    _vehiclespawn = getPos _vehiclespawn;
-};
 
-// find roads near spawn pos
-private _roadArray = _vehiclespawn nearRoads 40;
-private _isEmpty = false;
-//find spawn position
-private _spawnPosition = [];
-for "_i" from 1 to ((count _roadArray) - 1) do {
-     = (position _x) isFlatEmpty [sizeOf _itemConfigName, -1, 0.1, 1, -1, false, objNull];
-    if (_isEmpty) exitWith {};
-};
-if (!_isEmpty) exitWith {[_buyer,_account,_price,"No vehicle spawn position found. You got your money back."] remoteExec ["grad_lbm_fnc_reimburse",0,false];};
 
 //spawn vehicle
-private _vehicle = _itemConfigName createVehicle _spawnPosition;
+private _vehicle = _itemConfigName createVehicle [0,0,0];
+_vehicle setDir _spawnDir;
+_vehicle setPos _spawnPosition;
 
 //bis vehicle init
 private _init = [(missionConfigFile >> "CfgGradBuymenu" >> _baseConfigName >> _categoryConfigName >> _itemConfigName >> "vehicleInit"), "text", "[[],[]]"] call CBA_fnc_getConfigEntry;
