@@ -12,6 +12,7 @@ private _buttons = _parentControl getVariable ["connectedButtons", []];
 _buttons params ["_btnPlus", "_btnMinus"];
 
 private _itemValue = _parentControl getVariable ["value", 0];
+private _minItemValue = _parentControl getVariable ["minValue", 0];
 private _maxItemValue = _parentControl getVariable ["maxValue", 0];
 
 private _ctrlChosenInThisCat = _parentControl getVariable ["ctrlChosenInThisCat", controlNull];
@@ -29,10 +30,13 @@ private _ctrlCrewCount = _parentControl getVariable ["ctrlCrew", controlNull];
 private _ctrlCargoCount = _parentControl getVariable ["ctrlCargo", controlNull];
 
 private _data = _parentControl getVariable ["data", []];
+private _categoryName = _parentControl getVariable ["categoryName", "none"];
 private _baseConfigName = _parentControl getVariable ["baseConfigName", "none"];
+private _catValueIdentifier = format ["catValue_%1_%2", _baseConfigName, _categoryName];
+
 private _catPlusMinusButtons = _ctrlChosenInThisCat getVariable ["catPlusMinusButtons", []];
 
-diag_log format ["_data in changeValue %1", _data];
+// diag_log format ["_data in changeValue %1", _data];
 
 private _catFormatting = "<t size='1' align='center' color='#999999'>";
 private _catFormattingMaxed = "<t size='1' align='center' color='#66AA66'>";
@@ -80,7 +84,7 @@ if (_catValue >= _valueMaxInThisCat) then {
 
 _ctrlChosenInThisCat setVariable ["value", _catValue];
 _parentControl setVariable ["value", _itemValue];
-
+missionNamespace setVariable [_catValueIdentifier, _catValue, true];
 
 // set cargo and crew count
 if (_increaseValue) then {

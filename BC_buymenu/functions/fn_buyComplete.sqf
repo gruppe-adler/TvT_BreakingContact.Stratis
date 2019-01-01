@@ -2,11 +2,11 @@
     buy complete on server
 */
 
-params ["_identifier", "_spawnCone", "_queue"];
+params ["_unit", "_identifier", "_spawnCone", "_buyQueue"];
 
 if (!isServer) exitWith {};
 
-
+// systemChat str "buycomplete";
 
 private _spawnPos = (getPos _spawnCone);
 private _roadArray = _spawnPos nearRoads 1000;
@@ -41,7 +41,7 @@ private _emptyIndex = 0;
     
 for "_i" from _emptyIndex to ((count _closestRoads) - 1) do {
     private _road = (_closestRoads select _i);
-    private _roadDir = getDir player;
+    private _roadDir = getDir _unit;
     private _roadPos = getPos _road;
     private _roadsConnectedTo = roadsConnectedTo _road;
     if (count _roadsConnectedTo > 0) then {
@@ -54,16 +54,18 @@ for "_i" from _emptyIndex to ((count _closestRoads) - 1) do {
     private _foundStuff = (allMissionObjects "") inAreaArray [_roadPos, 8, 8, _roadDir, true, -1];
     // systemChat str _foundStuff;
     if ((count _foundStuff) < 1) then {
-        _emptyIndex = _emptyIndex + 1;
         
         [_roadPos, _i] call _debugMarkerGood;
 
-        if (_emptyIndex < ((count _buyQueue)-1)) then {
+        if (_emptyIndex < (count _buyQueue)) then {
             diag_log format ["%1", _emptyIndex];
             private _data = _buyQueue select _emptyIndex;
             _data params ["_classname", "_displayName", "_maxCount", "_description", "_code", "_picturePath", "_crew", "_cargo", "_speed", "_baseConfigName", "_categoryConfigName", "_itemConfigName", "_spawnCone"];
-            [player, player, 0, _code, _baseConfigName, _categoryConfigName, _itemConfigName, _roadPos, _roadDir] call BC_buymenu_fnc_buyVehicle;
+            systemChat format ["buyVehicle_%1_%2", _classname, count _buyQueue];
+            [_unit, _unit, 0, _code, _baseConfigName, _categoryConfigName, _itemConfigName, _roadPos, _roadDir] call BC_buymenu_fnc_buyVehicle;
         };
+
+        _emptyIndex = _emptyIndex + 1;
     } else {
         [_roadPos, _i] call _debugMarkerBad;
     };
@@ -80,7 +82,7 @@ for "_i" from _emptyIndex to ((count _closestRoads) - 1) do {
     // diag_log format ["_data %1", _data];
     // diag_log format ["_baseConfigName %1, _categoryConfigName %2, _itemConfigName %3", _baseConfigName, _categoryConfigName, _itemConfigName];
 
-    // [player, player, 0, _code, _baseConfigName, _categoryConfigName, _itemConfigName, _spawnPos, _spawnDir] call BC_buymenu_fnc_buyVehicle;
+    // [_unit, _unit, 0, _code, _baseConfigName, _categoryConfigName, _itemConfigName, _spawnPos, _spawnDir] call BC_buymenu_fnc_buyVehicle;
 
 
 missionNamespace setVariable [_identifier, [], true];

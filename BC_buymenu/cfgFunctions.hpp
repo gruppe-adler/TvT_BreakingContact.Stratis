@@ -11,7 +11,6 @@ class BC_buymenu {
         class changeQueue;
         class createGUI;
         class changeValue;
-        class completeBuy;
         class dropMoney;
         class getGlobalCount;
         class saveGlobal;

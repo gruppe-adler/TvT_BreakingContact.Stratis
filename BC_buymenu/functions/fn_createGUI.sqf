@@ -132,7 +132,7 @@ _ctrlTotalSideCount ctrlCommit 0;
 
 {   
     private _multiplicator = _x;
-    private _category = _categoriesExtracted select _forEachIndex select 0;
+    private _categoryName = _categoriesExtracted select _forEachIndex select 0;
     private _valueMaxInThisCat = _categoriesExtracted select _forEachIndex select 1;
     private _spawnCone = _categoriesExtracted select _forEachIndex select 2;
     private _data = _categoriesExtracted select _forEachIndex select 3;
@@ -170,9 +170,14 @@ _ctrlTotalSideCount ctrlCommit 0;
     _ctrlChosenInThisCat ctrlsetFont "RobotoCondensedBold";
     _ctrlChosenInThisCat ctrlSetBackgroundColor [0,0,0,0];
     _ctrlChosenInThisCat ctrlSetTextColor [1,1,1,1];
-    private _valueChosenInThisCat = _ctrlChosenInThisCat getVariable ["value", 0];
+    private _catValueIdentifier = format ["catValue_%1_%2", _baseConfigName, _categoryName];
+    private _valueChosenInThisCat = missionNamespace getVariable [_catValueIdentifier, 0];
     _ctrlChosenInThisCat setVariable ["value", _valueChosenInThisCat];
-    _ctrlChosenInThisCat ctrlSetStructuredText parseText ("<t size='1' align='center' color='#333333'>" + str _valueChosenInThisCat + "/" + str _valueMaxInThisCat + "</t>");
+    private _formatting = "<t size='1' align='center' color='#333333'>";
+    if (_valueChosenInThisCat isEqualTo _valueMaxInThisCat) then {
+        _formatting = "<t size='1' align='center' color='#66aa66'>";
+    };
+    _ctrlChosenInThisCat ctrlSetStructuredText parseText (_formatting + str _valueChosenInThisCat + "/" + str _valueMaxInThisCat + "</t>");
     _ctrlChosenInThisCat setVariable ["maxValue", _valueMaxInThisCat];
     _ctrlChosenInThisCat ctrlSetPosition [
         _columnWidth * _multiplicator + safezoneX + _columnWidth, 
@@ -206,12 +211,14 @@ _ctrlTotalSideCount ctrlCommit 0;
         private _ctrlItemCount = _display ctrlCreate ["RscStructuredText", -1];
         private _valueItemCount = [_baseConfigName, _classname] call BC_buymenu_fnc_getGlobalCount;
         _ctrlItemCount setVariable ["value", _valueItemCount];
+        _ctrlItemCount setVariable ["minValue", _valueItemCount];
         _ctrlItemCount setVariable ["maxValue", _maxCount];
         _ctrlItemCount setVariable ["ctrlTotalSideCount", _ctrlTotalSideCount];
         _ctrlItemCount setVariable ["valueTotalSideCount", _valueTotalSideCount];
         _ctrlItemCount setVariable ["ctrlChosenInThisCat", _ctrlChosenInThisCat];
         _ctrlItemCount setVariable ["valueMaxInThisCat", _valueMaxInThisCat];
         _ctrlItemCount setVariable ["baseConfigName", _baseConfigName];
+        _ctrlItemCount setVariable ["categoryName", _categoryName];
         _ctrlItemCount setVariable ["crew", _crew];
         _ctrlItemCount setVariable ["cargo", _cargo];
         _ctrlItemCount setVariable ["ctrlCrew", _ctrlCrewCount];
@@ -254,7 +261,7 @@ _ctrlTotalSideCount ctrlCommit 0;
         ];
         _btnPlus ctrlSetTooltip "Increase Count";
         _btnPlus setVariable ["parentControl", _ctrlItemCount];
-        if (_valueItemCount > _maxCount) then {
+        if (_valueItemCount > _maxCount || _valueChosenInThisCat > _valueMaxInThisCat) then {
             _btnPlus ctrlEnable false;
         };
         _btnPlus ctrlAddEventHandler [
@@ -328,6 +335,14 @@ _ctrlTotalSideCount ctrlCommit 0;
     _button ctrlAddEventHandler [
             "MouseExit",
             "(_this select 0) ctrlSetBackgroundColor [108/255, 170/255, 204/255,1];"
+        ];
+    _button ctrlAddEventHandler [
+            "MouseButtonDown",
+            "(_this select 0) ctrlSetBackgroundColor [68/255, 130/255, 164/255,1];"
+        ];
+    _button ctrlAddEventHandler [
+            "MouseButtonUp",
+            "(_this select 0) ctrlSetBackgroundColor [88/255, 150/255, 184/255,1];"
         ];
     _button ctrlAddEventHandler [
             "MouseButtonClick",

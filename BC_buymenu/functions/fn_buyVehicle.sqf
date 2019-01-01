@@ -5,7 +5,7 @@
 
 params ["_buyer","_account","_price","_code","_baseConfigName","_categoryConfigName","_itemConfigName","_spawnPosition", "_spawnDir"];
 
-// diag_log format ["%1 - %2 - %3", _baseConfigName, _categoryConfigName, _itemConfigName];
+diag_log format ["%1 - %2 - %3", _baseConfigName, _categoryConfigName, _itemConfigName];
 
 private _spawnEmpty = [(missionConfigFile >> "CfgGradBuymenu" >> _baseConfigName >> _categoryConfigName >> _itemConfigName >> "spawnEmpty"), "number", -1] call CBA_fnc_getConfigEntry;
 if (_spawnEmpty == -1) then {
@@ -42,11 +42,11 @@ _c1 = [(missionConfigFile >> "CfgGradBuymenu" >> _baseConfigName >> "vehicleMark
 _c2 = [(missionConfigFile >> "CfgGradBuymenu" >> "vehicleMarkers"), "number", 1] call CBA_fnc_getConfigEntry;
 switch (true) do {
     case (_c1 == 1): {
-        [_buyer, _vehicle, _baseConfigName, _categoryConfigName, _itemConfigName] remoteExec ["grad_lbm_fnc_vehicleMarker", 0, false];
+        [_buyer, _vehicle, _baseConfigName, _categoryConfigName, _itemConfigName] remoteExec ["grad_lbm_fnc_vehicleMarker", side _buyer, false];
     };
     case (_c1 == 0): {false};
     case (_c2 == 1): {
-        [_buyer, _vehicle, _baseConfigName, _categoryConfigName, _itemConfigName] remoteExec ["grad_lbm_fnc_vehicleMarker", 0, false];
+        [_buyer, _vehicle, _baseConfigName, _categoryConfigName, _itemConfigName] remoteExec ["grad_lbm_fnc_vehicleMarker", side _buyer, false];
     };
     default {false};
 };

@@ -9,6 +9,6 @@ if (_add) then {
     _currentQueue deleteAt (_currentQueue find _data);
 };
 
-diag_log format ["_currentQueue %1", _currentQueue];
+// diag_log format ["_currentQueue %1", _currentQueue];
 
 missionNamespace setVariable [_identifier, _currentQueue, true];
