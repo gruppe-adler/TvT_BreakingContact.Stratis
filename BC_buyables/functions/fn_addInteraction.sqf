@@ -28,4 +28,4 @@ diag_log "added CBA eh";
             diag_log "added BC_buymenu_fnc_addInteraction";
         };
 
-    }] call CBA_fnc_addEventHandler;
+}] call CBA_fnc_addEventHandler;

@@ -2,7 +2,7 @@
     buy complete on server
 */
 
-params ["_unit", "_identifier", "_spawnCone", "_buyQueue"];
+params ["_unit", "_identifier", "_startVehicle", "_spawnCone", "_buyQueue"];
 
 if (!isServer) exitWith {};
 
@@ -60,9 +60,12 @@ for "_i" from _emptyIndex to ((count _closestRoads) - 1) do {
         if (_emptyIndex < (count _buyQueue)) then {
             diag_log format ["%1", _emptyIndex];
             private _data = _buyQueue select _emptyIndex;
-            _data params ["_classname", "_displayName", "_maxCount", "_description", "_code", "_picturePath", "_crew", "_cargo", "_speed", "_baseConfigName", "_categoryConfigName", "_itemConfigName", "_spawnCone"];
-            systemChat format ["buyVehicle_%1_%2", _classname, count _buyQueue];
-            [_unit, _unit, 0, _code, _baseConfigName, _categoryConfigName, _itemConfigName, _roadPos, _roadDir] call BC_buymenu_fnc_buyVehicle;
+            _data params ["_displayName", "_maxCount", "_description", "_code", "_picturePath", "_crew", "_cargo", "_speed", "_baseConfigName", "_categoryConfigName", "_itemConfigName", "_isSpecial"];
+            if (!_isSpecial) then {
+                [_unit, _unit, 0, _code, _baseConfigName, _categoryConfigName, _itemConfigName, _roadPos, _roadDir] call BC_buymenu_fnc_buyVehicle;
+            } else {
+                [_startVehicle, _code] call BC_buymenu_fnc_buySpecials;
+            };
         };
 
         _emptyIndex = _emptyIndex + 1;
@@ -70,19 +73,5 @@ for "_i" from _emptyIndex to ((count _closestRoads) - 1) do {
         [_roadPos, _i] call _debugMarkerBad;
     };
 };
-
-    /*
-    private _data = _x;
-    private _road = _closestRoads select _emptyIndex;
-    private _spawnPos = getPos _road;
-    private _spawnDir = getDir _road;
-    _data params ["_classname", "_displayName", "_maxCount", "_description", "_code", "_picturePath", "_crew", "_cargo", "_speed", "_baseConfigName", "_categoryConfigName", "_itemConfigName", "_spawnCone"];
-    */
-
-    // diag_log format ["_data %1", _data];
-    // diag_log format ["_baseConfigName %1, _categoryConfigName %2, _itemConfigName %3", _baseConfigName, _categoryConfigName, _itemConfigName];
-
-    // [_unit, _unit, 0, _code, _baseConfigName, _categoryConfigName, _itemConfigName, _spawnPos, _spawnDir] call BC_buymenu_fnc_buyVehicle;
-
 
 missionNamespace setVariable [_identifier, [], true];

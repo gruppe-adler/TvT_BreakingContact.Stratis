@@ -148,25 +148,6 @@ _selfRadioProgressCheck = ["TransmissionProgress", "Check Transmission Progress"
 [typeOf player, 1, ["ACE_SelfActions"], _selfRadioProgressCheck] call ace_interact_menu_fnc_addActionToClass;
 
 
-
-// boat carrying
-_carryAssaultBoat = ["CarryBoatAction", "Carry Boat", "",
-  {[_target] spawn GRAD_carryBoat_fnc_pickupBoat;},
-  {(count (crew _target) == 0)}] call ace_interact_menu_fnc_createAction;
-
-["B_Boat_Transport_01_F", 0, ["ACE_MainActions"],_carryAssaultBoat] call ace_interact_menu_fnc_addActionToClass;
-
-// boat picking from container
-_createAssaultBoat = ["CreateBoatAction", "Take Boat", "",
-  {[_target] call GRAD_carryBoat_fnc_createBoat;},
-  {(_target getVariable ["grad_carryBoatCargo", 0] > 0)}
-] call ace_interact_menu_fnc_createAction;
-
-["rhsusf_mrzr4_d_mud", 0, ["ACE_MainActions"],_createAssaultBoat] call ace_interact_menu_fnc_addActionToClass;
-["rhsusf_mrzr4_w_mud", 0, ["ACE_MainActions"],_createAssaultBoat] call ace_interact_menu_fnc_addActionToClass;
-
-
-
  _attachRadioAction = ["RusAttachMenu", (localize "str_GRAD_attach_radio"), "",
  {
  [4, [_this select 0], {

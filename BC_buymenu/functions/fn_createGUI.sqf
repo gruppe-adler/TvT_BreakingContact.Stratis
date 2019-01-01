@@ -4,7 +4,7 @@
 
 */
 
-params ["_baseConfigName", "_spawnCone"];
+params ["_baseConfigName", "_startVehicle", "_spawnCone"];
 // prepare data
 //private _baseConfigName = "RussianStuff";
 private _baseConfig = missionConfigFile >> "CfgGradBuymenu" >> _baseConfigName;
@@ -22,8 +22,8 @@ private _categoriesExtracted = [];
         if (_categoryName == "") then {_categoryName = _configName};
 
         private _valueMaxInThisCat = [(_config >> "maxBuyCount"), "number", 0] call CBA_fnc_getConfigEntry;
-
-
+        private _isSpecial = ([(_config >> "kindOf"), "text", ""] call CBA_fnc_getConfigEntry) isEqualTo "Special";
+        private _minPlayerCount = [(_config >> "minPlayerCount"), "number", 0] call CBA_fnc_getConfigEntry;
         ///////
         private _allItems = "true" configClasses (missionConfigFile >> "CfgGradBuymenu" >> _baseConfigName >> _configName);
         _listIndex = 0;
@@ -35,7 +35,6 @@ private _categoriesExtracted = [];
             if (call compile _condition) then {
                 private _itemConfigName = configName _config;
                 private _displayName = [(_config >> "displayName"), "text", [_itemConfigName] call grad_lbm_fnc_getDisplayName] call CBA_fnc_getConfigEntry;
-                private _price = [(_config >> "price"), "number", 999999] call CBA_fnc_getConfigEntry;
                 private _stock = [(_config >> "stock"), "number", 999999] call CBA_fnc_getConfigEntry;
                 
                 private _description = [(_config >> "description"), "text", [_itemConfigName] call grad_lbm_fnc_getDescription] call CBA_fnc_getConfigEntry;
@@ -55,7 +54,7 @@ private _categoriesExtracted = [];
                     _picturePath = getText (configfile >> "CfgVehicles" >> _itemConfigName >> "editorPreview");
                 };
 
-                _allItemsExtracted pushBack [_itemConfigName, _displayName, _stock, _description, _code, _picturePath, _crew, _cargo, _speed, _baseConfigName, _categoryName, _itemConfigName];
+                _allItemsExtracted pushBack [_displayName, _stock, _description, _code, _picturePath, _crew, _cargo, _speed, _baseConfigName, _categoryName, _itemConfigName, _isSpecial];
                 // diag_log str (_allItemsExtracted);
                 // copyToClipboard str (_allItemsExtracted);
                 
@@ -65,7 +64,7 @@ private _categoriesExtracted = [];
 
 
         _categoriesExtracted pushBack [
-            _categoryName, _valueMaxInThisCat, _spawnCone, _allItemsExtracted
+            _categoryName, _minPlayerCount, _valueMaxInThisCat, _spawnCone, _allItemsExtracted
         ];
     };
 } forEach _allCategories;
@@ -133,13 +132,14 @@ _ctrlTotalSideCount ctrlCommit 0;
 {   
     private _multiplicator = _x;
     private _categoryName = _categoriesExtracted select _forEachIndex select 0;
-    private _valueMaxInThisCat = _categoriesExtracted select _forEachIndex select 1;
-    private _spawnCone = _categoriesExtracted select _forEachIndex select 2;
-    private _data = _categoriesExtracted select _forEachIndex select 3;
+    private _minPlayerCount = _categoriesExtracted select _forEachIndex select 1;
+    private _valueMaxInThisCat = _categoriesExtracted select _forEachIndex select 2;
+    private _spawnCone = _categoriesExtracted select _forEachIndex select 3;
+    private _data = _categoriesExtracted select _forEachIndex select 4;
+    private _isLocked = _minPlayerCount > (count (playableUnits + switchableUnits));
+
     if (count _data < 1) exitWith {};
-
     
-
     // copyToClipBoard str (_data);
    
 
@@ -192,7 +192,6 @@ _ctrlTotalSideCount ctrlCommit 0;
     for "_i" from 1 to (count _data) do {
 
         (_data select (_i-1)) params [
-            "_classname",
             "_displayName",
             "_maxCount",
             "_description",
@@ -203,13 +202,14 @@ _ctrlTotalSideCount ctrlCommit 0;
             "_speed",
             "_baseConfigName",
             "_categoryName",
-            "_itemConfigName"
+            "_itemConfigName",
+            "_isSpecial"
         ];
 
         
         // ctrlItemCount is our all knowing item
         private _ctrlItemCount = _display ctrlCreate ["RscStructuredText", -1];
-        private _valueItemCount = [_baseConfigName, _classname] call BC_buymenu_fnc_getGlobalCount;
+        private _valueItemCount = [_baseConfigName, _itemConfigName] call BC_buymenu_fnc_getGlobalCount;
         _ctrlItemCount setVariable ["value", _valueItemCount];
         _ctrlItemCount setVariable ["minValue", _valueItemCount];
         _ctrlItemCount setVariable ["maxValue", _maxCount];
@@ -245,9 +245,28 @@ _ctrlTotalSideCount ctrlCommit 0;
         ];
         _picture ctrlSetBackgroundColor [0,1,0,0.4];
         _picture ctrlSetText _picturePath;
+        _picture setVariable ["crew", _crew];
+        _picture setVariable ["cargo", _cargo];
+        _picture setVariable ["speed", _speed];
         // _picture ctrlSetText "rhsafrf\addons\rhs_editorPreviews\data\rhs_tigr_vmf.paa";
+        if (!_isSpecial) then {
+            _picture ctrlSetTooltip (
+                "Crew: " +
+                str _crew + "\n" +
+                "Cargo: " +
+                str _cargo + "\n" +
+                 "Speed: " +
+                str _speed + " km/h" + "\n" +
+                _description
+                );
+            _picture ctrlSetTooltipColorText [1, 1, 1, 0.7];
+            _picture ctrlSetTooltipColorBox [0.1, 0.1, 0.1, 1];
+            _picture ctrlSetTooltipColorShade [0, 0, 0, 1];
+        } else {
+            _picture ctrlSetTooltip _description;
+        };
         _picture ctrlCommit 0;
-
+        
 
         private _btnPlus = _display ctrlCreate ["grad_buymenu_RscButton", -1];
         _btnPlus ctrlsetFont "RobotoCondensedBold";
@@ -256,12 +275,12 @@ _ctrlTotalSideCount ctrlCommit 0;
         _btnPlus ctrlSetPosition [
             _columnWidth * _multiplicator + safezoneX  + _columnWidth * 4 + _columnWidth/2,
              (_i * (_rowHeight * 8) + safezoneY) - _rowHeight/4,
-            _columnWidth/1.5,
+            _columnWidth/2,
             _rowHeight * 2
         ];
         _btnPlus ctrlSetTooltip "Increase Count";
         _btnPlus setVariable ["parentControl", _ctrlItemCount];
-        if (_valueItemCount > _maxCount || _valueChosenInThisCat > _valueMaxInThisCat) then {
+        if (_valueItemCount >= _maxCount || _valueChosenInThisCat >= _valueMaxInThisCat || _isLocked) then {
             _btnPlus ctrlEnable false;
         };
         _btnPlus ctrlAddEventHandler [
@@ -279,7 +298,7 @@ _ctrlTotalSideCount ctrlCommit 0;
         _btnMinus ctrlSetPosition [
             _columnWidth * _multiplicator + safezoneX  + _columnWidth * 4 + _columnWidth/2,
              (_i * (_rowHeight * 8) + safezoneY) + _rowHeight * 2,
-            _columnWidth/1.5,
+            _columnWidth/2,
             _rowHeight * 2
         ];
         _btnMinus ctrlSetTooltip "Reduce Count";
@@ -315,7 +334,33 @@ _ctrlTotalSideCount ctrlCommit 0;
         _subline ctrlCommit 0;
     };
 
+    if (_isLocked) then {
+        private _lockMask = _display ctrlCreate ["RscText", -1];
+        _lockMask ctrlSetPosition [
+            _columnWidth * _multiplicator + safezoneX + _columnWidth,
+            _rowHeight*4 + safezoneY,
+            _columnWidth * 4,
+            _screenHeight + safezoneY
+        ];
+        _lockMask ctrlSetBackgroundColor [0,0,0,0.7];
 
+        _lockMask ctrlSetTooltip ("<Locked>\n\nMinimum player count: " + str _minPlayerCount);
+        _lockMask ctrlSetTooltipColorText [1, 1, 1, 0.7];
+        _lockMask ctrlSetTooltipColorBox [0.1, 0.1, 0.1, 1];
+        _lockMask ctrlSetTooltipColorShade [0, 0, 0, 1]; 
+
+        _lockMask ctrlCommit 0;
+
+
+
+    };
+
+} forEach [
+    0,5,10,15,20
+];
+
+
+if (player getVariable ["BC_potentToBuy", false]) then {
     private _button = _display ctrlCreate ["RscStructuredText", -1];
     _button ctrlsetFont "RobotoCondensedBold";
     _button ctrlSetBackgroundColor [108/255,170/255,204/255,1]; // 108, 170, 204
@@ -338,7 +383,7 @@ _ctrlTotalSideCount ctrlCommit 0;
         ];
     _button ctrlAddEventHandler [
             "MouseButtonDown",
-            "(_this select 0) ctrlSetBackgroundColor [68/255, 130/255, 164/255,1];"
+            "(_this select 0) ctrlSetBackgroundColor [58/255, 120/255, 154/255,1];"
         ];
     _button ctrlAddEventHandler [
             "MouseButtonUp",
@@ -349,10 +394,9 @@ _ctrlTotalSideCount ctrlCommit 0;
             "[_this select 0] call BC_buymenu_fnc_buyInit;"
         ];
     _button ctrlCommit 0;
+};
 
-} forEach [
-    0,5,10,15,20
-];
 
 uiNamespace setVariable ["BC_buymenu_display", _display];
 uiNamespace setVariable ["BC_buymenu_spawnCone", _spawnCone];
+uiNamespace setVariable ["BC_buymenu_startVehicle", _startVehicle];

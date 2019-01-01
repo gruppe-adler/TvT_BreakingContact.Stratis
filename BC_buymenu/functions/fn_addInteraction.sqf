@@ -11,7 +11,7 @@ private _action = [_actionName,_actionDescription,_icon,{
 
     _args = _this select 2;
     _args params ["_object","_spawnCone","_baseConfigName","_shopName"];
-    [_baseConfigName,_spawnCone] call BC_buymenu_fnc_createGUI;
+    [_baseConfigName, _object, _spawnCone] call BC_buymenu_fnc_createGUI;
 
 },_condition,{},[_object,_spawnCone,_baseConfigName,_shopName],[0,0,0],3] call ace_interact_menu_fnc_createAction;
 

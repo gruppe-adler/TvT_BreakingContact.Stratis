@@ -8,6 +8,7 @@ private _baseConfigName = _button getVariable ["identifier", "none"];
 
 private _display = uiNamespace getVariable ["BC_buymenu_display", _display];
 private _spawnCone = uiNamespace getVariable ["BC_buymenu_spawnCone", objNull];
+private _startVehicle = uiNamespace getVariable ["BC_buymenu_startVehicle", objNull];
 _display closeDisplay 1;
 
 [player] remoteExec ["BC_buymenu_fnc_dropMoney", [0,-2] select isDedicated];
@@ -15,4 +16,4 @@ _display closeDisplay 1;
 private _identifier = format ["BC_buymenu_spawnQueue_%1", _baseConfigName];
 private _buyQueue = missionNamespace getVariable [_identifier, []];
 
-[player, _identifier, _spawnCone, _buyQueue] remoteExec ["BC_buymenu_fnc_buyComplete", 2];
+[player, _identifier, _startVehicle, _spawnCone, _buyQueue] remoteExec ["BC_buymenu_fnc_buyComplete", 2];

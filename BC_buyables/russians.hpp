@@ -5,13 +5,14 @@ class RussianStuff {
         displayName = "Logistics";
         kindOf = "Vehicles";
         maxBuyCount = 9;
+        minPlayerCount = 0;
 
         class RHS_Ural_MSV_01 {
             displayName = "Ural";
             description = "The workhorse of your army.";
             price = 10;
             stock = 7;
-            code = "";
+            code = "(_this select 0) addItemCargoGlobal ['ItemGPS',1];['AddCargoByClass', ['ACE_wheel', _this select 0, 2], _this select 0] call CBA_fnc_targetEvent;(_this select 0) setVariable ['ace(_this select 0)iclelock_lockSide', east, true];";
             spawnEmpty = 1;
             condition = "BC_IS_WOODLAND";
             vehicleInit = "[['standard',1], ['light_hide',1]]";
@@ -27,7 +28,7 @@ class RussianStuff {
             description = "The workhorse of your army.";
             price = 10;
             stock = 7;
-            code = "";
+            code = "(_this select 0) addItemCargoGlobal ['ItemGPS',1];['AddCargoByClass', ['ACE_wheel', _this select 0, 2], _this select 0] call CBA_fnc_targetEvent;(_this select 0) setVariable ['ace(_this select 0)iclelock_lockSide', east, true];";
             spawnEmpty = 1;
             condition = "BC_IS_WOODLAND";
             vehicleInit = "[[], ['cabinlights_hide',0,'light_hide',1]]";
@@ -44,13 +45,14 @@ class RussianStuff {
         displayName = "Recon";
         kindOf = "Vehicles";
         maxBuyCount = 2;
+        minPlayerCount = 20;
 
         class rhs_tigr_m_vdv {
             displayName = "Tigr-M";
             description = "The workhorse of your army.";
             price = 10;
             stock = 7;
-            code = "";
+            code = "(_this select 0) addItemCargoGlobal ['ItemGPS',1];['AddCargoByClass', ['ACE_wheel', _this select 0, 2], _this select 0] call CBA_fnc_targetEvent;(_this select 0) setVariable ['ace(_this select 0)iclelock_lockSide', east, true];";
             spawnEmpty = 1;
             condition = "BC_IS_WOODLAND";
             vehicleInit = "[[],[]]";
@@ -66,7 +68,7 @@ class RussianStuff {
             description = "The workhorse of your army.";
             price = 10;
             stock = 7;
-            code = "";
+            code = "(_this select 0) addItemCargoGlobal ['ItemGPS',1];['AddCargoByClass', ['ACE_wheel', _this select 0, 2], _this select 0] call CBA_fnc_targetEvent;(_this select 0) setVariable ['ace(_this select 0)iclelock_lockSide', east, true];";
             spawnEmpty = 1;
             condition = "BC_IS_WOODLAND";
             vehicleInit = "[[], ['cabinlights_hide',0,'light_hide',1]]";
@@ -83,7 +85,7 @@ class RussianStuff {
             description = "The workhorse of your army.";
             price = 10;
             stock = 7;
-            code = "";
+            code = "(_this select 0) addItemCargoGlobal ['ItemGPS',1];['AddCargoByClass', ['ACE_wheel', _this select 0, 2], _this select 0] call CBA_fnc_targetEvent;(_this select 0) setVariable ['ace(_this select 0)iclelock_lockSide', east, true];";
             spawnEmpty = 1;
             condition = "BC_IS_WOODLAND";
             vehicleInit = "[[], ['cabinlights_hide',0,'light_hide',1]]";
@@ -101,13 +103,13 @@ class RussianStuff {
         displayName = "Support";
         kindOf = "Vehicles";
         maxBuyCount = 2;
+        minPlayerCount = 40;
 
         class rhsgref_BRDM2_HQ_msv {
             displayName = "BRDM-HQ";
             description = "The workhorse of your army.";
-            price = 0;
             stock = 7;
-            code = "";
+            code = "['AddCargoByClass', ['ACE_wheel', _this select 0, 2], _this select 0] call CBA_fnc_targetEvent;(_this select 0) addItemCargoGlobal ['rhs_tsh4',3];(_this select 0) addItemCargoGlobal ['ItemGPS',1];(_this select 0) setVariable ['ace(_this select 0)iclelock_lockSide', east, true];";
             spawnEmpty = 1;
             condition = "BC_IS_WOODLAND";
             vehicleInit = "[['olive', 1], ['driverViewHatch',0,'commanderViewHatch',0,'hatchCommander',1]]";
@@ -121,9 +123,8 @@ class RussianStuff {
         class rhsgref_BRDM2_ATGM_msv {
             displayName = "BRDM-AT";
             description = "The workhorse of your army.";
-            price = 0;
             stock = 7;
-            code = "";
+            code = "['AddCargoByClass', ['ACE_wheel', _this select 0, 2], _this select 0] call CBA_fnc_targetEvent;(_this select 0) addItemCargoGlobal ['rhs_tsh4',3];(_this select 0) addItemCargoGlobal ['ItemGPS',1];(_this select 0) setVariable ['ace(_this select 0)iclelock_lockSide', east, true];";
             spawnEmpty = 1;
             condition = "BC_IS_WOODLAND";
             vehicleInit = "[['olive', 1], ['driverViewHatch',0,'commanderViewHatch',0,'hatchCommander',1]]";
@@ -137,9 +138,8 @@ class RussianStuff {
         class rhsgref_BRDM2_msv {
             displayName = "BRDM-2";
             description = "The workhorse of your army.";
-            price = 0;
             stock = 7;
-            code = "";
+            code = "['AddCargoByClass', ['ACE_wheel', _this select 0, 2], _this select 0] call CBA_fnc_targetEvent;(_this select 0) addItemCargoGlobal ['rhs_tsh4',3];(_this select 0) addItemCargoGlobal ['ItemGPS',1];(_this select 0) setVariable ['ace(_this select 0)iclelock_lockSide', east, true];";
             spawnEmpty = 1;
             condition = "BC_IS_WOODLAND";
             vehicleInit = "[['olive', 1], ['driverViewHatch',0,'commanderViewHatch',0,'hatchCommander',1]]";
@@ -156,13 +156,13 @@ class RussianStuff {
         displayName = "Armor";
         kindOf = "Vehicles";
         maxBuyCount = 1;
+        minPlayerCount = 60;
 
         class rhs_t80bvk {
             displayName = "T80-BVK";
             description = "The workhorse of your army.";
-            price = 0;
-            stock = 7;
-            code = "";
+            stock = 1;
+            code = "(_this select 0) addItemCargoGlobal ['ItemGPS',1];['AddCargoByClass', ['ACE_track', _this select 0, 2], _this select 0] call CBA_fnc_targetEvent;(_this select 0) removeMagazinesTurret ['rhs_mag_3of26_5', [0]];(_this select 0) addItemCargoGlobal ['rhs_tsh4',3];(_this select 0) setVariable ['ace(_this select 0)iclelock_lockSide', east, true];";
             spawnEmpty = 1;
             condition = "BC_IS_WOODLAND";
             vehicleInit = "[['standard',1], ['hide_com_shield',1,'sightElevationAPFSDS',0]]";
@@ -176,9 +176,8 @@ class RussianStuff {
         class rhs_bmp1d_msv {
             displayName = "BMP1-D";
             description = "The workhorse of your army.";
-            price = 0;
-            stock = 7;
-            code = "";
+            stock = 1;
+            code = "(_this select 0) addItemCargoGlobal ['ItemGPS',1]; ['AddCargoByClass', ['ACE_wheel', _this select 0, 2], _this select 0] call CBA_fnc_targetEvent; (_this select 0) removeMagazinesTurret ['rhs_mag_og15v_20', [0]]; (_this select 0) addItemCargoGlobal ['rhs_tsh4',3]; (_this select 0) setVariable ['ace(_this select 0)iclelock_lockSide', east, true];";
             spawnEmpty = 1;
             condition = "BC_IS_WOODLAND";
             vehicleInit = "[['standard',1], ['crate_l1_unhide',1,'crate_l2_unhide',1,'crate_l3_unhide',1,'crate_r1_unhide',1,'crate_r2_unhide',1,'crate_r3_unhide',1,'wood_1_unhide',1,'maljutka_hide_source',1,'cargoHandler1',0]]";
@@ -192,34 +191,29 @@ class RussianStuff {
 
     class Special {
         displayName = "Special";
-        kindOf = "Vehicles";
+        kindOf = "Special";
         maxBuyCount = 2;
 
         class Land_DataTerminal_01_F {
             displayName = "Radio Relay Terminal";
-            description = "The workhorse of your army.";
-            price = 0;
-            stock = 7;
-            code = "";
-            spawnEmpty = 1;
+            description = "Replaces radio truck internal module.\nIs attached to the radio truck but can be detached.\nSends with 50-100% strength depending on distance to radio truck.";
+            stock = 1;
+            code = "diag_log str (_this); private _terminal = missionNameSpace getVariable ['GRAD_tracking_terminalObj', objNull]; [_terminal, (_this select 0)] call GRAD_tracking_fnc_terminalAttachToVeh;";
         };
 
         class Land_BagFence_Round_F {
             displayName = "Defense Pack";
-            description = "The workhorse of your army.";
-            price = 0;
-            stock = 7;
-            code = "";
+            description = "One KORD MG and Fortifications in Radio Truck.";
+            stock = 1;
+            code = "diag_log str (_this);private _mg = 'rhs_KORD_high_VDV' createVehicle [0,0,0];_mg attachTo [(_this select 0), [0,0,0]];[_mg, (_this select 0)] call ace_cargo_fnc_loadItem;";
             spawnEmpty = 1;
         };
 
         class Land_WeldingTrolley_01_F {
             displayName = "Radio Truck Armor";
-            description = "The workhorse of your army.";
-            price = 0;
-            stock = 7;
-            code = "";
-            spawnEmpty = 1;
+            description = "Selfmade armor for radio truck to protect its tires against small arms fire.";
+            stock = 2;
+            code = "diag_log str (_this); [(_this select 0)] call BC_buymenu_fnc_applyTruckArmor;";
         };
     };
 };

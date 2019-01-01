@@ -19,7 +19,6 @@ class BC_objectives {
     class server {
         file = BC_objectives\functions\server;
 
-        class applyTruckArmor {};
         class classicTasksBluforCreate {};
         class classicTasksOpforCreate {};
         class loopConditions {};

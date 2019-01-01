@@ -25,7 +25,6 @@ addMissionEventHandler ["HandleDisconnect",{
     if (_unit getVariable ["BC_potentToBuy", false]) then {
         private _potentToBuy = [side _unit, _unit] call BC_setup_fnc_getHighestRankOfSide;
         _potentToBuy setVariable ["BC_potentToBuy", true, true];
-        [] remoteExec ["GRAD_buyables_fnc_setPlayerPotentToBuy", _potentToBuy];
     };
     if (_unit getVariable ["GRAD_loadout_applicationCount",0] < 1) then {
         deleteVehicle _unit;

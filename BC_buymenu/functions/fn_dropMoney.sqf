@@ -20,6 +20,6 @@ _source setDropInterval 0.001;
 [{  
     params ["_source"];  
     deleteVehicle _source;  
-}, [_source] ,0.05] call CBA_fnc_waitAndExecute;
+}, [_source] ,0.1] call CBA_fnc_waitAndExecute;
 
 _unit say3D ["cashRegister", 30];

@@ -47,10 +47,10 @@ class AmericanStuff {
 
         class RHS_MELB_H6M {
             displayName = "OH-6M";
-            description = "The workhorse of your army.";
+            description = "1 GPS\nNO Thermals\nNO Benches";
             price = 10;
             stock = 7;
-            code = "";
+            code = "(_this select 0) addItemCargoGlobal ['ACE_NVG_Wide',2];(_this select 0) addItemCargoGlobal ['ItemGPS',1];[(_this select 0)] call ace_fastroping_fnc_equipFRIES;(_this select 0) disableTIEquipment true;";
             spawnEmpty = 1;
             vehicleInit = "[[],[]]";
         };
@@ -99,7 +99,6 @@ class AmericanStuff {
         class rhsusf_M1083A1P2_B_M2_WD_fmtv_usarmy {
             displayName = "FMTV M2";
             description = "The workhorse of your army.";
-            price = 0;
             stock = 7;
             code = "";
             spawnEmpty = 1;
@@ -115,7 +114,6 @@ class AmericanStuff {
         class rhsusf_m113_usarmy_M2_90 {
             displayName = "BRDM-AT";
             description = "The workhorse of your army.";
-            price = 0;
             stock = 7;
             code = "";
             spawnEmpty = 1;
@@ -131,7 +129,6 @@ class AmericanStuff {
         class rhsusf_m113_usarmy_M240 {
             displayName = "BRDM-2";
             description = "The workhorse of your army.";
-            price = 0;
             stock = 7;
             code = "";
             spawnEmpty = 1;
@@ -154,7 +151,6 @@ class AmericanStuff {
         class rhsusf_m1045_w {
             displayName = "HMMWV TOW";
             description = "The workhorse of your army.";
-            price = 0;
             stock = 7;
             code = "";
             spawnEmpty = 1;
@@ -169,10 +165,9 @@ class AmericanStuff {
 
         class RHS_UH60M2 {
             displayName = "UH-60M";
-            description = "The workhorse of your army.";
-            price = 0;
+            description = "1 GPS\nFRIES equipped";
             stock = 7;
-            code = "";
+            code = "(_this select 0) addItemCargoGlobal ['ACE_NVG_Wide',2];(_this select 0) addItemCargoGlobal ['ItemGPS',1];[(_this select 0)] call ace_fastroping_fnc_equipFRIES;";
             spawnEmpty = 1;
             vehicleInit = "[['standard',1], ['crate_l1_unhide',1,'crate_l2_unhide',1,'crate_l3_unhide',1,'crate_r1_unhide',1,'crate_r2_unhide',1,'crate_r3_unhide',1,'wood_1_unhide',1,'maljutka_hide_source',1,'cargoHandler1',0]]";
         };
@@ -180,33 +175,30 @@ class AmericanStuff {
 
     class Special {
         displayName = "Special";
-        kindOf = "Vehicles";
+        kindOf = "Special";
         maxBuyCount = 2;
 
         class I_C_Boat_Transport_01_F {
-            displayName = "Boats + Diving Equipments";
+            displayName = "Boat + Diving Equipment";
             description = "Get it in the Start Vehicle (ACE Interaction).";
-            price = 0;
             stock = 1;
-            code = "";
+            code = "(_this select 0) setVariable ['grad_carryBoatCargo', 1];[(_this select 0)] remoteExec ['BC_buymenu_fnc_addBoatInteraction', [0,-2] select isDedicated];";
             spawnEmpty = 1;
         };
 
         class rhsusf_explosive_m112 {
             displayName = "Breaching Equipment";
             description = "Explosives and Wirecutter in Start Vehicle.";
-            price = 0;
             stock = 1;
-            code = "";
+            code = "(_this select 0) addItemCargoGlobal ['ACE_wirecutter',2];(_this select 0) addMagazineCargoGlobal ['ACE_Clacker',2];(_this select 0) addMagazineCargoGlobal ['rhsusf_m112_mag', 2];";
             spawnEmpty = 1;
         };
 
         class Land_JumpTarget_F {
             displayName = "Hunt IR Equipment";
             description = "Hunt IR Equipment in Start Vehicle.";
-            price = 0;
             stock = 1;
-            code = "";
+            code = "(_this select 0) addItemCargoGlobal ['ACE_HuntIR_monitor',2];(_this select 0) addMagazineCargoGlobal ['ACE_HuntIR_M203',4];";
             spawnEmpty = 1;
         };
     };
