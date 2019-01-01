@@ -1,3 +1,7 @@
+/*
+    client only
+*/
+
 params ["_unit"];
 
 private _position = _unit getPos [0.5, getDir _unit];

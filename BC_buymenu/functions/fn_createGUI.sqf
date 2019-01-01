@@ -319,6 +319,7 @@ _ctrlTotalSideCount ctrlCommit 0;
         _screenWidth - _columnWidth * 2,
         _rowHeight * 3 
     ];
+    _button setVariable ["identifier", _baseConfigName];
     _button ctrlEnable true;
     _button ctrlAddEventHandler [
             "MouseEnter",
@@ -330,7 +331,7 @@ _ctrlTotalSideCount ctrlCommit 0;
         ];
     _button ctrlAddEventHandler [
             "MouseButtonClick",
-            "[] call BC_buymenu_fnc_buyStuff;"
+            "[_this select 0] call BC_buymenu_fnc_buyInit;"
         ];
     _button ctrlCommit 0;
 

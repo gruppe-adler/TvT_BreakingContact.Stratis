@@ -1,18 +1,17 @@
-private _display = uiNamespace getVariable ["BC_buymenu_display", _display];
-private _spawnCone = uiNamespace getVariable ["BC_buymenu_spawnCone", objNull];
-_display closeDisplay 1;
+/*
+    buy complete on server
+*/
 
-[player] remoteExec ["BC_buymenu_fnc_dropMoney", [0,-2] select isDedicated];
+params ["_identifier", "_spawnCone", "_queue"];
+
+if (!isServer) exitWith {};
 
 
-private _buyQueue = missionNamespace getVariable ["BC_buymenu_vehicleSpawnQueue", []];
-
-// copyToClipboard str _buyQueue;
 
 private _spawnPos = (getPos _spawnCone);
 private _roadArray = _spawnPos nearRoads 1000;
 private _closestRoads = [_roadArray, [_spawnCone], { _input0 distance _x }, "ASCEND"] call BIS_fnc_sortBy;
-// copyToClipBoard str _closestRoads;
+
 
 private _debugMarkerGood = {
     _position = _this select 0;
@@ -84,4 +83,4 @@ for "_i" from _emptyIndex to ((count _closestRoads) - 1) do {
     // [player, player, 0, _code, _baseConfigName, _categoryConfigName, _itemConfigName, _spawnPos, _spawnDir] call BC_buymenu_fnc_buyVehicle;
 
 
-missionNamespace setVariable ["BC_buymenu_vehicleSpawnQueue", []];
+missionNamespace setVariable [_identifier, [], true];

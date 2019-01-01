@@ -1,6 +1,7 @@
-params ["_add", "_data"];
+params ["_add", "_baseConfigName", "_data"];
 
-private _currentQueue = missionNamespace getVariable ["BC_buymenu_vehicleSpawnQueue", []];
+private _identifier = format ["BC_buymenu_spawnQueue_%1", _baseConfigName];
+private _currentQueue = missionNamespace getVariable [_identifier, []];
 
 if (_add) then {
     _currentQueue pushBack _data;
@@ -10,4 +11,4 @@ if (_add) then {
 
 diag_log format ["_currentQueue %1", _currentQueue];
 
-missionNamespace setVariable ["BC_buymenu_vehicleSpawnQueue", _currentQueue];
+missionNamespace setVariable [_identifier, _currentQueue, true];

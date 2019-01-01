@@ -5,11 +5,13 @@ class BC_buymenu {
 
         class addInteraction;
         class adjustCrewCargoCount;
-        class buyStuff;
+        class buyComplete;
+        class buyInit;
         class buyVehicle;
         class changeQueue;
         class createGUI;
         class changeValue;
+        class completeBuy;
         class dropMoney;
         class getGlobalCount;
         class saveGlobal;

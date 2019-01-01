@@ -54,7 +54,7 @@ if (_itemValue == _maxItemValue) then {
 };
 
 // dont allow going below zero
-if (_itemValue < _minItemValue) then {
+if (_itemValue <= _minItemValue) then {
     _btnMinus ctrlEnable false;
 } else {
     _btnMinus ctrlEnable true;
@@ -85,11 +85,11 @@ _parentControl setVariable ["value", _itemValue];
 // set cargo and crew count
 if (_increaseValue) then {
     [true, _ctrlCrewCount, _ctrlCargoCount, _ctrlTotalSideCount, _crewCount, _cargoCount, _valueTotalSideCount] call BC_buymenu_fnc_adjustCrewCargoCount;
-    [true, _data] call BC_buymenu_fnc_changeQueue;
+    [true, _baseConfigName, _data] call BC_buymenu_fnc_changeQueue;
     [true, _baseConfigName, _data select 0] call BC_buymenu_fnc_saveGlobal;
 } else {
     [false, _ctrlCrewCount, _ctrlCargoCount, _ctrlTotalSideCount, _crewCount, _cargoCount, _valueTotalSideCount] call BC_buymenu_fnc_adjustCrewCargoCount;
-    [false, _data] call BC_buymenu_fnc_changeQueue;
+    [false, _baseConfigName, _data] call BC_buymenu_fnc_changeQueue;
     [false, _baseConfigName, _data select 0] call BC_buymenu_fnc_saveGlobal;
 };
 
