@@ -1,20 +1,20 @@
 /*
-	Author: Thomas Ryan
+     Author: Thomas Ryan
 
-	Description:
-	Play a fake UAV observational sequence which serves as an establishing shot.
+     Description:
+     Play a fake UAV observational sequence which serves as an establishing shot.
 
-	Parameters:
-		_this select 0: OBJECT or ARRAY - Target position/object
-		_this select 1: STRING - Text to display
-		_this select 2 (Optional): NUMBER - Altitude (in meters)
-		_this select 3 (Optional): NUMBER - Radius of the circular movement (in meters)
-		_this select 4 (Optional): NUMBER - Viewing angle (in degrees)
-		_this select 5 (Optional): NUMBER - Direction of camera movement (0: anti-clockwise, 1: clockwise, default: random)
-		_this select 6 (Optional): ARRAY -	Objects/positions/groups to display icons over
-							Syntax: [[icon, color, target, size X, size Y, angle, text, shadow]]
-		_this select 7 (Optional): NUMBER - Mode (0: normal (default), 1: world scenes)
-		_this select 8 (Optional): BOOL - Fade in after completion (default: true)
+     Parameters:
+          _this select 0: OBJECT or ARRAY - Target position/object
+          _this select 1: STRING - Text to display
+          _this select 2 (Optional): NUMBER - Altitude (in meters)
+          _this select 3 (Optional): NUMBER - Radius of the circular movement (in meters)
+          _this select 4 (Optional): NUMBER - Viewing angle (in degrees)
+          _this select 5 (Optional): NUMBER - Direction of camera movement (0: anti-clockwise, 1: clockwise, default: random)
+          _this select 6 (Optional): ARRAY -     Objects/positions/groups to display icons over
+                                   Syntax: [[icon, color, target, size X, size Y, angle, text, shadow]]
+          _this select 7 (Optional): NUMBER - Mode (0: normal (default), 1: world scenes)
+          _this select 8 (Optional): BOOL - Fade in after completion (default: true)
 */
 
 private ["_tgt", "_txt", "_alt", "_rad", "_ang", "_dir"];
@@ -31,23 +31,23 @@ private ["_mode"];
 _mode = [_this, 7, 0, [0]] call BIS_fnc_param;
 
 if (_mode == 0) then {
-	enableSaving [false, false];
-	BIS_missionStarted = nil;
+     enableSaving [false, false];
+     BIS_missionStarted = nil;
 };
 
 private ["_fade"];
 _fade = [_this, 8, true, [true]] call BIS_fnc_param;
 
 if (_fade) then {
-	["BIS_fnc_establishingShot",false] call BIS_fnc_blackOut;
+     ["BIS_fnc_establishingShot",false] call BIS_fnc_blackOut;
 } else {
-	0 fadeSound 0;
-	titleCut ["", "BLACK FADED", 10e10];
+     0 fadeSound 0;
+     titleCut ["", "BLACK FADED", 10e10];
 };
 
 // Create fake UAV
 if (isNil "BIS_fnc_establishingShot_fakeUAV") then {
-	BIS_fnc_establishingShot_fakeUAV = "Camera" camCreate [10,10,10];
+     BIS_fnc_establishingShot_fakeUAV = "Camera" camCreate [10,10,10];
 };
 
 BIS_fnc_establishingShot_fakeUAV cameraEffect ["INTERNAL", "BACK"];
@@ -83,98 +83,98 @@ _ppGrain ppEffectCommit 0;
 // Disable stuff after simulation starts
 [] spawn
 {
-	waitUntil {time > 0};
-	showCinemaBorder false;
-	enableEnvironment false;
+     waitUntil {time > 0};
+     showCinemaBorder false;
+     enableEnvironment false;
 };
 
 private ["_SITREP", "_key"];
 
 if (_mode == 1) then {
-	optionsMenuOpened = {
-		disableSerialization;
-		{(_x call BIS_fnc_rscLayer) cutText ["", "PLAIN"]} forEach ["BIS_layerStatic", "BIS_layerInterlacing"];
-	};
+     optionsMenuOpened = {
+          disableSerialization;
+          {(_x call BIS_fnc_rscLayer) cutText ["", "PLAIN"]} forEach ["BIS_layerStatic", "BIS_layerInterlacing"];
+     };
 } else {
-	// Compile SITREP text
-	private ["_month", "_day", "_hour", "_minute"];
-	_month = str (date select 1);
-	_day = str (date select 2);
-	_hour = str (date select 3);
-	_minute = str (date select 4);
+     // Compile SITREP text
+     private ["_month", "_day", "_hour", "_minute"];
+     _month = str (date select 1);
+     _day = str (date select 2);
+     _hour = str (date select 3);
+     _minute = str (date select 4);
 
-	if (date select 1 < 10) then {_month = format ["0%1", str (date select 1)]};
-	if (date select 2 < 10) then {_day = format ["0%1", str (date select 2)]};
-	if (date select 3 < 10) then {_hour = format ["0%1", str (date select 3)]};
-	if (date select 4 < 10) then {_minute = format ["0%1", str (date select 4)]};
+     if (date select 1 < 10) then {_month = format ["0%1", str (date select 1)]};
+     if (date select 2 < 10) then {_day = format ["0%1", str (date select 2)]};
+     if (date select 3 < 10) then {_hour = format ["0%1", str (date select 3)]};
+     if (date select 4 < 10) then {_minute = format ["0%1", str (date select 4)]};
 
-	private ["_time", "_date"];
-	_time = format ["%1:%2", _hour, _minute];
-	_date = format ["%1-%2-%3", str (date select 0), _month, _day];
+     private ["_time", "_date"];
+     _time = format ["%1:%2", _hour, _minute];
+     _date = format ["%1-%2-%3", str (date select 0), _month, _day];
 
-	//_SITREP = format [localize "STR_A3_BIS_fnc_establishingShot_SITREP" + "||%1|%2||" + localize "STR_A3_BIS_fnc_establishingShot_Time", toUpper _txt, _date, _time];
-	
-	/* _SITREP = [
-		[_date + " ", ""],
-		[_time, "font = 'PuristaMedium'"],
-		["", "<br/>"],
-		[toUpper _txt, ""]
-	]; */
+     //_SITREP = format [localize "STR_A3_BIS_fnc_establishingShot_SITREP" + "||%1|%2||" + localize "STR_A3_BIS_fnc_establishingShot_Time", toUpper _txt, _date, _time];
+     
+     /* _SITREP = [
+          [_date + " ", ""],
+          [_time, "font = 'PuristaMedium'"],
+          ["", "<br/>"],
+          [toUpper _txt, ""]
+     ]; */
 
-	disableSerialization;
+     disableSerialization;
 
-	waitUntil {!(isNull ([] call BIS_fnc_displayMission))};
+     waitUntil {!(isNull ([] call BIS_fnc_displayMission))};
 
-	// Compile key
-	_key = format ["BIS_%1.%2_establishingShot", missionName, worldName];
+     // Compile key
+     _key = format ["BIS_%1.%2_establishingShot", missionName, worldName];
 
-	// Remove eventhandler if it exists (only happens when restarting)
-	if (!(isNil {uiNamespace getVariable "BIS_fnc_establishingShot_skipEH"})) then {
-		([] call BIS_fnc_displayMission) displayRemoveEventHandler ["KeyDown", uiNamespace getVariable "BIS_fnc_establishingShot_skipEH"];
-		uiNamespace setVariable ["BIS_fnc_establishingShot_skipEH", nil];
-	};
+     // Remove eventhandler if it exists (only happens when restarting)
+     if (!(isNil {uiNamespace getVariable "BIS_fnc_establishingShot_skipEH"})) then {
+          ([] call BIS_fnc_displayMission) displayRemoveEventHandler ["KeyDown", uiNamespace getVariable "BIS_fnc_establishingShot_skipEH"];
+          uiNamespace setVariable ["BIS_fnc_establishingShot_skipEH", nil];
+     };
 
-	// Add skipping eventhandler
-	private ["_skipEH"];
-	_skipEH = ([] call BIS_fnc_displayMission) displayAddEventHandler [
-		"KeyDown",
-		format [
-			"
-				if (BLUFOR_TELEPORT_TARGET select 0 != 0) then {
-					([] call BIS_fnc_displayMission) displayRemoveEventHandler ['KeyDown', uiNamespace getVariable 'BIS_fnc_establishingShot_skipEH'];
-					uiNamespace setVariable ['BIS_fnc_establishingShot_skipEH', nil];
+     // Add skipping eventhandler
+     private ["_skipEH"];
+     _skipEH = ([] call BIS_fnc_displayMission) displayAddEventHandler [
+          "KeyDown",
+          format [
+               "
+                    if (BLUFOR_TELEPORT_TARGET select 0 != 0) then {
+                         ([] call BIS_fnc_displayMission) displayRemoveEventHandler ['KeyDown', uiNamespace getVariable 'BIS_fnc_establishingShot_skipEH'];
+                         uiNamespace setVariable ['BIS_fnc_establishingShot_skipEH', nil];
 
-					playSound ['click', true];
+                         playSound ['click', true];
 
-					BIS_fnc_establishingShot_skip = true;
-				};
+                         BIS_fnc_establishingShot_skip = true;
+                    };
 
-				
-				if (_this select 1 != 1) then {true};
-			",
-			_key
-		]
-	];
+                    
+                    if (_this select 1 != 1) then {true};
+               ",
+               _key
+          ]
+     ];
 
-	
+     
 
-	uiNamespace setVariable ["BIS_fnc_establishingShot_skipEH", _skipEH];
+     uiNamespace setVariable ["BIS_fnc_establishingShot_skipEH", _skipEH];
 
-	// Create vignette & tiles
-	("BIS_layerEstShot" call BIS_fnc_rscLayer) cutRsc ["RscEstablishingShot", "PLAIN"];
+     // Create vignette & tiles
+     ("BIS_layerEstShot" call BIS_fnc_rscLayer) cutRsc ["RscEstablishingShot", "PLAIN"];
 
-	// Remove effects if video options opened
-	optionsMenuOpened = {
-		disableSerialization;
-		{(_x call BIS_fnc_rscLayer) cutText ["", "PLAIN"]} forEach ["BIS_layerEstShot", "BIS_layerStatic", "BIS_layerInterlacing"];
-	};
+     // Remove effects if video options opened
+     optionsMenuOpened = {
+          disableSerialization;
+          {(_x call BIS_fnc_rscLayer) cutText ["", "PLAIN"]} forEach ["BIS_layerEstShot", "BIS_layerStatic", "BIS_layerInterlacing"];
+     };
 
-	optionsMenuClosed = {
-		disableSerialization;
-		("BIS_layerEstShot" call BIS_fnc_rscLayer) cutRsc ["RscEstablishingShot", "PLAIN"];
-	};
+     optionsMenuClosed = {
+          disableSerialization;
+          ("BIS_layerEstShot" call BIS_fnc_rscLayer) cutRsc ["RscEstablishingShot", "PLAIN"];
+     };
 
-	waitUntil {!(isNull (uiNamespace getVariable "RscEstablishingShot"))};
+     waitUntil {!(isNull (uiNamespace getVariable "RscEstablishingShot"))};
 };
 
 // Wait for the camera to load
@@ -564,6 +564,7 @@ if (_mode == 0) then {
 	// Start mission
 	BIS_missionStarted = true;
 	BIS_fnc_establishingShot_playing = false;
+
 };
 
 true

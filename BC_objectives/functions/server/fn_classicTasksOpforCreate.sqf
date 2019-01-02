@@ -6,18 +6,18 @@ _taskTitle = format [localize "str_GRAD_classicTaskTitleOpfor1",_count, _min];
 _areaMarkerName = " target area ";
 
 _opforTask1 = [
-	EAST,
-	_taskName,
-	[
-		_taskDescription,
-		_taskTitle,
-		_areaMarkerName
-	],
-	objNull,
-	"AUTOASSIGNED",
-	2,
-	true,
-	"defend"
+     EAST,
+     _taskName,
+     [
+          _taskDescription,
+          _taskTitle,
+          _areaMarkerName
+     ],
+     objNull,
+     "AUTOASSIGNED",
+     2,
+     true,
+     "defend"
 ] call BIS_fnc_taskCreate;
 
 
@@ -27,18 +27,18 @@ _taskTitle = localize "str_GRAD_classicTaskTitleEliminate";
 _areaMarkerName = " target area ";
 
 _opforTask2 = [
-	EAST,
-	_taskName,
-	[
-		_taskDescription,
-		_taskTitle,
-		_areaMarkerName
-	],
-	objNull,
-	"AUTOASSIGNED",
-	1,
-	true,
-	"destroy"
+     EAST,
+     _taskName,
+     [
+          _taskDescription,
+          _taskTitle,
+          _areaMarkerName
+     ],
+     objNull,
+     "AUTOASSIGNED",
+     1,
+     true,
+     "destroy"
 ] call BIS_fnc_taskCreate;
 
 [_opforTask1,_opforTask2]

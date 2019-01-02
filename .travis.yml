@@ -5,6 +5,11 @@ install:
 - pip install sqflint
 script:
 - tools/lint.sh -d . -C /tmp
+before_script:
+- tools/preprocess.sh             
+script:
+- for SQFFILE in `find . -iname '*.sqf'`; do sed -i -E 's/^#.*//g' "$SQFFILE"; done # remove hash comments, they confuse the hell out of sqflint
+- sqflint -d . -ee
 notifications:
   template:
   - "%{repository}#%{build_number} (%{branch} - %{commit} : %{author}): %{message}"

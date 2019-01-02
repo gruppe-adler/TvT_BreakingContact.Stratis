@@ -67,35 +67,35 @@ waitUntil {sleep 1; !isNil "GRAD_TERMINAL_DESTROYED"};
     };
 
     if (TRUCK_DESTROYED_NOT_CONQUERED) exitWith {
-    	[_handle] call CBA_fnc_removePerFrameHandler;
+         [_handle] call CBA_fnc_removePerFrameHandler;
 
         call GRAD_replay_fnc_stopRecord;
 
-    	_radioVeh = missionNameSpace getVariable ["GRAD_tracking_radioVehObj", objNull];
+         _radioVeh = missionNameSpace getVariable ["GRAD_tracking_radioVehObj", objNull];
         _terminal = missionNameSpace getVariable ["GRAD_tracking_terminalObj", objNull];
 
-    	_killerSide = side (_radioVeh getVariable ["ace_medical_lastDamageSource", objNull]);
+         _killerSide = side (_radioVeh getVariable ["ace_medical_lastDamageSource", objNull]);
 
-    	switch (_killerSide) do {
-    		case west: {
+         switch (_killerSide) do {
+              case west: {
                 [_taskBlufor1,"FAILED",true] call BIS_fnc_taskSetState;
                 [_taskBlufor2,"CANCELED",true] call BIS_fnc_taskSetState;
-           	    [_taskOpfor1,"CANCELED",true] call BIS_fnc_taskSetState;
+                    [_taskOpfor1,"CANCELED",true] call BIS_fnc_taskSetState;
                 [_taskOpfor2,"CANCELED",true] call BIS_fnc_taskSetState;
-    		};
-    		case east: {
+              };
+              case east: {
                 [_taskBlufor1,"CANCELED",true] call BIS_fnc_taskSetState;
                 [_taskBlufor2,"CANCELED",true] call BIS_fnc_taskSetState;
-           	    [_taskOpfor1,"FAILED",true] call BIS_fnc_taskSetState;
+                    [_taskOpfor1,"FAILED",true] call BIS_fnc_taskSetState;
                 [_taskOpfor2,"CANCELED",true] call BIS_fnc_taskSetState;
-    		};
-    		default {
+              };
+              default {
                 [_taskBlufor1,"CANCELED",true] call BIS_fnc_taskSetState;
                 [_taskBlufor2,"CANCELED",true] call BIS_fnc_taskSetState;
-           	    [_taskOpfor1,"CANCELED",true] call BIS_fnc_taskSetState;
+                    [_taskOpfor1,"CANCELED",true] call BIS_fnc_taskSetState;
                 [_taskOpfor2,"CANCELED",true] call BIS_fnc_taskSetState;
-    		};
-    	};
+              };
+         };
 
     };
 

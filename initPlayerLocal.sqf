@@ -9,7 +9,7 @@ waitUntil {!isNil "CIVILIAN_TRAFFIC"};
 
 
 player addEventHandler ["handleRating", {
-	0
+    0
 }];
 
 // disable spectating the fucking civs

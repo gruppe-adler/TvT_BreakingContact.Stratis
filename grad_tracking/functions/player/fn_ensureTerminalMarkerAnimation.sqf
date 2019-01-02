@@ -7,11 +7,11 @@ _delayBetweenPulse = GRAD_SIGNAL_DELAY;
 _isRunning = player getVariable ["GRAD_tracking_terminalAnimation",false];
 
 if (!_isRunning) then {
-	
-	[
-		_size,
-		_maxSize,
-		_animationSpeed,
-		_delayBetweenPulse
-	] spawn GRAD_tracking_fnc_terminalMarkerAnimation;
+     
+     [
+          _size,
+          _maxSize,
+          _animationSpeed,
+          _delayBetweenPulse
+     ] spawn GRAD_tracking_fnc_terminalMarkerAnimation;
 };

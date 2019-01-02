@@ -33,20 +33,21 @@ private _drawIconsStacked = [];
 	_drawIconSymbol = "Sign_Pointer_Cyan_F";
 	if (!((typeOf _x) in _allofthem)) then {} else {
 
-		if ((typeOf _x) in _teamleads) then {
-			_drawIconSymbol = "Sign_Arrow_Green_F";
-		};
-		if ((typeOf _x) in _squadleads) then {
-			_drawIconSymbol = "Sign_Arrow_Pink_F";
-		};
-		if (str _x in _commanders) then {
-			_drawIconSymbol = "Sign_Arrow_Yellow_F";
-		};
-		_drawIconTemp = _drawIconSymbol createVehicle position _x;
-		_drawIconTemp attachTo [_x,[0,0,2.5]];
 
-		_drawIconsStacked = _drawIconsStacked + [_drawIconTemp];
-	};
+          if ((typeOf _x) in _teamleads) then {
+               _drawIconSymbol = "Sign_Arrow_Green_F";
+          };
+          if ((typeOf _x) in _squadleads) then {
+               _drawIconSymbol = "Sign_Arrow_Pink_F";
+          };
+          if (str _x in _commanders) then {
+               _drawIconSymbol = "Sign_Arrow_Yellow_F";
+          };
+          _drawIconTemp = _drawIconSymbol createVehicle position _x;
+          _drawIconTemp attachTo [_x,[0,0,2.5]];
+
+          _drawIconsStacked = _drawIconsStacked + [_drawIconTemp];
+     };
 
 } forEach allUnits;
 
