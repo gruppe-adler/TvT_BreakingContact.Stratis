@@ -7,10 +7,13 @@ if (!hasInterface) exitWith {};
 
       params ["_startVehicle", "_cone", "_side"];
 
+      if (missionNamespace getVariable ["BC_interactionsAdded", false]) exitWith {};
+      missionNamespace setVariable ["BC_interactionsAdded", true];
+
       private _type = typeOf _startVehicle;
       
       // fnc is executed twice so we need to exit once
-      if (_side == west) exitWith {
+      
         {
          _flagActionRaise = ["ACE_MainActions", (localize "str_GRAD_flag_raise"), "",
          {[(_this select 0), true] call BC_flagsOnVehicles_fnc_toggleFlag;},
@@ -28,7 +31,7 @@ if (!hasInterface) exitWith {};
         [_x, 0, ["ACE_MainActions"], _flagActionRemove] call ace_interact_menu_fnc_addActionToClass;
 
         } forEach ["rhs_gaz66_r142_vv","rhs_tigr_m_vdv","rhs_tigr_m_3camo_vdv","rhsgref_cdf_b_reg_uaz_dshkm","rhsgref_nat_uaz_dshkm","rhs_gaz66_repair_vdv","gaz_funk","rhs_bmp1_msv","rhs_btr70_msv"];
-      };
+      
 
 
 
