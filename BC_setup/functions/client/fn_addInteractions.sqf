@@ -1,9 +1,9 @@
 // FLAGS
 if (!hasInterface) exitWith {};
 
-diag_log "added CBA eh";
+// diag_log "added CBA eh";
 
-["startVehicle", { 
+["startVehicle", {
 
       params ["_startVehicle", "_cone", "_side"];
 
@@ -37,7 +37,7 @@ diag_log "added CBA eh";
       _removeSpawn = ["ACE_MainActions", (localize "str_GRAD_buy_disable"), "",
        {
           private _thisThing = _this select 0;
-          [_thisThing] call BC_setup_fnc_disableSpawn.sqf;
+          [_thisThing] call BC_setup_fnc_disableSpawn;
         },
         {true}] call ace_interact_menu_fnc_createAction;
 
@@ -161,4 +161,3 @@ diag_log "added CBA eh";
       [_type, 0, ["ACE_MainActions"],_attachRadioAction] call ace_interact_menu_fnc_addActionToClass;
 
 }] call CBA_fnc_addEventHandler;
-

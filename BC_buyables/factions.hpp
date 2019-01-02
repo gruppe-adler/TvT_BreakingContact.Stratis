@@ -1,5 +1,7 @@
-#include "BC_buyables\factions\americans.hpp"
-#include "BC_buyables\factions\russians.hpp"
+/// ORDER IN PARAMS.HPP must be same
 
-#define BUYABLES_BLUFOR_VALUES ["usa"]
-#define BUYABLES_OPFOR_VALUES ["russia"]
+/// BLUFOR
+#include "factions\usa.hpp"
+
+/// OPFOR
+#include "factions\russia.hpp"

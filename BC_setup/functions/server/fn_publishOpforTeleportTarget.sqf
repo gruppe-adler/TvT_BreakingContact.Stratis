@@ -6,22 +6,37 @@ publicVariable "OPFOR_TELEPORT_TARGET";
 OPFOR_TELEPORTED = true;
 publicVariable "OPFOR_TELEPORTED";
 
+/*
+11:41:13 Error in expression <);
+private _sideFactions = ([(_factions >> "side"), "text", "none"] call CBA_fnc>
+11:41:13   Error position: <>> "side"), "text", "none"] call CBA_fnc>
+11:41:13   Error >>: Type Array, expected Config entry
+11:41:13 File BC_setup\functions\server\fn_publishOpforTeleportTarget.sqf [BC_setup_fnc_publishOpforTeleportTarget], line 12
+*/
 
 BUYABLES_OPFOR_INDEX = ["BUYABLES_OPFOR", -1] call BIS_fnc_getParamValue;
-private _faction = missionConfigFile >> "CfgGradBuymenu" >> (BUYABLES_OPFOR_VALUES select BUYABLES_OPFOR_INDEX);
-private _startVehicles = "true" configClasses _faction;
-private _type = "rhs_gaz66_r142_vv";
-TERMINAL_POSITION_OFFSET = [(_config >> "terminalPositionOffset"), "Array", []] call CBA_fnc_getConfigEntry;
-TERMINAL_POSITION_VECTORDIRANDUP = [(_config >> "terminalVectorDirAndUp"), "Array", []] call CBA_fnc_getConfigEntry;
+private _sideFactions = "getText (_x >> 'side') == 'Opfor'" configClasses (missionConfigFile >> "CfgGradBuymenu");
+private _faction = (_sideFactions select BUYABLES_OPFOR_INDEX);
+private _startVehicle = ("configName _x == 'StartVehicle'" configClasses _faction) select 0;
+private _allVariants = "true" configClasses (missionConfigFile >> "CfgGradBuymenu" >> (configName _faction) >> (configName _startVehicle));
+private _selectedConfig = "";
+private _type = "";
+
 
 {
   private _config = _x;
   private _condition = [(_config >> "condition"), "text", "true"] call CBA_fnc_getConfigEntry;
 
     if (call compile _condition) then {
-    	_type = _config;
+        _selectedConfig = _x;    	
     };
-} forEach _startVehicles;
+} forEach _allVariants;
+
+_type = configName _selectedConfig;
+
+
+TERMINAL_POSITION_OFFSET = [(_selectedConfig >> "terminalPositionOffset"), "array", []] call CBA_fnc_getConfigEntry;
+TERMINAL_POSITION_VECTORDIRANDUP = [(_selectedConfig >> "terminalVectorDirAndUp"), "array", []] call CBA_fnc_getConfigEntry;
 
 private _startVehicle = [east, _position, 0, _type] call BC_setup_fnc_spawnStartVehicle;
 

@@ -1,9 +1,9 @@
 //a different set of buyables
 class Russia {
+    side = "Opfor";
 
     // needs to be in every faction
     class StartVehicle {
-        type = "rhs_gaz66_r142_vv";
         deployAction = "";
         retractAction = "";
         condition = "false";
@@ -11,6 +11,10 @@ class Russia {
         terminalVectorDirAndUp = [[0,1,0.3],[0,0,0.7]];
 
         class rhs_gaz66_r142_vv {
+            condition = "false";
+        };
+
+        class rhs_tigr_m_vdv {
             condition = "true";
         };
     };

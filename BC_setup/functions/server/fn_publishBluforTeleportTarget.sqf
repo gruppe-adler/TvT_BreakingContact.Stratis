@@ -2,17 +2,23 @@ params ["_position"];
 
 // get start vehicle type
 BUYABLES_BLUFOR_INDEX = ["BUYABLES_BLUFOR", -1] call BIS_fnc_getParamValue;
-private _faction = missionConfigFile >> "CfgGradBuymenu" >> (BUYABLES_BLUFOR_VALUES select BUYABLES_BLUFOR_INDEX);
-private _startVehicles = "true" configClasses _faction;
-private _type = "rhsusf_m998_w_4dr";
+private _sideFactions = "getText (_x >> 'side') == 'Blufor'" configClasses (missionConfigFile >> "CfgGradBuymenu");
+private _faction = (_sideFactions select BUYABLES_BLUFOR_INDEX);
+private _startVehicle = ("configName _x == 'StartVehicle'" configClasses _faction) select 0;
+private _allVariants = "true" configClasses (missionConfigFile >> "CfgGradBuymenu" >> (configName _faction) >> (configName _startVehicle));
+private _selectedConfig = "";
+private _type = "";
+
 {
   private _config = _x;
   private _condition = [(_config >> "condition"), "text", "true"] call CBA_fnc_getConfigEntry;
 
     if (call compile _condition) then {
-    	_type = _x;
+        _selectedConfig = _x;       
     };
-} forEach _startVehicles;
+} forEach _allVariants;
+
+_type = configName _selectedConfig;
 
 private _startVehicle = [west, _position, BLUFOR_SPAWN_DISTANCE, _type] call BC_setup_fnc_spawnStartVehicle;
 

@@ -1,5 +1,6 @@
 //a different set of buyables
-class USA { 
+class USA {
+    side = "Blufor";
 
     // needs to be in every faction
     class StartVehicle {
