@@ -1,6 +1,7 @@
 //a different set of buyables
 class Russia {
     side = "Opfor";
+    mode = "conquer";
 
     // needs to be in every faction
     class StartVehicle {

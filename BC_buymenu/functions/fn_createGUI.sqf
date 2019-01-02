@@ -130,6 +130,8 @@ _ctrlTotalSideCount ctrlCommit 0;
 
 {   
     private _multiplicator = _x;
+
+    if (count _categoriesExtracted < _forEachIndex) exitWith {};
     private _categoryName = _categoriesExtracted select _forEachIndex select 0;
     private _minPlayerCount = _categoriesExtracted select _forEachIndex select 1;
     private _valueMaxInThisCat = _categoriesExtracted select _forEachIndex select 2;

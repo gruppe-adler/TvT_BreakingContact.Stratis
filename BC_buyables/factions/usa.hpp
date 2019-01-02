@@ -1,6 +1,7 @@
 //a different set of buyables
 class USA {
     side = "Blufor";
+    mode = "conquer";
 
     // needs to be in every faction
     class StartVehicle {
@@ -118,7 +119,7 @@ class USA {
             code = "";
             spawnEmpty = 1;
             condition = "BC_IS_WOODLAND";
-            vehicleInit = "nil,['hide_cover',0,'hide_spare',0,'hide_scaffold',0,'hide_bench',0]";
+            vehicleInit = "[[],['hide_cover',0,'hide_spare',0,'hide_scaffold',0,'hide_bench',0]]";
         };
 
         class rhsusf_M1083A1P2_B_M2_D_fmtv_usarmy: rhsusf_M1083A1P2_B_M2_WD_fmtv_usarmy {

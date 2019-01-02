@@ -1,5 +1,5 @@
 // [EAST, getPos _vehicle, 50, "Land_ClutterCutter_large_F"] 
-params ["_side", "_centerPosition", "_distance", "_vehicleclass"];
+params ["_side", "_centerPosition", "_distance", "_vehicleclass", "_code"];
 
 _searchDistance = 10; // threshold to search for alternative positions
 _startVehicle = objNull;
@@ -28,6 +28,8 @@ if (_side isEqualTo west) then {
       publicVariable "US_SPAWN_PAD";
 
       ["startVehicle",[_startVehicle, _startCone, west]] call CBA_fnc_globalEvent;
+
+      [_startVehicle] call _code;
 
       private _string = format ["BC_spawnPos_%1", west];
       private _pos = getPos _startVehicle;
@@ -60,6 +62,8 @@ if (_side isEqualTo west) then {
       publicVariable "RUS_SPAWN_PAD";
 
       ["startVehicle",[_startVehicle, _startCone, east]] call CBA_fnc_globalEvent;
+
+      [_startVehicle] call _code;
 
       private _string = format ["BC_spawnPos_%1", east];
       private _pos = getPos RUS_SPAWN_PAD;

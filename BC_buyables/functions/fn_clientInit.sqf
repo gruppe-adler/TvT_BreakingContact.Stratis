@@ -7,8 +7,14 @@ if (!hasInterface) exitWith {};
         BUYABLES_OPFOR_INDEX = ["BUYABLES_OPFOR", -1] call BIS_fnc_getParamValue;
         BUYABLES_BLUFOR_INDEX = ["BUYABLES_BLUFOR", -1] call BIS_fnc_getParamValue;
 
-        private _buyablesOpfor = "Russia"; // missionConfigFile >> "CfgGradBuymenu" >> (BUYABLES_OPFOR_VALUES select BUYABLES_OPFOR_INDEX);
-        private _buyablesBlufor = "USA"; // missionConfigFile >> "CfgGradBuymenu" >> (BUYABLES_BLUFOR select BUYABLES_BLUFOR_INDEX);
+        private _factionsBlufor = "getText (_x >> 'side') == 'Blufor'" configClasses (missionConfigFile >> "CfgGradBuymenu");
+        private _buyablesBlufor = configName (_factionsBlufor select BUYABLES_BLUFOR_INDEX);
+
+        private _factionsOpfor = "getText (_x >> 'side') == 'Opfor'" configClasses (missionConfigFile >> "CfgGradBuymenu");
+        private _buyablesOpfor = configName (_factionsOpfor select BUYABLES_OPFOR_INDEX);
+        
+        diag_log format ["_factionsOpfor %1", _factionsOpfor];
+        diag_log format ["_buyablesOpfor %1", _buyablesOpfor];
 
         if (_side == west) then {
             [_startVehicle,
