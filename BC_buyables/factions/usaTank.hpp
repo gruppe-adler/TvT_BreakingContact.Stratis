@@ -2,7 +2,10 @@
 class USATank {
     side = "Blufor";
     mode = "destroy";
-
+    driverGps = "true";
+    crewHelmet = "";
+    disableTIEquipment = "true";
+    
     // needs to be in every faction
     class StartVehicle {
         deployAction = "";
@@ -11,7 +14,7 @@ class USATank {
         terminalPositionOffset = [0.3,-2.85,0.7];
         terminalVectorDirAndUp = [[0,1,0.3],[0,0,0.7]];
 
-        class B_T_MBT_01_cannon_F {
+        class rhsusf_m1a2sep1wd_usarmy {
             condition = "true";
             code = "(_this select 0) disableTIEquipment true;";
         };
@@ -28,7 +31,9 @@ class USATank {
             description = "";
             price = 10;
             stock = 7;
-            code = "(_this select 0) addItemCargoGlobal ['ItemGPS',1];['AddCargoByClass', ['ACE_track', _this select 0, 2], _this select 0] call CBA_fnc_targetEvent;(_this select 0) setVariable ['(_this select 0) ace_vehiclelock_lockSide', west, true]; (_this select 0) disableTIEquipment true;";
+            itemCargo = "[['itemGPS', 3], ['itemMap',3]]";
+            magazineCargo = "[['']]";
+            trackCargo = 2;
             spawnEmpty = 1;
             condition = "true";
             vehicleInit = "['standard',1],['IFF_Panels_Hide',1,'Select_TOW',1,'Select_Stinger',0]";
@@ -39,7 +44,9 @@ class USATank {
             description = "";
             price = 10;
             stock = 7;
-            code = "(_this select 0) addItemCargoGlobal ['ItemGPS',1];['AddCargoByClass', ['ACE_track', _this select 0, 2], _this select 0] call CBA_fnc_targetEvent;(_this select 0) setVariable ['(_this select 0) ace_vehiclelock_lockSide', west, true]; (_this select 0) disableTIEquipment true;";
+            itemCargo = "[['itemGPS', 3], ['itemMap',3]]";
+            magazineCargo = "[['']]";
+            trackCargo = 2;
             spawnEmpty = 1;
             condition = "true";
             vehicleInit = "['standard',1],['IFF_Panels_Hide',1,'Select_TOW',1,'Select_Stinger',0]";
@@ -60,7 +67,9 @@ class USATank {
             description = "";
             price = 10;
             stock = 2;
-            code = "(_this select 0) addItemCargoGlobal ['ItemGPS',1];['AddCargoByClass', ['ACE_track', _this select 0, 2], _this select 0] call CBA_fnc_targetEvent;(_this select 0) setVariable ['(_this select 0) ace_vehiclelock_lockSide', west, true]; (_this select 0) disableTIEquipment true;";
+            itemCargo = "[['itemGPS', 3], ['itemMap',3]]";
+            magazineCargo = "[['']]";
+            trackCargo = 2;
             spawnEmpty = 1;
             condition = "true";
             vehicleInit = "['woodland',1],['IFF_Panels_Hide',1,'Miles_Hide',1]";
@@ -71,7 +80,9 @@ class USATank {
             description = "";
             price = 10;
             stock = 7;
-            code = "(_this select 0) addItemCargoGlobal ['ItemGPS',1];['AddCargoByClass', ['ACE_track', _this select 0, 2], _this select 0] call CBA_fnc_targetEvent;(_this select 0) setVariable ['(_this select 0) ace_vehiclelock_lockSide', west, true]; (_this select 0) disableTIEquipment true;";
+            itemCargo = "[['itemGPS', 3], ['itemMap',3]]";
+            magazineCargo = "[['']]";
+            trackCargo = 2;
             spawnEmpty = 1;
             condition = "true";
             vehicleInit = "['woodland',1],['IFF_Panels_Hide',1,'Miles_Hide',1]";
@@ -86,7 +97,7 @@ class USATank {
         minPlayerCount = 20;
 
         class rhsusf_m966_w {
-            displayName = "HMMWV-AT";
+            displayName = "HMMWV-TOW";
             description = "";
             stock = 7;
             code = "['AddCargoByClass', ['ACE_wheel', _this select 0, 2], _this select 0] call CBA_fnc_targetEvent;(_this select 0) addItemCargoGlobal ['rhs_tsh4',3];(_this select 0) addItemCargoGlobal ['ItemGPS',1];(_this select 0) setVariable ['(_this select 0) ace_vehiclelock_lockSide', west, true]; (_this select 0) disableTIEquipment true;";

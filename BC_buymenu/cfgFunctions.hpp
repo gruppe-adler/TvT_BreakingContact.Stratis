@@ -17,6 +17,7 @@ class BC_buymenu {
         class dropMoney;
         class getGlobalCount;
         class saveGlobal;
+        class vehicleMarker;
 
     };
 };

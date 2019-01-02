@@ -9,7 +9,7 @@ if (!isServer) exitWith {};
 // systemChat str "buycomplete";
 
 private _spawnPos = (getPos _spawnCone);
-private _roadArray = _spawnPos nearRoads 1000;
+private _roadArray = _spawnPos nearRoads 500;
 private _closestRoads = [_roadArray, [_spawnCone], { _input0 distance _x }, "ASCEND"] call BIS_fnc_sortBy;
 
 
@@ -60,9 +60,31 @@ for "_i" from _emptyIndex to ((count _closestRoads) - 1) do {
         if (_emptyIndex < (count _buyQueue)) then {
             diag_log format ["%1", _emptyIndex];
             private _data = _buyQueue select _emptyIndex;
-            _data params ["_displayName", "_maxCount", "_description", "_code", "_picturePath", "_crew", "_cargo", "_speed", "_baseConfigName", "_categoryConfigName", "_itemConfigName", "_isSpecial"];
+            _data params [
+            "_displayName",
+            "_maxCount",
+            "_description",
+            "_code",
+            "_picturePath",
+            "_crew",
+            "_cargo",
+            "_speed",
+            "_baseConfigName",
+            "_categoryConfigName",
+            "_itemConfigName",
+            "_isSpecial",
+            "_driverGPS",
+            "_crewHelmet",
+            "_disableTIEquipment",
+            "_itemCargo",
+            "_magazineCargo",
+            "_trackCargo",
+            "_wheelCargo",
+            "_removeMagazines"
+            ];
+
             if (!_isSpecial) then {
-                [_unit, _unit, 0, _code, _baseConfigName, _categoryConfigName, _itemConfigName, _roadPos, _roadDir] call BC_buymenu_fnc_buyVehicle;
+                [_unit, _unit, 0, _code, _baseConfigName, _categoryConfigName, _itemConfigName, _roadPos, _roadDir, _driverGPS, _crew, _crewHelmet, _disableTIEquipment, _itemCargo, _magazineCargo, _trackCargo, _wheelCargo, _removeMagazines] call BC_buymenu_fnc_buyVehicle;
             } else {
                 [_startVehicle, _code] call BC_buymenu_fnc_buySpecials;
             };

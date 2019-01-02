@@ -2,6 +2,9 @@
 class USA {
     side = "Blufor";
     mode = "conquer";
+    driverGps = "true";
+    crewHelmet = "";
+    disableTIEquipment = "true";
 
     // needs to be in every faction
     class StartVehicle {
@@ -27,7 +30,6 @@ class USA {
             description = "The workhorse of your army.";
             price = 10;
             stock = 7;
-            code = "";
             spawnEmpty = 1;
             condition = "BC_IS_WOODLAND";
             vehicleInit = "['rhs_woodland',1],['hide_cover',0,'hide_spare',0,'hide_scaffold',0,'hide_bench',0]";
@@ -43,7 +45,6 @@ class USA {
             description = "The workhorse of your army.";
             price = 10;
             stock = 7;
-            code = "";
             spawnEmpty = 1;
             condition = "BC_IS_WOODLAND";
             vehicleInit = "['mud_olive',1],['tailgateHide',0,'tailgate_open',0,'cage_fold',0]";
@@ -76,7 +77,6 @@ class USA {
             description = "The workhorse of your army.";
             price = 10;
             stock = 7;
-            code = "";
             spawnEmpty = 1;
             condition = "BC_IS_WOODLAND";
             vehicleInit = "['rhs_woodland',1],['DUKE_Hide',1]";
@@ -93,7 +93,6 @@ class USA {
             description = "The workhorse of your army.";
             price = 10;
             stock = 7;
-            code = "";
             spawnEmpty = 1;
             condition = "BC_IS_WOODLAND";
             vehicleInit = "['standard',1],['hide_snorkel',1,'hide_CIP',1,'hide_BFT',0,'hide_Antenna',0,'hide_A2_Parts',0,'Hide_A2Bumper',0,'Hide_Brushguard',1]";
@@ -116,7 +115,6 @@ class USA {
             displayName = "FMTV M2";
             description = "The workhorse of your army.";
             stock = 7;
-            code = "";
             spawnEmpty = 1;
             condition = "BC_IS_WOODLAND";
             vehicleInit = "[[],['hide_cover',0,'hide_spare',0,'hide_scaffold',0,'hide_bench',0]]";
@@ -131,7 +129,6 @@ class USA {
             displayName = "BRDM-AT";
             description = "The workhorse of your army.";
             stock = 7;
-            code = "";
             spawnEmpty = 1;
             condition = "BC_IS_WOODLAND";
             vehicleInit = "['standard',1],['IFF_Panels_Hide',1]";
@@ -146,7 +143,6 @@ class USA {
             displayName = "BRDM-2";
             description = "The workhorse of your army.";
             stock = 7;
-            code = "";
             spawnEmpty = 1;
             condition = "BC_IS_WOODLAND";
             vehicleInit = "[['olive', 1], ['driverViewHatch',0,'commanderViewHatch',0,'hatchCommander',1]]";
@@ -168,7 +164,6 @@ class USA {
             displayName = "HMMWV TOW";
             description = "The workhorse of your army.";
             stock = 7;
-            code = "";
             spawnEmpty = 1;
             condition = "BC_IS_WOODLAND";
             vehicleInit = "['standard',1], ['hide_snorkel',1,'hide_CIP',0,'hide_BFT',0,'hide_Antenna',0,'hide_A2_Parts',0,'Hide_A2Bumper',0,'Hide_Brushguard',1]";

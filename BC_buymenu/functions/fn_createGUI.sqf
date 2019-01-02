@@ -23,6 +23,10 @@ private _categoriesExtracted = [];
         private _valueMaxInThisCat = [(_config >> "maxBuyCount"), "number", 0] call CBA_fnc_getConfigEntry;
         private _isSpecial = ([(_config >> "kindOf"), "text", ""] call CBA_fnc_getConfigEntry) isEqualTo "Special";
         private _minPlayerCount = [(_config >> "minPlayerCount"), "number", 0] call CBA_fnc_getConfigEntry;
+        private _driverGPS = [(_config >> "driverGPS"), "text", "true"] call CBA_fnc_getConfigEntry isEqualTo "true";
+        private _crewHelmet = [(_config >> "crewHelmet"), "text", ""] call CBA_fnc_getConfigEntry;
+        private _disableTIEquipment = [(_config >> "disableTIEquipment"), "text", "true"] call CBA_fnc_getConfigEntry;
+        
         ///////
         private _allItems = "true" configClasses (missionConfigFile >> "CfgGradBuymenu" >> _baseConfigName >> _configName);
         _listIndex = 0;
@@ -40,6 +44,13 @@ private _categoriesExtracted = [];
                 private _code = compile ([(_config >> "code"), "text", ""] call CBA_fnc_getConfigEntry);
                 private _picturePath = [(_config >> "picture"), "text", ""] call CBA_fnc_getConfigEntry;
 
+                private _itemCargo = [(_config >> "itemCargo"), "array", []] call CBA_fnc_getConfigEntry;
+                private _magazineCargo = [(_config >> "magazineCargo"), "array", []] call CBA_fnc_getConfigEntry;
+                private _trackCargo = [(_config >> "trackCargo"), "number", 0] call CBA_fnc_getConfigEntry;
+                private _wheelCargo = [(_config >> "wheelCargo"), "number", 0] call CBA_fnc_getConfigEntry;
+                
+                private _removeMagazines = [(_config >> "removeMagazines"), "array", []] call CBA_fnc_getConfigEntry;
+
                 private _crew = [_itemConfigName,false] call BIS_fnc_crewCount;
                 private _fullCrew = [_itemConfigName,true] call BIS_fnc_crewCount;
                 private _cargo = _fullCrew - _crew;
@@ -53,7 +64,7 @@ private _categoriesExtracted = [];
                     _picturePath = getText (configfile >> "CfgVehicles" >> _itemConfigName >> "editorPreview");
                 };
 
-                _allItemsExtracted pushBack [_displayName, _stock, _description, _code, _picturePath, _crew, _cargo, _speed, _baseConfigName, _categoryName, _itemConfigName, _isSpecial];
+                _allItemsExtracted pushBack [_displayName, _stock, _description, _code, _picturePath, _crew, _cargo, _speed, _baseConfigName, _categoryName, _itemConfigName, _isSpecial, _driverGPS, _crewHelmet, _disableTIEquipment, _itemCargo, _magazineCargo, _trackCargo, _wheelCargo, _removeMagazines];
                 // diag_log str (_allItemsExtracted);
                 // copyToClipboard str (_allItemsExtracted);
                 
@@ -204,7 +215,14 @@ _ctrlTotalSideCount ctrlCommit 0;
             "_baseConfigName",
             "_categoryName",
             "_itemConfigName",
-            "_isSpecial"
+            "_isSpecial",
+            "_driverGPS",
+            "_crewHelmet",
+            "_disableTIEquipment",
+            "_itemCargo",
+            "_magazineCargo",
+            "_trackCargo",
+            "_wheelCargo"
         ];
 
         
