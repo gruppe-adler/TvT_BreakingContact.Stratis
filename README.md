@@ -41,7 +41,6 @@ TFAR, ACE3, RHSAFRF and RHSUSF mods are required. RDS\_CIV is optional (required
 * Time 
 * Weather
 * US Spawn Distance
-* Money
 * Deploy time to win
 * Time Acceleration
 * Ingame Replay Accuracy
@@ -58,7 +57,6 @@ To play on one of those islands, change the file name's terrain part (_"Stratis"
 * Admin slot is Zeus to fight bugs
 * Russian Commander Slot is mandatory 
 * It's highly recommended to use the predefined amount of money
-* For every player there is a little bonus in money
 * Russians might redeploy, the sum of deployed time counts for winning
 * Best played in a roughly 2:1 attacker defender ratio
 * You can eradicate the spawn cone with ace interact to hide your spawn position

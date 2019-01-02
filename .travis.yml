@@ -3,6 +3,8 @@ python:
 - '3.4'
 install:
 - pip install sqflint
+script:
+- tools/lint.sh -d . -C /tmp
 before_script:
 - tools/preprocess.sh             
 script:
