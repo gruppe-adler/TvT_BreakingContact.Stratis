@@ -1,5 +1,13 @@
 //a different set of buyables
-class RussianStuff {    
+class RussianStuff {
+
+    class RadioTruck {
+        type = "rhs_gaz66_r142_vv";
+        deployAction = "";
+        retractAction = "";
+        isSending = "";
+        condition = "false";
+    };
 
     class Logistics {
         displayName = "Logistics";
