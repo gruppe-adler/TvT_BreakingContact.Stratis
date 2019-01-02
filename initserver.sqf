@@ -229,7 +229,6 @@ publicVariable "SPEC_GROUP";
 
 
 
-[] execVM "helpers\medical_settings.sqf";
 [] call grad_civMarker_fnc_civGunfightListener;
 [] call grad_civMarker_fnc_civKilledListener;
 
