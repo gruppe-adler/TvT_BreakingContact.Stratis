@@ -1,12 +1,11 @@
 /*
 
-    ["AmericanStuff", US_SPAWN_PAD] call BC_buymenu_fnc_createGUI;
+    ["AmericanStuff", cursorObject, US_SPAWN_PAD] call BC_buymenu_fnc_createGUI;
 
 */
 
 params ["_baseConfigName", "_startVehicle", "_spawnCone"];
 // prepare data
-//private _baseConfigName = "RussianStuff";
 private _baseConfig = missionConfigFile >> "CfgGradBuymenu" >> _baseConfigName;
 private _allCategories = "true" configClasses _baseConfig;
 private _categoriesExtracted = [];

@@ -1,12 +1,20 @@
 params ["_position"];
 
-blufor_hq = "rhsusf_m998_d_4dr";
+// get start vehicle type
+BUYABLES_BLUFOR_INDEX = ["BUYABLES_BLUFOR", -1] call BIS_fnc_getParamValue;
+private _faction = missionConfigFile >> "CfgGradBuymenu" >> (BUYABLES_BLUFOR_VALUES select BUYABLES_BLUFOR_INDEX);
+private _startVehicles = "true" configClasses _faction;
+private _type = "rhsusf_m998_w_4dr";
+{
+  private _config = _x;
+  private _condition = [(_config >> "condition"), "text", "true"] call CBA_fnc_getConfigEntry;
 
-if (BC_IS_WOODLAND) then {
-   blufor_hq = "rhsusf_m998_w_4dr";
-};
+    if (call compile _condition) then {
+    	_type = _x;
+    };
+} forEach _startVehicles;
 
-private _startVehicle = [west, _position, BLUFOR_SPAWN_DISTANCE, blufor_hq] call BC_setup_fnc_spawnStartVehicle;
+private _startVehicle = [west, _position, BLUFOR_SPAWN_DISTANCE, _type] call BC_setup_fnc_spawnStartVehicle;
 
 waitUntil {
     !isNil "US_VEHICLE_SPAWN"

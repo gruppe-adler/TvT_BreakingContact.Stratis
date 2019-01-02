@@ -6,9 +6,15 @@ diag_log "added CBA eh";
 
         params ["_startVehicle", "_cone", "_side"];
 
+        BUYABLES_OPFOR_INDEX = ["BUYABLES_OPFOR", -1] call BIS_fnc_getParamValue;
+        BUYABLES_BLUFOR_INDEX = ["BUYABLES_BLUFOR", -1] call BIS_fnc_getParamValue;
+
+        private _buyablesOpfor = missionConfigFile >> "CfgGradBuymenu" >> (BUYABLES_OPFOR_VALUES select BUYABLES_OPFOR_INDEX);
+        private _buyablesBlufor = missionConfigFile >> "CfgGradBuymenu" >> (BUYABLES_BLUFOR select BUYABLES_BLUFOR_INDEX);
+
         if (_side == west) then {
             [_startVehicle,
-            "AmericanStuff",
+            _buyablesBlufor,
             _cone,
             "Vehicle Supply",
             "Buy Vehicles",
@@ -18,7 +24,7 @@ diag_log "added CBA eh";
             diag_log "added BC_buymenu_fnc_addInteraction";
         } else {
             [_startVehicle,
-            "RussianStuff",
+            _buyablesOpfor,
             _cone,
             "Vehicle Supply",
             "Buy Vehicles",

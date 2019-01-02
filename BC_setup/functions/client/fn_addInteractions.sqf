@@ -158,8 +158,8 @@ _selfRadioProgressCheck = ["TransmissionProgress", "Check Transmission Progress"
 
     [[(_terminal), false, [0,1,0], 180], "ace_dragging_fnc_setdraggable", true, true] call BIS_fnc_MP;
     GRAD_TERMINAL = false; publicVariable "GRAD_TERMINAL";
-    (_terminal) attachTo [_radioVeh ,[0.3,-2.85,0.7]];
-    (_terminal) setVectorDirAndUp [[0,1,0.3],[0,0,0.7]];
+    (_terminal) attachTo [_radioVeh ,TERMINAL_POSITION_OFFSET];
+    (_terminal) setVectorDirAndUp TERMINAL_POSITION_VECTORDIRANDUP;
 
  }, {hint "Cancelled action"}, (localize "str_GRAD_attaching_radio")] call ace_common_fnc_progressBar;
  },

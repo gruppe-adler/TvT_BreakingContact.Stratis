@@ -50,3 +50,9 @@ switch (true) do {
     };
     default {false};
 };
+
+
+//track
+if (missionNamespace getVariable  ["grad_lbm_trackingTag",""] != "") then {
+    [_baseConfigName,_categoryConfigName,_itemConfigName] call GRAD_lbm_tracking_fnc_trackPurchase;
+};

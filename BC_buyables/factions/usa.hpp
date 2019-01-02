@@ -1,5 +1,19 @@
 //a different set of buyables
-class AmericanStuff {    
+class USA { 
+
+    // needs to be in every faction
+    class StartVehicle {
+        type = "rhsusf_m998_w_4dr";
+        condition = "false";
+
+        class rhsusf_m998_w_4dr {
+            condition = "BC_IS_WOODLAND";
+        };
+
+        class rhsusf_m998_d_4dr {
+            condition = "!BC_IS_WOODLAND";
+        };
+    };
 
     class Logistics {
         displayName = "Logistics";

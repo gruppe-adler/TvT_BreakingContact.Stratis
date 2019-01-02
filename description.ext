@@ -43,10 +43,9 @@ class RscTitles {
 class CfgGradBuymenu {
     vehicleMarkers = 1;
     tracking = 1;
-    trackingTag = "myMission";
+    trackingTag = "Breaking Contact";
 
-    #include "BC_buyables\americans.hpp"
-    #include "BC_buyables\russians.hpp"
+    #include "BC_buyables\factions.hpp"
 };
 
 OnLoadMission = "A mobile radio station is trying to get a message sent - their adversaries try to stop them from completing the broadcast";
@@ -74,6 +73,8 @@ class Header
 
 class Params
 {
+    #include "BC_buyables\params.hpp"
+
     class TIME_OF_DAY
     {
         title = "Time of Day";
