@@ -1,22 +1,21 @@
 #include "\z\ace\addons\main\script_component.hpp"
 #include "..\..\..\missionMacros.h"
 
-[
-	"teleportClickOpf",
-	"onMapSingleClick",
-	{
-		debugLog("opfor lead clicked on map");
-		try {
-			if (_pos call BC_setup_fnc_isOnWater) exitWith {};
-			["teleportClickOpf", "onMapSingleClick"] call BIS_fnc_removeStackedEventHandler;
-			[_pos] remoteExec ["BC_setup_fnc_publishOpforTeleportTarget", [0,-2] select isDedicated];
-			playSound ['click', true];
-			["Preparing Spawn..."] call EFUNC(common,displayTextStructured);
-		} catch {
-			hint str _exception;
-		};
-	}
-] call BIS_fnc_addStackedEventHandler;
+player linkitem 'itemMap';
+player setVariable ["BC_choosingSpawn", true];
+closeDialog 0;
+
+private _handle = addMissionEventHandler ["MapSingleClick", {
+	params ["_units", "_pos", "_alt", "_shift"];
+
+	if ([_pos] call BC_setup_fnc_isOnWater) exitWith {};
+		[_pos] remoteExec ["BC_setup_fnc_publishOpforTeleportTarget", [0,-2] select isDedicated];
+		playSound ['click', true];
+		["Preparing Spawn..."] call EFUNC(common,displayTextStructured);
+
+		removeMissionEventhandler ["MapSingleClick", _thisEventHandler];
+		player setVariable ["BC_choosingSpawn", false];
+}];
 
 
 if (DEBUG_MODE) then {
@@ -27,3 +26,20 @@ if (DEBUG_MODE) then {
 		["teleportClickOpf", "onMapSingleClick"] call BIS_fnc_removeStackedEventHandler;
 	};
 };
+
+
+/*
+	
+	addMissionEventHandler ["MapSingleClick", {
+	params ["_units", "_pos", "_alt", "_shift"];
+
+	if (_pos call BC_setup_fnc_isOnWater) exitWith {};
+			["teleportClickOpf", "onMapSingleClick"] call BIS_fnc_removeStackedEventHandler;
+			[_pos] remoteExec ["BC_setup_fnc_publishOpforTeleportTarget", [0,-2] select isDedicated];
+			playSound ['click', true];
+			["Preparing Spawn..."] call EFUNC(common,displayTextStructured);
+
+
+	}];
+
+*/
