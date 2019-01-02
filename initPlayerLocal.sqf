@@ -1,17 +1,15 @@
-[] execVM "player\setup\adjustInitialSpawnPositionNew.sqf";
+[] call BC_setup_fnc_initialSpawnClient;
 
 ["InitializePlayer", [player, true]] call BIS_fnc_dynamicGroups;
-0 = execVM "spawn\addInteractions.sqf";
+[] call BC_setup_fnc_addInteractions; // add interactions
 
 waitUntil {!isNil "CIVILIAN_TRAFFIC"};
 
-if (CIVILIAN_TRAFFIC == 1) then {
-     0 = execVM "grad_civs\init.sqf";
-};
+// todo activate grad civs
 
 
 player addEventHandler ["handleRating", {
-     0
+    0
 }];
 
 // disable spectating the fucking civs

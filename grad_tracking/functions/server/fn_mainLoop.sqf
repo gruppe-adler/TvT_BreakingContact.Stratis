@@ -6,7 +6,7 @@ _result = [1,0];
 
 grad_tracking_currentLoop = 0;
 
-/* waitUntil { (count (missionNamespace getVariable ["GRAD_tracking_radioPositions", []])) > 0 }; */
+
 
 GRAD_tracking_mainLoop = [{
 
@@ -214,9 +214,9 @@ GRAD_tracking_mainLoop = [{
         if (_locationsCreated) then {
             [
                 _currentLocationName, 
-                "ColorGreen", 
+                "ColorGreen",
                 " DONE"
-            ] remoteExec ["GRAD_tracking_fnc_setMarkerColorAndText", east, false];        
+            ] remoteExec ["GRAD_tracking_fnc_setMarkerColorAndText", east, true];        
         };
 
         GRAD_TICKS_DONE = 0;
@@ -253,8 +253,8 @@ GRAD_tracking_mainLoop = [{
 GRAD_tracking_syncLoop = [{
     params ["_args", "_handle"];
 
-    "mrk_spawn_blufor_land_1" setMarkerPos (call US_VEHICLE_SPAWN);
-    "mrk_spawn_opfor_land_1" setMarkerPos (call RUS_VEHICLE_SPAWN);
+    "mrk_spawn_blufor_land_1" setMarkerPos ([west] call BC_setup_fnc_getSpawnPos);
+    "mrk_spawn_opfor_land_1" setMarkerPos ([east] call BC_setup_fnc_getSpawnPos);
     publicVariable "GRAD_TICKS_DONE";
 
 },5,[]] call CBA_fnc_addPerFrameHandler;

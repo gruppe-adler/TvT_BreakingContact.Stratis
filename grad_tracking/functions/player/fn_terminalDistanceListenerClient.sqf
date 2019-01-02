@@ -1,8 +1,7 @@
 if (playerSide != east) exitWith {};
 
 _GRAD_TERMINAL_DISTANCE_listener = {
-    [GRAD_TERMINAL_DISTANCE] call GRAD_tracking_fnc_terminalDistanceHint;
-    nil;
+	[GRAD_TERMINAL_DISTANCE] call GRAD_tracking_fnc_terminalDistanceHint;
 };
 
 "GRAD_TERMINAL_DISTANCE" addPublicVariableEventHandler _GRAD_TERMINAL_DISTANCE_listener;
