@@ -1,7 +1,5 @@
 if (!hasInterface) exitWith {};
 
-diag_log "added CBA eh";
-
 ["startVehicle", { 
 
         params ["_startVehicle", "_cone", "_side"];

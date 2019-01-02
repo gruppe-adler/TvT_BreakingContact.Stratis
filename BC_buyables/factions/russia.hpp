@@ -6,7 +6,6 @@ class Russia {
         type = "rhs_gaz66_r142_vv";
         deployAction = "";
         retractAction = "";
-        isSending = "";
         condition = "false";
         terminalPositionOffset = [0.3,-2.85,0.7];
         terminalVectorDirAndUp = [[0,1,0.3],[0,0,0.7]];
