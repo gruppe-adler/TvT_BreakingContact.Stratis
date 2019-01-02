@@ -1,9 +1,12 @@
 #include "\z\ace\addons\main\script_component.hpp"
 #include "..\..\..\missionMacros.h"
 
+if (player getVariable ["BC_choosingSpawn", false]) exitWith {
+	diag_log "BC: preventing double execution of chooseSpawn";
+};
+
 player linkitem 'itemMap';
 player setVariable ["BC_choosingSpawn", true];
-closeDialog 0;
 
 private _handle = addMissionEventHandler ["MapSingleClick", {
 	params ["_units", "_pos", "_alt", "_shift"];

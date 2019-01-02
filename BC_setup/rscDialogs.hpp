@@ -56,7 +56,7 @@ class gui_spawn_opfor
 				colorText[] = {0,0,0,1};
 				colorBackground[] = {0.81,0.55,0.12,1};
 				tooltip = $STR_GRAD_choose_spawn_location_road;
-				onButtonClick = "[] call BC_setup_fnc_chooseSpawn;";
+				onButtonClick = "[] call BC_setup_fnc_chooseSpawn; closeDialog 0;";
 			};
 		};
 };
