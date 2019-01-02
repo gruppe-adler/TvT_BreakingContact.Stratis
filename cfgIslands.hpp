@@ -51,6 +51,17 @@ class CfgIslands {
         };
     };
 
+    class tem_anizay {
+        displayName = "Anizay";
+        type = "middle eastern";
+        isWoodland = false;
+        spawnPosBlu[] = {8580.41,6290.2,0};
+        spawnPosOpf[] = {8581.45,7719.97,0};
+        previewCamPos[] = {8580.41,6290.2,0};
+        previewCamTarget[] = {8581.45,7719.97,0};
+        locationBlacklist[] = {};
+    };
+
     class Beketov {
         displayName = "Beketov";
         type = "russian";
@@ -308,7 +319,17 @@ class CfgIslands {
         displayName = "Rosche";
         type = "european";
         isWoodland = true;
-        spawnPosBlu[] = {8034,8372,0};
+        spawnPosBlu[] = {552,4759,0};
+        spawnPosOpf[] = {940,3239,0};
+        previewCamPos[] = {3939,4968,0};
+        previewCamTarget[] = {3853,4930,0};
+    };
+
+    class ruha {
+        displayName = "Ruha";
+        type = "european";
+        isWoodland = true;
+        spawnPosBlu[] = {0,0,0};
         spawnPosOpf[] = {8284,8104,0};
         previewCamPos[] = {3939,4968,0};
         previewCamTarget[] = {3853,4930,0};
