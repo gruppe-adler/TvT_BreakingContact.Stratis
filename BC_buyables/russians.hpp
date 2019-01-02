@@ -20,7 +20,7 @@ class RussianStuff {
             description = "The workhorse of your army.";
             price = 10;
             stock = 7;
-            code = "(_this select 0) addItemCargoGlobal ['ItemGPS',1];['AddCargoByClass', ['ACE_wheel', _this select 0, 2], _this select 0] call CBA_fnc_targetEvent;(_this select 0) setVariable ['ace(_this select 0)iclelock_lockSide', east, true];";
+            code = "(_this select 0) addItemCargoGlobal ['ItemGPS',1];['AddCargoByClass', ['ACE_wheel', _this select 0, 2], _this select 0] call CBA_fnc_targetEvent;(_this select 0) setVariable ['(_this select 0) ace_vehiclelock_lockSide', east, true];";
             spawnEmpty = 1;
             condition = "BC_IS_WOODLAND";
             vehicleInit = "[['standard',1], ['light_hide',1]]";
@@ -36,7 +36,7 @@ class RussianStuff {
             description = "The workhorse of your army.";
             price = 10;
             stock = 7;
-            code = "(_this select 0) addItemCargoGlobal ['ItemGPS',1];['AddCargoByClass', ['ACE_wheel', _this select 0, 2], _this select 0] call CBA_fnc_targetEvent;(_this select 0) setVariable ['ace(_this select 0)iclelock_lockSide', east, true];";
+            code = "(_this select 0) addItemCargoGlobal ['ItemGPS',1];['AddCargoByClass', ['ACE_wheel', _this select 0, 2], _this select 0] call CBA_fnc_targetEvent;(_this select 0) setVariable ['(_this select 0) ace_vehiclelock_lockSide', east, true];";
             spawnEmpty = 1;
             condition = "BC_IS_WOODLAND";
             vehicleInit = "[[], ['cabinlights_hide',0,'light_hide',1]]";
@@ -60,7 +60,7 @@ class RussianStuff {
             description = "The workhorse of your army.";
             price = 10;
             stock = 7;
-            code = "(_this select 0) addItemCargoGlobal ['ItemGPS',1];['AddCargoByClass', ['ACE_wheel', _this select 0, 2], _this select 0] call CBA_fnc_targetEvent;(_this select 0) setVariable ['ace(_this select 0)iclelock_lockSide', east, true];";
+            code = "(_this select 0) addItemCargoGlobal ['ItemGPS',1];['AddCargoByClass', ['ACE_wheel', _this select 0, 2], _this select 0] call CBA_fnc_targetEvent;(_this select 0) setVariable ['(_this select 0) ace_vehiclelock_lockSide', east, true];";
             spawnEmpty = 1;
             condition = "BC_IS_WOODLAND";
             vehicleInit = "[[],[]]";
@@ -76,7 +76,7 @@ class RussianStuff {
             description = "The workhorse of your army.";
             price = 10;
             stock = 7;
-            code = "(_this select 0) addItemCargoGlobal ['ItemGPS',1];['AddCargoByClass', ['ACE_wheel', _this select 0, 2], _this select 0] call CBA_fnc_targetEvent;(_this select 0) setVariable ['ace(_this select 0)iclelock_lockSide', east, true];";
+            code = "(_this select 0) addItemCargoGlobal ['ItemGPS',1];['AddCargoByClass', ['ACE_wheel', _this select 0, 2], _this select 0] call CBA_fnc_targetEvent;(_this select 0) setVariable ['(_this select 0) ace_vehiclelock_lockSide', east, true];";
             spawnEmpty = 1;
             condition = "BC_IS_WOODLAND";
             vehicleInit = "[[], ['cabinlights_hide',0,'light_hide',1]]";
@@ -93,7 +93,7 @@ class RussianStuff {
             description = "The workhorse of your army.";
             price = 10;
             stock = 7;
-            code = "(_this select 0) addItemCargoGlobal ['ItemGPS',1];['AddCargoByClass', ['ACE_wheel', _this select 0, 2], _this select 0] call CBA_fnc_targetEvent;(_this select 0) setVariable ['ace(_this select 0)iclelock_lockSide', east, true];";
+            code = "(_this select 0) addItemCargoGlobal ['ItemGPS',1];['AddCargoByClass', ['ACE_wheel', _this select 0, 2], _this select 0] call CBA_fnc_targetEvent;(_this select 0) setVariable ['(_this select 0) ace_vehiclelock_lockSide', east, true];";
             spawnEmpty = 1;
             condition = "BC_IS_WOODLAND";
             vehicleInit = "[[], ['cabinlights_hide',0,'light_hide',1]]";
@@ -117,7 +117,7 @@ class RussianStuff {
             displayName = "BRDM-HQ";
             description = "The workhorse of your army.";
             stock = 7;
-            code = "['AddCargoByClass', ['ACE_wheel', _this select 0, 2], _this select 0] call CBA_fnc_targetEvent;(_this select 0) addItemCargoGlobal ['rhs_tsh4',3];(_this select 0) addItemCargoGlobal ['ItemGPS',1];(_this select 0) setVariable ['ace(_this select 0)iclelock_lockSide', east, true];";
+            code = "['AddCargoByClass', ['ACE_wheel', _this select 0, 2], _this select 0] call CBA_fnc_targetEvent;(_this select 0) addItemCargoGlobal ['rhs_tsh4',3];(_this select 0) addItemCargoGlobal ['ItemGPS',1];(_this select 0) setVariable ['(_this select 0) ace_vehiclelock_lockSide', east, true];";
             spawnEmpty = 1;
             condition = "BC_IS_WOODLAND";
             vehicleInit = "[['olive', 1], ['driverViewHatch',0,'commanderViewHatch',0,'hatchCommander',1]]";
@@ -132,7 +132,7 @@ class RussianStuff {
             displayName = "BRDM-AT";
             description = "The workhorse of your army.";
             stock = 7;
-            code = "['AddCargoByClass', ['ACE_wheel', _this select 0, 2], _this select 0] call CBA_fnc_targetEvent;(_this select 0) addItemCargoGlobal ['rhs_tsh4',3];(_this select 0) addItemCargoGlobal ['ItemGPS',1];(_this select 0) setVariable ['ace(_this select 0)iclelock_lockSide', east, true];";
+            code = "['AddCargoByClass', ['ACE_wheel', _this select 0, 2], _this select 0] call CBA_fnc_targetEvent;(_this select 0) addItemCargoGlobal ['rhs_tsh4',3];(_this select 0) addItemCargoGlobal ['ItemGPS',1];(_this select 0) setVariable ['(_this select 0) ace_vehiclelock_lockSide', east, true];";
             spawnEmpty = 1;
             condition = "BC_IS_WOODLAND";
             vehicleInit = "[['olive', 1], ['driverViewHatch',0,'commanderViewHatch',0,'hatchCommander',1]]";
@@ -147,7 +147,7 @@ class RussianStuff {
             displayName = "BRDM-2";
             description = "The workhorse of your army.";
             stock = 7;
-            code = "['AddCargoByClass', ['ACE_wheel', _this select 0, 2], _this select 0] call CBA_fnc_targetEvent;(_this select 0) addItemCargoGlobal ['rhs_tsh4',3];(_this select 0) addItemCargoGlobal ['ItemGPS',1];(_this select 0) setVariable ['ace(_this select 0)iclelock_lockSide', east, true];";
+            code = "['AddCargoByClass', ['ACE_wheel', _this select 0, 2], _this select 0] call CBA_fnc_targetEvent;(_this select 0) addItemCargoGlobal ['rhs_tsh4',3];(_this select 0) addItemCargoGlobal ['ItemGPS',1];(_this select 0) setVariable ['(_this select 0) ace_vehiclelock_lockSide', east, true];";
             spawnEmpty = 1;
             condition = "BC_IS_WOODLAND";
             vehicleInit = "[['olive', 1], ['driverViewHatch',0,'commanderViewHatch',0,'hatchCommander',1]]";
@@ -170,7 +170,7 @@ class RussianStuff {
             displayName = "T80-BVK";
             description = "The workhorse of your army.";
             stock = 1;
-            code = "(_this select 0) addItemCargoGlobal ['ItemGPS',1];['AddCargoByClass', ['ACE_track', _this select 0, 2], _this select 0] call CBA_fnc_targetEvent;(_this select 0) removeMagazinesTurret ['rhs_mag_3of26_5', [0]];(_this select 0) addItemCargoGlobal ['rhs_tsh4',3];(_this select 0) setVariable ['ace(_this select 0)iclelock_lockSide', east, true];";
+            code = "(_this select 0) addItemCargoGlobal ['ItemGPS',1];['AddCargoByClass', ['ACE_track', _this select 0, 2], _this select 0] call CBA_fnc_targetEvent;(_this select 0) removeMagazinesTurret ['rhs_mag_3of26_5', [0]];(_this select 0) addItemCargoGlobal ['rhs_tsh4',3];(_this select 0) setVariable ['(_this select 0) ace_vehiclelock_lockSide', east, true];";
             spawnEmpty = 1;
             condition = "BC_IS_WOODLAND";
             vehicleInit = "[['standard',1], ['hide_com_shield',1,'sightElevationAPFSDS',0]]";
@@ -185,7 +185,7 @@ class RussianStuff {
             displayName = "BMP1-D";
             description = "The workhorse of your army.";
             stock = 1;
-            code = "(_this select 0) addItemCargoGlobal ['ItemGPS',1]; ['AddCargoByClass', ['ACE_wheel', _this select 0, 2], _this select 0] call CBA_fnc_targetEvent; (_this select 0) removeMagazinesTurret ['rhs_mag_og15v_20', [0]]; (_this select 0) addItemCargoGlobal ['rhs_tsh4',3]; (_this select 0) setVariable ['ace(_this select 0)iclelock_lockSide', east, true];";
+            code = "(_this select 0) addItemCargoGlobal ['ItemGPS',1]; ['AddCargoByClass', ['ACE_wheel', _this select 0, 2], _this select 0] call CBA_fnc_targetEvent; (_this select 0) removeMagazinesTurret ['rhs_mag_og15v_20', [0]]; (_this select 0) addItemCargoGlobal ['rhs_tsh4',3]; (_this select 0) setVariable ['(_this select 0) ace_vehiclelock_lockSide', east, true];";
             spawnEmpty = 1;
             condition = "BC_IS_WOODLAND";
             vehicleInit = "[['standard',1], ['crate_l1_unhide',1,'crate_l2_unhide',1,'crate_l3_unhide',1,'crate_r1_unhide',1,'crate_r2_unhide',1,'crate_r3_unhide',1,'wood_1_unhide',1,'maljutka_hide_source',1,'cargoHandler1',0]]";
