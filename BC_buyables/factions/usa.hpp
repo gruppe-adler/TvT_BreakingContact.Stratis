@@ -1,6 +1,7 @@
 //a different set of buyables
 class USA {
     side = "Blufor";
+    loadout = "usa";
     mode = "conquer";
     driverGps = "true";
     crewHelmet = "";

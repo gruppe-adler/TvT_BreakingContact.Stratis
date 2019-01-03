@@ -15,7 +15,8 @@
 
 class CfgFunctions {     
     #include "BC_buymenu\cfgFunctions.hpp"
-
+    #include "BC_loadouts\cfgFunctions.hpp"
+    
     #include "grad_carryBoat\cfgFunctions.hpp"
     #include "grad_islands\cfgFunctions.hpp"
     #include "grad_civMarker\cfgFunctions.hpp"
@@ -354,10 +355,7 @@ class Loadouts {
         watch = "ItemWatch";
     };
     class Faction {
-        #include "BC_loadouts\US_Desert.hpp"
-        #include "BC_loadouts\US_Woodland.hpp"
-        #include "BC_loadouts\RU_Desert.hpp"
-        #include "BC_loadouts\RU_Woodland.hpp"
+        #include "BC_loadouts\factions.hpp"
     };
 };
 

@@ -1,6 +1,7 @@
 //a different set of buyables
 class Russia {
     side = "Opfor";
+    loadout = "russia";
     mode = "conquer";
     driverGps = "true";
     crewHelmet = "rhs_tsh4";

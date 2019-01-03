@@ -1,6 +1,7 @@
 //a different set of buyables
 class RussiaTank {
     side = "Opfor";
+    loadout = "russia";
     mode = "destroy";
     driverGps = "true";
     crewHelmet = "rhs_tsh4";

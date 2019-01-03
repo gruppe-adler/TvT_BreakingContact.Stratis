@@ -1,6 +1,7 @@
 //a different set of buyables
 class USATank {
     side = "Blufor";
+    loadout = "usa";
     mode = "destroy";
     driverGps = "true";
     crewHelmet = "";

@@ -6,6 +6,7 @@ enableDynamicSimulationSystem true;
 // optimize for PVP
 disableRemoteSensors true; // disable ai combat ability
 
+/*
 if (BC_IS_WOODLAND) then {
 // us vs russians
      ["BLU_F", "US_Woodland"] call GRAD_Loadout_fnc_FactionSetLoadout;
@@ -14,8 +15,9 @@ if (BC_IS_WOODLAND) then {
      ["BLU_F", "US_Desert"] call GRAD_Loadout_fnc_FactionSetLoadout;
      ["OPF_F", "RU_Desert"] call GRAD_Loadout_fnc_FactionSetLoadout;
 };
+*/
 
-call compile preprocessfile "BC_loadouts\setLoadoutRandomization.sqf";
+// call compile preprocessfile "BC_loadouts\setLoadoutRandomization.sqf";
 
 
 waitUntil {!isNil "JIP_TIME_ALLOWED"};
