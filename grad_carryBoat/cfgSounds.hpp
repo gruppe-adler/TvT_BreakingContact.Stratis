@@ -2,7 +2,7 @@ class pick
 {
   name = "pick";
   // filename, volume, pitch
-  sound[] = {"GRAD_carryBoat\sounds\pick.ogg", 1, 1};
+  sound[] = {"sounds\pick.ogg", 1, 1};
   // subtitle delay in seconds, subtitle text
   titles[] = {0, ""};
 };
@@ -10,7 +10,7 @@ class strain1
 {
   name = "strain1";
   // filename, volume, pitch
-  sound[] = {"GRAD_carryBoat\sounds\strain1.ogg", 1, 1};
+  sound[] = {"sounds\strain1.ogg", 1, 1};
   // subtitle delay in seconds, subtitle text
   titles[] = {0, ""};
 };
@@ -18,7 +18,7 @@ class strain2
 {
   name = "strain2";
   // filename, volume, pitch
-  sound[] = {"GRAD_carryBoat\sounds\strain2.ogg", 1, 1};
+  sound[] = {"sounds\strain2.ogg", 1, 1};
   // subtitle delay in seconds, subtitle text
   titles[] = {0, ""};
 };

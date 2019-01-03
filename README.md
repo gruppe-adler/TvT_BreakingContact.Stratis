@@ -43,7 +43,7 @@ TFAR, ACE3, RHSAFRF and RHSUSF mods are required. RDS\_CIV is optional (required
 * US Spawn Distance
 * Deploy time to win
 * Time Acceleration
-* Ingame Replay Accuracy
+* Ingame Replay Precision
 * JIP time
 * BFT toggle
 * Civilian Traffic Toggle (needs RDS\_CIV!)

@@ -86,7 +86,7 @@ if (_side isEqualTo west) then {
 
       sleep 7;
 
-      [REPLAY_ACCURACY] remoteExec ["GRAD_replay_fnc_init", 0, true];
+      [] remoteExec ["GRAD_replay_fnc_init", 0, true];
 
     	// create tasks
     	[] remoteExec ["BC_objectives_fnc_init", 0, true];

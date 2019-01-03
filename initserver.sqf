@@ -50,8 +50,8 @@ publicVariable "BLUFOR_SPAWN_DISTANCE";
 
 TIME_ACCELERATION = ["TIME_ACCELERATION", 1] call BIS_fnc_getParamValue;
 
-REPLAY_ACCURACY = ["REPLAY_ACCURACY", 4] call BIS_fnc_getParamValue;
-publicVariable "REPLAY_ACCURACY"; // clients need to know this
+GRAD_REPLAY_PRECISION = ["GRAD_REPLAY_PRECISION", 4] call BIS_fnc_getParamValue;
+publicVariable "GRAD_REPLAY_PRECISION"; // clients need to know this
 
 AR3PLAY_ENABLE_REPLAY = (["AR3PLAY_ENABLE_REPLAY", 0] call BIS_fnc_getParamValue) == 1;
 AR3PLAY_IS_STREAMABLE = (["AR3PLAY_IS_STREAMABLE", 0] call BIS_fnc_getParamValue) == 1;

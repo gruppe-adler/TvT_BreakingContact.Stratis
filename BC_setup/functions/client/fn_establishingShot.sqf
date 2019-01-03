@@ -486,6 +486,8 @@ if (player getVariable ["BC_choosingSpawn", false]) exitWith {
     BIS_fnc_establishingShot_playing = false;
 
     openMap [true, false];
+
+    2 fadeSound 1;
 };
 
 if (_mode == 0) then {
@@ -569,6 +571,8 @@ if (_mode == 0) then {
     // Start mission
     BIS_missionStarted = true;
     BIS_fnc_establishingShot_playing = false;
+
+    2 fadeSound 1;
 };
 
 true
