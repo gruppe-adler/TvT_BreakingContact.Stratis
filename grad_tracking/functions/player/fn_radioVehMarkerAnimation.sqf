@@ -16,25 +16,41 @@ _modifier = 1;
 
 mrk_radioVeh setMarkerAlphaLocal 1;
 
+player setVariable ["BC_trackingMarker_pulseSize", _pulsesize];
+player setVariable ["BC_trackingMarker_pulseMaxSize", _pulseMaxSize];
 
-while {!GRAD_RADIO_VEH_MARKER_HIDDEN} do {
+[{
+     params ["_args", "_handle"];
+
+     private _pulsesize = player getVariable ["BC_trackingMarker_pulseSize", 0];
+     private _pulseMaxSize = player getVariable ["BC_trackingMarker_pulseMaxSize", 100];
+     private _modifier = player getVariable ["BC_trackingMarker_modifier", 1];
+
+     // systemChat (str _pulsesize + "  " + str _pulseMaxSize + "  " + str _modifier);
 
      if (_pulsesize > _pulseMaxSize) then {
+         
           _pulsesize = 0.01;
           _modifier = 0.3;
-          sleep _pulseDelayBetween;
+          player setVariable ["BC_trackingMarker_pulseSize", _pulsesize];
+          player setVariable ["BC_trackingMarker_modifier", _modifier];
+
      };
+     
 
      _pulsesize = _pulsesize + _modifier;
      _modifier = _modifier + 0.1;
-     mrk_radioVeh setMarkerAlphaLocal 1 - (_pulsesize/_pulseMaxSize);
+     mrk_radioVeh setMarkerAlphaLocal (1 - (_pulsesize/_pulseMaxSize));
      mrk_radioVeh setMarkerSizeLocal [_pulsesize, _pulsesize];
-     
-     sleep _pulseSpeed;
+
+     if (GRAD_RADIO_VEH_MARKER_HIDDEN) exitWith {
+          [_handle] call CBA_fnc_removePerFramehandler;
+          player setVariable ["GRAD_tracking_radioVehAnimation", false];
+          call GRAD_tracking_fnc_hintEndTransmission;
+     };
+
+     player setVariable ["BC_trackingMarker_pulseSize", _pulsesize];
+     player setVariable ["BC_trackingMarker_modifier", _modifier];
 
      
-};
-
-
-player setVariable ["GRAD_tracking_radioVehAnimation", false];
-call GRAD_tracking_fnc_hintEndTransmission;
+}, 0, []] call CBA_fnc_addPerFramehandler;

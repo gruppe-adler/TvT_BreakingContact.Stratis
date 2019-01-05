@@ -1,14 +1,16 @@
 class russia {
      class AllUnits {
           primaryWeapon = "rhs_weap_ak105_zenitco01_b33";
+          primaryWeaponMagazine = "rhs_30Rnd_545x39_7N10_AK"; 
           primaryWeaponMuzzle = "rhs_acc_dtk1";
           primaryWeaponPointer = "rhs_acc_perst3";
           primaryWeaponOptics = "rhs_acc_1p87";
           handgunWeapon = "rhs_weap_pya";
+          handgunWeaponMagazine = "rhs_mag_9x19_17";
           uniform = "rhs_uniform_flora_patchless_alt";
           addItemsToUniform[] = {"ACE_fieldDressing","ACE_MapTools","ACE_Flashlight_KSF1",LIST_2("rhs_mag_9x19_17")};
           vest = "rhs_6b13_6sh92_vog";
-          addItemsToVest[] = {"SmokeShell",LIST_7("rhs_30Rnd_545x39_7N10_AK"),LIST_2("rhs_mag_rgd5"),LIST_2("rhs_mag_rdg2_white")};
+          addItemsToVest[] = {"SmokeShell",LIST_4("rhs_30Rnd_545x39_7N10_AK"),LIST_2("rhs_mag_rgd5"),LIST_2("rhs_mag_rdg2_white")};
           backpack = "rhs_assault_umbts";
           addItemsToBackpack[] = {LIST_6("ACE_fieldDressing"),LIST_2("ACE_epinephrine"),LIST_2("ACE_morphine")};
           headgear = "rhs_6b26";
@@ -33,6 +35,7 @@ class russia {
 
           class HeavyGunner_F {
                primaryWeapon = "rhs_weap_pkp";
+               primaryWeaponMagazine = "rhs_100Rnd_762x54mmR_green"; 
                primaryWeaponOptics = "rhs_acc_ekp8_02";
                vest = "rhs_6b13_6sh92_vog";
                addItemsToVest[] = {LIST_2("rhs_mag_rgd5"),LIST_2("rhs_mag_rdg2_white"),"rhs_100Rnd_762x54mmR_green"};
@@ -44,6 +47,7 @@ class russia {
           };
           class Soldier_AR_F {
                primaryWeapon = "rhs_weap_akmn";
+               primaryWeaponMagazine = "rhs_75Rnd_762x39mm_tracer"; 
                primaryWeaponMuzzle = "rhs_acc_dtk1l";
                addItemsToVest[] = {LIST_2("HandGrenade"),"SmokeShell","SmokeShellRed",LIST_2("rhs_mag_rdg2_white"),LIST_2("rhs_mag_rgd5"),"rhs_75Rnd_762x39mm_tracer"};
                backpack = "rhssaf_kitbag_smb";

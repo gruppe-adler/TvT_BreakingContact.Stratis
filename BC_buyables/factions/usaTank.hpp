@@ -17,7 +17,7 @@ class USATank {
 
         class rhsusf_m1a2sep1wd_usarmy {
             condition = "true";
-            code = "(_this select 0) disableTIEquipment true;";
+            code = "";
         };
     };
 
@@ -32,12 +32,12 @@ class USATank {
             description = "";
             price = 10;
             stock = 7;
-            itemCargo = "[['itemGPS', 3], ['itemMap',3]]";
-            magazineCargo = "[['']]";
+            itemCargo = "";
+            magazineCargo = "";
             trackCargo = 2;
             spawnEmpty = 1;
             condition = "true";
-            vehicleInit = "['standard',1],['IFF_Panels_Hide',1,'Select_TOW',1,'Select_Stinger',0]";
+            vehicleInit = "[['standard',1],['IFF_Panels_Hide',1,'Select_TOW',1,'Select_Stinger',0]]";
         };
 
         class RHS_M2A2_wd {
@@ -45,12 +45,12 @@ class USATank {
             description = "";
             price = 10;
             stock = 7;
-            itemCargo = "[['itemGPS', 3], ['itemMap',3]]";
-            magazineCargo = "[['']]";
+            itemCargo = "";
+            magazineCargo = "";
             trackCargo = 2;
             spawnEmpty = 1;
             condition = "true";
-            vehicleInit = "['standard',1],['IFF_Panels_Hide',1,'Select_TOW',1,'Select_Stinger',0]";
+            vehicleInit = "[['standard',1],['IFF_Panels_Hide',1,'Select_TOW',1,'Select_Stinger',0]]";
         };
 
 
@@ -68,12 +68,12 @@ class USATank {
             description = "";
             price = 10;
             stock = 2;
-            itemCargo = "[['itemGPS', 3], ['itemMap',3]]";
-            magazineCargo = "[['']]";
+            itemCargo = "";
+            magazineCargo = "";
             trackCargo = 2;
             spawnEmpty = 1;
             condition = "true";
-            vehicleInit = "['woodland',1],['IFF_Panels_Hide',1,'Miles_Hide',1]";
+            vehicleInit = "[['woodland',1],['IFF_Panels_Hide',1,'Miles_Hide',1]]";
         };
 
         class rhsusf_m1a1aim_tuski_wd {
@@ -81,12 +81,12 @@ class USATank {
             description = "";
             price = 10;
             stock = 7;
-            itemCargo = "[['itemGPS', 3], ['itemMap',3]]";
-            magazineCargo = "[['']]";
+            itemCargo = "";
+            magazineCargo = "";
             trackCargo = 2;
             spawnEmpty = 1;
             condition = "true";
-            vehicleInit = "['woodland',1],['IFF_Panels_Hide',1,'Miles_Hide',1]";
+            vehicleInit = "[['woodland',1],['IFF_Panels_Hide',1,'Miles_Hide',1]]";
         };
     };
 
@@ -101,10 +101,10 @@ class USATank {
             displayName = "HMMWV-TOW";
             description = "";
             stock = 7;
-            code = "['AddCargoByClass', ['ACE_wheel', _this select 0, 2], _this select 0] call CBA_fnc_targetEvent;(_this select 0) addItemCargoGlobal ['rhs_tsh4',3];(_this select 0) addItemCargoGlobal ['ItemGPS',1];(_this select 0) setVariable ['(_this select 0) ace_vehiclelock_lockSide', west, true]; (_this select 0) disableTIEquipment true;";
+            code = "";
             spawnEmpty = 1;
             condition = "true";
-            vehicleInit = "[standard,1], [hide_snorkel,1,hide_CIP,0,hide_BFT,0,hide_Antenna,0,hide_A2_Parts,0,Hide_A2Bumper,1,Hide_Brushguard,1]";
+            vehicleInit = "[[standard,1], [hide_snorkel,1,hide_CIP,0,hide_BFT,0,hide_Antenna,0,hide_A2_Parts,0,Hide_A2Bumper,1,Hide_Brushguard,1]]";
         };
     };
 };

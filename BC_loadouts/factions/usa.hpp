@@ -1,13 +1,15 @@
 class USA {
      class AllUnits {
           primaryWeapon = "rhs_weap_m4a1_carryhandle";
+          primaryWeaponMagazine = "rhs_mag_30Rnd_556x45_M855A1_Stanag"; 
           primaryWeaponPointer = "FHQ_acc_ANPEQ15_black";
           primaryWeaponOptics = "FHQ_optic_HWS";
           handgunWeapon = "rhsusf_weap_m9";
+          handgunWeaponMagazine = "rhsusf_mag_15Rnd_9x19_JHP";
           uniform = "rhs_uniform_FROG01_wd";
           addItemsToUniform[] = {LIST_9("ACE_fieldDressing"),LIST_2("ACE_epinephrine"),LIST_3("ACE_morphine"),LIST_2("ACE_tourniquet"),"ACE_MapTools","ACE_Flashlight_XL50",LIST_2("rhsusf_mag_15Rnd_9x19_JHP")};
           vest = "rhsusf_mbav_rifleman";
-          addItemsToVest[] = {LIST_8("rhs_mag_30Rnd_556x45_M855A1_Stanag"),LIST_2("rhsusf_mag_15Rnd_9x19_JHP"),LIST_2("rhs_mag_m67"),LIST_2("SmokeShell")};
+          addItemsToVest[] = {LIST_4("rhs_mag_30Rnd_556x45_M855A1_Stanag"),LIST_2("rhsusf_mag_15Rnd_9x19_JHP"),LIST_2("rhs_mag_m67"),LIST_2("SmokeShell")};
           backpack = "rhsusf_assault_eagleaiii_coy";
           addItemsToBackpack[] = {};
           headgear = "rhsusf_lwh_helmet_marpatwd_headset_blk2";
@@ -29,12 +31,14 @@ class USA {
           };
           class HeavyGunner_F {
                primaryWeapon = "rhs_weap_m240B";
+               primaryWeaponMagazine = "rhsusf_100Rnd_762x51_m62_tracer"; 
                addItemsToUniform[] = {LIST_5("ACE_fieldDressing"),LIST_2("ACE_epinephrine"),LIST_3("ACE_morphine"),LIST_2("ACE_tourniquet"),"ACE_MapTools","ACE_Flashlight_XL50"};
                addItemsToVest[] = {"rhs_mag_m67","SmokeShell","rhsusf_100Rnd_762x51_m62_tracer","rhsusf_50Rnd_762x51"};
                addItemsToBackpack[] = {LIST_2("rhsusf_100Rnd_762x51_m62_tracer")};
           };
           class Soldier_AR_F {
                primaryWeapon = "rhs_weap_m249_pip_S";
+               primaryWeaponMagazine = "200Rnd_556x45_Box_Tracer_Red_F"; 
                addItemsToUniform[] = {LIST_5("ACE_fieldDressing"),LIST_2("ACE_epinephrine"),LIST_3("ACE_morphine"),LIST_2("ACE_tourniquet"),"ACE_MapTools","ACE_Flashlight_XL50",LIST_2("rhsusf_mag_15Rnd_9x19_JHP")};
                addItemsToVest[] = {LIST_2("rhsusf_mag_15Rnd_9x19_JHP"),"rhs_mag_m67",LIST_2("SmokeShell"),"200Rnd_556x45_Box_Tracer_Red_F"};
                addItemsToBackpack[] = {LIST_3("200Rnd_556x45_Box_Tracer_Red_F")};
