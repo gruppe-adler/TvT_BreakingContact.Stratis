@@ -7,7 +7,7 @@ class RU_Desert {
           uniform = "rhs_uniform_flora_patchless_alt";
           addItemsToUniform[] = {"rhs_acc_2dpZenit", LIST_6("ACE_fieldDressing"), LIST_2("ACE_morphine"), "ACE_epinephrine", "ACE_Flashlight_MX991", "ACE_key_east", "ACE_MapTools", LIST_2("Chemlight_red"), LIST_2("16Rnd_9x21_Mag")};
           headgear = "rhs_6b27m_ml";
-          radio = "tf_fadak";
+          radio = "tfar_fadak";
      };
      class Type {
           class Soldier_F {
@@ -38,7 +38,7 @@ class RU_Desert {
                addItemsToBackpack[] = {LIST_2("rhs_100Rnd_762x54mmR_green"), "rhs_100Rnd_762x54mmR"};
                binoculars = "Binocular";
                map = "ItemMap";
-               radio = "tf_fadak";
+               radio = "tfar_fadak";
                compass = "ItemCompass";
                watch = "ItemWatch";
           };
