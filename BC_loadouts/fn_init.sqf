@@ -13,5 +13,5 @@ private _loadoutsBlufor = [(_buyablesBlufor >> "loadout"), "text", ""] call CBA_
 private _loadoutsOpfor = [(_buyablesOpfor >> "loadout"), "text", ""] call CBA_fnc_getConfigEntry;
 diag_log format ["setting loadout to %1 vs %2", _loadoutsOpfor, _loadoutsBlufor];
 
-["BLU_F", _loadoutsOpfor] call GRAD_Loadout_fnc_FactionSetLoadout;
-["OPF_F", _loadoutsBlufor] call GRAD_Loadout_fnc_FactionSetLoadout;
+["BLU_F", _loadoutsBlufor] call GRAD_Loadout_fnc_FactionSetLoadout;
+["OPF_F", _loadoutsOpfor] call GRAD_Loadout_fnc_FactionSetLoadout;
