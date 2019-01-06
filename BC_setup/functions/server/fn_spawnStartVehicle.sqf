@@ -84,13 +84,12 @@ if (_side isEqualTo west) then {
     		_opfor_marker_start setMarkerColor "ColorOpfor";
     	};
 
+      // create tasks
+      [] remoteExec ["BC_objectives_fnc_init", 0, true];
+
       [{
-
           [] remoteExec ["GRAD_replay_fnc_init", 0, true];
-
-          // create tasks
-          [] remoteExec ["BC_objectives_fnc_init", 0, true];
-      }, [], (PREPARATION_TIME/2)] call CBA_fnc_waitAndExecute;
+      }, [], (PREPARATION_TIME)] call CBA_fnc_waitAndExecute;
 };
 
 _startVehicle

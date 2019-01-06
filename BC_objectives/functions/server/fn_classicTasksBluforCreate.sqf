@@ -26,6 +26,7 @@ _bluforTask1 = [
      "destroy"
 ] call BIS_fnc_taskCreate;
 
+sleep 3;
 
 _taskName = "bluforTask2";
 _taskDescription = localize "str_GRAD_classicTaskDescriptionBlufor2";
