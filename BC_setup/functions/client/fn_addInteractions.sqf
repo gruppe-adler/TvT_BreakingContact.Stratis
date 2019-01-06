@@ -58,6 +58,11 @@ if (!hasInterface) exitWith {};
           "",
           {
               params ["_radiotruck"];
+
+              if (!MISSION_STARTED) exitWith {
+                  hint "Please wait until Preparation Time is over.";
+              };
+
               [_radiotruck] remoteExec ["GRAD_tracking_fnc_radioTruckDeploy", 2];
           },
           {
@@ -66,7 +71,7 @@ if (!hasInterface) exitWith {};
               _isStationary = (speed _radiotruck) == 0;
               _isNotAnimated = ! (_radiotruck getVariable ["GRAD_isAnimating", false]);
 
-              (side player == east) && _isStationary && _isRetracted && _isNotAnimated;
+              (side player == east) && _isStationary && _isRetracted && _isNotAnimated
           }
       ] call ace_interact_menu_fnc_createAction;
       [_type, 0, ["ACE_MainActions"], _deployAction] call ace_interact_menu_fnc_addActionToClass;
@@ -85,7 +90,7 @@ if (!hasInterface) exitWith {};
               _isStationary = (speed _radiotruck) == 0;
               _isNotAnimated = ! (_radiotruck getVariable ["GRAD_isAnimating", false]);
 
-              (side player == east) && _isStationary && _isDeployed && _isNotAnimated;
+              (side player == east) && _isStationary && _isDeployed && _isNotAnimated
           }
       ] call ace_interact_menu_fnc_createAction;
       [_type, 0, ["ACE_MainActions"], _retractAction] call ace_interact_menu_fnc_addActionToClass;

@@ -63,12 +63,8 @@ class RussiaTank {
             stock = 2;
             spawnEmpty = 1;
             condition = "true";
-            vehicleInit = "[[], ['kshield_unhide',0,'kdeck_unhide',0,'sideskirt_unhide',0,'fbskirt_unhide',0,'ftskirt_unhide',1,'log_unhide',1,'snorkel_unhide',0]]";
+            vehicleInit = "[[], ['kshield_unhide',0,'kdeck_unhide',1,'sideskirt_unhide',0,'fbskirt_unhide',0,'ftskirt_unhide',0,'log_unhide',1,'snorkel_unhide',0]]";
             removeMagazines = "['rhs_mag_3of26_5', [0]]";
-        };
-
-        class rhs_t80bk: rhs_t80bvk {
-            displayName = "T-80BK";    
         };
     };
 

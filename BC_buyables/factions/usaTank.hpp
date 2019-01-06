@@ -31,7 +31,7 @@ class USATank {
             displayName = "M2A3";
             description = "";
             price = 10;
-            stock = 7;
+            stock = 1;
             itemCargo = "";
             magazineCargo = "";
             trackCargo = 2;
@@ -39,21 +39,6 @@ class USATank {
             condition = "true";
             vehicleInit = "[['standard',1],['IFF_Panels_Hide',1,'Select_TOW',1,'Select_Stinger',0]]";
         };
-
-        class RHS_M2A2_wd {
-            displayName = "M2A2";
-            description = "";
-            price = 10;
-            stock = 7;
-            itemCargo = "";
-            magazineCargo = "";
-            trackCargo = 2;
-            spawnEmpty = 1;
-            condition = "true";
-            vehicleInit = "[['standard',1],['IFF_Panels_Hide',1,'Select_TOW',1,'Select_Stinger',0]]";
-        };
-
-
     };
 
 
@@ -68,19 +53,6 @@ class USATank {
             description = "";
             price = 10;
             stock = 2;
-            itemCargo = "";
-            magazineCargo = "";
-            trackCargo = 2;
-            spawnEmpty = 1;
-            condition = "true";
-            vehicleInit = "[['woodland',1],['IFF_Panels_Hide',1,'Miles_Hide',1]]";
-        };
-
-        class rhsusf_m1a1aim_tuski_wd {
-            displayName = "M1A1 Tusk I";
-            description = "";
-            price = 10;
-            stock = 7;
             itemCargo = "";
             magazineCargo = "";
             trackCargo = 2;

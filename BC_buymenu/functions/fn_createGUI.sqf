@@ -286,59 +286,62 @@ _ctrlTotalSideCount ctrlCommit 0;
         };
         _picture ctrlCommit 0;
         
+        if (player getVariable ["BC_potentToBuy", false]) then {
+            private _btnPlus = _display ctrlCreate ["grad_buymenu_RscButton", -1];
+            _btnPlus ctrlsetFont "RobotoCondensedBold";
+            _btnPlus ctrlSetBackgroundColor [0,0,0,1];
+            _btnPlus ctrlsetText "+";
+            _btnPlus ctrlSetPosition [
+                _columnWidth * _multiplicator + safezoneX  + _columnWidth * 4 + _columnWidth/2,
+                 (_i * (_rowHeight * 8) + safezoneY) - _rowHeight/4,
+                _columnWidth/2,
+                _rowHeight * 2
+            ];
+            _btnPlus ctrlSetTooltip "Increase Count";
+            _btnPlus setVariable ["parentControl", _ctrlItemCount];
+            if (_valueItemCount >= _maxCount || _valueChosenInThisCat >= _valueMaxInThisCat || _isLocked) then {
+                _btnPlus ctrlEnable false;
+            };
+            _btnPlus ctrlAddEventHandler [
+                "MouseButtonDown",
+                "[_this, true] call BC_buymenu_fnc_changeValue;"
+            ];
+            _btnPlus ctrlCommit 0;
 
-        private _btnPlus = _display ctrlCreate ["grad_buymenu_RscButton", -1];
-        _btnPlus ctrlsetFont "RobotoCondensedBold";
-        _btnPlus ctrlSetBackgroundColor [0,0,0,1];
-        _btnPlus ctrlsetText "+";
-        _btnPlus ctrlSetPosition [
-            _columnWidth * _multiplicator + safezoneX  + _columnWidth * 4 + _columnWidth/2,
-             (_i * (_rowHeight * 8) + safezoneY) - _rowHeight/4,
-            _columnWidth/2,
-            _rowHeight * 2
-        ];
-        _btnPlus ctrlSetTooltip "Increase Count";
-        _btnPlus setVariable ["parentControl", _ctrlItemCount];
-        if (_valueItemCount >= _maxCount || _valueChosenInThisCat >= _valueMaxInThisCat || _isLocked) then {
-            _btnPlus ctrlEnable false;
+
+            private _btnMinus = _display ctrlCreate ["grad_buymenu_RscButton", -1];
+            _btnMinus ctrlsetFont "RobotoCondensedBold";
+            _btnMinus ctrlSetBackgroundColor [0,0,0,1];
+            _btnMinus ctrlsetText "-";
+            // _btnMinus ctrlSetStructuredText parseText "<t size='1' align='center' shadow='0' color='#999999'>-</t>";
+            _btnMinus ctrlSetPosition [
+                _columnWidth * _multiplicator + safezoneX  + _columnWidth * 4 + _columnWidth/2,
+                 (_i * (_rowHeight * 8) + safezoneY) + _rowHeight * 2,
+                _columnWidth/2,
+                _rowHeight * 2
+            ];
+            _btnMinus ctrlSetTooltip "Reduce Count";
+            _btnMinus setVariable ["parentControl", _ctrlItemCount];
+            if (_valueItemCount == 0) then {
+                _btnMinus ctrlEnable false;
+            };
+            _btnMinus ctrlAddEventHandler [
+                "MouseButtonDown",
+                "[_this, false] call BC_buymenu_fnc_changeValue;"
+            ];
+            _btnMinus ctrlCommit 0;
+
+
+            // add plus and minus to parent ctrl
+            _ctrlItemCount setVariable ["connectedButtons", [_btnPlus, _btnMinus]];
+
+            // parent cat control stores plus and minus buttons to disable/enable
+            private _plusMinusButtons = _ctrlChosenInThisCat getVariable ["catPlusMinusButtons", []];
+            _plusMinusButtons pushBack [_btnPlus, _btnMinus];
+            _ctrlChosenInThisCat setVariable ["catPlusMinusButtons", _plusMinusButtons];
+            _ctrlChosenInThisCat ctrlCommit 0;
+
         };
-        _btnPlus ctrlAddEventHandler [
-            "MouseButtonDown",
-            "[_this, true] call BC_buymenu_fnc_changeValue;"
-        ];
-        _btnPlus ctrlCommit 0;
-
-
-        private _btnMinus = _display ctrlCreate ["grad_buymenu_RscButton", -1];
-        _btnMinus ctrlsetFont "RobotoCondensedBold";
-        _btnMinus ctrlSetBackgroundColor [0,0,0,1];
-        _btnMinus ctrlsetText "-";
-        // _btnMinus ctrlSetStructuredText parseText "<t size='1' align='center' shadow='0' color='#999999'>-</t>";
-        _btnMinus ctrlSetPosition [
-            _columnWidth * _multiplicator + safezoneX  + _columnWidth * 4 + _columnWidth/2,
-             (_i * (_rowHeight * 8) + safezoneY) + _rowHeight * 2,
-            _columnWidth/2,
-            _rowHeight * 2
-        ];
-        _btnMinus ctrlSetTooltip "Reduce Count";
-        _btnMinus setVariable ["parentControl", _ctrlItemCount];
-        if (_valueItemCount == 0) then {
-            _btnMinus ctrlEnable false;
-        };
-        _btnMinus ctrlAddEventHandler [
-            "MouseButtonDown",
-            "[_this, false] call BC_buymenu_fnc_changeValue;"
-        ];
-        _btnMinus ctrlCommit 0;
-
-        // add plus and minus to parent ctrl
-        _ctrlItemCount setVariable ["connectedButtons", [_btnPlus, _btnMinus]];
-
-        // parent cat control stores plus and minus buttons to disable/enable
-        private _plusMinusButtons = _ctrlChosenInThisCat getVariable ["catPlusMinusButtons", []];
-        _plusMinusButtons pushBack [_btnPlus, _btnMinus];
-        _ctrlChosenInThisCat setVariable ["catPlusMinusButtons", _plusMinusButtons];
-        _ctrlChosenInThisCat ctrlCommit 0;
 
         private _subline = _display ctrlCreate ["RscStructuredText", -1];
         _subline ctrlsetFont "RobotoCondensedBold";

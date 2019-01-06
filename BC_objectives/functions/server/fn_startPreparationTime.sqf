@@ -6,4 +6,7 @@ _this spawn {
         _preparationTime = _preparationTime - 1;
         sleep 1;
     };
+
+    MISSION_STARTED = true;
+    publicVariable "MISSION_STARTED";
 };

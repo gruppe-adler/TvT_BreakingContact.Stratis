@@ -172,6 +172,9 @@ setTimeMultiplier TIME_ACCELERATION;
 
 ["Initialize", [true]] call BIS_fnc_dynamicGroups;
 
+MISSION_STARTED = false;
+publicVariable "MISSION_STARTED";
+
 BLUFOR_ELIMINATED = false;
 publicVariable "BLUFOR_ELIMINATED";
 OPFOR_ELIMINATED = false;
