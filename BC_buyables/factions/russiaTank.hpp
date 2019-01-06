@@ -27,7 +27,7 @@ class RussiaTank {
     class Light {
         displayName = "Light";
         kindOf = "Vehicles";
-        maxBuyCount = 9;
+        maxBuyCount = 1;
         minPlayerCount = 0;
 
         class rhs_bmp2d_vmf {
@@ -54,7 +54,7 @@ class RussiaTank {
         displayName = "Heavy";
         kindOf = "Vehicles";
         maxBuyCount = 2;
-        minPlayerCount = 20;
+        minPlayerCount = 10;
 
         class rhs_t80bvk {
             displayName = "T-80BVK";
@@ -76,7 +76,7 @@ class RussiaTank {
     class Support {
         displayName = "Support";
         kindOf = "Vehicles";
-        maxBuyCount = 2;
+        maxBuyCount = 1;
         minPlayerCount = 20;
 
         class rhsgref_BRDM2_ATGM_msv {

@@ -24,7 +24,7 @@ class USATank {
     class Light {
         displayName = "Light";
         kindOf = "Vehicles";
-        maxBuyCount = 9;
+        maxBuyCount = 1;
         minPlayerCount = 0;
 
         class RHS_M2A3_wd {
@@ -61,7 +61,7 @@ class USATank {
         displayName = "Heavy";
         kindOf = "Vehicles";
         maxBuyCount = 2;
-        minPlayerCount = 20;
+        minPlayerCount = 10;
 
         class rhsusf_m1a1aimwd_usarmy {
             displayName = "M1A1";
@@ -94,7 +94,7 @@ class USATank {
     class Support {
         displayName = "Support";
         kindOf = "Vehicles";
-        maxBuyCount = 2;
+        maxBuyCount = 1;
         minPlayerCount = 20;
 
         class rhsusf_m966_w {

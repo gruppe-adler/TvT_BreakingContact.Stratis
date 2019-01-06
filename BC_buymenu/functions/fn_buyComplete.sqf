@@ -55,7 +55,9 @@ for "_i" from _emptyIndex to ((count _closestRoads) - 1) do {
     // systemChat str _foundStuff;
     if ((count _foundStuff) < 1) then {
         
-        [_roadPos, _i] call _debugMarkerGood;
+        if (DEBUG_MODE) then {
+            [_roadPos, _i] call _debugMarkerGood;
+        };
 
         if (_emptyIndex < (count _buyQueue)) then {
             diag_log format ["%1", _emptyIndex];
@@ -92,7 +94,9 @@ for "_i" from _emptyIndex to ((count _closestRoads) - 1) do {
 
         _emptyIndex = _emptyIndex + 1;
     } else {
-        [_roadPos, _i] call _debugMarkerBad;
+        if (DEBUG_MODE) then {
+            [_roadPos, _i] call _debugMarkerBad;
+        };
     };
 };
 
