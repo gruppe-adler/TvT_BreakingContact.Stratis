@@ -6,7 +6,7 @@ params ["_button"];
 private _baseConfigName = _button getVariable ["identifier", "none"];
 // systemChat _baseConfigName;
 
-private _display = uiNamespace getVariable ["BC_buymenu_display", _display];
+private _display = uiNamespace getVariable ["BC_buymenu_display", displayNull];
 private _spawnCone = uiNamespace getVariable ["BC_buymenu_spawnCone", objNull];
 private _startVehicle = uiNamespace getVariable ["BC_buymenu_startVehicle", objNull];
 _display closeDisplay 1;
