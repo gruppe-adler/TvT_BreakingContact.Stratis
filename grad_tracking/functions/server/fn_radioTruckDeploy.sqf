@@ -16,3 +16,10 @@ sleep 3;
 _radiotruck setVariable ["GRAD_isDeployed", true, true];
 _radiotruck setVariable ["GRAD_isAnimating", false, true];
 _radiotruck setVariable ["tf_range", 50000, true]; // for vehicles other than rhs gaz66
+
+private _antennaOffset = _radiotruck getVariable ["BC_antennaOffset", []];
+if (count _antennaOffset > 0) then {
+    private _antenna = "Land_SatelliteAntenna_01_F" createVehicle [0,0,0];
+    _antenna attachTo [_radiotruck, _antennaOffset];
+    _radiotruck setVariable ["BC_antennaObj", _antenna, true];
+};

@@ -42,11 +42,11 @@ if (_crewHelmet != "") then {
 
 // disable thermals if set
 if (_disableTIEquipment == "true") then {
-    _vehicle addItemCargoGlobal ["ItemGPS", 1];
+    _vehicle disableTIEquipment true;
 };
 
 if (_driverGPS) then {
-    _vehicle disableTIEquipment true;
+    _vehicle addItemCargoGlobal ["ItemGPS", 1];
 };
 
 if (count _removeMagazines > 0) then {

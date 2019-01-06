@@ -12,15 +12,15 @@ class Russia {
         deployAction = "";
         retractAction = "";
         condition = "false";
-        terminalPositionOffset = [0.3,-2.85,0.7];
-        terminalVectorDirAndUp = [[0,1,0.3],[0,0,0.7]];
 
         class rhs_gaz66_r142_vv {
-            condition = "false";
+            condition = "true";
+            terminalPositionOffset = "[0.3,-2.85,0.7]";
+            terminalVectorDirAndUp = "[[0,1,0.3],[0,0,0.7]]";
         };
 
         class rhs_tigr_m_vdv {
-            condition = "true";
+            condition = "false";
         };
     };
 

@@ -150,8 +150,11 @@ if (!hasInterface) exitWith {};
 
           [[(_terminal), false, [0,1,0], 180], "ace_dragging_fnc_setdraggable", true, true] call BIS_fnc_MP;
           GRAD_TERMINAL = false; publicVariable "GRAD_TERMINAL";
-          (_terminal) attachTo [_radioVeh ,TERMINAL_POSITION_OFFSET];
-          (_terminal) setVectorDirAndUp TERMINAL_POSITION_VECTORDIRANDUP;
+
+          private _offset = _radioVeh getVariable ["BC_terminalOffset", [0,-2,0]];
+          private _vectorDirAndUp = _radioVeh getVariable ["BC_terminalVectorDirAndUp", [0,0,0]];
+          (_terminal) attachTo [_radioVeh ,_offset];
+          (_terminal) setVectorDirAndUp _vectorDirAndUp;
 
        }, {hint "Cancelled action"}, (localize "str_GRAD_attaching_radio")] call ace_common_fnc_progressBar;
        },

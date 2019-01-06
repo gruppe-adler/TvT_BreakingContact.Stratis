@@ -12,14 +12,15 @@ class RussiaTank {
         deployAction = "";
         retractAction = "";
         condition = "false";
-        terminalPositionOffset = [0.3,-2.85,0.7];
-        terminalVectorDirAndUp = [[0,1,0.3],[0,0,0.7]];
 
         class rhs_sprut_vdv {
             condition = "true";
-            itemCargo = "[['itemGPS', 3], ['itemMap',3]]";
-            magazineCargo = "[['']]";
+            itemCargo = "";
+            magazineCargo = "[]";
             trackCargo = 2;
+            terminalPositionOffset = "[0.3,-2.85,0.7]";
+            terminalVectorDirAndUp = "[[0,1,0.3],[0,0,0.7]]";
+            antennaOffset = "[0,-3.2,-0.1]";
         };
     };
 

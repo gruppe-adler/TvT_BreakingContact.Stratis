@@ -31,11 +31,15 @@ private _type = "";
 
 _type = configName _selectedConfig;
 
-
-TERMINAL_POSITION_OFFSET = [(_selectedConfig >> "terminalPositionOffset"), "array", []] call CBA_fnc_getConfigEntry;
-TERMINAL_POSITION_VECTORDIRANDUP = [(_selectedConfig >> "terminalVectorDirAndUp"), "array", []] call CBA_fnc_getConfigEntry;
+private _terminal_position_offset = call compile ([(_selectedConfig >> "terminalPositionOffset"), "text", ""] call CBA_fnc_getConfigEntry);
+private _terminal_position_vectorDirAndUp = call compile ([(_selectedConfig >> "terminalVectorDirAndUp"), "text", ""] call CBA_fnc_getConfigEntry);
+private _antennaOffset = call compile ([(_selectedConfig >> "antennaOffset"), "text", ""] call CBA_fnc_getConfigEntry);
 
 private _startVehicle = [east, _position, 0, _type, _selectedCode] call BC_setup_fnc_spawnStartVehicle;
+_startVehicle setVariable ["BC_terminalPositionOffset", _terminal_position_offset, true];
+_startVehicle setVariable ["BC_terminalVectorDirAndUp", _terminal_position_vectorDirAndUp, true];
+_startVehicle setVariable ["BC_antennaOffset", _antennaOffset, true];
+
 
 waitUntil {
     !isNil "RUS_VEHICLE_SPAWN"
