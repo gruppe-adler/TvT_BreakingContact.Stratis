@@ -39,6 +39,11 @@ private _antennaOffset = call compile ([(_selectedConfig >> "antennaOffset"), "t
 
 
 private _startVehicle = [east, _position, 0, _type, _selectedCode] call BC_setup_fnc_spawnStartVehicle;
+
+if (_canMoveDuringTransmission) then {
+    _startVehicle setVariable ["BC_canMoveDuringTransmission", true, true];
+};
+
 _startVehicle setVariable ["BC_terminalPositionOffset", _terminal_position_offset, true];
 _startVehicle setVariable ["BC_terminalVectorDirAndUp", _terminal_position_vectorDirAndUp, true];
 _startVehicle setVariable ["BC_antennaOffset", _antennaOffset, true];
