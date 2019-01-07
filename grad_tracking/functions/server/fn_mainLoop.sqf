@@ -96,11 +96,19 @@ GRAD_tracking_mainLoop = [{
     
 
     // stop loop if necessary
-    if (call _endCondition) exitWith { [_handle] call CBA_fnc_removePerFrameHandler; };
+    if (call _endCondition) exitWith { 
+        [_handle] call CBA_fnc_removePerFrameHandler;
+
+        [true, _radioVeh] call GRAD_tracking_fnc_setRadioVehMarkerStatus;
+        [true, _terminal] call GRAD_tracking_fnc_setTerminalMarkerStatus;
+    };
 
     // if all ticks and intervals are reached, end mission
     if (GRAD_INTERVALS_DONE >= GRAD_INTERVALS_NEEDED) exitWith {
         [_handle] call CBA_fnc_removePerFrameHandler;   // remove PFH
+
+        [true, _radioVeh] call GRAD_tracking_fnc_setRadioVehMarkerStatus;
+        [true, _terminal] call GRAD_tracking_fnc_setTerminalMarkerStatus;
         
         [] call GRAD_tracking_fnc_bluforSurrendered;
     };
@@ -109,7 +117,9 @@ GRAD_tracking_mainLoop = [{
     if (!alive _radioVeh && {(_radioVeh getVariable ["detachableRadio", 0] != 2)} && {!CONQUER_MODE}) exitWith {
         [_handle] call CBA_fnc_removePerFrameHandler;
         
-        [] call GRAD_tracking_fnc_bluforCaptured;    // call Mission End        
+        [] call GRAD_tracking_fnc_bluforCaptured;    // call Mission End
+        [true, _radioVeh] call GRAD_tracking_fnc_setRadioVehMarkerStatus;
+        [true, _terminal] call GRAD_tracking_fnc_setTerminalMarkerStatus;      
     };
 
     if (!alive _radioVeh && {(_radioVeh getVariable ["detachableRadio", 0] != 2)} && {CONQUER_MODE}) exitWith {
