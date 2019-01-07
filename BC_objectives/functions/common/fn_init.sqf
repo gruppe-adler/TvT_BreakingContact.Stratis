@@ -1,6 +1,7 @@
 // init needs to be spawned on server only
 params ["_position"];
 
+sleep 10;
 
 if (isServer) then {
 

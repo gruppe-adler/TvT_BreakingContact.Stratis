@@ -20,7 +20,7 @@ _opforTask1 = [
      "defend"
 ] call BIS_fnc_taskCreate;
 
-sleep 3;
+sleep 5;
 
 _taskName = "opforTask2";
 _taskDescription = localize "str_GRAD_classicTaskDescriptionOpfor2";

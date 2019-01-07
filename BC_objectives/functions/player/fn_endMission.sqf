@@ -64,9 +64,13 @@ switch (_winner) do {
 };
 
 
-MISSION_COMPLETED = true; publicVariable "MISSION_COMPLETED";
 [player, true] call TFAR_fnc_forceSpectator;
 
+["GRAD_replay_preparingPlayback",
+{
+    MISSION_COMPLETED = true; 
+    publicVariable "MISSION_COMPLETED";
+}] call CBA_fnc_addEventHandler;
 
 ["GRAD_replay_finished",
 {

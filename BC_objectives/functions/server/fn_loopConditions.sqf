@@ -71,7 +71,7 @@ waitUntil {sleep 1; !isNil "GRAD_TERMINAL_DESTROYED"};
 
         call GRAD_replay_fnc_stopRecord;
 
-         _radioVeh = missionNameSpace getVariable ["GRAD_tracking_radioVehObj", objNull];
+        _radioVeh = missionNameSpace getVariable ["GRAD_tracking_radioVehObj", objNull];
         _terminal = missionNameSpace getVariable ["GRAD_tracking_terminalObj", objNull];
 
          _killerSide = side (_radioVeh getVariable ["ace_medical_lastDamageSource", objNull]);
