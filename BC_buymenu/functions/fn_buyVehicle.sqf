@@ -3,7 +3,7 @@
 *   ripoff from grad-lbm, tweaked to prefer roads    
 */
 
-params ["_buyer","_account","_price","_code","_baseConfigName","_categoryConfigName","_itemConfigName","_spawnPosition", "_spawnDir", "_driverGPS", "_crew", "_crewHelmet", "_disableTIEquipment", "_itemCargo", "_magazineCargo", "_trackCargo", "_wheelCargo", "_removeMagazines"];
+params ["_buyer","_account","_price","_code","_baseConfigName","_categoryConfigName","_itemConfigName","_spawnPosition", "_spawnDir", "_driverGPS", "_crew", "_crewHelmet", "_disableTIEquipment", "_itemCargo", "_magazineCargo", "_trackCargo", "_wheelCargo", "_removeMagazines", "_canMoveDuringTransmission"];
 
 diag_log format ["%1 - %2 - %3", _crewHelmet, _crew, _removeMagazines];
 
@@ -77,6 +77,8 @@ if (_wheelCargo > 0) then {
     ['AddCargoByClass', ['ACE_wheel', _vehicle, _wheelCargo], _vehicle] call CBA_fnc_targetEvent;
 };
 
+
+_vehicle setVariable ["BC_canMoveDuringTransmission", _canMoveDuringTransmission, true];
 _vehicle setVariable ["ace_vehiclelock_lockSide", _sideBuyer, true];
 
 

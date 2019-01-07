@@ -4,6 +4,7 @@ _radiotruck setVariable ["GRAD_isAnimating", true, true];
 
 private _fuel = fuel _radiotruck;
 private _owner = owner _radiotruck;
+private _canMove = _radiotruck getVariable ["BC_canMoveDuringTransmission", false];
 
 _radiotruck setVariable ["GRAD_fuel", _fuel, true];
 [_radiotruck, 0] remoteExec ["setFuel", _owner];
@@ -22,4 +23,8 @@ if (count _antennaOffset > 0) then {
     private _antenna = "Land_SatelliteAntenna_01_F" createVehicle [0,0,0];
     _antenna attachTo [_radiotruck, _antennaOffset];
     _radiotruck setVariable ["BC_antennaObj", _antenna, true];
+};
+
+if (_canMove) then {
+	[_radiotruck, _fuel] remoteExec ["setFuel", _owner];
 };

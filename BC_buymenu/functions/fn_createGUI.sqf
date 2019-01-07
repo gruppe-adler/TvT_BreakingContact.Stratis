@@ -26,7 +26,8 @@ private _categoriesExtracted = [];
         private _driverGPS = [(_config >> "driverGPS"), "text", "true"] call CBA_fnc_getConfigEntry isEqualTo "true";
         private _crewHelmet = [(_config >> "crewHelmet"), "text", ""] call CBA_fnc_getConfigEntry;
         private _disableTIEquipment = [(_config >> "disableTIEquipment"), "text", "true"] call CBA_fnc_getConfigEntry;
-        
+        private _canMoveDuringTransmission = [(_config >> "canMoveDuringTransmission"), "text", "false"] call CBA_fnc_getConfigEntry isEqualTo "true";
+
         ///////
         private _allItems = "true" configClasses (missionConfigFile >> "CfgGradBuymenu" >> _baseConfigName >> _configName);
         _listIndex = 0;
@@ -64,7 +65,7 @@ private _categoriesExtracted = [];
                     _picturePath = getText (configfile >> "CfgVehicles" >> _itemConfigName >> "editorPreview");
                 };
 
-                _allItemsExtracted pushBack [_displayName, _stock, _description, _code, _picturePath, _crew, _cargo, _speed, _baseConfigName, _categoryName, _itemConfigName, _isSpecial, _driverGPS, _crewHelmet, _disableTIEquipment, _itemCargo, _magazineCargo, _trackCargo, _wheelCargo, _removeMagazines];
+                _allItemsExtracted pushBack [_displayName, _stock, _description, _code, _picturePath, _crew, _cargo, _speed, _baseConfigName, _categoryName, _itemConfigName, _isSpecial, _driverGPS, _crewHelmet, _disableTIEquipment, _itemCargo, _magazineCargo, _trackCargo, _wheelCargo, _removeMagazines, _canMoveDuringTransmission];
                 // diag_log str (_allItemsExtracted);
                 // copyToClipboard str (_allItemsExtracted);
                 

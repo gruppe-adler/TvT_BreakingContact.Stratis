@@ -13,6 +13,7 @@ class RussiaTank {
         driverGps = "true";
         crewHelmet = "rhs_tsh4";
         disableTIEquipment = "true";
+        canMoveDuringTransmission = "true";
 
         class rhs_sprut_vdv {
             condition = "true";

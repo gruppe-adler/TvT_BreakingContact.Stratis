@@ -82,11 +82,12 @@ for "_i" from _emptyIndex to ((count _closestRoads) - 1) do {
             "_magazineCargo",
             "_trackCargo",
             "_wheelCargo",
-            "_removeMagazines"
+            "_removeMagazines",
+            "_canMoveDuringTransmission"
             ];
 
             if (!_isSpecial) then {
-                [_unit, _unit, 0, _code, _baseConfigName, _categoryConfigName, _itemConfigName, _roadPos, _roadDir, _driverGPS, _crew, _crewHelmet, _disableTIEquipment, _itemCargo, _magazineCargo, _trackCargo, _wheelCargo, _removeMagazines] call BC_buymenu_fnc_buyVehicle;
+                [_unit, _unit, 0, _code, _baseConfigName, _categoryConfigName, _itemConfigName, _roadPos, _roadDir, _driverGPS, _crew, _crewHelmet, _disableTIEquipment, _itemCargo, _magazineCargo, _trackCargo, _wheelCargo, _removeMagazines, _canMoveDuringTransmission] call BC_buymenu_fnc_buyVehicle;
             } else {
                 [_startVehicle, _code] call BC_buymenu_fnc_buySpecials;
             };
