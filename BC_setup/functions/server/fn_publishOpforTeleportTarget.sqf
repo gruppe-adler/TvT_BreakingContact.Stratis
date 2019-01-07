@@ -11,6 +11,8 @@ BUYABLES_OPFOR_INDEX = ["BUYABLES_OPFOR", -1] call BIS_fnc_getParamValue;
 private _sideFactions = "getText (_x >> 'side') == 'Opfor'" configClasses (missionConfigFile >> "CfgGradBuymenu");
 private _faction = (_sideFactions select BUYABLES_OPFOR_INDEX);
 private _startVehicle = ("configName _x == 'StartVehicle'" configClasses _faction) select 0;
+
+private _canMoveDuringTransmission = [(_startVehicle >> "canMoveDuringTransmission"), "text", "false"] call CBA_fnc_getConfigEntry isEqualTo "true";
 private _allVariants = "true" configClasses (missionConfigFile >> "CfgGradBuymenu" >> (configName _faction) >> (configName _startVehicle));
 
 private _selectedCode = "";
@@ -34,6 +36,7 @@ _type = configName _selectedConfig;
 private _terminal_position_offset = call compile ([(_selectedConfig >> "terminalPositionOffset"), "text", ""] call CBA_fnc_getConfigEntry);
 private _terminal_position_vectorDirAndUp = call compile ([(_selectedConfig >> "terminalVectorDirAndUp"), "text", ""] call CBA_fnc_getConfigEntry);
 private _antennaOffset = call compile ([(_selectedConfig >> "antennaOffset"), "text", ""] call CBA_fnc_getConfigEntry);
+
 
 private _startVehicle = [east, _position, 0, _type, _selectedCode] call BC_setup_fnc_spawnStartVehicle;
 _startVehicle setVariable ["BC_terminalPositionOffset", _terminal_position_offset, true];
