@@ -5,7 +5,7 @@
 
 params ["_buyer","_account","_price","_code","_baseConfigName","_categoryConfigName","_itemConfigName","_spawnPosition", "_spawnDir", "_driverGPS", "_crew", "_crewHelmet", "_disableTIEquipment", "_itemCargo", "_magazineCargo", "_trackCargo", "_wheelCargo", "_removeMagazines"];
 
-diag_log format ["%1 - %2 - %3", _driverGPS, _categoryConfigName, _itemConfigName];
+diag_log format ["%1 - %2 - %3", _crewHelmet, _crew, _removeMagazines];
 
 private _spawnEmpty = [(missionConfigFile >> "CfgGradBuymenu" >> _baseConfigName >> _categoryConfigName >> _itemConfigName >> "spawnEmpty"), "number", -1] call CBA_fnc_getConfigEntry;
 if (_spawnEmpty == -1) then {

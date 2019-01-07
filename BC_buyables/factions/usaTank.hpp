@@ -3,9 +3,6 @@ class USATank {
     side = "Blufor";
     loadout = "usa";
     mode = "destroy";
-    driverGps = "true";
-    crewHelmet = "";
-    disableTIEquipment = "true";
     
     // needs to be in every faction
     class StartVehicle {
@@ -14,6 +11,9 @@ class USATank {
         condition = "false";
         terminalPositionOffset = [0.3,-2.85,0.7];
         terminalVectorDirAndUp = [[0,1,0.3],[0,0,0.7]];
+        driverGps = "true";
+        crewHelmet = "";
+        disableTIEquipment = "true";
 
         class rhsusf_m1a2sep1wd_usarmy {
             condition = "true";
@@ -26,6 +26,9 @@ class USATank {
         kindOf = "Vehicles";
         maxBuyCount = 1;
         minPlayerCount = 0;
+        driverGps = "true";
+        crewHelmet = "";
+        disableTIEquipment = "true";
 
         class RHS_M2A3_wd {
             displayName = "M2A3";
@@ -33,6 +36,7 @@ class USATank {
             price = 10;
             stock = 1;
             itemCargo = "";
+            code = "(_this select 2) addWeaponCargoGlobal ['rhs_weap_m72a7', 3];";
             magazineCargo = "";
             trackCargo = 2;
             spawnEmpty = 1;
@@ -47,12 +51,16 @@ class USATank {
         kindOf = "Vehicles";
         maxBuyCount = 2;
         minPlayerCount = 10;
+        driverGps = "true";
+        crewHelmet = "";
+        disableTIEquipment = "true";
 
         class rhsusf_m1a1aimwd_usarmy {
             displayName = "M1A1";
             description = "";
             price = 10;
             stock = 2;
+            code = "(_this select 2) addWeaponCargoGlobal ['rhs_weap_m72a7', 3];";
             itemCargo = "";
             magazineCargo = "";
             trackCargo = 2;
@@ -68,12 +76,15 @@ class USATank {
         kindOf = "Vehicles";
         maxBuyCount = 1;
         minPlayerCount = 20;
+        driverGps = "true";
+        crewHelmet = "";
+        disableTIEquipment = "true";
 
         class rhsusf_m966_w {
             displayName = "HMMWV-TOW";
             description = "";
-            stock = 7;
-            code = "";
+            code = "(_this select 2) addWeaponCargoGlobal ['rhs_weap_m72a7', 3];";
+            stock = 2;
             spawnEmpty = 1;
             condition = "true";
             vehicleInit = "[[standard,1], [hide_snorkel,1,hide_CIP,0,hide_BFT,0,hide_Antenna,0,hide_A2_Parts,0,Hide_A2Bumper,1,Hide_Brushguard,1]]";
