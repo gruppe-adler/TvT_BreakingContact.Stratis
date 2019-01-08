@@ -78,8 +78,9 @@ hyp_fnc_traceFire = {
     _unit setVariable ["hyp_var_tracer_activeIndexes", []];
     _unit setVariable ["hyp_var_tracer_initialized", true];
 
-    private _foo = _this select 6;
-    _eventHandle = _unit addEventHandler ["fired", {
+    private _foo = [_this, 6, false, [false]] call BIS_fnc_param;
+
+    private _eventHandle = _unit addEventHandler ["fired", {
         [_this, (position _foo), (velocity _foo) distance [0,0,0]] spawn hyp_fnc_traceFireEvent;
     }];
     _unit setVariable ["hyp_var_tracer_eventHandle", _eventHandle];
@@ -87,13 +88,10 @@ hyp_fnc_traceFire = {
 };
 
 hyp_fnc_traceFireEvent = {
-    private["_this","_params","_initialPos","_unit","_projectile","_color","_lifetime","_interval","_maxDistance",
+    private["_color","_lifetime","_maxDistance",
             "_maxDuration","_startTime","_skippedFrames","_positions","_projIndex","_activeIndexes","_initialVel"];
-    _params        = _this select 0;
-    _initialPos    = _this select 1;
-    _initialVel    = _this select 2;
-    _unit          = _params select 0;
-    _projectile    = _params select 6;
+    params ["_params", "_initialPos", "_initialVel "];
+    _params params ["_unit", "_projectile"];
     _color         = _unit getVariable "hyp_var_tracer_color";
     _lifetime      = _unit getVariable "hyp_var_tracer_lifetime";
     _interval      = _unit getVariable "hyp_var_tracer_interval";
@@ -147,8 +145,7 @@ hyp_fnc_traceFireEvent = {
 
 //Clears all lines created by a given unit manually
 hyp_fnc_traceFireClear = {
-    private["_this","_unit"];
-    _unit = _this select 0;
+    params["_unit"];
     {
         _unit setVariable [format["hyp_var_tracer_projectile_%1", _x], nil];
     } forEach (_unit getVariable ["hyp_var_tracer_activeIndexes", []]);
@@ -157,8 +154,7 @@ hyp_fnc_traceFireClear = {
 
 //Completely removes this script from a unit
 hyp_fnc_traceFireRemove = {
-    private["_this","_unit"];
-    _unit = _this select 0;
+    params["_unit"];
 
     _unit removeEventHandler ["fired", (_unit getVariable ["hyp_var_tracer_eventHandle", 0])];
     {
