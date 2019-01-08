@@ -1,17 +1,25 @@
+branches:
+  only:
+    - master
+    - release
+    - Development
 language: python
 python:
-- '3.4'
-install:
-- pip install sqflint
-script:
-- tools/lint.sh -d . -C /tmp
-before_script:
-- tools/preprocess.sh             
-script:
-- for SQFFILE in `find . -iname '*.sqf'`; do sed -i -E 's/^#.*//g' "$SQFFILE"; done # remove hash comments, they confuse the hell out of sqflint
-- sqflint -d . -ee
-notifications:
-  template:
-  - "%{repository}#%{build_number} (%{branch} - %{commit} : %{author}): %{message}"
-  - "Commit Title : %{commit_subject}"
-  - "Commit details : %{commit_message}"
+- '3.5'
+script: skip
+stages:
+  - syntax
+  - code_style
+  - linting
+jobs:
+  include:
+    - stage: syntax
+      name: "SQF validator from CBA"
+      script: python3 tools/sqf_validator.py
+    - stage: code_style
+      name: "config styling"
+      script: python3 tools/config_style_checker.py
+    - stage: linting
+      name: "sqflint"
+      install: pip install sqflint
+      script: bash tools/lint.sh -d . -C /tmp
