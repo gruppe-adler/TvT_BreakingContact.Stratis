@@ -13,7 +13,8 @@ private _handle = addMissionEventHandler ["MapSingleClick", {
 
 	if ([_pos] call BC_setup_fnc_isOnWater) exitWith {};
 	removeMissionEventhandler ["MapSingleClick", _thisEventHandler];
-	[_pos] remoteExec ["BC_setup_fnc_publishOpforTeleportTarget", 2];
+	// [_pos] remoteExec ["BC_setup_fnc_publishOpforTeleportTarget", 2];
+	[player, _pos] remoteExec ["BC_buymenu_fnc_spawnStartVehicles", 2];
 
 	private _mrk_start = createMarkerLocal ["chooseMarkerMarker", _pos];
 	_mrk_start setMarkerShapeLocal "ICON";
@@ -32,7 +33,7 @@ if (DEBUG_MODE) then {
 	if (!isNull _road) then {
 		_pos = getPos _road;
 		removeMissionEventhandler ["MapSingleClick", _handle];
-		[_pos] remoteExec ["BC_setup_fnc_publishOpforTeleportTarget", 2];
+		// [_pos] remoteExec ["BC_setup_fnc_publishOpforTeleportTarget", 2];
 	};
 };
 

@@ -22,4 +22,5 @@ private _type = "";
     };
 } forEach _allVariants;
 
-configName _selectedConfig
+// return 
+(configName _selectedConfig)
