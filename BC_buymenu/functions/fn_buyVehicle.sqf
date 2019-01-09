@@ -43,7 +43,7 @@ _data params [
 
 private _spawnEmpty = [(missionConfigFile >> "CfgGradBuymenu" >> _baseConfigName >> _categoryConfigName >> _itemConfigName >> "spawnEmpty"), "number", -1] call CBA_fnc_getConfigEntry;
 if (_spawnEmpty == -1) then {
-    _spawnEmpty = [(missionConfigFile >> "CfgGradBuymenu" >> _baseConfigName >> _categoryConfigName >> "spawnEmpty"), "number", 0] call CBA_fnc_getConfigEntry;
+    _spawnEmpty = [(missionConfigFile >> "CfgGradBuymenu" >> _baseConfigName >> _categoryConfigName >> "spawnEmpty"), "number", 1] call CBA_fnc_getConfigEntry;
 };
 
 //spawn vehicle
@@ -140,3 +140,5 @@ switch (true) do {
 if (missionNamespace getVariable  ["grad_lbm_trackingTag",""] != "") then {
     [_baseConfigName,_categoryConfigName,_itemConfigName] call GRAD_lbm_tracking_fnc_trackPurchase;
 };
+
+_vehicle

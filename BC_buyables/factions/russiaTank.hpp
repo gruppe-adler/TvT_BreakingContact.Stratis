@@ -23,6 +23,7 @@ class RussiaTank {
             terminalPositionOffset = "[0.3,-2.85,0.7]";
             terminalVectorDirAndUp = "[[0,1,0.3],[0,0,0.7]]";
             antennaOffset = "[0,-3.2,-0.1]";
+            code = "[_this] call BC_buyables_fnc_configureOpforStartVehicle;";
         };
     };
 

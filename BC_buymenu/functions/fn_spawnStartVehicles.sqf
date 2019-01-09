@@ -31,11 +31,16 @@ diag_log format ["fn_spawnStartVehicles: got positions %1 - %2", _opforPosition,
 
     diag_log format ["call to buyvehicle: %1 - %2 - %3", _side, _position, _data];
     // todo set dir according to roads
-    [_side, _position, (random 360), _data] call BC_buymenu_fnc_buyVehicle;
+    private _startVehicle = [_side, _position, (random 360), _data] call BC_buymenu_fnc_buyVehicle;
 
     diag_log format ["fn_getVehicleParams: _position of start vehicle %2: %1", _position, _side];
     [_position, _side] remoteExec ["BC_setup_fnc_createStartMarker", _side];
 
+    [_position, 50] remoteExec ["BC_setup_fnc_teleportPlayer", _side, true];
+    [_position, _side] remoteExec ["BC_setup_fnc_createStartMarker", _side, true];
+
+    ["startVehicle",[_startVehicle, _side]] call CBA_fnc_globalEvent;
+    // lets make TELEPORT_TARGETS deprecated
     if (_side == east) then {
         OPFOR_TELEPORT_TARGET = _position;
         publicVariable "OPFOR_TELEPORT_TARGET";
@@ -43,8 +48,10 @@ diag_log format ["fn_spawnStartVehicles: got positions %1 - %2", _opforPosition,
         BLUFOR_TELEPORT_TARGET = _position;
         publicVariable "BLUFOR_TELEPORT_TARGET";
     };
-
 } forEach [
     [_factionOpfor, _opforPosition, east],
     [_factionBlufor, _bluforPosition, west]
 ];
+
+// leader information for both sides
+[] call BC_setup_fnc_showLeaderInformation;

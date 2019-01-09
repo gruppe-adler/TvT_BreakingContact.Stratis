@@ -1,12 +1,5 @@
 class BC_setup {
 
-    class definitions {
-    file = BC_setup\definitions;
-
-        class configureBluforStartVehicle;
-        class configureOpforStartVehicle;
-  };
-
 	class client {
 		file = BC_setup\functions\client;
 

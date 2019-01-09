@@ -11,6 +11,8 @@ diag_log format ["teleporting %1 to %2.", player, _emptyPosition];
 
 sleep 1;
 
+player setVariable ["BC_choosingSpawn", true];
+
 playSound "beam";
 player setPos _emptyPosition;
 openMap [false, false];

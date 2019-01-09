@@ -17,7 +17,7 @@ class USATank {
 
         class rhsusf_m1a2sep1wd_usarmy {
             condition = "true";
-            code = "";
+            code = "[_this] call BC_buyables_fnc_configureBluforStartVehicle;";
         };
     };
 

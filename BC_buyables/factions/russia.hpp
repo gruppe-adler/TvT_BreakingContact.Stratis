@@ -3,24 +3,28 @@ class Russia {
     side = "Opfor";
     loadout = "russia";
     mode = "conquer";
-    driverGps = "true";
-    crewHelmet = "rhs_tsh4";
-    disableTIEquipment = "true";
     
     // needs to be in every faction
     class StartVehicle {
         deployAction = "";
         retractAction = "";
         condition = "false";
+        driverGps = "true";
+        crewHelmet = "rhs_tsh4";
+        disableTIEquipment = "true";
 
-        class rhs_gaz66_r142_vv {
-            condition = "true";
+        class rhs_gaz66_r142_vdv {
+            condition = "BC_IS_WOODLAND";
             terminalPositionOffset = "[0.3,-2.85,0.7]";
             terminalVectorDirAndUp = "[[0,1,0.3],[0,0,0.7]]";
+            vehicleInit = "[['rhs_sand',1], ['mast_handler',0,'cover_hide',0,'spare_hide',0,'bench_hide',0,'rear_numplate_hide',1,'light_hide',1]]";
         };
 
-        class rhs_tigr_m_vdv {
-            condition = "false";
+        class rhs_gaz66_r142_vv {
+            condition = "!BC_IS_WOODLAND";
+            terminalPositionOffset = "[0.3,-2.85,0.7]";
+            terminalVectorDirAndUp = "[[0,1,0.3],[0,0,0.7]]";
+            vehicleInit = "[['standard',1], ['mast_handler',0,'cover_hide',0,'spare_hide',0,'bench_hide',0,'rear_numplate_hide',1,'light_hide',1]]";
         };
     };
 

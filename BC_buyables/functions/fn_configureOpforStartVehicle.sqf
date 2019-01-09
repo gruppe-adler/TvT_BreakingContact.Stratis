@@ -14,8 +14,6 @@ _vehicle addMPEventHandler ["MPKilled", {
 
 [_vehicle, true] call BC_flagsOnVehicles_fnc_toggleFlag;
 
-sleep 1;
-[_vehicle] call BC_setup_fnc_clearInventory;
 
 _terminal = createVehicle ['Land_DataTerminal_01_F', [0,0,0], [], 0, 'NONE'];
 _terminal setVariable ["GRAD_replay_track", true, true];
@@ -35,11 +33,6 @@ if (!BC_IS_WOODLAND) then {
     _vehicle setObjectTextureGlobal [3,"rhsafrf\addons\rhs_gaz66_camo\data\rhs_gaz66_ap2kung_sand_co.paa"];
     _vehicle setObjectTextureGlobal [4,"rhsafrf\addons\rhs_gaz66_camo\data\rhs_gaz66_repkung_sand_co.paa"];
 };
-
-// hide light covers for optical reasons
-_vehicle animate ["light_hide",1];
-sleep 0.1;
-
 
 _vehicle addItemCargoGlobal ["ACE_SpraypaintBlack",10];
 _vehicle addItemCargoGlobal ["ACE_SpraypaintBlue",10];

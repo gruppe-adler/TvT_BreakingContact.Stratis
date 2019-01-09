@@ -2,7 +2,7 @@ if (!hasInterface) exitWith {};
 
 ["startVehicle", { 
 
-        params ["_startVehicle", "_cone", "_side"];
+        params ["_startVehicle", "_side"];
 
         BUYABLES_OPFOR_INDEX = ["BUYABLES_OPFOR", -1] call BIS_fnc_getParamValue;
         BUYABLES_BLUFOR_INDEX = ["BUYABLES_BLUFOR", -1] call BIS_fnc_getParamValue;
@@ -19,7 +19,6 @@ if (!hasInterface) exitWith {};
         if (_side == west) then {
             [_startVehicle,
             _buyablesBlufor,
-            _cone,
             "Vehicle Supply",
             "Buy Vehicles",
             {side player == WEST}
@@ -29,7 +28,6 @@ if (!hasInterface) exitWith {};
         } else {
             [_startVehicle,
             _buyablesOpfor,
-            _cone,
             "Vehicle Supply",
             "Buy Vehicles",
             {side player == EAST}

@@ -5,7 +5,7 @@ if (!hasInterface) exitWith {};
 
 ["startVehicle", {
 
-      params ["_startVehicle", "_cone", "_side"];
+      params ["_startVehicle", "_side"];
 
       if (missionNamespace getVariable ["BC_interactionsAdded", false]) exitWith {};
       missionNamespace setVariable ["BC_interactionsAdded", true];
@@ -32,19 +32,6 @@ if (!hasInterface) exitWith {};
 
         } forEach ["rhs_gaz66_r142_vv","rhs_tigr_m_vdv","rhs_tigr_m_3camo_vdv","rhsgref_cdf_b_reg_uaz_dshkm","rhsgref_nat_uaz_dshkm","rhs_gaz66_repair_vdv","gaz_funk","rhs_bmp1_msv","rhs_btr70_msv"];
       
-
-
-
-      // REMOVE SPAWN
-
-      _removeSpawn = ["ACE_MainActions", (localize "str_GRAD_buy_disable"), "",
-       {
-          private _thisThing = _this select 0;
-          [_thisThing] call BC_setup_fnc_disableSpawn;
-        },
-        {true}] call ace_interact_menu_fnc_createAction;
-
-      [typeOf _cone, 0, ["ACE_MainActions"], _removeSpawn] call ace_interact_menu_fnc_addActionToClass;
 
 
 
