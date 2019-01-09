@@ -24,8 +24,8 @@ if (count _opforPosition == 0 || count _bluforPosition == 0) exitWith {
     private _type = [_x] call BC_buymenu_fnc_getStartVehicleClassname;
     private _params [_type] call BC_buymenu_fnc_getVehicleParams;
 
-    private _spawnPos = [_position, _side] call BC_buymenu_fnc_findStartPosition;
-    [_spawnPos, _type, _params] call BC_buymenu_fnc_buyVehicle;
+    [_position, _type, _params] call BC_buymenu_fnc_buyVehicle;
+    [_position, _side] remoteExec ["BC_setup_fnc_createStartMarker", _side];
 
 } forEach [
     [_buyablesOpfor, _opforPosition, east],
