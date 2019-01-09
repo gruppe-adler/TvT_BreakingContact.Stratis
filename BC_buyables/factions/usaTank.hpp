@@ -17,7 +17,7 @@ class USATank {
 
         class rhsusf_m1a2sep1wd_usarmy {
             condition = "true";
-            code = "[_this] call BC_buyables_fnc_configureBluforStartVehicle;";
+            code = "[(_this select 0)] call BC_buyables_fnc_configureBluforStartVehicle;";
         };
     };
 
@@ -36,7 +36,7 @@ class USATank {
             price = 10;
             stock = 1;
             itemCargo = "";
-            code = "(_this select 2) addWeaponCargoGlobal ['rhs_weap_m72a7', 3];";
+            code = "(_this select 0) addWeaponCargoGlobal ['rhs_weap_m72a7', 3];";
             magazineCargo = "";
             trackCargo = 2;
             spawnEmpty = 1;
@@ -60,7 +60,7 @@ class USATank {
             description = "";
             price = 10;
             stock = 2;
-            code = "(_this select 2) addWeaponCargoGlobal ['rhs_weap_m72a7', 3];";
+            code = "(_this select 0) addWeaponCargoGlobal ['rhs_weap_m72a7', 3];";
             itemCargo = "";
             magazineCargo = "";
             trackCargo = 2;
@@ -83,7 +83,7 @@ class USATank {
         class rhsusf_m966_w {
             displayName = "HMMWV-TOW";
             description = "";
-            code = "(_this select 2) addWeaponCargoGlobal ['rhs_weap_m72a7', 3];";
+            code = "(_this select 0) addWeaponCargoGlobal ['rhs_weap_m72a7', 3];";
             stock = 2;
             spawnEmpty = 1;
             condition = "true";

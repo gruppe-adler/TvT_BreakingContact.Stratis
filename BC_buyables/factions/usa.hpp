@@ -68,7 +68,7 @@ class USA {
             description = "1 GPS\nNO Thermals\nNO Benches";
             price = 10;
             stock = 7;
-            code = "(_this select 0) addItemCargoGlobal ['ACE_NVG_Wide',2];(_this select 0) addItemCargoGlobal ['ItemGPS',1];[(_this select 0)] call ace_fastroping_fnc_equipFRIES;(_this select 0) disableTIEquipment true;";
+            code = "(_this select 0) addItemCargoGlobal ['ACE_NVG_Wide',2];(_this select 0) addItemCargoGlobal ['ItemGPS',1];[(_this select 0)] call ace_fastroping_fnc_equipFRIES;_this disableTIEquipment true;";
             spawnEmpty = 1;
             vehicleInit = "[[],[]]";
         };
@@ -194,7 +194,7 @@ class USA {
             displayName = "Boat + Diving Equipment";
             description = "Get it in the Start Vehicle (ACE Interaction).";
             stock = 1;
-            code = "(_this select 0) setVariable ['grad_carryBoatCargo', 1];[(_this select 0)] remoteExec ['BC_buymenu_fnc_addBoatInteraction', [0,-2] select isDedicated];";
+            code = "(_this select 1) setVariable ['grad_carryBoatCargo', 1];[(_this select 1)] remoteExec ['BC_buymenu_fnc_addBoatInteraction', [0,-2] select isDedicated];";
             spawnEmpty = 1;
         };
 
@@ -202,7 +202,7 @@ class USA {
             displayName = "Breaching Equipment";
             description = "Explosives and Wirecutter in Start Vehicle.";
             stock = 1;
-            code = "(_this select 0) addItemCargoGlobal ['ACE_wirecutter',2];(_this select 0) addMagazineCargoGlobal ['ACE_Clacker',2];(_this select 0) addMagazineCargoGlobal ['rhsusf_m112_mag', 2];";
+            code = "(_this select 1) addItemCargoGlobal ['ACE_wirecutter',2];(_this select 1) addMagazineCargoGlobal ['ACE_Clacker',2];(_this select 1) addMagazineCargoGlobal ['rhsusf_m112_mag', 2];";
             spawnEmpty = 1;
         };
 
@@ -210,7 +210,7 @@ class USA {
             displayName = "Hunt IR Equipment";
             description = "Hunt IR Equipment in Start Vehicle.";
             stock = 1;
-            code = "(_this select 0) addItemCargoGlobal ['ACE_HuntIR_monitor',2];(_this select 0) addMagazineCargoGlobal ['ACE_HuntIR_M203',4];";
+            code = "(_this select 1) addItemCargoGlobal ['ACE_HuntIR_monitor',2];(_this select 1) addMagazineCargoGlobal ['ACE_HuntIR_M203',4];";
             spawnEmpty = 1;
         };
     };

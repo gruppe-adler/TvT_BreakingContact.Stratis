@@ -7,6 +7,7 @@
 
 params [
     "_side", 
+    "_startVehicle",
     "_spawnPosition", 
     "_spawnDir",
     "_data"
@@ -119,7 +120,7 @@ _vehicle setVariable ["BC_antennaOffset", _antennaOffset, true];
 _vehicle setVariable ["ace_vehiclelock_lockSide", _side, true];
 
 
-_vehicle call _code;
+[_vehicle, _startVehicle] call _code;
 
 //vehicle marker
 _c1 = [(missionConfigFile >> "CfgGradBuymenu" >> _baseConfigName >> "vehicleMarkers"), "number", 2] call CBA_fnc_getConfigEntry;
