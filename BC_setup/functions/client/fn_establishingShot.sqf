@@ -17,26 +17,22 @@
         _this select 8 (Optional): BOOL - Fade in after completion (default: true)
 */
 
-private ["_tgt", "_txt", "_alt", "_rad", "_ang", "_dir"];
-_tgt = [_this, 0, objNull, [objNull, []]] call BIS_fnc_param;
-_txt = [_this, 1, "", [""]] call BIS_fnc_param;
-_alt = [_this, 2, 500, [500]] call BIS_fnc_param;
-_rad = [_this, 3, 200, [200]] call BIS_fnc_param;
-_ang = [_this, 4, random 360, [0]] call BIS_fnc_param;
-_dir = [_this, 5, round random 1, [0]] call BIS_fnc_param;
+params [
+   ["_tgt", objNull, [objNull, []]],
+   ["_txt""", [""]], ["_alt"500, [500]],
+   ["_rad"200, [200]], ["_ang", random 360, [0]],
+   ["_dir", round random 1, [0]],
+   "",
+   ["_mode", 0, [0]]],
+   ["_fade", true, [true]]]
+];
 
 BIS_fnc_establishingShot_icons = [_this, 6, [], [[]]] call BIS_fnc_param;
-
-private ["_mode"];
-_mode = [_this, 7, 0, [0]] call BIS_fnc_param;
 
 if (_mode == 0) then {
     enableSaving [false, false];
     BIS_missionStarted = nil;
 };
-
-private ["_fade"];
-_fade = [_this, 8, true, [true]] call BIS_fnc_param;
 
 if (_fade) then {
     ["BIS_fnc_establishingShot",false] call BIS_fnc_blackOut;
@@ -54,9 +50,8 @@ BIS_fnc_establishingShot_fakeUAV cameraEffect ["INTERNAL", "BACK"];
 
 cameraEffectEnableHUD true;
 
-private ["_pos", "_coords"];
-_pos = if (typeName _tgt == typeName objNull) then {position _tgt} else {_tgt};
-_coords = [_pos, _rad, _ang] call BIS_fnc_relPos;
+private _pos = if (typeName _tgt == typeName objNull) then {position _tgt} else {_tgt};
+_private coords = [_pos, _rad, _ang] call BIS_fnc_relPos;
 _coords set [2, _alt];
 
 BIS_fnc_establishingShot_fakeUAV camPrepareTarget _tgt;
@@ -68,14 +63,12 @@ BIS_fnc_establishingShot_fakeUAV camCommitPrepared 0;
 BIS_fnc_establishingShot_fakeUAV camPreload 3;
 
 // Apply post-process effects
-private ["_ppColor"];
-_ppColor = ppEffectCreate ["colorCorrections", 1999];
+private _ppColor = ppEffectCreate ["colorCorrections", 1999];
 _ppColor ppEffectEnable true;
 _ppColor ppEffectAdjust [1, 1, 0, [1, 1, 1, 0], [0.1, 0.1, 0.1, 1], [1, 1, 1, 1.0]];
 _ppColor ppEffectCommit 0;
 
-private ["_ppGrain"];
-_ppGrain = ppEffectCreate ["filmGrain", 2012];
+private _ppGrain = ppEffectCreate ["filmGrain", 2012];
 _ppGrain ppEffectEnable true;
 _ppGrain ppEffectAdjust [0.1, 1, 1, 0, 1];
 _ppGrain ppEffectCommit 0;
@@ -97,23 +90,21 @@ if (_mode == 1) then {
     };
 } else {
     // Compile SITREP text
-    private ["_month", "_day", "_hour", "_minute"];
-    _month = str (date select 1);
-    _day = str (date select 2);
-    _hour = str (date select 3);
-    _minute = str (date select 4);
+    private _month = str (date select 1);
+    private _day = str (date select 2);
+    private _hour = str (date select 3);
+    private _minute = str (date select 4);
 
     if (date select 1 < 10) then {_month = format ["0%1", str (date select 1)]};
     if (date select 2 < 10) then {_day = format ["0%1", str (date select 2)]};
     if (date select 3 < 10) then {_hour = format ["0%1", str (date select 3)]};
     if (date select 4 < 10) then {_minute = format ["0%1", str (date select 4)]};
 
-    private ["_time", "_date"];
-    _time = format ["%1:%2", _hour, _minute];
-    _date = format ["%1-%2-%3", str (date select 0), _month, _day];
+    private _time = format ["%1:%2", _hour, _minute];
+    private _date = format ["%1-%2-%3", str (date select 0), _month, _day];
 
     //_SITREP = format [localize "STR_A3_BIS_fnc_establishingShot_SITREP" + "||%1|%2||" + localize "STR_A3_BIS_fnc_establishingShot_Time", toUpper _txt, _date, _time];
-    
+
     /* _SITREP = [
         [_date + " ", ""],
         [_time, "font = 'PuristaMedium'"],
@@ -126,7 +117,7 @@ if (_mode == 1) then {
     waitUntil {!(isNull ([] call BIS_fnc_displayMission))};
 
     // Compile key
-    _key = format ["BIS_%1.%2_establishingShot", missionName, worldName];
+    private _key = format ["BIS_%1.%2_establishingShot", missionName, worldName];
 
     // Remove eventhandler if it exists (only happens when restarting)
     if (!(isNil {uiNamespace getVariable "BIS_fnc_establishingShot_skipEH"})) then {
@@ -135,8 +126,7 @@ if (_mode == 1) then {
     };
 
     // Add skipping eventhandler
-    private ["_skipEH"];
-    _skipEH = ([] call BIS_fnc_displayMission) displayAddEventHandler [
+    private _skipEH = ([] call BIS_fnc_displayMission) displayAddEventHandler [
         "KeyDown",
         format [
             "
@@ -149,14 +139,14 @@ if (_mode == 1) then {
                     BIS_fnc_establishingShot_skip = true;
                 };
 
-                
+
                 if (_this select 1 != 1) then {true};
             ",
             _key
         ]
     ];
 
-    
+
 
     uiNamespace setVariable ["BIS_fnc_establishingShot_skipEH", _skipEH];
 
@@ -195,9 +185,8 @@ if (isNil "BIS_fnc_establishingShot_skip") then {
         scriptName "BIS_fnc_establishingShot: UAV sound loop";
 
         // Determine duration
-        private ["_sound", "_duration"];
-        _sound = "UAV_loop";
-        _duration = getNumber (configFile >> "CfgSounds" >> _sound >> "duration");
+        private _sound = "UAV_loop";
+        private _duration = getNumber (configFile >> "CfgSounds" >> _sound >> "duration");
 
         while {!(isNull BIS_fnc_establishingShot_logic1)} do {
             BIS_fnc_establishingShot_logic1 say _sound;
@@ -215,9 +204,8 @@ if (isNil "BIS_fnc_establishingShot_skip") then {
 
         while {!(isNull BIS_fnc_establishingShot_logic3)} do {
             // Choose random sound
-            private ["_sound", "_duration"];
-            _sound = format ["UAV_0%1", round (1 + random 8)];
-            _duration = getNumber (configFile >> "CfgSounds" >> _sound >> "duration");
+            private _sound = format ["UAV_0%1", round (1 + random 8)];
+            private _duration = getNumber (configFile >> "CfgSounds" >> _sound >> "duration");
 
             BIS_fnc_establishingShot_logic3 say _sound;
 
@@ -229,18 +217,11 @@ if (isNil "BIS_fnc_establishingShot_skip") then {
     [_pos, _alt, _rad, _ang, _dir] spawn {
         scriptName "BIS_fnc_establishingShot: camera control";
 
-        private ["_pos", "_alt", "_rad", "_ang", "_dir"];
-        _pos = _this select 0;
-        _alt = _this select 1;
-        _rad = _this select 2;
-        _ang = _this select 3;
-        _dir = _this select 4;
+        params ["_pos", "_alt", "_rad", "_ang", "_dir"];
 
         while {isNil "BIS_missionStarted"} do {
-            private ["_coords"];
-            
-            _coords = [_pos, _rad, _ang] call BIS_fnc_relPos;
-            
+            private _coords = [_pos, _rad, _ang] call BIS_fnc_relPos;
+
             _coords set [2, _alt];
 
             BIS_fnc_establishingShot_fakeUAV camPreparePos _coords;
@@ -250,7 +231,7 @@ if (isNil "BIS_fnc_establishingShot_skip") then {
 
             BIS_fnc_establishingShot_fakeUAV camPreparePos _coords;
             BIS_fnc_establishingShot_fakeUAV camCommitPrepared 0;
-            
+
             _ang = if (_dir == 0) then {_ang - 0.5} else {_ang + 0.5};
         };
     };
@@ -291,7 +272,7 @@ if (isNil "BIS_fnc_establishingShot_skip") then {
 
             // Show icons
             if (count BIS_fnc_establishingShot_icons > 0) then {
-                _drawEH = addMissionEventHandler [
+                private _drawEH = addMissionEventHandler [
                     "Draw3D",
                     {
                         {
@@ -392,16 +373,16 @@ if (isNil "BIS_fnc_establishingShot_skip") then {
                         _ctrlText ctrlCommit 0;
                     };
                 };
-                
+
                 private ["_time"];
                 _time = time + 2;
                 waitUntil {time >= _time || !(isNil "BIS_fnc_establishingShot_skip")};
 
                 if (isNil "BIS_fnc_establishingShot_skip") then {
-                  
+
                     if (playerSide == east) then {
                         100 cutRsc ["gui_opfor_pleasewait", "PLAIN",0];
-                    
+
                     } else {
                         100 cutRsc ["gui_blufor_pleasewait","PLAIN",0];
                     };
@@ -434,7 +415,7 @@ if (player getVariable ["BC_choosingSpawn", false]) exitWith {
     ("BIS_layerStatic" call BIS_fnc_rscLayer) cutRsc ["RscStatic", "PLAIN"];
     waitUntil {!(isNull (uiNamespace getVariable "RscStatic_display"))};
     waitUntil {isNull (uiNamespace getVariable "RscStatic_display")};
-    
+
     // Remove SITREP
     if (!(isNil "BIS_fnc_establishingShot_SITREP")) then {
         terminate BIS_fnc_establishingShot_SITREP;
@@ -505,7 +486,7 @@ if (_mode == 0) then {
     ("BIS_layerStatic" call BIS_fnc_rscLayer) cutRsc ["RscStatic", "PLAIN"];
     waitUntil {!(isNull (uiNamespace getVariable "RscStatic_display"))};
     waitUntil {isNull (uiNamespace getVariable "RscStatic_display")};
-    
+
     // Remove SITREP
     if (!(isNil "BIS_fnc_establishingShot_SITREP")) then {
         terminate BIS_fnc_establishingShot_SITREP;
@@ -539,7 +520,7 @@ if (_mode == 0) then {
     100 cutText ["", "PLAIN"];
 
     enableEnvironment false;
-    
+
     if (_fade) then {
         ("BIS_fnc_blackOut" call BIS_fnc_rscLayer) cutText ["","BLACK FADED",10e10];
     } else {
@@ -561,11 +542,11 @@ if (_mode == 0) then {
     BIS_fnc_establishingShot_spaceEH = nil;
     BIS_fnc_establishingShot_skip = nil;
     BIS_fnc_establishingShot_UAVDone = nil;
-    
+
     if (_fade) then {
         ["BIS_fnc_establishingShot"] call BIS_fnc_blackIn;
     };
-    
+
     enableEnvironment true;
 
     // Start mission

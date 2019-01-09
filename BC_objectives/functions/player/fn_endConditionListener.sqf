@@ -1,7 +1,7 @@
 #include "\z\ace\addons\main\script_component.hpp"
 #include "..\..\..\missionMacros.h"
 
-_TRANSMISSION_COMPLETE_listener = {
+private _TRANSMISSION_COMPLETE_listener = {
      if (_this select 1) then {
           _string = localize "str_GRAD_winmsg_points";
           [_string] call EFUNC(common,displayTextStructured);
@@ -11,7 +11,7 @@ _TRANSMISSION_COMPLETE_listener = {
      };
 };
 
-_BLUFOR_CAPTURED_listener = {
+private __BLUFOR_CAPTURED_listener = {
      if (_this select 1) then {
           _transmissionPercentage = call GRAD_tracking_fnc_getTransmissionPercentage;
           missionNamespace setVariable ["BC_transmissionPercentage", str _transmissionPercentage, true];
@@ -19,7 +19,7 @@ _BLUFOR_CAPTURED_listener = {
      };
 };
 
-_BLUFOR_ELIMINATED_listener = {
+private __BLUFOR_ELIMINATED_listener = {
      if (_this select 1) then {
           _transmissionPercentage = call GRAD_tracking_fnc_getTransmissionPercentage;
           missionNamespace setVariable ["BC_transmissionPercentage", str _transmissionPercentage, true];
@@ -27,7 +27,7 @@ _BLUFOR_ELIMINATED_listener = {
      };
 };
 
-_OPFOR_ELIMINATED_listener = {
+private __OPFOR_ELIMINATED_listener = {
      if (_this select 1) then {
           _transmissionPercentage = call GRAD_tracking_fnc_getTransmissionPercentage;
           missionNamespace setVariable ["BC_transmissionPercentage", str _transmissionPercentage, true];
@@ -35,7 +35,7 @@ _OPFOR_ELIMINATED_listener = {
      };
 };
 
-_TRUCK_DESTROYED_NOT_CONQUERED_listener = {
+private __TRUCK_DESTROYED_NOT_CONQUERED_listener = {
      if (_this select 1) then {
           _transmissionPercentage = call GRAD_tracking_fnc_getTransmissionPercentage;
           missionNamespace setVariable ["BC_transmissionPercentage", str _transmissionPercentage, true];

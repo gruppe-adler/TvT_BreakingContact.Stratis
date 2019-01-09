@@ -1,6 +1,6 @@
 params ["_cone"];
 
-_type = _cone getVariable ["GRAD_spawnType",civilian];
+private _type = _cone getVariable ["GRAD_spawnType",civilian];
 
 // disable buying as there is no spawn cone anymore
 switch (_type) do {
