@@ -7,7 +7,7 @@
 
 params [
     "_side", 
-    "_startVehicle",
+    ["_startVehicle", objNull],
     "_spawnPosition", 
     "_spawnDir",
     "_data"
@@ -48,8 +48,10 @@ if (_spawnEmpty == -1) then {
 };
 
 //spawn vehicle
-private _vehicle = _itemConfigName createVehicle [0,0,0];
+private _vehicle = _itemConfigName createVehicle [0,0,0]; // create elsewhere so you dont see the rotation glitch
 _vehicle setDir _spawnDir;
+_spawnPosition set [2,0.6]; // elevate a bit in case of bumps in the road or other shit instaploding
+
 _vehicle setPos _spawnPosition;
 
 //bis vehicle init
@@ -68,7 +70,7 @@ if (_spawnEmpty == 1) then {
 };
 
 
-diag_log format ["buy vehicle helmet %1", _crewHelmet];
+// diag_log format ["buy vehicle helmet %1", _crewHelmet];
 
 // add crew helmets as many as crew slots
 if (_crewHelmet != "") then {

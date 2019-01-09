@@ -31,7 +31,17 @@ diag_log format ["fn_spawnStartVehicles: got positions %1 - %2", _opforPosition,
 
     diag_log format ["call to buyvehicle: %1 - %2 - %3", _side, _position, _data];
     // todo set dir according to roads
-    private _startVehicle = [_side, _position, (random 360), _data] call BC_buymenu_fnc_buyVehicle;
+    private _roadDir = random 360;
+    private _nearestRoad = [_position, 20, []] call BIS_fnc_nearestRoad;
+    if (!isNull _nearestRoad) then {
+        private _roadsConnectedTo = roadsConnectedTo _nearestRoad;
+        if (count _roadsConnectedTo > 0) then {
+            private _connectedRoad = _roadsConnectedTo select 0;
+            _roadDir = [_nearestRoad, _connectedRoad] call BIS_fnc_DirTo;
+        };
+    };
+
+    private _startVehicle = [_side, objNull, _position, _roadDir, _data] call BC_buymenu_fnc_buyVehicle;
 
     diag_log format ["fn_getVehicleParams: _position of start vehicle %2: %1", _position, _side];
     [_position, _side] remoteExec ["BC_setup_fnc_createStartMarker", _side];
