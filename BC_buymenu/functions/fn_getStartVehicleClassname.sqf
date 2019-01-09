@@ -23,4 +23,5 @@ private _type = "";
 } forEach _allVariants;
 
 // return 
-(configName _selectedConfig)
+
+_selectedConfig

@@ -14,9 +14,15 @@ class BC_buymenu {
         class changeQueue;
         class createGUI;
         class changeValue;
+        class createParamsCache;
         class dropMoney;
+        class getRoadPositions;
+        class getSpawnPosition;
+        class getStartVehicleClassname;
+        class getVehicleParams;
         class getGlobalCount;
         class saveGlobal;
+        class spawnStartVehicles;
         class vehicleMarker;
 
     };

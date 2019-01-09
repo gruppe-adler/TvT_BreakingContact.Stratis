@@ -32,6 +32,7 @@ if (DEBUG_MODE) then {
 	private _road = [[worldSize/2, worldSize/2], 500, []] call BIS_fnc_nearestRoad;
 	if (!isNull _road) then {
 		_pos = getPos _road;
+		[player, _pos] remoteExec ["BC_buymenu_fnc_spawnStartVehicles", 2];
 		removeMissionEventhandler ["MapSingleClick", _handle];
 		// [_pos] remoteExec ["BC_setup_fnc_publishOpforTeleportTarget", 2];
 	};

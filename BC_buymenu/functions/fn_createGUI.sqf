@@ -17,8 +17,8 @@ private _categoriesExtracted = [];
     if (call compile _condition) then {
         private _configName = configName _config;
 
-        private _categoryName = [(_config >> "displayName"), "text", ""] call CBA_fnc_getConfigEntry;
-        if (_categoryName == "") then {_categoryName = _configName};
+        private _categoryConfigName = [(_config >> "displayName"), "text", ""] call CBA_fnc_getConfigEntry;
+        if (_categoryConfigName == "") then {_categoryConfigName = _configName};
 
         private _valueMaxInThisCat = [(_config >> "maxBuyCount"), "number", 0] call CBA_fnc_getConfigEntry;
         private _isSpecial = ([(_config >> "kindOf"), "text", ""] call CBA_fnc_getConfigEntry) isEqualTo "Special";
@@ -38,6 +38,14 @@ private _categoriesExtracted = [];
 
             if (call compile _condition) then {
                 private _itemConfigName = configName _config;
+
+                // this is not a start vehicle, so put in default values
+                private _canMoveDuringTransmission = false;
+                private _terminal_position_offset = [0,0,0];
+                private _terminal_position_vectorDirAndUp = [[0,0,0],[0,0,0]];
+                private _terminal_position_offset = [0,0,0];
+
+                // get display name to eventually replace configname
                 private _displayName = [(_config >> "displayName"), "text", [_itemConfigName] call grad_lbm_fnc_getDisplayName] call CBA_fnc_getConfigEntry;
                 private _stock = [(_config >> "stock"), "number", 999999] call CBA_fnc_getConfigEntry;
                 
@@ -65,7 +73,32 @@ private _categoriesExtracted = [];
                     _picturePath = getText (configfile >> "CfgVehicles" >> _itemConfigName >> "editorPreview");
                 };
 
-                _allItemsExtracted pushBack [_displayName, _stock, _description, _code, _picturePath, _crew, _cargo, _speed, _baseConfigName, _categoryName, _itemConfigName, _isSpecial, _driverGPS, _crewHelmet, _disableTIEquipment, _itemCargo, _magazineCargo, _trackCargo, _wheelCargo, _removeMagazines, _canMoveDuringTransmission];
+                _allItemsExtracted pushBack [
+                    _baseConfigName,
+                    _categoryConfigName, 
+                    _itemConfigName,
+                    _stock,
+                    _displayName,
+                    _description,
+                    _picturePath,
+                    _canMoveDuringTransmission,
+                    _terminal_position_offset,
+                    _terminal_position_vectorDirAndUp,
+                    _antennaOffset,
+                    _crew, 
+                    _cargo, 
+                    _speed,
+                    _isSpecial, 
+                    _driverGPS, 
+                    _crewHelmet, 
+                    _disableTIEquipment, 
+                    _itemCargo, 
+                    _magazineCargo, 
+                    _trackCargo, 
+                    _wheelCargo, 
+                    _removeMagazines,
+                    _code
+                ];
                 // diag_log str (_allItemsExtracted);
                 // copyToClipboard str (_allItemsExtracted);
                 
@@ -205,25 +238,30 @@ _ctrlTotalSideCount ctrlCommit 0;
     for "_i" from 1 to (count _data) do {
 
         (_data select (_i-1)) params [
-            "_displayName",
-            "_maxCount",
-            "_description",
-            "_code",
-            "_picturePath",
-            "_crew",
-            "_cargo",
-            "_speed",
             "_baseConfigName",
-            "_categoryName",
+            "_categoryConfigName",
             "_itemConfigName",
+            "_stock",
+            "_displayName",
+            "_description",
+            "_picturePath",
+            "_canMoveDuringTransmission",
+            "_terminal_position_offset",
+            "_terminal_position_vectorDirAndUp",
+            "_antennaOffset",
+            "_crew", 
+            "_cargo", 
+            "_speed",
             "_isSpecial",
-            "_driverGPS",
-            "_crewHelmet",
-            "_disableTIEquipment",
-            "_itemCargo",
-            "_magazineCargo",
-            "_trackCargo",
-            "_wheelCargo"
+            "_driverGPS", 
+            "_crewHelmet", 
+            "_disableTIEquipment", 
+            "_itemCargo", 
+            "_magazineCargo", 
+            "_trackCargo", 
+            "_wheelCargo", 
+            "_removeMagazines",
+            "_code"
         ];
 
         
@@ -232,7 +270,7 @@ _ctrlTotalSideCount ctrlCommit 0;
         private _valueItemCount = [_baseConfigName, _itemConfigName] call BC_buymenu_fnc_getGlobalCount;
         _ctrlItemCount setVariable ["value", _valueItemCount];
         _ctrlItemCount setVariable ["minValue", _valueItemCount];
-        _ctrlItemCount setVariable ["maxValue", _maxCount];
+        _ctrlItemCount setVariable ["maxValue", _stock];
         _ctrlItemCount setVariable ["ctrlTotalSideCount", _ctrlTotalSideCount];
         _ctrlItemCount setVariable ["valueTotalSideCount", _valueTotalSideCount];
         _ctrlItemCount setVariable ["ctrlChosenInThisCat", _ctrlChosenInThisCat];
@@ -300,7 +338,7 @@ _ctrlTotalSideCount ctrlCommit 0;
             ];
             _btnPlus ctrlSetTooltip "Increase Count";
             _btnPlus setVariable ["parentControl", _ctrlItemCount];
-            if (_valueItemCount >= _maxCount || _valueChosenInThisCat >= _valueMaxInThisCat || _isLocked) then {
+            if (_valueItemCount >= _stock || _valueChosenInThisCat >= _valueMaxInThisCat || _isLocked) then {
                 _btnPlus ctrlEnable false;
             };
             _btnPlus ctrlAddEventHandler [

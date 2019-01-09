@@ -89,12 +89,12 @@ missionNamespace setVariable [_catValueIdentifier, _catValue, true];
 // set cargo and crew count
 if (_increaseValue) then {
     [true, _ctrlCrewCount, _ctrlCargoCount, _ctrlTotalSideCount, _crewCount, _cargoCount, _valueTotalSideCount] call BC_buymenu_fnc_adjustCrewCargoCount;
-    [true, _baseConfigName, _data] call BC_buymenu_fnc_changeQueue;
-    [true, _baseConfigName, _data select 0] call BC_buymenu_fnc_saveGlobal;
+    [true, _data] call BC_buymenu_fnc_changeQueue;
+    [true, _data] call BC_buymenu_fnc_saveGlobal;
 } else {
     [false, _ctrlCrewCount, _ctrlCargoCount, _ctrlTotalSideCount, _crewCount, _cargoCount, _valueTotalSideCount] call BC_buymenu_fnc_adjustCrewCargoCount;
-    [false, _baseConfigName, _data] call BC_buymenu_fnc_changeQueue;
-    [false, _baseConfigName, _data select 0] call BC_buymenu_fnc_saveGlobal;
+    [false, _data] call BC_buymenu_fnc_changeQueue;
+    [false, _data] call BC_buymenu_fnc_saveGlobal;
 };
 
 // systemChat format ["%1, %2", _parentControl, _itemValue];
