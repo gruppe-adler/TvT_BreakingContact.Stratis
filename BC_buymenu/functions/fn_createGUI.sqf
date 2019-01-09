@@ -43,7 +43,7 @@ private _categoriesExtracted = [];
                 private _canMoveDuringTransmission = false;
                 private _terminal_position_offset = [0,0,0];
                 private _terminal_position_vectorDirAndUp = [[0,0,0],[0,0,0]];
-                private _terminal_position_offset = [0,0,0];
+                private _antennaOffset = [0,0,0];
 
                 // get display name to eventually replace configname
                 private _displayName = [(_config >> "displayName"), "text", [_itemConfigName] call grad_lbm_fnc_getDisplayName] call CBA_fnc_getConfigEntry;
