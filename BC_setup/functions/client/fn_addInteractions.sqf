@@ -34,6 +34,16 @@ if (!hasInterface) exitWith {};
       
 
 
+        private _transferBuyOption = ["transferBuyOption", "Transfer Buyability", "",
+       {
+        params ["_target", "_player"];
+        _player setVariable ["BC_potentToBuy", false, true];
+        _target setVariable ["BC_potentToBuy", true, true];
+        ["The Commander gave you buyability."] remoteExec ["hint", _target];
+        },
+        { player getVariable ["BC_potentToBuy", false] }] call ace_interact_menu_fnc_createAction;
+
+        ["Man", 0, ["ACE_MainActions"], _transferBuyOption] call ace_interact_menu_fnc_addActionToClass;
 
 
       // RADIO TRUCK DEPLOY
