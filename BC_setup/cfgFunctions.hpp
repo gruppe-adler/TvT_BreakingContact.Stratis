@@ -19,7 +19,6 @@ class BC_setup {
   class server {
 		file = BC_setup\functions\server;
 
-        class clearInventory;
         class defineWoodland { preInit = 1; };
         class findRandomPos;
         class findSpawnPosition;
