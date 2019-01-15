@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={1607.1294,26.151638,5390.1299};
-		dir[]={0.23179697,-0.37051183,-0.89952624};
-		up[]={0.09246967,0.92880583,-0.35884181};
-		aside[]={-0.96844101,3.4458935e-008,-0.24955614};
+		pos[]={1793.0568,17.176418,6002.5352};
+		dir[]={0.20317814,-0.52655804,0.825607};
+		up[]={0.12583794,0.85011655,0.51133978};
+		aside[]={0.97111219,-1.2358942e-007,-0.23898618};
 	};
 };
 binarizationWanted=0;
@@ -4299,7 +4299,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={1522.0934,5.5014391,5056.6099};
+						position[]={1522.093,5.5014391,5056.6099};
 						angles[]={0,2.7052603,0};
 					};
 					side="West";
@@ -4307,7 +4307,7 @@ class Mission
 					class Attributes
 					{
 						rank="LIEUTENANT";
-						description="Team Leader@Alpha1-1";
+						description="Team Leader@Alpha2";
 						isPlayable=1;
 					};
 					id=1101;
@@ -4995,7 +4995,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={1522.4727,5.5014391,5067.0796};
+						position[]={1522.473,5.5014391,5067.0796};
 						angles[]={0,2.7052603,0};
 					};
 					side="West";
@@ -5003,7 +5003,7 @@ class Mission
 					class Attributes
 					{
 						rank="LIEUTENANT";
-						description="Team Leader@Alpha1-1";
+						description="Team Leader@Bravo2";
 						isPlayable=1;
 					};
 					id=1112;
@@ -5691,7 +5691,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={1523.923,5.5014391,5079.4761};
+						position[]={1523.923,5.5014391,5079.4756};
 						angles[]={0,2.7052603,0};
 					};
 					side="West";
@@ -5699,7 +5699,7 @@ class Mission
 					class Attributes
 					{
 						rank="LIEUTENANT";
-						description="Team Leader@Alpha1-1";
+						description="Team Leader@Charlie2";
 						isPlayable=1;
 					};
 					id=1123;
@@ -6387,7 +6387,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={1527.5388,5.5014391,5091.2744};
+						position[]={1527.5389,5.5014391,5091.2749};
 						angles[]={0,2.7052603,0};
 					};
 					side="West";
@@ -6395,7 +6395,7 @@ class Mission
 					class Attributes
 					{
 						rank="LIEUTENANT";
-						description="Team Leader@Alpha1-1";
+						description="Team Leader@Delta2";
 						isPlayable=1;
 					};
 					id=1179;
@@ -8271,7 +8271,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={1789.7513,5.5014391,5984.3179};
+						position[]={1789.751,5.5014391,5984.3179};
 						angles[]={0,3.7784286,0};
 					};
 					side="East";
@@ -8279,7 +8279,7 @@ class Mission
 					class Attributes
 					{
 						rank="LIEUTENANT";
-						description="Team Leader@Alpha2-2";
+						description="Team Leader@Alpha2";
 						isPlayable=1;
 					};
 					id=1248;
@@ -9013,7 +9013,7 @@ class Mission
 					class Attributes
 					{
 						rank="LIEUTENANT";
-						description="Team Leader@Alpha2-2";
+						description="Team Leader@Bravo2";
 						isPlayable=1;
 					};
 					id=1259;
@@ -9739,7 +9739,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={1793.6797,5.5014391,6014.0913};
+						position[]={1793.6801,5.5014391,6014.0918};
 						angles[]={0,3.7784286,0};
 					};
 					side="East";
@@ -9747,7 +9747,7 @@ class Mission
 					class Attributes
 					{
 						rank="LIEUTENANT";
-						description="Team Leader@Alpha2-2";
+						description="Team Leader@Charlie2";
 						isPlayable=1;
 					};
 					id=1270;
@@ -10473,7 +10473,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={1798.3494,5.5014391,6032.5596};
+						position[]={1798.349,5.5014391,6032.5596};
 						angles[]={0,3.7784286,0};
 					};
 					side="East";
@@ -10481,7 +10481,7 @@ class Mission
 					class Attributes
 					{
 						rank="LIEUTENANT";
-						description="Team Leader@Alpha2-2";
+						description="Team Leader@Delta2";
 						isPlayable=1;
 					};
 					id=1281;
