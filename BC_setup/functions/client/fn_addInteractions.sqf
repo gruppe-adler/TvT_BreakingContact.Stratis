@@ -10,12 +10,14 @@ if (!hasInterface) exitWith {};
       if (missionNamespace getVariable ["BC_interactionsAdded", false]) exitWith {};
       missionNamespace setVariable ["BC_interactionsAdded", true];
 
+      if (playerSide != _side) exitWith {};
+
       private _type = typeOf _startVehicle;
       
       // fnc is executed twice so we need to exit once
       
         {
-         _flagActionRaise = ["ACE_MainActions", (localize "str_GRAD_flag_raise"), "",
+         private _flagActionRaise = ["ACE_MainActions", (localize "str_GRAD_flag_raise"), "",
          {[(_this select 0), true] call BC_flagsOnVehicles_fnc_toggleFlag;},
           {(side player == east) && isNull ((_this select 0) getVariable ["GRAD_flagObject",objNull])}] call ace_interact_menu_fnc_createAction;
 
@@ -24,7 +26,7 @@ if (!hasInterface) exitWith {};
         } forEach ["rhs_gaz66_r142_vv","rhs_tigr_m_vdv","rhs_tigr_m_3camo_vdv","rhsgref_cdf_b_reg_uaz_dshkm","rhsgref_nat_uaz_dshkm","rhs_gaz66_repair_vdv","gaz_funk","rhs_bmp1_msv","rhs_btr70_msv"];
 
         {
-         _flagActionRemove = ["ACE_MainActions", (localize "str_GRAD_flag_remove"), "",
+         private _flagActionRemove = ["ACE_MainActions", (localize "str_GRAD_flag_remove"), "",
          {[(_this select 0), false] call BC_flagsOnVehicles_fnc_toggleFlag;},
           {(side player == east) && !isNull ((_this select 0) getVariable ["GRAD_flagObject",objNull])}] call ace_interact_menu_fnc_createAction;
 
@@ -50,7 +52,7 @@ if (!hasInterface) exitWith {};
       // RADIO TRUCK DEPLOY
 
 
-      _deployAction = [
+      private _deployAction = [
           "RusRadioDeploy",
           (localize "str_GRAD_radio_deploy"),
           "",
@@ -74,7 +76,7 @@ if (!hasInterface) exitWith {};
       ] call ace_interact_menu_fnc_createAction;
       [_type, 0, ["ACE_MainActions"], _deployAction] call ace_interact_menu_fnc_addActionToClass;
 
-      _retractAction = [
+      private _retractAction = [
           "RusRadioRetract",
           (localize "str_GRAD_radio_retract"),
           "",
@@ -97,7 +99,7 @@ if (!hasInterface) exitWith {};
 
       // RADIO TRUCK/BOX DESTROY
 
-      _destroyAction = ["usDestroyMenu", (localize "str_GRAD_disable_vehicle"), "",
+      private _destroyAction = ["usDestroyMenu", (localize "str_GRAD_disable_vehicle"), "",
        {
        [60, [_this select 0], { BLUFOR_CAPTURED = TRUE; publicVariable "BLUFOR_CAPTURED";}, {hint "Cancelled action"}, (localize "str_GRAD_disabling_radio")] call ace_common_fnc_progressBar;
        },
@@ -115,7 +117,7 @@ if (!hasInterface) exitWith {};
 
       // TERMINAL ATTACH/DETACH
 
-       _detachRadioAction = ["RusDetachMenu", (localize "str_GRAD_detach_radio"), "",
+       private _detachRadioAction = ["RusDetachMenu", (localize "str_GRAD_detach_radio"), "",
        {
        [4, [_this select 0], {
           ((_this select 0) select 0) setVariable ["detachableRadio", 2, true];
@@ -136,7 +138,7 @@ if (!hasInterface) exitWith {};
 
 
       // transmission progress check
-      _transmissionProgressAction = ["TransmissionProgress", "Check Transmission Progress", "",
+      private _transmissionProgressAction = ["TransmissionProgress", "Check Transmission Progress", "",
        {[side player] remoteExec ["GRAD_tracking_fnc_showTicksInstant", 0, false];},
         {(side player == east)}] call ace_interact_menu_fnc_createAction;
 

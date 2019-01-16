@@ -22,7 +22,7 @@ _radiotruck setVariable ["GRAD_isAnimating", false, true];
 
 _fuel = _radiotruck getVariable ["GRAD_fuel", 1];
 [_radiotruck, _fuel] remoteExec ["setFuel", owner _radiotruck];
-[_radiotruck, true] remoteExec ["engineOn", owner _radiotruck];
+// [_radiotruck, true] remoteExec ["engineOn", owner _radiotruck];
 
 private _antenna = _radiotruck getVariable ["BC_antennaObj", objNull];
 if (!isNull _antenna) then {

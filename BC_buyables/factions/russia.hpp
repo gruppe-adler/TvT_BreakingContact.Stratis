@@ -14,16 +14,15 @@ class Russia {
         disableTIEquipment = "true";
 
         class rhs_gaz66_r142_vdv {
-            condition = "BC_IS_WOODLAND";
-            terminalPositionOffset = "[0.3,-2.85,0.7]";
-            terminalVectorDirAndUp = "[[0,1,0.3],[0,0,0.7]]";
-            vehicleInit = "[['rhs_sand',1], ['mast_handler',0,'cover_hide',0,'spare_hide',0,'bench_hide',0,'rear_numplate_hide',1,'light_hide',1]]";
-        };
-
-        class rhs_gaz66_r142_vv {
             condition = "!BC_IS_WOODLAND";
             terminalPositionOffset = "[0.3,-2.85,0.7]";
             terminalVectorDirAndUp = "[[0,1,0.3],[0,0,0.7]]";
+            vehicleInit = "[['rhs_sand',1], ['mast_handler',0,'cover_hide',0,'spare_hide',0,'bench_hide',0,'rear_numplate_hide',1,'light_hide',1]]";
+            code = "[(_this select 0)] call BC_buyables_fnc_configureOpforStartVehicle;";
+        };
+
+        class rhs_gaz66_r142_vv: rhs_gaz66_r142_vdv {
+            condition = "BC_IS_WOODLAND";
             vehicleInit = "[['standard',1], ['mast_handler',0,'cover_hide',0,'spare_hide',0,'bench_hide',0,'rear_numplate_hide',1,'light_hide',1]]";
         };
     };
@@ -212,25 +211,28 @@ class Russia {
         maxBuyCount = 2;
 
         class Land_DataTerminal_01_F {
+            kindOf = "Special";
             displayName = "Radio Relay Terminal";
             description = "Replaces radio truck internal module.\nIs attached to the radio truck but can be detached.\nSends with 50-100% strength depending on distance to radio truck.";
             stock = 1;
-            code = "diag_log str (_this); private _terminal = missionNameSpace getVariable ['GRAD_tracking_terminalObj', objNull]; [_terminal, (_this select 0)] call GRAD_tracking_fnc_terminalAttachToVeh;";
+            code = "diag_log str (_this); private _terminal = missionNameSpace getVariable ['GRAD_tracking_terminalObj', objNull]; [_terminal, (_this select 1)] call GRAD_tracking_fnc_terminalAttachToVeh;";
         };
 
         class Land_BagFence_Round_F {
+            kindOf = "Special";
             displayName = "Defense Pack";
             description = "One KORD MG and Fortifications in Radio Truck.";
             stock = 1;
-            code = "diag_log str (_this);private _mg = 'rhs_KORD_high_VDV' createVehicle [0,0,0];_mg attachTo [(_this select 0), [0,0,0]];[_mg, (_this select 0)] call ace_cargo_fnc_loadItem;";
+            code = "diag_log str (_this);private _mg = 'rhs_KORD_high_VDV' createVehicle [0,0,0];_mg attachTo [(_this select 1), [0,0,0]];[_mg, (_this select 1)] call ace_cargo_fnc_loadItem;";
             spawnEmpty = 1;
         };
 
         class Land_WeldingTrolley_01_F {
+            kindOf = "Special";
             displayName = "Radio Truck Armor";
             description = "Selfmade armor for radio truck to protect its tires against small arms fire.";
             stock = 2;
-            code = "diag_log str (_this); [(_this select 0)] call BC_buymenu_fnc_applyTruckArmor;";
+            code = "diag_log str (_this); [(_this select 1)] call BC_buymenu_fnc_applyTruckArmor;";
         };
     };
 };

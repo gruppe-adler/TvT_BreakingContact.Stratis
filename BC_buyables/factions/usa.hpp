@@ -14,6 +14,7 @@ class USA {
 
         class rhsusf_m998_w_4dr {
             condition = "BC_IS_WOODLAND";
+            code = "[(_this select 0)] call BC_buyables_fnc_configureBluforStartVehicle;";
         };
 
         class rhsusf_m998_d_4dr {
@@ -191,6 +192,7 @@ class USA {
         maxBuyCount = 2;
 
         class I_C_Boat_Transport_01_F {
+            kindOf = "Special";
             displayName = "Boat + Diving Equipment";
             description = "Get it in the Start Vehicle (ACE Interaction).";
             stock = 1;
@@ -199,6 +201,7 @@ class USA {
         };
 
         class rhsusf_explosive_m112 {
+            kindOf = "Special";
             displayName = "Breaching Equipment";
             description = "Explosives and Wirecutter in Start Vehicle.";
             stock = 1;
@@ -207,6 +210,7 @@ class USA {
         };
 
         class Land_JumpTarget_F {
+            kindOf = "Special";
             displayName = "Hunt IR Equipment";
             description = "Hunt IR Equipment in Start Vehicle.";
             stock = 1;

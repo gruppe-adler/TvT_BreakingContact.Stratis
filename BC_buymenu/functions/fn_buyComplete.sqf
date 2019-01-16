@@ -62,12 +62,13 @@ for "_i" from _emptyIndex to ((count _closestRoads) - 1) do {
         if (_emptyIndex < (count _buyQueue)) then {
             diag_log format ["%1", _emptyIndex];
             private _data = _buyQueue select _emptyIndex;
-            private _isSpecial = _data param [14, false]; // get special
+            private _itemConfigName = _data param [2, ""];
+            private _isSpecial = _data param [14]; // get special
 
             if (!_isSpecial) then {
                 [side _unit, _startVehicle, _roadPos, _roadDir, _data] call BC_buymenu_fnc_buyVehicle;
             } else {
-                [_startVehicle, _data] call BC_buymenu_fnc_buySpecials;
+                [_itemConfigName, _startVehicle, _data] call BC_buymenu_fnc_buySpecials;
             };
         };
 

@@ -11,94 +11,35 @@ private _allCategories = "true" configClasses _baseConfig;
 private _categoriesExtracted = [];
 
 {
-    _config = _x;
-    _condition = [(_config >> "condition"), "text", "true"] call CBA_fnc_getConfigEntry;
+    _categoryConfig = _x;
+    _condition = [(_categoryConfig >> "condition"), "text", "true"] call CBA_fnc_getConfigEntry;
 
     if (call compile _condition) then {
-        private _configName = configName _config;
+        // private _categoryConfigName = configName _categoryConfig;
+        private _categoryConfigName = [(_categoryConfig >> "displayName"), "text", ""] call CBA_fnc_getConfigEntry;
+        if (_categoryConfigName == "") then {_categoryConfigName = configName _categoryConfig};
 
-        private _categoryConfigName = [(_config >> "displayName"), "text", ""] call CBA_fnc_getConfigEntry;
-        if (_categoryConfigName == "") then {_categoryConfigName = _configName};
-
-        private _valueMaxInThisCat = [(_config >> "maxBuyCount"), "number", 0] call CBA_fnc_getConfigEntry;
-        private _isSpecial = ([(_config >> "kindOf"), "text", ""] call CBA_fnc_getConfigEntry) isEqualTo "Special";
-        private _minPlayerCount = [(_config >> "minPlayerCount"), "number", 0] call CBA_fnc_getConfigEntry;
-        private _driverGPS = [(_config >> "driverGPS"), "text", "true"] call CBA_fnc_getConfigEntry isEqualTo "true";
-        private _crewHelmet = [(_config >> "crewHelmet"), "text", ""] call CBA_fnc_getConfigEntry;
-        private _disableTIEquipment = [(_config >> "disableTIEquipment"), "text", "true"] call CBA_fnc_getConfigEntry;
-        private _canMoveDuringTransmission = [(_config >> "canMoveDuringTransmission"), "text", "false"] call CBA_fnc_getConfigEntry isEqualTo "true";
+        private _valueMaxInThisCat = [(_categoryConfig >> "maxBuyCount"), "number", 0] call CBA_fnc_getConfigEntry;
+        private _isSpecial = ([(_categoryConfig >> "kindOf"), "text", ""] call CBA_fnc_getConfigEntry) isEqualTo "Special";
+        private _minPlayerCount = [(_categoryConfig >> "minPlayerCount"), "number", 0] call CBA_fnc_getConfigEntry;
+        private _driverGPS = [(_categoryConfig >> "driverGPS"), "text", "true"] call CBA_fnc_getConfigEntry isEqualTo "true";
+        private _crewHelmet = [(_categoryConfig >> "crewHelmet"), "text", ""] call CBA_fnc_getConfigEntry;
+        private _disableTIEquipment = [(_categoryConfig >> "disableTIEquipment"), "text", "true"] call CBA_fnc_getConfigEntry;
+        private _canMoveDuringTransmission = [(_categoryConfig >> "canMoveDuringTransmission"), "text", "false"] call CBA_fnc_getConfigEntry isEqualTo "true";
 
         ///////
-        private _allItems = "true" configClasses (missionConfigFile >> "CfgGradBuymenu" >> _baseConfigName >> _configName);
+        private _allItems = "true" configClasses (missionConfigFile >> "CfgGradBuymenu" >> _baseConfigName >> _categoryConfigName);
         _listIndex = 0;
         private _allItemsExtracted = [];
         {
-            _config = _x;
-            _condition = [(_config >> "condition"), "text", "true"] call CBA_fnc_getConfigEntry;
+            _itemConfig = _x;
+            _condition = [(_itemConfig >> "condition"), "text", "true"] call CBA_fnc_getConfigEntry;
 
             if (call compile _condition) then {
-                private _itemConfigName = configName _config;
+                private _itemConfigName = configName _itemConfig;
 
-                // this is not a start vehicle, so put in default values
-                private _canMoveDuringTransmission = false;
-                private _terminal_position_offset = [0,0,0];
-                private _terminal_position_vectorDirAndUp = [[0,0,0],[0,0,0]];
-                private _antennaOffset = [0,0,0];
-
-                // get display name to eventually replace configname
-                private _displayName = [(_config >> "displayName"), "text", [_itemConfigName] call grad_lbm_fnc_getDisplayName] call CBA_fnc_getConfigEntry;
-                private _stock = [(_config >> "stock"), "number", 999999] call CBA_fnc_getConfigEntry;
-                
-                private _description = [(_config >> "description"), "text", [_itemConfigName] call grad_lbm_fnc_getDescription] call CBA_fnc_getConfigEntry;
-                private _code = compile ([(_config >> "code"), "text", ""] call CBA_fnc_getConfigEntry);
-                private _picturePath = [(_config >> "picture"), "text", ""] call CBA_fnc_getConfigEntry;
-
-                private _itemCargo = [(_config >> "itemCargo"), "array", []] call CBA_fnc_getConfigEntry;
-                private _magazineCargo = [(_config >> "magazineCargo"), "array", []] call CBA_fnc_getConfigEntry;
-                private _trackCargo = [(_config >> "trackCargo"), "number", 0] call CBA_fnc_getConfigEntry;
-                private _wheelCargo = [(_config >> "wheelCargo"), "number", 0] call CBA_fnc_getConfigEntry;
-                
-                private _removeMagazines = [(_config >> "removeMagazines"), "array", []] call CBA_fnc_getConfigEntry;
-
-                private _crew = [_itemConfigName,false] call BIS_fnc_crewCount;
-                private _fullCrew = [_itemConfigName,true] call BIS_fnc_crewCount;
-                private _cargo = _fullCrew - _crew;
-                private _speed = 0;
-                // diag_log format ["%1",_crew];
-                if (!isNull (configFile >> "CfgVehicles" >> _itemConfigName >> "maxSpeed")) then {
-                     _speed = getNumber( configFile >> "CfgVehicles" >> _itemConfigName >> "maxSpeed" );
-                };
-
-                if (_picturePath isEqualTo "") then {
-                    _picturePath = getText (configfile >> "CfgVehicles" >> _itemConfigName >> "editorPreview");
-                };
-
-                _allItemsExtracted pushBack [
-                    _baseConfigName,
-                    _categoryConfigName, 
-                    _itemConfigName,
-                    _stock,
-                    _displayName,
-                    _description,
-                    _picturePath,
-                    _canMoveDuringTransmission,
-                    _terminal_position_offset,
-                    _terminal_position_vectorDirAndUp,
-                    _antennaOffset,
-                    _crew, 
-                    _cargo, 
-                    _speed,
-                    _isSpecial, 
-                    _driverGPS, 
-                    _crewHelmet, 
-                    _disableTIEquipment, 
-                    _itemCargo, 
-                    _magazineCargo, 
-                    _trackCargo, 
-                    _wheelCargo, 
-                    _removeMagazines,
-                    _code
-                ];
+                private _data = [_baseConfig, _itemConfig, false] call BC_buymenu_fnc_getVehicleParams;
+                _allItemsExtracted pushBack _data;
                 // diag_log str (_allItemsExtracted);
                 // copyToClipboard str (_allItemsExtracted);
                 

@@ -27,7 +27,7 @@ diag_log format ["fn_spawnStartVehicles: got positions %1 - %2", _opforPosition,
     diag_log format ["_buyables %1", _buyables];
 
     private _type = [_buyables] call BC_buymenu_fnc_getStartVehicleClassname;
-    private _data = [_buyables, _type] call BC_buymenu_fnc_getVehicleParams;
+    private _data = [_buyables, _type, true] call BC_buymenu_fnc_getVehicleParams;
 
     diag_log format ["call to buyvehicle: %1 - %2 - %3", _side, _position, _data];
     // todo set dir according to roads

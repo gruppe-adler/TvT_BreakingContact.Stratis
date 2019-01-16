@@ -8,7 +8,7 @@ private _driverGPS = [(_baseConfig >> "driverGPS"), "text", "true"] call CBA_fnc
 private _crewHelmet = [(_baseConfig >> "crewHelmet"), "text", ""] call CBA_fnc_getConfigEntry;
 private _disableTIEquipment = [(_baseConfig >> "disableTIEquipment"), "text", "true"] call CBA_fnc_getConfigEntry;
 
-// diag_log format ["_vehicle %1, _allVariants %2", _baseConfig, _itemConfig];
+diag_log format ["_itemConfig %1, _isSpecial %2, _crewHelmet %3", _itemConfig, _isSpecial, _crewHelmet];
 
 private _canMoveDuringTransmission = [(_baseConfig >> "canMoveDuringTransmission"), "text", "false"] call CBA_fnc_getConfigEntry isEqualTo "true";
 private _terminal_position_offset = ([(_baseConfig >> "terminalPositionOffset"), "array", []] call CBA_fnc_getConfigEntry);
@@ -48,7 +48,7 @@ if (!isNull (configFile >> "CfgVehicles" >> _itemConfigName >> "maxSpeed")) then
 };
 
 // add missing stuff
-private _categoryConfigName = "StartVehicle";
+private _categoryConfigName = if (_isStartVehicle) then { "StartVehicle" } else { _baseConfigName };
 private _baseConfigName = configName (([_baseConfig, false] call BIS_fnc_returnParents) select 0);
 
 
