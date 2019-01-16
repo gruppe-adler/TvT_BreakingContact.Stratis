@@ -49,7 +49,7 @@ private _categoriesExtracted = [];
 
 
         _categoriesExtracted pushBack [
-            _categoryName, _minPlayerCount, _valueMaxInThisCat, _spawnCone, _allItemsExtracted
+            _categoryConfigName, _minPlayerCount, _valueMaxInThisCat, _spawnCone, _allItemsExtracted
         ];
     };
 } forEach _allCategories;

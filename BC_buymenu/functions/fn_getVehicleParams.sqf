@@ -1,19 +1,21 @@
 params ["_baseConfig", "_itemConfig", "_isStartVehicle"];
 
 private _baseConfigName = configName _baseConfig;
+private _categoryConfig = (([_itemConfig, false] call BIS_fnc_returnParents) select 0);
+private _categoryConfigName = configName _categoryConfig;
 private _itemConfigName = configName _itemConfig;
 
-private _isSpecial = ([(_baseConfig >> "kindOf"), "text", ""] call CBA_fnc_getConfigEntry) isEqualTo "Special";
-private _driverGPS = [(_baseConfig >> "driverGPS"), "text", "true"] call CBA_fnc_getConfigEntry isEqualTo "true";
-private _crewHelmet = [(_baseConfig >> "crewHelmet"), "text", ""] call CBA_fnc_getConfigEntry;
-private _disableTIEquipment = [(_baseConfig >> "disableTIEquipment"), "text", "true"] call CBA_fnc_getConfigEntry;
+private _isSpecial = ([(_categoryConfig >> "kindOf"), "text", ""] call CBA_fnc_getConfigEntry) isEqualTo "Special";
+private _driverGPS = [(_categoryConfig >> "driverGPS"), "text", "true"] call CBA_fnc_getConfigEntry isEqualTo "true";
+private _crewHelmet = [(_categoryConfig >> "crewHelmet"), "text", ""] call CBA_fnc_getConfigEntry;
+private _disableTIEquipment = [(_categoryConfig >> "disableTIEquipment"), "text", "true"] call CBA_fnc_getConfigEntry;
 
 diag_log format ["_itemConfig %1, _isSpecial %2, _crewHelmet %3", _itemConfig, _isSpecial, _crewHelmet];
 
-private _canMoveDuringTransmission = [(_baseConfig >> "canMoveDuringTransmission"), "text", "false"] call CBA_fnc_getConfigEntry isEqualTo "true";
-private _terminal_position_offset = ([(_baseConfig >> "terminalPositionOffset"), "array", []] call CBA_fnc_getConfigEntry);
-private _terminal_position_vectorDirAndUp = ([(_baseConfig >> "terminalVectorDirAndUp"), "array", []] call CBA_fnc_getConfigEntry);
-private _antennaOffset = ([(_baseConfig >> "antennaOffset"), "array", []] call CBA_fnc_getConfigEntry);
+private _canMoveDuringTransmission = [(_itemConfig >> "canMoveDuringTransmission"), "text", "false"] call CBA_fnc_getConfigEntry isEqualTo "true";
+private _terminal_position_offset = ([(_itemConfig >> "terminalPositionOffset"), "array", []] call CBA_fnc_getConfigEntry);
+private _terminal_position_vectorDirAndUp = ([(_itemConfig >> "terminalVectorDirAndUp"), "array", []] call CBA_fnc_getConfigEntry);
+private _antennaOffset = ([(_itemConfig >> "antennaOffset"), "array", []] call CBA_fnc_getConfigEntry);
 
 // diag_log format ["_canMoveDuringTransmission %1", _canMoveDuringTransmission];
 
