@@ -25,15 +25,6 @@ missionNameSpace setVariable ["GRAD_tracking_terminalObj", _terminal, true];
 
 [[_vehicle, _terminal], "grad_tracking\init.sqf"] remoteExec ["execVM", 0, true];
 
-
-if (!BC_IS_WOODLAND) then {
-    _vehicle setObjectTextureGlobal [0,"rhsafrf\addons\rhs_gaz66_camo\data\gaz66_sand_co.paa"];
-    _vehicle setObjectTextureGlobal [1,"rhsafrf\addons\rhs_gaz66\data\tent_co.paa"];
-    _vehicle setObjectTextureGlobal [2,"rhsafrf\addons\rhs_gaz66_camo\data\rhs_gaz66_kung_sand_co.paa"];
-    _vehicle setObjectTextureGlobal [3,"rhsafrf\addons\rhs_gaz66_camo\data\rhs_gaz66_ap2kung_sand_co.paa"];
-    _vehicle setObjectTextureGlobal [4,"rhsafrf\addons\rhs_gaz66_camo\data\rhs_gaz66_repkung_sand_co.paa"];
-};
-
 _vehicle addItemCargoGlobal ["ACE_SpraypaintBlack",10];
 _vehicle addItemCargoGlobal ["ACE_SpraypaintBlue",10];
 _vehicle addItemCargoGlobal ["ACE_SpraypaintGreen",10];

@@ -17,7 +17,10 @@ private _categoriesExtracted = [];
     if (call compile _condition) then {
         // private _categoryConfigName = configName _categoryConfig;
         private _categoryConfigName = [(_categoryConfig >> "displayName"), "text", ""] call CBA_fnc_getConfigEntry;
-        if (_categoryConfigName == "") then {_categoryConfigName = configName _categoryConfig};
+
+        if (_categoryConfigName == "") then {
+            _categoryConfigName = configName _categoryConfig
+        };
 
         private _valueMaxInThisCat = [(_categoryConfig >> "maxBuyCount"), "number", 0] call CBA_fnc_getConfigEntry;
         private _isSpecial = ([(_categoryConfig >> "kindOf"), "text", ""] call CBA_fnc_getConfigEntry) isEqualTo "Special";
@@ -144,7 +147,7 @@ _ctrlTotalSideCount ctrlCommit 0;
     _headline ctrlsetFont "RobotoCondensedBold";
     _headline ctrlSetBackgroundColor [0,0,0,0];
     _headline ctrlSetTextColor [1,1,1,1];
-    _headline ctrlSetStructuredText parseText ("<t size='2' align='center' color='#666666'>" + _category + "</t>");
+    _headline ctrlSetStructuredText parseText ("<t size='2' align='center' color='#666666'>" + _categoryName + "</t>");
     _headline ctrlSetPosition [
         _columnWidth * _multiplicator + safezoneX + _columnWidth, 
         _rowHeight * 4 + safezoneY, 
@@ -210,6 +213,7 @@ _ctrlTotalSideCount ctrlCommit 0;
         private _ctrlItemCount = _display ctrlCreate ["RscStructuredText", -1];
         private _valueItemCount = [_baseConfigName, _itemConfigName] call BC_buymenu_fnc_getGlobalCount;
         _ctrlItemCount setVariable ["value", _valueItemCount];
+        _ctrlItemCount setVariable ["stock", _stock];
         _ctrlItemCount setVariable ["minValue", _valueItemCount];
         _ctrlItemCount setVariable ["maxValue", _stock];
         _ctrlItemCount setVariable ["ctrlTotalSideCount", _ctrlTotalSideCount];
@@ -302,9 +306,9 @@ _ctrlTotalSideCount ctrlCommit 0;
             ];
             _btnMinus ctrlSetTooltip "Reduce Count";
             _btnMinus setVariable ["parentControl", _ctrlItemCount];
-            if (_valueItemCount == 0) then {
-                _btnMinus ctrlEnable false;
-            };
+            
+            _btnMinus ctrlEnable false;
+            
             _btnMinus ctrlAddEventHandler [
                 "MouseButtonDown",
                 "[_this, false] call BC_buymenu_fnc_changeValue;"

@@ -29,7 +29,7 @@ class russia {
           class Engineer_F: Soldier_F {
                addItemsToVest[] = {"SmokeShell",LIST_7("rhs_30Rnd_545x39_7N10_AK"),LIST_2("rhs_mag_rgd5"),LIST_2("rhs_mag_rdg2_white")};
                backpack = "rhssaf_kitbag_smb";
-               addItemsToBackpack[] = {LIST_6("ACE_fieldDressing"),LIST_2("ACE_epinephrine"),LIST_2("ACE_morphine"),"grad_axe","ACE_Fortify","ACE_EntrenchingTool","ACE_DefusalKit"};
+               addItemsToBackpack[] = {"toolkit", LIST_6("ACE_fieldDressing"),LIST_2("ACE_epinephrine"),LIST_2("ACE_morphine"),"grad_axe","ACE_Fortify","ACE_EntrenchingTool","ACE_DefusalKit"};
           };
 
           class HeavyGunner_F: Soldier_F {

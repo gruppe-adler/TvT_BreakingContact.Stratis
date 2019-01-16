@@ -22,7 +22,7 @@ if (count _opforPosition == 0 || count _bluforPosition == 0) exitWith {
 diag_log format ["fn_spawnStartVehicles: got positions %1 - %2", _opforPosition, _bluforPosition];
 
 {   
-    _x params ["_buyables", "_position", "_side"];
+    _x params ["_buyables", "_position", "_blockedPosition", "_side"];
 
     diag_log format ["_buyables %1", _buyables];
 
@@ -59,8 +59,8 @@ diag_log format ["fn_spawnStartVehicles: got positions %1 - %2", _opforPosition,
         publicVariable "BLUFOR_TELEPORT_TARGET";
     };
 } forEach [
-    [_factionOpfor, _opforPosition, east],
-    [_factionBlufor, _bluforPosition, west]
+    [_factionOpfor, _opforPosition, [], east],
+    [_factionBlufor, _bluforPosition, _opforPosition, west]
 ];
 
 // leader information for both sides

@@ -101,31 +101,6 @@ class Russia {
             vehicleInit = "[['Camo3',1], ['cabinlights_hide',0,'light_hide',1]]";
         };
 
-
-        class rhsgref_ins_uaz_spg9 {
-            displayName = "UAZ SPG9";
-            description = "The workhorse of your army.";
-            price = 10;
-            stock = 7;
-            spawnEmpty = 1;
-            condition = "BC_IS_WOODLAND";
-            vehicleInit = "[[], ['cabinlights_hide',0,'light_hide',1]]";
-        };
-
-        class rhsgref_nat_uaz_spg9: rhsgref_ins_uaz_spg9 {
-            condition = "!BC_IS_WOODLAND";
-            vehicleInit = "[['Camo3',1], ['cabinlights_hide',0,'light_hide',1]]";
-        };
-
-    };
-
-
-    class Support {
-        displayName = "Support";
-        kindOf = "Vehicles";
-        maxBuyCount = 2;
-        minPlayerCount = 40;
-
         class rhsgref_BRDM2_HQ_msv {
             displayName = "BRDM-HQ";
             description = "The workhorse of your army.";
@@ -140,20 +115,18 @@ class Russia {
             vehicleInit = "[['3tone', 1], ['driverViewHatch',0,'commanderViewHatch',0,'hatchCommander',1]]";
         };
 
-        class rhsgref_BRDM2_ATGM_msv {
-            displayName = "BRDM-AT";
-            description = "The workhorse of your army.";
-            stock = 7;
-            spawnEmpty = 1;
-            condition = "BC_IS_WOODLAND";
-            vehicleInit = "[['olive', 1], ['driverViewHatch',0,'commanderViewHatch',0,'hatchCommander',1]]";
-        };
+        
 
-        class rhsgref_BRDM2_ATGM_vdv: rhsgref_BRDM2_ATGM_msv {
-            condition = "!BC_IS_WOODLAND";
-            vehicleInit = "[['3tone', 1], ['driverViewHatch',0,'commanderViewHatch',0,'hatchCommander',1]]";
-        };
+    };
 
+
+    class Support {
+        displayName = "Support";
+        kindOf = "Vehicles";
+        maxBuyCount = 1;
+        minPlayerCount = 40;
+
+        
         class rhsgref_BRDM2_msv {
             displayName = "BRDM-2";
             description = "The workhorse of your army.";
@@ -167,6 +140,21 @@ class Russia {
             condition = "!BC_IS_WOODLAND";
             vehicleInit = "[['3tone', 1], ['driverViewHatch',0,'commanderViewHatch',0,'hatchCommander',1]]";
     
+        };
+
+        class rhsgref_ins_uaz_spg9 {
+            displayName = "UAZ SPG9";
+            description = "The workhorse of your army.";
+            price = 10;
+            stock = 7;
+            spawnEmpty = 1;
+            condition = "BC_IS_WOODLAND";
+            vehicleInit = "[[], ['cabinlights_hide',0,'light_hide',1]]";
+        };
+
+        class rhsgref_nat_uaz_spg9: rhsgref_ins_uaz_spg9 {
+            condition = "!BC_IS_WOODLAND";
+            vehicleInit = "[['Camo3',1], ['cabinlights_hide',0,'light_hide',1]]";
         };
     };
 
@@ -203,6 +191,21 @@ class Russia {
             condition = "!BC_IS_WOODLAND";
             vehicleInit = "[['rhs_sand',1], ['crate_l1_unhide',1,'crate_l2_unhide',1,'crate_l3_unhide',1,'crate_r1_unhide',1,'crate_r2_unhide',1,'crate_r3_unhide',1,'wood_1_unhide',1,'maljutka_hide_source',1,'cargoHandler1',0]]";
         };
+
+        class rhsgref_BRDM2_ATGM_msv {
+            displayName = "BRDM-AT";
+            description = "The workhorse of your army.";
+            stock = 7;
+            spawnEmpty = 1;
+            condition = "BC_IS_WOODLAND";
+            vehicleInit = "[['olive', 1], ['driverViewHatch',0,'commanderViewHatch',0,'hatchCommander',1]]";
+        };
+
+        class rhsgref_BRDM2_ATGM_vdv: rhsgref_BRDM2_ATGM_msv {
+            condition = "!BC_IS_WOODLAND";
+            vehicleInit = "[['3tone', 1], ['driverViewHatch',0,'commanderViewHatch',0,'hatchCommander',1]]";
+        };
+
     };
 
     class Special {
@@ -215,15 +218,16 @@ class Russia {
             displayName = "Radio Relay Terminal";
             description = "Replaces radio truck internal module.\nIs attached to the radio truck but can be detached.\nSends with 50-100% strength depending on distance to radio truck.";
             stock = 1;
+            picturePath = "pic\terminal.paa";
             code = "diag_log str (_this); private _terminal = missionNameSpace getVariable ['GRAD_tracking_terminalObj', objNull]; [_terminal, (_this select 1)] call GRAD_tracking_fnc_terminalAttachToVeh;";
         };
 
         class Land_BagFence_Round_F {
             kindOf = "Special";
             displayName = "Defense Pack";
-            description = "One KORD MG and Fortifications in Radio Truck.";
+            description = "One KORD MG and 2 Axes for cutting vegetation in Radio Truck.";
             stock = 1;
-            code = "diag_log str (_this);private _mg = 'rhs_KORD_high_VDV' createVehicle [0,0,0];_mg attachTo [(_this select 1), [0,0,0]];[_mg, (_this select 1)] call ace_cargo_fnc_loadItem;";
+            code = "diag_log str (_this);private _mg = 'rhs_KORD_high_VDV' createVehicle [0,0,0];_mg attachTo [(_this select 1), [0,0,0]];[_mg, (_this select 1)] call ace_cargo_fnc_loadItem; (_this select 1) addItemCargoGlobal ['grad_axe', 2];";
             spawnEmpty = 1;
         };
 

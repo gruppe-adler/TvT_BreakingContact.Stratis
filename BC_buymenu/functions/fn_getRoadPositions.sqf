@@ -9,7 +9,7 @@ for "_i" from 0 to 10 do {
         random 360, 
         0,
         [2,_radius/10],
-        [0,"rhsusf_CH53E_USMC"]
+        [20,"rhsusf_CH53E_USMC"]
     ] call SHK_pos;
 
     if (count _nearestRoadPosition > 0) then {

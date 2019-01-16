@@ -26,7 +26,7 @@ private _code = compile ([(_itemConfig >> "code"), "text", ""] call CBA_fnc_getC
 
 // diag_log format ["_displayName %1", _displayName];
 
-private _picturePath = [(_itemConfig >> "picture"), "text", ""] call CBA_fnc_getConfigEntry;
+private _picturePath = [(_itemConfig >> "picturePath"), "text", ""] call CBA_fnc_getConfigEntry;
 if (_picturePath isEqualTo "") then {
     _picturePath = getText (configfile >> "CfgVehicles" >> _itemConfigName >> "editorPreview");
 };

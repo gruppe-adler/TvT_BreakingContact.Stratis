@@ -8,3 +8,8 @@ _boat allowDamage false;
 player setVariable ["GRAD_carryBoat_boatObj", _boat];
 
 [_boat] spawn GRAD_carryBoat_fnc_pickupBoat;
+
+{
+    [_boat, _x] remoteExecCall ["disableCollisionWith", 0, _boat];
+    [_boat, _x] remoteExecCall ["disableCollisionWith", 0, _x];
+} forEach allUnits;

@@ -26,4 +26,23 @@ inGameUISetEventHandler ["PrevAction", "false"];
 inGameUISetEventHandler ["NextAction", "false"];
 player setVariable ["GRAD_carryBoat_status",0];
 player setVariable ["GRAD_carryBoat_boatObj", objNull];
-_boat allowdamage true;
+
+[{
+    isTouchingGround (_this select 0)
+},{
+    
+    params ["_boat"];
+
+    [{
+        params ["_boat"];
+
+        _boat allowdamage true;
+        {
+            [_boat, _x] remoteExecCall ["enableCollisionWith", 0, _boat];
+            [_boat, _x] remoteExecCall ["enableCollisionWith", 0, _x];
+        } forEach allUnits;
+
+    }, 1, [_boat]] call CBA_fnc_waitAndExecute;
+
+
+}, [_boat]] call CBA_fnc_waitUntilAndExecute;

@@ -23,6 +23,7 @@ private _valueTotalSideCount = _parentControl getVariable ["valueTotalSideCount"
 
 private _catValue = _ctrlChosenInThisCat getVariable ["value", 0];
 private _maxValue = _ctrlChosenInThisCat getVariable ["maxValue", 0];
+private _stock = _ctrlChosenInThisCat getVariable ["stock", 0];
 
 private _crewCount = _parentControl getVariable ["crew", 0];
 private _cargoCount = _parentControl getVariable ["cargo", 0];
@@ -58,7 +59,7 @@ if (_itemValue == _maxItemValue) then {
 };
 
 // dont allow going below zero
-if (_itemValue <= _minItemValue) then {
+if (_itemValue <= _minItemValue || _itemValue >= _stock) then {
     _btnMinus ctrlEnable false;
 } else {
     _btnMinus ctrlEnable true;
