@@ -15,15 +15,19 @@ class RussiaTank {
         disableTIEquipment = "true";
         canMoveDuringTransmission = "true";
 
-        class rhs_sprut_vdv {
+        class rhs_t80bvk {
+            displayName = "T-80BVK";
+            description = "";
+            price = 10;
+            stock = 2;
+            spawnEmpty = 1;
             condition = "true";
-            itemCargo = "";
-            magazineCargo = "[]";
-            trackCargo = 2;
+            vehicleInit = "[[], ['kshield_unhide',0,'kdeck_unhide',1,'sideskirt_unhide',0,'fbskirt_unhide',0,'ftskirt_unhide',0,'log_unhide',1,'snorkel_unhide',0]]";
+            removeMagazines = "['rhs_mag_3of26_5', [0]]";
             terminalPositionOffset = "[0.3,-2.85,0.7]";
             terminalVectorDirAndUp = "[[0,1,0.3],[0,0,0.7]]";
             antennaOffset = "[0,-3.2,-0.1]";
-            code = "[(_this select 0)] call BC_buyables_fnc_configureOpforStartVehicle;";
+            code = "[(_this select 0)] call BC_buyables_fnc_configureOpforStartVehicle; (_this select 0) addWeaponCargoGlobal ['rhs_weap_rpg26', 3];";
         };
     };
 
