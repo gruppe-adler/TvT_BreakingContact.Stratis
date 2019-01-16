@@ -80,4 +80,5 @@ for "_i" from _emptyIndex to ((count _closestRoads) - 1) do {
     };
 };
 
+// empty vehicle spawn queue
 missionNamespace setVariable [_identifier, [], true];

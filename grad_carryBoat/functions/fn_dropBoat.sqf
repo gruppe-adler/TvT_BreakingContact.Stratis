@@ -42,7 +42,7 @@ player setVariable ["GRAD_carryBoat_boatObj", objNull];
             [_boat, _x] remoteExecCall ["enableCollisionWith", 0, _x];
         } forEach allUnits;
 
-    }, 1, [_boat]] call CBA_fnc_waitAndExecute;
+    }, [_boat], 1] call CBA_fnc_waitAndExecute;
 
 
 }, [_boat]] call CBA_fnc_waitUntilAndExecute;

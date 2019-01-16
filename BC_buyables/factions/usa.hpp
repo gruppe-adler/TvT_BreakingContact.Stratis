@@ -175,7 +175,7 @@ class USA {
 
         class I_C_Boat_Transport_01_F {
             kindOf = "Special";
-            displayName = "Boat + Diving Equipment";
+            displayName = "Boat + Diving Equipment inside * 4";
             description = "Get it in the Start Vehicle (ACE Interaction).";
             stock = 1;
             code = "(_this select 1) setVariable ['grad_carryBoatCargo', 1, true];[(_this select 1)] remoteExec ['BC_buymenu_fnc_addBoatInteraction', [0,-2] select isDedicated];";

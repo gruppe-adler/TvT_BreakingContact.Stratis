@@ -208,7 +208,8 @@ _ctrlTotalSideCount ctrlCommit 0;
             "_code"
         ];
 
-        
+
+       
         // ctrlItemCount is our all knowing item
         private _ctrlItemCount = _display ctrlCreate ["RscStructuredText", -1];
         private _valueItemCount = [_baseConfigName, _itemConfigName] call BC_buymenu_fnc_getGlobalCount;
@@ -406,3 +407,9 @@ if (player getVariable ["BC_potentToBuy", false]) then {
 uiNamespace setVariable ["BC_buymenu_display", _display];
 uiNamespace setVariable ["BC_buymenu_spawnCone", _spawnCone];
 uiNamespace setVariable ["BC_buymenu_startVehicle", _startVehicle];
+
+_display displayAddEventHandler ["Unload", {
+        params ["_display", "_exitCode"];
+
+        systemChat str _exitCode;
+}];
