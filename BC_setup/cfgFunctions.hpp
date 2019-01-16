@@ -7,7 +7,6 @@ class BC_setup {
         class addInteractions;
         class chooseSpawn;
         class createStartMarker;
-        class disableSpawn;
         class establishingShot;
         class initialSpawnClient;
         class isOnWater;
@@ -21,20 +20,11 @@ class BC_setup {
 
         class defineWoodland { preInit = 1; };
         class findRandomPos;
-        class findSpawnPosition;
         class getHighestRankOfSide;
         class getIslandCfgEntry { preInit = 1; };
-        class getMapSize;
-        class getSlope;
-        class getSpawnPos;
-        class getStartVehiclePos;
         class initialSpawnServer;
-        class isInsideMap;
-        class publishBluforTeleportTarget;
-        class publishOpforTeleportTarget;
         class registerDynamicGroup;
         class showLeaderInformation;
-        class spawnStartVehicle;
         class teleportAI;     
     };
 };
