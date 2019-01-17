@@ -30,12 +30,25 @@ _data params [
 private _identifier = format ["BC_buymenu_buyList_%1", _baseConfigName];
 private _boughtVehicles = missionNamespace getVariable [_identifier, []];
 
+
+private _vehicleCountCacheIdentifier = format ["BC_cacheValueFor_%1", _itemConfigName];
+private _vehicleCountCacheValue = missionNamespace getVariable [_vehicleCountCache, 0];
+private _cacheCurrentValuesForAbort = missionNamespace getVariable ["BC_cacheCurrentValuesForAbort", []];
+
+
 if (_add) then {
-    _boughtVehicles pushBack _itemConfigName; 
+    _boughtVehicles pushBack _itemConfigName;
+    _vehicleCountCacheValue = _vehicleCountCacheValue + 1;
 } else {
     _boughtVehicles deleteAt (_boughtVehicles find _itemConfigName);
+    
+    if (_vehicleCountCacheValue > 0) then {
+        _vehicleCountCacheValue = _vehicleCountCacheValue - 1;
+    };
 };
 
-missionNamespace setVariable [_identifier, _boughtVehicles, true];
+_cacheCurrentValuesForAbort pushBackUnique [_vehicleCountCacheIdentifier, _vehicleCountCacheValue];
 
-// private _cacheCurrentValuesForAbort = missionNamespace getVariable ["BC_cacheCurrentValuesForAbort", []];
+
+missionNamespace setVariable [_identifier, _boughtVehicles, true];
+missionNamespace setVariable ["BC_cacheCurrentValuesForAbort", _cacheCurrentValuesForAbort];
