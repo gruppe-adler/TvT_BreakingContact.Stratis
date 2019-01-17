@@ -19,12 +19,14 @@
 
 params [
    ["_tgt", objNull, [objNull, []]],
-   ["_txt""", [""]], ["_alt"500, [500]],
-   ["_rad"200, [200]], ["_ang", random 360, [0]],
+   ["_txt", "", [""]],
+   ["_alt", 500, [500]],
+   ["_rad", 200, [200]],
+   ["_ang", random 360, [0]],
    ["_dir", round random 1, [0]],
    "",
-   ["_mode", 0, [0]]],
-   ["_fade", true, [true]]]
+   ["_mode", 0, [0]],
+   ["_fade", true, [true]]
 ];
 
 BIS_fnc_establishingShot_icons = [_this, 6, [], [[]]] call BIS_fnc_param;

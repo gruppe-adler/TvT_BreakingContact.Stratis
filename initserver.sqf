@@ -15,7 +15,7 @@ publicVariable "DEBUG_MODE";
 
 
 addMissionEventHandler ["HandleDisconnect",{
-    params ["_unit", "_id", "_uid", "_name"];
+    params ["", "", "", "_name"];
 
     if (_unit getVariable ["BC_spawnSelector", false] && !OPFOR_TELEPORTED) then {
         private _spawnSelector = [east, _unit] call BC_setup_fnc_getHighestRankOfSide;
