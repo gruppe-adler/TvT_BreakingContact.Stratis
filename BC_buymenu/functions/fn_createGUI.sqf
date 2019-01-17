@@ -52,7 +52,7 @@ private _categoriesExtracted = [];
 
 
         _categoriesExtracted pushBack [
-            _categoryConfigName, _minPlayerCount, _valueMaxInThisCat, _spawnCone, _allItemsExtracted
+            _baseConfigName, _categoryConfigName, _minPlayerCount, _valueMaxInThisCat, _spawnCone, _allItemsExtracted
         ];
     };
 } forEach _allCategories;
@@ -123,15 +123,21 @@ missionNamespace setVariable ["BC_cacheCurrentValuesForAbort", [
     ["BC_buymenu_valueCargoCount", missionNamespace getVariable ["BC_buymenu_valueCargoCount", 0]]
 ]];
 
-{   
-    private _multiplicator = _x;
+player setVariable ["BC_categoriesExtracted", _categoriesExtracted];
 
-    if (count _categoriesExtracted < _forEachIndex) exitWith {};
-    private _categoryName = _categoriesExtracted select _forEachIndex select 0;
-    private _minPlayerCount = _categoriesExtracted select _forEachIndex select 1;
-    private _valueMaxInThisCat = _categoriesExtracted select _forEachIndex select 2;
-    private _spawnCone = _categoriesExtracted select _forEachIndex select 3;
-    private _data = _categoriesExtracted select _forEachIndex select 4;
+if (count _categoriesExtracted < 1) exitWith { hint "no buyables found"; };
+
+// iterate all cats
+for "_i" from 0 to (count _categoriesExtracted - 1) do {
+
+    private _multiplicator = _i * 5;
+
+    private _baseConfigName = _categoriesExtracted select _i select 0;
+    private _categoryName = _categoriesExtracted select _i select 1;
+    private _minPlayerCount = _categoriesExtracted select _i select 2;
+    private _valueMaxInThisCat = _categoriesExtracted select _i select 3;
+    private _spawnCone = _categoriesExtracted select _i select 4;
+    private _data = _categoriesExtracted select _i select 5;
     private _isLocked = _minPlayerCount > (count (playableUnits + switchableUnits));
 
     if (count _data < 1) exitWith {};
@@ -168,12 +174,8 @@ missionNamespace setVariable ["BC_cacheCurrentValuesForAbort", [
     _ctrlChosenInThisCat ctrlSetTextColor [1,1,1,1];
 
 
-    private _cacheCurrentValuesForAbort = missionNamespace getVariable ["BC_cacheCurrentValuesForAbort", []];
-    private _catValueIdentifier = format ["catValue_%1_%2", _baseConfigName, _categoryName];
 
-    private _valueChosenInThisCat = missionNamespace getVariable [_catValueIdentifier, 0];
-    _cacheCurrentValuesForAbort pushBack [_catValueIdentifier, _valueChosenInThisCat];
-    missionNamespace setVariable ["BC_cacheCurrentValuesForAbort", _cacheCurrentValuesForAbort];
+    private _valueChosenInThisCat = [_baseConfigName, _categoryName] call BC_buymenu_fnc_getCatGlobalCount;
 
     _ctrlChosenInThisCat setVariable ["value", _valueChosenInThisCat];
     private _formatting = "<t size='1' align='center' color='#333333'>";
@@ -225,7 +227,7 @@ missionNamespace setVariable ["BC_cacheCurrentValuesForAbort", [
        
         // ctrlItemCount is our all knowing item
         private _ctrlItemCount = _display ctrlCreate ["RscStructuredText", -1];
-        private _valueItemCount = [_itemConfigName] call BC_buymenu_fnc_getGlobalCount;
+        private _valueItemCount = [_itemConfigName, _baseConfigName] call BC_buymenu_fnc_getItemGlobalCount;
         _ctrlItemCount setVariable ["value", _valueItemCount];
         _ctrlItemCount setVariable ["stock", _stock];
         _ctrlItemCount setVariable ["minValue", _valueItemCount];
@@ -235,6 +237,7 @@ missionNamespace setVariable ["BC_cacheCurrentValuesForAbort", [
         _ctrlItemCount setVariable ["ctrlChosenInThisCat", _ctrlChosenInThisCat];
         _ctrlItemCount setVariable ["valueMaxInThisCat", _valueMaxInThisCat];
         _ctrlItemCount setVariable ["baseConfigName", _baseConfigName];
+        _ctrlItemCount setVariable ["itemConfigName", _itemConfigName];
         _ctrlItemCount setVariable ["categoryName", _categoryName];
         _ctrlItemCount setVariable ["crew", _crew];
         _ctrlItemCount setVariable ["cargo", _cargo];
@@ -375,9 +378,7 @@ missionNamespace setVariable ["BC_cacheCurrentValuesForAbort", [
 
     };
 
-} forEach [
-    0,5,10,15,20
-];
+};
 
 
 if (player getVariable ["BC_potentToBuy", false]) then {
@@ -422,13 +423,29 @@ uiNamespace setVariable ["BC_buymenu_spawnCone", _spawnCone];
 uiNamespace setVariable ["BC_buymenu_startVehicle", _startVehicle];
 
 if (player getVariable ["BC_potentToBuy", false]) then {
-        // remove count from cache
+        
+        // caching of bought stuff has to be reset
         _display displayAddEventHandler ["Unload", {
                 params ["_display", "_exitCode"];
 
-                    for "_i" from 1 to (count _data) do {
 
-                            (_data select (_i-1)) params [
+                private _categoriesExtracted = player getVariable ["BC_categoriesExtracted", []];
+                if (count _categoriesExtracted < 1) exitWith {
+                    hint "no categories cache found";
+                };
+
+                for "_i" from 0 to (count _categoriesExtracted - 1) do {
+                    private _baseConfigName = _categoriesExtracted select _i select 0;
+                    private _categoryName = _categoriesExtracted select _i select 1;
+                    private _data = _categoriesExtracted select _i select 5;
+
+                    if (count _data < 1) exitWith {};
+
+                    hint str ("_data of cache: " + str _data);
+
+                    for "_j" from 1 to (count _data) do {
+
+                            (_data select (_j-1)) params [
                                 "_baseConfigName",
                                 "_categoryConfigName",
                                 "_itemConfigName",
@@ -455,17 +472,38 @@ if (player getVariable ["BC_potentToBuy", false]) then {
                                 "_code"
                             ];
 
-                            private _identifierCache = format ["BC_buymenu_boughtVehicleCache_%1", _itemConfigName];
-                            private _vehicleCountCacheValue = missionNamespace getVariable [_identifierCache, 0];
+                            // single vehicle count
+                            private _itemCacheIdentifier = format ["BC_buymenu_boughtItemCache_%1_%2", _baseConfigName, _itemConfigName];
+                            private _itemCacheValue = missionNamespace getVariable [_itemCacheIdentifier, 0];
 
-                            private _identifierSave = format ["BC_buymenu_boughtVehicleValues_%1", _itemConfigName];
-                            private _vehicleCountValue = missionNamespace getVariable [_identifierSave, 0];
+                            // store values for future usage
+                            private _itemValueIdentifier = format ["BC_buymenu_boughtItemValues_%1_%2", _baseConfigName, _itemConfigName];                         
+                            private _existingItemCountValue = missionNamespace getVariable [_itemValueIdentifier, 0];
 
-                            // decide to store cached values or discard them
-                            private _storeValue = [0, _identifierCache] select (_exitCode == 2);
-                            missionNamespace setVariable [_identifierCache, 0, true];
-                            missionNamespace setVariable [_identifierSave, _storeValue, true];
+                            // decide to store cached values or discard them (adding 0)
+                            private _storeItemValue = [_itemCacheValue, 0] select (_exitCode == 2);
+                            private _newValue = _storeItemValue + _existingItemCountValue;
+                            systemChat ("storing item: " + str _newValue);
+                            missionNamespace setVariable [_itemCacheIdentifier, 0, true];
+                            missionNamespace setVariable [_itemValueIdentifier, _newValue, true];
 
                     };
+
+                // category values
+                private _catCacheIdentifier = format ["BC_buymenu_catValueCache_%1_%2", _baseConfigName, _categoryName];
+                private _catCacheValue = missionNamespace getVariable [_catCacheIdentifier, 0];
+
+                // store values for future usage
+                private _catValueIdentifier = format ["BC_buymenu_catValueValues_%1_%2", _baseConfigName, _categoryName];
+                private _existingCatCountValue = missionNamespace getVariable [_catValueIdentifier, 0];
+
+                // decide to store cached values or discard them (adding 0)
+                private _storeCatValue = [_catCacheValue, 0] select (_exitCode == 2);
+                private _newValue = _storeCatValue + _existingCatCountValue;
+                systemChat ("storing cat: " + str _newValue);
+                missionNamespace setVariable [_catCacheIdentifier, 0, true];
+                missionNamespace setVariable [_catValueIdentifier, _newValue, true];
+
+            };
         }];
 };

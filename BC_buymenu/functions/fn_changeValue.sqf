@@ -31,9 +31,10 @@ private _ctrlCrewCount = _parentControl getVariable ["ctrlCrew", controlNull];
 private _ctrlCargoCount = _parentControl getVariable ["ctrlCargo", controlNull];
 
 private _data = _parentControl getVariable ["data", []];
-private _categoryName = _parentControl getVariable ["categoryName", "none"];
+
 private _baseConfigName = _parentControl getVariable ["baseConfigName", "none"];
-private _catValueIdentifier = format ["catValue_%1_%2", _baseConfigName, _categoryName];
+private _categoryName = _parentControl getVariable ["categoryName", "none"];
+
 
 private _catPlusMinusButtons = _ctrlChosenInThisCat getVariable ["catPlusMinusButtons", []];
 
@@ -52,14 +53,14 @@ if (_increaseValue) then {
 
 ////// LIMITER
 // dont allow going above max value
-if (_itemValue == _maxItemValue) then {
+if (_itemValue == _maxItemValue  || _itemValue >= _stock) then {
     _btnPlus ctrlEnable false;
 } else {
     _btnPlus ctrlEnable true;
 };
 
 // dont allow going below zero
-if (_itemValue <= _minItemValue || _itemValue >= _stock) then {
+if (_itemValue <= _minItemValue) then {
     _btnMinus ctrlEnable false;
 } else {
     _btnMinus ctrlEnable true;
@@ -85,17 +86,18 @@ if (_catValue >= _valueMaxInThisCat) then {
 
 _ctrlChosenInThisCat setVariable ["value", _catValue];
 _parentControl setVariable ["value", _itemValue];
-missionNamespace setVariable [_catValueIdentifier, _catValue, true];
+
+[_baseConfigName, _categoryName, _catValue] call BC_buymenu_fnc_saveCatGlobalCache;
 
 // set cargo and crew count
 if (_increaseValue) then {
     [true, _ctrlCrewCount, _ctrlCargoCount, _ctrlTotalSideCount, _crewCount, _cargoCount, _valueTotalSideCount] call BC_buymenu_fnc_adjustCrewCargoCount;
     [true, _data] call BC_buymenu_fnc_changeQueue;
-    [true, _data] call BC_buymenu_fnc_saveGlobal;
+    [true, _data] call BC_buymenu_fnc_saveItemGlobalCache;
 } else {
     [false, _ctrlCrewCount, _ctrlCargoCount, _ctrlTotalSideCount, _crewCount, _cargoCount, _valueTotalSideCount] call BC_buymenu_fnc_adjustCrewCargoCount;
     [false, _data] call BC_buymenu_fnc_changeQueue;
-    [false, _data] call BC_buymenu_fnc_saveGlobal;
+    [false, _data] call BC_buymenu_fnc_saveItemGlobalCache;
 };
 
 // systemChat format ["%1, %2", _parentControl, _itemValue];

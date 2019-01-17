@@ -54,7 +54,7 @@ private _categoryConfigName = if (_isStartVehicle) then { "StartVehicle" } else 
 private _baseConfigName = configName (([_baseConfig, false] call BIS_fnc_returnParents) select 0);
 
 
-diag_log format ["get vehicle params helmet %1", _crewHelmet];
+// diag_log format ["get vehicle params helmet %1", _crewHelmet];
 
 [
     _baseConfigName,

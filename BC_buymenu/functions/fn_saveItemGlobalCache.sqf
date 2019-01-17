@@ -27,19 +27,16 @@ _data params [
     "_code"
 ];
 
-private _identifier = format ["BC_buymenu_boughtVehicleCache_%1", _itemConfigName];
+private _identifier = format ["BC_buymenu_boughtItemCache_%1_%2", _baseConfigName, _itemConfigName];
 private _vehicleCountCacheValue = missionNamespace getVariable [_identifier, 0];
 
-
 if (_add) then {
-    _boughtVehicles pushBack _itemConfigName;
     _vehicleCountCacheValue = _vehicleCountCacheValue + 1;
-} else {
-    _boughtVehicles deleteAt (_boughtVehicles find _itemConfigName);
-    
+} else {    
     if (_vehicleCountCacheValue > 0) then {
         _vehicleCountCacheValue = _vehicleCountCacheValue - 1;
     };
 };
 
+diag_log format ["saving _vehicleCountCacheValue %1 : %2", _identifier, _vehicleCountCacheValue];
 missionNamespace setVariable [_identifier, _vehicleCountCacheValue, true];

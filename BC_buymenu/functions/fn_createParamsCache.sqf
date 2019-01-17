@@ -1,8 +1,0 @@
-/*
-
-	todo
-
-
-	preload params to hashes for faster gui execution		
-
-*/
