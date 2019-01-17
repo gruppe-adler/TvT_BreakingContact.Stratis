@@ -53,7 +53,7 @@ BIS_fnc_establishingShot_fakeUAV cameraEffect ["INTERNAL", "BACK"];
 cameraEffectEnableHUD true;
 
 private _pos = if (typeName _tgt == typeName objNull) then {position _tgt} else {_tgt};
-_private coords = [_pos, _rad, _ang] call BIS_fnc_relPos;
+private _coords = [_pos, _rad, _ang] call BIS_fnc_relPos;
 _coords set [2, _alt];
 
 BIS_fnc_establishingShot_fakeUAV camPrepareTarget _tgt;
