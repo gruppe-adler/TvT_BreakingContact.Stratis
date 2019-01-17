@@ -8,6 +8,7 @@ class BC_setup {
         class chooseSpawn;
         class createStartMarker;
         class establishingShot;
+        class exitChooseSpawn;
         class initialSpawnClient;
         class isOnWater;
         class openSpawnDialog;

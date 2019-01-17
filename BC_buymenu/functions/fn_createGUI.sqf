@@ -117,6 +117,12 @@ _ctrlTotalSideCount ctrlCommit 0;
 
 [false, _ctrlCrewCount, _ctrlCargoCount, _ctrlTotalSideCount, 0, 0, _valueTotalSideCount] call BC_buymenu_fnc_adjustCrewCargoCount;
 
+
+missionNamespace setVariable ["BC_cacheCurrentValuesForAbort", [
+    ["BC_buymenu_valueCrewCount", missionNamespace getVariable ["BC_buymenu_valueCrewCount", 0]],
+    ["BC_buymenu_valueCargoCount", missionNamespace getVariable ["BC_buymenu_valueCargoCount", 0]]
+]];
+
 {   
     private _multiplicator = _x;
 
@@ -160,8 +166,15 @@ _ctrlTotalSideCount ctrlCommit 0;
     _ctrlChosenInThisCat ctrlsetFont "RobotoCondensedBold";
     _ctrlChosenInThisCat ctrlSetBackgroundColor [0,0,0,0];
     _ctrlChosenInThisCat ctrlSetTextColor [1,1,1,1];
+
+
+    private _cacheCurrentValuesForAbort = missionNamespace getVariable ["BC_cacheCurrentValuesForAbort", []];
     private _catValueIdentifier = format ["catValue_%1_%2", _baseConfigName, _categoryName];
+
     private _valueChosenInThisCat = missionNamespace getVariable [_catValueIdentifier, 0];
+    _cacheCurrentValuesForAbort pushBack [_catValueIdentifier, _valueChosenInThisCat];
+    missionNamespace setVariable ["BC_cacheCurrentValuesForAbort", _cacheCurrentValuesForAbort];
+
     _ctrlChosenInThisCat setVariable ["value", _valueChosenInThisCat];
     private _formatting = "<t size='1' align='center' color='#333333'>";
     if (_valueChosenInThisCat isEqualTo _valueMaxInThisCat) then {
@@ -411,5 +424,17 @@ uiNamespace setVariable ["BC_buymenu_startVehicle", _startVehicle];
 _display displayAddEventHandler ["Unload", {
         params ["_display", "_exitCode"];
 
-        systemChat str _exitCode;
+        if (_exitCode == 2) then {
+
+            private _cachedValues = missionNamespace getVariable ["BC_cacheCurrentValuesForAbort", []];
+            diag_log format ["_cachedValues %1", _cachedValues];
+
+            {
+                _x params ["_identifier", "_value"];
+
+                missionNamespace setVariable [_identifier, _value, true];
+                // systemChat "resetting " + (str _identifier) + " to " + (str _value);
+            } forEach _cachedValues;
+
+        };
 }];

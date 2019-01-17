@@ -37,3 +37,5 @@ if (_add) then {
 };
 
 missionNamespace setVariable [_identifier, _boughtVehicles, true];
+
+// private _cacheCurrentValuesForAbort = missionNamespace getVariable ["BC_cacheCurrentValuesForAbort", []];
