@@ -2,10 +2,9 @@
 *
 */
 
-params ["_buyer", "_vehicle", "_baseConfigName", "_categoryConfigName", "_itemConfigName"];
+params ["_vehicle", "_baseConfigName", "_categoryConfigName", "_itemConfigName"];
 
 if (!hasInterface) exitWith {};
-if (player != _buyer) exitWith {};
 
 _displayName = [(missionConfigFile >> "CfgGradBuymenu" >> _baseConfigName >> _categoryConfigName >> _itemConfigName >> "displayName"), "text", "Vehicle"] call CBA_fnc_getConfigEntry;
 

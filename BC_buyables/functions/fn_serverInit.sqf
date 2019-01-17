@@ -8,7 +8,7 @@ if (!isServer) exitWith {};
 
 ["startVehicle", { 
 
-        params ["_startVehicle", "_cone", "_side"];
+        params ["_startVehicle", "_side"];
 
         BUYABLES_OPFOR_INDEX = ["BUYABLES_OPFOR", -1] call BIS_fnc_getParamValue;
         private _factionsOpfor = "getText (_x >> 'side') == 'Opfor'" configClasses (missionConfigFile >> "CfgGradBuymenu");

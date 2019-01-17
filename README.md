@@ -4,7 +4,7 @@
 
 **Arma3 TvT scenario**
 
-![](http://forum.gruppe-adler.de/uploads/files/1443827796096-loading.jpg)
+![](https://github.com/gruppe-adler/TvT_BreakingContact.Stratis/blob/master/pic/loading.jpg)
 
 # The Scenario
 

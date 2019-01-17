@@ -7,6 +7,7 @@ class gui_spawn_opfor
 		enableSimulation = 1;
 		enableDisplay = 1;
 		objects[] = {};
+		onUnload = "_this spawn BC_setup_fnc_exitChooseSpawn";
 
 		class ControlsBackground
 		{

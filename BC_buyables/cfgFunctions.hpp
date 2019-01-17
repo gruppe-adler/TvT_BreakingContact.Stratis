@@ -5,5 +5,7 @@ class BC_buyables {
 
         class clientInit { preInit = 1; };
         class serverInit { postInit = 1; };
+        class configureBluforStartVehicle;
+        class configureOpforStartVehicle;
     };
 };

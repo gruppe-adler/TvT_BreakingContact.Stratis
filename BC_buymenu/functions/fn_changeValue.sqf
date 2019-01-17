@@ -23,6 +23,7 @@ private _valueTotalSideCount = _parentControl getVariable ["valueTotalSideCount"
 
 private _catValue = _ctrlChosenInThisCat getVariable ["value", 0];
 private _maxValue = _ctrlChosenInThisCat getVariable ["maxValue", 0];
+private _stock = _ctrlChosenInThisCat getVariable ["stock", 0];
 
 private _crewCount = _parentControl getVariable ["crew", 0];
 private _cargoCount = _parentControl getVariable ["cargo", 0];
@@ -30,9 +31,10 @@ private _ctrlCrewCount = _parentControl getVariable ["ctrlCrew", controlNull];
 private _ctrlCargoCount = _parentControl getVariable ["ctrlCargo", controlNull];
 
 private _data = _parentControl getVariable ["data", []];
-private _categoryName = _parentControl getVariable ["categoryName", "none"];
+
 private _baseConfigName = _parentControl getVariable ["baseConfigName", "none"];
-private _catValueIdentifier = format ["catValue_%1_%2", _baseConfigName, _categoryName];
+private _categoryName = _parentControl getVariable ["categoryName", "none"];
+
 
 private _catPlusMinusButtons = _ctrlChosenInThisCat getVariable ["catPlusMinusButtons", []];
 
@@ -51,7 +53,7 @@ if (_increaseValue) then {
 
 ////// LIMITER
 // dont allow going above max value
-if (_itemValue == _maxItemValue) then {
+if (_itemValue == _maxItemValue  || _itemValue >= _stock) then {
     _btnPlus ctrlEnable false;
 } else {
     _btnPlus ctrlEnable true;
@@ -84,17 +86,18 @@ if (_catValue >= _valueMaxInThisCat) then {
 
 _ctrlChosenInThisCat setVariable ["value", _catValue];
 _parentControl setVariable ["value", _itemValue];
-missionNamespace setVariable [_catValueIdentifier, _catValue, true];
+
+[_baseConfigName, _categoryName, _catValue] call BC_buymenu_fnc_saveCatGlobalCache;
 
 // set cargo and crew count
 if (_increaseValue) then {
     [true, _ctrlCrewCount, _ctrlCargoCount, _ctrlTotalSideCount, _crewCount, _cargoCount, _valueTotalSideCount] call BC_buymenu_fnc_adjustCrewCargoCount;
-    [true, _baseConfigName, _data] call BC_buymenu_fnc_changeQueue;
-    [true, _baseConfigName, _data select 0] call BC_buymenu_fnc_saveGlobal;
+    [true, _data] call BC_buymenu_fnc_changeQueue;
+    [true, _data] call BC_buymenu_fnc_saveItemGlobalCache;
 } else {
     [false, _ctrlCrewCount, _ctrlCargoCount, _ctrlTotalSideCount, _crewCount, _cargoCount, _valueTotalSideCount] call BC_buymenu_fnc_adjustCrewCargoCount;
-    [false, _baseConfigName, _data] call BC_buymenu_fnc_changeQueue;
-    [false, _baseConfigName, _data select 0] call BC_buymenu_fnc_saveGlobal;
+    [false, _data] call BC_buymenu_fnc_changeQueue;
+    [false, _data] call BC_buymenu_fnc_saveItemGlobalCache;
 };
 
 // systemChat format ["%1, %2", _parentControl, _itemValue];

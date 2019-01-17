@@ -14,6 +14,7 @@ class USA {
 
         class rhsusf_m998_w_4dr {
             condition = "BC_IS_WOODLAND";
+            code = "[(_this select 0)] call BC_buyables_fnc_configureBluforStartVehicle;";
         };
 
         class rhsusf_m998_d_4dr {
@@ -33,12 +34,12 @@ class USA {
             stock = 7;
             spawnEmpty = 1;
             condition = "BC_IS_WOODLAND";
-            vehicleInit = "['rhs_woodland',1],['hide_cover',0,'hide_spare',0,'hide_scaffold',0,'hide_bench',0]";
+            vehicleInit = "[['rhs_woodland',1],['hide_cover',0,'hide_spare',0,'hide_scaffold',0,'hide_bench',0]]";
         };
 
         class rhsusf_M1083A1P2_D_fmtv_usarmy: rhsusf_M1083A1P2_WD_fmtv_usarmy {
             condition = "!BC_IS_WOODLAND";
-            vehicleInit = "['rhs_desert',1],['hide_cover',0,'hide_spare',0,'hide_scaffold',0,'hide_bench',0]";
+            vehicleInit = "[['rhs_desert',1],['hide_cover',0,'hide_spare',0,'hide_scaffold',0,'hide_bench',0]]";
         };
 
         class rhsusf_mrzr4_d {
@@ -47,13 +48,9 @@ class USA {
             price = 10;
             stock = 7;
             spawnEmpty = 1;
-            condition = "BC_IS_WOODLAND";
-            vehicleInit = "['mud_olive',1],['tailgateHide',0,'tailgate_open',0,'cage_fold',0]";
-        };
-
-        class rhsusf_M1078A1R_SOV_M2_D_fmtv_socom: rhsusf_mrzr4_d {
-            condition = "!BC_IS_WOODLAND";
-            vehicleInit = "['mud',1],['tailgateHide',0,'tailgate_open',0,'cage_fold',0]";
+            condition = "true";
+            code = "[(_this select 0), [['mud','mud_olive'] select BC_IS_WOODLAND,1], ['tailgateHide',0,'tailgate_open',0,'cage_fold',0]] call BIS_fnc_initVehicle;";
+            vehicleInit = "[[],[]]";
         };
     };
 
@@ -68,7 +65,7 @@ class USA {
             description = "1 GPS\nNO Thermals\nNO Benches";
             price = 10;
             stock = 7;
-            code = "(_this select 0) addItemCargoGlobal ['ACE_NVG_Wide',2];(_this select 0) addItemCargoGlobal ['ItemGPS',1];[(_this select 0)] call ace_fastroping_fnc_equipFRIES;(_this select 0) disableTIEquipment true;";
+            code = "(_this select 0) addItemCargoGlobal ['ACE_NVG_Wide',2];(_this select 0) addItemCargoGlobal ['ItemGPS',1];[(_this select 0)] call ace_fastroping_fnc_equipFRIES;_this disableTIEquipment true;";
             spawnEmpty = 1;
             vehicleInit = "[[],[]]";
         };
@@ -80,14 +77,37 @@ class USA {
             stock = 7;
             spawnEmpty = 1;
             condition = "BC_IS_WOODLAND";
-            vehicleInit = "['rhs_woodland',1],['DUKE_Hide',1]";
+            vehicleInit = "[['rhs_woodland',1],['DUKE_Hide',1]]";
         };
 
         class rhsusf_CGRCAT1A2_usmc_d: rhsusf_CGRCAT1A2_usmc_wd {
             condition = "!BC_IS_WOODLAND";
-            vehicleInit = "['rhs_desert',1],['DUKE_Hide',1]";
+            vehicleInit = "[['rhs_desert',1],['DUKE_Hide',1]]";
         };
 
+
+        class rhsusf_M1078A1R_SOV_M2_WD_fmtv_socom {
+            displayName = "FMTV M2";
+            description = "The workhorse of your army.";
+            stock = 7;
+            spawnEmpty = 1;
+            condition = "BC_IS_WOODLAND";
+            vehicleInit = "[['rhs_woodland',1],['hide_spare',0]]";
+        };
+
+        class rhsusf_M1078A1R_SOV_M2_D_fmtv_socom: rhsusf_M1078A1R_SOV_M2_WD_fmtv_socom {
+            condition = "!BC_IS_WOODLAND";
+            vehicleInit = "[['rhs_desert',1],['hide_spare',0]]";
+        };
+        
+
+    };
+
+
+    class Support {
+        displayName = "Support";
+        kindOf = "Vehicles";
+        maxBuyCount = 1;
 
         class rhsusf_m1025_w_m2 {
             displayName = "HMMWV M2";
@@ -96,38 +116,16 @@ class USA {
             stock = 7;
             spawnEmpty = 1;
             condition = "BC_IS_WOODLAND";
-            vehicleInit = "['standard',1],['hide_snorkel',1,'hide_CIP',1,'hide_BFT',0,'hide_Antenna',0,'hide_A2_Parts',0,'Hide_A2Bumper',0,'Hide_Brushguard',1]";
+            vehicleInit = "[['standard',1],['hide_snorkel',1,'hide_CIP',1,'hide_BFT',0,'hide_Antenna',0,'hide_A2_Parts',0,'Hide_A2Bumper',0,'Hide_Brushguard',1]]";
         };
 
         class rhsusf_m1025_d_m2: rhsusf_m1025_w_m2 {
             condition = "!BC_IS_WOODLAND";
-            vehicleInit = "['Desert',1],['hide_snorkel',1,'hide_CIP',1,'hide_BFT',0,'hide_Antenna',0,'hide_A2_Parts',0,'Hide_A2Bumper',0,'Hide_Brushguard',1]";
-        };
-
-    };
-
-
-    class Support {
-        displayName = "Support";
-        kindOf = "Vehicles";
-        maxBuyCount = 2;
-
-        class rhsusf_M1083A1P2_B_M2_WD_fmtv_usarmy {
-            displayName = "FMTV M2";
-            description = "The workhorse of your army.";
-            stock = 7;
-            spawnEmpty = 1;
-            condition = "BC_IS_WOODLAND";
-            vehicleInit = "[[],['hide_cover',0,'hide_spare',0,'hide_scaffold',0,'hide_bench',0]]";
-        };
-
-        class rhsusf_M1083A1P2_B_M2_D_fmtv_usarmy: rhsusf_M1083A1P2_B_M2_WD_fmtv_usarmy {
-            condition = "!BC_IS_WOODLAND";
-            vehicleInit = "['rhs_desert',1],['hide_cover',0,'hide_spare',0,'hide_scaffold',0,'hide_bench',0]";
+            vehicleInit = "[['Desert',1],['hide_snorkel',1,'hide_CIP',1,'hide_BFT',0,'hide_Antenna',0,'hide_A2_Parts',0,'Hide_A2Bumper',0,'Hide_Brushguard',1]]";
         };
 
         class rhsusf_m113_usarmy_M2_90 {
-            displayName = "BRDM-AT";
+            displayName = "M113 Alt";
             description = "The workhorse of your army.";
             stock = 7;
             spawnEmpty = 1;
@@ -138,21 +136,6 @@ class USA {
         class rhsgref_hidf_m113a3_mk19: rhsusf_m113_usarmy_M2_90 {
             condition = "!BC_IS_WOODLAND";
             vehicleInit = "['Desert',1],['IFF_Panels_Hide',1]";
-        };
-
-        class rhsusf_m113_usarmy_M240 {
-            displayName = "BRDM-2";
-            description = "The workhorse of your army.";
-            stock = 7;
-            spawnEmpty = 1;
-            condition = "BC_IS_WOODLAND";
-            vehicleInit = "[['olive', 1], ['driverViewHatch',0,'commanderViewHatch',0,'hatchCommander',1]]";
-        };
-
-        class rhsusf_m113d_usarmy_M240: rhsusf_m113_usarmy_M240 {
-            condition = "!BC_IS_WOODLAND";
-            vehicleInit = "[['3tone', 1], ['driverViewHatch',0,'commanderViewHatch',0,'hatchCommander',1]]";
-    
         };
     };
 
@@ -191,26 +174,29 @@ class USA {
         maxBuyCount = 2;
 
         class I_C_Boat_Transport_01_F {
-            displayName = "Boat + Diving Equipment";
+            kindOf = "Special";
+            displayName = "Boat + Diving Equipment inside * 4";
             description = "Get it in the Start Vehicle (ACE Interaction).";
             stock = 1;
-            code = "(_this select 0) setVariable ['grad_carryBoatCargo', 1];[(_this select 0)] remoteExec ['BC_buymenu_fnc_addBoatInteraction', [0,-2] select isDedicated];";
+            code = "(_this select 1) setVariable ['grad_carryBoatCargo', 1, true];[(_this select 1)] remoteExec ['BC_buymenu_fnc_addBoatInteraction', [0,-2] select isDedicated];";
             spawnEmpty = 1;
         };
 
         class rhsusf_explosive_m112 {
+            kindOf = "Special";
             displayName = "Breaching Equipment";
             description = "Explosives and Wirecutter in Start Vehicle.";
             stock = 1;
-            code = "(_this select 0) addItemCargoGlobal ['ACE_wirecutter',2];(_this select 0) addMagazineCargoGlobal ['ACE_Clacker',2];(_this select 0) addMagazineCargoGlobal ['rhsusf_m112_mag', 2];";
+            code = "(_this select 1) addItemCargoGlobal ['ACE_wirecutter',2];(_this select 1) addItemCargoGlobal ['ACE_Clacker',2];(_this select 1) addMagazineCargoGlobal ['rhsusf_m112_mag', 2];";
             spawnEmpty = 1;
         };
 
         class Land_JumpTarget_F {
+            kindOf = "Special";
             displayName = "Hunt IR Equipment";
             description = "Hunt IR Equipment in Start Vehicle.";
             stock = 1;
-            code = "(_this select 0) addItemCargoGlobal ['ACE_HuntIR_monitor',2];(_this select 0) addMagazineCargoGlobal ['ACE_HuntIR_M203',4];";
+            code = "(_this select 1) addItemCargoGlobal ['ACE_HuntIR_monitor',2];(_this select 1) addMagazineCargoGlobal ['ACE_HuntIR_M203',4];";
             spawnEmpty = 1;
         };
     };

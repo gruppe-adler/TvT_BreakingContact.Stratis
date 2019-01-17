@@ -27,7 +27,7 @@ class USA {
           };
           class Engineer_F: Soldier_F{
                backpack = "rhssaf_kitbag_smb";
-               addItemsToBackpack[] = {LIST_6("ACE_fieldDressing"),LIST_2("ACE_epinephrine"),LIST_2("ACE_morphine"),"grad_axe","ACE_Fortify","ACE_EntrenchingTool","ACE_DefusalKit"};
+               addItemsToBackpack[] = {"toolkit", LIST_6("ACE_fieldDressing"),LIST_2("ACE_epinephrine"),LIST_2("ACE_morphine"),"grad_axe","ACE_Fortify","ACE_EntrenchingTool","ACE_DefusalKit"};
           };
           class HeavyGunner_F: Soldier_F {
                primaryWeapon = "rhs_weap_m240B";

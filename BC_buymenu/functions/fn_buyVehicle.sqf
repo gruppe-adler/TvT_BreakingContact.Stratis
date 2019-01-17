@@ -3,20 +3,55 @@
 *   ripoff from grad-lbm, tweaked to prefer roads    
 */
 
-params ["_buyer","_account","_price","_code","_baseConfigName","_categoryConfigName","_itemConfigName","_spawnPosition", "_spawnDir", "_driverGPS", "_crew", "_crewHelmet", "_disableTIEquipment", "_itemCargo", "_magazineCargo", "_trackCargo", "_wheelCargo", "_removeMagazines", "_canMoveDuringTransmission"];
+// params ["_side","_code","_baseConfigName","_categoryConfigName","_itemConfigName","_spawnPosition", "_spawnDir", "_driverGPS", "_crew", "_crewHelmet", "_disableTIEquipment", "_itemCargo", "_magazineCargo", "_trackCargo", "_wheelCargo", "_removeMagazines", "_canMoveDuringTransmission"];
 
-diag_log format ["%1 - %2 - %3", _crewHelmet, _crew, _removeMagazines];
+params [
+    "_side", 
+    ["_startVehicle", objNull],
+    "_spawnPosition", 
+    "_spawnDir",
+    "_data"
+];
+
+diag_log format ["buyVehicle: %1 - %2 - %3 - %4", _side, _spawnPosition, _spawnDir, _data];
+
+_data params [
+    "_baseConfigName",
+    "_categoryConfigName",
+    "_itemConfigName",
+    "_stock",
+    "_displayName",
+    "_description",
+    "_picturePath",
+    "_canMoveDuringTransmission",
+    "_terminal_position_offset",
+    "_terminal_position_vectorDirAndUp",
+    "_antennaOffset",
+    "_crew", 
+    "_cargo", 
+    "_speed",
+    "_isSpecial", 
+    "_driverGPS", 
+    "_crewHelmet", 
+    "_disableTIEquipment", 
+    "_itemCargo", 
+    "_magazineCargo", 
+    "_trackCargo", 
+    "_wheelCargo", 
+    "_removeMagazines",
+    "_code"
+];
 
 private _spawnEmpty = [(missionConfigFile >> "CfgGradBuymenu" >> _baseConfigName >> _categoryConfigName >> _itemConfigName >> "spawnEmpty"), "number", -1] call CBA_fnc_getConfigEntry;
 if (_spawnEmpty == -1) then {
-    _spawnEmpty = [(missionConfigFile >> "CfgGradBuymenu" >> _baseConfigName >> _categoryConfigName >> "spawnEmpty"), "number", 0] call CBA_fnc_getConfigEntry;
+    _spawnEmpty = [(missionConfigFile >> "CfgGradBuymenu" >> _baseConfigName >> _categoryConfigName >> "spawnEmpty"), "number", 1] call CBA_fnc_getConfigEntry;
 };
 
-private _sideBuyer = side _buyer;
-
 //spawn vehicle
-private _vehicle = _itemConfigName createVehicle [0,0,0];
+private _vehicle = _itemConfigName createVehicle [0,0,0]; // create elsewhere so you dont see the rotation glitch
 _vehicle setDir _spawnDir;
+_spawnPosition set [2,0.6]; // elevate a bit in case of bumps in the road or other shit instaploding
+
 _vehicle setPos _spawnPosition;
 
 //bis vehicle init
@@ -34,6 +69,8 @@ if (_spawnEmpty == 1) then {
     clearWeaponCargoGlobal _vehicle;
 };
 
+
+// diag_log format ["buy vehicle helmet %1", _crewHelmet];
 
 // add crew helmets as many as crew slots
 if (_crewHelmet != "") then {
@@ -79,22 +116,24 @@ if (_wheelCargo > 0) then {
 
 
 _vehicle setVariable ["BC_canMoveDuringTransmission", _canMoveDuringTransmission, true];
-_vehicle setVariable ["ace_vehiclelock_lockSide", _sideBuyer, true];
+_vehicle setVariable ["BC_terminal_position_offset", _terminal_position_offset, true];
+_vehicle setVariable ["BC_terminal_position_vectorDirAndUp", _terminal_position_vectorDirAndUp, true];
+_vehicle setVariable ["BC_antennaOffset", _antennaOffset, true];
+_vehicle setVariable ["ace_vehiclelock_lockSide", _side, true];
 
 
-[_buyer,_itemConfigName,_vehicle,_spawnPosition] call _code;
-[[_buyer,_itemConfigName,_vehicle,_spawnPosition],_code] remoteExec ["grad_lbm_fnc_callCodeClient",0,false];
+[_vehicle, _startVehicle] call _code;
 
 //vehicle marker
 _c1 = [(missionConfigFile >> "CfgGradBuymenu" >> _baseConfigName >> "vehicleMarkers"), "number", 2] call CBA_fnc_getConfigEntry;
 _c2 = [(missionConfigFile >> "CfgGradBuymenu" >> "vehicleMarkers"), "number", 1] call CBA_fnc_getConfigEntry;
 switch (true) do {
     case (_c1 == 1): {
-        [_buyer, _vehicle, _baseConfigName, _categoryConfigName, _itemConfigName] remoteExec ["BC_buymenu_fnc_vehicleMarker", side _buyer, false];
+        [_vehicle, _baseConfigName, _categoryConfigName, _itemConfigName] remoteExec ["BC_buymenu_fnc_vehicleMarker", _side, false];
     };
     case (_c1 == 0): {false};
     case (_c2 == 1): {
-        [_buyer, _vehicle, _baseConfigName, _categoryConfigName, _itemConfigName] remoteExec ["BC_buymenu_fnc_vehicleMarker", side _buyer, false];
+        [_vehicle, _baseConfigName, _categoryConfigName, _itemConfigName] remoteExec ["BC_buymenu_fnc_vehicleMarker", _side, false];
     };
     default {false};
 };
@@ -104,3 +143,5 @@ switch (true) do {
 if (missionNamespace getVariable  ["grad_lbm_trackingTag",""] != "") then {
     [_baseConfigName,_categoryConfigName,_itemConfigName] call GRAD_lbm_tracking_fnc_trackPurchase;
 };
+
+_vehicle

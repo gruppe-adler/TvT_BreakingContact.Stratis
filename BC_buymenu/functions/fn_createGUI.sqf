@@ -11,61 +11,38 @@ private _allCategories = "true" configClasses _baseConfig;
 private _categoriesExtracted = [];
 
 {
-    _config = _x;
-    _condition = [(_config >> "condition"), "text", "true"] call CBA_fnc_getConfigEntry;
+    _categoryConfig = _x;
+    _condition = [(_categoryConfig >> "condition"), "text", "true"] call CBA_fnc_getConfigEntry;
 
     if (call compile _condition) then {
-        private _configName = configName _config;
+        // private _categoryConfigName = configName _categoryConfig;
+        private _categoryConfigName = [(_categoryConfig >> "displayName"), "text", ""] call CBA_fnc_getConfigEntry;
 
-        private _categoryName = [(_config >> "displayName"), "text", ""] call CBA_fnc_getConfigEntry;
-        if (_categoryName == "") then {_categoryName = _configName};
+        if (_categoryConfigName == "") then {
+            _categoryConfigName = configName _categoryConfig
+        };
 
-        private _valueMaxInThisCat = [(_config >> "maxBuyCount"), "number", 0] call CBA_fnc_getConfigEntry;
-        private _isSpecial = ([(_config >> "kindOf"), "text", ""] call CBA_fnc_getConfigEntry) isEqualTo "Special";
-        private _minPlayerCount = [(_config >> "minPlayerCount"), "number", 0] call CBA_fnc_getConfigEntry;
-        private _driverGPS = [(_config >> "driverGPS"), "text", "true"] call CBA_fnc_getConfigEntry isEqualTo "true";
-        private _crewHelmet = [(_config >> "crewHelmet"), "text", ""] call CBA_fnc_getConfigEntry;
-        private _disableTIEquipment = [(_config >> "disableTIEquipment"), "text", "true"] call CBA_fnc_getConfigEntry;
-        private _canMoveDuringTransmission = [(_config >> "canMoveDuringTransmission"), "text", "false"] call CBA_fnc_getConfigEntry isEqualTo "true";
+        private _valueMaxInThisCat = [(_categoryConfig >> "maxBuyCount"), "number", 0] call CBA_fnc_getConfigEntry;
+        private _isSpecial = ([(_categoryConfig >> "kindOf"), "text", ""] call CBA_fnc_getConfigEntry) isEqualTo "Special";
+        private _minPlayerCount = [(_categoryConfig >> "minPlayerCount"), "number", 0] call CBA_fnc_getConfigEntry;
+        private _driverGPS = [(_categoryConfig >> "driverGPS"), "text", "true"] call CBA_fnc_getConfigEntry isEqualTo "true";
+        private _crewHelmet = [(_categoryConfig >> "crewHelmet"), "text", ""] call CBA_fnc_getConfigEntry;
+        private _disableTIEquipment = [(_categoryConfig >> "disableTIEquipment"), "text", "true"] call CBA_fnc_getConfigEntry;
+        private _canMoveDuringTransmission = [(_categoryConfig >> "canMoveDuringTransmission"), "text", "false"] call CBA_fnc_getConfigEntry isEqualTo "true";
 
         ///////
-        private _allItems = "true" configClasses (missionConfigFile >> "CfgGradBuymenu" >> _baseConfigName >> _configName);
+        private _allItems = "true" configClasses (missionConfigFile >> "CfgGradBuymenu" >> _baseConfigName >> _categoryConfigName);
         _listIndex = 0;
         private _allItemsExtracted = [];
         {
-            _config = _x;
-            _condition = [(_config >> "condition"), "text", "true"] call CBA_fnc_getConfigEntry;
+            _itemConfig = _x;
+            _condition = [(_itemConfig >> "condition"), "text", "true"] call CBA_fnc_getConfigEntry;
 
             if (call compile _condition) then {
-                private _itemConfigName = configName _config;
-                private _displayName = [(_config >> "displayName"), "text", [_itemConfigName] call grad_lbm_fnc_getDisplayName] call CBA_fnc_getConfigEntry;
-                private _stock = [(_config >> "stock"), "number", 999999] call CBA_fnc_getConfigEntry;
-                
-                private _description = [(_config >> "description"), "text", [_itemConfigName] call grad_lbm_fnc_getDescription] call CBA_fnc_getConfigEntry;
-                private _code = compile ([(_config >> "code"), "text", ""] call CBA_fnc_getConfigEntry);
-                private _picturePath = [(_config >> "picture"), "text", ""] call CBA_fnc_getConfigEntry;
+                private _itemConfigName = configName _itemConfig;
 
-                private _itemCargo = [(_config >> "itemCargo"), "array", []] call CBA_fnc_getConfigEntry;
-                private _magazineCargo = [(_config >> "magazineCargo"), "array", []] call CBA_fnc_getConfigEntry;
-                private _trackCargo = [(_config >> "trackCargo"), "number", 0] call CBA_fnc_getConfigEntry;
-                private _wheelCargo = [(_config >> "wheelCargo"), "number", 0] call CBA_fnc_getConfigEntry;
-                
-                private _removeMagazines = [(_config >> "removeMagazines"), "array", []] call CBA_fnc_getConfigEntry;
-
-                private _crew = [_itemConfigName,false] call BIS_fnc_crewCount;
-                private _fullCrew = [_itemConfigName,true] call BIS_fnc_crewCount;
-                private _cargo = _fullCrew - _crew;
-                private _speed = 0;
-                // diag_log format ["%1",_crew];
-                if (!isNull (configFile >> "CfgVehicles" >> _itemConfigName >> "maxSpeed")) then {
-                     _speed = getNumber( configFile >> "CfgVehicles" >> _itemConfigName >> "maxSpeed" );
-                };
-
-                if (_picturePath isEqualTo "") then {
-                    _picturePath = getText (configfile >> "CfgVehicles" >> _itemConfigName >> "editorPreview");
-                };
-
-                _allItemsExtracted pushBack [_displayName, _stock, _description, _code, _picturePath, _crew, _cargo, _speed, _baseConfigName, _categoryName, _itemConfigName, _isSpecial, _driverGPS, _crewHelmet, _disableTIEquipment, _itemCargo, _magazineCargo, _trackCargo, _wheelCargo, _removeMagazines, _canMoveDuringTransmission];
+                private _data = [_baseConfig, _itemConfig, false] call BC_buymenu_fnc_getVehicleParams;
+                _allItemsExtracted pushBack _data;
                 // diag_log str (_allItemsExtracted);
                 // copyToClipboard str (_allItemsExtracted);
                 
@@ -75,7 +52,7 @@ private _categoriesExtracted = [];
 
 
         _categoriesExtracted pushBack [
-            _categoryName, _minPlayerCount, _valueMaxInThisCat, _spawnCone, _allItemsExtracted
+            _baseConfigName, _categoryConfigName, _minPlayerCount, _valueMaxInThisCat, _spawnCone, _allItemsExtracted
         ];
     };
 } forEach _allCategories;
@@ -140,15 +117,27 @@ _ctrlTotalSideCount ctrlCommit 0;
 
 [false, _ctrlCrewCount, _ctrlCargoCount, _ctrlTotalSideCount, 0, 0, _valueTotalSideCount] call BC_buymenu_fnc_adjustCrewCargoCount;
 
-{   
-    private _multiplicator = _x;
 
-    if (count _categoriesExtracted < _forEachIndex) exitWith {};
-    private _categoryName = _categoriesExtracted select _forEachIndex select 0;
-    private _minPlayerCount = _categoriesExtracted select _forEachIndex select 1;
-    private _valueMaxInThisCat = _categoriesExtracted select _forEachIndex select 2;
-    private _spawnCone = _categoriesExtracted select _forEachIndex select 3;
-    private _data = _categoriesExtracted select _forEachIndex select 4;
+missionNamespace setVariable ["BC_cacheCurrentValuesForAbort", [
+    ["BC_buymenu_valueCrewCount", missionNamespace getVariable ["BC_buymenu_valueCrewCount", 0]],
+    ["BC_buymenu_valueCargoCount", missionNamespace getVariable ["BC_buymenu_valueCargoCount", 0]]
+]];
+
+player setVariable ["BC_categoriesExtracted", _categoriesExtracted];
+
+if (count _categoriesExtracted < 1) exitWith { hint "no buyables found"; };
+
+// iterate all cats
+for "_i" from 0 to (count _categoriesExtracted - 1) do {
+
+    private _multiplicator = _i * 5;
+
+    private _baseConfigName = _categoriesExtracted select _i select 0;
+    private _categoryName = _categoriesExtracted select _i select 1;
+    private _minPlayerCount = _categoriesExtracted select _i select 2;
+    private _valueMaxInThisCat = _categoriesExtracted select _i select 3;
+    private _spawnCone = _categoriesExtracted select _i select 4;
+    private _data = _categoriesExtracted select _i select 5;
     private _isLocked = _minPlayerCount > (count (playableUnits + switchableUnits));
 
     if (count _data < 1) exitWith {};
@@ -170,7 +159,7 @@ _ctrlTotalSideCount ctrlCommit 0;
     _headline ctrlsetFont "RobotoCondensedBold";
     _headline ctrlSetBackgroundColor [0,0,0,0];
     _headline ctrlSetTextColor [1,1,1,1];
-    _headline ctrlSetStructuredText parseText ("<t size='2' align='center' color='#666666'>" + _category + "</t>");
+    _headline ctrlSetStructuredText parseText ("<t size='2' align='center' color='#666666'>" + _categoryName + "</t>");
     _headline ctrlSetPosition [
         _columnWidth * _multiplicator + safezoneX + _columnWidth, 
         _rowHeight * 4 + safezoneY, 
@@ -183,9 +172,12 @@ _ctrlTotalSideCount ctrlCommit 0;
     _ctrlChosenInThisCat ctrlsetFont "RobotoCondensedBold";
     _ctrlChosenInThisCat ctrlSetBackgroundColor [0,0,0,0];
     _ctrlChosenInThisCat ctrlSetTextColor [1,1,1,1];
-    private _catValueIdentifier = format ["catValue_%1_%2", _baseConfigName, _categoryName];
-    private _valueChosenInThisCat = missionNamespace getVariable [_catValueIdentifier, 0];
+
+
+
+    private _valueChosenInThisCat = [_baseConfigName, _categoryName] call BC_buymenu_fnc_getCatGlobalCount;
     _ctrlChosenInThisCat setVariable ["value", _valueChosenInThisCat];
+
     private _formatting = "<t size='1' align='center' color='#333333'>";
     if (_valueChosenInThisCat isEqualTo _valueMaxInThisCat) then {
         _formatting = "<t size='1' align='center' color='#66aa66'>";
@@ -205,39 +197,47 @@ _ctrlTotalSideCount ctrlCommit 0;
     for "_i" from 1 to (count _data) do {
 
         (_data select (_i-1)) params [
-            "_displayName",
-            "_maxCount",
-            "_description",
-            "_code",
-            "_picturePath",
-            "_crew",
-            "_cargo",
-            "_speed",
             "_baseConfigName",
-            "_categoryName",
+            "_categoryConfigName",
             "_itemConfigName",
+            "_stock",
+            "_displayName",
+            "_description",
+            "_picturePath",
+            "_canMoveDuringTransmission",
+            "_terminal_position_offset",
+            "_terminal_position_vectorDirAndUp",
+            "_antennaOffset",
+            "_crew", 
+            "_cargo", 
+            "_speed",
             "_isSpecial",
-            "_driverGPS",
-            "_crewHelmet",
-            "_disableTIEquipment",
-            "_itemCargo",
-            "_magazineCargo",
-            "_trackCargo",
-            "_wheelCargo"
+            "_driverGPS", 
+            "_crewHelmet", 
+            "_disableTIEquipment", 
+            "_itemCargo", 
+            "_magazineCargo", 
+            "_trackCargo", 
+            "_wheelCargo", 
+            "_removeMagazines",
+            "_code"
         ];
 
-        
+
+       
         // ctrlItemCount is our all knowing item
         private _ctrlItemCount = _display ctrlCreate ["RscStructuredText", -1];
-        private _valueItemCount = [_baseConfigName, _itemConfigName] call BC_buymenu_fnc_getGlobalCount;
+        private _valueItemCount = [_itemConfigName, _baseConfigName] call BC_buymenu_fnc_getItemGlobalCount;
         _ctrlItemCount setVariable ["value", _valueItemCount];
+        _ctrlItemCount setVariable ["stock", _stock];
         _ctrlItemCount setVariable ["minValue", _valueItemCount];
-        _ctrlItemCount setVariable ["maxValue", _maxCount];
+        _ctrlItemCount setVariable ["maxValue", _stock];
         _ctrlItemCount setVariable ["ctrlTotalSideCount", _ctrlTotalSideCount];
         _ctrlItemCount setVariable ["valueTotalSideCount", _valueTotalSideCount];
         _ctrlItemCount setVariable ["ctrlChosenInThisCat", _ctrlChosenInThisCat];
         _ctrlItemCount setVariable ["valueMaxInThisCat", _valueMaxInThisCat];
         _ctrlItemCount setVariable ["baseConfigName", _baseConfigName];
+        _ctrlItemCount setVariable ["itemConfigName", _itemConfigName];
         _ctrlItemCount setVariable ["categoryName", _categoryName];
         _ctrlItemCount setVariable ["crew", _crew];
         _ctrlItemCount setVariable ["cargo", _cargo];
@@ -300,7 +300,7 @@ _ctrlTotalSideCount ctrlCommit 0;
             ];
             _btnPlus ctrlSetTooltip "Increase Count";
             _btnPlus setVariable ["parentControl", _ctrlItemCount];
-            if (_valueItemCount >= _maxCount || _valueChosenInThisCat >= _valueMaxInThisCat || _isLocked) then {
+            if (_valueItemCount >= _stock || _valueChosenInThisCat >= _valueMaxInThisCat || _isLocked) then {
                 _btnPlus ctrlEnable false;
             };
             _btnPlus ctrlAddEventHandler [
@@ -323,9 +323,9 @@ _ctrlTotalSideCount ctrlCommit 0;
             ];
             _btnMinus ctrlSetTooltip "Reduce Count";
             _btnMinus setVariable ["parentControl", _ctrlItemCount];
-            if (_valueItemCount == 0) then {
-                _btnMinus ctrlEnable false;
-            };
+            
+            _btnMinus ctrlEnable false;
+            
             _btnMinus ctrlAddEventHandler [
                 "MouseButtonDown",
                 "[_this, false] call BC_buymenu_fnc_changeValue;"
@@ -378,9 +378,7 @@ _ctrlTotalSideCount ctrlCommit 0;
 
     };
 
-} forEach [
-    0,5,10,15,20
-];
+};
 
 
 if (player getVariable ["BC_potentToBuy", false]) then {
@@ -423,3 +421,90 @@ if (player getVariable ["BC_potentToBuy", false]) then {
 uiNamespace setVariable ["BC_buymenu_display", _display];
 uiNamespace setVariable ["BC_buymenu_spawnCone", _spawnCone];
 uiNamespace setVariable ["BC_buymenu_startVehicle", _startVehicle];
+
+if (player getVariable ["BC_potentToBuy", false]) then {
+        
+        // caching of bought stuff has to be reset
+        _display displayAddEventHandler ["Unload", {
+                params ["_display", "_exitCode"];
+
+
+                private _categoriesExtracted = player getVariable ["BC_categoriesExtracted", []];
+                if (count _categoriesExtracted < 1) exitWith {
+                    hint "no categories cache found";
+                };
+
+                for "_i" from 0 to (count _categoriesExtracted - 1) do {
+                    private _baseConfigName = _categoriesExtracted select _i select 0;
+                    private _categoryName = _categoriesExtracted select _i select 1;
+                    private _data = _categoriesExtracted select _i select 5;
+
+                    if (count _data < 1) exitWith {};
+
+                    for "_j" from 1 to (count _data) do {
+
+                            (_data select (_j-1)) params [
+                                "_baseConfigName",
+                                "_categoryConfigName",
+                                "_itemConfigName",
+                                "_stock",
+                                "_displayName",
+                                "_description",
+                                "_picturePath",
+                                "_canMoveDuringTransmission",
+                                "_terminal_position_offset",
+                                "_terminal_position_vectorDirAndUp",
+                                "_antennaOffset",
+                                "_crew", 
+                                "_cargo", 
+                                "_speed",
+                                "_isSpecial",
+                                "_driverGPS", 
+                                "_crewHelmet", 
+                                "_disableTIEquipment", 
+                                "_itemCargo", 
+                                "_magazineCargo", 
+                                "_trackCargo", 
+                                "_wheelCargo", 
+                                "_removeMagazines",
+                                "_code"
+                            ];
+
+                            // single vehicle count
+                            private _itemCacheIdentifier = format ["BC_buymenu_boughtItemCache_%1_%2", _baseConfigName, _itemConfigName];
+                            private _itemCacheValue = missionNamespace getVariable [_itemCacheIdentifier, 0];
+
+                            // store values for future usage
+                            private _itemValueIdentifier = format ["BC_buymenu_boughtItemValues_%1_%2", _baseConfigName, _itemConfigName];                         
+                            private _existingItemCountValue = missionNamespace getVariable [_itemValueIdentifier, 0];
+
+                            // decide to store cached values or discard them (adding 0)
+                            private _valueToStore = [_itemCacheValue, 0] select (_exitCode == 2);
+                            private _newValue = _valueToStore + _existingItemCountValue;
+                            // systemChat ("storing item: " + str _newValue);
+                            missionNamespace setVariable [_itemCacheIdentifier, 0, true];
+                            missionNamespace setVariable [_itemValueIdentifier, _newValue, true];
+
+                    };
+
+                    // category values
+                    private _catCacheIdentifier = format ["BC_buymenu_catValueCache_%1_%2", _baseConfigName, _categoryName];
+                    private _catCacheValue = missionNamespace getVariable [_catCacheIdentifier, 0];
+
+                    // diag_log format ["getting cache for %1, %2", _catCacheIdentifier, _catCacheValue];
+
+                    // store values for future usage
+                    private _catValueIdentifier = format ["BC_buymenu_catValueValues_%1_%2", _baseConfigName, _categoryName];
+                    private _existingCatCountValue = missionNamespace getVariable [_catValueIdentifier, 0];
+
+                    // diag_log format ["getting value for %1, %2", _catValueIdentifier, _existingCatCountValue];
+                    // decide to store cached values or discard them (adding 0)
+                    private _catValueToStore = [_catCacheValue, 0] select (_exitCode == 2);
+                    private _newValue = _catValueToStore + _existingCatCountValue;
+                    // systemChat ("storing cat: " + str _newValue);
+                    missionNamespace setVariable [_catCacheIdentifier, 0, true];
+                    missionNamespace setVariable [_catValueIdentifier, _newValue, true];
+
+            };
+        }];
+};

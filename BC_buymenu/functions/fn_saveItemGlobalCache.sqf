@@ -4,7 +4,7 @@ _data params [
     "_baseConfigName",
     "_categoryConfigName",
     "_itemConfigName",
-    "_stock", 
+    "_stock",
     "_displayName",
     "_description",
     "_picturePath",
@@ -27,15 +27,16 @@ _data params [
     "_code"
 ];
 
-private _identifier = format ["BC_buymenu_spawnQueue_%1", _baseConfigName];
-private _currentQueue = missionNamespace getVariable [_identifier, []];
+private _identifier = format ["BC_buymenu_boughtItemCache_%1_%2", _baseConfigName, _itemConfigName];
+private _vehicleCountCacheValue = missionNamespace getVariable [_identifier, 0];
 
 if (_add) then {
-    _currentQueue pushBack _data;
-} else {
-    _currentQueue deleteAt (_currentQueue find _data);
+    _vehicleCountCacheValue = _vehicleCountCacheValue + 1;
+} else {    
+    if (_vehicleCountCacheValue > 0) then {
+        _vehicleCountCacheValue = _vehicleCountCacheValue - 1;
+    };
 };
 
-// diag_log format ["_currentQueue %1", _currentQueue];
-
-missionNamespace setVariable [_identifier, _currentQueue, true];
+// diag_log format ["saving _vehicleCountCacheValue %1 : %2", _identifier, _vehicleCountCacheValue];
+missionNamespace setVariable [_identifier, _vehicleCountCacheValue, true];

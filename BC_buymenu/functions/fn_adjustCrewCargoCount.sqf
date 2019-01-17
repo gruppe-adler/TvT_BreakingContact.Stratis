@@ -26,8 +26,8 @@ if ((_valueCrewCount + _valueCargoCount) < _valueTotalSideCount) then {
     _formatting = _formattingNotReached;
 };
 
-missionNamespace setVariable ["BC_buymenu_valueCrewCount", _valueCrewCount];
-missionNamespace setVariable ["BC_buymenu_valueCargoCount", _valueCargoCount];
+missionNamespace setVariable ["BC_buymenu_valueCrewCount", _valueCrewCount, true];
+missionNamespace setVariable ["BC_buymenu_valueCargoCount", _valueCargoCount, true];
 
 _ctrlCrewCount ctrlSetStructuredText parseText (_formatting + str _valueCrewCount + " </t><br/><t size='0.5' align='center' color='#666666'>Crew" + "</t>");
 _ctrlCargoCount ctrlSetStructuredText parseText (_formatting + str _valueCargoCount + " </t><br/><t size='0.5' align='center' color='#666666'>Cargo" + "</t>");
