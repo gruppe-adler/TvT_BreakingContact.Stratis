@@ -38,5 +38,5 @@ if (_add) then {
     };
 };
 
-diag_log format ["saving _vehicleCountCacheValue %1 : %2", _identifier, _vehicleCountCacheValue];
+// diag_log format ["saving _vehicleCountCacheValue %1 : %2", _identifier, _vehicleCountCacheValue];
 missionNamespace setVariable [_identifier, _vehicleCountCacheValue, true];

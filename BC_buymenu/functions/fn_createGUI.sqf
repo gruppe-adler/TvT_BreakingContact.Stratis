@@ -176,8 +176,8 @@ for "_i" from 0 to (count _categoriesExtracted - 1) do {
 
 
     private _valueChosenInThisCat = [_baseConfigName, _categoryName] call BC_buymenu_fnc_getCatGlobalCount;
-
     _ctrlChosenInThisCat setVariable ["value", _valueChosenInThisCat];
+
     private _formatting = "<t size='1' align='center' color='#333333'>";
     if (_valueChosenInThisCat isEqualTo _valueMaxInThisCat) then {
         _formatting = "<t size='1' align='center' color='#66aa66'>";
@@ -441,8 +441,6 @@ if (player getVariable ["BC_potentToBuy", false]) then {
 
                     if (count _data < 1) exitWith {};
 
-                    hint str ("_data of cache: " + str _data);
-
                     for "_j" from 1 to (count _data) do {
 
                             (_data select (_j-1)) params [
@@ -481,28 +479,31 @@ if (player getVariable ["BC_potentToBuy", false]) then {
                             private _existingItemCountValue = missionNamespace getVariable [_itemValueIdentifier, 0];
 
                             // decide to store cached values or discard them (adding 0)
-                            private _storeItemValue = [_itemCacheValue, 0] select (_exitCode == 2);
-                            private _newValue = _storeItemValue + _existingItemCountValue;
-                            systemChat ("storing item: " + str _newValue);
+                            private _valueToStore = [_itemCacheValue, 0] select (_exitCode == 2);
+                            private _newValue = _valueToStore + _existingItemCountValue;
+                            // systemChat ("storing item: " + str _newValue);
                             missionNamespace setVariable [_itemCacheIdentifier, 0, true];
                             missionNamespace setVariable [_itemValueIdentifier, _newValue, true];
 
                     };
 
-                // category values
-                private _catCacheIdentifier = format ["BC_buymenu_catValueCache_%1_%2", _baseConfigName, _categoryName];
-                private _catCacheValue = missionNamespace getVariable [_catCacheIdentifier, 0];
+                    // category values
+                    private _catCacheIdentifier = format ["BC_buymenu_catValueCache_%1_%2", _baseConfigName, _categoryName];
+                    private _catCacheValue = missionNamespace getVariable [_catCacheIdentifier, 0];
 
-                // store values for future usage
-                private _catValueIdentifier = format ["BC_buymenu_catValueValues_%1_%2", _baseConfigName, _categoryName];
-                private _existingCatCountValue = missionNamespace getVariable [_catValueIdentifier, 0];
+                    // diag_log format ["getting cache for %1, %2", _catCacheIdentifier, _catCacheValue];
 
-                // decide to store cached values or discard them (adding 0)
-                private _storeCatValue = [_catCacheValue, 0] select (_exitCode == 2);
-                private _newValue = _storeCatValue + _existingCatCountValue;
-                systemChat ("storing cat: " + str _newValue);
-                missionNamespace setVariable [_catCacheIdentifier, 0, true];
-                missionNamespace setVariable [_catValueIdentifier, _newValue, true];
+                    // store values for future usage
+                    private _catValueIdentifier = format ["BC_buymenu_catValueValues_%1_%2", _baseConfigName, _categoryName];
+                    private _existingCatCountValue = missionNamespace getVariable [_catValueIdentifier, 0];
+
+                    // diag_log format ["getting value for %1, %2", _catValueIdentifier, _existingCatCountValue];
+                    // decide to store cached values or discard them (adding 0)
+                    private _catValueToStore = [_catCacheValue, 0] select (_exitCode == 2);
+                    private _newValue = _catValueToStore + _existingCatCountValue;
+                    // systemChat ("storing cat: " + str _newValue);
+                    missionNamespace setVariable [_catCacheIdentifier, 0, true];
+                    missionNamespace setVariable [_catValueIdentifier, _newValue, true];
 
             };
         }];

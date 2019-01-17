@@ -10,7 +10,7 @@ private _driverGPS = [(_categoryConfig >> "driverGPS"), "text", "true"] call CBA
 private _crewHelmet = [(_categoryConfig >> "crewHelmet"), "text", ""] call CBA_fnc_getConfigEntry;
 private _disableTIEquipment = [(_categoryConfig >> "disableTIEquipment"), "text", "true"] call CBA_fnc_getConfigEntry;
 
-diag_log format ["_itemConfig %1, _isSpecial %2, _crewHelmet %3", _itemConfig, _isSpecial, _crewHelmet];
+// diag_log format ["_itemConfig %1, _isSpecial %2, _crewHelmet %3", _itemConfig, _isSpecial, _crewHelmet];
 
 private _canMoveDuringTransmission = [(_itemConfig >> "canMoveDuringTransmission"), "text", "false"] call CBA_fnc_getConfigEntry isEqualTo "true";
 private _terminal_position_offset = ([(_itemConfig >> "terminalPositionOffset"), "array", []] call CBA_fnc_getConfigEntry);
