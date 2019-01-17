@@ -78,7 +78,7 @@ hyp_fnc_traceFire = {
     _unit setVariable ["hyp_var_tracer_activeIndexes", []];
     _unit setVariable ["hyp_var_tracer_initialized", true];
 
-    private _foo = [_this, 6, false, [false]] call BIS_fnc_param;
+    private _foo = param [6, 6, false, [false]];
 
     private _eventHandle = _unit addEventHandler ["fired", {
         [_this, (position _foo), (velocity _foo) distance [0,0,0]] spawn hyp_fnc_traceFireEvent;
