@@ -27,13 +27,8 @@ _data params [
     "_code"
 ];
 
-private _identifier = format ["BC_buymenu_buyList_%1", _baseConfigName];
-private _boughtVehicles = missionNamespace getVariable [_identifier, []];
-
-
-private _vehicleCountCacheIdentifier = format ["BC_cacheValueFor_%1", _itemConfigName];
-private _vehicleCountCacheValue = missionNamespace getVariable [_vehicleCountCache, 0];
-private _cacheCurrentValuesForAbort = missionNamespace getVariable ["BC_cacheCurrentValuesForAbort", []];
+private _identifier = format ["BC_buymenu_boughtVehicleCache_%1", _itemConfigName];
+private _vehicleCountCacheValue = missionNamespace getVariable [_identifier, 0];
 
 
 if (_add) then {
@@ -47,8 +42,4 @@ if (_add) then {
     };
 };
 
-_cacheCurrentValuesForAbort pushBackUnique [_vehicleCountCacheIdentifier, _vehicleCountCacheValue];
-
-
-missionNamespace setVariable [_identifier, _boughtVehicles, true];
-missionNamespace setVariable ["BC_cacheCurrentValuesForAbort", _cacheCurrentValuesForAbort];
+missionNamespace setVariable [_identifier, _vehicleCountCacheValue, true];

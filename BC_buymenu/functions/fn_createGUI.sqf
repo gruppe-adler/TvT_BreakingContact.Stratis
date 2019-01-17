@@ -225,7 +225,7 @@ missionNamespace setVariable ["BC_cacheCurrentValuesForAbort", [
        
         // ctrlItemCount is our all knowing item
         private _ctrlItemCount = _display ctrlCreate ["RscStructuredText", -1];
-        private _valueItemCount = [_baseConfigName, _itemConfigName] call BC_buymenu_fnc_getGlobalCount;
+        private _valueItemCount = [_itemConfigName] call BC_buymenu_fnc_getGlobalCount;
         _ctrlItemCount setVariable ["value", _valueItemCount];
         _ctrlItemCount setVariable ["stock", _stock];
         _ctrlItemCount setVariable ["minValue", _valueItemCount];
@@ -421,20 +421,51 @@ uiNamespace setVariable ["BC_buymenu_display", _display];
 uiNamespace setVariable ["BC_buymenu_spawnCone", _spawnCone];
 uiNamespace setVariable ["BC_buymenu_startVehicle", _startVehicle];
 
-_display displayAddEventHandler ["Unload", {
-        params ["_display", "_exitCode"];
+if (player getVariable ["BC_potentToBuy", false]) then {
+        // remove count from cache
+        _display displayAddEventHandler ["Unload", {
+                params ["_display", "_exitCode"];
 
-        if (_exitCode == 2) then {
+                    for "_i" from 1 to (count _data) do {
 
-            private _cachedValues = missionNamespace getVariable ["BC_cacheCurrentValuesForAbort", []];
-            diag_log format ["_cachedValues %1", _cachedValues];
+                            (_data select (_i-1)) params [
+                                "_baseConfigName",
+                                "_categoryConfigName",
+                                "_itemConfigName",
+                                "_stock",
+                                "_displayName",
+                                "_description",
+                                "_picturePath",
+                                "_canMoveDuringTransmission",
+                                "_terminal_position_offset",
+                                "_terminal_position_vectorDirAndUp",
+                                "_antennaOffset",
+                                "_crew", 
+                                "_cargo", 
+                                "_speed",
+                                "_isSpecial",
+                                "_driverGPS", 
+                                "_crewHelmet", 
+                                "_disableTIEquipment", 
+                                "_itemCargo", 
+                                "_magazineCargo", 
+                                "_trackCargo", 
+                                "_wheelCargo", 
+                                "_removeMagazines",
+                                "_code"
+                            ];
 
-            {
-                _x params ["_identifier", "_value"];
+                            private _identifierCache = format ["BC_buymenu_boughtVehicleCache_%1", _itemConfigName];
+                            private _vehicleCountCacheValue = missionNamespace getVariable [_identifierCache, 0];
 
-                missionNamespace setVariable [_identifier, _value, true];
-                // systemChat "resetting " + (str _identifier) + " to " + (str _value);
-            } forEach _cachedValues;
+                            private _identifierSave = format ["BC_buymenu_boughtVehicleValues_%1", _itemConfigName];
+                            private _vehicleCountValue = missionNamespace getVariable [_identifierSave, 0];
 
-        };
-}];
+                            // decide to store cached values or discard them
+                            private _storeValue = [0, _identifierCache] select (_exitCode == 2);
+                            missionNamespace setVariable [_identifierCache, 0, true];
+                            missionNamespace setVariable [_identifierSave, _storeValue, true];
+
+                    };
+        }];
+};
