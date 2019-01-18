@@ -45,7 +45,7 @@ private _transferBuyOption = ["transferBuyOption", "Transfer Buyability", "",
   params ["_target", "_player"];
   _player setVariable ["BC_potentToBuy", false, true];
   _target setVariable ["BC_potentToBuy", true, true];
-  hint "Transferred authorization to buy to " + (name _target);
+  hint ("Transferred authorization to buy to " + (name _target));
   ["The Commander authorized you to buy."] remoteExec ["hint", _target];
 },
 { player getVariable ["BC_potentToBuy", false] }] call ace_interact_menu_fnc_createAction;
