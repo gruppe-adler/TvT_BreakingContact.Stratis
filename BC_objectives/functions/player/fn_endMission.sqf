@@ -8,36 +8,35 @@ missionNamespace setVariable ["BC_missionResult", _result];
 uiSleep 3;
 
 
-_radioVeh = missionNameSpace getVariable ["GRAD_tracking_radioVehObj", objNull];
-_killer = _radioVeh getVariable ["ace_medical_lastDamageSource", objNull];
+private _radioVeh = missionNameSpace getVariable ["GRAD_tracking_radioVehObj", objNull];
+private _killer = _radioVeh getVariable ["ace_medical_lastDamageSource", objNull];
 
-_killerSide = civilian;
+private _killerSide = civilian;
 
 if (!(isNull _killer)) then {
      _killerSide = side _killer;
 };
 
 if (_killerSide isEqualTo civilian) then {
-     _BCkiller = _radioVeh getVariable ["BC_lastDamageSource_causedBy", objNull];
+     private _BCkiller = _radioVeh getVariable ["BC_lastDamageSource_causedBy", objNull];
      if (!(isNull _BCkiller)) then {
           _killerSide = side _BCkiller;
      };
 };
 
 diag_log format ["killerside of truck is %1", _killerSide];
-adminLog("killerside is " + str _killerSide);
 
 private _transmissionPercentage = missionNamespace getVariable ["BC_transmissionPercentage", "0"];
 
-switch (_winner) do { 
-     case "west" : {  
+switch (_winner) do {
+     case "west" : {
           ["<img size= '6' shadow='false' image='pic\gruppe-adler.paa'/><br/><t size='.7' color='#FFFFFF'>" + localize "str_GRAD_thankyouforplaying_blufor" + "</t><br /><t size='.5'>" + format [localize "str_GRAD_transmissionResult", _transmissionPercentage + "%",round (CBA_missionTime/60)] + "<br />" + localize "str_GRAD_thankyouforplaying2" + "</t>",0,0,3,2] spawn BIS_fnc_dynamicText;
           diag_log format ["winner west"];
-     }; 
-     case "east" : {  
+     };
+     case "east" : {
           ["<img size= '6' shadow='false' image='pic\gruppe-adler.paa'/><br/><t size='.7' color='#FFFFFF'>" + localize "str_GRAD_thankyouforplaying_opfor" + "</t><br /><t size='.5'>" + format [localize "str_GRAD_transmissionResult", _transmissionPercentage + "%",round (CBA_missionTime/60)] + "<br />" + localize "str_GRAD_thankyouforplaying2" + "</t>",0,0,3,2] spawn BIS_fnc_dynamicText;
           diag_log format ["winner east"];
-     }; 
+     };
      case "draw" : {
           if (playerSide isEqualTo _killerSide && playerSide isEqualTo west) then {
                ["<img size= '6' shadow='false' image='pic\gruppe-adler.paa'/><br/><t size='.7' color='#FFFFFF'>" + localize "str_GRAD_thankyouforplaying_opfor" + "</t><br /><t size='.5'>" + format [localize "str_GRAD_transmissionResult", _transmissionPercentage + "%",round (CBA_missionTime/60)] + "<br />" + localize "str_GRAD_thankyouforplaying2" + "</t>",0,0,3,2] spawn BIS_fnc_dynamicText;
@@ -56,11 +55,11 @@ switch (_winner) do {
                          diag_log format ["draw, winner east"];
                     };
                };
-          };          
+          };
      };
      default {
           diag_log format ["error, no winner %1", _winner];
-     }; 
+     };
 };
 
 
@@ -68,7 +67,7 @@ switch (_winner) do {
 
 ["GRAD_replay_preparingPlayback",
 {
-    MISSION_COMPLETED = true; 
+    MISSION_COMPLETED = true;
     publicVariable "MISSION_COMPLETED";
 }] call CBA_fnc_addEventHandler;
 
@@ -80,11 +79,11 @@ switch (_winner) do {
 	// TODO this is most ugly but necessary for debug currently
 	switch (_result) do {
 		case "elimination": {
-			if (_winner == "east") then { 
-				"OpforWinsByElimination" call BIS_fnc_endMission; 
+			if (_winner == "east") then {
+				"OpforWinsByElimination" call BIS_fnc_endMission;
 			};
-			if (_winner == "west") then { 
-				"BluforWinsByElimination" call BIS_fnc_endMission; 
+			if (_winner == "west") then {
+				"BluforWinsByElimination" call BIS_fnc_endMission;
 			};
 			if (_winner != "east" && _winner != "west") then {
 				"DrawError" call BIS_fnc_endMission;

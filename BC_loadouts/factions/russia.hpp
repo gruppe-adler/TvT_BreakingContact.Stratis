@@ -1,19 +1,18 @@
-class russia {
+class USA {
      class AllUnits {
-          primaryWeapon = "rhs_weap_ak105_zenitco01_b33";
-          primaryWeaponMagazine = "rhs_30Rnd_545x39_7N10_AK"; 
-          primaryWeaponMuzzle = "rhs_acc_dtk1";
-          primaryWeaponPointer = "rhs_acc_perst3";
-          primaryWeaponOptics = "rhs_acc_1p87";
-          handgunWeapon = "rhs_weap_pya";
-          handgunWeaponMagazine = "rhs_mag_9x19_17";
-          uniform = "rhs_uniform_flora_patchless_alt";
-          vest = "rhs_6b13_6sh92_vog";
-          backpack = "rhs_assault_umbts";
-          headgear = "rhs_6b26";
+          primaryWeapon = "rhs_weap_m4a1_carryhandle";
+          primaryWeaponMagazine = "rhs_mag_30Rnd_556x45_M855A1_Stanag";
+          primaryWeaponPointer = "FHQ_acc_ANPEQ15_black";
+          primaryWeaponOptics = "FHQ_optic_HWS";
+          handgunWeapon = "rhsusf_weap_m9";
+          handgunWeaponMagazine = "rhsusf_mag_15Rnd_9x19_JHP";
+          uniform = "rhs_uniform_FROG01_wd";
+          vest = "rhsusf_mbav_rifleman";
+          backpack = "rhsusf_assault_eagleaiii_coy";
+          headgear = "rhsusf_lwh_helmet_marpatwd_headset_blk2";
           binoculars = "Binocular";
           map = "ItemMap";
-          radio = "TFAR_fadak";
+          radio = "TFAR_anprc152";
           compass = "ItemCompass";
           watch = "ItemWatch";
           nvgoggles = "";
@@ -21,79 +20,75 @@ class russia {
 
      class Type {
           class Soldier_F {
-               gps = "";
-               addItemsToUniform[] = {"ACE_fieldDressing","ACE_MapTools","ACE_Flashlight_KSF1",LIST_2("rhs_mag_9x19_17")};
-               addItemsToVest[] = {"SmokeShell",LIST_4("rhs_30Rnd_545x39_7N10_AK"),LIST_2("rhs_mag_rgd5"),LIST_2("rhs_mag_rdg2_white")};
-               addItemsToBackpack[] = {LIST_6("ACE_fieldDressing"),LIST_2("ACE_epinephrine"),LIST_2("ACE_morphine")};
+              gps = "";
+              addItemsToUniform[] = {LIST_9("ACE_fieldDressing"),LIST_2("ACE_epinephrine"),LIST_3("ACE_morphine"),LIST_2("ACE_tourniquet"),"ACE_MapTools","ACE_Flashlight_XL50",LIST_2("rhsusf_mag_15Rnd_9x19_JHP")};
+              addItemsToVest[] = {LIST_4("rhs_mag_30Rnd_556x45_M855A1_Stanag"),LIST_2("rhsusf_mag_15Rnd_9x19_JHP"),LIST_2("rhs_mag_m67"),LIST_2("SmokeShell")};
+              addItemsToBackpack[] = {};
           };
-          class Engineer_F: Soldier_F {
-               addItemsToVest[] = {"SmokeShell",LIST_7("rhs_30Rnd_545x39_7N10_AK"),LIST_2("rhs_mag_rgd5"),LIST_2("rhs_mag_rdg2_white")};
+          class Engineer_F: Soldier_F{
                backpack = "rhssaf_kitbag_smb";
                addItemsToBackpack[] = {"toolkit", LIST_6("ACE_fieldDressing"),LIST_2("ACE_epinephrine"),LIST_2("ACE_morphine"),"grad_axe","ACE_Fortify","ACE_EntrenchingTool","ACE_DefusalKit"};
           };
-
           class HeavyGunner_F: Soldier_F {
-               primaryWeapon = "rhs_weap_pkp";
-               primaryWeaponMagazine = "rhs_100Rnd_762x54mmR_green"; 
-               primaryWeaponOptics = "rhs_acc_ekp8_02";
-               vest = "rhs_6b13_6sh92_vog";
-               addItemsToVest[] = {LIST_2("rhs_mag_rgd5"),LIST_2("rhs_mag_rdg2_white"),"rhs_100Rnd_762x54mmR_green"};
-               backpack = "rhssaf_kitbag_smb";
-               addItemsToBackpack[] = {LIST_6("ACE_fieldDressing"),LIST_2("ACE_epinephrine"),LIST_2("ACE_morphine"),LIST_2("rhs_100Rnd_762x54mmR_green")};
-          };
-          class Soldier_AHAT_F: Soldier_F {
-               addItemsToBackpack[] = {LIST_6("ACE_fieldDressing"),LIST_2("ACE_epinephrine"),LIST_2("ACE_morphine"),LIST_2("rhs_rpg7_PG7V_mag")};
+               primaryWeapon = "rhs_weap_m240B";
+               primaryWeaponMagazine = "rhsusf_100Rnd_762x51_m62_tracer";
+               addItemsToUniform[] = {LIST_5("ACE_fieldDressing"),LIST_2("ACE_epinephrine"),LIST_3("ACE_morphine"),LIST_2("ACE_tourniquet"),"ACE_MapTools","ACE_Flashlight_XL50"};
+               addItemsToVest[] = {"rhs_mag_m67","SmokeShell","rhsusf_100Rnd_762x51_m62_tracer","rhsusf_50Rnd_762x51"};
+               addItemsToBackpack[] = {LIST_2("rhsusf_100Rnd_762x51_m62_tracer")};
           };
           class Soldier_AR_F: Soldier_F {
-               primaryWeapon = "rhs_weap_akmn";
-               primaryWeaponMagazine = "rhs_75Rnd_762x39mm_tracer"; 
-               primaryWeaponMuzzle = "rhs_acc_dtk1l";
-               addItemsToVest[] = {LIST_2("HandGrenade"),"SmokeShell","SmokeShellRed",LIST_2("rhs_mag_rdg2_white"),LIST_2("rhs_mag_rgd5"),"rhs_75Rnd_762x39mm_tracer"};
-               backpack = "rhssaf_kitbag_smb";
-               addItemsToBackpack[] = {LIST_8("rhs_75Rnd_762x39mm_tracer")};
+               primaryWeapon = "rhs_weap_m249_pip_S";
+               primaryWeaponMagazine = "200Rnd_556x45_Box_Tracer_Red_F";
+               addItemsToUniform[] = {LIST_5("ACE_fieldDressing"),LIST_2("ACE_epinephrine"),LIST_3("ACE_morphine"),LIST_2("ACE_tourniquet"),"ACE_MapTools","ACE_Flashlight_XL50",LIST_2("rhsusf_mag_15Rnd_9x19_JHP")};
+               addItemsToVest[] = {LIST_2("rhsusf_mag_15Rnd_9x19_JHP"),"rhs_mag_m67",LIST_2("SmokeShell"),"200Rnd_556x45_Box_Tracer_Red_F"};
+               addItemsToBackpack[] = {LIST_3("200Rnd_556x45_Box_Tracer_Red_F")};
           };
-
           class Soldier_AAR_F: Soldier_F {
-               addItemsToVest[] = {LIST_2("HandGrenade"),"SmokeShell","SmokeShellRed",LIST_2("rhs_mag_rdg2_white"),LIST_2("rhs_mag_rgd5"),"rhs_75Rnd_762x39mm_tracer"};
+               addItemsToUniform[] = {LIST_5("ACE_fieldDressing"),LIST_2("ACE_epinephrine"),LIST_3("ACE_morphine"),LIST_2("ACE_tourniquet"),"ACE_MapTools","ACE_Flashlight_XL50",LIST_2("rhsusf_mag_15Rnd_9x19_JHP")};
+               addItemsToBackpack[] = {LIST_1("200Rnd_556x45_Box_Tracer_Red_F")};
+          };
+          class Soldier_AAT_F: Soldier_F {
+               addItemsToVest[] = {LIST_8("rhs_mag_30Rnd_556x45_M855A1_Stanag"),LIST_2("rhsusf_mag_15Rnd_9x19_JHP"),LIST_2("rhs_mag_m67"),LIST_2("SmokeShell")};
+               backpack = "B_Carryall_khk";
+               addItemsToBackpack[] = {LIST_2("rhs_mag_maaws_HEAT")};
           };
 
           class Soldier_AT_F: Soldier_F {
-               secondaryWeapon = "rhs_weap_rpg7";
-               addItemsToBackpack[] = {LIST_6("ACE_fieldDressing"),LIST_2("ACE_epinephrine"),LIST_2("ACE_morphine"),"rhs_rpg7_PG7V_mag"};
+               secondaryWeapon = "rhs_weap_maaws";
+               addItemsToUniform[] = {LIST_5("ACE_fieldDressing"),LIST_2("ACE_epinephrine"),LIST_3("ACE_morphine"),LIST_2("ACE_tourniquet"),"ACE_MapTools","ACE_Flashlight_XL50"};
+               addItemsToVest[] = {LIST_3("rhs_mag_30Rnd_556x45_M855A1_Stanag"),"SmokeShell"};
+               backpack = "B_Carryall_cbr";
+               addItemsToBackpack[] = {"rhs_mag_maaws_HEAT"};
           };
           class Soldier_A_F: Soldier_F {
-               addItemsToUniform[] = {"ACE_fieldDressing","ACE_MapTools","ACE_Flashlight_KSF1",LIST_2("rhs_mag_9x19_17")};
-               backpack = "rhssaf_kitbag_smb";
-               addItemsToBackpack[] = {LIST_6("ACE_fieldDressing"),LIST_2("ACE_epinephrine"),LIST_2("ACE_morphine"),LIST_4("rhs_100Rnd_762x54mmR_green")};
+               addItemsToBackpack[] = {LIST_4("rhsusf_100Rnd_762x51_m62_tracer")};
           };
 
           class Soldier_LAT_F: Soldier_F {
-               secondaryWeapon = "rhs_weap_rpg26";
-               addItemsToVest[] = {"SmokeShell",LIST_7("rhs_30Rnd_545x39_7N10_AK"),LIST_2("rhs_mag_rgd5"),LIST_2("rhs_mag_rdg2_white"),"rhs_rpg26_mag"};
-               backpack = "rhs_assault_umbts";       
+               secondaryWeapon = "rhs_weap_m72a7";
+               addItemsToUniform[] = {LIST_5("ACE_fieldDressing"),LIST_2("ACE_epinephrine"),LIST_3("ACE_morphine"),LIST_2("ACE_tourniquet"),"ACE_MapTools","ACE_Flashlight_XL50",LIST_2("rhsusf_mag_15Rnd_9x19_JHP"),"rhs_m72a7_mag"};
           };
 
           class Medic_F: Soldier_F {
+               backpack = "rhsusf_assault_eagleaiii_coy";
                addItemsToBackpack[] = {LIST_10("ACE_fieldDressing"), LIST_10("ACE_morphine"), LIST_10("ACE_epinephrine"), LIST_8("ACE_bloodIV_250"), LIST_2("HandGrenade")};
           };
           class Soldier_TL_F: Soldier_F {
                gps = "ItemGPS";
-               primaryWeapon = "rhs_weap_ak103_gp25_npz";
-               primaryWeaponMagazine = "rhs_30Rnd_762x39mm_polymer_tracer";
-               handgunWeapon = "hgun_Rook40_F";
-               handgunWeaponMagazine = "";
-               addItemsToUniform[] = {LIST_7("ACE_fieldDressing"),LIST_2("ACE_epinephrine"),LIST_2("ACE_morphine"),LIST_2("rhs_mag_9x19_17")};
-               addItemsToVest[] = {LIST_2("rhs_mag_rdg2_white"),LIST_2("rhs_mag_rgd5"),LIST_5("rhs_30Rnd_762x39mm_polymer_tracer")};
-               backpack = "TFAR_mr3000_rhs";
-               addItemsToBackpack[] = {"ACE_Flashlight_KSF1",LIST_2("ACE_tourniquet"),"rhs_mag_rdg2_white",LIST_3("rhs_30Rnd_762x39mm_polymer_tracer"),LIST_2("rhs_VG40MD_Green"),LIST_2("rhs_VG40MD_Red"),"rhs_VG40MD_White"};
+               primaryWeapon = "rhs_weap_m4a1_carryhandle_m203S";
+               addItemsToUniform[] = {LIST_7("ACE_fieldDressing"),LIST_2("ACE_epinephrine"),LIST_4("ACE_morphine"),LIST_2("ACE_tourniquet"),"ACE_MapTools","ACE_Flashlight_XL50",LIST_2("rhsusf_mag_15Rnd_9x19_JHP")};
+               addItemsToVest[] = {LIST_2("rhsusf_mag_15Rnd_9x19_JHP"),LIST_2("rhs_mag_m67"),LIST_2("SmokeShell"),LIST_3("rhs_mag_30Rnd_556x45_M855A1_Stanag"),LIST_5("1Rnd_SmokeGreen_Grenade_shell"),LIST_5("1Rnd_SmokeRed_Grenade_shell"),LIST_2("1Rnd_Smoke_Grenade_shell")};
+               addItemsToBackpack[] = {LIST_5("rhs_mag_30Rnd_556x45_M855A1_Stanag")};
           };
           class Soldier_SL_F: Soldier_TL_F {
+               addItemsToUniform[] = {LIST_7("ACE_fieldDressing"),LIST_2("ACE_epinephrine"),LIST_4("ACE_morphine"),LIST_2("ACE_tourniquet"),"ACE_MapTools","ACE_Flashlight_XL50",LIST_2("rhsusf_mag_15Rnd_9x19_JHP")};
+               backpack = "TFAR_rt1523g_sage";
           };
           class officer_F: Soldier_SL_F {
                // same
           };
           class Crew_F {
-             
+
           };
           class Helipilot_F: Crew_F {};
      };

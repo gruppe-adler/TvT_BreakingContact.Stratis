@@ -1,9 +1,8 @@
 #include "\z\ace\addons\main\script_component.hpp"
 #include "..\..\..\missionMacros.h"
 
-_TRANSMISSION_COMPLETE_listener = {
+private _TRANSMISSION_COMPLETE_listener = {
      if (_this select 1) then {
-          adminLog("blufor surrendered");
           _string = localize "str_GRAD_winmsg_points";
           [_string] call EFUNC(common,displayTextStructured);
           _transmissionPercentage = call GRAD_tracking_fnc_getTransmissionPercentage;
@@ -12,40 +11,36 @@ _TRANSMISSION_COMPLETE_listener = {
      };
 };
 
-_BLUFOR_CAPTURED_listener = {
+private __BLUFOR_CAPTURED_listener = {
      if (_this select 1) then {
-          adminLog("blufor captured");
           _transmissionPercentage = call GRAD_tracking_fnc_getTransmissionPercentage;
           missionNamespace setVariable ["BC_transmissionPercentage", str _transmissionPercentage, true];
           ["west", "captured"] spawn BC_objectives_fnc_endMission;
      };
 };
 
-_BLUFOR_ELIMINATED_listener = {
+private __BLUFOR_ELIMINATED_listener = {
      if (_this select 1) then {
-          adminLog("mission_complete: blufor loses  by elimination");
           _transmissionPercentage = call GRAD_tracking_fnc_getTransmissionPercentage;
           missionNamespace setVariable ["BC_transmissionPercentage", str _transmissionPercentage, true];
           ["east", "elimination"] spawn BC_objectives_fnc_endMission;
      };
 };
 
-_OPFOR_ELIMINATED_listener = {
+private __OPFOR_ELIMINATED_listener = {
      if (_this select 1) then {
-          adminLog("mission_complete: opfor loses  by elimination");
           _transmissionPercentage = call GRAD_tracking_fnc_getTransmissionPercentage;
           missionNamespace setVariable ["BC_transmissionPercentage", str _transmissionPercentage, true];
           ["west", "elimination"] spawn BC_objectives_fnc_endMission;
      };
 };
 
-_TRUCK_DESTROYED_NOT_CONQUERED_listener = {
+private __TRUCK_DESTROYED_NOT_CONQUERED_listener = {
      if (_this select 1) then {
-          adminLog("mission_complete: draw");
           _transmissionPercentage = call GRAD_tracking_fnc_getTransmissionPercentage;
           missionNamespace setVariable ["BC_transmissionPercentage", str _transmissionPercentage, true];
           ["draw", "destroyed"] spawn BC_objectives_fnc_endMission;
-          
+
      };
 };
 
@@ -85,4 +80,3 @@ if (!isMultiplayer) then {
           };
      };
 };
-

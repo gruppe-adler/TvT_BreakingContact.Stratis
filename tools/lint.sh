@@ -34,15 +34,9 @@ else
     pushd ${PROJECTDIR}
 fi
 
-${THISDIR}/preprocess.sh -d ${BUILDDIR}
+bash ${THISDIR}/preprocess.sh -d ${BUILDDIR} -p
 EXITCODE=$?
 if [[ ${EXITCODE} != 0 ]]; then popd; exit ${EXITCODE}; fi
-
-# remove hash comments, they confuse the hell out of sqflint
-for SQFFILE in `find . -iname '*.sqf'`
-do
-    sed -i -E 's/^\s*#.*//g' "$SQFFILE"
-done
 
 sqflint -d . -ee
 EXITCODE=$?
