@@ -119,7 +119,7 @@ if (_mode == 1) then {
     waitUntil {!(isNull ([] call BIS_fnc_displayMission))};
 
     // Compile key
-    private _key = format ["BIS_%1.%2_establishingShot", missionName, worldName];
+    _key = format ["BIS_%1.%2_establishingShot", missionName, worldName];
 
     // Remove eventhandler if it exists (only happens when restarting)
     if (!(isNil {uiNamespace getVariable "BIS_fnc_establishingShot_skipEH"})) then {
