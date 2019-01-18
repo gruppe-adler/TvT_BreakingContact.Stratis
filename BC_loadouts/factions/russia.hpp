@@ -1,4 +1,4 @@
-class USA {
+class russia {
      class AllUnits {
           primaryWeapon = "rhs_weap_m4a1_carryhandle";
           primaryWeaponMagazine = "rhs_mag_30Rnd_556x45_M855A1_Stanag";
