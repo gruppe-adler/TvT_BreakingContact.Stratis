@@ -58,7 +58,7 @@ class CfgGradBuymenu {
 };
 
 OnLoadMission = "A mobile radio station is trying to get a message sent - their adversaries try to stop them from completing the broadcast";
-author = "by Gruppe Adler";  //appears as author in overview and loading screen
+author = "Gruppe Adler";  //appears as author in overview and loading screen
 overviewText = "US vs. Russians"; //appears in overview and loading screen
 onLoadName = "Breaking Contact"; //mission name for loading screen only
 overviewPicture = ""; //mission picture for loading screen only
@@ -152,6 +152,14 @@ class Params
         values[] = {1, 2, 3, 4, 5, 6};
         texts[] = {"none","2","3","4","5","6"};
         default = 2;
+    };
+
+    class PLAYER_COUNT
+    {
+        title = "Determine Player Count (relevant for buy options)";
+        values[] = {-1,25,45,65};
+        texts[] = {"automatic","20+","40+","60+"};
+        default = 45;
     };
 
     class TIME_ACCELERATION

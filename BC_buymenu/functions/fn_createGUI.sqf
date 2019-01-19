@@ -92,7 +92,7 @@ _bgHeadline ctrlCommit 0;
 
 private _valueTotalCrewCount = 0;
 private _valueTotalCargoCount = 0;
-private _valueTotalSideCount = playerside countSide allUnits;
+private _valueTotalSideCount = playerside countSide allUnits; 
 
 private _ctrlCrewCount = _display ctrlCreate ["RscStructuredText", -1];
 _ctrlCrewCount ctrlsetFont "RobotoCondensed";
@@ -138,7 +138,13 @@ for "_i" from 0 to (count _categoriesExtracted - 1) do {
     private _valueMaxInThisCat = _categoriesExtracted select _i select 3;
     private _spawnCone = _categoriesExtracted select _i select 4;
     private _data = _categoriesExtracted select _i select 5;
-    private _isLocked = _minPlayerCount > (count (playableUnits + switchableUnits));
+
+    
+    private _countParam = ["PLAYER_COUNT", -1] call BIS_fnc_getParamValue;
+    private _playerCount = [count (playableUnits + switchableUnits), _countParam] select (_countParam > 0);
+    private _isLocked = _minPlayerCount > _playerCount;
+
+    diag_log format ["_minPlayerCount %1 > _playerCount %2", _minPlayerCount, _playerCount];
 
     if (count _data < 1) exitWith {};
     
@@ -367,12 +373,26 @@ for "_i" from 0 to (count _categoriesExtracted - 1) do {
         ];
         _lockMask ctrlSetBackgroundColor [0,0,0,0.7];
 
-        _lockMask ctrlSetTooltip ("<Locked>\n\nMinimum player count: " + str _minPlayerCount);
+        _lockMask ctrlSetTooltip ("\n\nMinimum player count: " + str _minPlayerCount);
         _lockMask ctrlSetTooltipColorText [1, 1, 1, 0.7];
         _lockMask ctrlSetTooltipColorBox [0.1, 0.1, 0.1, 1];
         _lockMask ctrlSetTooltipColorShade [0, 0, 0, 1]; 
 
         _lockMask ctrlCommit 0;
+
+        
+        private _lockPic = _display ctrlCreate ["RscPictureKeepAspect", -1];
+        _lockPic ctrlSetPosition [
+            _columnWidth * _multiplicator + safezoneX + _columnWidth,
+            _rowHeight*4 + safezoneY,
+            _columnWidth/2,
+            _rowHeight*2 + safezoneY
+        ];
+        _lockPic ctrlSetText "pic\lock.paa";
+        _lockPic ctrlSetFade 0.5;
+
+        _lockPic ctrlCommit 0;
+        
 
 
 

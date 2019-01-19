@@ -26,6 +26,7 @@ class USA {
         displayName = "Logistics";
         kindOf = "Vehicles";
         maxBuyCount = 9;
+        minPlayerCount = 0;
 
         class rhsusf_M1083A1P2_WD_fmtv_usarmy {
             displayName = "FMTV M1083";
@@ -59,6 +60,7 @@ class USA {
         displayName = "Recon";
         kindOf = "Vehicles";
         maxBuyCount = 2;
+        minPlayerCount = 20;
 
         class RHS_MELB_H6M {
             displayName = "OH-6M";
@@ -108,6 +110,7 @@ class USA {
         displayName = "Support";
         kindOf = "Vehicles";
         maxBuyCount = 1;
+        minPlayerCount = 40;
 
         class rhsusf_m1025_w_m2 {
             displayName = "HMMWV M2";
@@ -143,6 +146,7 @@ class USA {
         displayName = "Heavy";
         kindOf = "Vehicles";
         maxBuyCount = 1;
+        minPlayerCount = 60;
 
         class rhsusf_m1045_w {
             displayName = "HMMWV TOW";
