@@ -1,6 +1,6 @@
-params ["_tasksBlufor", "_tasksOpfor"];
-_tasksBlufor params ["_taskBlufor1","_taskBlufor2"];
-_tasksOpfor params ["_taskOpfor1","_taskOpfor2"];
+params ["_tasksMain", "_tasksElimination"];
+_tasksMain params ["_taskOpfor1","_taskBlufor1"];
+_tasksElimination params ["_taskOpfor2","_taskBlufor2"];
 
 /* wait until truck exists */
 waitUntil {sleep 1; !isNil "GRAD_TERMINAL_DESTROYED"};
@@ -8,6 +8,8 @@ waitUntil {sleep 1; !isNil "GRAD_TERMINAL_DESTROYED"};
 [{
     params ["_args", "_handle"];
     _args params ["_taskBlufor1","_taskBlufor2","_taskOpfor1","_taskOpfor2"];
+
+
 
     /* detect all dead */
     OPFOR_PRE_ELIMINATED = ({side _x isEqualTo east && alive _x} count allUnits == 0);
@@ -66,6 +68,8 @@ waitUntil {sleep 1; !isNil "GRAD_TERMINAL_DESTROYED"};
         [_taskOpfor2,"FAILED",true] call BIS_fnc_taskSetState;
     };
 
+    diag_log format ["looping condition for %1", TRUCK_DESTROYED_NOT_CONQUERED];
+
     if (TRUCK_DESTROYED_NOT_CONQUERED) exitWith {
          [_handle] call CBA_fnc_removePerFrameHandler;
 
@@ -74,25 +78,25 @@ waitUntil {sleep 1; !isNil "GRAD_TERMINAL_DESTROYED"};
         _radioVeh = missionNameSpace getVariable ["GRAD_tracking_radioVehObj", objNull];
         _terminal = missionNameSpace getVariable ["GRAD_tracking_terminalObj", objNull];
 
-         _killerSide = side (_radioVeh getVariable ["ace_medical_lastDamageSource", objNull]);
+        _killerSide = side (_radioVeh getVariable ["ace_medical_lastDamageSource", objNull]);
 
          switch (_killerSide) do {
               case west: {
                 [_taskBlufor1,"FAILED",true] call BIS_fnc_taskSetState;
                 [_taskBlufor2,"CANCELED",true] call BIS_fnc_taskSetState;
-                    [_taskOpfor1,"CANCELED",true] call BIS_fnc_taskSetState;
+                [_taskOpfor1,"CANCELED",true] call BIS_fnc_taskSetState;
                 [_taskOpfor2,"CANCELED",true] call BIS_fnc_taskSetState;
               };
               case east: {
                 [_taskBlufor1,"CANCELED",true] call BIS_fnc_taskSetState;
                 [_taskBlufor2,"CANCELED",true] call BIS_fnc_taskSetState;
-                    [_taskOpfor1,"FAILED",true] call BIS_fnc_taskSetState;
+                [_taskOpfor1,"FAILED",true] call BIS_fnc_taskSetState;
                 [_taskOpfor2,"CANCELED",true] call BIS_fnc_taskSetState;
               };
               default {
                 [_taskBlufor1,"CANCELED",true] call BIS_fnc_taskSetState;
                 [_taskBlufor2,"CANCELED",true] call BIS_fnc_taskSetState;
-                    [_taskOpfor1,"CANCELED",true] call BIS_fnc_taskSetState;
+                [_taskOpfor1,"CANCELED",true] call BIS_fnc_taskSetState;
                 [_taskOpfor2,"CANCELED",true] call BIS_fnc_taskSetState;
               };
          };

@@ -10,7 +10,7 @@ class BC_objectives {
 	class player {
 		file = BC_objectives\functions\player;
 
-      class endConditionListener {};
+        class endConditionListener {};
 	    class endMission {};
 	    class preparationTimeCountdown {};
 
@@ -19,11 +19,11 @@ class BC_objectives {
     class server {
         file = BC_objectives\functions\server;
 
-        class classicTasksBluforCreate {};
-        class classicTasksOpforCreate {};
+        class createTaskElimination {};
+        class createTaskMain {};
         class loopConditions {};
         class removeTruckArmor {};
-          class startPreparationTime {};
+        class startPreparationTime {};
         class waitingForUnconscious {};
 
     };

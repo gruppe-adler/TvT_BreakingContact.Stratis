@@ -69,7 +69,7 @@ publicVariable "CIVILIAN_TRAFFIC"; // clients need to know this
 CONQUER_MODE = (["CONQUER_MODE", 1] call BIS_fnc_getParamValue) == 0;
 publicVariable "CONQUER_MODE";
 
-PREPARATION_TIME = ["PREPARATION_TIME", 0] call BIS_fnc_getParamValue;
+PREPARATION_TIME = [3, ["PREPARATION_TIME", 0] call BIS_fnc_getParamValue] select (isMultiplayer);
 publicVariable "PREPARATION_TIME";
 
 TRUCK_DESTROYED_NOT_CONQUERED = false;
