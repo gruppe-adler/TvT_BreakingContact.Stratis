@@ -1,19 +1,19 @@
 // init needs to be spawned on server only
-params ["_position"];
-
-sleep 10;
-
 if (isServer) then {
 
-    [PREPARATION_TIME] call BC_objectives_fnc_startPreparationTime;
+    [{
 
-    private _min = str ((["GRAD_TICKS_NEEDED", 2700] call BIS_fnc_getParamValue)/60);
-    private _intervals = ["GRAD_INTERVALS_NEEDED", 1] call BIS_fnc_getParamValue;
+        [PREPARATION_TIME] call BC_objectives_fnc_startPreparationTime;
 
-    private _tasksBlufor = [_intervals, _min] call BC_objectives_fnc_classicTasksBluforCreate;
-    private _tasksOpfor = [_intervals, _min] call BC_objectives_fnc_classicTasksOpforCreate;
+        private _min = str ((["GRAD_TICKS_NEEDED", 2700] call BIS_fnc_getParamValue)/60);
+        private _intervals = ["GRAD_INTERVALS_NEEDED", 1] call BIS_fnc_getParamValue;
 
-    [_tasksBlufor, _tasksOpfor] call BC_objectives_fnc_loopConditions;
+        private _tasksBlufor = [_intervals, _min] call BC_objectives_fnc_classicTasksBluforCreate;
+        private _tasksOpfor = [_intervals, _min] call BC_objectives_fnc_classicTasksOpforCreate;
+
+        [_tasksBlufor, _tasksOpfor] call BC_objectives_fnc_loopConditions;
+
+    }, 10] call CBA_fnc_waitAndExecute;
 
 };
 
