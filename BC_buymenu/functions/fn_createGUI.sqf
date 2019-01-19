@@ -144,7 +144,7 @@ for "_i" from 0 to (count _categoriesExtracted - 1) do {
     private _playerCount = [count (playableUnits + switchableUnits), _countParam] select (_countParam > 0);
     private _isLocked = _minPlayerCount > _playerCount;
 
-    diag_log format ["_minPlayerCount %1 > _playerCount %2", _minPlayerCount, _playerCount];
+    // diag_log format ["_minPlayerCount %1 > _playerCount %2", _minPlayerCount, _playerCount];
 
     if (count _data < 1) exitWith {};
     
