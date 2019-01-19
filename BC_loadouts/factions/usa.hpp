@@ -2,8 +2,8 @@ class USA {
      class AllUnits {
           primaryWeapon = "rhs_weap_m4a1_carryhandle";
           primaryWeaponMagazine = "rhs_mag_30Rnd_556x45_M855A1_Stanag";
-          primaryWeaponPointer = "FHQ_acc_ANPEQ15_black";
-          primaryWeaponOptics = "FHQ_optic_HWS";
+          primaryWeaponPointer = "acc_flashlight";
+          primaryWeaponOptics = "rhsusf_acc_eotech_xps3";
           handgunWeapon = "rhsusf_weap_m9";
           handgunWeaponMagazine = "rhsusf_mag_15Rnd_9x19_JHP";
           uniform = "rhs_uniform_FROG01_wd";
