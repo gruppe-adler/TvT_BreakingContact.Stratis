@@ -3,7 +3,7 @@ class BC_objectives {
     class common {
         file = BC_objectives\functions\common;
 
-        class init {postInit = 1};
+        class init {postInit = 1; };
 
     };
 

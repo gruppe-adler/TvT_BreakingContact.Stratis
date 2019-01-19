@@ -11,7 +11,7 @@ private _TRANSMISSION_COMPLETE_listener = {
      };
 };
 
-private __BLUFOR_CAPTURED_listener = {
+private _BLUFOR_CAPTURED_listener = {
      if (_this select 1) then {
           _transmissionPercentage = call GRAD_tracking_fnc_getTransmissionPercentage;
           missionNamespace setVariable ["BC_transmissionPercentage", str _transmissionPercentage, true];
@@ -19,7 +19,7 @@ private __BLUFOR_CAPTURED_listener = {
      };
 };
 
-private __BLUFOR_ELIMINATED_listener = {
+private _BLUFOR_ELIMINATED_listener = {
      if (_this select 1) then {
           _transmissionPercentage = call GRAD_tracking_fnc_getTransmissionPercentage;
           missionNamespace setVariable ["BC_transmissionPercentage", str _transmissionPercentage, true];
@@ -27,7 +27,7 @@ private __BLUFOR_ELIMINATED_listener = {
      };
 };
 
-private __OPFOR_ELIMINATED_listener = {
+private _OPFOR_ELIMINATED_listener = {
      if (_this select 1) then {
           _transmissionPercentage = call GRAD_tracking_fnc_getTransmissionPercentage;
           missionNamespace setVariable ["BC_transmissionPercentage", str _transmissionPercentage, true];
@@ -35,7 +35,7 @@ private __OPFOR_ELIMINATED_listener = {
      };
 };
 
-private __TRUCK_DESTROYED_NOT_CONQUERED_listener = {
+private _TRUCK_DESTROYED_NOT_CONQUERED_listener = {
      if (_this select 1) then {
           _transmissionPercentage = call GRAD_tracking_fnc_getTransmissionPercentage;
           missionNamespace setVariable ["BC_transmissionPercentage", str _transmissionPercentage, true];
