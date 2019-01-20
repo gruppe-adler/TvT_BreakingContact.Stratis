@@ -122,6 +122,7 @@ class USA {
 
         class Soldier_AT_F: Soldier_F {
             secondaryWeapon = "rhs_weap_maaws";
+            secondaryWeaponMagazine = "rhs_mag_maaws_HEAT";
             backpack = "B_Carryall_cbr";
             addItemsToUniform[] = {
                 LIST_5("ACE_fieldDressing"),
