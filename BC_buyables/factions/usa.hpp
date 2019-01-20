@@ -30,10 +30,11 @@ class USA {
 
         class rhsusf_M1083A1P2_WD_fmtv_usarmy {
             displayName = "FMTV M1083";
-            description = "The workhorse of your army.";
+            description = "Carries soldiers decently armored.";
             price = 10;
             stock = 7;
             spawnEmpty = 1;
+            wheelCargo = 4;
             condition = "BC_IS_WOODLAND";
             vehicleInit = "[['rhs_woodland',1],['hide_cover',0,'hide_spare',0,'hide_scaffold',0,'hide_bench',0]]";
         };
@@ -45,10 +46,11 @@ class USA {
 
         class rhsusf_mrzr4_d {
             displayName = "MRZR 4";
-            description = "The workhorse of your army.";
+            description = "Fast but protectionless.";
             price = 10;
             stock = 7;
             spawnEmpty = 1;
+            wheelCargo = 2;
             condition = "true";
             code = "[(_this select 0), [['mud','mud_olive'] select BC_IS_WOODLAND,1], ['tailgateHide',0,'tailgate_open',0,'cage_fold',0]] call BIS_fnc_initVehicle;";
             vehicleInit = "[[],[]]";
@@ -66,7 +68,7 @@ class USA {
             displayName = "OH-6M";
             description = "1 GPS\nNO Thermals\nNO Benches";
             price = 10;
-            stock = 7;
+            stock = 2;
             code = "(_this select 0) addItemCargoGlobal ['ACE_NVG_Wide',2];(_this select 0) addItemCargoGlobal ['ItemGPS',1];[(_this select 0)] call ace_fastroping_fnc_equipFRIES;_this disableTIEquipment true;";
             spawnEmpty = 1;
             vehicleInit = "[[],[]]";
@@ -74,10 +76,11 @@ class USA {
 
         class rhsusf_CGRCAT1A2_usmc_wd {
             displayName = "Cougar IMV";
-            description = "The workhorse of your army.";
+            description = "Perfect commander limousine.";
             price = 10;
-            stock = 7;
+            stock = 2;
             spawnEmpty = 1;
+            wheelCargo = 2;
             condition = "BC_IS_WOODLAND";
             vehicleInit = "[['rhs_woodland',1],['DUKE_Hide',1]]";
         };
@@ -90,9 +93,10 @@ class USA {
 
         class rhsusf_M1078A1R_SOV_M2_WD_fmtv_socom {
             displayName = "FMTV M2";
-            description = "The workhorse of your army.";
-            stock = 7;
+            description = "A big target with a big gun.";
+            stock = 2;
             spawnEmpty = 1;
+            wheelCargo = 3;
             condition = "BC_IS_WOODLAND";
             vehicleInit = "[['rhs_woodland',1],['hide_spare',0]]";
         };
@@ -114,10 +118,11 @@ class USA {
 
         class rhsusf_m1025_w_m2 {
             displayName = "HMMWV M2";
-            description = "The workhorse of your army.";
+            description = "Fast, reliable, deadly.";
             price = 10;
             stock = 7;
             spawnEmpty = 1;
+            wheelCargo = 2;
             condition = "BC_IS_WOODLAND";
             vehicleInit = "[['standard',1],['hide_snorkel',1,'hide_CIP',1,'hide_BFT',0,'hide_Antenna',0,'hide_A2_Parts',0,'Hide_A2Bumper',0,'Hide_Brushguard',1]]";
         };
@@ -129,9 +134,10 @@ class USA {
 
         class rhsusf_m113_usarmy_M2_90 {
             displayName = "M113 Alt";
-            description = "The workhorse of your army.";
+            description = "Versatile APC.";
             stock = 7;
             spawnEmpty = 1;
+            trackCargo = 3;
             condition = "BC_IS_WOODLAND";
             vehicleInit = "['standard',1],['IFF_Panels_Hide',1]";
         };
@@ -150,9 +156,10 @@ class USA {
 
         class rhsusf_m1045_w {
             displayName = "HMMWV TOW";
-            description = "The workhorse of your army.";
+            description = "Tank hunter with fly-by-wire AT.";
             stock = 7;
             spawnEmpty = 1;
+            wheelCargo = 2;
             condition = "BC_IS_WOODLAND";
             vehicleInit = "['standard',1], ['hide_snorkel',1,'hide_CIP',0,'hide_BFT',0,'hide_Antenna',0,'hide_A2_Parts',0,'Hide_A2Bumper',0,'Hide_Brushguard',1]";
         };
@@ -168,7 +175,7 @@ class USA {
             stock = 7;
             code = "(_this select 0) addItemCargoGlobal ['ACE_NVG_Wide',2];(_this select 0) addItemCargoGlobal ['ItemGPS',1];[(_this select 0)] call ace_fastroping_fnc_equipFRIES;";
             spawnEmpty = 1;
-            vehicleInit = "[['standard',1], ['crate_l1_unhide',1,'crate_l2_unhide',1,'crate_l3_unhide',1,'crate_r1_unhide',1,'crate_r2_unhide',1,'crate_r3_unhide',1,'wood_1_unhide',1,'maljutka_hide_source',1,'cargoHandler1',0]]";
+            vehicleInit = "[[],[]]";
         };
     };
 

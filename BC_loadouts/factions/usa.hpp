@@ -38,14 +38,14 @@ class USA {
           };
           class Soldier_AR_F: Soldier_F {
                primaryWeapon = "rhs_weap_m249_pip_S";
-               primaryWeaponMagazine = "200Rnd_556x45_Box_Tracer_Red_F";
+               primaryWeaponMagazine = "rhsusf_200rnd_556x45_M855_mixed_box";
                addItemsToUniform[] = {LIST_5("ACE_fieldDressing"),LIST_2("ACE_epinephrine"),LIST_3("ACE_morphine"),LIST_2("ACE_tourniquet"),"ACE_MapTools","ACE_Flashlight_XL50",LIST_2("rhsusf_mag_15Rnd_9x19_JHP")};
-               addItemsToVest[] = {LIST_2("rhsusf_mag_15Rnd_9x19_JHP"),"rhs_mag_m67",LIST_2("SmokeShell"),"200Rnd_556x45_Box_Tracer_Red_F"};
-               addItemsToBackpack[] = {LIST_3("200Rnd_556x45_Box_Tracer_Red_F")};
+               addItemsToVest[] = {LIST_2("rhsusf_mag_15Rnd_9x19_JHP"),"rhs_mag_m67",LIST_2("SmokeShell"),"rhsusf_200rnd_556x45_M855_mixed_box"};
+               addItemsToBackpack[] = {LIST_3("rhsusf_200rnd_556x45_M855_mixed_box")};
           };
           class Soldier_AAR_F: Soldier_F {
                addItemsToUniform[] = {LIST_5("ACE_fieldDressing"),LIST_2("ACE_epinephrine"),LIST_3("ACE_morphine"),LIST_2("ACE_tourniquet"),"ACE_MapTools","ACE_Flashlight_XL50",LIST_2("rhsusf_mag_15Rnd_9x19_JHP")};
-               addItemsToBackpack[] = {LIST_1("200Rnd_556x45_Box_Tracer_Red_F")};
+               addItemsToBackpack[] = {LIST_1("rhsusf_200rnd_556x45_M855_mixed_box")};
           };
           class Soldier_AAT_F: Soldier_F {
                addItemsToVest[] = {LIST_8("rhs_mag_30Rnd_556x45_M855A1_Stanag"),LIST_2("rhsusf_mag_15Rnd_9x19_JHP"),LIST_2("rhs_mag_m67"),LIST_2("SmokeShell")};

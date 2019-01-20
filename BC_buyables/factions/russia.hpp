@@ -39,6 +39,7 @@ class Russia {
             price = 10;
             stock = 7;
             spawnEmpty = 1;
+            wheelCargo = 2;
             condition = "BC_IS_WOODLAND";
             vehicleInit = "[['standard',1], ['light_hide',1]]";
         };
@@ -50,10 +51,11 @@ class Russia {
 
         class rhs_uaz_open_MSV_01 {
             displayName = "UAZ";
-            description = "The workhorse of your army.";
+            description = "Faster and smaller footprint but cant transport as many.";
             price = 10;
             stock = 7;
             spawnEmpty = 1;
+            wheelCargo = 2;
             condition = "BC_IS_WOODLAND";
             vehicleInit = "[[], ['cabinlights_hide',0,'light_hide',1]]";
         };
@@ -73,9 +75,10 @@ class Russia {
 
         class rhs_tigr_m_vdv {
             displayName = "Tigr-M";
-            description = "The workhorse of your army.";
+            description = "The perfect commander limousine.";
             price = 10;
             stock = 7;
+            wheelCargo = 2;
             spawnEmpty = 1;
             condition = "BC_IS_WOODLAND";
             vehicleInit = "[[],[]]";
@@ -88,12 +91,13 @@ class Russia {
 
         class rhsgref_nat_uaz_dshkm {
             displayName = "UAZ Dshkm";
-            description = "The workhorse of your army.";
+            description = "Fast and a deadly gun against ground and air targets.";
             price = 10;
             stock = 7;
             spawnEmpty = 1;
+            wheelCargo = 2;
             condition = "BC_IS_WOODLAND";
-            vehicleInit = "[[], ['cabinlights_hide',0,'light_hide',1]]";
+            vehicleInit = "[['standard', 1], ['cabinlights_hide',0,'light_hide',1]]";
         };
 
         class rhsgref_cdf_b_reg_uaz_dshkm: rhsgref_nat_uaz_dshkm {
@@ -103,9 +107,10 @@ class Russia {
 
         class rhsgref_BRDM2_HQ_msv {
             displayName = "BRDM-HQ";
-            description = "The workhorse of your army.";
+            description = "Carries a lot of meat.";
             stock = 7;
             spawnEmpty = 1;
+            wheelCargo = 2;
             condition = "BC_IS_WOODLAND";
             vehicleInit = "[['olive', 1], ['driverViewHatch',0,'commanderViewHatch',0,'hatchCommander',1]]";
         };
@@ -129,9 +134,10 @@ class Russia {
         
         class rhsgref_BRDM2_msv {
             displayName = "BRDM-2";
-            description = "The workhorse of your army.";
+            description = "Armed version of BRDM2.";
             stock = 7;
             spawnEmpty = 1;
+            wheelCargo = 2;
             condition = "BC_IS_WOODLAND";
             vehicleInit = "[['olive', 1], ['driverViewHatch',0,'commanderViewHatch',0,'hatchCommander',1]]";
         };
@@ -142,19 +148,20 @@ class Russia {
     
         };
 
-        class rhsgref_ins_uaz_spg9 {
+        class rhsgref_nat_uaz_spg9 {
             displayName = "UAZ SPG9";
-            description = "The workhorse of your army.";
+            description = "Tank hunter with unguided AT.";
             price = 10;
             stock = 7;
             spawnEmpty = 1;
+            wheelCargo = 2;
             condition = "BC_IS_WOODLAND";
-            vehicleInit = "[[], ['cabinlights_hide',0,'light_hide',1]]";
+            vehicleInit = "[['standard',1], ['cabinlights_hide',0,'light_hide',1]]";
         };
 
-        class rhsgref_nat_uaz_spg9: rhsgref_ins_uaz_spg9 {
+        class rhsgref_ins_uaz_spg9: rhsgref_nat_uaz_spg9 {
             condition = "!BC_IS_WOODLAND";
-            vehicleInit = "[['Camo3',1], ['cabinlights_hide',0,'light_hide',1]]";
+            vehicleInit = "[['Camo',1], ['cabinlights_hide',0,'light_hide',1]]";
         };
     };
 
@@ -166,9 +173,10 @@ class Russia {
 
         class rhs_t80bvk {
             displayName = "T80-BVK";
-            description = "The workhorse of your army.";
+            description = "Heavy tank, best vehicle you can get.";
             stock = 1;
             spawnEmpty = 1;
+            trackCargo = 2;
             condition = "BC_IS_WOODLAND";
             vehicleInit = "[['standard',1], ['hide_com_shield',1,'sightElevationAPFSDS',0]]";
         };
@@ -180,9 +188,10 @@ class Russia {
 
         class rhs_bmp1d_msv {
             displayName = "BMP1-D";
-            description = "The workhorse of your army.";
+            description = "Carries more soldiers but is less protected.";
             stock = 1;
             spawnEmpty = 1;
+            trackCargo = 2;
             condition = "BC_IS_WOODLAND";
             vehicleInit = "[['standard',1], ['crate_l1_unhide',1,'crate_l2_unhide',1,'crate_l3_unhide',1,'crate_r1_unhide',1,'crate_r2_unhide',1,'crate_r3_unhide',1,'wood_1_unhide',1,'maljutka_hide_source',1,'cargoHandler1',0]]";
         };
@@ -194,9 +203,10 @@ class Russia {
 
         class rhsgref_BRDM2_ATGM_msv {
             displayName = "BRDM-AT";
-            description = "The workhorse of your army.";
+            description = "Tank hunter with fly-by-wire AT.";
             stock = 7;
             spawnEmpty = 1;
+            wheelCargo = 2;
             condition = "BC_IS_WOODLAND";
             vehicleInit = "[['olive', 1], ['driverViewHatch',0,'commanderViewHatch',0,'hatchCommander',1]]";
         };

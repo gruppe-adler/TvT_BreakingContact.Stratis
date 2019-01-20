@@ -34,7 +34,9 @@ class russia {
 
           class HeavyGunner_F: Soldier_F {
                primaryWeapon = "rhs_weap_pkp";
-               primaryWeaponMagazine = "rhs_100Rnd_762x54mmR_green"; 
+               primaryWeaponMuzzle = "";
+               primaryWeaponMagazine = "rhs_100Rnd_762x54mmR_green";
+               primaryWeaponPointer = "";
                primaryWeaponOptics = "rhs_acc_ekp8_02";
                vest = "rhs_6b13_6sh92_vog";
                addItemsToVest[] = {LIST_2("rhs_mag_rgd5"),LIST_2("rhs_mag_rdg2_white"),"rhs_100Rnd_762x54mmR_green"};
@@ -46,8 +48,9 @@ class russia {
           };
           class Soldier_AR_F: Soldier_F {
                primaryWeapon = "rhs_weap_akmn";
+               primaryWeaponPointer = "";
                primaryWeaponMagazine = "rhs_75Rnd_762x39mm_tracer"; 
-               primaryWeaponMuzzle = "rhs_acc_dtk1l";
+               primaryWeaponMuzzle = "";
                addItemsToVest[] = {LIST_2("HandGrenade"),"SmokeShell","SmokeShellRed",LIST_2("rhs_mag_rdg2_white"),LIST_2("rhs_mag_rgd5"),"rhs_75Rnd_762x39mm_tracer"};
                backpack = "rhssaf_kitbag_smb";
                addItemsToBackpack[] = {LIST_8("rhs_75Rnd_762x39mm_tracer")};
@@ -79,6 +82,7 @@ class russia {
           class Soldier_TL_F: Soldier_F {
                gps = "ItemGPS";
                primaryWeapon = "rhs_weap_ak103_gp25_npz";
+               primaryWeaponPointer = "";
                primaryWeaponMagazine = "rhs_30Rnd_762x39mm_polymer_tracer";
                handgunWeapon = "hgun_Rook40_F";
                handgunWeaponMagazine = "";
