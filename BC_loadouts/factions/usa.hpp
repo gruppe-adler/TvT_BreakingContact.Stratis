@@ -76,6 +76,7 @@ class USA {
           class Soldier_TL_F: Soldier_F {
                gps = "ItemGPS";
                primaryWeapon = "rhs_weap_m4a1_carryhandle_m203S";
+               underBarrelMagazine = "1Rnd_Smoke_Grenade_shell";
                addItemsToUniform[] = {LIST_7("ACE_fieldDressing"),LIST_2("ACE_epinephrine"),LIST_4("ACE_morphine"),LIST_2("ACE_tourniquet"),"ACE_MapTools","ACE_Flashlight_XL50",LIST_2("rhsusf_mag_15Rnd_9x19_JHP")};
                addItemsToVest[] = {LIST_2("rhsusf_mag_15Rnd_9x19_JHP"),LIST_2("rhs_mag_m67"),LIST_2("SmokeShell"),LIST_3("rhs_mag_30Rnd_556x45_M855A1_Stanag"),LIST_5("1Rnd_SmokeGreen_Grenade_shell"),LIST_5("1Rnd_SmokeRed_Grenade_shell"),LIST_2("1Rnd_Smoke_Grenade_shell")};
                addItemsToBackpack[] = {LIST_5("rhs_mag_30Rnd_556x45_M855A1_Stanag")};

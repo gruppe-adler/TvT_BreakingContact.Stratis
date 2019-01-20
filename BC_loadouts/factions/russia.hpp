@@ -86,7 +86,8 @@ class russia {
                primaryWeaponPointer = "";
                primaryWeaponMagazine = "rhs_30Rnd_762x39mm_polymer_tracer";
                handgunWeapon = "hgun_Rook40_F";
-               handgunWeaponMagazine = "";
+               handgunWeaponMagazine = "rhs_mag_9x19_17";
+               underBarrelMagazine = "rhs_VG40MD_White";
                addItemsToUniform[] = {LIST_7("ACE_fieldDressing"),LIST_2("ACE_epinephrine"),LIST_2("ACE_morphine"),LIST_2("rhs_mag_9x19_17")};
                addItemsToVest[] = {LIST_2("rhs_mag_rdg2_white"),LIST_2("rhs_mag_rgd5"),LIST_5("rhs_30Rnd_762x39mm_polymer_tracer")};
                backpack = "TFAR_mr3000_rhs";
