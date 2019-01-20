@@ -95,13 +95,14 @@ class russia {
             backpack = "rhssaf_kitbag_smb";
             addItemsToVest[] = {
                 LIST_2("HandGrenade"),
-                "SmokeShell",
-                "SmokeShellRed",
                 LIST_2("rhs_mag_rdg2_white"),
                 LIST_2("rhs_mag_rgd5"),
                 "rhs_75Rnd_762x39mm_tracer"
             };
             addItemsToBackpack[] = {
+                LIST_4("ACE_fieldDressing"),
+                LIST_1("ACE_epinephrine"),
+                LIST_2("ACE_morphine"),
                 LIST_8("rhs_75Rnd_762x39mm_tracer")
             };
         };
@@ -109,16 +110,15 @@ class russia {
         class Soldier_AAR_F: Soldier_F {
             addItemsToVest[] = {
                 LIST_2("HandGrenade"),
-                "SmokeShell",
-                "SmokeShellRed",
                 LIST_2("rhs_mag_rdg2_white"),
                 LIST_2("rhs_mag_rgd5"),
                 "rhs_75Rnd_762x39mm_tracer"
             };
         };
-
+        //AT
         class Soldier_AT_F: Soldier_F {
             secondaryWeapon = "rhs_weap_rpg7";
+            secondaryWeaponMagazine = "rhs_rpg7_PG7V_mag";
             addItemsToBackpack[] = {
                 LIST_6("ACE_fieldDressing"),
                 LIST_2("ACE_epinephrine"),
