@@ -49,6 +49,7 @@ class russia {
           class Soldier_AR_F: Soldier_F {
                primaryWeapon = "rhs_weap_akmn";
                primaryWeaponPointer = "";
+               primaryWeaponOptics = "rhs_acc_pkas";
                primaryWeaponMagazine = "rhs_75Rnd_762x39mm_tracer"; 
                primaryWeaponMuzzle = "";
                addItemsToVest[] = {LIST_2("HandGrenade"),"SmokeShell","SmokeShellRed",LIST_2("rhs_mag_rdg2_white"),LIST_2("rhs_mag_rgd5"),"rhs_75Rnd_762x39mm_tracer"};
