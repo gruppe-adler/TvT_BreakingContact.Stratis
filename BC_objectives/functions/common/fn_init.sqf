@@ -26,11 +26,6 @@ if (isServer) then {
             }, [], 10] call CBA_fnc_waitAndExecute;
 
 
-            // start replay record
-            [{
-                call GRAD_replay_fnc_init;
-            }, [], PREPARATION_TIME] call CBA_fnc_waitAndExecute;
-
         }, [], 10] call CBA_fnc_waitAndExecute;
 
     };
@@ -40,3 +35,8 @@ if (isServer) then {
 if (hasInterface) then {
     call BC_objectives_fnc_endConditionListener;
 };
+
+// start replay record on server and init replay on client
+[{
+    call GRAD_replay_fnc_init;
+}, [], PREPARATION_TIME] call CBA_fnc_waitAndExecute;
