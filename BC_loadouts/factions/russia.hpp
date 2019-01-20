@@ -85,7 +85,7 @@ class russia {
                primaryWeapon = "rhs_weap_ak103_gp25_npz";
                primaryWeaponPointer = "";
                primaryWeaponMagazine = "rhs_30Rnd_762x39mm_polymer_tracer";
-               handgunWeapon = "hgun_Rook40_F";
+               handgunWeapon = "rhs_weap_pya";
                handgunWeaponMagazine = "rhs_mag_9x19_17";
                underBarrelMagazine = "rhs_VG40MD_White";
                addItemsToUniform[] = {LIST_7("ACE_fieldDressing"),LIST_2("ACE_epinephrine"),LIST_2("ACE_morphine"),LIST_2("rhs_mag_9x19_17")};
