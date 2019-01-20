@@ -1,3 +1,5 @@
+diag_log format ["creating elimination tasks"];
+
 private _taskName = "opforTask2";
 private _taskDescription = localize "str_GRAD_classicTaskDescriptionOpfor2";
 private _taskTitle = localize "str_GRAD_classicTaskTitleEliminate";

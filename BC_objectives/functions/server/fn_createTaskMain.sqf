@@ -1,5 +1,7 @@
 params ["_count", "_min"];
 
+diag_log format ["creating main tasks"];
+
 private _taskName = "opforTask1";
 private _taskDescription = format [localize "str_GRAD_classicTaskDescriptionOpfor1",_count, _min];
 private _taskTitle = format [localize "str_GRAD_classicTaskTitleOpfor1",_count, _min];
