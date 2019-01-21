@@ -6,9 +6,7 @@ params ["_vehicle", "_baseConfigName", "_categoryConfigName", "_itemConfigName"]
 
 if (!hasInterface) exitWith {};
 
-_displayName = [(missionConfigFile >> "CfgGradBuymenu" >> _baseConfigName >> _categoryConfigName >> _itemConfigName >> "displayName"), "text", "Vehicle"] call CBA_fnc_getConfigEntry;
-
-
+private _displayName = getText (configFile >>  "CfgVehicles" >> _itemConfigName >> "displayName");
 
 _function = {
     params ["_args", "_handle"];

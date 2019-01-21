@@ -69,7 +69,7 @@ class USA {
             description = "1 GPS\nNO Thermals\nNO Benches";
             price = 10;
             stock = 2;
-            code = "(_this select 0) addItemCargoGlobal ['ACE_NVG_Wide',2];(_this select 0) addItemCargoGlobal ['ItemGPS',1];[(_this select 0)] call ace_fastroping_fnc_equipFRIES;(_this select 0) disableTIEquipment true;";
+            code = "(_this select 0) addItemCargoGlobal ['ACE_NVG_Wide',2];(_this select 0) addItemCargoGlobal ['ItemGPS',1];(_this select 0) disableTIEquipment true;";
             spawnEmpty = 1;
             vehicleInit = "[[],[]]";
         };
@@ -99,6 +99,7 @@ class USA {
             wheelCargo = 3;
             condition = "BC_IS_WOODLAND";
             vehicleInit = "[['rhs_woodland',1],['hide_spare',0]]";
+            code = "(_this select 0) setVariable ['ace_rearm_isSupplyVehicle', false, true]; (_this select 0) setVariable ['ACE_isRepairVehicle', false, true];";
         };
 
         class rhsusf_M1078A1R_SOV_M2_D_fmtv_socom: rhsusf_M1078A1R_SOV_M2_WD_fmtv_socom {

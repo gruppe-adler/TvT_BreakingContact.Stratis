@@ -9,7 +9,7 @@ if (!isServer) exitWith {};
 // systemChat str "buycomplete";
 
 private _spawnPos = (getPos _startVehicle);
-private _roadArray = _spawnPos nearRoads 500;
+private _roadArray = _spawnPos nearRoads 750;
 private _closestRoads = [_roadArray, [_spawnPos], { _input0 distance _x }, "ASCEND"] call BIS_fnc_sortBy;
 
 
