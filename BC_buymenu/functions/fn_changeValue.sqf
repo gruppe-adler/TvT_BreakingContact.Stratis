@@ -23,7 +23,7 @@ private _valueTotalSideCount = _parentControl getVariable ["valueTotalSideCount"
 
 private _catValue = _ctrlChosenInThisCat getVariable ["value", 0];
 private _maxValue = _ctrlChosenInThisCat getVariable ["maxValue", 0];
-private _stock = _ctrlChosenInThisCat getVariable ["stock", 0];
+private _stock = _parentControl getVariable ["stock", 0];
 
 private _crewCount = _parentControl getVariable ["crew", 0];
 private _cargoCount = _parentControl getVariable ["cargo", 0];
@@ -51,6 +51,8 @@ if (_increaseValue) then {
     _catValue = _catValue - 1;
 };
 
+private _itemConfigName = _data param [2, ""];
+diag_log format ["_item is %1, _value %2, _stock is %3", _itemConfigName, _itemValue, _stock];
 ////// LIMITER
 // dont allow going above max value
 if (_itemValue == _maxItemValue  || _itemValue >= _stock) then {

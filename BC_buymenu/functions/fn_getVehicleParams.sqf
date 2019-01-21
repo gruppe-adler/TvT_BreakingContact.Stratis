@@ -24,7 +24,7 @@ private _stock = [(_itemConfig >> "stock"), "number", 999999] call CBA_fnc_getCo
 private _description = [(_itemConfig >> "description"), "text", [_itemConfigName] call grad_lbm_fnc_getDescription] call CBA_fnc_getConfigEntry;
 private _code = compile ([(_itemConfig >> "code"), "text", ""] call CBA_fnc_getConfigEntry);
 
-// diag_log format ["_displayName %1", _displayName];
+diag_log format ["reading _stock %1", _stock];
 
 private _picturePath = [(_itemConfig >> "picturePath"), "text", ""] call CBA_fnc_getConfigEntry;
 if (_picturePath isEqualTo "") then {
