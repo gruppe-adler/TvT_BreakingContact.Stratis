@@ -45,7 +45,7 @@ class USA {
                 LIST_6("ACE_fieldDressing"),
                 LIST_2("ACE_epinephrine"),
                 LIST_2("ACE_morphine"),
-                "grad_axe","ACE_Fortify",
+                "grad_axe",
                 "ACE_EntrenchingTool",
                 "ACE_DefusalKit"
             };
