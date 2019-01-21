@@ -1,12 +1,12 @@
 #include "\z\ace\addons\main\script_component.hpp"
 
-params ["_position"];
+params ["_position", "_distance"];
 
 ["Preparing teleport..."] call EFUNC(common,displayTextStructured);
 cutText ["", "BLACK OUT", 0.1];
 if (str player != "opfor_teamlead") then { sleep (random 7);};
 
-private _emptyPosition = _position findEmptyPosition[2, 20, "B_Soldier_F"];
+private _emptyPosition = _position findEmptyPosition[10, _distance, "B_Soldier_F"];
 diag_log format ["teleporting %1 to %2.", player, _emptyPosition];
 
 sleep 1;
