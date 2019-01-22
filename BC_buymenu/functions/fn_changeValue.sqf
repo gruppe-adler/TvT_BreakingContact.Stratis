@@ -53,38 +53,50 @@ if (_increaseValue) then {
 
 private _itemConfigName = _data param [2, ""];
 diag_log format ["_item is %1, _value %2, _stock is %3", _itemConfigName, _itemValue, _stock];
-////// LIMITER
-// dont allow going above max value
-if (_itemValue == _maxItemValue  || _itemValue >= _stock) then {
-    _btnPlus ctrlEnable false;
-} else {
-    _btnPlus ctrlEnable true;
-};
 
-// dont allow going below zero
-if (_itemValue <= _minItemValue) then {
-    _btnMinus ctrlEnable false;
-} else {
-    _btnMinus ctrlEnable true;
-};
 
-// dont allow overall count above max count
-if (_catValue >= _valueMaxInThisCat) then {
-    {
-        _x params ["_btnPlus", "_btnMinus"];
-        _btnPlus ctrlEnable false;
-    } forEach _catPlusMinusButtons;
+private _enableDisableButtons = {
+    params ["_itemValue", "_maxItemValue", "_catValue", "_stock", "_btnPlus", "_btnMinus"];
+    
+    // disable all buttons of cat if necessary and exit
+    if (_catValue >= _valueMaxInThisCat) exitWith {
+        {
+            _x params ["_btnPlus", "_btnMinus"];
+            _btnPlus ctrlEnable false;
+            _btnMinus ctrlEnable true;
+        } forEach _catPlusMinusButtons;
+        true
+    };
 
-    // indicate change in header
-    _catFormatting = _catFormattingMaxed;
-} else {
+    // enable all, if cat max is not reached
     {
         _x params ["_btnPlus", "_btnMinus"];
         _btnPlus ctrlEnable true; 
+        _btnMinus ctrlEnable true;
     } forEach _catPlusMinusButtons;
-};
-/////////////
 
+    // just do disable again on individual basis when max item value is reached
+    if (_itemValue == _maxItemValue  || _itemValue >= _stock) exitWith {
+        _btnPlus ctrlEnable false;
+        false
+    };
+
+    if (_itemValue <= _minItemValue) exitWith {
+        _btnMinus ctrlEnable false;
+        false
+    };
+
+    _btnMinus ctrlEnable true;
+    _btnPlus ctrlEnable true;
+    false
+};
+
+
+private _catMaxed = [_itemValue, _maxItemValue, _catValue, _stock, _btnPlus, _btnMinus] call _enableDisableButtons;
+
+if (_catMaxed) then {
+    _catFormatting = _catFormattingMaxed
+};
 
 _ctrlChosenInThisCat setVariable ["value", _catValue];
 _parentControl setVariable ["value", _itemValue];

@@ -46,7 +46,7 @@ diag_log format ["fn_spawnStartVehicles: got positions %1 - %2", _opforPosition,
     diag_log format ["fn_getVehicleParams: _position of start vehicle %2: %1", _position, _side];
     [_position, _side] remoteExec ["BC_setup_fnc_createStartMarker", _side];
 
-    [_position, 50] remoteExec ["BC_setup_fnc_teleportPlayer", _side, true];
+    [_position] remoteExec ["BC_setup_fnc_teleportPlayer", _side, true];
     [_position, _side] remoteExec ["BC_setup_fnc_createStartMarker", _side, true];
 
     ["startVehicle",[_startVehicle, _side]] call CBA_fnc_globalEvent;

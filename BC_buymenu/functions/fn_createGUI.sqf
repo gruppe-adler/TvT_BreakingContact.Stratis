@@ -525,6 +525,11 @@ if (player getVariable ["BC_potentToBuy", false]) then {
                     missionNamespace setVariable [_catCacheIdentifier, 0, true];
                     missionNamespace setVariable [_catValueIdentifier, _newValue, true];
 
+                    if (_exitCode == 2) then {
+                        // delete spawn queue
+                        private _identifier = format ["BC_buymenu_spawnQueue_%1", _baseConfigName];
+                        private _currentQueue = missionNamespace setVariable [_identifier, []];
+                    };
             };
         }];
 };

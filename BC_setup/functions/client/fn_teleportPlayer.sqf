@@ -6,7 +6,15 @@ params ["_position", "_distance"];
 cutText ["", "BLACK OUT", 0.1];
 if (str player != "opfor_teamlead") then { sleep (random 7);};
 
-private _emptyPosition = _position findEmptyPosition [15, _distance, "B_Soldier_F"];
+private _emptyPosition = [];
+private _foundPosition = false;
+while {!_foundPosition} do {
+    _emptyPosition = _position findEmptyPosition [15, 30, "B_Soldier_F"];
+    _foundPosition = count _emptyPosition > 0;
+    diag_log ["searching teleport target for player: %1", _emptyPosition];
+    sleep 0.1;
+};
+
 diag_log format ["teleporting %1 to %2.", player, _emptyPosition];
 
 sleep 1;
