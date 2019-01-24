@@ -1,6 +1,6 @@
 #include "\z\ace\addons\main\script_component.hpp"
 
-params ["_position", "_distance"];
+params ["_position"];
 
 ["Preparing teleport..."] call EFUNC(common,displayTextStructured);
 cutText ["", "BLACK OUT", 0.1];
@@ -9,7 +9,7 @@ if (str player != "opfor_teamlead") then { sleep (random 7);};
 private _emptyPosition = [];
 private _foundPosition = false;
 while {!_foundPosition} do {
-    _emptyPosition = _position findEmptyPosition [15, 30, "B_Soldier_F"];
+    _emptyPosition = [_position, 15, 50, 3, 0, 20, 0] call BIS_fnc_findSafePos; // _position findEmptyPosition [15, 30, "B_Soldier_F"];
     _foundPosition = count _emptyPosition > 0;
     diag_log ["searching teleport target for player: %1", _emptyPosition];
     sleep 0.1;
