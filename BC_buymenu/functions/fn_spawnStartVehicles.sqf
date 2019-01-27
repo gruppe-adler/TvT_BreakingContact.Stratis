@@ -46,17 +46,23 @@ diag_log format ["fn_spawnStartVehicles: got positions %1 - %2", _opforPosition,
     diag_log format ["fn_getVehicleParams: _position of start vehicle %2: %1", _position, _side];
     [_position, _side] remoteExec ["BC_setup_fnc_createStartMarker", _side];
 
-    [_position] remoteExec ["BC_setup_fnc_teleportPlayer", _side, true];
-    [_position, _side] remoteExec ["BC_setup_fnc_createStartMarker", _side, true];
+    
 
     ["startVehicle",[_startVehicle, _side]] call CBA_fnc_globalEvent;
     // lets make TELEPORT_TARGETS deprecated
     if (_side == east) then {
         OPFOR_TELEPORT_TARGET = _position;
         publicVariable "OPFOR_TELEPORT_TARGET";
+
+        // dirty but position didnt get properly executed with remoteexec
+        [OPFOR_TELEPORT_TARGET] remoteExec ["BC_setup_fnc_teleportPlayer", east, true];
+        [OPFOR_TELEPORT_TARGET, east] remoteExec ["BC_setup_fnc_createStartMarker", east, true];
     } else {
         BLUFOR_TELEPORT_TARGET = _position;
         publicVariable "BLUFOR_TELEPORT_TARGET";
+
+        [BLUFOR_TELEPORT_TARGET] remoteExec ["BC_setup_fnc_teleportPlayer", west, true];
+        [BLUFOR_TELEPORT_TARGET, west] remoteExec ["BC_setup_fnc_createStartMarker", west, true];
     };
 } forEach [
     [_factionOpfor, _opforPosition, [], east],
