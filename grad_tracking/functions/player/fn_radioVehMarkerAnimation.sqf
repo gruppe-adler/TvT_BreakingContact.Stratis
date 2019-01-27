@@ -44,6 +44,7 @@ player setVariable ["BC_trackingMarker_pulseMaxSize", _pulseMaxSize];
      mrk_radioVeh setMarkerSizeLocal [_pulsesize, _pulsesize];
 
      if (GRAD_RADIO_VEH_MARKER_HIDDEN) exitWith {
+          mrk_radioVeh setMarkerAlphaLocal 0;
           [_handle] call CBA_fnc_removePerFramehandler;
           player setVariable ["GRAD_tracking_radioVehAnimation", false];
           call GRAD_tracking_fnc_hintEndTransmission;

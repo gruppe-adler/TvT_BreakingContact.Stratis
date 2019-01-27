@@ -17,9 +17,9 @@ class EditorData
 	class Camera
 	{
 		pos[]={1571.146,14.665044,5208.625};
-		dir[]={0.38864267,-0.23981404,0.88977486};
-		up[]={0.096034616,0.97077984,0.21986803};
-		aside[]={0.91650289,-2.1001906e-006,-0.40032288};
+		dir[]={0.20212093,-0.22939655,0.95224828};
+		up[]={0.047652557,0.97329503,0.22450903};
+		aside[]={0.97832167,-2.1703745e-006,-0.20766054};
 	};
 };
 binarizationWanted=0;
@@ -166,7 +166,7 @@ class CustomAttributes
 								};
 								class value
 								{
-									items=43;
+									items=44;
 									class Item0
 									{
 										class data
@@ -769,6 +769,20 @@ class CustomAttributes
 											value="ace_repair_autoshutoffenginewhenstartingrepair";
 										};
 									};
+									class Item43
+									{
+										class data
+										{
+											class type
+											{
+												type[]=
+												{
+													"STRING"
+												};
+											};
+											value="ace_medical_healhitpointafteradvbandage";
+										};
+									};
 								};
 							};
 						};
@@ -785,7 +799,7 @@ class CustomAttributes
 								};
 								class value
 								{
-									items=43;
+									items=44;
 									class Item0
 									{
 										class data
@@ -2677,6 +2691,51 @@ class CustomAttributes
 										};
 									};
 									class Item42
+									{
+										class data
+										{
+											class type
+											{
+												type[]=
+												{
+													"ARRAY"
+												};
+											};
+											class value
+											{
+												items=2;
+												class Item0
+												{
+													class data
+													{
+														class type
+														{
+															type[]=
+															{
+																"BOOL"
+															};
+														};
+														value=1;
+													};
+												};
+												class Item1
+												{
+													class data
+													{
+														class type
+														{
+															type[]=
+															{
+																"SCALAR"
+															};
+														};
+														value=1;
+													};
+												};
+											};
+										};
+									};
+									class Item43
 									{
 										class data
 										{

@@ -1,7 +1,7 @@
 params ["_terminal"];
 
 _terminal addEventHandler ["Explosion",{
-    [_this select 0] spawn GRAD_tracking_fnc_terminalExplodeDelayed;
+    [(_this select 0)] remoteExec ["GRAD_tracking_fnc_terminalExplodeDelayed", 2];
 }];
 
 if (hasInterface) then {

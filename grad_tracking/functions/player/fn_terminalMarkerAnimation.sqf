@@ -44,6 +44,7 @@ player setVariable ["BC_trackingMarker_terminalpulseMaxSize", _pulseMaxSize];
      mrk_terminal setMarkerSizeLocal [_pulsesize, _pulsesize];
 
      if (GRAD_TERMINAL_MARKER_HIDDEN) exitWith {
+          mrk_terminal setMarkerAlphaLocal 0;
           [_handle] call CBA_fnc_removePerFramehandler;
           player setVariable ["GRAD_tracking_terminalAnimation", false];
           call GRAD_tracking_fnc_hintEndTransmission;

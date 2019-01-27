@@ -1,10 +1,11 @@
 params ["_terminal"];
 
-if (_terminal getVariable ["grad_explosionReceived",0] == 0) exitWith {
-     _terminal setVariable ["grad_explosionReceived",1, true];
+private _hits = _terminal getVariable ["grad_explosionReceived",0];
+if (_hits < 2) exitWith {
+     _terminal setVariable ["grad_explosionReceived",(_hits + 1), true];
 };
 
-_smoke = "#particlesource" createVehicle position _terminal;
+private _smoke = "#particlesource" createVehicle position _terminal;
 _smoke setParticleClass "SmallDestructionSmoke";
 
 _terminal setVariable ["isFunctional", false];
@@ -12,7 +13,7 @@ _terminal removeAllEventHandlers "Explosion";
 
 sleep 20;
 deleteVehicle _smoke;
-_ex = createVehicle [
+private _ex = createVehicle [
                 "R_TBG32V_F",
                 _terminal modeltoworld [0,0,0],
                 [],
