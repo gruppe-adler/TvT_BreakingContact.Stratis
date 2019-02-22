@@ -19,7 +19,6 @@ class GRAD_tracking {
         class showMarkerUpdateHint {};
         class showTicksInstant {};
         class showTicksWarning {};
-        class terminalAddAction {};
         class terminalClose {};
         class terminalDistanceHint {};
         class terminalDistanceListenerClient {};
@@ -52,7 +51,6 @@ class GRAD_tracking {
         class terminalCalculateDistanceModifier {};
         class terminalDistanceListenerServer {};
         class terminalDistanceToVehCalc {};
-        class terminalExplodeDelayed {};
         class terminalIsSending {};
     };
 };

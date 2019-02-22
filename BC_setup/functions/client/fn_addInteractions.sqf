@@ -9,14 +9,14 @@ if (!hasInterface) exitWith {};
 
       if (_side == west) exitWith {};
 
+      // fnc is executed twice so we need to exit once to be super safe
       if (missionNamespace getVariable ["BC_interactionsAdded", false]) exitWith {};
       missionNamespace setVariable ["BC_interactionsAdded", true];
 
 
       private _type = typeOf _startVehicle;
-
      
-      // fnc is executed twice so we need to exit once
+      
       if (_side == east) then {
               {
                private _flagActionRaise = ["ACE_MainActions", (localize "str_GRAD_flag_raise"), "",
@@ -40,7 +40,7 @@ if (!hasInterface) exitWith {};
 
 
             // RADIO TRUCK DEPLOY
-
+            // rhs gaz has native deploy actions
             if (_type != "rhs_gaz66_r142_vv") then {
                   private _deployAction = [
                       "RusRadioDeploy",
@@ -96,7 +96,7 @@ if (!hasInterface) exitWith {};
                 {(side player == west) && !GRAD_TERMINAL}] call ace_interact_menu_fnc_createAction;
               [_type, 0, ["ACE_MainActions"],_destroyAction] call ace_interact_menu_fnc_addActionToClass;
 
-              _destroyActionPortableRadio = ["usDestroyMenuPortable", (localize "str_GRAD_disable_vehicle"), "",
+              private _destroyActionPortableRadio = ["usDestroyMenuPortable", (localize "str_GRAD_disable_vehicle"), "",
                {
                [60, [_this select 0], { BLUFOR_CAPTURED = TRUE; publicVariable "BLUFOR_CAPTURED";}, {hint "Cancelled action"}, (localize "str_GRAD_disabling_radio")] call ace_common_fnc_progressBar;
                },
@@ -119,11 +119,31 @@ if (!hasInterface) exitWith {};
                   _terminal setPos [getPos _terminal select 0, getPos _terminal select 1, 0];
                   GRAD_TERMINAL = true; publicVariable "GRAD_TERMINAL";
 
-                  [[_terminal, true, [0,1.4,0], 270], "ace_dragging_fnc_setdraggable", true, true] call BIS_fnc_MP;
+                  [_terminal, true, [0,1.4,0], 270]] remoteExec ["ace_dragging_fnc_setDraggable", 0, true];
              }, {hint "Cancelled action"}, (localize "str_GRAD_detaching_radio")] call ace_common_fnc_progressBar;
              },
               {(side player == east) && ((_this select 0) getVariable ["detachableRadio", 0] == 1)}] call ace_interact_menu_fnc_createAction;
             [_type, 0, ["ACE_MainActions"],_detachRadioAction] call ace_interact_menu_fnc_addActionToClass;
+
+
+            // TERMINAL TRANSMISSION
+            private _openAction = ["terminalActionOpen", "Start transmission", "",
+            {
+              [_target] call GRAD_tracking_fnc_terminalOpen;
+            },
+            {_target getVariable ['TerminalStatus',-1] == 0}] call ace_interact_menu_fnc_createAction;
+
+            ["Land_DataTerminal_01_F", 0, ["ACE_MainActions"],_openAction] call ace_interact_menu_fnc_addActionToClass;
+
+
+            private _closeAction = ["terminalActionClose", "End transmission", "",
+            {
+              [_target] call GRAD_tracking_fnc_terminalClose;
+            },
+            {_target getVariable ['TerminalStatus',-1] == 2}] call ace_interact_menu_fnc_createAction;
+
+            ["Land_DataTerminal_01_F", 0, ["ACE_MainActions"],_closeAction] call ace_interact_menu_fnc_addActionToClass;
+
 
 
 
@@ -135,7 +155,7 @@ if (!hasInterface) exitWith {};
             [_type, 0, ["ACE_MainActions"],_transmissionProgressAction] call ace_interact_menu_fnc_addActionToClass;
 
 
-             _attachRadioAction = ["RusAttachMenu", (localize "str_GRAD_attach_radio"), "",
+             private _attachRadioAction = ["RusAttachMenu", (localize "str_GRAD_attach_radio"), "",
              {
              [4, [_this select 0], {
                 ((_this select 0) select 0) setVariable ["detachableRadio", 1, true];
@@ -143,7 +163,7 @@ if (!hasInterface) exitWith {};
                 _terminal = missionNamespace getVariable ["GRAD_tracking_terminalObj", objNull];
                 _radioVeh = missionNamespace getVariable ["GRAD_tracking_radioVehObj", objNull];
 
-                [[(_terminal), false, [0,1,0], 180], "ace_dragging_fnc_setdraggable", true, true] call BIS_fnc_MP;
+                [_terminal, false, [0,1.4,0], 270]] remoteExec ["ace_dragging_fnc_setDraggable", 0, true];
                 GRAD_TERMINAL = false; publicVariable "GRAD_TERMINAL";
 
                 private _offset = _radioVeh getVariable ["BC_terminal_position_offset", [0,-2,0]];

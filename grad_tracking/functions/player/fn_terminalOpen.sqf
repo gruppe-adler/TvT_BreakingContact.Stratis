@@ -1,5 +1,5 @@
 _object = _this select 0;
-_object setVariable ["RadioInterference",1,true];
+_object setVariable ["TerminalStatus",1,true];
 [_object,3] call BIS_fnc_dataTerminalAnimate;
 sleep 2;
 with uiNamespace do {
@@ -26,7 +26,7 @@ with uiNamespace do {
         "grad_tracking\data\monitor_02.paa"
     ];
 
-    while {(_this select 0) getVariable ["RadioInterference",-1] != 0} do {
+    while {(_this select 0) getVariable ["TerminalStatus",-1] != 0} do {
         _texture1 = selectRandom _textures;
         _texture2 = selectRandom _textures;
         if (random 100 > 50) then {
@@ -45,4 +45,4 @@ with uiNamespace do {
 
 GRAD_TERMINAL_ACTIVE = true;
 publicVariableServer "GRAD_TERMINAL_ACTIVE";
-_object setVariable ["RadioInterference",2,true];
+_object setVariable ["TerminalStatus",2,true];
