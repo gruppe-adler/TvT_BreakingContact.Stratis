@@ -30,6 +30,8 @@ private _cargoCount = _parentControl getVariable ["cargo", 0];
 private _ctrlCrewCount = _parentControl getVariable ["ctrlCrew", controlNull];
 private _ctrlCargoCount = _parentControl getVariable ["ctrlCargo", controlNull];
 
+private _ctrlSingleCount = _parentControl getVariable ["ctrlSingleCount", controlNull];
+
 private _data = _parentControl getVariable ["data", []];
 
 private _baseConfigName = _parentControl getVariable ["baseConfigName", "none"];
@@ -58,6 +60,9 @@ diag_log format ["_item is %1, _value %2, _stock is %3", _itemConfigName, _itemV
 private _enableDisableButtons = {
     params ["_itemValue", "_maxItemValue", "_catValue", "_stock", "_btnPlus", "_btnMinus"];
     
+    // reset to default
+    _ctrlSingleCount ctrlSetBackgroundColor [0,0,0,0.8];
+
     // disable all buttons of cat if necessary and exit
     if (_catValue >= _valueMaxInThisCat) exitWith {
         {
@@ -78,6 +83,7 @@ private _enableDisableButtons = {
     // just do disable again on individual basis when max item value is reached
     if (_itemValue == _maxItemValue  || _itemValue >= _stock) exitWith {
         _btnPlus ctrlEnable false;
+        _ctrlSingleCount ctrlSetBackgroundColor [0.8,0,0,0.8];
         false
     };
 

@@ -350,6 +350,20 @@ for "_i" from 0 to (count _categoriesExtracted - 1) do {
 
         };
 
+        private _singleCount = _display ctrlCreate ["RscStructuredText", -1];
+        _singleCount ctrlsetFont "RobotoCondensedBold";
+        _singleCount ctrlSetBackgroundColor [0,0,0,0.8];
+        _singleCount ctrlSetStructuredText parseText ("<t size='0.7' align='center' shadow='0' color='#999999'>" + ("max: " + str _stock) + "</t>");
+        _singleCount ctrlSetPosition [
+            _columnWidth * _multiplicator + safezoneX  + _columnWidth, 
+            (_i * (_rowHeight * 8) + safezoneY) + _rowHeight * 3.65, 
+            _columnWidth * 4,
+            _rowHeight * 0.85
+        ];
+        _singleCount ctrlCommit 0;
+
+        _ctrlItemCount setVariable ["ctrlSingleCount", _singleCount];
+
         private _subline = _display ctrlCreate ["RscStructuredText", -1];
         _subline ctrlsetFont "RobotoCondensedBold";
         _subline ctrlSetBackgroundColor [0,0,0,0];
