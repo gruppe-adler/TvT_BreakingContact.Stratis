@@ -23,10 +23,14 @@ class russia {
     class Type {
         class Soldier_F {
             addItemsToUniform[] = {
-                "ACE_fieldDressing",
+                LIST_7("ACE_fieldDressing"),
+                LIST_2("ACE_epinephrine"),
+                LIST_3("ACE_morphine"),
+                LIST_2("ACE_tourniquet"),
                 "ACE_MapTools",
                 "ACE_Flashlight_KSF1",
-                LIST_2("rhs_mag_9x19_17")
+                LIST_2("rhs_mag_9x19_17"),
+                "ACE_key_east"
             };
             addItemsToVest[] = {
                 "SmokeShell",

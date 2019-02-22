@@ -22,13 +22,14 @@ class USA {
         class Soldier_F {
             gps = "";
             addItemsToUniform[] = {
-                LIST_9("ACE_fieldDressing"),
+                LIST_7("ACE_fieldDressing"),
                 LIST_2("ACE_epinephrine"),
                 LIST_3("ACE_morphine"),
                 LIST_2("ACE_tourniquet"),
                 "ACE_MapTools",
                 "ACE_Flashlight_XL50",
-                LIST_2("rhsusf_mag_15Rnd_9x19_JHP")
+                LIST_2("rhsusf_mag_15Rnd_9x19_JHP"),
+                "ACE_key_west"
             };
             addItemsToVest[] = {
                 LIST_4("rhs_mag_30Rnd_556x45_M855A1_Stanag"),
@@ -107,6 +108,7 @@ class USA {
                 LIST_1("rhsusf_200rnd_556x45_M855_mixed_box")
             };
         };
+        // todo is this class actually used
         class Soldier_AAT_F: Soldier_F {
             backpack = "B_Carryall_khk";
             addItemsToVest[] = {
@@ -116,7 +118,7 @@ class USA {
                 LIST_2("SmokeShell")
             };
             addItemsToBackpack[] = {
-                LIST_2("rhs_mag_maaws_HEAT")
+                LIST_2("rhsusf_200rnd_556x45_M855_mixed_box")
             };
         };
 
