@@ -62,6 +62,7 @@ private _enableDisableButtons = {
     
     // reset to default
     _ctrlSingleCount ctrlSetBackgroundColor [0,0,0,0.8];
+    _ctrlSingleCount ctrlSetStructuredText parseText ("<t size='0.7' align='center' shadow='0' color='#999999'>" + ("max " + str _stock) + "</t>");
 
     // disable all buttons of cat if necessary and exit
     if (_catValue >= _valueMaxInThisCat) exitWith {
@@ -70,6 +71,17 @@ private _enableDisableButtons = {
             _btnPlus ctrlEnable false;
             _btnMinus ctrlEnable true;
         } forEach _catPlusMinusButtons;
+
+        // just do disable again on individual basis when max item value is reached
+        if (_itemValue >= _stock) then {
+            _ctrlSingleCount ctrlSetBackgroundColor [0.4,0.66,0.4,1];
+            _ctrlSingleCount ctrlSetStructuredText parseText ("<t size='0.7' align='center' shadow='0' color='#000000'>" + ("max " + str _stock) + "</t>");
+
+            _ctrlChosenInThisCat ctrlSetStructuredText parseText (
+                 _catFormatting + str _catValue + "/" + str _maxValue + "</t>"
+            );
+            _ctrlChosenInThisCat ctrlCommit 0;
+        };
         true
     };
 
@@ -81,9 +93,10 @@ private _enableDisableButtons = {
     } forEach _catPlusMinusButtons;
 
     // just do disable again on individual basis when max item value is reached
-    if (_itemValue == _maxItemValue  || _itemValue >= _stock) exitWith {
+    if (_itemValue == _maxItemValue || _itemValue >= _stock) exitWith {
         _btnPlus ctrlEnable false;
-        _ctrlSingleCount ctrlSetBackgroundColor [0.8,0,0,0.8];
+        _ctrlSingleCount ctrlSetBackgroundColor [0.4,0.66,0.4,1];
+        _ctrlSingleCount ctrlSetStructuredText parseText ("<t size='0.7' align='center' shadow='0' color='#000000'>" + ("max " + str _stock) + "</t>");
         false
     };
 

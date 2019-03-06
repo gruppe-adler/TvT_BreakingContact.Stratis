@@ -120,7 +120,7 @@ if (!hasInterface) exitWith {};
                   _terminal setPos [getPos _terminal select 0, getPos _terminal select 1, 0.1];
                   GRAD_TERMINAL = true; publicVariable "GRAD_TERMINAL";
 
-                  [_terminal, true, [0,1.4,0], 270]] remoteExec ["ace_dragging_fnc_setDraggable", 0, true];
+                  [_terminal, true, [0,1.4,0], 270] remoteExec ["ace_dragging_fnc_setDraggable", 0, true];
              }, {hint "Cancelled action"}, (localize "str_GRAD_detaching_radio")] call ace_common_fnc_progressBar;
              },
               {(side player == east) && ((_this select 0) getVariable ["detachableRadio", 0] == 1)}] call ace_interact_menu_fnc_createAction;
@@ -130,7 +130,7 @@ if (!hasInterface) exitWith {};
             // TERMINAL TRANSMISSION
             private _openAction = ["terminalActionOpen", "Start transmission", "",
             {
-              [_target] call GRAD_tracking_fnc_terminalOpen;
+              [_target] spawn GRAD_tracking_fnc_terminalOpen;
             },
             {_target getVariable ['TerminalStatus',-1] == 0}] call ace_interact_menu_fnc_createAction;
 
@@ -139,7 +139,7 @@ if (!hasInterface) exitWith {};
 
             private _closeAction = ["terminalActionClose", "End transmission", "",
             {
-              [_target] call GRAD_tracking_fnc_terminalClose;
+              [_target] spawn GRAD_tracking_fnc_terminalClose;
             },
             {_target getVariable ['TerminalStatus',-1] == 2}] call ace_interact_menu_fnc_createAction;
 
@@ -164,13 +164,9 @@ if (!hasInterface) exitWith {};
                 _terminal = missionNamespace getVariable ["GRAD_tracking_terminalObj", objNull];
                 _radioVeh = missionNamespace getVariable ["GRAD_tracking_radioVehObj", objNull];
 
-                [_terminal, false, [0,1.4,0], 270]] remoteExec ["ace_dragging_fnc_setDraggable", 0, true];
                 GRAD_TERMINAL = false; publicVariable "GRAD_TERMINAL";
 
-                private _offset = _radioVeh getVariable ["BC_terminal_position_offset", [0,-2,0]];
-                private _vectorDirAndUp = _radioVeh getVariable ["BC_terminal_position_vectorDirAndUp", [[0,0,0],[0,0,0]]];
-                (_terminal) attachTo [_radioVeh ,_offset];
-                (_terminal) setVectorDirAndUp _vectorDirAndUp;
+                [_terminal, _radioVeh] call GRAD_tracking_fnc_terminalAttachToVeh;
 
              }, {hint "Cancelled action"}, (localize "str_GRAD_attaching_radio")] call ace_common_fnc_progressBar;
              },

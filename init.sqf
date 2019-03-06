@@ -18,9 +18,9 @@ if (BC_IS_WOODLAND) then {
 */
 
 // call compile preprocessfile "BC_loadouts\setLoadoutRandomization.sqf";
-
-
 waitUntil {!isNil "JIP_TIME_ALLOWED"};
+waitUntil {!isNil "CONQUER_MODE"};
+waitUntil {!isNil "PREPARATION_TIME"};
 jipTime = JIP_TIME_ALLOWED;
 
 waitUntil {!isNil "GRAD_REPLAY_PRECISION"};

@@ -149,8 +149,8 @@ class Params
     class GRAD_INTERVALS_NEEDED
     {
         title = "Number of random places opfor needs to transmit at";
-        values[] = {1, 2, 3, 4, 5, 6};
-        texts[] = {"none","2","3","4","5","6"};
+        values[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+        texts[] = {"none","2","3","4","5","6","7","8","9","10"};
         default = 2;
     };
 
