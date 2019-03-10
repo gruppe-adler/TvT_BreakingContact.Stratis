@@ -495,6 +495,17 @@ class CfgIslands {
         };
     };
 
+    class Tembelan {
+        displayName = "Tembelan Island";
+        type = "russian";
+        isWoodland = true;
+        spawnPosBlu[] = {4632.81,655.017,0};
+        spawnPosOpf[] = {5019.53,1002.51,0};
+        previewCamPos[] = {3637.3,3719.64,0};
+        previewCamTarget[] = {3572.53,3690.84,0};
+        sizeFactor = 0.75;
+    };
+
     class utes {
         displayName = "Utes";
         type = "russian";
