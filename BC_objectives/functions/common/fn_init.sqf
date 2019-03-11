@@ -7,11 +7,10 @@ if (isServer) then {
             [PREPARATION_TIME] call BC_objectives_fnc_startPreparationTime;
 
             private _min = str ((["GRAD_TICKS_NEEDED", 2700] call BIS_fnc_getParamValue)/60);
-            private _intervals = ["GRAD_INTERVALS_NEEDED", 1] call BIS_fnc_getParamValue;
-
-            
+            private _intervals = ["GRAD_INTERVALS_NEEDED", 1] call BIS_fnc_getParamValue;            
 
             [{
+                params ["_intervals", "_min"];
 
                 private _tasksMain = [_intervals, _min] call BC_objectives_fnc_createTaskMain;
 
@@ -23,7 +22,7 @@ if (isServer) then {
 
                 }, [_tasksMain], 10] call CBA_fnc_waitAndExecute;
 
-            }, [], 10] call CBA_fnc_waitAndExecute;
+            }, [_intervals, _min], 10] call CBA_fnc_waitAndExecute;
 
 
         }, [], 10] call CBA_fnc_waitAndExecute;
