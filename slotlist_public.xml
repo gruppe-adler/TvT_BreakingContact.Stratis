@@ -14,8 +14,8 @@
                     <fireteam>
                          <slot shortcode="FTL" description="Fireteam Leader"/>
                          <slot shortcode="LMG" description="Light Machine Gunner"/>
-                         <slot shortcode="LMA" description="LMG Assistant"/>
                          <slot shortcode="HAT" description="Heavy AT Specialist"/>
+                         <slot shortcode="ATA" description="HAT Assistant"/>
                          <slot shortcode="R" description="Rifleman"/>
                     </fireteam>
                </squad>
@@ -30,8 +30,8 @@
                     <fireteam>
                          <slot shortcode="FTL" description="Fireteam Leader"/>
                          <slot shortcode="LMG" description="Light Machine Gunner"/>
-                         <slot shortcode="LMA" description="LMG Assistant"/>
                          <slot shortcode="HAT" description="Heavy AT Specialist"/>
+                         <slot shortcode="ATA" description="HAT Assistant"/>
                          <slot shortcode="R" description="Rifleman"/>
                     </fireteam>
                </squad>
@@ -46,8 +46,8 @@
                     <fireteam>
                          <slot shortcode="FTL" description="Fireteam Leader"/>
                          <slot shortcode="LMG" description="Light Machine Gunner"/>
-                         <slot shortcode="LMA" description="LMG Assistant"/>
                          <slot shortcode="HAT" description="Heavy AT Specialist"/>
+                         <slot shortcode="ATA" description="HAT Assistant"/>
                          <slot shortcode="R" description="Rifleman"/>
                     </fireteam>
                </squad>
@@ -62,8 +62,8 @@
                     <fireteam>
                          <slot shortcode="FTL" description="Fireteam Leader"/>
                          <slot shortcode="LMG" description="Light Machine Gunner"/>
-                         <slot shortcode="LMA" description="LMG Assistant"/>
                          <slot shortcode="HAT" description="Heavy AT Specialist"/>
+                         <slot shortcode="ATA" description="HAT Assistant"/>
                          <slot shortcode="R" description="Rifleman"/>
                     </fireteam>
                </squad>
@@ -99,8 +99,8 @@
                     <fireteam>
                          <slot shortcode="FTL" description="Fireteam Leader"/>
                          <slot shortcode="LMG" description="Light Machine Gunner"/>
-                         <slot shortcode="LMA" description="LMG Assistant"/>
                          <slot shortcode="HAT" description="Heavy AT Specialist"/>
+                         <slot shortcode="ATA" description="HAT Assistant"/>
                          <slot shortcode="R" description="Rifleman"/>
                     </fireteam>
                </squad>
@@ -115,8 +115,8 @@
                     <fireteam>
                          <slot shortcode="FTL" description="Fireteam Leader"/>
                          <slot shortcode="LMG" description="Light Machine Gunner"/>
-                         <slot shortcode="LMA" description="LMG Assistant"/>
                          <slot shortcode="HAT" description="Heavy AT Specialist"/>
+                         <slot shortcode="ATA" description="HAT Assistant"/>
                          <slot shortcode="R" description="Rifleman"/>
                     </fireteam>
                </squad>
@@ -131,8 +131,8 @@
                     <fireteam>
                          <slot shortcode="FTL" description="Fireteam Leader"/>
                          <slot shortcode="LMG" description="Light Machine Gunner"/>
-                         <slot shortcode="LMA" description="LMG Assistant"/>
                          <slot shortcode="HAT" description="Heavy AT Specialist"/>
+                         <slot shortcode="ATA" description="HAT Assistant"/>
                          <slot shortcode="R" description="Rifleman"/>
                     </fireteam>
                </squad>
@@ -147,8 +147,8 @@
                     <fireteam>
                          <slot shortcode="FTL" description="Fireteam Leader"/>
                          <slot shortcode="LMG" description="Light Machine Gunner"/>
-                         <slot shortcode="LMA" description="LMG Assistant"/>
                          <slot shortcode="HAT" description="Heavy AT Specialist"/>
+                         <slot shortcode="ATA" description="HAT Assistant"/>
                          <slot shortcode="R" description="Rifleman"/>
                     </fireteam>
                </squad>
