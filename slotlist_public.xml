@@ -6,8 +6,8 @@
                <squad callsign="Alpha" natosymbol="inf">
                     <slot shortcode="SQL" description="squad leader"/>
                     <fireteam>
-                         <slot shortcode="HMG" description="Heavy MG"/>
-                         <slot shortcode="HMA" description="Heavy MG Assistant"/>
+                         <slot shortcode="MMG" description="Medium MG"/>
+                         <slot shortcode="MGA" description="Medium MG Assistant"/>
                          <slot shortcode="LAT" description="Light Anti Tank Specialist"/>
                          <slot shortcode="CLS" description="Combat Life Saver"/>
                     </fireteam>
@@ -22,8 +22,8 @@
                <squad callsign="Bravo" natosymbol="inf">
                     <slot shortcode="SQL" description="squad leader"/>
                     <fireteam>
-                         <slot shortcode="HMG" description="Heavy MG"/>
-                         <slot shortcode="HMA" description="Heavy MG Assistant"/>
+                         <slot shortcode="MMG" description="Medium MG"/>
+                         <slot shortcode="MGA" description="Medium MG Assistant"/>
                          <slot shortcode="LAT" description="Light Anti Tank Specialist"/>
                          <slot shortcode="CLS" description="Combat Life Saver"/>
                     </fireteam>
@@ -38,8 +38,8 @@
                <squad callsign="Charlie" natosymbol="inf">
                     <slot shortcode="SQL" description="squad leader"/>
                     <fireteam>
-                         <slot shortcode="HMG" description="Heavy MG"/>
-                         <slot shortcode="HMA" description="Heavy MG Assistant"/>
+                         <slot shortcode="MMG" description="Medium MG"/>
+                         <slot shortcode="MGA" description="Medium MG Assistant"/>
                          <slot shortcode="LAT" description="Light Anti Tank Specialist"/>
                          <slot shortcode="CLS" description="Combat Life Saver"/>
                     </fireteam>
@@ -54,8 +54,8 @@
                <squad callsign="Delta" natosymbol="inf">
                     <slot shortcode="SQL" description="squad leader"/>
                     <fireteam>
-                         <slot shortcode="HMG" description="Heavy MG"/>
-                         <slot shortcode="HMA" description="Heavy MG Assistant"/>
+                         <slot shortcode="MMG" description="Medium MG"/>
+                         <slot shortcode="MGA" description="Medium MG Assistant"/>
                          <slot shortcode="LAT" description="Light Anti Tank Specialist"/>
                          <slot shortcode="CLS" description="Combat Life Saver"/>
                     </fireteam>
@@ -91,8 +91,8 @@
                <squad callsign="Alpha" natosymbol="inf">
                     <slot shortcode="SQL" description="squad leader"/>
                     <fireteam>
-                         <slot shortcode="HMG" description="Heavy MG"/>
-                         <slot shortcode="HMA" description="Heavy MG Assistant"/>
+                         <slot shortcode="MMG" description="Medium MG"/>
+                         <slot shortcode="MGA" description="Medium MG Assistant"/>
                          <slot shortcode="LAT" description="Light Anti Tank Specialist"/>
                          <slot shortcode="CLS" description="Combat Life Saver"/>
                     </fireteam>
@@ -107,8 +107,8 @@
                <squad callsign="Bravo" natosymbol="inf">
                     <slot shortcode="SQL" description="squad leader"/>
                     <fireteam>
-                         <slot shortcode="HMG" description="Heavy MG"/>
-                         <slot shortcode="HMA" description="Heavy MG Assistant"/>
+                         <slot shortcode="MMG" description="Medium MG"/>
+                         <slot shortcode="MGA" description="Medium MG Assistant"/>
                          <slot shortcode="LAT" description="Light Anti Tank Specialist"/>
                          <slot shortcode="CLS" description="Combat Life Saver"/>
                     </fireteam>
@@ -123,8 +123,8 @@
                <squad callsign="Charlie" natosymbol="inf">
                     <slot shortcode="SQL" description="squad leader"/>
                     <fireteam>
-                         <slot shortcode="HMG" description="Heavy MG"/>
-                         <slot shortcode="HMA" description="Heavy MG Assistant"/>
+                         <slot shortcode="MMG" description="Medium MG"/>
+                         <slot shortcode="MGA" description="Medium MG Assistant"/>
                          <slot shortcode="LAT" description="Light Anti Tank Specialist"/>
                          <slot shortcode="CLS" description="Combat Life Saver"/>
                     </fireteam>
@@ -139,8 +139,8 @@
                <squad callsign="Delta" natosymbol="inf">
                     <slot shortcode="SQL" description="squad leader"/>
                     <fireteam>
-                         <slot shortcode="HMG" description="Heavy MG"/>
-                         <slot shortcode="HMA" description="Heavy MG Assistant"/>
+                         <slot shortcode="MMG" description="Medium MG"/>
+                         <slot shortcode="MGA" description="Medium MG Assistant"/>
                          <slot shortcode="LAT" description="Light Anti Tank Specialist"/>
                          <slot shortcode="CLS" description="Combat Life Saver"/>
                     </fireteam>

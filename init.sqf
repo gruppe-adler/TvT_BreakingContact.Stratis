@@ -35,7 +35,8 @@ if (hasInterface) then {
           } else {
           if (!didJIP) exitWith {
                [] call checkSpawnButton;
-          };
+               };
+               BIS_fnc_establishingShot_skip = true; // just in case its necessary
           };
      };
 

@@ -37,6 +37,4 @@ cutText ["", "PLAIN"];
 
 ["<img size= '8' shadow='false' image='pic\bc_logo.paa'/>",0,0,4,2] spawn BIS_fnc_dynamicText;
 
-BIS_fnc_establishingShot_skip = true; // just in case its necessary
-
 openMap false;
