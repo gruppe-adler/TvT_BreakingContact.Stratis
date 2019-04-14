@@ -4480,7 +4480,7 @@ class Mission
 					class Attributes
 					{
 						rank="SERGEANT";
-						description="Heavy Gunner (M240B)";
+						description="Medium MG (M240B)";
 						isPlayable=1;
 					};
 					id=1099;
@@ -5176,7 +5176,7 @@ class Mission
 					class Attributes
 					{
 						rank="SERGEANT";
-						description="Heavy Gunner (M240B)";
+						description="Medium MG (M240B)";
 						isPlayable=1;
 					};
 					id=1110;
@@ -5872,7 +5872,7 @@ class Mission
 					class Attributes
 					{
 						rank="SERGEANT";
-						description="Heavy Gunner (M240B)";
+						description="Medium MG (M240B)";
 						isPlayable=1;
 					};
 					id=1121;
@@ -6568,7 +6568,7 @@ class Mission
 					class Attributes
 					{
 						rank="SERGEANT";
-						description="Heavy Gunner (M240B)";
+						description="Medium MG (M240B)";
 						isPlayable=1;
 					};
 					id=1177;
@@ -8414,7 +8414,7 @@ class Mission
 					class Attributes
 					{
 						rank="SERGEANT";
-						description="Heavy Machine Gunner (PKP)";
+						description="Medium Machine Gunner (PKP)";
 						isPlayable=1;
 					};
 					id=1246;
@@ -9148,7 +9148,7 @@ class Mission
 					class Attributes
 					{
 						rank="SERGEANT";
-						description="Heavy Machine Gunner (PKP)";
+						description="Medium Machine Gunner (PKP)";
 						isPlayable=1;
 					};
 					id=1257;
@@ -9882,7 +9882,7 @@ class Mission
 					class Attributes
 					{
 						rank="SERGEANT";
-						description="Heavy Machine Gunner (PKP)";
+						description="Medium Machine Gunner (PKP)";
 						isPlayable=1;
 					};
 					id=1268;
@@ -10616,7 +10616,7 @@ class Mission
 					class Attributes
 					{
 						rank="SERGEANT";
-						description="Heavy Machine Gunner (PKP)";
+						description="Medium Machine Gunner (PKP)";
 						isPlayable=1;
 					};
 					id=1279;
