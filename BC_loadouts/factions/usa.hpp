@@ -191,7 +191,8 @@ class USA {
                 LIST_2("ACE_tourniquet"),
                 "ACE_MapTools",
                 "ACE_Flashlight_XL50",
-                LIST_2("rhsusf_mag_15Rnd_9x19_JHP")
+                LIST_2("rhsusf_mag_15Rnd_9x19_JHP"),
+                "ACE_key_west"
             };
             addItemsToVest[] = {
                 LIST_2("rhsusf_mag_15Rnd_9x19_JHP"),
@@ -215,7 +216,8 @@ class USA {
                 LIST_2("ACE_tourniquet"),
                 "ACE_MapTools",
                 "ACE_Flashlight_XL50",
-                LIST_2("rhsusf_mag_15Rnd_9x19_JHP")
+                LIST_2("rhsusf_mag_15Rnd_9x19_JHP"),
+                "ACE_key_west"
             };
         };
         class officer_F: Soldier_SL_F {};

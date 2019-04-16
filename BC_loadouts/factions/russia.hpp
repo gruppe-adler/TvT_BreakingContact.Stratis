@@ -180,7 +180,8 @@ class russia {
                 LIST_7("ACE_fieldDressing"),
                 LIST_2("ACE_epinephrine"),
                 LIST_2("ACE_morphine"),
-                LIST_2("rhs_mag_9x19_17")
+                LIST_2("rhs_mag_9x19_17"),
+                "ACE_key_east"
             };
             addItemsToVest[] = {
                 LIST_2("rhs_mag_rdg2_white"),
