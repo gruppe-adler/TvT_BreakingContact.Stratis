@@ -3,6 +3,8 @@ params ["_side", ["_excludeUnit", objNull]];
 private _sideUnits = [];
 private _return = objNull;
 
+diag_log format ["getting highest rank for %1", _side];
+
 // get all units of side
 {
     if (side _x isEqualTo _side) then {

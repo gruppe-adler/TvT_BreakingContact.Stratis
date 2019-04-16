@@ -33,9 +33,8 @@ if (hasInterface) then {
           if ((OPFOR_TELEPORT_TARGET select 0 != 0) && didJIP && CBA_missionTime > jipTime) then {
                player setDamage 1;
           } else {
-          if (!didJIP) exitWith {
-               [] call checkSpawnButton;
-               };
+               if (!didJIP) exitWith {};
+          
                BIS_fnc_establishingShot_skip = true; // just in case its necessary
           };
      };
