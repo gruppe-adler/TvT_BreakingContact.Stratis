@@ -32,14 +32,13 @@ class USA {
                 "ACE_key_west"
             };
             addItemsToVest[] = {
-                LIST_4("rhs_mag_30Rnd_556x45_M855A1_Stanag"),
+                LIST_6("rhs_mag_30Rnd_556x45_M855A1_Stanag"),
                 LIST_2("rhsusf_mag_15Rnd_9x19_JHP"),
                 LIST_2("rhs_mag_m67"),
                 LIST_2("SmokeShell")
             };
-            addItemsToBackpack[] = {};
-            };
-            class Engineer_F: Soldier_F{
+        };
+        class Engineer_F: Soldier_F{
             backpack = "rhssaf_kitbag_smb";
             addItemsToBackpack[] = {
                 "toolkit",
@@ -105,7 +104,7 @@ class USA {
                 LIST_2("rhsusf_mag_15Rnd_9x19_JHP")
             };
             addItemsToBackpack[] = {
-                LIST_1("rhsusf_200rnd_556x45_M855_mixed_box")
+                LIST_2("rhsusf_200rnd_556x45_M855_mixed_box")
             };
         };
 
@@ -117,7 +116,7 @@ class USA {
                 LIST_2("SmokeShell")
             };
             addItemsToBackpack[] = {
-                LIST_1("rhsusf_200rnd_556x45_M855_mixed_box")
+                LIST_2("rhsusf_200rnd_556x45_M855_mixed_box")
             };
         };
 

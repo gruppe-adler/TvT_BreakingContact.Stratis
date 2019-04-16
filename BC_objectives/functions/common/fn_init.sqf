@@ -39,7 +39,7 @@ if (hasInterface) then {
 // prevent bugging out on jip
 [{
     !isNil "PREPARATION_TIME"  
-}{
+},{
         // start replay record on server and init replay on client
     [{
         call GRAD_replay_fnc_init;

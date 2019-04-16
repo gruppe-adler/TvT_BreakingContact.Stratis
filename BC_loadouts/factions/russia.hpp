@@ -34,7 +34,7 @@ class russia {
             };
             addItemsToVest[] = {
                 "SmokeShell",
-                LIST_4("rhs_30Rnd_545x39_7N10_AK"),
+                LIST_6("rhs_30Rnd_545x39_7N10_AK"),
                 LIST_2("rhs_mag_rgd5"),
                 LIST_2("rhs_mag_rdg2_white")
             };
@@ -105,7 +105,7 @@ class russia {
             };
             addItemsToBackpack[] = {
                 LIST_4("ACE_fieldDressing"),
-                LIST_1("ACE_epinephrine"),
+                LIST_2("ACE_epinephrine"),
                 LIST_2("ACE_morphine"),
                 LIST_8("rhs_75Rnd_762x39mm_tracer")
             };
