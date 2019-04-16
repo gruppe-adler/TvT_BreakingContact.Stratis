@@ -35,7 +35,13 @@ if (hasInterface) then {
     call BC_objectives_fnc_endConditionListener;
 };
 
-// start replay record on server and init replay on client
+
+// prevent bugging out on jip
 [{
-    call GRAD_replay_fnc_init;
-}, [], PREPARATION_TIME] call CBA_fnc_waitAndExecute;
+    !isNil "PREPARATION_TIME"  
+}{
+        // start replay record on server and init replay on client
+    [{
+        call GRAD_replay_fnc_init;
+    }, [], PREPARATION_TIME] call CBA_fnc_waitAndExecute;    
+}, []] call CBA_fnc_waitUntilAndExecute;
