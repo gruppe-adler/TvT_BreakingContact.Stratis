@@ -9,7 +9,7 @@ class bwGM {
 
     // needs to be in every faction
     class StartVehicle {
-        type = "rhsusf_m998_w_4dr";
+        type = "gm_ge_army_iltis_cargo_oli";
         condition = "false";
 
         class gm_ge_army_iltis_cargo_oli {
