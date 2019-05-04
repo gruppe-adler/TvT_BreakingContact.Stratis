@@ -1,12 +1,12 @@
 class bwGM {
     class AllUnits {
-        primaryWeapon = "rhs_weap_m4a1_carryhandle";
-        primaryWeaponMagazine = "rhs_mag_30Rnd_556x45_M855A1_Stanag";
-        primaryWeaponPointer = "acc_flashlight";
-        primaryWeaponOptics = "rhsusf_acc_eotech_xps3";
-        handgunWeapon = "rhsusf_weap_m9";
-        handgunWeaponMagazine = "rhsusf_mag_15Rnd_9x19_JHP";
-        uniform = "rhs_uniform_FROG01_wd";
+        primaryWeapon = "gm_g3a3_oli";
+        primaryWeaponMagazine = "gm_20rnd_762x51mm_b_t_dm21a1_g3_blk";
+        primaryWeaponPointer = "";
+        primaryWeaponOptics = "";
+        handgunWeapon = "";
+        handgunWeaponMagazine = "";
+        uniform = "gm_ge_army_uniform_soldier_80_oli";
         vest = "rhsusf_mbav_rifleman";
         backpack = "rhsusf_assault_eagleaiii_coy";
         headgear = "rhsusf_lwh_helmet_marpatwd_headset_blk2";
@@ -32,9 +32,9 @@ class bwGM {
                 "ACE_key_west"
             };
             addItemsToVest[] = {
-                LIST_6("rhs_mag_30Rnd_556x45_M855A1_Stanag"),
+                LIST_6("gm_20rnd_762x51mm_b_t_dm21a1_g3_blk"),
                 LIST_2("rhsusf_mag_15Rnd_9x19_JHP"),
-                LIST_2("gm_handgrenade_frag_rgd5"),
+                LIST_2("gm_handgrenade_frag_dm51"),
                 LIST_2("SmokeShell")
             };
         };
@@ -62,7 +62,7 @@ class bwGM {
                 "ACE_Flashlight_XL50"
             };
             addItemsToVest[] = {
-                "gm_handgrenade_frag_rgd5",
+                "gm_handgrenade_frag_dm51",
                 "SmokeShell",
                 "rhsusf_100Rnd_762x51_m62_tracer",
                 "rhsusf_50Rnd_762x51"
@@ -85,7 +85,7 @@ class bwGM {
             };
             addItemsToVest[] = {
                 LIST_2("rhsusf_mag_15Rnd_9x19_JHP"),
-                "gm_handgrenade_frag_rgd5",
+                "gm_handgrenade_frag_dm51",
                 LIST_2("SmokeShell"),
                 "rhsusf_200rnd_556x45_M855_mixed_box"
             };
@@ -110,9 +110,9 @@ class bwGM {
 
         class Soldier_A_F: Soldier_F {
             addItemsToVest[] = {
-                LIST_8("rhs_mag_30Rnd_556x45_M855A1_Stanag"),
+                LIST_8("gm_20rnd_762x51mm_b_t_dm21a1_g3_blk"),
                 LIST_2("rhsusf_mag_15Rnd_9x19_JHP"),
-                LIST_2("gm_handgrenade_frag_rgd5"),
+                LIST_2("gm_handgrenade_frag_dm51"),
                 LIST_2("SmokeShell")
             };
             addItemsToBackpack[] = {
@@ -134,7 +134,7 @@ class bwGM {
                 "ACE_Flashlight_XL50"
             };
             addItemsToVest[] = {
-                LIST_3("rhs_mag_30Rnd_556x45_M855A1_Stanag"),
+                LIST_3("gm_20rnd_762x51mm_b_t_dm21a1_g3_blk"),
                 "SmokeShell"
             };
             addItemsToBackpack[] = {
@@ -173,7 +173,7 @@ class bwGM {
                 LIST_10("ACE_morphine"),
                 LIST_10("ACE_epinephrine"),
                 LIST_8("ACE_bloodIV_250"),
-                LIST_2("gm_handgrenade_frag_rgd5")
+                LIST_2("gm_handgrenade_frag_dm51")
             };
         };
         class Soldier_TL_F: Soldier_F {
@@ -192,15 +192,15 @@ class bwGM {
             };
             addItemsToVest[] = {
                 LIST_2("rhsusf_mag_15Rnd_9x19_JHP"),
-                LIST_2("gm_handgrenade_frag_rgd5"),
+                LIST_2("gm_handgrenade_frag_dm51"),
                 LIST_2("SmokeShell"),
-                LIST_3("rhs_mag_30Rnd_556x45_M855A1_Stanag"),
+                LIST_3("gm_20rnd_762x51mm_b_t_dm21a1_g3_blk"),
                 LIST_5("1Rnd_SmokeGreen_Grenade_shell"),
                 LIST_5("1Rnd_SmokeRed_Grenade_shell"),
                 LIST_2("1Rnd_Smoke_Grenade_shell")
             };
             addItemsToBackpack[] = {
-                LIST_5("rhs_mag_30Rnd_556x45_M855A1_Stanag")
+                LIST_5("gm_20rnd_762x51mm_b_t_dm21a1_g3_blk")
             };
         };
         class Soldier_SL_F: Soldier_TL_F {
