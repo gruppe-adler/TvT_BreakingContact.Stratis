@@ -174,9 +174,8 @@ class nvaGM {
         };
         class Soldier_TL_F: Soldier_F {
             headgear = "gm_gc_army_headgear_m56";
-            gps = "ItemGPS";
             handgunWeapon = "gm_lp1_blk";
-            handgunWeaponMagazine = "gm_1Rnd_265mm_flare_single_wht_gc";
+            handgunWeaponMagazine = "gm_1Rnd_265mm_smoke_single_yel_gc";
             backpack = "TFAR_mr3000_rhs";
             addItemsToUniform[] = {
                 LIST_7("ACE_fieldDressing"),
@@ -196,10 +195,10 @@ class nvaGM {
                 LIST_3("gm_30rnd_545x39mm_b_7n6_ak74_prp"),
                 LIST_2("gm_1Rnd_265mm_flare_single_grn_gc"),
                 LIST_2("gm_1Rnd_265mm_flare_single_red_gc"),
-                "gm_1Rnd_265mm_flare_single_wht_gc",
                 LIST_2("gm_1Rnd_265mm_smoke_single_yel_gc"),
                 LIST_2("gm_1Rnd_265mm_smoke_single_blk_gc"),
-                LIST_2("gm_1Rnd_265mm_smoke_single_blu_gc")
+                LIST_2("gm_1Rnd_265mm_smoke_single_blu_gc"),
+                LIST_2("gm_1Rnd_265mm_flare_single_wht_gc")
             };
         };
         class Soldier_SL_F: Soldier_TL_F {};

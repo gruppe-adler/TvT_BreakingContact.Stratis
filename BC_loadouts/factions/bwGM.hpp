@@ -37,6 +37,7 @@ class bwGM {
             };
         };
         class Engineer_F: Soldier_F{
+            vest = "gm_ge_army_vest_80_demolition";
             backpack = "gm_ge_backpack_satchel_80_blk";
             addItemsToBackpack[] = {
                 "toolkit",
@@ -174,7 +175,8 @@ class bwGM {
         };
         class Soldier_TL_F: Soldier_F {
             vest = "gm_ge_army_vest_80_leader";
-            gps = "ItemGPS";
+            handgunWeapon = "gm_p2a1_blk";
+            handgunWeaponMagazine = "gm_1Rnd_265mm_smoke_single_yel_DM19";
             addItemsToUniform[] = {
                 LIST_7("ACE_fieldDressing"),
                 LIST_2("ACE_epinephrine"),
@@ -187,12 +189,16 @@ class bwGM {
             addItemsToVest[] = {
                 LIST_2("gm_handgrenade_frag_dm51"),
                 LIST_2("gm_smokeshell_wht_dm25"),
-                LIST_3("gm_20rnd_762x51mm_b_t_dm21a1_g3_blk"),
-                LIST_5("1Rnd_SmokeGreen_Grenade_shell"),
-                LIST_5("1Rnd_SmokeRed_Grenade_shell")
+                LIST_3("gm_20rnd_762x51mm_b_t_dm21a1_g3_blk")
             };
             addItemsToBackpack[] = {
-                LIST_5("gm_20rnd_762x51mm_b_t_dm21a1_g3_blk")
+                LIST_5("gm_20rnd_762x51mm_b_t_dm21a1_g3_blk"),
+                LIST_2("gm_1Rnd_265mm_flare_single_grn_DM11"),
+                LIST_2("gm_1Rnd_265mm_flare_single_red_DM13"),
+                LIST_2("gm_1Rnd_265mm_smoke_single_yel_DM19"),
+                LIST_2("gm_1Rnd_265mm_smoke_single_org_DM22"),
+                LIST_2("gm_1Rnd_265mm_smoke_single_vlt_DM24"),
+                LIST_2("gm_1Rnd_265mm_flare_single_wht_DM15")
             };
         };
         class Soldier_SL_F: Soldier_TL_F {
@@ -208,7 +214,9 @@ class bwGM {
             };
         };
         class officer_F: Soldier_SL_F {};
-        class Crew_F {};
+        class Crew_F {
+            vest = "gm_ge_army_vest_80_crew";
+        };
         class Helipilot_F: Crew_F {};
     };
 };
