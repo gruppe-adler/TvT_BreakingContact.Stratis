@@ -118,6 +118,7 @@ class bwGM {
 
         // heavy at
         class Soldier_AT_F: Soldier_F {
+            vest = "gm_ge_army_vest_80_demolition";
             secondaryWeapon = "gm_pzf84_oli";
             secondaryWeaponMagazine = "gm_1rnd_84x245mm_heat_t_dm12a1_carlgustaf";
             backpack = "B_Carryall_cbr";
@@ -149,6 +150,7 @@ class bwGM {
         };
 
         class Soldier_LAT_F: Soldier_F {
+            vest = "gm_ge_army_vest_80_demolition";
             secondaryWeapon = "gm_pzf44_2_oli";
             secondaryWeaponMagazine = "gm_1rnd_44x537mm_heat_dm32_pzf44_2";
             addItemsToUniform[] = {
@@ -163,6 +165,7 @@ class bwGM {
         };
 
         class Medic_F: Soldier_F {
+            headgear = "gm_ge_headgear_m62";
             vest = "gm_ge_army_vest_80_medic";
             backpack = "gm_ge_backpack_satchel_80_san";
             addItemsToBackpack[] = {
@@ -174,6 +177,7 @@ class bwGM {
             };
         };
         class Soldier_TL_F: Soldier_F {
+            headgear = "gm_ge_headgear_m62";
             vest = "gm_ge_army_vest_80_leader";
             handgunWeapon = "gm_p2a1_blk";
             handgunWeaponMagazine = "gm_1Rnd_265mm_smoke_single_yel_DM19";
