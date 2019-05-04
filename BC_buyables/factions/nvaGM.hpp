@@ -1,7 +1,7 @@
 //a different set of buyables
 class nvaGM {
     side = "Opfor";
-    loadout = "russia";
+    loadout = "nvaGM";
     mode = "conquer";
     
     // needs to be in every faction
@@ -155,7 +155,7 @@ class nvaGM {
         minPlayerCount = 60;
 
         class gm_gc_army_t55a_oli {
-            displayName = "T80-BVK";
+            displayName = "T55A";
             description = "Heavy tank, best vehicle you can get.";
             stock = 1;
             spawnEmpty = 1;
@@ -171,7 +171,7 @@ class nvaGM {
 
         class gm_gc_army_bmp1sp2_oli {
             displayName = "BMP1-D";
-            description = "Carries more soldiers but is less protected.";
+            description = "Carries more soldiers than T55 but is less protected.";
             stock = 1;
             spawnEmpty = 1;
             trackCargo = 2;

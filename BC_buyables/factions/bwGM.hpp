@@ -1,7 +1,7 @@
 //a different set of buyables
 class bwGM {
     side = "Blufor";
-    loadout = "usa";
+    loadout = "bwGM";
     mode = "conquer";
     driverGps = "false";
     crewHelmet = "";
@@ -31,7 +31,7 @@ class bwGM {
 
         class gm_ge_army_u1300l_cargo_oli {
             displayName = "U1300L";
-            description = "Carries soldiers decently armored.";
+            description = "Carries soldiers soft armored.";
             price = 10;
             stock = 7;
             spawnEmpty = 1;
@@ -47,18 +47,29 @@ class bwGM {
 
         class gm_ge_army_iltis_cargo_oli {
             displayName = "Iltis";
-            description = "Fast but protectionless.";
+            description = "Fast and small.";
             price = 10;
-            stock = 7;
+            stock = 4;
             spawnEmpty = 1;
             wheelCargo = 2;
             condition = "true";
-            code = "[(_this select 0), [['mud','mud_olive'] select BC_IS_WOODLAND,1], ['tailgateHide',0,'tailgate_open',0,'cage_fold',0]] call BIS_fnc_initVehicle;";
             vehicleInit = "[[],[]]";
         };
 
         class gm_ge_army_iltis_cargo_des {
             code = "[(_this select 0), [['mud','mud_olive'] select BC_IS_WOODLAND,1], ['tailgateHide',0,'tailgate_open',0,'cage_fold',0]] call BIS_fnc_initVehicle;";
+            vehicleInit = "[[],[]]";
+        };
+
+
+        class gm_ge_army_k125 {
+            displayName = "K125";
+            description = "Agile but protectionless.";
+            price = 10;
+            stock = 8;
+            spawnEmpty = 1;
+            wheelCargo = 2;
+            condition = "true";
             vehicleInit = "[[],[]]";
         };
     };
