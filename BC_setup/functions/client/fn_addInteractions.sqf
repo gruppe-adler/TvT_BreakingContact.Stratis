@@ -41,7 +41,10 @@ if (!hasInterface) exitWith {};
 
             // RADIO TRUCK DEPLOY
             // rhs gaz has native deploy actions
-            if (_type != "rhs_gaz66_r142_vv") then {
+            if (_type != "rhs_gaz66_r142_vv" && 
+                _type != "gm_gc_army_btr60pu12_ols" &&
+                _type != "gm_gc_army_btr60pu12_oli"
+                ) then {
                   private _deployAction = [
                       "RusRadioDeploy",
                       (localize "str_GRAD_radio_deploy"),
@@ -86,6 +89,58 @@ if (!hasInterface) exitWith {};
                   [_type, 0, ["ACE_MainActions"], _retractAction] call ace_interact_menu_fnc_addActionToClass;
 
             };
+
+
+            // hacky GM SUPPORT for antenna retracting
+            if (_type != "gm_gc_army_btr60pu12_ols" ||
+                _type != "gm_gc_army_btr60pu12_oli") then {
+
+                _startVehicle addAction[
+                    "<t color='#339933'>Deploy Antenna</t>", 
+                    {
+                        params ["_target", "_caller", "_actionId", "_arguments"];
+
+                        _target animateSource ["antennaMast_1_1_source", 1];
+                        private _cache = fuel _target;
+                        _target setVariable ["BC_currentFuelCache", _cache, true];
+                        _target setFuel 0;
+                    },
+                    [],
+                    1.5, 
+                    true, 
+                    true, 
+                    "",
+                    "_this == (driver _target) && _target animationSourcePhase 'antennaMast_1_1_source' == 0", // _target, _this, _originalTarget
+                    50,
+                    false,
+                    "",
+                    ""
+                ];
+
+                _startVehicle addAction[
+                    "<t color='#993333'>Retract Antenna</t>", 
+                    {
+                        params ["_target", "_caller", "_actionId", "_arguments"];
+
+                        _target animateSource ["antennaMast_1_1_source", 0];
+                        private _cache = _target getVariable ["BC_currentFuelCache", 0];
+                        _target setFuel _cache;
+                    },
+                    [],
+                    1.5, 
+                    true, 
+                    true, 
+                    "",
+                    "_this == (driver _target) && _target animationSourcePhase 'antennaMast_1_1_source' == 1", // _target, _this, _originalTarget
+                    50,
+                    false,
+                    "",
+                    ""
+                ];
+
+            };
+
+
 
             // RADIO TRUCK/BOX DESTROY
 
