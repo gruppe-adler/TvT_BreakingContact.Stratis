@@ -4,7 +4,7 @@ class bwGM {
     loadout = "bwGM";
     mode = "conquer";
     driverGps = "false";
-    crewHelmet = "";
+    crewHelmet = "gm_ge_headgear_crewhat_80_blk";
     disableTIEquipment = "true";
 
     // needs to be in every faction
@@ -90,6 +90,7 @@ class bwGM {
             spawnEmpty = 1;
             vehicleInit = "[[],[]]";
             condition = "BC_IS_WOODLAND";
+            crewHelmet = "gm_ge_headgear_crewhat_80_blk";
         };
 
         class gm_ge_army_m113a1g_command_des {
@@ -146,6 +147,7 @@ class bwGM {
             trackCargo = 3;
             condition = "BC_IS_WOODLAND";
             vehicleInit = "[true,true]";
+            crewHelmet = "gm_ge_headgear_crewhat_80_blk";
         };
 
         class gm_ge_army_m113a1g_apc_des: gm_ge_army_m113a1g_apc_oli {
@@ -161,13 +163,14 @@ class bwGM {
         minPlayerCount = 60;
 
         class gm_ge_army_fuchsa0_engineer_oli {
-            displayName = "HMMWV TOW";
-            description = "Tank hunter with fly-by-wire AT.";
+            displayName = "Fuchs MG3 (wheeled)";
+            description = "Armed carrier.";
             stock = 7;
             spawnEmpty = 1;
             wheelCargo = 2;
             condition = "BC_IS_WOODLAND";
             vehicleInit = "['standard',1], ['hide_snorkel',1,'hide_CIP',0,'hide_BFT',0,'hide_Antenna',0,'hide_A2_Parts',0,'Hide_A2Bumper',0,'Hide_Brushguard',1]";
+            crewHelmet = "gm_ge_headgear_crewhat_80_blk";
         };
 
         class gm_ge_army_fuchsa0_engineer_des: gm_ge_army_fuchsa0_engineer_oli {
@@ -176,12 +179,13 @@ class bwGM {
         };
 
         class gm_ge_army_m113a1g_apc_milan_oli {
-            displayName = "UH-60M";
+            displayName = "Armed carrier (tracked).";
             description = "1 GPS\nFRIES equipped";
             stock = 7;
             code = "(_this select 0) addItemCargoGlobal ['ACE_NVG_Wide',2];(_this select 0) addItemCargoGlobal ['ItemGPS',1];[(_this select 0)] call ace_fastroping_fnc_equipFRIES;";
             spawnEmpty = 1;
             vehicleInit = "[[],[]]";
+            crewHelmet = "gm_ge_headgear_crewhat_80_blk";
         };
 
         class gm_ge_army_m113a1g_apc_milan_des: gm_ge_army_m113a1g_apc_milan_oli {
@@ -203,21 +207,12 @@ class bwGM {
             spawnEmpty = 1;
         };
 
-        class rhsusf_explosive_m112 {
+        class gm_explosive_petn_charge {
             kindOf = "Special";
             displayName = "Breaching Equipment";
             description = "Explosives and Wirecutter in Start Vehicle.";
             stock = 1;
-            code = "(_this select 1) addItemCargoGlobal ['ACE_wirecutter',2];(_this select 1) addItemCargoGlobal ['ACE_Clacker',2];(_this select 1) addMagazineCargoGlobal ['DemoCharge_Remote_Mag', 2];";
-            spawnEmpty = 1;
-        };
-
-        class Land_JumpTarget_F {
-            kindOf = "Special";
-            displayName = "Hunt IR Equipment";
-            description = "Hunt IR Equipment in Start Vehicle.";
-            stock = 1;
-            code = "(_this select 1) addItemCargoGlobal ['ACE_HuntIR_monitor',2];(_this select 1) addMagazineCargoGlobal ['ACE_HuntIR_M203',4];";
+            code = "(_this select 1) addItemCargoGlobal ['ACE_wirecutter',2];(_this select 1) addItemCargoGlobal ['ACE_Clacker',2];(_this select 1) addMagazineCargoGlobal ['gm_explosive_petn_charge', 2];";
             spawnEmpty = 1;
         };
     };

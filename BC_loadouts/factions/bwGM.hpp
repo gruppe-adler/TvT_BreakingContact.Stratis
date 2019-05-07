@@ -12,7 +12,7 @@ class bwGM {
         headgear = "gm_ge_headgear_m62_net";
         binoculars = "gm_ferod16_oli";
         map = "ItemMap";
-        radio = "TFAR_anprc152";
+        radio = "TFAR_rf7800str";
         compass = "gm_ge_army_conat2";
         watch = "gm_watch_kosei_80";
         nvgoggles = "";

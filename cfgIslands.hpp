@@ -584,6 +584,21 @@ class CfgIslands {
         };
     };
 
+
+    class weferlingen {
+        displayName = "Weferlingen";
+        type = "european";
+        isWoodland = true;
+        spawnPosBlu[] = {4377.08,2324.57,0};
+        spawnPosOpf[] = {4315.79,2452.54,0};
+        previewCamPos[] = {3637.3,3719.64,0};
+        previewCamTarget[] = {3572.53,3690.84,0};
+        sizeFactor = 0.75;
+        locationBlacklist[] = {};
+    };
+
+
+
     class Woodland_ACR {
         displayName = "Bystrica";
         type = "russian";

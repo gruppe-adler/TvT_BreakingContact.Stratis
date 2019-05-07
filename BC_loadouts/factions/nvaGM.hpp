@@ -13,7 +13,7 @@ class nvaGM {
         headgear = "gm_gc_army_headgear_m56_net";
         binoculars = "gm_df7x40_blk";
         map = "ItemMap";
-        radio = "TFAR_fadak";
+        radio = "TFAR_pnr1000a";
         compass = "gm_gc_compass_f73";
         watch = "gm_watch_kosei_80";
         nvgoggles = "";

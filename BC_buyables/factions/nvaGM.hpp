@@ -15,10 +15,12 @@ class nvaGM {
         terminalPositionOffset = "[0.3,-2.85,0.7]";
         terminalVectorDirAndUp = "[[0,1,0.3],[0,0,0.7]]";
 
+
         class gm_gc_army_btr60pu12_ols {
             condition = "!BC_IS_WOODLAND";
             vehicleInit = "";
             code = "[(_this select 0)] call BC_buyables_fnc_configureOpforStartVehicle;";
+            crewHelmet = "gm_gc_army_headgear_crewhat_80_blk";
         };
 
         class gm_gc_army_btr60pu12_oli: gm_gc_army_btr60pu12_ols {
@@ -82,6 +84,7 @@ class nvaGM {
             spawnEmpty = 1;
             condition = "BC_IS_WOODLAND";
             vehicleInit = "[['gm_gc_oli',1],true]";
+            crewHelmet = "gm_gc_army_headgear_crewhat_80_blk";
         };
 
         class gm_gc_army_btr60pa_ols: gm_gc_army_btr60pa_oli {
@@ -98,6 +101,7 @@ class nvaGM {
             wheelCargo = 2;
             condition = "BC_IS_WOODLAND";
             vehicleInit = "[['gm_gc_oli',1],true]";
+            crewHelmet = "gm_gc_army_headgear_crewhat_80_blk";
         };
 
         class gm_gc_army_brdm2um_ols: gm_gc_army_brdm2um_oli {
@@ -123,6 +127,7 @@ class nvaGM {
             wheelCargo = 2;
             condition = "BC_IS_WOODLAND";
             vehicleInit = "[['gm_gc_oli',1],true]";
+            crewHelmet = "gm_gc_army_headgear_crewhat_80_blk";
         };
 
         class gm_gc_army_brdm2_ols: gm_gc_army_brdm2_oli {
@@ -140,6 +145,7 @@ class nvaGM {
             wheelCargo = 2;
             condition = "BC_IS_WOODLAND";
             vehicleInit = "[['gm_gc_oli',1],true]";
+            crewHelmet = "gm_gc_army_headgear_crewhat_80_blk";
         };
 
         class gm_gc_army_btr60pb_ols: gm_gc_army_btr60pb_oli {
@@ -162,6 +168,7 @@ class nvaGM {
             trackCargo = 2;
             condition = "BC_IS_WOODLAND";
             vehicleInit = "[['gm_gc_oli',1], ['camoNet_01_unhide',0]]";
+            crewHelmet = "gm_gc_army_headgear_crewhat_80_blk";
         };
 
         class gm_gc_army_t55a_ols: gm_gc_army_t55a_oli {
@@ -176,6 +183,7 @@ class nvaGM {
             spawnEmpty = 1;
             trackCargo = 2;
             condition = "BC_IS_WOODLAND";
+            crewHelmet = "gm_gc_army_headgear_crewhat_80_blk";
             vehicleInit = "[['gm_gc_oli',1],['spareTracks_1_1_unhide',0,'spareTracks_1_2_unhide',0,'spareTracks_2_1_unhide',0,'wheelChock_1_1_unhide',0,'wheelChock_1_2_unhide',0,'woodenBeam_01_unhide',0,'tarpRoll_01_unhide',0]]";
         };
 
