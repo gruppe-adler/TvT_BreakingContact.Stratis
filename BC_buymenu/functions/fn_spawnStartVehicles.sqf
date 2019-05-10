@@ -14,6 +14,8 @@ private _buyablesOpfor = configName (_factionOpfor);
 private _opforPosition = [_opforSpawnPosition, 1] call BC_buymenu_fnc_getSpawnPosition;
 private _bluforPosition = [_opforSpawnPosition, BLUFOR_SPAWN_DISTANCE] call BC_buymenu_fnc_getSpawnPosition;
 
+diag_log format ["BUYABLES INDEX Blufor - Opfor %1 - %2", BUYABLES_BLUFOR_INDEX, BUYABLES_OPFOR_INDEX];
+
 if (count _opforPosition == 0 || count _bluforPosition == 0) exitWith {
     [ "gui_spawn_opfor"] remoteExec ["createDialog", _opforCommander];
     ["No road position found, please choose another Spawn location"] remoteExec ["hint", _opforCommander];

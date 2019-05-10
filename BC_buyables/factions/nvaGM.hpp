@@ -18,14 +18,14 @@ class nvaGM {
 
         class gm_gc_army_btr60pu12_ols {
             condition = "!BC_IS_WOODLAND";
-            vehicleInit = "";
+            vehicleInit = "[[],[]]";
             code = "[(_this select 0)] call BC_buyables_fnc_configureOpforStartVehicle;";
             crewHelmet = "gm_gc_army_headgear_crewhat_80_blk";
         };
 
         class gm_gc_army_btr60pu12_oli: gm_gc_army_btr60pu12_ols {
             condition = "BC_IS_WOODLAND";
-            vehicleInit = "";
+            vehicleInit = "[[],[]]";
         };
     };
 
@@ -213,7 +213,7 @@ class nvaGM {
             displayName = "Defense Pack";
             description = "Sandbag-Fortificatons and 2 Axes for cutting vegetation in Radio Truck.";
             stock = 1;
-            code = "diag_log str (_this); (_this select 1) addItemCargoGlobal ['grad_axe', 2]; [(_this select 1), 'Land_CzechHedgehog_01_new_F', 9] call grad_fortifications_fnc_addFort; [(_this select 1), 'Land_BagFence_Long_F', 9] call grad_fortifications_fnc_addFort;";
+            code = "diag_log str (_this); (_this select 1) addItemCargoGlobal ['grad_axe', 2]; [(_this select 1), 'land_gm_tanktrap_01', 9] call grad_fortifications_fnc_addFort; [(_this select 1), 'land_gm_sandbags_01_low_01', 9] call grad_fortifications_fnc_addFort; [(_this select 1), 'land_gm_sandbags_01_round_01', 3] call grad_fortifications_fnc_addFort;";
             spawnEmpty = 1;
         };
     };

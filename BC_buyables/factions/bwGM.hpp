@@ -15,7 +15,7 @@ class bwGM {
         class gm_ge_army_iltis_cargo_oli {
             condition = "BC_IS_WOODLAND";
             code = "[(_this select 0)] call BC_buyables_fnc_configureBluforStartVehicle;";
-            vehicleInit = "['gm_ge_oli',1],['beacon_1_1_org_unhide',0,'beacon_1_1_blu_unhide',0,'doorBag_unhide',0,'radio_01_unhide',1,'radio_02_unhide',1,'cover_hoops_unhide',1,'cover_doors_unhide',1,'windshield',0,'coldWeatherKit_unhide',0]";
+            vehicleInit = "[['gm_ge_oli',1],['beacon_1_1_org_unhide',0,'beacon_1_1_blu_unhide',0,'doorBag_unhide',0,'radio_01_unhide',1,'radio_02_unhide',1,'cover_hoops_unhide',1,'cover_doors_unhide',1,'windshield',0,'coldWeatherKit_unhide',0]]";
         };
 
         class gm_ge_army_iltis_cargo_des {
@@ -52,13 +52,13 @@ class bwGM {
             stock = 4;
             spawnEmpty = 1;
             wheelCargo = 2;
-            condition = "true";
+            condition = "BC_IS_WOODLAND";
             vehicleInit = "[[],[]]";
         };
 
         class gm_ge_army_iltis_cargo_des {
             code = "[(_this select 0), [['mud','mud_olive'] select BC_IS_WOODLAND,1], ['tailgateHide',0,'tailgate_open',0,'cage_fold',0]] call BIS_fnc_initVehicle;";
-            vehicleInit = "[[],[]]";
+            condition = "!BC_IS_WOODLAND";
         };
 
 
@@ -88,13 +88,12 @@ class bwGM {
             stock = 2;
             code = "";
             spawnEmpty = 1;
-            vehicleInit = "[[],[]]";
             condition = "BC_IS_WOODLAND";
             crewHelmet = "gm_ge_headgear_crewhat_80_blk";
+            vehicleInit = "[[],[]]";
         };
 
         class gm_ge_army_m113a1g_command_des {
-             vehicleInit = "[[],[]]";
              condition = "!BC_IS_WOODLAND";
         };
 
@@ -106,12 +105,11 @@ class bwGM {
             spawnEmpty = 1;
             wheelCargo = 2;
             condition = "BC_IS_WOODLAND";
-            vehicleInit = "[true,true]";
+            vehicleInit = "[[],[]]";
         };
 
         class gm_ge_army_kat1_454_cargo_des: gm_ge_army_kat1_454_cargo_oli {
             condition = "!BC_IS_WOODLAND";
-            vehicleInit = "[true,true]";
         };        
 
     };
@@ -131,12 +129,11 @@ class bwGM {
             spawnEmpty = 1;
             wheelCargo = 2;
             condition = "BC_IS_WOODLAND";
-            vehicleInit = "[true,true]";
+            vehicleInit = "[[],[]]";
         };
 
         class gm_ge_army_iltis_milan_des: gm_ge_army_iltis_milan_oli {
             condition = "!BC_IS_WOODLAND";
-            vehicleInit = "[true,true]";
         };
 
         class gm_ge_army_m113a1g_apc_oli {
@@ -146,13 +143,12 @@ class bwGM {
             spawnEmpty = 1;
             trackCargo = 3;
             condition = "BC_IS_WOODLAND";
-            vehicleInit = "[true,true]";
             crewHelmet = "gm_ge_headgear_crewhat_80_blk";
+            vehicleInit = "[[],[]]";
         };
 
         class gm_ge_army_m113a1g_apc_des: gm_ge_army_m113a1g_apc_oli {
             condition = "!BC_IS_WOODLAND";
-            vehicleInit = "[true,true]";
         };
     };
 
@@ -169,13 +165,12 @@ class bwGM {
             spawnEmpty = 1;
             wheelCargo = 2;
             condition = "BC_IS_WOODLAND";
-            vehicleInit = "['standard',1], ['hide_snorkel',1,'hide_CIP',0,'hide_BFT',0,'hide_Antenna',0,'hide_A2_Parts',0,'Hide_A2Bumper',0,'Hide_Brushguard',1]";
             crewHelmet = "gm_ge_headgear_crewhat_80_blk";
+            vehicleInit = "[[],[]]";
         };
 
         class gm_ge_army_fuchsa0_engineer_des: gm_ge_army_fuchsa0_engineer_oli {
             condition = "!BC_IS_WOODLAND";
-            vehicleInit = "['Desert',1], ['hide_snorkel',1,'hide_CIP',0,'hide_BFT',0,'hide_Antenna',0,'hide_A2_Parts',0,'Hide_A2Bumper',0,'Hide_Brushguard',1]";
         };
 
         class gm_ge_army_m113a1g_apc_milan_oli {
@@ -184,12 +179,13 @@ class bwGM {
             stock = 7;
             code = "(_this select 0) addItemCargoGlobal ['ACE_NVG_Wide',2];(_this select 0) addItemCargoGlobal ['ItemGPS',1];[(_this select 0)] call ace_fastroping_fnc_equipFRIES;";
             spawnEmpty = 1;
-            vehicleInit = "[[],[]]";
             crewHelmet = "gm_ge_headgear_crewhat_80_blk";
+            condition = "BC_IS_WOODLAND";
+            vehicleInit = "[[],[]]";
         };
 
         class gm_ge_army_m113a1g_apc_milan_des: gm_ge_army_m113a1g_apc_milan_oli {
-            vehicleInit = "[[],[]]";
+            condition = "!BC_IS_WOODLAND";
         };
     };
 
@@ -207,7 +203,7 @@ class bwGM {
             spawnEmpty = 1;
         };
 
-        class gm_explosive_petn_charge {
+        class gm_AmmoBox_6Rnd_mine_ap_dm31_put {
             kindOf = "Special";
             displayName = "Breaching Equipment";
             description = "Explosives and Wirecutter in Start Vehicle.";

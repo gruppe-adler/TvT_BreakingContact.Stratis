@@ -1,11 +1,11 @@
-/// ORDER IN PARAMS.HPP must be same
+/// ORDER IN PARAMS.HPP must be same!
 
 /// BLUFOR
+#include "factions\bwGM.hpp"
 #include "factions\usa.hpp"
 #include "factions\usaTank.hpp"
-#include "factions\bwGM.hpp"
 
 /// OPFOR
+#include "factions\nvaGM.hpp"
 #include "factions\russia.hpp"
 #include "factions\russiaTank.hpp"
-#include "factions\nvaGM.hpp"
