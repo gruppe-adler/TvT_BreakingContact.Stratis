@@ -176,7 +176,7 @@ class nvaGM {
             headgear = "gm_gc_army_headgear_m56";
             handgunWeapon = "gm_lp1_blk";
             handgunWeaponMagazine = "gm_1Rnd_265mm_smoke_single_yel_gc";
-            backpack = "TFAR_mr3000_rhs";
+            backpack = "TFAR_mr6000l";
             addItemsToUniform[] = {
                 LIST_7("ACE_fieldDressing"),
                 LIST_2("ACE_epinephrine"),

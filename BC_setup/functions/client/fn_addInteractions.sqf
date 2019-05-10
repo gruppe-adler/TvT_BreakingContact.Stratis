@@ -104,6 +104,14 @@ if (!hasInterface) exitWith {};
                         private _cache = fuel _target;
                         _target setVariable ["BC_currentFuelCache", _cache, true];
                         _target setFuel 0;
+
+                        [{
+                            params ["_target"];
+                            (_target animationSourcePhase "antennaMast_1_1_source" == 1)
+                        }, {
+                            params ["_target"];
+                            _target setVariable ["tf_range", 50000, true];
+                        }, [_target]] call CBA_fnc_waitUntilAndExecute;
                     },
                     [],
                     1.5, 
@@ -123,8 +131,17 @@ if (!hasInterface) exitWith {};
                         params ["_target", "_caller", "_actionId", "_arguments"];
 
                         _target animateSource ["antennaMast_1_1_source", 0];
-                        private _cache = _target getVariable ["BC_currentFuelCache", 0];
-                        _target setFuel _cache;
+                        _target setVariable ["tf_range", 0, true];
+                        
+
+                        [{
+                            params ["_target"];
+                            (_target animationSourcePhase "antennaMast_1_1_source" == 0)
+                        }, {
+                            params ["_target"];
+                            private _cache = _target getVariable ["BC_currentFuelCache", 0];
+                            _target setFuel _cache;
+                        }, [_target]] call CBA_fnc_waitUntilAndExecute;
                     },
                     [],
                     1.5, 

@@ -59,11 +59,11 @@ if (isServer) then {
           {MISSION_COMPLETED}
      ] call GRAD_tracking_fnc_mainLoop;
 
-     call GRAD_tracking_fnc_terminalDistanceListenerServer;
+     [] call GRAD_tracking_fnc_terminalDistanceListenerServer;
 };
 
 if (hasInterface) then {
 
      [] call GRAD_tracking_fnc_initClient;
-     call GRAD_tracking_fnc_terminalDistanceListenerClient;
+     [] call GRAD_tracking_fnc_terminalDistanceListenerClient;
 };

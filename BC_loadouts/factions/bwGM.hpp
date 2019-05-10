@@ -206,7 +206,7 @@ class bwGM {
             };
         };
         class Soldier_SL_F: Soldier_TL_F {
-            backpack = "TFAR_rt1523g_sage";
+            backpack = "TFAR_rt1523g_green";
             addItemsToUniform[] = {
                 LIST_7("ACE_fieldDressing"),
                 LIST_2("ACE_epinephrine"),
