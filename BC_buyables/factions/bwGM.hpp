@@ -121,9 +121,9 @@ class bwGM {
         maxBuyCount = 1;
         minPlayerCount = 40;
 
-        class gm_ge_army_iltis_milan_oli {
-            displayName = "Iltis Milan";
-            description = "Fast, reliable, deadly.";
+        class gm_ge_army_fuchsa0_engineer_oli {
+            displayName = "Fuchs Engineer Version";
+            description = "Armed carrier.";
             price = 10;
             stock = 7;
             spawnEmpty = 1;
@@ -132,7 +132,7 @@ class bwGM {
             vehicleInit = "[[],[]]";
         };
 
-        class gm_ge_army_iltis_milan_des: gm_ge_army_iltis_milan_oli {
+        class gm_ge_army_fuchsa0_engineer_ols: gm_ge_army_fuchsa0_engineer_oli {
             condition = "!BC_IS_WOODLAND";
         };
 
@@ -158,9 +158,9 @@ class bwGM {
         maxBuyCount = 1;
         minPlayerCount = 60;
 
-        class gm_ge_army_fuchsa0_engineer_oli {
+        class gm_ge_army_fuchsa0_reconnaissance_oli {
             displayName = "Fuchs MG3 (wheeled)";
-            description = "Armed carrier.";
+            description = "Heavily Armed carrier.";
             stock = 7;
             spawnEmpty = 1;
             wheelCargo = 2;
@@ -169,7 +169,7 @@ class bwGM {
             vehicleInit = "[[],[]]";
         };
 
-        class gm_ge_army_fuchsa0_engineer_des: gm_ge_army_fuchsa0_engineer_oli {
+        class gm_ge_army_fuchsa0_reconnaissance_ols: gm_ge_army_fuchsa0_reconnaissance_oli {
             condition = "!BC_IS_WOODLAND";
         };
 

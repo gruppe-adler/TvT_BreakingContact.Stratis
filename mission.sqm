@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={1574.1765,8.401433,5206.876};
-		dir[]={-0.83335257,-0.49722448,-0.24197085};
-		up[]={-0.47757709,0.86756057,-0.13867171};
-		aside[]={-0.27887109,-2.1987362e-006,0.96045929};
+		pos[]={1574.1765,13.194629,5206.876};
+		dir[]={0.86957532,-0.47109181,-0.14889812};
+		up[]={0.4644171,0.88202244,-0.07951919};
+		aside[]={-0.16880248,-2.3601169e-006,-0.98577642};
 	};
 };
 binarizationWanted=0;
@@ -118,7 +118,7 @@ class ScenarioData
 };
 class CustomAttributes
 {
-	class Category1
+	class Category0
 	{
 		name="Scenario";
 		class Attribute0
@@ -166,7 +166,7 @@ class CustomAttributes
 								};
 								class value
 								{
-									items=44;
+									items=47;
 									class Item0
 									{
 										class data
@@ -783,6 +783,48 @@ class CustomAttributes
 											value="ace_medical_healhitpointafteradvbandage";
 										};
 									};
+									class Item44
+									{
+										class data
+										{
+											class type
+											{
+												type[]=
+												{
+													"STRING"
+												};
+											};
+											value="tfar_samesrfrequenciesforside";
+										};
+									};
+									class Item45
+									{
+										class data
+										{
+											class type
+											{
+												type[]=
+												{
+													"STRING"
+												};
+											};
+											value="tfar_setting_defaultfrequencies_sr_west";
+										};
+									};
+									class Item46
+									{
+										class data
+										{
+											class type
+											{
+												type[]=
+												{
+													"STRING"
+												};
+											};
+											value="tfar_setting_defaultfrequencies_sr_east";
+										};
+									};
 								};
 							};
 						};
@@ -799,7 +841,7 @@ class CustomAttributes
 								};
 								class value
 								{
-									items=44;
+									items=47;
 									class Item0
 									{
 										class data
@@ -2761,6 +2803,141 @@ class CustomAttributes
 															};
 														};
 														value=1;
+													};
+												};
+												class Item1
+												{
+													class data
+													{
+														class type
+														{
+															type[]=
+															{
+																"SCALAR"
+															};
+														};
+														value=1;
+													};
+												};
+											};
+										};
+									};
+									class Item44
+									{
+										class data
+										{
+											class type
+											{
+												type[]=
+												{
+													"ARRAY"
+												};
+											};
+											class value
+											{
+												items=2;
+												class Item0
+												{
+													class data
+													{
+														class type
+														{
+															type[]=
+															{
+																"BOOL"
+															};
+														};
+														value=1;
+													};
+												};
+												class Item1
+												{
+													class data
+													{
+														class type
+														{
+															type[]=
+															{
+																"SCALAR"
+															};
+														};
+														value=1;
+													};
+												};
+											};
+										};
+									};
+									class Item45
+									{
+										class data
+										{
+											class type
+											{
+												type[]=
+												{
+													"ARRAY"
+												};
+											};
+											class value
+											{
+												items=2;
+												class Item0
+												{
+													class data
+													{
+														class type
+														{
+															type[]=
+															{
+																"STRING"
+															};
+														};
+														value="50,60,70,80,90,100,110,120,130";
+													};
+												};
+												class Item1
+												{
+													class data
+													{
+														class type
+														{
+															type[]=
+															{
+																"SCALAR"
+															};
+														};
+														value=1;
+													};
+												};
+											};
+										};
+									};
+									class Item46
+									{
+										class data
+										{
+											class type
+											{
+												type[]=
+												{
+													"ARRAY"
+												};
+											};
+											class value
+											{
+												items=2;
+												class Item0
+												{
+													class data
+													{
+														class type
+														{
+															type[]=
+															{
+																"STRING"
+															};
+														};
+														value="55,65,75,85,95,105,115,125,135";
 													};
 												};
 												class Item1
