@@ -69,7 +69,7 @@ class USA {
             description = "1 GPS\nNO Thermals\nNO Benches";
             price = 10;
             stock = 2;
-            code = "(_this select 0) addItemCargoGlobal ['ACE_NVG_Wide',2];(_this select 0) addItemCargoGlobal ['ItemGPS',1];(_this select 0) disableTIEquipment true;";
+            code = "(_this select 0) addItemCargoGlobal ['ACE_NVG_Wide',2];(_this select 0) addItemCargoGlobal ['ItemGPS',1];(_this select 0) disableTIEquipment true;BC_helos pushBack (_this select 0);";
             spawnEmpty = 1;
             vehicleInit = "[[],[]]";
         };
@@ -106,10 +106,27 @@ class USA {
             condition = "!BC_IS_WOODLAND";
             vehicleInit = "[['rhs_desert',1],['hide_spare',0]]";
         };
-        
+
+        class rhsusf_M978A4_usarmy_wd{
+            displayName = "HEMMTT FUEL";
+            description = "Fuel Truck.";
+            stock = 1;
+            spawnEmpty = 1;
+            wheelCargo = 3;
+            condition = "BC_IS_WOODLAND";
+            vehicleInit = "[['rhs_woodland',1],['hide_spare',0]]";
+            code = "(_this select 0) setVariable ['ace_rearm_isSupplyVehicle', false, true]; (_this select 0) setVariable ['ACE_isRepairVehicle', false, true];";
+        };
+
+        class rhsusf_M978A4_usarmy_d: rhsusf_M978A4_usarmy_wd {
+            condition = "!BC_IS_WOODLAND";
+            vehicleInit = "[['rhs_desert',1],['hide_spare',0]]";
+        };
+
+
+
 
     };
-
 
     class Support {
         displayName = "Support";
@@ -174,7 +191,7 @@ class USA {
             displayName = "UH-60M";
             description = "1 GPS\nFRIES equipped";
             stock = 7;
-            code = "(_this select 0) addItemCargoGlobal ['ACE_NVG_Wide',2];(_this select 0) addItemCargoGlobal ['ItemGPS',1];[(_this select 0)] call ace_fastroping_fnc_equipFRIES;";
+            code = "(_this select 0) addItemCargoGlobal ['ACE_NVG_Wide',2];(_this select 0) addItemCargoGlobal ['ItemGPS',1];[(_this select 0)] call ace_fastroping_fnc_equipFRIES;BC_helos pushBack (_this select 0);";
             spawnEmpty = 1;
             vehicleInit = "[[],[]]";
         };
