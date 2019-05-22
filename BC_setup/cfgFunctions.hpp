@@ -21,11 +21,12 @@ class BC_setup {
 
         class defineWoodland { preInit = 1; };
         class findRandomPos;
-		class fuelDrain;
+        class fuelDrain;
         class getHighestRankOfSide;
         class getIslandCfgEntry { preInit = 1; };
         class initialSpawnServer;
         class registerDynamicGroup;
+		class removeFuelStations { postInit = 1; };
         class showLeaderInformation;
         class teleportAI;
     };
