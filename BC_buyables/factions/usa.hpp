@@ -122,10 +122,6 @@ class USA {
             condition = "!BC_IS_WOODLAND";
             vehicleInit = "[['rhs_desert',1],['hide_spare',0]]";
         };
-
-
-
-
     };
 
     class Support {

@@ -3,7 +3,6 @@
 // ISLAND CONFIGS
 #include "cfgIslands.hpp"
 
-
 #include "node_modules\grad-fortifications\grad_fortifications.hpp"
 #include "node_modules\@gruppe-adler\replay\ui\defines.hpp"
 #include "node_modules\@gruppe-adler\replay\ui\dialog.hpp"
@@ -13,10 +12,10 @@
 #include "BC_buymenu\dialog\baseRsc.hpp"
 #include "node_modules\grad-listBuymenu\grad_listBuymenu.hpp"
 
-class CfgFunctions {     
+class CfgFunctions {
     #include "BC_buymenu\cfgFunctions.hpp"
     #include "BC_loadouts\cfgFunctions.hpp"
-    
+
     #include "grad_carryBoat\cfgFunctions.hpp"
     #include "grad_islands\cfgFunctions.hpp"
     #include "grad_civMarker\cfgFunctions.hpp"
@@ -30,7 +29,6 @@ class CfgFunctions {
 
     #include "node_modules\grad-loadout\cfgFunctions.hpp"
     #include "node_modules\grad-fortifications\cfgFunctions.hpp"
-
 };
 
 class RscTitles {
@@ -208,18 +206,18 @@ class Params
         default = 0;
     };
 
-    class ace_map_BFT_Enabled { 
+    class ace_map_BFT_Enabled {
         title = "Bluforce-Tracking active";
         ACE_setting = 1;
         values[] = {0, 1};
         texts[] =  {"False", "True"};
-        default = 1;     
+        default = 1;
     };
-     class PREPARATION_TIME {       
-        title = "Preparation time";         
-        values[] = {0,60,120,180,240,300,480,600,900};      
-        texts[] = {"off","1min","2min","3min","4min","5min","8min","10min","15min"};        
-        default = 300;     
+     class PREPARATION_TIME {
+        title = "Preparation time";
+        values[] = {0,60,120,180,240,300,480,600,900};
+        texts[] = {"off","1min","2min","3min","4min","5min","8min","10min","15min"};
+        default = 300;
     };
 };
 
@@ -311,7 +309,7 @@ class CfgSounds
 {
     #include "grad_carryBoat\cfgSounds.hpp"
     #include "BC_buymenu\cfgSounds.hpp"
-    
+
     class beam
     {
         name = "beam";
