@@ -55,6 +55,22 @@ class USA {
             code = "[(_this select 0), [['mud','mud_olive'] select BC_IS_WOODLAND,1], ['tailgateHide',0,'tailgate_open',0,'cage_fold',0]] call BIS_fnc_initVehicle;";
             vehicleInit = "[[],[]]";
         };
+		
+		class rhsusf_M978A4_usarmy_wd{
+            displayName = "HEMMTT FUEL";
+            description = "Fuel Truck.";
+            stock = 1;
+            spawnEmpty = 1;
+            wheelCargo = 3;
+            condition = "BC_IS_WOODLAND";
+            vehicleInit = "[['rhs_woodland',1],['hide_spare',0]]";
+            code = "(_this select 0) setVariable ['ace_rearm_isSupplyVehicle', false, true]; (_this select 0) setVariable ['ACE_isRepairVehicle', false, true];";
+        };
+
+        class rhsusf_M978A4_usarmy_d: rhsusf_M978A4_usarmy_wd {
+            condition = "!BC_IS_WOODLAND";
+            vehicleInit = "[['rhs_desert',1],['hide_spare',0]]";
+        };
     };
 
 
@@ -103,22 +119,6 @@ class USA {
         };
 
         class rhsusf_M1078A1R_SOV_M2_D_fmtv_socom: rhsusf_M1078A1R_SOV_M2_WD_fmtv_socom {
-            condition = "!BC_IS_WOODLAND";
-            vehicleInit = "[['rhs_desert',1],['hide_spare',0]]";
-        };
-
-        class rhsusf_M978A4_usarmy_wd{
-            displayName = "HEMMTT FUEL";
-            description = "Fuel Truck.";
-            stock = 1;
-            spawnEmpty = 1;
-            wheelCargo = 3;
-            condition = "BC_IS_WOODLAND";
-            vehicleInit = "[['rhs_woodland',1],['hide_spare',0]]";
-            code = "(_this select 0) setVariable ['ace_rearm_isSupplyVehicle', false, true]; (_this select 0) setVariable ['ACE_isRepairVehicle', false, true];";
-        };
-
-        class rhsusf_M978A4_usarmy_d: rhsusf_M978A4_usarmy_wd {
             condition = "!BC_IS_WOODLAND";
             vehicleInit = "[['rhs_desert',1],['hide_spare',0]]";
         };
