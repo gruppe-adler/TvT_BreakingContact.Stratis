@@ -85,7 +85,7 @@ class USA {
             description = "1 GPS\nNO Thermals\nNO Benches";
             price = 10;
             stock = 2;
-            code = "(_this select 0) addItemCargoGlobal ['ACE_NVG_Wide',2];(_this select 0) addItemCargoGlobal ['ItemGPS',1];(_this select 0) disableTIEquipment true;BC_helos pushBack (_this select 0);";
+            code = "(_this select 0) addItemCargoGlobal ['ACE_NVG_Wide',2];(_this select 0) addItemCargoGlobal ['ItemGPS',1];(_this select 0) disableTIEquipment true; [(_this select 0)] call BC_setup_fnc_fuelDrain;";
             spawnEmpty = 1;
             vehicleInit = "[[],[]]";
         };
@@ -187,7 +187,7 @@ class USA {
             displayName = "UH-60M";
             description = "1 GPS\nFRIES equipped";
             stock = 7;
-            code = "(_this select 0) addItemCargoGlobal ['ACE_NVG_Wide',2];(_this select 0) addItemCargoGlobal ['ItemGPS',1];[(_this select 0)] call ace_fastroping_fnc_equipFRIES;BC_helos pushBack (_this select 0);";
+            code = "(_this select 0) addItemCargoGlobal ['ACE_NVG_Wide',2];(_this select 0) addItemCargoGlobal ['ItemGPS',1];[(_this select 0)] call ace_fastroping_fnc_equipFRIES;[(_this select 0)] call BC_setup_fnc_fuelDrain;";
             spawnEmpty = 1;
             vehicleInit = "[[],[]]";
         };

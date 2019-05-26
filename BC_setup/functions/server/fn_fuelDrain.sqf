@@ -1,8 +1,16 @@
+params ["_heli"];
+
+diag_log format ["fuelDrain %1", _heli];
+
 [{
-    {
-        private _fuel = fuel _x;
-        if (_fuel > 0 && (((getPosATL _x) select 2) > 1) && isEngineOn _x) then {
-            _x setFuel (_fuel -0.001);
-        };
-    }forEach BC_helos;
-},1,[]] call CBA_fnc_addPerFrameHandler;
+    params ["_args", "_handle"];
+    _args params ["_heli"];
+
+    if (!alive _heli) exitWith { [_handle] call CBA_fnc_removePerFrameHandler; };
+
+    private _fuel = fuel _heli;
+    if (_fuel > 0 && isEngineOn _heli) then {
+        _heli setFuel (_fuel -0.001);
+    };
+
+},1,[_heli]] call CBA_fnc_addPerFrameHandler;

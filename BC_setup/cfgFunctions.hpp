@@ -21,7 +21,7 @@ class BC_setup {
 
         class defineWoodland { preInit = 1; };
         class findRandomPos;
-		class fuelDrain { postInit = 1; };
+		class fuelDrain;
         class getHighestRankOfSide;
         class getIslandCfgEntry { preInit = 1; };
         class initialSpawnServer;

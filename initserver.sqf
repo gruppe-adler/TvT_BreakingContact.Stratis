@@ -1,8 +1,6 @@
 #include "\z\ace\addons\main\script_component.hpp"
 #include "\z\ace\addons\main\script_macros.hpp"
 
-bc_helos = [];
-
 call compile preprocessfile "node_modules\shk_pos\functions\shk_pos_init.sqf"; // absolute basic!
 
 [] call BC_setup_fnc_initialSpawnServer;
