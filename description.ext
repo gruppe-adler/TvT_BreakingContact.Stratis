@@ -45,6 +45,7 @@ class GRAD_Replay {
     trackedAI = 1;                                    // defines if AI will be tracked (0/1)
     sendingChunkSize = 10;                            // higher number means replay loading is faster, but might cause instability / lags during loading (number)
     trackShots = 1;                                   // defines if shots will be tracked (0/1)
+    upload = 1;                                       // upload replay to server
 };
 
 class CfgGradBuymenu {
