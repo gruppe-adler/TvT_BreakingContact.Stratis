@@ -1,4 +1,4 @@
-if !(isServer) exitWith {};
+if (!isServer) exitWith {};
 
 private _pumps = nearestObjects [
     [(worldSize/2), (worldSize/2), 0],
