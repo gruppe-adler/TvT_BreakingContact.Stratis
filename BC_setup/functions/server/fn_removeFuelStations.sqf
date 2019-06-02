@@ -1,5 +1,5 @@
 if (!isServer) exitWith {};
-
+/*
 private _pumps = nearestObjects [
     [(worldSize/2), (worldSize/2), 0],
     [
@@ -18,3 +18,4 @@ private _pumps = nearestObjects [
     _x setFuelCargo 0; // necessary?
     [_x, 0] call ace_refuel_fnc_setFuel;
 }forEach _pumps;
+*/
