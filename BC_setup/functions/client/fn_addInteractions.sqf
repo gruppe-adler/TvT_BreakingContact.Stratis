@@ -188,8 +188,10 @@ if (!hasInterface) exitWith {};
                   _radioVeh = missionNamespace getVariable ["GRAD_tracking_radioVehObj", objNull];
 
                   detach _terminal;
-                  // set a bit above ground
-                  _terminal setPos [getPos _terminal select 0, getPos _terminal select 1, 0.1];
+
+                  // safely put down
+                  _terminal setVehiclePosition [_radioVeh getRelPos [2, 180], [], 6, "NONE"];
+                  
                   GRAD_TERMINAL = true; publicVariable "GRAD_TERMINAL";
 
                   [_terminal, true, [0,1.4,0], 270] remoteExec ["ace_dragging_fnc_setDraggable", 0, true];

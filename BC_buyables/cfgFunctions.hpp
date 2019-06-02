@@ -6,8 +6,6 @@ class BC_buyables {
         class clientInit { preInit = 1; };
         class configureBluforStartVehicle;
         class configureOpforStartVehicle;
-        class disableCollision;
         class serverInit { postInit = 1; };
-        class terminalLocalityEH;
     };
 };

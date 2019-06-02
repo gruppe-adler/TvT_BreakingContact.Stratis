@@ -31,8 +31,3 @@ _vehicle addItemCargoGlobal ["ACE_SpraypaintGreen",10];
 _vehicle addItemCargoGlobal ["ACE_SpraypaintRed",10];
 _vehicle addItemCargoGlobal ["ACE_EntrenchingTool",10];
 _vehicle addItemCargoGlobal ["TFAR_fadak",10];
-
-[_vehicle, _terminal] remoteExecCall ["disableCollisionWith", 0, _vehicle];
-[_vehicle, _terminal] remoteExecCall ["disableCollisionWith", 0, _terminal];
-
-[_vehicle] remoteExec ["BC_buyables_fnc_terminalLocalityEH", 0, true];
