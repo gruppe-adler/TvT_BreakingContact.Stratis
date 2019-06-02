@@ -30,4 +30,6 @@ _vehicle addItemCargoGlobal ["ACE_SpraypaintBlue",10];
 _vehicle addItemCargoGlobal ["ACE_SpraypaintGreen",10];
 _vehicle addItemCargoGlobal ["ACE_SpraypaintRed",10];
 _vehicle addItemCargoGlobal ["ACE_EntrenchingTool",10];
-_vehicle addItemCargoGlobal ["TFAR_pnr1000a",10];
+_vehicle addItemCargoGlobal ["TFAR_fadak",10];
+
+
