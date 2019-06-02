@@ -92,8 +92,8 @@ if (!hasInterface) exitWith {};
 
 
             // hacky GM SUPPORT for antenna retracting
-            if (_type != "gm_gc_army_btr60pu12_ols" ||
-                _type != "gm_gc_army_btr60pu12_oli") then {
+            if (_type == "gm_gc_army_btr60pu12_ols" ||
+                _type == "gm_gc_army_btr60pu12_oli") then {
 
                 _startVehicle addAction[
                     "<t color='#339933'>Deploy Antenna</t>", 
