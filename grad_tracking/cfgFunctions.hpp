@@ -52,5 +52,6 @@ class GRAD_tracking {
         class terminalDistanceListenerServer {};
         class terminalDistanceToVehCalc {};
         class terminalIsSending {};
+        class terminalDetach;
     };
 };

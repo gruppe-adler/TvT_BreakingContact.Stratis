@@ -183,18 +183,9 @@ if (!hasInterface) exitWith {};
              {
              [4, [_this select 0], {
                 ((_this select 0) select 0) setVariable ["detachableRadio", 2, true];
-
-                  _terminal = missionNamespace getVariable ["GRAD_tracking_terminalObj", objNull];
-                  _radioVeh = missionNamespace getVariable ["GRAD_tracking_radioVehObj", objNull];
-
-                  detach _terminal;
-
-                  // safely put down
-                  _terminal setVehiclePosition [_radioVeh getRelPos [2, 180], [], 6, "NONE"];
+                  private _radioVeh = missionNamespace getVariable ["GRAD_tracking_radioVehObj", objNull];
+                  [] remoteExec ["GRAD_tracking_fnc_terminalDetach", _radioVeh];
                   
-                  GRAD_TERMINAL = true; publicVariable "GRAD_TERMINAL";
-
-                  [_terminal, true, [0,1.4,0], 270] remoteExec ["ace_dragging_fnc_setDraggable", 0, true];
              }, {hint "Cancelled action"}, (localize "str_GRAD_detaching_radio")] call ace_common_fnc_progressBar;
              },
               {(side player == east) && ((_this select 0) getVariable ["detachableRadio", 0] == 1)}] call ace_interact_menu_fnc_createAction;
