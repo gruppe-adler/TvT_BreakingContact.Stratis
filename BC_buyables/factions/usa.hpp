@@ -84,7 +84,7 @@ class USA {
             displayName = "OH-6M";
             description = "1 GPS\nNO Thermals\nNO Benches";
             price = 10;
-            stock = 2;
+            stock = 1;
             code = "(_this select 0) addItemCargoGlobal ['ACE_NVG_Wide',2];(_this select 0) addItemCargoGlobal ['ItemGPS',1];(_this select 0) disableTIEquipment true; [(_this select 0)] call BC_setup_fnc_fuelDrain;";
             spawnEmpty = 1;
             vehicleInit = "[[],[]]";
@@ -134,7 +134,7 @@ class USA {
             displayName = "HMMWV M2";
             description = "Fast, reliable, deadly.";
             price = 10;
-            stock = 7;
+            stock = 1;
             spawnEmpty = 1;
             wheelCargo = 2;
             condition = "BC_IS_WOODLAND";
@@ -149,7 +149,7 @@ class USA {
         class rhsusf_m113_usarmy_M2_90 {
             displayName = "M113 Alt";
             description = "Versatile APC.";
-            stock = 7;
+            stock = 1;
             spawnEmpty = 1;
             trackCargo = 3;
             condition = "BC_IS_WOODLAND";
@@ -171,7 +171,7 @@ class USA {
         class rhsusf_m1045_w {
             displayName = "HMMWV TOW";
             description = "Tank hunter with fly-by-wire AT.";
-            stock = 7;
+            stock = 1;
             spawnEmpty = 1;
             wheelCargo = 2;
             condition = "BC_IS_WOODLAND";
@@ -186,7 +186,7 @@ class USA {
         class RHS_UH60M2 {
             displayName = "UH-60M";
             description = "1 GPS\nFRIES equipped";
-            stock = 7;
+            stock = 1;
             code = "(_this select 0) addItemCargoGlobal ['ACE_NVG_Wide',2];(_this select 0) addItemCargoGlobal ['ItemGPS',1];[(_this select 0)] call ace_fastroping_fnc_equipFRIES;[(_this select 0)] call BC_setup_fnc_fuelDrain;";
             spawnEmpty = 1;
             vehicleInit = "[[],[]]";

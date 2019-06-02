@@ -77,7 +77,7 @@ class Russia {
             displayName = "Tigr-M";
             description = "The perfect commander limousine.";
             price = 10;
-            stock = 7;
+            stock = 2;
             wheelCargo = 2;
             spawnEmpty = 1;
             condition = "BC_IS_WOODLAND";
@@ -93,7 +93,7 @@ class Russia {
             displayName = "UAZ Dshkm";
             description = "Fast and a deadly gun against ground and air targets.";
             price = 10;
-            stock = 7;
+            stock = 2;
             spawnEmpty = 1;
             wheelCargo = 2;
             condition = "BC_IS_WOODLAND";
@@ -108,7 +108,7 @@ class Russia {
         class rhsgref_BRDM2_HQ_msv {
             displayName = "BRDM-HQ";
             description = "Carries a lot of meat.";
-            stock = 7;
+            stock = 2;
             spawnEmpty = 1;
             wheelCargo = 2;
             condition = "BC_IS_WOODLAND";
@@ -135,7 +135,7 @@ class Russia {
         class rhsgref_BRDM2_msv {
             displayName = "BRDM-2";
             description = "Armed version of BRDM2.";
-            stock = 7;
+            stock = 1;
             spawnEmpty = 1;
             wheelCargo = 2;
             condition = "BC_IS_WOODLAND";
@@ -152,7 +152,7 @@ class Russia {
             displayName = "UAZ SPG9";
             description = "Tank hunter with unguided AT.";
             price = 10;
-            stock = 7;
+            stock = 1;
             spawnEmpty = 1;
             wheelCargo = 2;
             condition = "BC_IS_WOODLAND";
@@ -204,7 +204,7 @@ class Russia {
         class rhsgref_BRDM2_ATGM_msv {
             displayName = "BRDM-AT";
             description = "Tank hunter with fly-by-wire AT.";
-            stock = 7;
+            stock = 1;
             spawnEmpty = 1;
             wheelCargo = 2;
             condition = "BC_IS_WOODLAND";
