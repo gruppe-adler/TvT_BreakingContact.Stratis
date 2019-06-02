@@ -7,5 +7,6 @@ class BC_buyables {
         class serverInit { postInit = 1; };
         class configureBluforStartVehicle;
         class configureOpforStartVehicle;
+        class terminalLocalityEH;
     };
 };
