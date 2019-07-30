@@ -235,6 +235,7 @@ class CfgIslands {
     };
 
     class hellanmaa {
+        displayName = "Hellanmaa";
         type = "european";
         isWoodland = true;
         spawnPosBlu[] = {-100,-1000,0};
