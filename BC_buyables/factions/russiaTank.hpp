@@ -15,45 +15,45 @@ class RussiaTank {
         disableTIEquipment = "true";
         canMoveDuringTransmission = "true";
 
-        class rhs_t80bvk {
-            displayName = "T-80BVK";
+        class gm_gc_army_t55a_oli {
+            displayName = "T-55A";
             description = "";
             price = 10;
             stock = 2;
             spawnEmpty = 1;
             condition = "true";
-            vehicleInit = "[[], ['kshield_unhide',0,'kdeck_unhide',1,'sideskirt_unhide',0,'fbskirt_unhide',0,'ftskirt_unhide',0,'log_unhide',1,'snorkel_unhide',0]]";
-            removeMagazines = "['rhs_mag_3of26_5', [0]]";
+            vehicleInit = "[['gm_gc_oli',1], ['camoNet_01_unhide',0]]";
+            crewHelmet = "gm_gc_army_headgear_crewhat_80_blk";
             terminalPositionOffset = "[0.3,-2.85,0.7]";
             terminalVectorDirAndUp = "[[0,1,0.3],[0,0,0.7]]";
             antennaOffset = "[0,-3.2,-0.1]";
-            code = "[(_this select 0)] call BC_buyables_fnc_configureOpforStartVehicle; (_this select 0) addWeaponCargoGlobal ['rhs_weap_rpg26', 3];";
+            code = "[(_this select 0)] call BC_buyables_fnc_configureOpforStartVehicle; (_this select 0) addWeaponCargoGlobal ['rhs_weap_rpg26', 12];";
         };
     };
 
     class Light {
         displayName = "Light";
         kindOf = "Vehicles";
-        maxBuyCount = 1;
+        maxBuyCount = 3;
         minPlayerCount = 0;
         driverGps = "true";
         crewHelmet = "rhs_tsh4";
         disableTIEquipment = "true";
 
-        class rhs_bmp2d_vmf {
-            displayName = "BMP2-D";
-            description = "";
+        class gm_gc_army_bmp1sp2_oli {
+            displayName = "BMP1-D";
+            description = "Carries more soldiers than T-55A but is less protected.";
             price = 10;
-            stock = 7;
+            stock = 3;
             spawnEmpty = 1;
             condition = "true";
-            code = "(_this select 0) addWeaponCargoGlobal ['rhs_weap_rpg26', 3];";
+            code = "(_this select 0) addWeaponCargoGlobal ['rhs_weap_rpg26', 6];";
             itemCargo = "";
             magazineCargo = "[['HandGrenade', 5]]";
             trackCargo = 2;
-            removeMagazines = "['rhs_mag_og15v_20', [0]]";
-            vehicleInit = "[['standard',1], ['crate_l1_unhide',1,'crate_l2_unhide',1,'crate_l3_unhide',1,'crate_r1_unhide',1,'crate_r2_unhide',1,'crate_r3_unhide',1,'wood_1_unhide',1,'maljutka_hide_source',1,'cargoHandler1',0]]";
-        };
+            crewHelmet = "gm_gc_army_headgear_crewhat_80_blk";
+            vehicleInit = "[['gm_gc_oli',1],['spareTracks_1_1_unhide',0,'spareTracks_1_2_unhide',0,'spareTracks_2_1_unhide',0,'wheelChock_1_1_unhide',0,'wheelChock_1_2_unhide',0,'woodenBeam_01_unhide',0,'tarpRoll_01_unhide',0]]";
+       };
     };
 
 
@@ -61,21 +61,22 @@ class RussiaTank {
         displayName = "Heavy";
         kindOf = "Vehicles";
         maxBuyCount = 2;
-        minPlayerCount = 10;
+        minPlayerCount = 0;
         driverGps = "true";
         crewHelmet = "rhs_tsh4";
         disableTIEquipment = "true";
 
-        class rhs_t80bvk {
-            displayName = "T-80BVK";
+        class gm_gc_army_t55a_oli {
+            displayName = "T-55A";
             description = "";
             price = 10;
             stock = 2;
-            code = "(_this select 0) addWeaponCargoGlobal ['rhs_weap_rpg26', 3];";
             spawnEmpty = 1;
             condition = "true";
-            vehicleInit = "[[], ['kshield_unhide',0,'kdeck_unhide',1,'sideskirt_unhide',0,'fbskirt_unhide',0,'ftskirt_unhide',0,'log_unhide',1,'snorkel_unhide',0]]";
-            removeMagazines = "['rhs_mag_3of26_5', [0]]";
+            vehicleInit = "[['gm_gc_oli',1], ['camoNet_01_unhide',0]]";
+            crewHelmet = "gm_gc_army_headgear_crewhat_80_blk";
+            antennaOffset = "[0,-3.2,-0.1]";
+            code = "[(_this select 0)] call BC_buyables_fnc_configureOpforStartVehicle; (_this select 0) addWeaponCargoGlobal ['rhs_weap_rpg26', 6];";
         };
     };
 
@@ -83,8 +84,8 @@ class RussiaTank {
     class Support {
         displayName = "Support";
         kindOf = "Vehicles";
-        maxBuyCount = 1;
-        minPlayerCount = 20;
+        maxBuyCount = 2;
+        minPlayerCount = 0;
         driverGps = "true";
         crewHelmet = "rhs_tsh4";
         disableTIEquipment = "true";
@@ -92,11 +93,11 @@ class RussiaTank {
         class rhsgref_BRDM2_ATGM_msv {
             displayName = "BRDM-AT";
             description = "";
-            stock = 7;
-            code = "(_this select 0) addWeaponCargoGlobal ['rhs_weap_rpg26', 3];";
+            stock = 2;
+            code = "(_this select 0) addWeaponCargoGlobal ['rhs_weap_rpg26', 6];";
             spawnEmpty = 1;
             condition = "true";
-            vehicleInit = "[['olive', 1], ['driverViewHatch',0,'commanderViewHatch',0,'hatchCommander',1]]";
+            vehicleInit = "[['desert', 1], ['driverViewHatch',0,'commanderViewHatch',0,'hatchCommander',1]]";
         };
     };
 };

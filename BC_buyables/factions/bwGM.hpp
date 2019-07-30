@@ -175,9 +175,8 @@ class bwGM {
 
         class gm_ge_army_m113a1g_apc_milan_oli {
             displayName = "Armed carrier (tracked).";
-            description = "1 GPS\nFRIES equipped";
+            description = "";
             stock = 7;
-            code = "(_this select 0) addItemCargoGlobal ['ACE_NVG_Wide',2];(_this select 0) addItemCargoGlobal ['ItemGPS',1];[(_this select 0)] call ace_fastroping_fnc_equipFRIES;";
             spawnEmpty = 1;
             crewHelmet = "gm_ge_headgear_crewhat_80_blk";
             condition = "BC_IS_WOODLAND";

@@ -2,7 +2,7 @@ class BUYABLES_BLUFOR
 {
     title = "Blufor";
     values[] = {0, 1, 2};
-    texts[] = {"bwGM", "USA", "USATanks"};
+    texts[] = {"bwGM", "USA", "BWTanks"};
     default = 1;
 };
 
