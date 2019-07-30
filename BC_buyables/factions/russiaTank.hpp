@@ -97,7 +97,7 @@ class RussiaTank {
             code = "(_this select 0) addWeaponCargoGlobal ['rhs_weap_rpg26', 6];";
             spawnEmpty = 1;
             condition = "true";
-            vehicleInit = "[['desert', 1], ['driverViewHatch',0,'commanderViewHatch',0,'hatchCommander',1]]";
+            vehicleInit = "[['olive', 1], ['driverViewHatch',0,'commanderViewHatch',0,'hatchCommander',1]]";
         };
     };
 };
