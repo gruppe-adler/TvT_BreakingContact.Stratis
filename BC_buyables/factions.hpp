@@ -3,7 +3,7 @@
 /// BLUFOR
 #include "factions\bwGM.hpp"
 #include "factions\usa.hpp"
-#include "factions\usaTank.hpp"
+#include "factions\bwTank.hpp"
 
 /// OPFOR
 #include "factions\nvaGM.hpp"

@@ -1,0 +1,50 @@
+<match uuid="9ef506f9-7cd5-4bc4-a65a-653776cdb871">
+  <company natosymbol="hq" callsign="blufor" vehicletype="" side="blufor">
+    <platoon natosymbol="armor" callsign="cmd leo" vehicletype="">
+      <slot shortcode="CMD" description="Commander"/>
+      <slot shortcode="CMA" description="Gunner"/>
+      <squad natosymbol="armor" callsign="Alpha Leo" vehicletype="">
+        <slot shortcode="SQL" description="Commander"/>
+        <slot shortcode="MMG" description="Gunner"/>
+        <slot shortcode="MGA" description="Driver"/>
+      </squad>
+      <squad natosymbol="armor" callsign="Bravo Leo" vehicletype="">
+        <slot shortcode="SQL" description="Commander"/>
+        <slot shortcode="MMG" description="Gunner"/>
+        <slot shortcode="MGA" description="Driver"/>
+      </squad>
+      <squad natosymbol="mech_inf" callsign="Charlie M113 Mil" vehicletype="">
+        <slot shortcode="SQL" description="Driver"/>
+        <slot shortcode="MMG" description="Gunner"/>
+      </squad>
+      <squad natosymbol="inf" callsign="Delta hmmwv tow" vehicletype="">
+        <slot shortcode="SQL" description="Driver"/>
+        <slot shortcode="MMG" description="Gunner"/>
+      </squad>
+    </platoon>
+  </company>
+  <company natosymbol="hq" callsign="Opfor" vehicletype="" side="opfor">
+    <platoon natosymbol="armor" callsign="cmd T55A" vehicletype="">
+      <slot shortcode="CMD" description="Commander"/>
+      <slot shortcode="CMA" description="Gunner"/>
+      <squad natosymbol="armor" callsign="Alpha T55A" vehicletype="">
+        <slot shortcode="SQL" description="Commander"/>
+        <slot shortcode="MMG" description="Gunner"/>
+        <slot shortcode="MGA" description="Driver"/>
+      </squad>
+      <squad natosymbol="armor" callsign="Bravo T55A" vehicletype="">
+        <slot shortcode="SQL" description="Commander"/>
+        <slot shortcode="MMG" description="Gunner"/>
+        <slot shortcode="MGA" description="Driver"/>
+      </squad>
+      <squad natosymbol="mech_inf" callsign="Charlie Bmp1" vehicletype="">
+        <slot shortcode="SQL" description="Driver"/>
+        <slot shortcode="MMG" description="Gunner"/>
+      </squad>
+      <squad natosymbol="inf" callsign="Delta BRDM AT" vehicletype="">
+        <slot shortcode="SQL" description="Driver"/>
+        <slot shortcode="MMG" description="Gunner"/>
+      </squad>
+    </platoon>
+  </company>
+</match>
