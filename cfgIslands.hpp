@@ -234,6 +234,15 @@ class CfgIslands {
         };
     };
 
+    class hellanmaa {
+        type = "european";
+        isWoodland = true;
+        spawnPosBlu[] = {-100,-1000,0};
+        spawnPosOpf[] = {8284,8104,0};
+        previewCamPos[] = {3939,4968,0};
+        previewCamTarget[] = {3853,4930,0};
+    };
+
     class lingor3 {
         displayName = "Lingor";
         type = "tropic";
