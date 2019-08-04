@@ -167,7 +167,7 @@ waitUntil {camPreloaded BIS_fnc_establishingShot_fakeUAV || missionNamespace get
 
 private ["_drawEH"];
 
-if (!missionNamespace getVariable ["BIS_fnc_establishingShot_skip", false]) then {
+if (!(missionNamespace getVariable ["BIS_fnc_establishingShot_skip", false])) then {
     BIS_fnc_establishingShot_playing = true;
 
     // Create logic to play sounds
@@ -239,10 +239,10 @@ if (!missionNamespace getVariable ["BIS_fnc_establishingShot_skip", false]) then
 
         // Static fade-in
         ("BIS_layerStatic" call BIS_fnc_rscLayer) cutRsc ["RscStatic", "PLAIN"];
-        waitUntil {!(isNull (uiNamespace getVariable "RscStatic_display")) || missionNamespace getVariable ["BIS_fnc_establishingShot_skip", false])};
-        waitUntil {isNull (uiNamespace getVariable "RscStatic_display")  || missionNamespace getVariable ["BIS_fnc_establishingShot_skip", false])};
+        waitUntil {!(isNull (uiNamespace getVariable "RscStatic_display")) || (missionNamespace getVariable ["BIS_fnc_establishingShot_skip", false]))};
+        waitUntil {isNull (uiNamespace getVariable "RscStatic_display")  || (missionNamespace getVariable ["BIS_fnc_establishingShot_skip", false]))};
 
-        if (!missionNamespace getVariable ["BIS_fnc_establishingShot_skip", false]) then {
+        if (!(missionNamespace getVariable ["BIS_fnc_establishingShot_skip", false])) then {
             // Show interlacing
             ("BIS_layerInterlacing" call BIS_fnc_rscLayer) cutRsc ["RscInterlacing", "PLAIN"];
 
@@ -312,7 +312,7 @@ if (!missionNamespace getVariable ["BIS_fnc_establishingShot_skip", false]) then
                 private ["_key"];
                 _key = _this;
 
-                if (!(isKeyActive _key) && !missionNamespace getVariable ["BIS_fnc_establishingShot_skip", false]) then {
+                if (!(isKeyActive _key) && !(missionNamespace getVariable ["BIS_fnc_establishingShot_skip", false])) then {
                     // Display instructions
                     private ["_layerTitlecard"];
                     _layerTitlecard = "BIS_layerTitlecard" call BIS_fnc_rscLayer;
@@ -364,7 +364,7 @@ if (!missionNamespace getVariable ["BIS_fnc_establishingShot_skip", false]) then
 
             private ["_time"];
             _time = time + 2;
-            waitUntil {time >= _time || missionNamespace getVariable ["BIS_fnc_establishingShot_skip", false]};
+            waitUntil {time >= _time || (missionNamespace getVariable ["BIS_fnc_establishingShot_skip", false])};
 
             if (isNil "BIS_fnc_establishingShot_skip") then {
 
@@ -379,7 +379,7 @@ if (!missionNamespace getVariable ["BIS_fnc_establishingShot_skip", false]) then
                 _time = time + 999999;
                 waitUntil {time >= _time || missionNamespace getVariable ["BIS_fnc_establishingShot_skip", false] || (BLUFOR_TELEPORT_TARGET select 0 != 0) || player getVariable ["BC_choosingSpawn", false]};
 
-                if (!missionNamespace getVariable ["BIS_fnc_establishingShot_skip", false]) then {
+                if (!(missionNamespace getVariable ["BIS_fnc_establishingShot_skip", false])) then {
                     // Register the UAV finished
                     BIS_fnc_establishingShot_UAVDone = true;
                 };
