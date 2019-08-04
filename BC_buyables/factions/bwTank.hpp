@@ -13,8 +13,9 @@ class bwTank {
         crewHelmet = "";
         disableTIEquipment = "true";
 
-        class gm_ge_army_Leopard1a3a1_wdl {
+        class gm_ge_army_Leopard1a3a1 {
             condition = "true";
+            vehicleInit = "[['gm_ge_wdl',1], []]";
             code = "[(_this select 0)] call BC_buyables_fnc_configureBluforStartVehicle; (_this select 0) addWeaponCargoGlobal ['rhs_weap_m72a7', 12];";
         };
     };
@@ -64,7 +65,7 @@ class bwTank {
             trackCargo = 2;
             spawnEmpty = 1;
             condition = "true";
-            vehicleInit = "[[],[]]";
+            vehicleInit = "[[], []]";
         };
     };
 

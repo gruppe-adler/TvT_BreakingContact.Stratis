@@ -15,7 +15,7 @@ class RussiaTank {
         disableTIEquipment = "true";
         canMoveDuringTransmission = "true";
 
-        class gm_gc_army_t55a_oli {
+        class gm_gc_army_t55a {
             displayName = "T-55A";
             description = "";
             price = 10;
