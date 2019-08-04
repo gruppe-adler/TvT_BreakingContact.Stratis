@@ -3,7 +3,7 @@ class bwTank {
     side = "Blufor";
     loadout = "bwFle";
     mode = "destroy";
-    
+
     // needs to be in every faction
     class StartVehicle {
         deployAction = "";
@@ -79,8 +79,8 @@ class bwTank {
         crewHelmet = "";
         disableTIEquipment = "true";
 
-        class redd_tank_wiesel_1a2_tow {
-            displayName = "HMMWV-TOW";
+        class Redd_Tank_Wiesel_1A2_TOW_Flecktarn {
+            displayName = "Wiesel-TOW";
             description = "";
             code = "(_this select 0) addWeaponCargoGlobal ['rhs_weap_m72a7', 6];";
             stock = 2;
