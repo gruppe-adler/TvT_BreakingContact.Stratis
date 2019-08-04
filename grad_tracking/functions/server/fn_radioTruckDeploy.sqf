@@ -13,10 +13,8 @@ if (typeOf _radiotruck == "rhs_gaz66_r142_vv") exitWith {
     _radiotruck setVariable ["GRAD_isAnimating", false, true];
 };
 
-/*
 _radiotruck setVariable ["GRAD_fuel", _fuel, true];
-[_radiotruck, 0] remoteExec ["setFuel", _owner];
-*/
+[_radiotruck, 0] remoteExecCall ["setFuel", _owner];
 
 sleep 3;
 _radiotruck setVariable ["GRAD_isDeployed", true, true];
@@ -32,8 +30,6 @@ if (count _antennaOffset > 0) then {
 };
 */
 
-/*
 if (_canMove) then {
-	[_radiotruck, _fuel] remoteExec ["setFuel", _owner];
+	[_radiotruck, _fuel] remoteExecCall ["setFuel", _owner];
 };
-*/

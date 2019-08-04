@@ -17,7 +17,7 @@
         _this select 8 (Optional): BOOL - Fade in after completion (default: true)
 */
 
-if (!isNil "BIS_fnc_establishingShot_skip") exitWith { diag_log format ["skipping establishing shot completely for jip"]; };
+if (missionNamespace getVariable ["BIS_fnc_establishingShot_skip", false]) exitWith { diag_log format ["skipping establishing shot completely for jip"]; };
 
 params [
    ["_tgt", objNull, [objNull, []]],
@@ -131,7 +131,7 @@ private _skipEH = ([] call BIS_fnc_displayMission) displayAddEventHandler [
 
                 playSound ['click', true];
 
-                BIS_fnc_establishingShot_skip = true;
+                missionNamespace setVariable ['BIS_fnc_establishingShot_skip', true];
             };
 
 
@@ -163,11 +163,11 @@ waitUntil {!(isNull (uiNamespace getVariable "RscEstablishingShot"))};
 
 
 // Wait for the camera to load
-waitUntil {camPreloaded BIS_fnc_establishingShot_fakeUAV || !(isNil "BIS_fnc_establishingShot_skip")};
+waitUntil {camPreloaded BIS_fnc_establishingShot_fakeUAV || missionNamespace getVariable ["BIS_fnc_establishingShot_skip", false]};
 
 private ["_drawEH"];
 
-if (isNil "BIS_fnc_establishingShot_skip") then {
+if (!missionNamespace getVariable ["BIS_fnc_establishingShot_skip", false]) then {
     BIS_fnc_establishingShot_playing = true;
 
     // Create logic to play sounds
@@ -239,24 +239,24 @@ if (isNil "BIS_fnc_establishingShot_skip") then {
 
         // Static fade-in
         ("BIS_layerStatic" call BIS_fnc_rscLayer) cutRsc ["RscStatic", "PLAIN"];
-        waitUntil {!(isNull (uiNamespace getVariable "RscStatic_display")) || !(isNil "BIS_fnc_establishingShot_skip")};
-        waitUntil {isNull (uiNamespace getVariable "RscStatic_display")  || !(isNil "BIS_fnc_establishingShot_skip")};
+        waitUntil {!(isNull (uiNamespace getVariable "RscStatic_display")) || missionNamespace getVariable ["BIS_fnc_establishingShot_skip", false])};
+        waitUntil {isNull (uiNamespace getVariable "RscStatic_display")  || missionNamespace getVariable ["BIS_fnc_establishingShot_skip", false])};
 
-        if (isNil "BIS_fnc_establishingShot_skip") then {
+        if (!missionNamespace getVariable ["BIS_fnc_establishingShot_skip", false]) then {
             // Show interlacing
             ("BIS_layerInterlacing" call BIS_fnc_rscLayer) cutRsc ["RscInterlacing", "PLAIN"];
 
-            
+
             titleCut ["", "PLAIN"];
-           
+
 
             // Add interlacing to optionsMenuClosed
-            optionsMenuClosed = 
+            optionsMenuClosed =
                 {
                     ("BIS_layerEstShot" call BIS_fnc_rscLayer) cutRsc ["RscEstablishingShot", "PLAIN"];
                     ("BIS_layerInterlacing" call BIS_fnc_rscLayer) cutRsc ["RscInterlacing", "PLAIN"];
                 };
-            
+
 
             // Show icons
             if (count BIS_fnc_establishingShot_icons > 0) then {
@@ -302,7 +302,7 @@ if (isNil "BIS_fnc_establishingShot_skip") then {
                 ];
             };
 
-            
+
             // Spawn instructions separately to allow for no delay in skipping
             _key spawn {
                 scriptName "BIS_fnc_establishingShot: instructions control";
@@ -312,7 +312,7 @@ if (isNil "BIS_fnc_establishingShot_skip") then {
                 private ["_key"];
                 _key = _this;
 
-                if (!(isKeyActive _key) && isNil "BIS_fnc_establishingShot_skip") then {
+                if (!(isKeyActive _key) && !missionNamespace getVariable ["BIS_fnc_establishingShot_skip", false]) then {
                     // Display instructions
                     private ["_layerTitlecard"];
                     _layerTitlecard = "BIS_layerTitlecard" call BIS_fnc_rscLayer;
@@ -364,7 +364,7 @@ if (isNil "BIS_fnc_establishingShot_skip") then {
 
             private ["_time"];
             _time = time + 2;
-            waitUntil {time >= _time || !(isNil "BIS_fnc_establishingShot_skip")};
+            waitUntil {time >= _time || missionNamespace getVariable ["BIS_fnc_establishingShot_skip", false]};
 
             if (isNil "BIS_fnc_establishingShot_skip") then {
 
@@ -377,13 +377,13 @@ if (isNil "BIS_fnc_establishingShot_skip") then {
 
                 private ["_time"];
                 _time = time + 999999;
-                waitUntil {time >= _time || !(isNil "BIS_fnc_establishingShot_skip") || (BLUFOR_TELEPORT_TARGET select 0 != 0) || player getVariable ["BC_choosingSpawn", false]};
+                waitUntil {time >= _time || missionNamespace getVariable ["BIS_fnc_establishingShot_skip", false] || (BLUFOR_TELEPORT_TARGET select 0 != 0) || player getVariable ["BC_choosingSpawn", false]};
 
-                if (isNil "BIS_fnc_establishingShot_skip") then {
+                if (!missionNamespace getVariable ["BIS_fnc_establishingShot_skip", false]) then {
                     // Register the UAV finished
                     BIS_fnc_establishingShot_UAVDone = true;
                 };
-                
+
             };
         };
     };
@@ -447,7 +447,7 @@ if (player getVariable ["BC_choosingSpawn", false]) exitWith {
     // Clear existing global variables
     BIS_fnc_establishingShot_icons = nil;
     BIS_fnc_establishingShot_spaceEH = nil;
-    BIS_fnc_establishingShot_skip = nil;
+    missionNamespace setVariable ["BIS_fnc_establishingShot_skip", nil];
     BIS_fnc_establishingShot_UAVDone = nil;
 
     // Start mission

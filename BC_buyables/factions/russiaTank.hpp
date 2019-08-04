@@ -3,7 +3,7 @@ class RussiaTank {
     side = "Opfor";
     loadout = "russia";
     mode = "destroy";
-    
+
 
     // needs to be in every faction
     class StartVehicle {
@@ -28,6 +28,7 @@ class RussiaTank {
             terminalVectorDirAndUp = "[[0,1,0.3],[0,0,0.7]]";
             antennaOffset = "[0,-3.2,-0.1]";
             code = "[(_this select 0)] call BC_buyables_fnc_configureOpforStartVehicle; (_this select 0) addWeaponCargoGlobal ['rhs_weap_rpg26', 12];";
+            canMoveDuringTransmission = "true";
         };
     };
 
@@ -76,7 +77,7 @@ class RussiaTank {
             vehicleInit = "[['gm_gc_oli',1], ['camoNet_01_unhide',0]]";
             crewHelmet = "gm_gc_army_headgear_crewhat_80_blk";
             antennaOffset = "[0,-3.2,-0.1]";
-            code = "[(_this select 0)] call BC_buyables_fnc_configureOpforStartVehicle; (_this select 0) addWeaponCargoGlobal ['rhs_weap_rpg26', 6];";
+            code = "(_this select 0) addWeaponCargoGlobal ['rhs_weap_rpg26', 6];";
         };
     };
 

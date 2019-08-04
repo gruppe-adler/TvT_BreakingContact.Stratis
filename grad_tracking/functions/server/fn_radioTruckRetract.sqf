@@ -15,10 +15,10 @@ sleep 3;
 _radiotruck setVariable ["GRAD_isDeployed", false, true];
 _radiotruck setVariable ["GRAD_isAnimating", false, true];
 
-/*
+
 _fuel = _radiotruck getVariable ["GRAD_fuel", 1];
-[_radiotruck, _fuel] remoteExec ["setFuel", owner _radiotruck];
-*/
+[_radiotruck, _fuel] remoteExecCall ["setFuel", owner _radiotruck];
+
 // [_radiotruck, true] remoteExec ["engineOn", owner _radiotruck];
 
 /*
