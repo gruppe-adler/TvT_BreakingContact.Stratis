@@ -113,6 +113,17 @@ class CfgIslands {
             "Vysota"
         };
     };
+  
+  class tem_cham {
+        displayName = "Cham";
+        type = "european";
+        isWoodland = true;
+        spawnPosBlu[] = {8580.41,8290.2,0};
+        spawnPosOpf[] = {8581.45,9719.97,0};
+        previewCamPos[] = {8580.41,6290.2,0};
+        previewCamTarget[] = {8581.45,7719.97,0};
+        locationBlacklist[] = {};
+  };
 
     class Chernarus_Summer: Chernarus {};
     class Chernarus_winter: Chernarus {};
