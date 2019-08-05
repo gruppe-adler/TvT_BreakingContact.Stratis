@@ -13,7 +13,9 @@ class BC_setup {
         class isOnWater;
         class openSpawnDialog;
         class teleportPlayer;
-        class TFARsettings { preInit = 1; };
+		class radioSettings { preInit = 1; };
+        class TFARsettings;
+		class ACREsettings;
     };
 
   class server {
