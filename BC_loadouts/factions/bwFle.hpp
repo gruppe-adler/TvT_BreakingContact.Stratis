@@ -12,7 +12,9 @@ class bwFle {
         headgear = "SMM_Helmet_A_BW_FT";
         binoculars = "Binocular";
         map = "ItemMap";
+        #ifndef GRAD_FACTIONS_USE_ACRE
         radio = "TFAR_anprc152";
+        #endif
         compass = "ItemCompass";
         watch = "ItemWatch";
         nvgoggles = "";
@@ -204,7 +206,9 @@ class bwFle {
             };
         };
         class Soldier_SL_F: Soldier_TL_F {
+            #ifndef GRAD_FACTIONS_USE_ACRE
             backpack = "TFAR_rt1523g_sage";
+            #endif
             addItemsToUniform[] = {
                 LIST_7("ACE_fieldDressing"),
                 LIST_2("ACE_epinephrine"),

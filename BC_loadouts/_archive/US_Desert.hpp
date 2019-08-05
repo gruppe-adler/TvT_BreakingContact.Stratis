@@ -53,7 +53,9 @@ class US_Desert {
                primaryWeaponOptics = "rhsusf_acc_eotech_xps3";
                vest = "rhsusf_iotv_ocp_Teamleader";
                addItemsToVest[] = {LIST_5("rhs_mag_30Rnd_556x45_M855A1_Stanag"), LIST_6("rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Yellow"), LIST_4("SmokeShell"), LIST_2("SmokeShellRed"), LIST_2("HandGrenade")};
-               backpack = "tfar_rt1523g_big_bwmod_tropen";
+               #ifndef GRAD_FACTIONS_USE_ACRE
+                backpack = "tfar_rt1523g_big_bwmod_tropen";
+               #endif
                addItemsToBackpack[] = {LIST_3("rhs_mag_M585_white"), LIST_2("rhs_mag_m662_red"), LIST_2("rhs_mag_m661_green"), LIST_3("rhs_mag_m713_Red"), LIST_3("rhs_mag_m714_White")};
                gps = "ItemGPS";
           };

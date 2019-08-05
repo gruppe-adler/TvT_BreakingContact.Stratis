@@ -25,12 +25,16 @@ class US_Woodland: US_Desert {
           };
           class Soldier_TL_F: Soldier_TL_F {
                vest = "rhsusf_spc_marksman";
-               backpack = "tfar_rt1523g_big_bwmod";
+               #ifndef GRAD_FACTIONS_USE_ACRE
+                backpack = "tfar_rt1523g_big_bwmod";
+               #endif
           };
           class Soldier_SL_F: Soldier_TL_F {
                vest = "rhsusf_spc_squadleader";
                headgear = "rhs_8point_marpatwd";
+               #ifndef GRAD_FACTIONS_USE_ACRE
                backpack = "tfar_rt1523g_big_bwmod";
+               #endif
           };
           class officer_F: Soldier_SL_F {};
           class Crew_F: Crew_F {

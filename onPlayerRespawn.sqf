@@ -20,4 +20,6 @@ if (missionNamespace getVariable ["GRAD_replay_isRunning", false]) exitWith {
 
 setPlayerRespawnTime 999999;
 [true] call ace_spectator_fnc_setSpectator;
+#ifndef GRAD_FACTIONS_USE_ACRE
 [player, true] call TFAR_fnc_forceSpectator;
+#endif

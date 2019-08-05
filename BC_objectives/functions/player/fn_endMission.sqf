@@ -62,8 +62,9 @@ switch (_winner) do {
      };
 };
 
-
+#ifndef GRAD_FACTIONS_USE_ACRE
 [player, true] call TFAR_fnc_forceSpectator;
+#endif
 
 ["GRAD_replay_preparingPlayback",
 {

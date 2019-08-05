@@ -16,9 +16,9 @@ They can switch the signal on and off, and move about as they please.
 
 ## Mods
 
-TFAR, ACE3, RHSAFRF and RHSUSF mods are required. RDS\_CIV is optional (required for param "civilian traffic")
+ACE3, RHSAFRF and RHSUSF mods are required. RDS\_CIV is optional (required for param "civilian traffic")
 
-
+TFAR is mandatory by default; use `#define GRAD_FACTIONS_USE_ACRE` in description.ext if you want to use ACRE2
 
 ## Rules
 * no respawn

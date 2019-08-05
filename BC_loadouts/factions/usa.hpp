@@ -12,7 +12,9 @@ class USA {
         headgear = "rhsusf_lwh_helmet_marpatwd_headset_blk2";
         binoculars = "Binocular";
         map = "ItemMap";
-        radio = "TFAR_anprc152";
+        #ifndef GRAD_FACTIONS_USE_ACRE
+            radio = "TFAR_anprc152";
+        #endif
         compass = "ItemCompass";
         watch = "ItemWatch";
         nvgoggles = "";
@@ -204,7 +206,9 @@ class USA {
             };
         };
         class Soldier_SL_F: Soldier_TL_F {
-            backpack = "TFAR_rt1523g_sage";
+            #ifndef GRAD_FACTIONS_USE_ACRE
+                backpack = "TFAR_rt1523g_sage";
+            #endif
             addItemsToUniform[] = {
                 LIST_7("ACE_fieldDressing"),
                 LIST_2("ACE_epinephrine"),

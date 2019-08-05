@@ -13,7 +13,9 @@ class nvaGM {
         headgear = "gm_gc_army_headgear_m56_net";
         binoculars = "gm_df7x40_blk";
         map = "ItemMap";
+        #ifndef GRAD_FACTIONS_USE_ACRE
         radio = "TFAR_pnr1000a";
+        #endif
         compass = "gm_gc_compass_f73";
         watch = "gm_watch_kosei_80";
         nvgoggles = "";
@@ -176,7 +178,9 @@ class nvaGM {
             headgear = "gm_gc_army_headgear_m56";
             handgunWeapon = "gm_lp1_blk";
             handgunWeaponMagazine = "gm_1Rnd_265mm_smoke_single_yel_gc";
-            backpack = "TFAR_mr6000l";
+            #ifndef GRAD_FACTIONS_USE_ACRE
+                backpack = "TFAR_mr6000l";
+            #endif
             addItemsToUniform[] = {
                 LIST_7("ACE_fieldDressing"),
                 LIST_2("ACE_epinephrine"),

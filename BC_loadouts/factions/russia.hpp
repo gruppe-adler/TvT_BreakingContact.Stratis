@@ -13,7 +13,9 @@ class russia {
         headgear = "rhs_6b26";
         binoculars = "Binocular";
         map = "ItemMap";
-        radio = "TFAR_fadak";
+        #ifndef GRAD_FACTIONS_USE_ACRE
+            radio = "TFAR_fadak";
+        #endif
         compass = "ItemCompass";
         watch = "ItemWatch";
         nvgoggles = "";
@@ -175,7 +177,9 @@ class russia {
             handgunWeapon = "rhs_weap_pya";
             handgunWeaponMagazine = "rhs_mag_9x19_17";
             underBarrelMagazine = "rhs_VG40MD_White";
+            #ifndef GRAD_FACTIONS_USE_ACRE
             backpack = "TFAR_mr3000_rhs";
+            #endif
             addItemsToUniform[] = {
                 LIST_7("ACE_fieldDressing"),
                 LIST_2("ACE_epinephrine"),

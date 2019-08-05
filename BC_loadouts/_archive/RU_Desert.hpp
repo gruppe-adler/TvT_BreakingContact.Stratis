@@ -1,13 +1,15 @@
 class RU_Desert {
      class AllUnits {
           primaryWeapon = "rhs_weap_akm";
-          primaryWeaponMagazine = "rhs_30Rnd_762x39mm";          
+          primaryWeaponMagazine = "rhs_30Rnd_762x39mm";
           handgunWeapon = "hgun_Rook40_F";
           handgunWeaponMagazine = "16Rnd_9x21_Mag";
           uniform = "rhs_uniform_flora_patchless_alt";
           addItemsToUniform[] = {"rhs_acc_2dpZenit", LIST_6("ACE_fieldDressing"), LIST_2("ACE_morphine"), "ACE_epinephrine", "ACE_Flashlight_MX991", "ACE_key_east", "ACE_MapTools", LIST_2("Chemlight_red"), LIST_2("16Rnd_9x21_Mag")};
           headgear = "rhs_6b27m_ml";
-          radio = "tfar_fadak";
+          #ifndef GRAD_FACTIONS_USE_ACRE
+            radio = "tfar_fadak";
+          #endif
      };
      class Type {
           class Soldier_F {
@@ -32,15 +34,17 @@ class RU_Desert {
                addItemsToBackpack[] = {LIST_2("rhs_rpg7_PG7VL_mag")};
           };
           class Soldier_A_F {
-               vest = "rhs_6b23_ML_sniper";
-               addItemsToVest[] = {LIST_4("rhs_30Rnd_762x39mm"), LIST_2("rhs_30Rnd_762x39mm_tracer")};
-               backpack = "rhs_sidor";
-               addItemsToBackpack[] = {LIST_2("rhs_100Rnd_762x54mmR_green"), "rhs_100Rnd_762x54mmR"};
-               binoculars = "Binocular";
-               map = "ItemMap";
-               radio = "tfar_fadak";
-               compass = "ItemCompass";
-               watch = "ItemWatch";
+                vest = "rhs_6b23_ML_sniper";
+                addItemsToVest[] = {LIST_4("rhs_30Rnd_762x39mm"), LIST_2("rhs_30Rnd_762x39mm_tracer")};
+                backpack = "rhs_sidor";
+                addItemsToBackpack[] = {LIST_2("rhs_100Rnd_762x54mmR_green"), "rhs_100Rnd_762x54mmR"};
+                binoculars = "Binocular";
+                map = "ItemMap";
+                #ifndef GRAD_FACTIONS_USE_ACRE
+                    radio = "tfar_fadak";
+                #endif
+                compass = "ItemCompass";
+                watch = "ItemWatch";
           };
           class Medic_F {
                vest = "rhs_6b23_ML_medic";
@@ -52,7 +56,9 @@ class RU_Desert {
                primaryWeapon = "rhs_weap_akm_gp25";
                vest = "rhs_6b23_ML_6sh92_radio";
                addItemsToVest[] = {LIST_4("rhs_30Rnd_762x39mm"), LIST_3("rhs_30Rnd_762x39mm_tracer"), "SmokeShell"};
-               backpack = "TFAR_mr3000_multicam";
+               #ifndef GRAD_FACTIONS_USE_ACRE
+                backpack = "TFAR_mr3000_multicam";
+               #endif
                addItemsToBackpack[] = {LIST_2("rhs_mag_rgd5"), LIST_4("rhs_GRD40_White"), LIST_2("rhs_GRD40_Green"), LIST_2("rhs_GRD40_Red"), LIST_3("rhs_VG40OP_green"), LIST_2("rhs_VG40OP_white")};
                gps = "ItemGPS";
           };

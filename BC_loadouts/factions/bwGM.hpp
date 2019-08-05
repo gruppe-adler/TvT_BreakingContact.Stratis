@@ -12,7 +12,9 @@ class bwGM {
         headgear = "gm_ge_headgear_m62_net";
         binoculars = "gm_ferod16_oli";
         map = "ItemMap";
-        radio = "TFAR_rf7800str";
+        #ifndef GRAD_FACTIONS_USE_ACRE
+            radio = "TFAR_rf7800str";
+        #endif
         compass = "gm_ge_army_conat2";
         watch = "gm_watch_kosei_80";
         nvgoggles = "";
@@ -206,7 +208,9 @@ class bwGM {
             };
         };
         class Soldier_SL_F: Soldier_TL_F {
+            #ifndef GRAD_FACTIONS_USE_ACRE
             backpack = "TFAR_rt1523g_green";
+            #endif
             addItemsToUniform[] = {
                 LIST_7("ACE_fieldDressing"),
                 LIST_2("ACE_epinephrine"),
