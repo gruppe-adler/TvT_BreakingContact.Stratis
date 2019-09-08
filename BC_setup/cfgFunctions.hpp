@@ -23,7 +23,7 @@ class BC_setup {
         class findRandomPos;
 		class fuelDrain;
         class getHighestRankOfSide;
-        class getIslandCfgEntry { preInit = 1; };
+        class getIslandCfgEntry {};
         class initialSpawnServer;
         class registerDynamicGroup;
 		class removeFuelStations { postInit = 1; };
