@@ -1,7 +1,7 @@
 private _playerPositionsForCurrentWorld = 	[
-	[(missionConfigFile >> "CfgIslands" >> worldName), "spawnPosOpf", [0,0,0]] call BIS_fnc_returnConfigEntry,
-	[(missionConfigFile >> "CfgIslands" >> worldName), "spawnPosBlu", [0,0,0]] call BIS_fnc_returnConfigEntry,
-	[(missionConfigFile >> "CfgIslands" >> worldName), "spawnPosInd", [0,0,0]] call BIS_fnc_returnConfigEntry
+	["spawnPosOpf", [0,0,0]] call BC_setup_fnc_getIslandCfgEntry,
+	["spawnPosBlu", [0,0,0]] call BC_setup_fnc_getIslandCfgEntry,
+	["spawnPosInd", [0,0,0]] call BC_setup_fnc_getIslandCfgEntry
 ];
 
 [{!isNull player}, {

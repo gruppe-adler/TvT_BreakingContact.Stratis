@@ -4,7 +4,7 @@
 
 
 params ["_entry"];
-_cfg = missionConfigFile >> "CfgIslands" >> worldName;
+_cfg = missionConfigFile >> "cfgGradIslands" >> worldName;
 if (!isClass _cfg) exitWith {diag_log format ["Config for island %1 not found.", worldName];};
 
 if (isNumber (_cfg >> _entry)) exitWith {getNumber (_cfg >> _entry)};
