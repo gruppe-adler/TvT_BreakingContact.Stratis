@@ -22,7 +22,7 @@ params [
 
 disableSerialization;
 
-waitUntil {!(isNull ([] call BIS_fnc_displayMission))};
+waitUntil { time > 0 };
 
 
 if (playerSide == east) then {
