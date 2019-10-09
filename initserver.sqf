@@ -3,9 +3,6 @@
 
 call compile preprocessfile "node_modules\shk_pos\functions\shk_pos_init.sqf"; // absolute basic!
 
-[] call BC_setup_fnc_initialSpawnServer;
-
-
 DEBUG_MODE = false;
 if ((["DEBUG_MODE", 0] call BIS_fnc_getParamValue) == 1 || !isMultiplayer) then {
   DEBUG_MODE = true;
@@ -13,6 +10,7 @@ if ((["DEBUG_MODE", 0] call BIS_fnc_getParamValue) == 1 || !isMultiplayer) then 
 publicVariable "DEBUG_MODE";
 
 
+[] call BC_setup_fnc_initialSpawnServer;
 
 addMissionEventHandler ["HandleDisconnect",{
     params ["_unit", "_id", "_uid", "_name"];
