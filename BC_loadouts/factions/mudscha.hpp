@@ -33,7 +33,7 @@ class mudscha {
                         "LOP_U_AM_Fatigue_04_6"
         };
         vest = "V_BandollierB_khk";
-        backpack = "gm_gc_army_backpack_80_assaultpack_str";
+        backpack = "rhs_sidor";
         headgear[] = { 
                         "LOP_H_Turban",
                         "LOP_H_Turban",
@@ -42,11 +42,11 @@ class mudscha {
                         "LOP_H_Pakol",
                         "LOP_H_Pakol"
         };
-        binoculars = "gm_df7x40_blk";
+        binoculars = "Binocular";
         map = "ItemMap";
         radio = "TFAR_pnr1000a";
-        compass = "gm_gc_compass_f73";
-        watch = "gm_watch_kosei_80";
+        compass = "ItemCompass";
+        watch = "ItemWatch";
         nvgoggles = "";
         gps = "";
         goggles[] = {
@@ -74,9 +74,9 @@ class mudscha {
             };
             addItemsToVest[] = {
                 "SmokeShell",
-                LIST_6("gm_30rnd_545x39mm_b_7n6_ak74_prp"),
-                LIST_2("gm_handgrenade_frag_rgd5"),
-                LIST_2("gm_smokeshell_wht_gc")
+                LIST_6("rhs_30Rnd_762x39mm"),
+                LIST_2("rhs_mag_rgd5"),
+                LIST_2("rhs_mag_rdg2_white")
             };
             addItemsToBackpack[] = {
                 LIST_6("ACE_fieldDressing"),
@@ -85,12 +85,11 @@ class mudscha {
             };
         };
         class Engineer_F: Soldier_F {
-            backpack = "gm_gc_army_backpack_80_assaultpack_lmg_str";
             addItemsToVest[] = {
                 "SmokeShell",
-                LIST_7("gm_30rnd_545x39mm_b_7n6_ak74_prp"),
-                LIST_2("gm_handgrenade_frag_rgd5"),
-                LIST_2("gm_smokeshell_wht_gc")
+                LIST_7("rhs_30Rnd_762x39mm"),
+                LIST_2("rhs_mag_rgd5"),
+                LIST_2("rhs_mag_rdg2_white")
             };
             addItemsToBackpack[] = {
                 LIST_6("ACE_fieldDressing"),
@@ -103,78 +102,78 @@ class mudscha {
         };
 
         class HeavyGunner_F: Soldier_F {
-            primaryWeapon = "gm_hmgpkm_prp";
+            primaryWeapon = "rhs_weap_pkm";
             primaryWeaponMuzzle = "";
-            primaryWeaponMagazine = "gm_100rnd_762x54mm_b_t_t46_pk_grn";
+            primaryWeaponMagazine = "rhs_100Rnd_762x54mmR_green";
             primaryWeaponPointer = "";
             primaryWeaponOptics = "";
             vest = "V_BandollierB_khk";
-            backpack = "gm_gc_army_backpack_80_assaultpack_lmg_str";
             addItemsToVest[] = {
-                LIST_2("gm_handgrenade_frag_rgd5"),
-                LIST_2("gm_smokeshell_wht_gc"),
-                "gm_100rnd_762x54mm_b_t_t46_pk_grn"
+                LIST_2("rhs_mag_rgd5"),
+                LIST_2("rhs_mag_rdg2_white"),
+                "rhs_100Rnd_762x54mmR_green"
             };
             addItemsToBackpack[] = {
                 LIST_6("ACE_fieldDressing"),
                 LIST_2("ACE_epinephrine"),
                 LIST_2("ACE_morphine"),
-                LIST_2("gm_100rnd_762x54mm_b_t_t46_pk_grn")
+                LIST_2("rhs_100Rnd_762x54mmR_green")
             };
         };
         class Soldier_AHAT_F: Soldier_F {
+            backpack = "rhs_rpg_empty";
             addItemsToBackpack[] = {
                 LIST_6("ACE_fieldDressing"),
                 LIST_2("ACE_epinephrine"),
                 LIST_2("ACE_morphine"),
-                LIST_2("gm_1rnd_40mm_heat_pg7v_rpg7")
+                LIST_2("rhs_rpg7_PG7VR_mag")
             };
         };
         class Soldier_AR_F: Soldier_F {
-            primaryWeapon = "gm_lmgrpk74n_prp";
+            primaryWeapon = "rhs_weap_m70b1";
             primaryWeaponPointer = "";
             primaryWeaponOptics = "";
-            primaryWeaponMagazine = "gm_45rnd_545x39mm_b_7n6_ak74_prp";
+            primaryWeaponMagazine = "rhs_75Rnd_762x39_tracer";
             primaryWeaponMuzzle = "";
-            backpack = "gm_gc_army_backpack_80_lmg_str";
+            backpack = "rhs_sidor";
             addItemsToVest[] = {
-                LIST_2("gm_handgrenade_frag_rgd5"),
-                LIST_2("gm_smokeshell_wht_gc"),
-                LIST_2("gm_handgrenade_frag_rgd5"),
-                "gm_45rnd_545x39mm_b_7n6_ak74_prp"
+                LIST_2("rhs_mag_rgd5"),
+                LIST_2("rhs_mag_rdg2_white"),
+                LIST_2("rhs_mag_rgd5"),
+                "rhs_75Rnd_762x39_tracer"
             };
             addItemsToBackpack[] = {
                 LIST_4("ACE_fieldDressing"),
                 LIST_2("ACE_epinephrine"),
                 LIST_2("ACE_morphine"),
-                LIST_8("gm_45rnd_545x39mm_b_7n6_ak74_prp")
+                LIST_8("rhs_75Rnd_762x39_tracer")
             };
         };
 
         class Soldier_AAR_F: Soldier_F {
             addItemsToVest[] = {
-                LIST_2("gm_handgrenade_frag_rgd5"),
-                LIST_2("gm_smokeshell_wht_gc"),
-                LIST_2("gm_handgrenade_frag_rgd5"),
-                "gm_100rnd_762x54mm_b_t_t46_pk_grn"
+                LIST_2("rhs_mag_rgd5"),
+                LIST_2("rhs_mag_rdg2_white"),
+                LIST_2("rhs_mag_rgd5"),
+                "rhs_100Rnd_762x54mmR_green"
             };
         };
         //AT
         // gm_gc_army_antitank_mpiak74n_rpg7_80_str
         class Soldier_AT_F: Soldier_F {
-            secondaryWeapon = "gm_rpg7_prp";
-            secondaryWeaponMagazine = "gm_1rnd_40mm_heat_pg7v_rpg7";
-            backpack = "gm_gc_army_backpack_80_at_str";
+            secondaryWeapon = "rhs_weap_rpg7";
+            secondaryWeaponMagazine = "rhs_rpg7_PG7VR_mag";
+            backpack = "rhs_rpg_empty";
             vest = "V_BandollierB_khk";
             addItemsToBackpack[] = {
                 LIST_6("ACE_fieldDressing"),
                 LIST_2("ACE_epinephrine"),
                 LIST_2("ACE_morphine"),
-                "gm_1rnd_40mm_heat_pg7v_rpg7"
+                "rhs_rpg7_PG7VR_mag"
             };
         };
         class Soldier_A_F: Soldier_F {
-            backpack = "gm_gc_army_backpack_80_lmg_str";
+            backpack = "rhs_sidor";
             addItemsToUniform[] = {
                 "ACE_fieldDressing",
                 "ACE_MapTools",
@@ -184,39 +183,35 @@ class mudscha {
                 LIST_6("ACE_fieldDressing"),
                 LIST_2("ACE_epinephrine"),
                 LIST_2("ACE_morphine"),
-                LIST_4("gm_100rnd_762x54mm_b_t_t46_pk_grn")
+                LIST_4("rhs_100Rnd_762x54mmR_green")
             };
         };
 
 
         // no rpg26 equivalent in GM, so only 1 shot for him
         class Soldier_LAT_F: Soldier_F {
-            secondaryWeapon = "gm_rpg7_prp";
-            backpack = "gm_gc_army_backpack_80_at_str";
+            secondaryWeapon = "rhs_weap_rpg7";
+            backpack = "rhs_rpg_empty";
             addItemsToVest[] = {
                 "SmokeShell",
-                LIST_7("gm_30rnd_545x39mm_b_7n6_ak74_prp"),
-                LIST_2("gm_handgrenade_frag_rgd5"),
-                LIST_2("gm_smokeshell_wht_gc"),
-                "gm_1rnd_40mm_heat_pg7v_rpg7"
+                LIST_7("rhs_30Rnd_762x39mm"),
+                LIST_2("rhs_mag_rgd5"),
+                LIST_2("rhs_mag_rdg2_white"),
+                "rhs_rpg7_PG7VR_mag"
             };
         };
 
         class Medic_F: Soldier_F {
-            headgear = "gm_gc_army_headgear_m56_cover_str";
-            backpack = "gm_gc_army_backpack_80_assaultpack_str";
+            backpack = "rhs_sidor";
             addItemsToBackpack[] = {
                 LIST_10("ACE_fieldDressing"),
                 LIST_10("ACE_morphine"),
                 LIST_10("ACE_epinephrine"),
                 LIST_8("ACE_bloodIV_250"),
-                LIST_2("gm_handgrenade_frag_rgd5")
+                LIST_2("rhs_mag_rgd5")
             };
         };
         class Soldier_TL_F: Soldier_F {
-            headgear = "gm_gc_army_headgear_m56";
-            handgunWeapon = "gm_lp1_blk";
-            handgunWeaponMagazine = "gm_1Rnd_265mm_smoke_single_yel_gc";
             backpack = "TFAR_mr6000l";
             addItemsToUniform[] = {
                 LIST_7("ACE_fieldDressing"),
@@ -225,21 +220,15 @@ class mudscha {
                 "ACE_key_east"
             };
             addItemsToVest[] = {
-                LIST_2("gm_smokeshell_wht_gc"),
-                LIST_2("gm_handgrenade_frag_rgd5"),
-                LIST_5("gm_30rnd_545x39mm_b_7n6_ak74_prp")
+                LIST_2("rhs_mag_rdg2_white"),
+                LIST_2("rhs_mag_rgd5"),
+                LIST_5("rhs_30Rnd_762x39mm")
             };
             addItemsToBackpack[] = {
                 "ACE_Flashlight_KSF1",
                 LIST_2("ACE_tourniquet"),
-                "gm_smokeshell_wht_gc",
-                LIST_3("gm_30rnd_545x39mm_b_7n6_ak74_prp"),
-                LIST_2("gm_1Rnd_265mm_flare_single_grn_gc"),
-                LIST_2("gm_1Rnd_265mm_flare_single_red_gc"),
-                LIST_2("gm_1Rnd_265mm_smoke_single_yel_gc"),
-                LIST_2("gm_1Rnd_265mm_smoke_single_blk_gc"),
-                LIST_2("gm_1Rnd_265mm_smoke_single_blu_gc"),
-                LIST_2("gm_1Rnd_265mm_flare_single_wht_gc")
+                "rhs_mag_rdg2_white",
+                LIST_3("rhs_30Rnd_762x39mm"),
             };
         };
         class Soldier_SL_F: Soldier_TL_F {};
