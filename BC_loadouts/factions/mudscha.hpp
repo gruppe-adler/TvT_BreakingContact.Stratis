@@ -1,7 +1,7 @@
 class mudscha {
     class AllUnits {
-        primaryWeapon = "gm_mpiak74n_brn";
-        primaryWeaponMagazine = "gm_30rnd_545x39mm_b_7n6_ak74_prp";
+        primaryWeapon = "rhs_weap_m70b1";
+        primaryWeaponMagazine = "rhs_30Rnd_762x39mm";
         primaryWeaponMuzzle = "";
         primaryWeaponPointer = "";
         primaryWeaponOptics = "";
@@ -32,7 +32,7 @@ class mudscha {
                         "LOP_U_AM_Fatigue_04_5",
                         "LOP_U_AM_Fatigue_04_6"
         };
-        vest = "gm_gc_army_vest_80_rifleman_str";
+        vest = "V_BandollierB_khk";
         backpack = "gm_gc_army_backpack_80_assaultpack_str";
         headgear[] = { 
                         "LOP_H_Turban",
@@ -108,7 +108,7 @@ class mudscha {
             primaryWeaponMagazine = "gm_100rnd_762x54mm_b_t_t46_pk_grn";
             primaryWeaponPointer = "";
             primaryWeaponOptics = "";
-            vest = "gm_gc_army_vest_80_lmg_str";
+            vest = "V_BandollierB_khk";
             backpack = "gm_gc_army_backpack_80_assaultpack_lmg_str";
             addItemsToVest[] = {
                 LIST_2("gm_handgrenade_frag_rgd5"),
@@ -165,7 +165,7 @@ class mudscha {
             secondaryWeapon = "gm_rpg7_prp";
             secondaryWeaponMagazine = "gm_1rnd_40mm_heat_pg7v_rpg7";
             backpack = "gm_gc_army_backpack_80_at_str";
-            vest = "gm_gc_army_vest_80_at_str";
+            vest = "V_BandollierB_khk";
             addItemsToBackpack[] = {
                 LIST_6("ACE_fieldDressing"),
                 LIST_2("ACE_epinephrine"),
