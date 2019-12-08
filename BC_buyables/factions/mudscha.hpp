@@ -1,6 +1,6 @@
 //a different set of buyables
 class mudscha {
-    side = "Blufor";
+    side = "Opfor";
     loadout = "mudscha";
     mode = "conquer";
     

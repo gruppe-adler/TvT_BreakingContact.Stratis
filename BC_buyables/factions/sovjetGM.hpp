@@ -1,6 +1,6 @@
 //a different set of buyables
 class sovjetGM {
-    side = "Opfor";
+    side = "Blufor";
     loadout = "sovjetGM";
     mode = "conquer";
     
@@ -16,10 +16,9 @@ class sovjetGM {
         terminalVectorDirAndUp = "[[0,1,0.3],[0,0,0.7]]";
 
 
-        class gm_gc_army_btr60pa_des {
+        class gm_gc_army_btr60pa {
             condition = "true";
-            vehicleInit = "[[],[]]";
-            code = "[(_this select 0)] call BC_buyables_fnc_configureBluforStartVehicle;";
+            code = "[(_this select 0)] call BC_buyables_fnc_configureBluforStartVehicle; (_this select 0) setObjectTextureGlobal [0, '#(rgb,8,8,3)color(0.25,0.2,0.1,1)']; (_this select 0) setObjectTextureGlobal [1, '#(rgb,8,8,3)color(0.25,0.2,0.1,1)'];";
             crewHelmet = "gm_gc_army_headgear_crewhat_80_blk";
         };
     };
@@ -38,7 +37,8 @@ class sovjetGM {
             spawnEmpty = 1;
             wheelCargo = 2;
             condition = "true";
-            vehicleInit = "";
+            code = "(_this select 0) setObjectTextureGlobal [0, '#(rgb,8,8,3)color(0.25,0.2,0.1,1)']; (_this select 0) setObjectTextureGlobal [1, '#(rgb,8,8,3)color(0.25,0.2,0.1,1)'];";
+
         };
 
         class gm_ge_army_k125 {
@@ -49,7 +49,8 @@ class sovjetGM {
             spawnEmpty = 1;
             wheelCargo = 2;
             condition = "true";
-            vehicleInit = "";
+            code = "(_this select 0) setObjectTextureGlobal [0, '#(rgb,8,8,3)color(0.25,0.2,0.1,1)']; (_this select 0) setObjectTextureGlobal [1, '#(rgb,8,8,3)color(0.25,0.2,0.1,1)'];";
+
         };
     };
 
@@ -60,7 +61,7 @@ class sovjetGM {
         maxBuyCount = 1;
         minPlayerCount = 0;
 
-        class gm_gc_army_brdm2_des {
+        class gm_gc_army_brdm2 {
             displayName = "BRDM-2";
             description = "Armed armored transporter.";
             price = 10;
@@ -68,8 +69,9 @@ class sovjetGM {
             wheelCargo = 2;
             spawnEmpty = 1;
             condition = "true";
-            vehicleInit = "";
             crewHelmet = "gm_gc_army_headgear_crewhat_80_blk";
+            code = "(_this select 0) setObjectTextureGlobal [0, '#(rgb,8,8,3)color(0.25,0.2,0.1,1)']; (_this select 0) setObjectTextureGlobal [1, '#(rgb,8,8,3)color(0.25,0.2,0.1,1)'];";
+
         };
 
         class gm_gc_army_btr60pb {
@@ -82,6 +84,8 @@ class sovjetGM {
             condition = "true";
             vehicleInit = "";
             crewHelmet = "gm_gc_army_headgear_crewhat_80_blk";
+            code = "(_this select 0) setObjectTextureGlobal [0, '#(rgb,8,8,3)color(0.25,0.2,0.1,1)']; (_this select 0) setObjectTextureGlobal [1, '#(rgb,8,8,3)color(0.25,0.2,0.1,1)'];";
+
         };
 
     };

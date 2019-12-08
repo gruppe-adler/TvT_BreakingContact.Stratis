@@ -133,20 +133,20 @@ class mudscha {
             primaryWeapon = "rhs_weap_m70b1";
             primaryWeaponPointer = "";
             primaryWeaponOptics = "";
-            primaryWeaponMagazine = "rhs_75Rnd_762x39_tracer";
+            primaryWeaponMagazine = "rhs_75Rnd_762x39mm_tracer";
             primaryWeaponMuzzle = "";
             backpack = "rhs_sidor";
             addItemsToVest[] = {
                 LIST_2("rhs_mag_rgd5"),
                 LIST_2("rhs_mag_rdg2_white"),
                 LIST_2("rhs_mag_rgd5"),
-                "rhs_75Rnd_762x39_tracer"
+                "rhs_75Rnd_762x39mm_tracer"
             };
             addItemsToBackpack[] = {
                 LIST_4("ACE_fieldDressing"),
                 LIST_2("ACE_epinephrine"),
                 LIST_2("ACE_morphine"),
-                LIST_8("rhs_75Rnd_762x39_tracer")
+                LIST_8("rhs_75Rnd_762x39mm_tracer")
             };
         };
 
