@@ -44,7 +44,7 @@ class mudscha {
         };
         binoculars = "Binocular";
         map = "ItemMap";
-        radio = "TFAR_pnr1000a";
+        radio = "TFAR_fadak";
         compass = "ItemCompass";
         watch = "ItemWatch";
         nvgoggles = "";

@@ -13,7 +13,7 @@ class sovjetGM {
         headgear = "gm_gc_army_headgear_m56_net";
         binoculars = "gm_df7x40_blk";
         map = "ItemMap";
-        radio = "TFAR_pnr1000a";
+        radio = "TFAR_anprc152";
         compass = "gm_gc_compass_f73";
         watch = "gm_watch_kosei_80";
         nvgoggles = "";
@@ -29,7 +29,7 @@ class sovjetGM {
                 LIST_2("ACE_tourniquet"),
                 "ACE_MapTools",
                 "ACE_Flashlight_KSF1",
-                "ACE_key_east"
+                "ACE_key_west"
             };
             addItemsToVest[] = {
                 "SmokeShell",
@@ -176,12 +176,12 @@ class sovjetGM {
             headgear = "gm_gc_army_headgear_m56";
             handgunWeapon = "gm_lp1_blk";
             handgunWeaponMagazine = "gm_1Rnd_265mm_smoke_single_yel_gc";
-            backpack = "TFAR_mr6000l";
+            backpack = "TFAR_rt1523g_sage";
             addItemsToUniform[] = {
                 LIST_7("ACE_fieldDressing"),
                 LIST_2("ACE_epinephrine"),
                 LIST_2("ACE_morphine"),
-                "ACE_key_east"
+                "ACE_key_west"
             };
             addItemsToVest[] = {
                 LIST_2("gm_smokeshell_wht_gc"),
