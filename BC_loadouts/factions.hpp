@@ -5,3 +5,6 @@
 #include "factions\nvaGM.hpp"
 
 #include "factions\bwFle.hpp"
+
+#include "factions\mudscha.hpp"
+#include "factions\sovjetGM.hpp"

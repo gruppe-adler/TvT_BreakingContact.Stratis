@@ -16,6 +16,9 @@ if (!hasInterface) exitWith {};
         diag_log format ["_factionsOpfor %1", _factionsOpfor];
         diag_log format ["_buyablesOpfor %1", _buyablesOpfor];
 
+        diag_log format ["_factionsBlufor %1", _factionsBlufor];
+        diag_log format ["_buyablesBlufor %1", _buyablesBlufor];
+
         if (_side == west) then {
             [_startVehicle,
             _buyablesBlufor,
