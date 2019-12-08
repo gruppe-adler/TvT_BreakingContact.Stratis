@@ -18,7 +18,7 @@ class mudscha {
         class gm_gc_army_ural44202_ols {
             condition = "true";
             vehicleInit = "[[],[]]";
-            code = "[(_this select 0)] call BC_buyables_fnc_configureOpforStartVehicle; (_this select 0) setObjectTextureGlobal [0, '#(rgb,8,8,3)color(0.2,0.1,0.1,1)'];";
+            code = "[(_this select 0)] call BC_buyables_fnc_configureOpforStartVehicle; (_this select 0) setObjectTextureGlobal [0, '#(rgb,8,8,3)color(0.2,0.1,0.1,1)']; [_this select 0,'',5,0] call gm_core_vehicles_fnc_vehicleMarkingsUpdateAttributes; [_this select 0] call BC_buyables_fnc_mudschaVehicleDeko;";
         };
     };
 

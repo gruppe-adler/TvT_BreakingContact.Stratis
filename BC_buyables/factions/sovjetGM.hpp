@@ -18,7 +18,7 @@ class sovjetGM {
 
         class gm_gc_army_btr60pa {
             condition = "true";
-            code = "[(_this select 0)] call BC_buyables_fnc_configureBluforStartVehicle; (_this select 0) setObjectTextureGlobal [0, '#(rgb,8,8,3)color(0.25,0.2,0.1,1)']; (_this select 0) setObjectTextureGlobal [1, '#(rgb,8,8,3)color(0.25,0.2,0.1,1)'];";
+            code = "[(_this select 0)] call BC_buyables_fnc_configureBluforStartVehicle; (_this select 0) setObjectTextureGlobal [0, '#(rgb,8,8,3)color(0.25,0.2,0.1,1)']; (_this select 0) setObjectTextureGlobal [1, '#(rgb,8,8,3)color(0.25,0.2,0.1,1)']; [_this select 0,'gm_insignia_ur_star_01',5,0] call gm_core_vehicles_fnc_vehicleMarkingsUpdateAttributes;";
             crewHelmet = "gm_gc_army_headgear_crewhat_80_blk";
         };
     };
@@ -29,7 +29,7 @@ class sovjetGM {
         maxBuyCount = 9;
         minPlayerCount = 0;
 
-        class gm_gc_army_ural4320_cargo_des {
+        class gm_gc_army_ural4320_cargo {
             displayName = "Ural";
             description = "The workhorse of your army.";
             price = 10;
@@ -37,7 +37,7 @@ class sovjetGM {
             spawnEmpty = 1;
             wheelCargo = 2;
             condition = "true";
-            code = "(_this select 0) setObjectTextureGlobal [0, '#(rgb,8,8,3)color(0.25,0.2,0.1,1)']; (_this select 0) setObjectTextureGlobal [1, '#(rgb,8,8,3)color(0.25,0.2,0.1,1)'];";
+            code = "(_this select 0) setObjectTextureGlobal [0, '#(rgb,8,8,3)color(0.25,0.2,0.1,1)']; (_this select 0) setObjectTextureGlobal [1, '#(rgb,8,8,3)color(0.25,0.2,0.1,1)']; [_this select 0,'gm_insignia_ur_star_01',5,0] call gm_core_vehicles_fnc_vehicleMarkingsUpdateAttributes;";
 
         };
 
@@ -49,7 +49,7 @@ class sovjetGM {
             spawnEmpty = 1;
             wheelCargo = 2;
             condition = "true";
-            code = "(_this select 0) setObjectTextureGlobal [0, '#(rgb,8,8,3)color(0.25,0.2,0.1,1)']; (_this select 0) setObjectTextureGlobal [1, '#(rgb,8,8,3)color(0.25,0.2,0.1,1)'];";
+            code = "(_this select 0) setObjectTextureGlobal [0, '#(rgb,8,8,3)color(0.25,0.2,0.1,1)']; (_this select 0) setObjectTextureGlobal [1, '#(rgb,8,8,3)color(0.25,0.2,0.1,1)']; [_this select 0,'gm_insignia_ur_star_01',5,0] call gm_core_vehicles_fnc_vehicleMarkingsUpdateAttributes;";
 
         };
     };
@@ -70,7 +70,7 @@ class sovjetGM {
             spawnEmpty = 1;
             condition = "true";
             crewHelmet = "gm_gc_army_headgear_crewhat_80_blk";
-            code = "(_this select 0) setObjectTextureGlobal [0, '#(rgb,8,8,3)color(0.25,0.2,0.1,1)']; (_this select 0) setObjectTextureGlobal [1, '#(rgb,8,8,3)color(0.25,0.2,0.1,1)'];";
+            code = "(_this select 0) setObjectTextureGlobal [0, '#(rgb,8,8,3)color(0.25,0.2,0.1,1)']; (_this select 0) setObjectTextureGlobal [1, '#(rgb,8,8,3)color(0.25,0.2,0.1,1)']; [_this select 0,'gm_insignia_ur_star_01',5,0] call gm_core_vehicles_fnc_vehicleMarkingsUpdateAttributes;";
 
         };
 
@@ -84,7 +84,7 @@ class sovjetGM {
             condition = "true";
             vehicleInit = "";
             crewHelmet = "gm_gc_army_headgear_crewhat_80_blk";
-            code = "(_this select 0) setObjectTextureGlobal [0, '#(rgb,8,8,3)color(0.25,0.2,0.1,1)']; (_this select 0) setObjectTextureGlobal [1, '#(rgb,8,8,3)color(0.25,0.2,0.1,1)'];";
+            code = "(_this select 0) setObjectTextureGlobal [0, '#(rgb,8,8,3)color(0.25,0.2,0.1,1)']; (_this select 0) setObjectTextureGlobal [1, '#(rgb,8,8,3)color(0.25,0.2,0.1,1)']; [_this select 0,'gm_insignia_ur_star_01',5,0] call gm_core_vehicles_fnc_vehicleMarkingsUpdateAttributes;";
 
         };
 
