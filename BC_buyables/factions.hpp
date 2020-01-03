@@ -11,3 +11,4 @@
 #include "factions\russia.hpp"
 #include "factions\russiaTank.hpp"
 #include "factions\mudscha.hpp"
+#include "factions\rebels.hpp"

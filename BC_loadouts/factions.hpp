@@ -8,3 +8,5 @@
 
 #include "factions\mudscha.hpp"
 #include "factions\sovjetGM.hpp"
+
+#include "factions\rebels.hpp"

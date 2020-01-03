@@ -27,6 +27,7 @@ class sovjetGM {
                 LIST_2("ACE_epinephrine"),
                 LIST_3("ACE_morphine"),
                 LIST_2("ACE_tourniquet"),
+                LIST_4("ACE_splint"),
                 "ACE_MapTools",
                 "ACE_Flashlight_KSF1",
                 "ACE_key_west"
