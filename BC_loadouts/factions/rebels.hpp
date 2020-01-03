@@ -24,9 +24,38 @@ class rebels {
                         "rhsgref_uniform_dpm_olive",
                         "rhsgref_uniform_flecktarn",
                         "rhsgref_uniform_tigerstripe",
-                        "rhsgref_uniform_flecktarn"
+                        "rhsgref_uniform_flecktarn",
+                        "U_I_C_Soldier_Bandit_1_F",
+                        "U_I_C_Soldier_Bandit_3_F",
+                        "U_I_C_Soldier_Bandit_2_F",
+                        "U_I_C_Soldier_Bandit_3_F",
+                        "U_I_C_Soldier_Bandit_5_F",
+                        "U_I_C_Soldier_Bandit_3_F",
+                        "U_I_C_Soldier_Bandit_1_F",
+                        "U_I_C_Soldier_Bandit_5_F",
+                        "U_I_C_Soldier_Bandit_4_F",
+                        "U_I_C_Soldier_Para_5_F",
+                        "U_I_C_Soldier_Para_2_F",
+                        "U_I_C_Soldier_Para_1_F",
+                        "U_I_C_Soldier_Para_1_F",
+                        "U_I_C_Soldier_Para_1_F",
+                        "U_I_C_Soldier_Para_4_F",
+                        "U_I_C_Soldier_Para_3_F",
+                        "U_I_C_Soldier_Para_1_F",
+                        "U_I_C_Soldier_Para_2_F",
+                        "U_I_C_Soldier_Para_4_F"
         };
-        vest = "V_BandollierB_khk";
+        vest[] = {
+                        "V_TacVest_camo",
+                        "V_TacVest_blk",
+                        "V_TacVest_oli",
+                        "V_BandollierB_rgr",
+                        "V_Chestrig_blk",
+                        "V_Chestrig_khk",
+                        "V_BandollierB_blk",
+                        "V_Chestrig_oli",
+                        "V_TacVest_oli"
+        };
         backpack = "rhs_sidor";
         headgear[] = { 
                         "H_Booniehat_tan",
