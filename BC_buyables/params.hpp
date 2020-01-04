@@ -9,7 +9,7 @@ class BUYABLES_BLUFOR
 class BUYABLES_OPFOR
 {
     title = "Opfor";
-    values[] = {0, 1, 2, 3};
-    texts[] = {"nvaGM", "Russia", "Russia Tanks", "mudscha"};
-    default = 3;
+    values[] = {0, 1, 2, 3, 4};
+    texts[] = {"nvaGM", "Russia", "Russia Tanks", "mudscha", "Rebels"};
+    default = 4;
 };
