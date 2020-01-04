@@ -58,6 +58,17 @@ class rebels {
         maxBuyCount = 1;
         minPlayerCount = 0;
 
+        class LOP_NK_UAZ_SPG {
+            displayName = "UAZ SPG-9";
+            description = "AT-Variant";
+            price = 10;
+            stock = 3;
+            wheelCargo = 2;
+            spawnEmpty = 1;
+            vehicleInit = "[['standard',1],['spare_hide',1,'light_hide',1]]";
+            condition = "true";
+        };
+
         class LOP_ISTS_OPF_T34 {
             displayName = "T-34";
             description = "Armored but fucking bad tank.";
@@ -65,6 +76,7 @@ class rebels {
             stock = 3;
             wheelCargo = 2;
             spawnEmpty = 1;
+            vehicleInit = "if (!BC_IS_WOODLAND) then { [['LOP_Des',1],true] } else { [['LOP_TKG',1],true] };";
             condition = "true";
         };
 

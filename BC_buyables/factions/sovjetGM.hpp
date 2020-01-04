@@ -74,18 +74,17 @@ class sovjetGM {
 
         };
 
-        class gm_gc_army_btr60pb {
-            displayName = "BTR-60";
-            description = "Armed armored transporter.";
+        class rhssaf_airforce_ht48 {
+            displayName = "Mi-17";
+            description = "Transport Helicopter";
             price = 10;
-            stock = 3;
+            stock = 1;
             wheelCargo = 2;
             spawnEmpty = 1;
             condition = "true";
-            vehicleInit = "";
+            vehicleInit = "[['RHS_SAF_Green',1],['bench_hide',0,'intake_hide',1,'RearDoors',0]]";
             crewHelmet = "gm_gc_army_headgear_crewhat_80_blk";
-            code = "if (!BC_IS_WOODLAND) then {(_this select 0) setObjectTextureGlobal [0, '#(rgb,8,8,3)color(0.25,0.2,0.1,1)']; (_this select 0) setObjectTextureGlobal [1, '#(rgb,8,8,3)color(0.25,0.2,0.1,1)'];}; [_this select 0,'gm_insignia_ur_star_01',5,0] call gm_core_vehicles_fnc_vehicleMarkingsUpdateAttributes;";
-
+            code = "if (!BC_IS_WOODLAND) then {(_this select 0) setObjectTextureGlobal [0, '#(rgb,8,8,3)color(0.25,0.2,0.1,1)']; (_this select 0) setObjectTextureGlobal [1, '#(rgb,8,8,3)color(0.25,0.2,0.1,1)'];}; ";
         };
 
     };
