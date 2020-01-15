@@ -88,8 +88,7 @@ private _enableDisableButtons = {
     // enable all, if cat max is not reached
     {
         _x params ["_btnPlus", "_btnMinus"];
-        _btnPlus ctrlEnable true; 
-        _btnMinus ctrlEnable true;
+        _btnPlus ctrlEnable true;
     } forEach _catPlusMinusButtons;
 
     // just do disable again on individual basis when max item value is reached
