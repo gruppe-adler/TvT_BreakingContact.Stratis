@@ -30,7 +30,8 @@ class russia {
                 "ACE_MapTools",
                 "ACE_Flashlight_KSF1",
                 LIST_2("rhs_mag_9x19_17"),
-                "ACE_key_east"
+                "ACE_key_east",
+                LIST_2("ACE_splint")
             };
             addItemsToVest[] = {
                 "SmokeShell",
