@@ -29,8 +29,7 @@ class USA {
                 "ACE_MapTools",
                 "ACE_Flashlight_XL50",
                 LIST_2("rhsusf_mag_15Rnd_9x19_JHP"),
-                "ACE_key_west",
-                LIST_2("ACE_splint")
+                "ACE_key_west"
             };
             addItemsToVest[] = {
                 LIST_6("rhs_mag_30Rnd_556x45_M855A1_Stanag"),
