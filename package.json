@@ -1,13 +1,14 @@
 {
   "name": "tvt-breaking-contact",
   "description": "Asymmetric TvT scenario for Arma3",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "dependencies": {
-    "@gruppe-adler/replay": "^1.3.1",
+    "@gruppe-adler/replay": "^1.4.0",
     "grad-fortifications": "^0.8.0",
-    "grad-islandconfig": "^0.2.4",
+    "grad-islandconfig": "^0.2.5",
     "grad-listbuymenu": "^0.7.1",
-    "grad-loadout": "^4.11.2",
+    "grad-loadout": "^4.11.4",
+    "grad-tvtsettings": "0.0.2",
     "shk_pos": "github:gruppe-adler/shk_pos#master"
   }
 }

@@ -1,6 +1,5 @@
 #define MODULES_DIRECTORY node_modules
 
-
 #include "node_modules\grad-fortifications\grad_fortifications.hpp"
 #include "node_modules\@gruppe-adler\replay\ui\defines.hpp"
 #include "node_modules\@gruppe-adler\replay\ui\dialog.hpp"
@@ -35,6 +34,8 @@ class RscTitles {
     #include "BC_objectives\rscTitles.hpp"
     #include "BC_setup\rscTitles.hpp"
 };
+
+cba_settings_hasSettingsFile = 1;
 
 class GRAD_Replay {
     precision = 5;                                    // precision of replay, 5 means every 5 seconds one snapshot (number)
