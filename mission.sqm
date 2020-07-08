@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={3729.7593,61.478981,7865.4868};
-		dir[]={0.15012151,-0.52771616,0.83605158};
-		up[]={0.093265846,0.84942019,0.51941067};
-		aside[]={0.98425984,9.2506525e-008,-0.17673467};
+		pos[]={6668.6523,120.68214,5186.0889};
+		dir[]={-0.88733798,-0.2785596,-0.3677066};
+		up[]={-0.25736541,0.96039766,-0.10665006};
+		aside[]={-0.38285497,-8.8883098e-008,0.92389673};
 	};
 };
 binarizationWanted=0;
@@ -3718,6 +3718,7 @@ class Mission
 				position[]={999.77393,0,6001.1782};
 			};
 			isPlayable=1;
+			description="streaming slot (not in tfar spectator channel)";
 			id=632;
 			type="VirtualSpectator_F";
 			atlOffset=45.478767;
@@ -3828,6 +3829,7 @@ class Mission
 				position[]={1000.4653,0,5899.541};
 			};
 			isPlayable=1;
+			description="streaming slot (not in tfar spectator channel)";
 			id=633;
 			type="VirtualSpectator_F";
 			atlOffset=48.434372;
@@ -3938,6 +3940,7 @@ class Mission
 				position[]={999.77393,0,5799.978};
 			};
 			isPlayable=1;
+			description="streaming slot (not in tfar spectator channel)";
 			id=634;
 			type="VirtualSpectator_F";
 			atlOffset=58.262772;
@@ -4045,12 +4048,13 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={1100.0282,0,5999.7949};
+				position[]={1100.028,8.7738037e-005,5999.7949};
 			};
 			isPlayable=1;
+			description="streaming slot (not in tfar spectator channel)";
 			id=635;
 			type="VirtualSpectator_F";
-			atlOffset=41.901897;
+			atlOffset=41.902;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -4158,6 +4162,7 @@ class Mission
 				position[]={1099.3368,0,5899.541};
 			};
 			isPlayable=1;
+			description="streaming slot (not in tfar spectator channel)";
 			id=636;
 			type="VirtualSpectator_F";
 			atlOffset=45.462914;
@@ -4268,6 +4273,7 @@ class Mission
 				position[]={1099.3368,0,5799.978};
 			};
 			isPlayable=1;
+			description="streaming slot (not in tfar spectator channel)";
 			id=637;
 			type="VirtualSpectator_F";
 			atlOffset=45.159836;
@@ -4598,6 +4604,7 @@ class Mission
 				position[]={999.59094,5.3729019,5700.9072};
 			};
 			isPlayable=1;
+			description="streaming slot (not in tfar spectator channel)";
 			id=753;
 			type="VirtualSpectator_F";
 			atlOffset=59.363842;
@@ -4708,6 +4715,7 @@ class Mission
 				position[]={1099.1538,-7.5757561,5700.9072};
 			};
 			isPlayable=1;
+			description="streaming slot (not in tfar spectator channel)";
 			id=754;
 			type="VirtualSpectator_F";
 			atlOffset=46.324871;
@@ -4818,6 +4826,7 @@ class Mission
 				position[]={1000.0428,-9.4208488,5601.5664};
 			};
 			isPlayable=1;
+			description="streaming slot (not in tfar spectator channel)";
 			id=755;
 			type="VirtualSpectator_F";
 			atlOffset=61.297131;
@@ -4928,6 +4937,7 @@ class Mission
 				position[]={1099.6057,-20.131138,5601.5664};
 			};
 			isPlayable=1;
+			description="streaming slot (not in tfar spectator channel)";
 			id=756;
 			type="VirtualSpectator_F";
 			atlOffset=48.325672;

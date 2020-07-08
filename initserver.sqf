@@ -4,7 +4,7 @@
 call compile preprocessfile "node_modules\shk_pos\functions\shk_pos_init.sqf"; // absolute basic!
 
 DEBUG_MODE = false;
-if ((["DEBUG_MODE", 0] call BIS_fnc_getParamValue) == 1 || !isMultiplayer) then {
+if (!isMultiplayer) then {
   DEBUG_MODE = true;
 };
 publicVariable "DEBUG_MODE";
@@ -57,9 +57,6 @@ AR3PLAY_IS_STREAMABLE = (["AR3PLAY_IS_STREAMABLE", 0] call BIS_fnc_getParamValue
 
 JIP_TIME_ALLOWED = ["JIP_TIME_ALLOWED", 999999] call BIS_fnc_getParamValue;
 publicVariable "JIP_TIME_ALLOWED"; // clients need to know this
-
-CIVILIAN_TRAFFIC = ["CIVILIAN_TRAFFIC", 999999] call BIS_fnc_getParamValue;
-publicVariable "CIVILIAN_TRAFFIC"; // clients need to know this
 
 
 // todo activate grad civs

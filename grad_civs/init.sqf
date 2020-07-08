@@ -139,11 +139,6 @@ if (isServer) then {
 
      call GRAD_civs_fnc_clothDefinitions;
      call GRAD_civs_fnc_serverLoop;
-
-     if (CIVILIAN_TRAFFIC == 1) then {
-          [] execVM "Engima\Traffic\Init.sqf";
-          [] execVM "Engima\Civilians\Init.sqf";
-     };
 };
 
 if (hasInterface) then {

@@ -123,6 +123,14 @@ class Params
         default = 4000;
     };
 
+    class GRAD_MIN_DISTANCE_TO_RADIOPOSITION
+    {
+        title = "Minimum Distance from radio position to next radio position";
+        values[] = {500, 1000, 2000, 3000, 4000, 5000, 6000};
+        texts[] = {"500m", "1km", "2km", "3km", "4km","5km","6km"};
+        default = 1000;
+    };
+
     class FACTION_OPFOR {
         title = "Faction OPFOR";
         values[] = {0};
@@ -177,27 +185,12 @@ class Params
         default = 3;
     };
 
-    class DEBUG_MODE
-    {
-        title = "Enable Debug Log";
-        values[] = {false, true};
-        texts[] = {"no","yes"};
-        default = 0;
-    };
-
     class JIP_TIME_ALLOWED
     {
         title = "JIP allowed for";
         values[] = {60, 180, 600, 1800, 999999};
         texts[] = {"1min","3min","10min","30min","always (16h)"};
         default = 999999;
-    };
-
-    class CIVILIAN_TRAFFIC {
-        title = "Civilian Traffic (supports RDS CIV)";
-        values[] = {0, 1};
-        texts[] =  {"False", "True"};
-        default = 0;
     };
 
     class CONQUER_MODE {
@@ -207,13 +200,6 @@ class Params
         default = 0;
     };
 
-    class ace_map_BFT_Enabled {
-        title = "Bluforce-Tracking active";
-        ACE_setting = 1;
-        values[] = {0, 1};
-        texts[] =  {"False", "True"};
-        default = 1;
-    };
      class PREPARATION_TIME {
         title = "Preparation time";
         values[] = {0,60,120,180,240,300,480,600,900};

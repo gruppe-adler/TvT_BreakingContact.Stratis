@@ -3,11 +3,6 @@
 ["InitializePlayer", [player, true]] call BIS_fnc_dynamicGroups;
 [] call BC_setup_fnc_addInteractions; // add interactions
 
-waitUntil {!isNil "CIVILIAN_TRAFFIC"};
-
-// todo activate grad civs
-
-
 player addEventHandler ["handleRating", {
     0
 }];
