@@ -44,5 +44,5 @@ with uiNamespace do {
 };
 
 GRAD_TERMINAL_ACTIVE = true;
-publicVariableServer "GRAD_TERMINAL_ACTIVE";
+publicVariable "GRAD_TERMINAL_ACTIVE";
 _object setVariable ["TerminalStatus",2,true];
