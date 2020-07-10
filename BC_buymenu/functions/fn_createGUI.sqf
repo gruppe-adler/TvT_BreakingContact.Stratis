@@ -345,9 +345,9 @@ for "_i" from 0 to (count _categoriesExtracted - 1) do {
             _ctrlItemCount setVariable ["connectedButtons", [_btnPlus, _btnMinus]];
 
             // parent cat control stores plus and minus buttons to disable/enable
-            private _plusMinusButtons = _ctrlChosenInThisCat getVariable ["catPlusMinusButtons", []];
-            _plusMinusButtons pushBack [_btnPlus, _btnMinus];
-            _ctrlChosenInThisCat setVariable ["catPlusMinusButtons", _plusMinusButtons];
+            private _plusMinusButtons = _ctrlChosenInThisCat getVariable ["catButtons", []];
+            _plusMinusButtons pushBack [_ctrlItemCount, _btnPlus, _btnMinus];
+            _ctrlChosenInThisCat setVariable ["catButtons", _plusMinusButtons];
             _ctrlChosenInThisCat ctrlCommit 0;
 
         };

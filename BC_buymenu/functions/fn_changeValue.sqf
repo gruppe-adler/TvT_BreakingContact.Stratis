@@ -38,7 +38,7 @@ private _baseConfigName = _parentControl getVariable ["baseConfigName", "none"];
 private _categoryName = _parentControl getVariable ["categoryName", "none"];
 
 
-private _catPlusMinusButtons = _ctrlChosenInThisCat getVariable ["catPlusMinusButtons", []];
+private _catButtons = _ctrlChosenInThisCat getVariable ["catButtons", []];
 
 // diag_log format ["_data in changeValue %1", _data];
 
@@ -64,13 +64,19 @@ private _enableDisableButtons = {
     _ctrlSingleCount ctrlSetBackgroundColor [0,0,0,0.8];
     _ctrlSingleCount ctrlSetStructuredText parseText ("<t size='0.7' align='center' shadow='0' color='#999999'>" + ("max " + str _stock) + "</t>");
 
+    private _catMaxed = false;
+
     // disable all buttons of cat if necessary and exit
-    if (_catValue >= _valueMaxInThisCat) exitWith {
+    if (_catValue >= _valueMaxInThisCat) then {
         {
-            _x params ["_btnPlus", "_btnMinus"];
+            _x params ["_ctrlItemCount", "_btnPlus", "_btnMinus"];
+
+            private _itemValue = _ctrlItemCount getVariable ["value", 0];
+            private _minItemValue = _ctrlItemCount getVariable ["minValue", 0];
+            private _maxItemValue = _ctrlItemCount getVariable ["maxValue", 0];
+
             _btnPlus ctrlEnable false;
-            _btnMinus ctrlEnable true;
-        } forEach _catPlusMinusButtons;
+        } forEach _catButtons;
 
         // just do disable again on individual basis when max item value is reached
         if (_itemValue >= _stock) then {
@@ -82,31 +88,48 @@ private _enableDisableButtons = {
             );
             _ctrlChosenInThisCat ctrlCommit 0;
         };
-        true
+        _catMaxed = true;
     };
 
+    
     // enable all, if cat max is not reached
     {
-        _x params ["_btnPlus", "_btnMinus"];
-        _btnPlus ctrlEnable true;
-    } forEach _catPlusMinusButtons;
+        _x params ["_ctrlItemCount", "_btnPlus", "_btnMinus"];
+        if (_ctrlItemCount getVariable ["maxValueReached", false]) then {
+            _btnPlus ctrlEnable true;
+        };
 
-    // just do disable again on individual basis when max item value is reached
-    if (_itemValue == _maxItemValue || _itemValue >= _stock) exitWith {
-        _btnPlus ctrlEnable false;
-        _ctrlSingleCount ctrlSetBackgroundColor [0.4,0.66,0.4,1];
-        _ctrlSingleCount ctrlSetStructuredText parseText ("<t size='0.7' align='center' shadow='0' color='#000000'>" + ("max " + str _stock) + "</t>");
-        false
-    };
+        // just do disable again on individual basis when max item value is reached
+        if (_itemValue == _maxItemValue) then {
+            _catMaxed = true;
+            _ctrlItemCount setVariable ["maxValueReached", true];
+            _btnPlus ctrlEnable false;
+            _ctrlSingleCount ctrlSetBackgroundColor [0.4,0.66,0.4,1];
+            _ctrlSingleCount ctrlSetStructuredText parseText ("<t size='0.7' align='center' shadow='0' color='#000000'>" + ("max " + str _stock) + "</t>");
+        };
 
-    if (_itemValue <= _minItemValue) exitWith {
-        _btnMinus ctrlEnable false;
-        false
-    };
+        if (_itemValue >= _stock) then {
+            _ctrlItemCount setVariable ["outOfStock", true];
+            _btnPlus ctrlEnable false;
+            _ctrlSingleCount ctrlSetBackgroundColor [0.4,0.66,0.4,1];
+            _ctrlSingleCount ctrlSetStructuredText parseText ("<t size='0.7' align='center' shadow='0' color='#000000'>" + ("max " + str _stock) + "</t>");
+        };
 
+        _ctrlItemCount setVariable ["outOfStock", false];
+        
+
+        if (_itemValue <= _minItemValue) then {
+            _ctrlItemCount setVariable ["minValueReached", true];
+            _btnMinus ctrlEnable false;
+        };
+
+        _ctrlItemCount setVariable ["minValueReached", false];
+
+    } forEach _catButtons;
+    
     _btnMinus ctrlEnable true;
     _btnPlus ctrlEnable true;
-    false
+    _catMaxed
 };
 
 
