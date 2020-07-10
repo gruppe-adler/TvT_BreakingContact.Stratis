@@ -418,10 +418,11 @@ for "_i" from 0 to (count _categoriesExtracted - 1) do {
 
 
 if (player getVariable ["BC_potentToBuy", false]) then {
+
+
     private _button = _display ctrlCreate ["RscStructuredText", -1];
     _button ctrlsetFont "RobotoCondensedBold";
     _button ctrlSetBackgroundColor [108/255,170/255,204/255,1]; // 108, 170, 204
-    _button ctrlSetStructuredText parseText "<t size='2' align='center' shadow='0' color='#20333D'>S P A W N</t>";
     _button ctrlSetPosition [
         safezoneX + _columnWidth,
         _rowHeight * 35 + safezoneY, 
@@ -451,6 +452,17 @@ if (player getVariable ["BC_potentToBuy", false]) then {
             "[_this select 0] call BC_buymenu_fnc_buyInit;"
         ];
     _button ctrlCommit 0;
+
+    private _buttonText = _display ctrlCreate ["RscStructuredText", -1];
+    _buttonText ctrlsetFont "RobotoCondensedBold";
+    _buttonText ctrlSetBackgroundColor [0,0,0,0]; // 108, 170, 204
+    _buttonText ctrlSetStructuredText parseText "<t size='2' align='center' shadow='0' color='#20333D'>S P A W N</t>";
+    _buttonText ctrlSetPosition [ 
+        safezoneX + _columnWidth, 
+        _rowHeight * 37.25  - (ctrlTextHeight _buttonText)/2 + safezoneY,  
+        _screenWidth - _columnWidth * 2, 
+        ctrlTextHeight _buttonText
+    ]; _buttonText ctrlCommit 0;
 };
 
 
