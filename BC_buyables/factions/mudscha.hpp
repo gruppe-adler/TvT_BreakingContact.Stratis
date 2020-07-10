@@ -113,7 +113,7 @@ class mudscha {
             displayName = "Static Dshkm";
             description = "Spawns in Radio Truck Cargo.";
             stock = 1;
-            code = "diag_log str (_this); private _dshkm = 'rhsgref_nat_DSHKM' createVehicle [0,0,0]; [_dshkm, _this select 1] call ace_cargo_fnc_loadItem;";
+            code = "diag_log str (_this); ['rhsgref_nat_DSHKM', _this select 1] call ace_cargo_fnc_loadItem;";
             spawnEmpty = 1;
         };
     };

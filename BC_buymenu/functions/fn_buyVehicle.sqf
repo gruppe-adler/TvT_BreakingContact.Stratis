@@ -57,6 +57,9 @@ _vehicle setPos _spawnPosition;
 //bis vehicle init
 private _init = [(missionConfigFile >> "CfgGradBuymenu" >> _baseConfigName >> _categoryConfigName >> _itemConfigName >> "vehicleInit"), "text", "[[],[]]"] call CBA_fnc_getConfigEntry;
 private _compiledInit = call compile _init;
+
+diag_log ("categoryConfigName: " + _categoryConfigName);
+diag_log ("compiled init: " + str _compiledInit);
 _compiledInit params ["_initTexture", "_initAnimationsource"];
 
 [_vehicle, _initTexture, _initAnimationsource] call BIS_fnc_initVehicle;

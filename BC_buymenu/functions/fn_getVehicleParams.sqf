@@ -1,7 +1,6 @@
-params ["_baseConfig", "_itemConfig", "_isStartVehicle"];
+params ["_baseConfig", "_categoryConfig", "_itemConfig", "_isStartVehicle"];
 
 private _baseConfigName = configName _baseConfig;
-private _categoryConfig = (([_itemConfig, false] call BIS_fnc_returnParents) select 0);
 private _categoryConfigName = configName _categoryConfig;
 private _itemConfigName = configName _itemConfig;
 
@@ -10,7 +9,7 @@ private _driverGPS = [(_categoryConfig >> "driverGPS"), "text", "true"] call CBA
 private _crewHelmet = [(_categoryConfig >> "crewHelmet"), "text", ""] call CBA_fnc_getConfigEntry;
 private _disableTIEquipment = [(_categoryConfig >> "disableTIEquipment"), "text", "true"] call CBA_fnc_getConfigEntry;
 
-diag_log format ["_baseConfig %1, _itemConfig %2, _isStartVehicle %3", _baseConfig, _itemConfig, _isStartVehicle];
+diag_log format ["_baseConfig %1, _categoryConfigName %2, _itemConfig %3, _isStartVehicle %4", _baseConfig, _categoryConfigName, _itemConfig, _isStartVehicle];
 
 
 private _canMoveDuringTransmission = [(_baseConfig >> "StartVehicle" >> "canMoveDuringTransmission"), "text", "false"] call CBA_fnc_getConfigEntry isEqualTo "true";
@@ -51,7 +50,7 @@ if (!isNull (configFile >> "CfgVehicles" >> _itemConfigName >> "maxSpeed")) then
 };
 
 // add missing stuff
-private _categoryConfigName = if (_isStartVehicle) then { "StartVehicle" } else { _baseConfigName };
+private _categoryConfigName = if (_isStartVehicle) then { "StartVehicle" } else { _categoryConfigName };
 private _baseConfigName = configName (([_baseConfig, false] call BIS_fnc_returnParents) select 0);
 
 

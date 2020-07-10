@@ -22,6 +22,8 @@ private _categoriesExtracted = [];
             _categoryConfigName = configName _categoryConfig
         };
 
+        diag_log ("_categoryConfigName " + _categoryConfigName);
+
         private _valueMaxInThisCat = [(_categoryConfig >> "maxBuyCount"), "number", 0] call CBA_fnc_getConfigEntry;
         private _isSpecial = ([(_categoryConfig >> "kindOf"), "text", ""] call CBA_fnc_getConfigEntry) isEqualTo "Special";
         private _minPlayerCount = [(_categoryConfig >> "minPlayerCount"), "number", 0] call CBA_fnc_getConfigEntry;
@@ -41,7 +43,7 @@ private _categoriesExtracted = [];
             if (call compile _condition) then {
                 private _itemConfigName = configName _itemConfig;
 
-                private _data = [_baseConfig, _itemConfig, false] call BC_buymenu_fnc_getVehicleParams;
+                private _data = [_baseConfig, _categoryConfig, _itemConfig, false] call BC_buymenu_fnc_getVehicleParams;
                 _allItemsExtracted pushBack _data;
                 // diag_log str (_allItemsExtracted);
                 // copyToClipboard str (_allItemsExtracted);
@@ -133,7 +135,7 @@ for "_i" from 0 to (count _categoriesExtracted - 1) do {
     private _multiplicator = _i * 5;
 
     private _baseConfigName = _categoriesExtracted select _i select 0;
-    private _categoryName = _categoriesExtracted select _i select 1;
+    private _categoryConfigName = _categoriesExtracted select _i select 1;
     private _minPlayerCount = _categoriesExtracted select _i select 2;
     private _valueMaxInThisCat = _categoriesExtracted select _i select 3;
     private _spawnCone = _categoriesExtracted select _i select 4;
@@ -165,7 +167,7 @@ for "_i" from 0 to (count _categoriesExtracted - 1) do {
     _headline ctrlsetFont "RobotoCondensedBold";
     _headline ctrlSetBackgroundColor [0,0,0,0];
     _headline ctrlSetTextColor [1,1,1,1];
-    _headline ctrlSetStructuredText parseText ("<t size='2' align='center' color='#666666'>" + _categoryName + "</t>");
+    _headline ctrlSetStructuredText parseText ("<t size='2' align='center' color='#666666'>" + _categoryConfigName + "</t>");
     _headline ctrlSetPosition [
         _columnWidth * _multiplicator + safezoneX + _columnWidth, 
         _rowHeight * 4 + safezoneY, 
@@ -181,7 +183,7 @@ for "_i" from 0 to (count _categoriesExtracted - 1) do {
 
 
 
-    private _valueChosenInThisCat = [_baseConfigName, _categoryName] call BC_buymenu_fnc_getCatGlobalCount;
+    private _valueChosenInThisCat = [_baseConfigName, _categoryConfigName] call BC_buymenu_fnc_getCatGlobalCount;
     _ctrlChosenInThisCat setVariable ["value", _valueChosenInThisCat];
 
     private _formatting = "<t size='1' align='center' color='#333333'>";
@@ -244,7 +246,7 @@ for "_i" from 0 to (count _categoriesExtracted - 1) do {
         _ctrlItemCount setVariable ["valueMaxInThisCat", _valueMaxInThisCat];
         _ctrlItemCount setVariable ["baseConfigName", _baseConfigName];
         _ctrlItemCount setVariable ["itemConfigName", _itemConfigName];
-        _ctrlItemCount setVariable ["categoryName", _categoryName];
+        _ctrlItemCount setVariable ["categoryConfigName", _categoryConfigName];
         _ctrlItemCount setVariable ["crew", _crew];
         _ctrlItemCount setVariable ["cargo", _cargo];
         _ctrlItemCount setVariable ["ctrlCrew", _ctrlCrewCount];
@@ -419,7 +421,7 @@ if (player getVariable ["BC_potentToBuy", false]) then {
     private _button = _display ctrlCreate ["RscStructuredText", -1];
     _button ctrlsetFont "RobotoCondensedBold";
     _button ctrlSetBackgroundColor [108/255,170/255,204/255,1]; // 108, 170, 204
-    _button ctrlSetStructuredText parseText "<t size='2.5' align='center' shadow='0' color='#20333D'>S P A W N</t>";
+    _button ctrlSetStructuredText parseText "<t size='2' align='center' shadow='0' color='#20333D'>S P A W N</t>";
     _button ctrlSetPosition [
         safezoneX + _columnWidth,
         _rowHeight * 35 + safezoneY, 
@@ -470,7 +472,7 @@ if (player getVariable ["BC_potentToBuy", false]) then {
 
                 for "_i" from 0 to (count _categoriesExtracted - 1) do {
                     private _baseConfigName = _categoriesExtracted select _i select 0;
-                    private _categoryName = _categoriesExtracted select _i select 1;
+                    private _categoryConfigName = _categoriesExtracted select _i select 1;
                     private _data = _categoriesExtracted select _i select 5;
 
                     if (count _data < 1) exitWith {};
@@ -522,13 +524,13 @@ if (player getVariable ["BC_potentToBuy", false]) then {
                     };
 
                     // category values
-                    private _catCacheIdentifier = format ["BC_buymenu_catValueCache_%1_%2", _baseConfigName, _categoryName];
+                    private _catCacheIdentifier = format ["BC_buymenu_catValueCache_%1_%2", _baseConfigName, _categoryConfigName];
                     private _catCacheValue = missionNamespace getVariable [_catCacheIdentifier, 0];
 
                     // diag_log format ["getting cache for %1, %2", _catCacheIdentifier, _catCacheValue];
 
                     // store values for future usage
-                    private _catValueIdentifier = format ["BC_buymenu_catValueValues_%1_%2", _baseConfigName, _categoryName];
+                    private _catValueIdentifier = format ["BC_buymenu_catValueValues_%1_%2", _baseConfigName, _categoryConfigName];
                     private _existingCatCountValue = missionNamespace getVariable [_catValueIdentifier, 0];
 
                     // diag_log format ["getting value for %1, %2", _catValueIdentifier, _existingCatCountValue];
@@ -542,7 +544,7 @@ if (player getVariable ["BC_potentToBuy", false]) then {
                     if (_exitCode == 2) then {
                         // delete spawn queue
                         private _identifier = format ["BC_buymenu_spawnQueue_%1", _baseConfigName];
-                        private _currentQueue = missionNamespace setVariable [_identifier, []];
+                        missionNamespace setVariable [_identifier, []];
                     };
             };
         }];

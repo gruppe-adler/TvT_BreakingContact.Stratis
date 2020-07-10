@@ -97,7 +97,7 @@ class sovjetGM {
 
         class gm_gc_airforce_mi2t {
             displayName = "Mi-2 PKM";
-            description = "Light Armed Helicopter.";
+            description = "Light Armed Helicopter. No Cargo Seats!";
             price = 10;
             stock = 1;
             wheelCargo = 2;
@@ -105,13 +105,13 @@ class sovjetGM {
             condition = "true";
             vehicleInit = "[['gm_gc_brb',1],['cablecutter_unhide',0,'fan_unhide',0,'plugs_unhide',0,'skids_unhide',0,'winch_unhide',0,'fueltank_left_unhide',0,'fueltank_right_unhide',0]]";
             crewHelmet = "gm_gc_army_headgear_crewhat_80_blk";
-            code = "if (!BC_IS_WOODLAND) then {(_this select 0) setObjectTextureGlobal [0, '#(rgb,8,8,3)color(0.25,0.2,0.1,1)']; (_this select 0) setObjectTextureGlobal [1, '#(rgb,8,8,3)color(0.25,0.2,0.1,1)'];}; [_this select 0,'gm_insignia_ur_star_01',5,0] call gm_core_vehicles_fnc_vehicleMarkingsUpdateAttributes;";
+            code = "(_this select 0) lockCargo true; if (!BC_IS_WOODLAND) then {(_this select 0) setObjectTextureGlobal [0, '#(rgb,8,8,3)color(0.25,0.2,0.1,1)']; (_this select 0) setObjectTextureGlobal [1, '#(rgb,8,8,3)color(0.25,0.2,0.1,1)'];}; [_this select 0,'gm_insignia_ur_star_01',5,0] call gm_core_vehicles_fnc_vehicleMarkingsUpdateAttributes;";
 
         };
 
-        class gm_gc_airforce_mi2p {
+        class gm_pl_airforce_mi2p {
             displayName = "Mi-2 Transport";
-            description = "Light Transport Helicopter";
+            description = "Light Transport Helicopter with 7 Cargo Seats.";
             price = 10;
             stock = 1;
             wheelCargo = 2;
