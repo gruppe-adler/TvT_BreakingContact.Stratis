@@ -49,23 +49,47 @@ class mudscha {
             condition = "true";
             vehicleInit = "[['gm_gc_oli',1], ['sirenLights_01_unhide',0]]";
         };
+
+        class rhs_zil131_open_msv {
+            displayName = "ZiL 131 Truck";
+            description = "Carries a lot of soldiers.";
+            price = 10;
+            stock = 3;
+            spawnEmpty = 1;
+            wheelCargo = 2;
+            condition = "true";
+            vehicleInit = "[['CHDKZ',1],['Door_LF',0,'Door_RF',0,'spare_hide',0,'rearnum_hide',1,'bench_hide',0,'cover_hide',1]]";
+        };
     };
 
 
-    class Recon {
-        displayName = "Recon";
+    class Combat {
+        displayName = "Combat";
         kindOf = "Vehicles";
-        maxBuyCount = 1;
+        maxBuyCount = 2;
         minPlayerCount = 0;
+
+        class rhsgref_ins_uaz_dshkm {
+            displayName = "UAZ Dshkm";
+            description = "Anti Air capable soft vehicle.";
+            price = 10;
+            stock = 2;
+            wheelCargo = 2;
+            spawnEmpty = 1;
+            condition = "true";
+            vehicleInit = "[['Camo1',1],['light_hide',1,'spare_hide',0]]";
+        };
 
         class LOP_ISTS_OPF_T34 {
             displayName = "T-34";
             description = "Armored but fucking bad tank.";
             price = 10;
-            stock = 3;
+            stock = 2;
             wheelCargo = 2;
             spawnEmpty = 1;
             condition = "true";
+            vehicleInit = "[['LOP_TKA',1],[]]";
+
         };
 
     };
@@ -78,9 +102,18 @@ class mudscha {
         class Land_BagFence_Round_F {
             kindOf = "Special";
             displayName = "Defense Pack";
-            description = "Sandbag-Fortificatons and 2 Axes for cutting vegetation in Radio Truck.";
+            description = "Sandbag-Fortificatons and 2 Axes for cutting vegetation. Spawns in Radio Truck Cargo.";
             stock = 1;
             code = "diag_log str (_this); (_this select 1) addItemCargoGlobal ['grad_axe', 2]; [(_this select 1), 'land_gm_tanktrap_01', 9] call grad_fortifications_fnc_addFort; [(_this select 1), 'land_gm_sandbags_01_low_01', 9] call grad_fortifications_fnc_addFort; [(_this select 1), 'land_gm_sandbags_01_round_01', 3] call grad_fortifications_fnc_addFort;";
+            spawnEmpty = 1;
+        };
+
+        class rhsgref_nat_DSHKM {
+            kindOf = "Special";
+            displayName = "Static Dshkm";
+            description = "Spawns in Radio Truck Cargo.";
+            stock = 1;
+            code = "diag_log str (_this); private _dshkm = 'rhsgref_nat_DSHKM' createVehicle [0,0,0]; [_dshkm, _this select 1] call ace_cargo_fnc_loadItem;";
             spawnEmpty = 1;
         };
     };

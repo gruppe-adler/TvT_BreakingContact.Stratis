@@ -1,16 +1,20 @@
 if (hasInterface) then {
-    if ((typeOf player) == "VirtualSpectator_F") then {
+    if ((typeOf player) == "VirtualSpectator_F" ||
+        (typeOf player ) == "VirtualCurator_F") then {
         player setVariable ["tf_forcedCurator", false, true];
         player setVariable ["TFAR_forceSpectator", false, true];
         player setVariable ["tf_voiceVolume", 0, true];
         player setVariable ["tf_voiceVolume", 0, true];
         player setVariable ["tf_unable_to_use_radio", true];
 
+
         diag_log format ["streaming spectator: disabling tfar spectator channel for %1", player];
 
-        [ "Initialize",
-            [player,  [west, east, independent, civilian],true,true,true,true,false,false,true,true] 
-        ] call BIS_fnc_EGSpectator;
+        if ((typeOf player) == "VirtualSpectator_F") then {
+            [ "Initialize",
+                [player,  [west, east, independent, civilian],true,true,true,true,false,false,true,true] 
+            ] call BIS_fnc_EGSpectator;
+        };
 
         [] spawn {
             waitUntil {!isNull (missionNameSpace getVariable ["GRAD_tracking_radioVehObj", objNull])};
@@ -22,18 +26,6 @@ if (hasInterface) then {
             _camera setPos _camPos;
             _camera camSetTarget _truck;
             _camera camCommit 0;
-
-            private _truck = missionNamespace getVariable ["GRAD_tracking_radioVehObj", objNull]; 
-            [ 
-                "AddCustomIcon",  
-                [ 
-                    "truckIcon",  
-                    _truck,  
-                    [getText (configFile >> "CfgVehicles" >> (typeOf _truck) >> "icon"), [1,1,1,1], [0,0,0], 1, 1, 0, ""],  
-                    [false, [1,1,1,0.5]],  
-                    {true} 
-                ] 
-            ] call BIS_fnc_EGSpectator;
         };
 
         // as we dont have any events we force spectator false here in a cheap local loop

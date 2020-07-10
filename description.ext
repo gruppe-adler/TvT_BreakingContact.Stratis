@@ -131,20 +131,6 @@ class Params
         default = 1000;
     };
 
-    class FACTION_OPFOR {
-        title = "Faction OPFOR";
-        values[] = {0};
-        texts[] =  {"Russia"};
-        default = 0;
-    };
-
-    class FACTION_BLUFOR {
-        title = "Faction BLUFOR";
-        values[] = {0};
-        texts[] =  {"USA"};
-        default = 0;
-    };
-
     class GRAD_TICKS_NEEDED
     {
         title = "Length of sending time";

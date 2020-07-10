@@ -8,7 +8,7 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=1502;
+		nextID=1546;
 	};
 	class MarkerIDProvider
 	{
@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={6668.6523,120.68214,5186.0889};
-		dir[]={-0.91474712,-0.32002696,-0.24696799};
-		up[]={-0.30898711,0.9473877,-0.08342158};
-		aside[]={-0.26067245,-3.7864083e-008,0.9655121};
+		pos[]={1678.2623,9.266777,5524.7427};
+		dir[]={-0.77485776,-0.38192493,-0.50394505};
+		up[]={-0.32026142,0.92413688,-0.20829108};
+		aside[]={-0.54526657,-8.0451719e-007,0.83839589};
 	};
 };
 binarizationWanted=0;
@@ -32,13 +32,14 @@ addons[]=
 	"A3_Characters_F_Mark",
 	"ace_explosives",
 	"ace_nouniformrestrictions",
-	"A3_Characters_F_Tank"
+	"A3_Characters_F_Tank",
+	"A3_Data_F_Curator_Virtual"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=8;
+		items=9;
 		class Item0
 		{
 			className="A3_Ui_F";
@@ -92,6 +93,13 @@ class AddonsMetaData
 		{
 			className="A3_Characters_F_Tank";
 			name="Arma 3 Tank - Characters and Clothing";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item8
+		{
+			className="A3_Data_F_Curator";
+			name="Arma 3 Zeus Update - Main Configuration";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
@@ -3675,7 +3683,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=32;
+		items=34;
 		class Item0
 		{
 			dataType="Marker";
@@ -12712,6 +12720,171 @@ class Mission
 					};
 				};
 				nAttributes=2;
+			};
+		};
+		class Item32
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={1098.306,-27.629967,5501.8569};
+			};
+			isPlayable=1;
+			description="zeus slot (not in tfar spectator channel)";
+			id=1503;
+			type="VirtualCurator_F";
+			atlOffset=50.197006;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="TFAR_freq_lr";
+					expression="if !(_value isEqualTo []) then {_value=[str _value,9,87,30,10] call tfar_fnc_parseFrequenciesInput;_this setVariable ['TFAR_freq_lr',_value,true];}";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"ARRAY"
+								};
+							};
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="TFAR_freq_sr";
+					expression="if !(_value isEqualTo []) then {_value=[str _value,8,512,30,10] call tfar_fnc_parseFrequenciesInput;_this setVariable ['TFAR_freq_sr',_value,true];}";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"ARRAY"
+								};
+							};
+						};
+					};
+				};
+				nAttributes=2;
+			};
+		};
+		class Item33
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={1102.4862,0,5476.6631};
+			};
+			id=1505;
+			type="ModuleCurator_F";
+			atlOffset=74.347244;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ModuleCurator_F_Owner";
+					expression="_this setVariable ['Owner',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="";
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="ModuleCurator_F_Forced";
+					expression="_this setVariable ['Forced',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=0;
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="ModuleCurator_F_Name";
+					expression="_this setVariable ['Name',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="";
+						};
+					};
+				};
+				class Attribute3
+				{
+					property="ModuleCurator_F_Addons";
+					expression="_this setVariable ['Addons',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=3;
+						};
+					};
+				};
+				nAttributes=4;
+			};
+		};
+	};
+	class Connections
+	{
+		class LinkIDProvider
+		{
+			nextID=1;
+		};
+		class Links
+		{
+			items=1;
+			class Item0
+			{
+				linkID=0;
+				item0=1505;
+				item1=1503;
+				class CustomData
+				{
+					type="Sync";
+				};
 			};
 		};
 	};
