@@ -12,3 +12,4 @@ if (!(_killer isEqualTo player)) then {
 };
 
 [true] call ace_spectator_fnc_setSpectator;
+[true] call BC_setup_fnc_spectatorDraw3D;

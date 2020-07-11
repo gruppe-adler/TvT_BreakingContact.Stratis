@@ -12,6 +12,7 @@ class BC_setup {
         class initialSpawnClient;
         class isOnWater;
         class openSpawnDialog;
+        class spectatorDraw3D;
         class streamingSpectator;
         class teleportPlayer;
         class TFARsettings { preInit = 1; };
