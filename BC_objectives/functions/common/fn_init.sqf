@@ -32,7 +32,14 @@ if (isServer) then {
 };
 
 if (hasInterface) then {
-    call BC_objectives_fnc_endConditionListener;
+    [{
+          !isNil "TRANSMISSION_COMPLETE" &&
+          !isNil "BLUFOR_CAPTURED" &&
+          !isNil "BLUFOR_ELIMINATED" &&
+          !isNil "OPFOR_ELIMINATED"
+    },{
+        call BC_objectives_fnc_endConditionListener;
+    }, []] call CBA_fnc_waitUntilAndExecute;
 };
 
 

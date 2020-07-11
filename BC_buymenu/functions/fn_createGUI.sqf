@@ -345,9 +345,9 @@ for "_i" from 0 to (count _categoriesExtracted - 1) do {
             _ctrlItemCount setVariable ["connectedButtons", [_btnPlus, _btnMinus]];
 
             // parent cat control stores plus and minus buttons to disable/enable
-            private _plusMinusButtons = _ctrlChosenInThisCat getVariable ["catPlusMinusButtons", []];
-            _plusMinusButtons pushBack [_btnPlus, _btnMinus];
-            _ctrlChosenInThisCat setVariable ["catPlusMinusButtons", _plusMinusButtons];
+            private _plusMinusButtons = _ctrlChosenInThisCat getVariable ["catButtons", []];
+            _plusMinusButtons pushBack [_ctrlItemCount, _btnPlus, _btnMinus];
+            _ctrlChosenInThisCat setVariable ["catButtons", _plusMinusButtons];
             _ctrlChosenInThisCat ctrlCommit 0;
 
         };
@@ -462,7 +462,9 @@ if (player getVariable ["BC_potentToBuy", false]) then {
         _rowHeight * 37.25  - (ctrlTextHeight _buttonText)/2 + safezoneY,  
         _screenWidth - _columnWidth * 2, 
         ctrlTextHeight _buttonText
-    ]; _buttonText ctrlCommit 0;
+    ]; 
+    _buttonText ctrlEnable false;
+    _buttonText ctrlCommit 0;
 };
 
 
