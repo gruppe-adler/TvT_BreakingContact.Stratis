@@ -65,82 +65,59 @@ private _enableDisableButtons = {
     _ctrlSingleCount ctrlSetStructuredText parseText ("<t size='0.7' align='center' shadow='0' color='#999999'>" + ("max " + str _stock) + "</t>");
 
     private _catMaxed = false;
-
-    // disable all buttons of cat if necessary and exit
-    if (_catValue >= _valueMaxInThisCat) then {
-        {
-            _x params ["_ctrlItemCount", "_btnPlus", "_btnMinus"];
-
-            private _itemValue = _ctrlItemCount getVariable ["value", 0];
-            private _minItemValue = _ctrlItemCount getVariable ["minValue", 0];
-            private _maxItemValue = _ctrlItemCount getVariable ["maxValue", 0];
-
-            _btnPlus ctrlEnable false;
-        } forEach _catButtons;
-
-        // just do disable again on individual basis when max item value is reached
-        if (_itemValue >= _stock) then {
-            _ctrlSingleCount ctrlSetBackgroundColor [0.4,0.66,0.4,1];
-            _ctrlSingleCount ctrlSetStructuredText parseText ("<t size='0.7' align='center' shadow='0' color='#000000'>" + ("max " + str _stock) + "</t>");
-
-            _ctrlChosenInThisCat ctrlSetStructuredText parseText (
-                 _catFormatting + str _catValue + "/" + str _maxValue + "</t>"
-            );
-            _ctrlChosenInThisCat ctrlCommit 0;
-        };
-        _catMaxed = true;
-    };
-
     
-    // enable all, if cat max is not reached
     {
         _x params ["_ctrlItemCount", "_btnPlus", "_btnMinus"];
-        if (_ctrlItemCount getVariable ["maxValueReached", false]) then {
-            _btnPlus ctrlEnable true;
+
+        // initially enable all, then look for conditions   
+        _btnMinus ctrlEnable true;
+        _btnPlus ctrlEnable true;
+
+        // actual values for items of cat
+        private _itemValue = _ctrlItemCount getVariable ["value", 0];
+        private _minItemValue = _ctrlItemCount getVariable ["minValue", 0];
+        private _maxItemValue = _ctrlItemCount getVariable ["maxValue", 0];
+
+        private _catMaxed = _catValue >= _valueMaxInThisCat;
+
+        if (_catMaxed) then {
+             _btnPlus ctrlEnable false;
         };
 
-        // just do disable again on individual basis when max item value is reached
+        // max item value
         if (_itemValue == _maxItemValue) then {
-            _catMaxed = true;
-            _ctrlItemCount setVariable ["maxValueReached", true];
             _btnPlus ctrlEnable false;
             _ctrlSingleCount ctrlSetBackgroundColor [0.4,0.66,0.4,1];
             _ctrlSingleCount ctrlSetStructuredText parseText ("<t size='0.7' align='center' shadow='0' color='#000000'>" + ("max " + str _stock) + "</t>");
         };
 
         if (_itemValue >= _stock) then {
-            _ctrlItemCount setVariable ["outOfStock", true];
             _btnPlus ctrlEnable false;
             _ctrlSingleCount ctrlSetBackgroundColor [0.4,0.66,0.4,1];
             _ctrlSingleCount ctrlSetStructuredText parseText ("<t size='0.7' align='center' shadow='0' color='#000000'>" + ("max " + str _stock) + "</t>");
-        };
+        };        
 
-        _ctrlItemCount setVariable ["outOfStock", false];
-        
-
+        // minitemvalue is zero (or above if vehicle bought in previous session)
         if (_itemValue <= _minItemValue) then {
-            _ctrlItemCount setVariable ["minValueReached", true];
             _btnMinus ctrlEnable false;
+        } else {
+            _btnMinus ctrlEnable true;
         };
-
-        _ctrlItemCount setVariable ["minValueReached", false];
 
     } forEach _catButtons;
-    
-    _btnMinus ctrlEnable true;
-    _btnPlus ctrlEnable true;
+
     _catMaxed
 };
 
+// needs to be before enabledisablebuttons
+_ctrlChosenInThisCat setVariable ["value", _catValue];
+_parentControl setVariable ["value", _itemValue];
 
 private _catMaxed = [_itemValue, _maxItemValue, _catValue, _stock, _btnPlus, _btnMinus] call _enableDisableButtons;
 
 if (_catMaxed) then {
     _catFormatting = _catFormattingMaxed
 };
-
-_ctrlChosenInThisCat setVariable ["value", _catValue];
-_parentControl setVariable ["value", _itemValue];
 
 [_baseConfigName, _categoryName, _catValue] call BC_buymenu_fnc_saveCatGlobalCache;
 
