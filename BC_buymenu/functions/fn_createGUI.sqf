@@ -462,7 +462,9 @@ if (player getVariable ["BC_potentToBuy", false]) then {
         _rowHeight * 37.25  - (ctrlTextHeight _buttonText)/2 + safezoneY,  
         _screenWidth - _columnWidth * 2, 
         ctrlTextHeight _buttonText
-    ]; _buttonText ctrlCommit 0;
+    ]; 
+    _buttonText ctrlEnable false;
+    _buttonText ctrlCommit 0;
 };
 
 

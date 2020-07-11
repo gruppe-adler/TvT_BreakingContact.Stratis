@@ -35,7 +35,7 @@ private _ctrlSingleCount = _parentControl getVariable ["ctrlSingleCount", contro
 private _data = _parentControl getVariable ["data", []];
 
 private _baseConfigName = _parentControl getVariable ["baseConfigName", "none"];
-private _categoryName = _parentControl getVariable ["categoryName", "none"];
+private _categoryName = _parentControl getVariable ["categoryConfigName", "none"];
 
 
 private _catButtons = _ctrlChosenInThisCat getVariable ["catButtons", []];
@@ -64,7 +64,7 @@ private _enableDisableButtons = {
     _ctrlSingleCount ctrlSetBackgroundColor [0,0,0,0.8];
     _ctrlSingleCount ctrlSetStructuredText parseText ("<t size='0.7' align='center' shadow='0' color='#999999'>" + ("max " + str _stock) + "</t>");
 
-    private _catMaxed = false;
+    private _catMaxed = _catValue >= _valueMaxInThisCat;
     
     {
         _x params ["_ctrlItemCount", "_btnPlus", "_btnMinus"];
@@ -77,8 +77,6 @@ private _enableDisableButtons = {
         private _itemValue = _ctrlItemCount getVariable ["value", 0];
         private _minItemValue = _ctrlItemCount getVariable ["minValue", 0];
         private _maxItemValue = _ctrlItemCount getVariable ["maxValue", 0];
-
-        private _catMaxed = _catValue >= _valueMaxInThisCat;
 
         if (_catMaxed) then {
              _btnPlus ctrlEnable false;
