@@ -12,8 +12,8 @@ waitUntil {sleep 1; !isNil "GRAD_TERMINAL_DESTROYED"};
 
 
     /* detect all dead */
-    OPFOR_PRE_ELIMINATED = ({side _x isEqualTo east && alive _x} count allUnits == 0);
-    BLUFOR_PRE_ELIMINATED = ({side _x isEqualTo west && alive _x} count allUnits == 0);
+    OPFOR_PRE_ELIMINATED = ({side _x isEqualTo east && alive _x} count (switchableUnits + playableUnits) == 0);
+    BLUFOR_PRE_ELIMINATED = ({side _x isEqualTo west && alive _x} count (switchableUnits + playableUnits) == 0);
 
     if (GRAD_TERMINAL_DESTROYED) then { [] call GRAD_tracking_fnc_bluforCaptured; };
 
