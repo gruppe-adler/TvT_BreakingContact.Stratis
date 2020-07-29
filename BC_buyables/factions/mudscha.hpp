@@ -88,7 +88,7 @@ class mudscha {
             wheelCargo = 2;
             spawnEmpty = 1;
             condition = "true";
-            code = "(_this select 1) setVariable ['gm_vehicle_attributes', [['gm_licenseplate_none',' '],[' ','gm_din_norm_gry','gm_tacticalSign_none',' ','gm_din_norm_gry'],[' ','gm_gc_schablonier_gry'],['gm_insignia_none','gm_insignia_none','gm_insignia_none','gm_insignia_none','gm_insignia_cool_palmtree_wht','gm_insignia_none'],['gm_insignia_none'],['gm_insignia_none','0','gm_insignia_none']]]; [_this select 1] spawn gm_core_vehicles_fnc_vehicleMarkingsInit;";
+            code = "(_this select 1) setVariable ['gm_vehicle_attributes', [['gm_licenseplate_none',' '],[' ','gm_din_norm_gry','gm_tacticalSign_none',' ','gm_din_norm_gry'],[' ','gm_gc_schablonier_gry'],['gm_insignia_none','gm_insignia_none','gm_insignia_none','gm_insignia_none','gm_insignia_cool_palmtree_wht','gm_insignia_none'],['gm_insignia_none'],['gm_insignia_none','0','gm_insignia_none']]]; [_this select 1] spawn gm_core_vehicles_fnc_vehicleMarkingsInit; (_this select 1) removeWeaponTurret ['gm_pkt_coax',[0]]; ";
 
         };
 
