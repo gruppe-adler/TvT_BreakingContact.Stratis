@@ -1,7 +1,7 @@
 class BC_setup {
 
-	class client {
-		file = BC_setup\functions\client;
+    class client {
+        file = BC_setup\functions\client;
 
         class addBriefing;
         class addInteractions;
@@ -13,22 +13,23 @@ class BC_setup {
         class isOnWater;
         class openSpawnDialog;
         class spectatorDraw3D;
+        class streamator;
         class streamingSpectator;
         class teleportPlayer;
         class TFARsettings { preInit = 1; };
     };
 
   class server {
-		file = BC_setup\functions\server;
+      file = BC_setup\functions\server;
 
         class defineWoodland { preInit = 1; };
         class findRandomPos;
-		class fuelDrain;
+        class fuelDrain;
         class getHighestRankOfSide;
         class getIslandCfgEntry {};
         class initialSpawnServer;
         class registerDynamicGroup;
-		class removeFuelStations { postInit = 1; };
+        class removeFuelStations { postInit = 1; };
         class showLeaderInformation;
         class teleportAI;
     };

@@ -423,3 +423,7 @@ class CfgGradFortifications {
         demolitionTime = 5;
     };
 };
+// Streamator Loading Instructions
+class CLib {
+    Modules[] = {"CLib", "Streamator"};
+};
