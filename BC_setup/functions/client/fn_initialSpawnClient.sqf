@@ -7,7 +7,20 @@ private _playerPositionsForCurrentWorld = 	[
 [{!isNull player}, {
 	params ["_playerPositionsForCurrentWorld"];
 
-	call bc_setup_fnc_streamingSpectator;
+	if ((typeOf player) == "VirtualSpectator_F" && !isNil "CLib_fnc_registerEntryPoint") then {
+		{
+			if ("Streamator" call CLib_fnc_modLoaded) then {
+				[] spawn {
+					waitUntil {!isNull (missionNameSpace getVariable ["GRAD_tracking_radioVehObj", objNull])};
+					bc_setup_fnc_streamator call CLib_fnc_directCall;
+				};
+			} else {
+				call bc_setup_fnc_streamingSpectator; // if only CLib is loaded but not the streamator call normal Spectator function
+			};
+		} call CLib_fnc_registerEntryPoint;
+	} else {
+		call bc_setup_fnc_streamingSpectator;
+	};
 
 	_targetPosition = switch (playerSide) do {
 		case (EAST): {_playerPositionsForCurrentWorld select 0};

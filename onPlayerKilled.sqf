@@ -12,4 +12,13 @@ if (!(_killer isEqualTo player)) then {
 };
 
 [true] call ace_spectator_fnc_setSpectator;
-[true] call BC_setup_fnc_spectatorDraw3D;
+
+// only draw icons if not streamator
+if (!isNil "CLib_fnc_registerEntryPoint") then {
+    
+    if (!("Streamator" call CLib_fnc_modLoaded)) then {
+        [true] call BC_setup_fnc_spectatorDraw3D;
+    };  
+} else {
+    [true] call BC_setup_fnc_spectatorDraw3D;
+};
