@@ -12,7 +12,7 @@ private _playerPositionsForCurrentWorld = 	[
 			if ("Streamator" call CLib_fnc_modLoaded) then {
 				[] spawn {
 					waitUntil {!isNull (missionNameSpace getVariable ["GRAD_tracking_radioVehObj", objNull])};
-					bc_setup_fnc_Streamtor call CLib_fnc_directCall;
+					bc_setup_fnc_streamator call CLib_fnc_directCall;
 				};
 			} else {
 				call bc_setup_fnc_streamingSpectator; // if only CLib is loaded but not the streamator call normal Spectator function

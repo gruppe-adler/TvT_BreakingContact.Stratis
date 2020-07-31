@@ -49,21 +49,19 @@ private _fncScaleIcon = {
             case (_shadow == 2): {
                 _color = [0.6, 0, 0, 1];
             };
-            case (_texture == "A3\ui_f\data\igui\cfg\simpletasks\letters\t_ca.paa"): {
+            case (_texture == "A3\ui_f\data\igui\rsctitles\rschvtphase\JAC_A3_Signal_0_ca.paa"): {
                 _texture = format ["A3\ui_f\data\igui\rsctitles\rschvtphase\JAC_A3_Signal_%1_ca.paa", floor(time) % 5];
-                _width = _width * 2;
-                _height = _height;
             };
             default {
                 private _ticksRatio = GRAD_TICKS_DONE / GRAD_TICKS_NEEDED;
-                _text = format ["%1%4 | Done: %2/%3", _ticksRatio, GRAD_TICKS_DONE,GRAD_TICKS_NEEDED, localize "str_GRAD_transmissionTime_2"];
+                _text = format ["%1%4 | Done: %2/%3", _ticksRatio*100, GRAD_TICKS_DONE,GRAD_TICKS_NEEDED, "%."];
             };
         };
     };
 };
 
 _icons pushBack ["ICON", "A3\ui_f\data\gui\rsc\rscdisplaymultiplayersetup\flag_opfor_empty_ca.paa", [1, 1, 1, 1], _position, 70 / 18, 35 / 18, 0, "", 0, 0.05, "RobotoCondensedBold", "center", false, _fncScaleIcon];
-_icons pushBack ["ICON", "A3\ui_f\data\igui\cfg\simpletasks\letters\t_ca.paa", [1, 1, 1, 1], _position, 1, 1, 0, "", 0, 0.05, "RobotoCondensedBold", "center", false, _fncScaleIcon];
+_icons pushBack ["ICON", "A3\ui_f\data\igui\rsctitles\rschvtphase\JAC_A3_Signal_0_ca.paa", [1, 1, 1, 1], _position, 1*2, 1, 0, "", 0, 0.05, "RobotoCondensedBold", "center", false, _fncScaleIcon];
 _shadow = 2;
 _color set [3, 1];
 _icons pushBack ["ICON", "A3\ui_f\data\gui\rsc\rscdisplaymultiplayersetup\flag_opfor_ca.paa", _color, _position, 70 / 18, 35 / 18, 0, "", _shadow, PY(2), "RobotoCondensedBold", "center", false, _fncScaleIcon];
@@ -73,6 +71,7 @@ reverse _icons;
     _id,
     +_icons
 ] call Streamator_fnc_addCustom3dIcon;
+
 
 // Add Icon Renderer over Terminal
 private _position = [objNull, "", [0, 0, 5]];
