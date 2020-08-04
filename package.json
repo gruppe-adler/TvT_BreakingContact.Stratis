@@ -4,11 +4,11 @@
   "version": "0.0.5",
   "dependencies": {
     "@gruppe-adler/replay": ">=1.5.0",
-    "grad-fortifications": ">=0.8.0",
+    "grad-fortifications": "^0.9.3",
     "grad-islandconfig": ">=0.3.1",
-    "grad-listbuymenu": ">=0.7.1",
+    "grad-listbuymenu": "^0.9.0",
     "grad-loadout": ">=4.11.4",
-    "grad-tvtsettings": ">=0.0.2",
+    "grad-tvtsettings": "0.0.3",
     "shk_pos": "github:gruppe-adler/shk_pos#master"
   }
 }
