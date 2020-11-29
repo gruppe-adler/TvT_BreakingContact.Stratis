@@ -6,3 +6,4 @@ publicVariable "GRAD_TERMINAL_ACTIVE";
 (uiNamespace getVariable "BIS_RscMissionScreen") closeDisplay 1;
 sleep 2;
 _object setVariable ["TerminalStatus",0,true];
+_object setVariable ["grad_replay_color", nil, true];

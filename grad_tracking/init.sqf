@@ -49,7 +49,7 @@ if (isServer) then {
      publicVariable "GRAD_MIN_DISTANCE_TO_RADIOPOSITION";
      
 
-     
+     GRAD_FUNKWAGEN_RED = [1, 0, 0, 1];
 
      sleep 2;
 
