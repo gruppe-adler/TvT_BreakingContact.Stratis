@@ -111,6 +111,7 @@ if (!hasInterface) exitWith {};
                         }, {
                             params ["_target"];
                             _target setVariable ["tf_range", 50000, true];
+                            _target setVariable ["grad_replay_color", {GRAD_FUNKWAGEN_RED}, true];
                         }, [_target]] call CBA_fnc_waitUntilAndExecute;
                     },
                     [],
@@ -132,7 +133,7 @@ if (!hasInterface) exitWith {};
 
                         _target animateSource ["antennaMast_1_1_source", 0];
                         _target setVariable ["tf_range", 0, true];
-                        
+                        _target setVariable ["grad_replay_color", nil, true];
 
                         [{
                             params ["_target"];

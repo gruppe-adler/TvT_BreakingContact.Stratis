@@ -46,3 +46,4 @@ with uiNamespace do {
 GRAD_TERMINAL_ACTIVE = true;
 publicVariable "GRAD_TERMINAL_ACTIVE";
 _object setVariable ["TerminalStatus",2,true];
+_object setVariable ["grad_replay_color", {GRAD_FUNKWAGEN_RED}, true];
