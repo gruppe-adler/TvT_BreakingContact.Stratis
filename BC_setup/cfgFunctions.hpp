@@ -4,6 +4,7 @@ class BC_setup {
         file = BC_setup\functions\client;
 
         class addBriefing;
+        class addInteractionJIP;
         class addInteractions;
         class chooseSpawn;
         class createStartMarker;
@@ -28,6 +29,7 @@ class BC_setup {
         class getHighestRankOfSide;
         class getIslandCfgEntry {};
         class initialSpawnServer;
+        class onPlayerConnected { postInit = 1; };
         class registerDynamicGroup;
         class removeFuelStations { postInit = 1; };
         class showLeaderInformation;

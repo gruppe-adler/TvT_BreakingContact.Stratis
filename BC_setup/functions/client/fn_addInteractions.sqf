@@ -237,23 +237,7 @@ if (!hasInterface) exitWith {};
             },
             {_target getVariable ["BC_hasAntenna", false] && { private _antenna = missionNamespace getVariable ["GRAD_tracking_antennaObj", objNull]; (_antenna getVariable ["antennaStatus", 0] == 2) }}] call ace_interact_menu_fnc_createAction;
 
-            [player, 1, ["ACE_SelfActions"],_antennaStopAction] call ace_interact_menu_fnc_addActionToObject;
-
-
-            {
-                if (_x != player) then {
-                    private _antennaTakeAction = ["antennaTake", "Take Antenna", "",
-                    {
-                      private _antenna = missionNamespace getVariable ["GRAD_tracking_antennaObj", objNull];
-                      [player, _target] spawn GRAD_tracking_fnc_attachUnitAntenna;
-                    },
-                    {_target getVariable ["BC_hasAntenna", false]}] call ace_interact_menu_fnc_createAction;
-
-                    [_x, 0, ["ACE_MainActions"],_antennaTakeAction] call ace_interact_menu_fnc_addActionToObject;
-                };
-            } forEach (playableUnits + switchableUnits);
-
-           
+            [player, 1, ["ACE_SelfActions"],_antennaStopAction] call ace_interact_menu_fnc_addActionToObject;         
 
 
 
