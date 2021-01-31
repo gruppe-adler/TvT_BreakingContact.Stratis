@@ -220,7 +220,7 @@ if (!hasInterface) exitWith {};
 
 
             // ANTENNA ACTIONS
-            private _antennaStartAction = ["terminalActionOpen", "Start transmission", "",
+            private _antennaStartAction = ["antennaStart", "Start transmission", "",
             {
               private _antenna = missionNamespace getVariable ["GRAD_tracking_antennaObj", objNull];
               [_antenna] spawn GRAD_tracking_fnc_antennaStart;
@@ -230,7 +230,7 @@ if (!hasInterface) exitWith {};
             [player, 1, ["ACE_SelfActions"],_antennaStartAction] call ace_interact_menu_fnc_addActionToObject;
 
 
-            private _antennaStopAction = ["terminalActionClose", "End transmission", "",
+            private _antennaStopAction = ["antennaStop", "End transmission", "",
             { 
               private _antenna = missionNamespace getVariable ["GRAD_tracking_antennaObj", objNull];
               [_antenna] spawn GRAD_tracking_fnc_antennaStop;
@@ -238,6 +238,22 @@ if (!hasInterface) exitWith {};
             {_target getVariable ["BC_hasAntenna", false] && { private _antenna = missionNamespace getVariable ["GRAD_tracking_antennaObj", objNull]; (_antenna getVariable ["antennaStatus", 0] == 2) }}] call ace_interact_menu_fnc_createAction;
 
             [player, 1, ["ACE_SelfActions"],_antennaStopAction] call ace_interact_menu_fnc_addActionToObject;
+
+
+            {
+                if (_x != player) then {
+                    private _antennaTakeAction = ["antennaTake", "Take Antenna", "",
+                    {
+                      private _antenna = missionNamespace getVariable ["GRAD_tracking_antennaObj", objNull];
+                      [player, _target] spawn GRAD_tracking_fnc_attachUnitAntenna;
+                    },
+                    {_target getVariable ["BC_hasAntenna", false]}] call ace_interact_menu_fnc_createAction;
+
+                    [_x, 0, ["ACE_MainActions"],_antennaTakeAction] call ace_interact_menu_fnc_addActionToObject;
+                };
+            } forEach (playableUnits + switchableUnits);
+
+           
 
 
 
