@@ -1,4 +1,4 @@
-params ["_vehicle", "_startVehicle", "_data"];
+params ["_vehicle", "_startVehicle", "_data", "_unit"];
 
 _data params [
     "_baseConfigName",
@@ -29,4 +29,4 @@ _data params [
 
 diag_log format ["_code %1, _stock %2", _code, _stock];
 
-[_vehicle, _startVehicle] call _code;
+[_vehicle, _startVehicle, _unit] call _code;

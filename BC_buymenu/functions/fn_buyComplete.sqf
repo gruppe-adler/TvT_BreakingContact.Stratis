@@ -68,7 +68,7 @@ for "_i" from _emptyIndex to ((count _closestRoads) - 1) do {
             if (!_isSpecial) then {
                 [side _unit, _startVehicle, _roadPos, _roadDir, _data] call BC_buymenu_fnc_buyVehicle;
             } else {
-                [_itemConfigName, _startVehicle, _data] call BC_buymenu_fnc_buySpecials;
+                [_itemConfigName, _startVehicle, _data, _unit] call BC_buymenu_fnc_buySpecials;
             };
         };
 

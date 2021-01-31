@@ -15,15 +15,22 @@ _vehicle addMPEventHandler ["MPKilled", {
 [_vehicle, true] call BC_flagsOnVehicles_fnc_toggleFlag;
 
 
-_terminal = createVehicle ['Land_DataTerminal_01_F', [0,0,0], [], 0, 'NONE'];
+private _terminal = createVehicle ['Land_DataTerminal_01_F', [0,0,0], [], 0, 'NONE'];
 _terminal setVariable ["GRAD_replay_track", true, true];
 
 hideObjectGlobal _terminal;
 
+
+private _antenna = createVehicle ['Item_muzzle_antenna_02_f', [0,0,0], [], 0, 'NONE'];
+_antenna setVariable ["GRAD_replay_track", true, true];
+
+hideObjectGlobal _antenna;
+
 missionNameSpace setVariable ["GRAD_tracking_radioVehObj", _vehicle, true];
 missionNameSpace setVariable ["GRAD_tracking_terminalObj", _terminal, true];
+missionNameSpace setVariable ["GRAD_tracking_antennaObj", _antenna, true];
 
-[[_vehicle, _terminal], "grad_tracking\init.sqf"] remoteExec ["execVM", 0, true];
+[[_vehicle, _terminal, _antenna], "grad_tracking\init.sqf"] remoteExec ["execVM", 0, true];
 
 _vehicle addItemCargoGlobal ["ACE_SpraypaintBlack",10];
 _vehicle addItemCargoGlobal ["ACE_SpraypaintBlue",10];

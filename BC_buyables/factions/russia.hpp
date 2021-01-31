@@ -223,6 +223,15 @@ class Russia {
         kindOf = "Special";
         maxBuyCount = 2;
 
+        class Item_muzzle_antenna_02_f {
+            kindOf = "Special";
+            displayName = "Radio Relay Portable Antenna";
+            description = "Replaces radio truck internal module.\nIs attached to the player but can be given to other players.\nSends with 50-100% strength depending on distance to radio truck.";
+            stock = 1;
+            picturePath = "pic\antenna.paa";
+            code = "diag_log str (_this); private _antenna = missionNameSpace getVariable ['GRAD_tracking_antennaObj', objNull]; [(_this select 2), objNull] call GRAD_tracking_fnc_attachUnitAntenna; GRAD_ANTENNA = true; publicVariable 'GRAD_ANTENNA'";
+        };
+
         class Land_DataTerminal_01_F {
             kindOf = "Special";
             displayName = "Radio Relay Terminal";

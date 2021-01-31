@@ -176,7 +176,13 @@ if (!hasInterface) exitWith {};
                 {(side player == west) && GRAD_TERMINAL}] call ace_interact_menu_fnc_createAction;
               ["Land_DataTerminal_01_F", 0, ["ACE_MainActions"],_destroyActionPortableRadio] call ace_interact_menu_fnc_addActionToClass;
 
-            
+              
+              private _destroyActionAntenna = ["usDestroyMenuPortable", (localize "str_GRAD_disable_vehicle"), "",
+               {
+               [60, [_this select 0], { GRAD_ANTENNA_DISABLED = TRUE; publicVariable "GRAD_ANTENNA_DISABLED";}, {hint "Cancelled action"}, (localize "str_GRAD_disabling_radio")] call ace_common_fnc_progressBar;
+               },
+                {(side player == west) && GRAD_ANTENNA}] call ace_interact_menu_fnc_createAction;
+              ["Item_muzzle_antenna_02_f", 0, ["ACE_MainActions"],_destroyActionAntenna] call ace_interact_menu_fnc_addActionToClass;
 
             // TERMINAL ATTACH/DETACH
 
@@ -211,6 +217,27 @@ if (!hasInterface) exitWith {};
 
             ["Land_DataTerminal_01_F", 0, ["ACE_MainActions"],_closeAction] call ace_interact_menu_fnc_addActionToClass;
 
+
+
+            // ANTENNA ACTIONS
+            private _antennaStartAction = ["terminalActionOpen", "Start transmission", "",
+            {
+              private _antenna = missionNamespace getVariable ["GRAD_tracking_antennaObj", objNull];
+              [_antenna] spawn GRAD_tracking_fnc_antennaStart;
+            },
+            {_target getVariable ["BC_hasAntenna", false] && { private _antenna = missionNamespace getVariable ["GRAD_tracking_antennaObj", objNull]; (_antenna getVariable ["antennaStatus", 0] == 1) }}] call ace_interact_menu_fnc_createAction;
+
+            [player, 1, ["ACE_SelfActions"],_antennaStartAction] call ace_interact_menu_fnc_addActionToObject;
+
+
+            private _antennaStopAction = ["terminalActionClose", "End transmission", "",
+            { 
+              private _antenna = missionNamespace getVariable ["GRAD_tracking_antennaObj", objNull];
+              [_antenna] spawn GRAD_tracking_fnc_antennaStop;
+            },
+            {_target getVariable ["BC_hasAntenna", false] && { private _antenna = missionNamespace getVariable ["GRAD_tracking_antennaObj", objNull]; (_antenna getVariable ["antennaStatus", 0] == 2) }}] call ace_interact_menu_fnc_createAction;
+
+            [player, 1, ["ACE_SelfActions"],_antennaStopAction] call ace_interact_menu_fnc_addActionToObject;
 
 
 

@@ -3,10 +3,18 @@ class GRAD_tracking {
      class player {
         file = grad_tracking\functions\player;
 
+        class antennaDisable;
+        class antennaMarkerAnimation;
+        class antennaStart;
+        class antennaStop;
+        class attachUnitAntenna;
+        class createMarkerAntenna;
+
         class createMarkerLastSeen {};
         class createMarkerRadioVeh {};
         class createMarkerTerminal {};
         class createRadioPositionMarkerLocal {};
+        class ensureAntennaMarkerAnimation {};
         class ensureRadioVehMarkerAnimation {};
         class ensureTerminalMarkerAnimation {};
         class hintEndTransmission {};
@@ -42,6 +50,8 @@ class GRAD_tracking {
         class radioTruckRetract {};
         class radioVehIsSending {};
         class randomizeMarker {};
+        class setAntennaMarkerPosition {};
+        class setAntennaMarkerStatus {};
         class setRadioVehMarkerPosition {};
         class setRadioVehMarkerSize {};
         class setRadioVehMarkerStatus {};

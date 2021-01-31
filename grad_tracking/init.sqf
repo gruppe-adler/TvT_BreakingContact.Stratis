@@ -1,4 +1,4 @@
-params ["_radioVeh", "_terminal"];
+params ["_radioVeh", "_terminal", "_antenna"];
 
 GRAD_TICKS_DONE = 0;
 
@@ -29,6 +29,21 @@ if (isServer) then {
      GRAD_TERMINAL_DESTROYED = false;
      publicVariable "GRAD_TERMINAL_DESTROYED";
 
+
+     // antenna related
+     GRAD_ANTENNA = false;
+     publicVariable "GRAD_ANTENNA";
+
+     GRAD_ANTENNA_MARKER_HIDDEN = true;
+     publicVariable "GRAD_ANTENNA_MARKER_HIDDEN";
+     GRAD_ANTENNA_MARKER_POS = [0,0];
+     publicVariable "GRAD_ANTENNA_MARKER_POS";
+
+     GRAD_ANTENNA_DISABLED = false;
+     publicVariable "GRAD_ANTENNA_DISABLED";
+
+
+
      // radio VEHICLE related
      GRAD_RADIO_VEH_MARKER_HIDDEN = true;
      publicVariable "GRAD_RADIO_VEH_MARKER_HIDDEN";
@@ -56,6 +71,7 @@ if (isServer) then {
      [
           _radioVeh,
           _terminal,
+          _antenna,
           {MISSION_COMPLETED}
      ] call GRAD_tracking_fnc_mainLoop;
 
