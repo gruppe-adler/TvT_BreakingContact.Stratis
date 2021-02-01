@@ -48,7 +48,6 @@ TFAR, ACE3, RHSAFRF and RHSUSF mods are required. RDS\_CIV is optional (required
 * Ingame Replay Precision
 * JIP time
 * BFT toggle
-* Civilian Traffic Toggle (needs RDS\_CIV!)
 
 ## Supported Maps
 
