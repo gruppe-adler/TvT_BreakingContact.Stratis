@@ -177,12 +177,7 @@ if (!hasInterface) exitWith {};
               ["Land_DataTerminal_01_F", 0, ["ACE_MainActions"],_destroyActionPortableRadio] call ace_interact_menu_fnc_addActionToClass;
 
               
-              private _destroyActionAntenna = ["usDestroyMenuPortable", (localize "str_GRAD_disable_vehicle"), "",
-               {
-               [60, [_this select 0], { GRAD_ANTENNA_DISABLED = TRUE; publicVariable "GRAD_ANTENNA_DISABLED";}, {hint "Cancelled action"}, (localize "str_GRAD_disabling_radio")] call ace_common_fnc_progressBar;
-               },
-                {(side player == west) && GRAD_ANTENNA}] call ace_interact_menu_fnc_createAction;
-              ["Item_muzzle_antenna_02_f", 0, ["ACE_MainActions"],_destroyActionAntenna] call ace_interact_menu_fnc_addActionToClass;
+              
 
             // TERMINAL ATTACH/DETACH
 
