@@ -33,4 +33,7 @@ private _playerPositionsForCurrentWorld = 	[
 	player switchmove "AmovPercMstpSnonWnonDnon";
 
 
+	[player] remoteExecCall ["BC_setup_fnc_addInteractionJIP", [0,-2] select isDedicated, true];
+
+
 }, [_playerPositionsForCurrentWorld]] call CBA_fnc_waitUntilAndExecute;
