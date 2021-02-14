@@ -45,7 +45,7 @@ waitUntil {sleep 1; !isNil "GRAD_TERMINAL_DESTROYED"};
     };
 
     /* blufor wins by capture*/
-    if (BLUFOR_CAPTURED) exitWith {
+    if (BLUFOR_CAPTURED || GRAD_ANTENNA_DISABLED) exitWith {
         [_handle] call CBA_fnc_removePerFrameHandler;
 
         call GRAD_replay_fnc_stopRecord;
