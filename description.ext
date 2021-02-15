@@ -136,15 +136,15 @@ class Params
         title = "Length of sending time";
         values[] = {30, 300, 600, 900, 1320, 1800, 2700, 3600, 4500, 5400, 6300};
         texts[] = {"30s (DEBUG)", "5'","10' (recommended for 3 radio positions)", "15'", "22'", "30' (recommended for 2 radio positions)", "45' (recommended for 1 radio position)", "1h'", "1h15'","1h30'","1h45'"};
-        default = 1800;
+        default = 2700;
     };
 
     class GRAD_INTERVALS_NEEDED
     {
         title = "Number of random places opfor needs to transmit at";
         values[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-        texts[] = {"none","2","3","4","5","6","7","8","9","10"};
-        default = 2;
+        texts[] = {"1","2","3","4","5","6","7","8","9","10"};
+        default = 1;
     };
 
     class PLAYER_COUNT
@@ -152,7 +152,7 @@ class Params
         title = "Determine Player Count (relevant for buy options)";
         values[] = {-1,25,45,65};
         texts[] = {"automatic","20+","40+","60+"};
-        default = 65;
+        default = 25;
     };
 
     class TIME_ACCELERATION
