@@ -4,12 +4,24 @@ _vehicle setVariable ["detachableRadio", 0, true];
 
 _vehicle setVariable ["GRAD_replay_track", true, true];
 
+// add last damage source
+_vehicle addMPEventHandler ["MPHit", {
+  params ["_unit", "_causedBy", "_damage", "_instigator"];
+
+  if (alive _unit && (side _causedBy != civilian && _causedBy != _unit)) then {
+    _unit setVariable ["BC_lastDamageSource_causedBy", _causedBy, true];
+  };
+
+  _damage
+}];
+
+// dont contain self damage
 _vehicle addMPEventHandler ["MPKilled", {
   params ["_unit", "_killer", "_instigator", "_useEffects"];
 
-  _unit setVariable ["BC_lastDamageSource_causedBy", _killer, true];
-  _unit setVariable ["ace_medical_lastDamageSource", _killer, true];
-
+  if (side _killer != civilian && _killer != _unit) then {
+    _unit setVariable ["BC_lastDamageSource_causedBy", _killer, true];
+  };
 }];
 
 [_vehicle, true] call BC_flagsOnVehicles_fnc_toggleFlag;

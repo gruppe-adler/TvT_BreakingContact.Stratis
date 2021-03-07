@@ -78,7 +78,7 @@ waitUntil {sleep 1; !isNil "GRAD_TERMINAL_DESTROYED"};
         _radioVeh = missionNameSpace getVariable ["GRAD_tracking_radioVehObj", objNull];
         _terminal = missionNameSpace getVariable ["GRAD_tracking_terminalObj", objNull];
 
-        _killerSide = side (_radioVeh getVariable ["ace_medical_lastDamageSource", objNull]);
+        _killerSide = side (_radioVeh getVariable ["BC_lastDamageSource_causedBy", objNull]);
 
          switch (_killerSide) do {
               case west: {

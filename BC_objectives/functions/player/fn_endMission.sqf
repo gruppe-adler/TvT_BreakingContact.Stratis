@@ -9,7 +9,7 @@ uiSleep 3;
 
 
 private _radioVeh = missionNameSpace getVariable ["GRAD_tracking_radioVehObj", objNull];
-private _killer = _radioVeh getVariable ["ace_medical_lastDamageSource", objNull];
+private _killer = _radioVeh getVariable ["BC_lastDamageSource_causedBy", objNull];
 
 private _killerSide = civilian;
 
@@ -38,16 +38,16 @@ switch (_winner) do {
           diag_log format ["winner east"];
      };
      case "draw" : {
-          if (playerSide isEqualTo _killerSide && playerSide isEqualTo west) then {
-               ["<img size= '6' shadow='false' image='pic\gruppe-adler.paa'/><br/><t size='.7' color='#FFFFFF'>" + localize "str_GRAD_thankyouforplaying_opfor" + "</t><br /><t size='.5'>" + format [localize "str_GRAD_transmissionResult", _transmissionPercentage + "%",round (CBA_missionTime/60)] + "<br />" + localize "str_GRAD_thankyouforplaying2" + "</t>",0,0,5,1] spawn BIS_fnc_dynamicText;
+          if (([player, true] call BIS_fnc_objectSide) isEqualTo _killerSide && ([player, true] call BIS_fnc_objectSide) isEqualTo west) then {
+               ["<img size= '6' shadow='false' image='pic\gruppe-adler.paa'/><br/><t size='.7' color='#FFFFFF'>" + localize "str_GRAD_thankyouforplaying_draw" + "</t><br /><t size='.5'>" + format [localize "str_GRAD_transmissionResult", _transmissionPercentage + "%",round (CBA_missionTime/60)] + "<br />" + localize "str_GRAD_thankyouforplaying2" + "</t>",0,0,5,1] spawn BIS_fnc_dynamicText;
                diag_log format ["draw, winner east, playerside killed the truck"];
           } else {
-               if (playerSide isEqualTo _killerSide && playerSide isEqualTo east) then {
-                    ["<img size= '6' shadow='false' image='pic\gruppe-adler.paa'/><br/><t size='.7' color='#FFFFFF'>" + localize "str_GRAD_thankyouforplaying_blufor" + "</t><br /><t size='.5'>" + format [localize "str_GRAD_transmissionResult", _transmissionPercentage + "%",round (CBA_missionTime/60)] + "<br />" + localize "str_GRAD_thankyouforplaying2" + "</t>",0,0,5,1] spawn BIS_fnc_dynamicText;
+               if (([player, true] call BIS_fnc_objectSide) isEqualTo _killerSide && ([player, true] call BIS_fnc_objectSide) isEqualTo east) then {
+                    ["<img size= '6' shadow='false' image='pic\gruppe-adler.paa'/><br/><t size='.7' color='#FFFFFF'>" + localize "str_GRAD_thankyouforplaying_draw" + "</t><br /><t size='.5'>" + format [localize "str_GRAD_transmissionResult", _transmissionPercentage + "%",round (CBA_missionTime/60)] + "<br />" + localize "str_GRAD_thankyouforplaying2" + "</t>",0,0,5,1] spawn BIS_fnc_dynamicText;
                     diag_log format ["draw, winner west, playerside killed the truck"];
                } else {
                     // killerside is always not playerside here, so we are not the bad guys
-                    if (playerSide isEqualTo west) then {
+                    if (([player, true] call BIS_fnc_objectSide) isEqualTo west) then {
                          ["<img size= '6' shadow='false' image='pic\gruppe-adler.paa'/><br/><t size='.7' color='#FFFFFF'>" + localize "str_GRAD_thankyouforplaying_blufor" + "</t><br /><t size='.5'>" + format [localize "str_GRAD_transmissionResult", _transmissionPercentage + "%",round (CBA_missionTime/60)] + "<br />" + localize "str_GRAD_thankyouforplaying2" + "</t>",0,0,5,1] spawn BIS_fnc_dynamicText;
                          diag_log format ["draw, winner west"];
                     } else {
