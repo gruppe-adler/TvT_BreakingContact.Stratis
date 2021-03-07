@@ -116,7 +116,7 @@ class USA {
                 LIST_2("SmokeShell")
             };
             addItemsToBackpack[] = {
-                LIST_2("rhsusf_200rnd_556x45_M855_mixed_box")
+                LIST_2("rhsusf_100Rnd_762x51_m62_tracer")
             };
         };
 

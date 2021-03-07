@@ -32,6 +32,7 @@ addons[]=
 	"A3_Characters_F",
 	"A3_Characters_F_Mark",
 	"ace_explosives",
+	"ace_nouniformrestrictions",
 	"A3_Characters_F_Tank",
 	"A3_Data_F_Curator_Virtual"
 };
