@@ -18,7 +18,7 @@ diag_log format ["BUYABLES INDEX Blufor - Opfor %1 - %2", BUYABLES_BLUFOR_INDEX,
 
 if (count _opforPosition == 0 || count _bluforPosition == 0) exitWith {
     [ "gui_spawn_opfor"] remoteExec ["createDialog", _opforCommander];
-    ["No road position found, please choose another Spawn location"] remoteExec ["hint", _opforCommander];
+    ["No road position found, please choose another Spawn location or check if " + str BLUFOR_SPAWN_DISTANCE + " Blufor Spawn Distance is enough."] remoteExec ["hint", _opforCommander];
 };
 
 diag_log format ["fn_spawnStartVehicles: got positions %1 - %2", _opforPosition, _bluforPosition];
