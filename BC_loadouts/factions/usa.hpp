@@ -22,9 +22,9 @@ class USA {
         class Soldier_F {
             gps = "";
             addItemsToUniform[] = {
-                LIST_7("ACE_fieldDressing"),
+                LIST_8("ACE_fieldDressing"),
                 LIST_2("ACE_epinephrine"),
-                LIST_3("ACE_morphine"),
+                LIST_2("ACE_morphine"),
                 LIST_2("ACE_tourniquet"),
                 "ACE_MapTools",
                 "ACE_Flashlight_XL50",
@@ -32,51 +32,71 @@ class USA {
                 "ACE_key_west"
             };
             addItemsToVest[] = {
-                LIST_6("rhs_mag_30Rnd_556x45_M855A1_Stanag"),
-                LIST_2("rhsusf_mag_15Rnd_9x19_JHP"),
+                LIST_8("rhs_mag_30Rnd_556x45_M855A1_Stanag"),
                 LIST_2("rhs_mag_m67"),
                 LIST_2("SmokeShell")
             };
         };
+        // Engineer
         class Engineer_F: Soldier_F{
             backpack = "rhssaf_kitbag_smb";
             addItemsToBackpack[] = {
                 "toolkit",
-                LIST_6("ACE_fieldDressing"),
-                LIST_2("ACE_epinephrine"),
-                LIST_2("ACE_morphine"),
+                "ACE_EntrenchingTool",
+                "ACE_DefusalKit",
+                "ACE_wirecutter",
+                LIST_3("ACE_FlareTripMine_Mag")
+            };
+        };
+        // Engineer SL
+        class Engineer_SL_F: Engineer_F{
+            gps = "ItemGPS";
+            backpack = "TFAR_rt1523g_sage";
+            addItemsToBackpack[] = {
+                "toolkit",
                 "ACE_EntrenchingTool",
                 "ACE_DefusalKit"
             };
+            addItemsToUniform[] = {
+                LIST_8("ACE_fieldDressing"),
+                LIST_2("ACE_epinephrine"),
+                LIST_2("ACE_morphine"),
+                LIST_2("ACE_tourniquet"),
+                "ACE_MapTools",
+                "ACE_Flashlight_XL50",
+                LIST_2("rhsusf_mag_15Rnd_9x19_JHP"),
+                "ACE_key_west"
+            };
         };
+        // Medium MG (M240B)
         class HeavyGunner_F: Soldier_F {
             primaryWeapon = "rhs_weap_m240B";
             primaryWeaponMagazine = "rhsusf_100Rnd_762x51_m62_tracer";
             addItemsToUniform[] = {
-                LIST_5("ACE_fieldDressing"),
+                LIST_8("ACE_fieldDressing"),
                 LIST_2("ACE_epinephrine"),
-                LIST_3("ACE_morphine"),
+                LIST_2("ACE_morphine"),
                 LIST_2("ACE_tourniquet"),
                 "ACE_MapTools",
                 "ACE_Flashlight_XL50"
             };
             addItemsToVest[] = {
-                "rhs_mag_m67",
-                "SmokeShell",
-                "rhsusf_100Rnd_762x51_m62_tracer",
-                "rhsusf_50Rnd_762x51"
-            };
-            addItemsToBackpack[] = {
+                LIST_2("rhs_mag_m67"),
+                LIST_2("SmokeShell"),
                 LIST_2("rhsusf_100Rnd_762x51_m62_tracer")
             };
+            addItemsToBackpack[] = {
+                LIST_3("rhsusf_100Rnd_762x51_m62_tracer")
+            };
         };
+        // Machine Gunner (M249)
         class Soldier_AR_F: Soldier_F {
             primaryWeapon = "rhs_weap_m249_pip_S";
             primaryWeaponMagazine = "rhsusf_200rnd_556x45_M855_mixed_box";
             addItemsToUniform[] = {
-                LIST_5("ACE_fieldDressing"),
+                LIST_8("ACE_fieldDressing"),
                 LIST_2("ACE_epinephrine"),
-                LIST_3("ACE_morphine"),
+                LIST_2("ACE_morphine"),
                 LIST_2("ACE_tourniquet"),
                 "ACE_MapTools",
                 "ACE_Flashlight_XL50",
@@ -84,29 +104,31 @@ class USA {
             };
             addItemsToVest[] = {
                 LIST_2("rhsusf_mag_15Rnd_9x19_JHP"),
-                "rhs_mag_m67",
+                LIST_2("rhs_mag_m67"),
                 LIST_2("SmokeShell"),
                 "rhsusf_200rnd_556x45_M855_mixed_box"
             };
             addItemsToBackpack[] = {
-                LIST_3("rhsusf_200rnd_556x45_M855_mixed_box")
+                LIST_4("rhsusf_200rnd_556x45_M855_mixed_box")
             };
         };
+        // Ammo Bearer (M240B) ??? Nicht verbaut!!
         class Soldier_AAR_F: Soldier_F {
             addItemsToUniform[] = {
-                LIST_5("ACE_fieldDressing"),
+                LIST_8("ACE_fieldDressing"),
                 LIST_2("ACE_epinephrine"),
-                LIST_3("ACE_morphine"),
+                LIST_2("ACE_morphine"),
                 LIST_2("ACE_tourniquet"),
                 "ACE_MapTools",
                 "ACE_Flashlight_XL50",
                 LIST_2("rhsusf_mag_15Rnd_9x19_JHP")
             };
             addItemsToBackpack[] = {
-                LIST_2("rhsusf_100Rnd_762x51_m62_tracer")
+                LIST_6("rhsusf_100Rnd_762x51_m62_tracer")
             };
         };
-
+        
+        // Ammo Bearer (M240B)
         class Soldier_A_F: Soldier_F {
             addItemsToVest[] = {
                 LIST_8("rhs_mag_30Rnd_556x45_M855A1_Stanag"),
@@ -115,48 +137,41 @@ class USA {
                 LIST_2("SmokeShell")
             };
             addItemsToBackpack[] = {
-                LIST_2("rhsusf_100Rnd_762x51_m62_tracer")
+                LIST_6("rhsusf_100Rnd_762x51_m62_tracer")
             };
         };
 
-        // heavy at
+        // Heavy AT (Carl Gustav)
         class Soldier_AT_F: Soldier_F {
             secondaryWeapon = "rhs_weap_maaws";
             secondaryWeaponMagazine = "rhs_mag_maaws_HEAT";
-            backpack = "B_Carryall_cbr";
             addItemsToUniform[] = {
-                LIST_5("ACE_fieldDressing"),
+                LIST_8("ACE_fieldDressing"),
                 LIST_2("ACE_epinephrine"),
-                LIST_3("ACE_morphine"),
+                LIST_2("ACE_morphine"),
                 LIST_2("ACE_tourniquet"),
                 "ACE_MapTools",
                 "ACE_Flashlight_XL50"
             };
-            addItemsToVest[] = {
-                LIST_3("rhs_mag_30Rnd_556x45_M855A1_Stanag"),
-                "SmokeShell"
-            };
             addItemsToBackpack[] = {
-                "rhs_mag_maaws_HEAT"
-            };
-        };
-
-        // heavy at ammo carrier
-        class Soldier_AAT_F: Soldier_F {
-            addItemsToBackpack[] = {
-                LIST_6("ACE_fieldDressing"),
-                LIST_2("ACE_epinephrine"),
-                LIST_2("ACE_morphine"),
                 LIST_2("rhs_mag_maaws_HEAT")
             };
         };
 
+        // HAT Ammo Carrier
+        class Soldier_AAT_F: Soldier_F {
+            addItemsToBackpack[] = {
+                LIST_2("rhs_mag_maaws_HEAT")
+            };
+        };
+      
+        // LAT-Specialist (M72A7)
         class Soldier_LAT_F: Soldier_F {
             secondaryWeapon = "rhs_weap_m72a7";
             addItemsToUniform[] = {
-                LIST_5("ACE_fieldDressing"),
+                LIST_8("ACE_fieldDressing"),
                 LIST_2("ACE_epinephrine"),
-                LIST_3("ACE_morphine"),
+                LIST_2("ACE_morphine"),
                 LIST_2("ACE_tourniquet"),
                 "ACE_MapTools",
                 "ACE_Flashlight_XL50",
@@ -164,25 +179,26 @@ class USA {
                 "rhs_m72a7_mag"
             };
         };
-
+        // Medic
         class Medic_F: Soldier_F {
-            backpack = "rhsusf_assault_eagleaiii_coy";
             addItemsToBackpack[] = {
-                LIST_10("ACE_fieldDressing"),
-                LIST_10("ACE_morphine"),
-                LIST_10("ACE_epinephrine"),
-                LIST_8("ACE_bloodIV_250"),
-                LIST_2("HandGrenade")
+                LIST_40("ACE_fieldDressing"),
+                LIST_20("ACE_morphine"),
+                LIST_20("ACE_epinephrine"),
+                LIST_20("ACE_bloodIV_250"),
+                LIST_10("ACE_bloodIV_500"),
+                LIST_5("SmokeShell")
             };
         };
+        // TeamLeader
         class Soldier_TL_F: Soldier_F {
             gps = "ItemGPS";
             primaryWeapon = "rhs_weap_m4a1_carryhandle_m203S";
             underBarrelMagazine = "1Rnd_Smoke_Grenade_shell";
             addItemsToUniform[] = {
-                LIST_7("ACE_fieldDressing"),
+                LIST_8("ACE_fieldDressing"),
                 LIST_2("ACE_epinephrine"),
-                LIST_4("ACE_morphine"),
+                LIST_2("ACE_morphine"),
                 LIST_2("ACE_tourniquet"),
                 "ACE_MapTools",
                 "ACE_Flashlight_XL50",
@@ -190,7 +206,6 @@ class USA {
                 "ACE_key_west"
             };
             addItemsToVest[] = {
-                LIST_2("rhsusf_mag_15Rnd_9x19_JHP"),
                 LIST_2("rhs_mag_m67"),
                 LIST_2("SmokeShell"),
                 LIST_3("rhs_mag_30Rnd_556x45_M855A1_Stanag"),
@@ -199,15 +214,16 @@ class USA {
                 LIST_2("1Rnd_Smoke_Grenade_shell")
             };
             addItemsToBackpack[] = {
-                LIST_5("rhs_mag_30Rnd_556x45_M855A1_Stanag")
+                LIST_10("rhs_mag_30Rnd_556x45_M855A1_Stanag")
             };
         };
+        // SquadLeader
         class Soldier_SL_F: Soldier_TL_F {
             backpack = "TFAR_rt1523g_sage";
             addItemsToUniform[] = {
-                LIST_7("ACE_fieldDressing"),
+                LIST_8("ACE_fieldDressing"),
                 LIST_2("ACE_epinephrine"),
-                LIST_4("ACE_morphine"),
+                LIST_2("ACE_morphine"),
                 LIST_2("ACE_tourniquet"),
                 "ACE_MapTools",
                 "ACE_Flashlight_XL50",
