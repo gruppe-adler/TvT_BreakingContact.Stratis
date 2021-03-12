@@ -8,8 +8,8 @@ _vehicle setVariable ["GRAD_replay_track", true, true];
 _vehicle addMPEventHandler ["MPHit", {
   params ["_unit", "_causedBy", "_damage", "_instigator"];
 
-  if (alive _unit && (side _causedBy != civilian && _causedBy != _unit)) then {
-    _unit setVariable ["BC_lastDamageSource_causedBy", _causedBy, true];
+  if (alive _unit && (side _instigator != sideUnknown && _instigator != _unit)) then {
+    _unit setVariable ["BC_lastDamageSource_instigator", _instigator, true];
   };
 
   _damage
@@ -19,8 +19,8 @@ _vehicle addMPEventHandler ["MPHit", {
 _vehicle addMPEventHandler ["MPKilled", {
   params ["_unit", "_killer", "_instigator", "_useEffects"];
 
-  if (side _killer != civilian && _killer != _unit) then {
-    _unit setVariable ["BC_lastDamageSource_causedBy", _killer, true];
+  if (side _instigator != sideUnknown && _instigator != _unit) then {
+    _unit setVariable ["BC_lastDamageSource_causedBy", _instigator, true];
   };
 }];
 
