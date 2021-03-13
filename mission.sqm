@@ -7971,7 +7971,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=1185;
-					type="B_engineer_F";
+					type="B_soldier_repair_F";
 					class CustomAttributes
 					{
 						class Attribute0
@@ -8303,7 +8303,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=1189;
-					type="B_engineer_F";
+					type="B_soldier_repair_F";
 					class CustomAttributes
 					{
 						class Attribute0
@@ -8635,7 +8635,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=1193;
-					type="B_engineer_F";
+					type="B_soldier_repair_F";
 					class CustomAttributes
 					{
 						class Attribute0
@@ -12019,7 +12019,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=1287;
-					type="O_engineer_F";
+					type="O_soldier_repair_F";
 					class CustomAttributes
 					{
 						class Attribute0
@@ -12275,7 +12275,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=1291;
-					type="O_engineer_F";
+					type="O_soldier_repair_F";
 					class CustomAttributes
 					{
 						class Attribute0
@@ -12491,7 +12491,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=1295;
-					type="O_engineer_F";
+					type="O_soldier_repair_F";
 					class CustomAttributes
 					{
 						class Attribute0
