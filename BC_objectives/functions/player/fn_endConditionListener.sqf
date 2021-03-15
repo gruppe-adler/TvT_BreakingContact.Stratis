@@ -6,9 +6,7 @@
 {
      params ["_winner", "_result"];
 
-     _string = localize "str_GRAD_winmsg_points";
-     [_string] call EFUNC(common,displayTextStructured);
-     _transmissionPercentage = call GRAD_tracking_fnc_getTransmissionPercentage;
+     private _transmissionPercentage = call GRAD_tracking_fnc_getTransmissionPercentage;
      missionNamespace setVariable ["BC_transmissionPercentage", str _transmissionPercentage];
 
      missionNamespace setVariable ["BC_missionResult", _result];

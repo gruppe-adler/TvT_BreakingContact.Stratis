@@ -8,6 +8,11 @@ _vehicle setVariable ["GRAD_replay_track", true, true];
 _vehicle addMPEventHandler ["MPHit", {
   params ["_unit", "_causedBy", "_damage", "_instigator"];
 
+  // dont trigger for damage applied after death
+  if (!alive _unit) then {
+        player removeMPEventHandler ["MPHit", _thisEventHandler];
+  };
+
   if (alive _unit && (side _instigator != sideUnknown && _instigator != _unit)) then {
     _unit setVariable ["BC_lastDamageSource_causedBy", _instigator, true];
   };
@@ -22,6 +27,8 @@ _vehicle addMPEventHandler ["MPKilled", {
   if (side _instigator != sideUnknown && _instigator != _unit) then {
     _unit setVariable ["BC_lastDamageSource_causedBy", _instigator, true];
   };
+
+  player removeMPEventHandler ["MPKilled", _thisEventHandler];
 }];
 
 [_vehicle, true] call BC_flagsOnVehicles_fnc_toggleFlag;
