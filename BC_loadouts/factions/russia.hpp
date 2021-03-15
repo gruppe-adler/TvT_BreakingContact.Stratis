@@ -105,6 +105,7 @@ class russia {
         class Soldier_AR_F: Soldier_F {
             primaryWeapon = "rhs_weap_akmn";
             primaryWeaponPointer = "";
+            primaryWeaponMuzzle = "rhs_acc_dtk1";
             primaryWeaponOptics = "rhs_acc_pkas";
             primaryWeaponMagazine = "rhs_75Rnd_762x39mm_tracer";
             backpack = "rhssaf_kitbag_md2camo";
