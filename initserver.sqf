@@ -205,12 +205,6 @@ publicVariable "BLUFOR_TELEPORTED";
 
 
 
-// civilian traffic
-CIV_KILLED = [[0,0,0],objNull];
-publicVariable "CIV_KILLED";
-CIV_GUNFIGHT_POS = [0,0,0];
-publicVariable "CIV_GUNFIGHT_POS";
-
 // replay
 REPLAY_FINISHED = false;
 publicVariable "REPLAY_FINISHED";

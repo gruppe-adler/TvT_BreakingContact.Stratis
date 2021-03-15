@@ -4,7 +4,7 @@
 params ["_pos"];
 
      
-_name = format ["marker_radio_%1", str _pos];
+private _name = format ["marker_radio_%1", str _pos];
 _name = _name splitString " " joinString ""; // remove whitespaces
 
 _marker = createMarkerLocal [_name, _pos];

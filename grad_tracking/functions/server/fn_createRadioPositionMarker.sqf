@@ -13,7 +13,9 @@ private _anotherCloseBy = false;
 } forEach _currentLocations + _finishedLocations;
 
 // rescue exit if flag is planted too close to other flags
-if (_anotherCloseBy) exitWith { [0,0,0]; };
+if (_anotherCloseBy) exitWith { [0,0,0];
+    diag_log format ["too close to other flag %1"];
+};
 
 missionNamespace setVariable ["GRAD_tracking_radioPositions", _addLocation, true];
 [_center] remoteExec ["GRAD_tracking_fnc_createRadioPositionMarkerLocal", east, true];
