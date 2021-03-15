@@ -10,11 +10,11 @@ if (
      missionnamespace getVariable ["GRAD_replay_isRunning", false]
      ) exitWith {
      GRAD_ANTENNA_MARKER_HIDDEN = true;
-     publicVariable "GRAD_ANTENNA_MARKER_HIDDEN";
+     ["server_GRAD_ANTENNA_MARKER_HIDDEN", [GRAD_ANTENNA_MARKER_HIDDEN], allPlayers] call CBA_fnc_targetEvent;
 };
 
 if (!([GRAD_ANTENNA_MARKER_HIDDEN, _previous] call GRAD_tracking_fnc_booleanEqual)) then {
-     publicVariable "GRAD_ANTENNA_MARKER_HIDDEN";
+     ["server_GRAD_ANTENNA_MARKER_HIDDEN", [GRAD_ANTENNA_MARKER_HIDDEN], allPlayers] call CBA_fnc_targetEvent;
 };
 
 _return
