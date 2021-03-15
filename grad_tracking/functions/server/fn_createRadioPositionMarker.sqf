@@ -1,10 +1,10 @@
 params ["_center"];
 
-_currentLocations = missionNamespace getVariable ["GRAD_tracking_radioPositions", []];
-_finishedLocations = missionNamespace getVariable ["GRAD_tracking_radioPositionsFinished", []];
-_addLocation = _currentLocations + [_center];
+private _currentLocations = missionNamespace getVariable ["GRAD_tracking_radioPositions", []];
+private _finishedLocations = missionNamespace getVariable ["GRAD_tracking_radioPositionsFinished", []];
+private _addLocation = _currentLocations + [_center];
 
-_anotherCloseBy = false;
+private _anotherCloseBy = false;
 
 {
      if (_x distance _center < GRAD_MIN_DISTANCE_TO_RADIOPOSITION) then {

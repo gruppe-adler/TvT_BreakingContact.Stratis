@@ -33,7 +33,7 @@ private _GRAD_TERMINAL_MARKER_HIDDEN_listener = {
 
 
 private _GRAD_ANTENNA_MARKER_POS_listener = {
-     mrk_ANTENNA setMarkerPosLocal (_this select 1);
+     mrk_antenna setMarkerPosLocal (_this select 1);
 };
 
 private _GRAD_ANTENNA_MARKER_HIDDEN_listener = {

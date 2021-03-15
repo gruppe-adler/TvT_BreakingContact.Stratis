@@ -217,9 +217,9 @@ GRAD_tracking_mainLoop = [{
     };
 
     // toggle marker visbility
-    _radioVehMarkerStatusChange = [!_radioVehIsSending, _radioVeh] call GRAD_tracking_fnc_setRadioVehMarkerStatus;
-    _terminalMarkerStatusChange = [!_terminalIsSending, _terminal] call GRAD_tracking_fnc_setTerminalMarkerStatus;
-    _antennaMarkerStatusChange = [!_antennaIsSending, _antenna] call GRAD_tracking_fnc_setAntennaMarkerStatus;
+    private _radioVehMarkerStatusChange = [!_radioVehIsSending, _radioVeh] call GRAD_tracking_fnc_setRadioVehMarkerStatus;
+    private _terminalMarkerStatusChange = [!_terminalIsSending, _terminal] call GRAD_tracking_fnc_setTerminalMarkerStatus;
+    private _antennaMarkerStatusChange = [!_antennaIsSending, _antenna] call GRAD_tracking_fnc_setAntennaMarkerStatus;
 
     if (GRAD_TICKS_DONE >= GRAD_TICKS_NEEDED && (time > 10) && !_finishedCloserThanUnfinished) then {
             
@@ -248,7 +248,7 @@ GRAD_tracking_mainLoop = [{
     if (_terminalIsSending || _radioVehIsSending || _antennaIsSending) then {
 
              if  (grad_tracking_currentLoop < GRAD_SIGNAL_DELAY && 
-            (!_radioVehMarkerStatusChange || !_terminalMarkerStatusChange)) then {
+            (!_radioVehMarkerStatusChange || !_terminalMarkerStatusChange || !_antennaMarkerStatusChange)) then {
 
             grad_tracking_currentLoop = grad_tracking_currentLoop + 1;
 
