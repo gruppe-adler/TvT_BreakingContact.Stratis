@@ -1,6 +1,6 @@
 params ["_bool", "_radioVeh"];
 
-_previous = GRAD_RADIO_VEH_MARKER_HIDDEN;
+private _previous =  = GRAD_RADIO_VEH_MARKER_HIDDEN;
 GRAD_RADIO_VEH_MARKER_HIDDEN = _bool;
 
 if (

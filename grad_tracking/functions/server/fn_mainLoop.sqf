@@ -97,9 +97,9 @@ GRAD_tracking_mainLoop = [{
     if (call _endCondition) exitWith {
         [_handle] call CBA_fnc_removePerFrameHandler;
 
-        [true, _radioVeh] call GRAD_tracking_fnc_setRadioVehMarkerStatus;
-        [true, _terminal] call GRAD_tracking_fnc_setTerminalMarkerStatus;
-        [true, _antenna] call GRAD_tracking_fnc_setAntennaMarkerStatus;
+        [false, _radioVeh] call GRAD_tracking_fnc_setRadioVehMarkerStatus;
+        [false, _terminal] call GRAD_tracking_fnc_setTerminalMarkerStatus;
+        [false, _antenna] call GRAD_tracking_fnc_setAntennaMarkerStatus;
 
     };
 
@@ -107,9 +107,9 @@ GRAD_tracking_mainLoop = [{
     if (GRAD_INTERVALS_DONE >= GRAD_INTERVALS_NEEDED) exitWith {
         [_handle] call CBA_fnc_removePerFrameHandler;   // remove PFH
 
-        [true, _radioVeh] call GRAD_tracking_fnc_setRadioVehMarkerStatus;
-        [true, _terminal] call GRAD_tracking_fnc_setTerminalMarkerStatus;
-        [true, _antenna] call GRAD_tracking_fnc_setAntennaMarkerStatus;
+        [false, _radioVeh] call GRAD_tracking_fnc_setRadioVehMarkerStatus;
+        [false, _terminal] call GRAD_tracking_fnc_setTerminalMarkerStatus;
+        [false, _antenna] call GRAD_tracking_fnc_setAntennaMarkerStatus;
 
         [] call GRAD_tracking_fnc_bluforSurrendered;
     };
@@ -119,9 +119,9 @@ GRAD_tracking_mainLoop = [{
         [_handle] call CBA_fnc_removePerFrameHandler;
 
         [] call GRAD_tracking_fnc_bluforCaptured;    // call Mission End
-        [true, _radioVeh] call GRAD_tracking_fnc_setRadioVehMarkerStatus;
-        [true, _terminal] call GRAD_tracking_fnc_setTerminalMarkerStatus;
-        [true, _antenna] call GRAD_tracking_fnc_setAntennaMarkerStatus;
+        [false, _radioVeh] call GRAD_tracking_fnc_setRadioVehMarkerStatus;
+        [false, _terminal] call GRAD_tracking_fnc_setTerminalMarkerStatus;
+        [false, _antenna] call GRAD_tracking_fnc_setAntennaMarkerStatus;
     };
 
     if (!alive _radioVeh && {(_radioVeh getVariable ["detachableRadio", 0] != 2) && !GRAD_ANTENNA} && {CONQUER_MODE}) exitWith {
@@ -209,9 +209,9 @@ GRAD_tracking_mainLoop = [{
     };
 
     // toggle marker visbility
-    private _radioVehMarkerStatusChange = [!_radioVehIsSending, _radioVeh] call GRAD_tracking_fnc_setRadioVehMarkerStatus;
-    private _terminalMarkerStatusChange = [!_terminalIsSending, _terminal] call GRAD_tracking_fnc_setTerminalMarkerStatus;
-    private _antennaMarkerStatusChange = [!_antennaIsSending, _antenna] call GRAD_tracking_fnc_setAntennaMarkerStatus;
+    private _radioVehMarkerStatusChange = [_radioVehIsSending, _radioVeh] call GRAD_tracking_fnc_setRadioVehMarkerStatus;
+    private _terminalMarkerStatusChange = [_terminalIsSending, _terminal] call GRAD_tracking_fnc_setTerminalMarkerStatus;
+    private _antennaMarkerStatusChange = [_antennaIsSending] call GRAD_tracking_fnc_setAntennaMarkerStatus;
 
     if (GRAD_TICKS_DONE >= GRAD_TICKS_NEEDED && (time > 10) && !_finishedCloserThanUnfinished) then {
 

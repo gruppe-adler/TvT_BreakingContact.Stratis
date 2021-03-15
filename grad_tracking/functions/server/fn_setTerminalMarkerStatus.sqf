@@ -1,9 +1,9 @@
 params ["_bool", "_radioTerminal"];
 
-_previous = GRAD_TERMINAL_MARKER_HIDDEN;
+private _previous = GRAD_TERMINAL_MARKER_HIDDEN;
 GRAD_TERMINAL_MARKER_HIDDEN = _bool;
 
-_return = false;
+private _return = false;
 
 if (
      MISSION_COMPLETED || GRAD_TERMINAL_DESTROYED ||

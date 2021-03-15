@@ -1,9 +1,9 @@
-params ["_bool", "_antenna"];
+params ["_bool"];
 
-_previous = GRAD_ANTENNA_MARKER_HIDDEN;
+private _previous = GRAD_ANTENNA_MARKER_HIDDEN;
 GRAD_ANTENNA_MARKER_HIDDEN = _bool;
 
-_return = false;
+private _return = false;
 
 if (
      MISSION_COMPLETED || GRAD_ANTENNA_DISABLED ||
