@@ -16,7 +16,6 @@ class CfgFunctions {
 
     #include "grad_carryBoat\cfgFunctions.hpp"
     #include "grad_islands\cfgFunctions.hpp"
-    #include "grad_civMarker\cfgFunctions.hpp"
     #include "grad_tracking\cfgFunctions.hpp"
     #include "BC_flagsOnVehicles\cfgFunctions.hpp"
     #include "BC_objectives\cfgFunctions.hpp"

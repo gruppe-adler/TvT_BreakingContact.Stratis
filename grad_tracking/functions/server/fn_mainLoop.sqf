@@ -1,6 +1,6 @@
 params ["_radioVeh", "_terminal", "_antenna", "_endCondition"];
 
-private ["_result"]; 
+private ["_result"];
 
 _result = [1,0];
 
@@ -16,9 +16,9 @@ GRAD_tracking_mainLoop = [{
     private [
         "_activeItem",
         "_isCloseEnough",
-        "_currentLocation", 
-        "_currentLocationName", 
-        "_locationsCreated", 
+        "_currentLocation",
+        "_currentLocationName",
+        "_locationsCreated",
         "_finishedCloserThanUnfinished",
         "_radioVehIsSending"
     ];
@@ -30,7 +30,7 @@ GRAD_tracking_mainLoop = [{
     _currentLocation = [];
 
      // who the fuck is sending a signal currently
-    _radioVehIsSending = [_radioVeh] call GRAD_tracking_fnc_radioVehIsSending;    
+    _radioVehIsSending = [_radioVeh] call GRAD_tracking_fnc_radioVehIsSending;
     _terminalIsSending = [] call GRAD_tracking_fnc_terminalIsSending;
     _antennaIsSending = (_antenna getVariable ["antennaStatus", 0]) == 2;
 
@@ -45,16 +45,16 @@ GRAD_tracking_mainLoop = [{
     };
     _finishedCloserThanUnfinished = [_activeItem] call GRAD_tracking_fnc_nearestIsFinished;
 
-    
+
 
     // diag_log format ["_finishedCloserThanUnfinished is %1", _finishedCloserThanUnfinished];
-   
+
     // nearestPosition wont work well with empty input
-   
+
 
     if (!_finishedCloserThanUnfinished && _locationsCreated) then {
         _currentLocation =  [_allLocations, getPos _activeItem] call BIS_fnc_nearestPosition;
-        
+
         if (_radioVehIsSending || _terminalIsSending || _antennaIsSending) then {
             _isCloseEnough = _activeItem distance _currentLocation <= GRAD_MIN_DISTANCE_TO_RADIOPOSITION/2;
         };
@@ -70,8 +70,8 @@ GRAD_tracking_mainLoop = [{
     _currentActiveMarkerProgress = missionNameSpace getVariable [_currentLocationName, 0];
     GRAD_TICKS_DONE = _currentActiveMarkerProgress;
     // diag_log format ["currentLocationName is %1, _locationsCreated is %2", _currentLocation, _locationsCreated];
-    
- 
+
+
 
     /* diag_log format ["_radioVehIsCloseEnough is %1, _terminalIsCloseEnough is %2", _radioVehIsCloseEnough, _terminalIsCloseEnough];*/
 
@@ -84,25 +84,25 @@ GRAD_tracking_mainLoop = [{
         if (count _allOtherLocations > 0) then {
             {
                 [
-                        str _x, 
-                        "ColorOpfor", 
+                        str _x,
+                        "ColorOpfor",
                         ""
                 ] remoteExec ["GRAD_tracking_fnc_setMarkerColorAndText", east, false];
             } forEach _allOtherLocations;
         };
     };
 
-    
+
 
 
     // _terminalPos = getPos _terminal;
 
     ///////////////////////////////
 
-    
+
 
     // stop loop if necessary
-    if (call _endCondition) exitWith { 
+    if (call _endCondition) exitWith {
         [_handle] call CBA_fnc_removePerFrameHandler;
 
         [true, _radioVeh] call GRAD_tracking_fnc_setRadioVehMarkerStatus;
@@ -118,23 +118,23 @@ GRAD_tracking_mainLoop = [{
         [true, _radioVeh] call GRAD_tracking_fnc_setRadioVehMarkerStatus;
         [true, _terminal] call GRAD_tracking_fnc_setTerminalMarkerStatus;
         [true, _antenna] call GRAD_tracking_fnc_setAntennaMarkerStatus;
-        
+
         [] call GRAD_tracking_fnc_bluforSurrendered;
     };
 
     // if vehicles are destroyed, end mission
     if (!alive _radioVeh && {(_radioVeh getVariable ["detachableRadio", 0] != 2) && !GRAD_ANTENNA} && {!CONQUER_MODE}) exitWith {
         [_handle] call CBA_fnc_removePerFrameHandler;
-        
+
         [] call GRAD_tracking_fnc_bluforCaptured;    // call Mission End
         [true, _radioVeh] call GRAD_tracking_fnc_setRadioVehMarkerStatus;
         [true, _terminal] call GRAD_tracking_fnc_setTerminalMarkerStatus;
-        [true, _antenna] call GRAD_tracking_fnc_setAntennaMarkerStatus;      
+        [true, _antenna] call GRAD_tracking_fnc_setAntennaMarkerStatus;
     };
 
     if (!alive _radioVeh && {(_radioVeh getVariable ["detachableRadio", 0] != 2) && !GRAD_ANTENNA} && {CONQUER_MODE}) exitWith {
         [_handle] call CBA_fnc_removePerFrameHandler;
-        
+
         TRUCK_DESTROYED_NOT_CONQUERED = true;    // call Mission End
         publicVariable "TRUCK_DESTROYED_NOT_CONQUERED";
     };
@@ -142,7 +142,7 @@ GRAD_tracking_mainLoop = [{
     // check if cookoff needs fixing
     [_radioVeh] call GRAD_tracking_fnc_radioTruckCookoffFix;
 
-   
+
 
     // check if radio truck is sending alone with terminal detached or antenna mode (he cant do that anymore)
     // GRAD_TERMINAL_ACTIVE
@@ -162,14 +162,14 @@ GRAD_tracking_mainLoop = [{
             missionNameSpace setVariable [_currentLocationName, GRAD_TICKS_DONE, true];
 
             _ticksRatio = GRAD_TICKS_DONE/GRAD_TICKS_NEEDED;
-        
+
             [
-                _currentLocationName, 
-                "ColorYellow", 
+                _currentLocationName,
+                "ColorYellow",
                 (" " + (str (round(_ticksRatio * 100))) + " %")
             ] remoteExec ["GRAD_tracking_fnc_setMarkerColorAndText", east, false];
-    };  
-    
+    };
+
 
     // add only terminal is sending, add half a tick
     if (!_radioVehIsSending && _terminalIsSending && !_finishedCloserThanUnfinished && _isCloseEnough) then {
@@ -182,10 +182,10 @@ GRAD_tracking_mainLoop = [{
         _ticksRatio = GRAD_TICKS_DONE/GRAD_TICKS_NEEDED;
 
         [
-            _currentLocationName, 
-            "ColorYellow", 
+            _currentLocationName,
+            "ColorYellow",
             (" " + (str (round(_ticksRatio * 100))) + " %")
-        ] remoteExec ["GRAD_tracking_fnc_setMarkerColorAndText", east, false];  
+        ] remoteExec ["GRAD_tracking_fnc_setMarkerColorAndText", east, false];
     };
 
     // if truck and terminal are sending, add terminal to truck distance dependent tick
@@ -197,23 +197,23 @@ GRAD_tracking_mainLoop = [{
         _result = [_radioVeh distance _terminal] call GRAD_tracking_fnc_terminalDistanceToVehCalc;
         _modifier = _result select 0;
         _distanceToRadioTruck = _result select 1;
-        
+
         // check if distance changed, if yes, broadcast for client hint
          [_modifier, _tempModifier, _tempDistance, _result] call GRAD_tracking_fnc_terminalCalculateDistanceModifier;
-     
+
         GRAD_TICKS_DONE = GRAD_TICKS_DONE + (1 * _modifier);
 
         missionNameSpace setVariable [_currentLocationName, GRAD_TICKS_DONE, true];
 
         _ticksRatio = GRAD_TICKS_DONE/GRAD_TICKS_NEEDED;
 
-   
+
         [
-            _currentLocationName, 
-            "ColorYellow", 
+            _currentLocationName,
+            "ColorYellow",
             (" " + (str (round(_ticksRatio * 100))) + " %")
         ] remoteExec ["GRAD_tracking_fnc_setMarkerColorAndText", east, false];
-         
+
     };
 
     // toggle marker visbility
@@ -222,7 +222,7 @@ GRAD_tracking_mainLoop = [{
     private _antennaMarkerStatusChange = [!_antennaIsSending, _antenna] call GRAD_tracking_fnc_setAntennaMarkerStatus;
 
     if (GRAD_TICKS_DONE >= GRAD_TICKS_NEEDED && (time > 10) && !_finishedCloserThanUnfinished) then {
-            
+
         _finishedRadioLocations = missionNamespace getVariable ["GRAD_tracking_radioPositionsFinished", []];
         _finishedRadioLocations = _finishedRadioLocations + [_currentLocation];
         missionNamespace setVariable ["GRAD_tracking_radioPositionsFinished", _finishedRadioLocations, true];
@@ -231,23 +231,25 @@ GRAD_tracking_mainLoop = [{
         missionNamespace setVariable ["GRAD_tracking_radioPositions", _allOtherLocations, true];
 
         GRAD_INTERVALS_DONE = GRAD_INTERVALS_DONE + 1;
-        publicVariable "GRAD_INTERVALS_DONE";
+
+        ["server_GRAD_INTERVALS_DONE",[GRAD_INTERVALS_DONE], allPlayers] call CBA_fnc_targetEvent;
 
         if (_locationsCreated) then {
             [
-                _currentLocationName, 
+                _currentLocationName,
                 "ColorGreen",
                 " DONE"
-            ] remoteExec ["GRAD_tracking_fnc_setMarkerColorAndText", east, true];        
+            ] remoteExec ["GRAD_tracking_fnc_setMarkerColorAndText", east, true];
         };
 
         GRAD_TICKS_DONE = 0;
-        publicVariable "GRAD_TICKS_DONE";
+
+        ["server_GRAD_TICKS_DONE",[GRAD_TICKS_DONE], allPlayers] call CBA_fnc_targetEvent;
     };
 
     if (_terminalIsSending || _radioVehIsSending || _antennaIsSending) then {
 
-             if  (grad_tracking_currentLoop < GRAD_SIGNAL_DELAY && 
+             if  (grad_tracking_currentLoop < GRAD_SIGNAL_DELAY &&
             (!_radioVehMarkerStatusChange || !_terminalMarkerStatusChange || !_antennaMarkerStatusChange)) then {
 
             grad_tracking_currentLoop = grad_tracking_currentLoop + 1;
@@ -282,5 +284,7 @@ GRAD_tracking_syncLoop = [{
     "mrk_spawn_blufor_land_1" setMarkerPos BLUFOR_TELEPORT_TARGET;
     "mrk_spawn_opfor_land_1" setMarkerPos OPFOR_TELEPORT_TARGET;
     publicVariable "GRAD_TICKS_DONE";
+
+    ["server_GRAD_TICKS_DONE",[GRAD_TICKS_DONE], allPlayers] call CBA_fnc_targetEvent;
 
 },5,[]] call CBA_fnc_addPerFrameHandler;

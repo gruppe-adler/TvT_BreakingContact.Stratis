@@ -1,15 +1,9 @@
 if (playerSide != east) exitWith {};
 
-_GRAD_TERMINAL_DISTANCE_listener = {
-	[GRAD_TERMINAL_DISTANCE] call GRAD_tracking_fnc_terminalDistanceHint;
-};
+["server_GRAD_TERMINAL_DISTANCE", {
+    params ["_value"];
 
-"GRAD_TERMINAL_DISTANCE" addPublicVariableEventHandler _GRAD_TERMINAL_DISTANCE_listener;
+    GRAD_TERMINAL_DISTANCE = _value;
+    [_value] call GRAD_tracking_fnc_terminalDistanceHint;
 
-// only works once, not really feasible in sp
-if (!isMultiplayer) then {
-     _GRAD_TERMINAL_DISTANCE_listener spawn {
-          waitUntil {GRAD_TERMINAL_DISTANCE != 0};
-          [0, GRAD_TERMINAL_DISTANCE] call _this;
-     };
-};
+}] call CBA_fnc_addEventhandler;

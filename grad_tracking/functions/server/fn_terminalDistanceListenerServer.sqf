@@ -1,6 +1,6 @@
-_GRAD_TERMINAL_DISTANCE_listener = {
-    publicVariable "GRAD_TERMINAL_DISTANCE";
+["server_GRAD_TERMINAL_DISTANCE", {
+    params ["_value"];
 
-   };
+    ["server_GRAD_TERMINAL_DISTANCE",[GRAD_TERMINAL_DISTANCE], allPlayers] call CBA_fnc_targetEvent;
 
-"GRAD_TERMINAL_DISTANCE" addPublicVariableEventhandler _GRAD_TERMINAL_DISTANCE_listener;
+}] call CBA_fnc_addEventhandler;

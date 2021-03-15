@@ -6,43 +6,65 @@ mrk_radioVeh = call GRAD_tracking_fnc_createMarkerRadioVeh;
 mrk_terminal = call GRAD_tracking_fnc_createMarkerTerminal;
 mrk_antenna = call GRAD_tracking_fnc_createMarkerAntenna;
 
+["server_GRAD_RADIO_VEH_MARKER_POS", {
+    params ["_bool"];
 
-private _GRAD_RADIO_VEH_MARKER_POS_listener = {
-     mrk_radioVeh setMarkerPosLocal (_this select 1);
-};
+    mrk_radioVeh setMarkerPosLocal _bool;
 
-private _GRAD_RADIO_VEH_MARKER_HIDDEN_listener = {
-	if (_this select 1) then {
-		mrk_radioVeh setMarkerAlphaLocal 0;
-	} else {
-		[] call GRAD_tracking_fnc_ensureRadioVehMarkerAnimation;
-	};
-};
-
-private _GRAD_TERMINAL_MARKER_POS_listener = {
-     mrk_terminal setMarkerPosLocal (_this select 1);
-};
-
-private _GRAD_TERMINAL_MARKER_HIDDEN_listener = {
-     if (_this select 1) then {
-          mrk_terminal setMarkerAlphaLocal 0;
-     } else {
-          [] call GRAD_tracking_fnc_ensureTerminalMarkerAnimation;
-     };
-};
+}] call CBA_fnc_addEventhandler;
 
 
-private _GRAD_ANTENNA_MARKER_POS_listener = {
-     mrk_antenna setMarkerPosLocal (_this select 1);
-};
+["server_GRAD_TERMINAL_MARKER_POS", {
+    params ["_bool"];
 
-private _GRAD_ANTENNA_MARKER_HIDDEN_listener = {
-     if (_this select 1) then {
-          mrk_antenna setMarkerAlphaLocal 0;
-     } else {
-          [] call GRAD_tracking_fnc_ensureAntennaMarkerAnimation;
-     };
-};
+    mrk_terminal setMarkerPosLocal _bool;
+
+}] call CBA_fnc_addEventhandler;
+
+
+["server_GRAD_RADIO_VEH_MARKER_HIDDEN", {
+    params ["_bool"];
+
+    if (_bool) then {
+  		mrk_radioVeh setMarkerAlphaLocal 0;
+  	} else {
+  		[] call GRAD_tracking_fnc_ensureRadioVehMarkerAnimation;
+  	};
+
+}] call CBA_fnc_addEventhandler;
+
+
+["server_GRAD_TERMINAL_MARKER_HIDDEN", {
+    params ["_bool"];
+
+    if (_bool) then {
+         mrk_terminal setMarkerAlphaLocal 0;
+    } else {
+         [] call GRAD_tracking_fnc_ensureTerminalMarkerAnimation;
+    };
+
+}] call CBA_fnc_addEventhandler;
+
+
+["server_GRAD_ANTENNA_MARKER_POS", {
+    params ["_bool"];
+
+    mrk_antenna setMarkerPosLocal _bool;
+
+}] call CBA_fnc_addEventhandler;
+
+
+["server_GRAD_ANTENNA_MARKER_HIDDEN", {
+    params ["_bool"];
+
+    if (_bool) then {
+         mrk_antenna setMarkerAlphaLocal 0;
+    } else {
+         [] call GRAD_tracking_fnc_ensureAntennaMarkerAnimation;
+    };
+
+}] call CBA_fnc_addEventhandler;
+
 
 // initial set
 grad_interval_nextWarning = 1;
@@ -51,34 +73,3 @@ grad_ticks_nextWarning = 0.2;
 // add listener for intervals
 call GRAD_tracking_fnc_listenerInterval;
 call GRAD_tracking_fnc_listenerTicks;
-
-
-// add listener for radio signal marker
-"GRAD_RADIO_VEH_MARKER_POS" addPublicVariableEventHandler _GRAD_RADIO_VEH_MARKER_POS_listener;
-"GRAD_RADIO_VEH_MARKER_HIDDEN" addPublicVariableEventHandler _GRAD_RADIO_VEH_MARKER_HIDDEN_listener;
-
-
-// add listener for terminal signal marker
-"GRAD_TERMINAL_MARKER_POS" addPublicVariableEventHandler _GRAD_TERMINAL_MARKER_POS_listener;
-"GRAD_TERMINAL_MARKER_HIDDEN" addPublicVariableEventHandler _GRAD_TERMINAL_MARKER_HIDDEN_listener;
-
-
-// add listener for terminal signal marker
-"GRAD_ANTENNA_MARKER_POS" addPublicVariableEventHandler _GRAD_ANTENNA_MARKER_POS_listener;
-"GRAD_ANTENNA_MARKER_HIDDEN" addPublicVariableEventHandler _GRAD_ANTENNA_MARKER_HIDDEN_listener;
-
-
-// runs in SP to emulate addPublicVariableEventHandler (which doesnt work in SP)
-if (!isMultiplayer) then {
-     [_GRAD_RADIO_VEH_MARKER_HIDDEN_listener, _GRAD_RADIO_VEH_MARKER_POS_listener, _GRAD_TERMINAL_MARKER_HIDDEN_listener, _GRAD_TERMINAL_MARKER_POS_listener, _GRAD_ANTENNA_MARKER_HIDDEN_listener, _GRAD_ANTENNA_MARKER_POS_listener] spawn {
-          while {true} do {
-               [0, GRAD_RADIO_VEH_MARKER_HIDDEN] call (_this select 0);
-               [0, GRAD_RADIO_VEH_MARKER_POS] call (_this select 1);
-               [0, GRAD_TERMINAL_MARKER_HIDDEN] call (_this select 2);
-               [0, GRAD_TERMINAL_MARKER_POS] call (_this select 3);
-               [0, GRAD_ANTENNA_MARKER_HIDDEN] call (_this select 4);
-               [0, GRAD_ANTENNA_MARKER_POS] call (_this select 5);
-               sleep 2;
-          };
-     };
-};

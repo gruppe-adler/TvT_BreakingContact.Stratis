@@ -223,11 +223,6 @@ SPEC_CENTER = createCenter independent;
 SPEC_GROUP = createGroup [SPEC_CENTER, false];
 publicVariable "SPEC_GROUP";
 
-
-
-[] call grad_civMarker_fnc_civGunfightListener;
-[] call grad_civMarker_fnc_civKilledListener;
-
 // let highest player rank choose spawn
 private _spawnSelector = [east] call BC_setup_fnc_getHighestRankOfSide;
 _spawnSelector setVariable ["BC_spawnSelector", true];
