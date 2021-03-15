@@ -10,10 +10,12 @@ if (
 ) then {
      GRAD_RADIO_VEH_MARKER_HIDDEN = true;
      ["server_GRAD_RADIO_VEH_MARKER_HIDDEN", [GRAD_RADIO_VEH_MARKER_HIDDEN], allPlayers] call CBA_fnc_targetEvent;
+     _return = true;
 };
 
 if (!([GRAD_RADIO_VEH_MARKER_HIDDEN, _previous] call GRAD_tracking_fnc_booleanEqual)) then {
       ["server_GRAD_RADIO_VEH_MARKER_HIDDEN", [GRAD_RADIO_VEH_MARKER_HIDDEN], allPlayers] call CBA_fnc_targetEvent;
+      _return = true;
 };
 
 false
