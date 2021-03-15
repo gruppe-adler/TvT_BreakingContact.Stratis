@@ -9,7 +9,7 @@ _vehicle addMPEventHandler ["MPHit", {
   params ["_unit", "_causedBy", "_damage", "_instigator"];
 
   if (alive _unit && (side _instigator != sideUnknown && _instigator != _unit)) then {
-    _unit setVariable ["BC_lastDamageSource_instigator", _instigator, true];
+    _unit setVariable ["BC_lastDamageSource_causedBy", _instigator, true];
   };
 
   _damage
