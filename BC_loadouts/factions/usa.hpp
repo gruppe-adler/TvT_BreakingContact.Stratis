@@ -35,6 +35,10 @@ class USA {
                 LIST_2("rhs_mag_m67"),
                 LIST_2("SmokeShell")
             };
+            addItemsToBackpack[] = {
+                LIST_10("rhs_mag_30Rnd_556x45_M855A1_Stanag"),
+                LIST_10("ACE_fieldDressing")
+            };
         };
 
         // Engineer
@@ -96,7 +100,7 @@ class USA {
             primaryWeapon = "rhs_weap_m249_pip_S";
             primaryWeaponMagazine = "rhsusf_200rnd_556x45_M855_mixed_box";
             addItemsToVest[] = {
-                "rhsusf_200rnd_556x45_M855_mixed_box",
+                LIST_2("rhsusf_200rnd_556x45_M855_mixed_box"),
                 LIST_2("rhs_mag_m67"),
                 LIST_2("SmokeShell")
             };
@@ -192,6 +196,9 @@ class USA {
             backpack = "TFAR_rt1523g_sage";
         };
 
+        // Commander
+        class officer_F: Soldier_SL_F {};
+        
         // Neue Klasse...
     };
 };

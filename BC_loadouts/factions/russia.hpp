@@ -36,6 +36,10 @@ class russia {
                 LIST_2("rhs_mag_rgd5"),
                 LIST_2("rhs_mag_rdg2_white")
             };
+            addItemsToBackpack[] = {
+                LIST_10("rhs_30Rnd_545x39_7N10_AK"),
+                LIST_10("ACE_fieldDressing")
+            };
         };
 
         // Engineer
@@ -191,11 +195,11 @@ class russia {
                 LIST_2("rhs_mag_rdg2_white")
             };
             addItemsToBackpack[] = {
-                LIST_4("rhs_30Rnd_762x39mm_polymer_tracer"),
+                LIST_6("rhs_30Rnd_762x39mm_polymer_tracer"),
                 LIST_2("rhs_GRD40_Green"),
                 LIST_4("rhs_GRD40_Red"),
                 LIST_4("rhs_GRD40_White"),
-                LIST_8("rhs_30Rnd_545x39_7N10_AK")
+                LIST_4("rhs_30Rnd_545x39_7N10_AK")
             };
         };
 
@@ -204,6 +208,9 @@ class russia {
             backpack = "TFAR_mr3000_rhs";
         };
 
-        // Neue Klasse...
+        // Commander
+        class officer_F: Soldier_SL_F {};
+
+       // Neue Klasse...
     };
 };
