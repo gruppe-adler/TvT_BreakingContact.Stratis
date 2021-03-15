@@ -15,7 +15,10 @@ waitUntil {sleep 1; !isNil "GRAD_TERMINAL_DESTROYED"};
     OPFOR_PRE_ELIMINATED = ({side _x isEqualTo east && alive _x} count (switchableUnits + playableUnits) == 0);
     BLUFOR_PRE_ELIMINATED = ({side _x isEqualTo west && alive _x} count (switchableUnits + playableUnits) == 0);
 
-    if (GRAD_TERMINAL_DESTROYED) then { [] call GRAD_tracking_fnc_bluforCaptured; };
+    if (GRAD_TERMINAL_DESTROYED) then { 
+        [] call GRAD_tracking_fnc_bluforCaptured; 
+        ["serverDecisionEnd",["west", "captured"], allPlayers] call CBA_fnc_targetEvent;
+    };
 
     if (OPFOR_PRE_ELIMINATED) then {["OPFOR_PRE_ELIMINATED"] spawn BC_objectives_fnc_waitingForUnconscious;};
     if (BLUFOR_PRE_ELIMINATED) then {["BLUFOR_PRE_ELIMINATED"] spawn BC_objectives_fnc_waitingForUnconscious;};
@@ -30,6 +33,8 @@ waitUntil {sleep 1; !isNil "GRAD_TERMINAL_DESTROYED"};
         [_taskBlufor2,"FAILED",true] call BIS_fnc_taskSetState;
         [_taskOpfor1,"SUCCEEDED",true] call BIS_fnc_taskSetState;
         [_taskOpfor2,"CANCELED",true] call BIS_fnc_taskSetState;
+
+        ["serverDecisionEnd",["east", "transmission"], allPlayers] call CBA_fnc_targetEvent;
     };
 
     /* opfor wins by elimination*/
@@ -42,6 +47,8 @@ waitUntil {sleep 1; !isNil "GRAD_TERMINAL_DESTROYED"};
         [_taskBlufor2,"FAILED",true] call BIS_fnc_taskSetState;
         [_taskOpfor1,"CANCELED",true] call BIS_fnc_taskSetState;
         [_taskOpfor2,"SUCCEEDED",true] call BIS_fnc_taskSetState;
+
+        ["serverDecisionEnd",["east", "elimination"], allPlayers] call CBA_fnc_targetEvent;
     };
 
     /* blufor wins by capture*/
@@ -54,6 +61,8 @@ waitUntil {sleep 1; !isNil "GRAD_TERMINAL_DESTROYED"};
         [_taskBlufor2,"CANCELED",true] call BIS_fnc_taskSetState;
         [_taskOpfor1,"FAILED",true] call BIS_fnc_taskSetState;
         [_taskOpfor2,"FAILED",true] call BIS_fnc_taskSetState;
+
+        ["serverDecisionEnd",["west", "captured"], allPlayers] call CBA_fnc_targetEvent;
     };
 
     /* blufor wins by elimination*/
@@ -66,6 +75,8 @@ waitUntil {sleep 1; !isNil "GRAD_TERMINAL_DESTROYED"};
         [_taskBlufor2,"SUCCEEDED",true] call BIS_fnc_taskSetState;
         [_taskOpfor1,"FAILED",true] call BIS_fnc_taskSetState;
         [_taskOpfor2,"FAILED",true] call BIS_fnc_taskSetState;
+
+        ["serverDecisionEnd",["west", "elimination"], allPlayers] call CBA_fnc_targetEvent;
     };
 
     diag_log format ["looping condition for %1", TRUCK_DESTROYED_NOT_CONQUERED];
@@ -78,7 +89,7 @@ waitUntil {sleep 1; !isNil "GRAD_TERMINAL_DESTROYED"};
         _radioVeh = missionNameSpace getVariable ["GRAD_tracking_radioVehObj", objNull];
         _terminal = missionNameSpace getVariable ["GRAD_tracking_terminalObj", objNull];
 
-        _killerSide = side (_radioVeh getVariable ["ace_medical_lastDamageSource", objNull]);
+        _killerSide = side (_radioVeh getVariable ["BC_lastDamageSource_causedBy", objNull]);
 
          switch (_killerSide) do {
               case west: {
@@ -86,18 +97,24 @@ waitUntil {sleep 1; !isNil "GRAD_TERMINAL_DESTROYED"};
                 [_taskBlufor2,"CANCELED",true] call BIS_fnc_taskSetState;
                 [_taskOpfor1,"CANCELED",true] call BIS_fnc_taskSetState;
                 [_taskOpfor2,"CANCELED",true] call BIS_fnc_taskSetState;
+
+                ["serverDecisionEnd",["east", "destroyed"], allPlayers] call CBA_fnc_targetEvent;
               };
               case east: {
                 [_taskBlufor1,"CANCELED",true] call BIS_fnc_taskSetState;
                 [_taskBlufor2,"CANCELED",true] call BIS_fnc_taskSetState;
                 [_taskOpfor1,"FAILED",true] call BIS_fnc_taskSetState;
                 [_taskOpfor2,"CANCELED",true] call BIS_fnc_taskSetState;
+
+                ["serverDecisionEnd",["west", "destroyed"], allPlayers] call CBA_fnc_targetEvent;
               };
               default {
                 [_taskBlufor1,"CANCELED",true] call BIS_fnc_taskSetState;
                 [_taskBlufor2,"CANCELED",true] call BIS_fnc_taskSetState;
                 [_taskOpfor1,"CANCELED",true] call BIS_fnc_taskSetState;
                 [_taskOpfor2,"CANCELED",true] call BIS_fnc_taskSetState;
+
+                ["serverDecisionEnd",["draw", "destroyed"], allPlayers] call CBA_fnc_targetEvent;
               };
          };
 

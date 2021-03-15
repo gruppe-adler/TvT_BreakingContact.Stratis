@@ -1,4 +1,4 @@
-version=53;
+version=54;
 class EditorData
 {
 	moveGridStep=1;
@@ -16,13 +16,14 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={1689.094,16.96386,5635.1079};
-		dir[]={0.43267742,-0.49347103,0.75453705};
-		up[]={0.24548341,0.86975628,0.42809042};
-		aside[]={0.86751062,2.180459e-007,-0.49746001};
+		pos[]={1733.7382,33.589039,5848.4458};
+		dir[]={0.44633555,-0.42495474,0.78752667};
+		up[]={0.20953308,0.90521455,0.36970589};
+		aside[]={0.86998886,0,-0.4930715};
 	};
 };
 binarizationWanted=0;
+sourceName="TvT_BreakingContact";
 addons[]=
 {
 	"A3_Ui_F",
@@ -31,7 +32,6 @@ addons[]=
 	"A3_Characters_F",
 	"A3_Characters_F_Mark",
 	"ace_explosives",
-	"ace_nouniformrestrictions",
 	"A3_Characters_F_Tank",
 	"A3_Data_F_Curator_Virtual"
 };
@@ -7971,7 +7971,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=1185;
-					type="B_engineer_F";
+					type="B_soldier_repair_F";
 					class CustomAttributes
 					{
 						class Attribute0
@@ -8303,7 +8303,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=1189;
-					type="B_engineer_F";
+					type="B_soldier_repair_F";
 					class CustomAttributes
 					{
 						class Attribute0
@@ -8635,7 +8635,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=1193;
-					type="B_engineer_F";
+					type="B_soldier_repair_F";
 					class CustomAttributes
 					{
 						class Attribute0
@@ -12019,7 +12019,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=1287;
-					type="O_engineer_F";
+					type="O_soldier_repair_F";
 					class CustomAttributes
 					{
 						class Attribute0
@@ -12275,7 +12275,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=1291;
-					type="O_engineer_F";
+					type="O_soldier_repair_F";
 					class CustomAttributes
 					{
 						class Attribute0
@@ -12491,7 +12491,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=1295;
-					type="O_engineer_F";
+					type="O_soldier_repair_F";
 					class CustomAttributes
 					{
 						class Attribute0

@@ -153,12 +153,12 @@ class USA {
             spawnEmpty = 1;
             trackCargo = 3;
             condition = "BC_IS_WOODLAND";
-            vehicleInit = "['standard',1],['IFF_Panels_Hide',1]";
+            vehicleInit = "[['standard',1],['IFF_Panels_Hide',1]]";
         };
 
         class rhsgref_hidf_m113a3_mk19: rhsusf_m113_usarmy_M2_90 {
             condition = "!BC_IS_WOODLAND";
-            vehicleInit = "['Desert',1],['IFF_Panels_Hide',1]";
+            vehicleInit = "[['Desert',1],['IFF_Panels_Hide',1]]";
         };
     };
 
@@ -175,12 +175,12 @@ class USA {
             spawnEmpty = 1;
             wheelCargo = 2;
             condition = "BC_IS_WOODLAND";
-            vehicleInit = "['standard',1], ['hide_snorkel',1,'hide_CIP',0,'hide_BFT',0,'hide_Antenna',0,'hide_A2_Parts',0,'Hide_A2Bumper',0,'Hide_Brushguard',1]";
+            vehicleInit = "[['standard',1], ['hide_snorkel',1,'hide_CIP',0,'hide_BFT',0,'hide_Antenna',0,'hide_A2_Parts',0,'Hide_A2Bumper',0,'Hide_Brushguard',1]]";
         };
 
         class rhsusf_m1045_d: rhsusf_m1045_w {
             condition = "!BC_IS_WOODLAND";
-            vehicleInit = "['Desert',1], ['hide_snorkel',1,'hide_CIP',0,'hide_BFT',0,'hide_Antenna',0,'hide_A2_Parts',0,'Hide_A2Bumper',0,'Hide_Brushguard',1]";
+            vehicleInit = "[['Desert',1], ['hide_snorkel',1,'hide_CIP',0,'hide_BFT',0,'hide_Antenna',0,'hide_A2_Parts',0,'Hide_A2Bumper',0,'Hide_Brushguard',1]]";
         };
 
         class RHS_UH60M2 {
