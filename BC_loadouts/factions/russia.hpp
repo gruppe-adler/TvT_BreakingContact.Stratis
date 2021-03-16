@@ -164,9 +164,9 @@ class russia {
                 LIST_20("ACE_morphine"),
                 LIST_20("ACE_epinephrine"),
                 LIST_20("ACE_bloodIV_250"),
-                LIST_20("ACE_bloodIV_500"),
+                LIST_10("ACE_bloodIV_500"),
                 LIST_5("ACE_tourniquet"),
-                LIST_4("rhs_mag_rdg2_white")
+                LIST_5("rhs_mag_rdg2_white")
             };
         };
 
@@ -178,7 +178,7 @@ class russia {
             primaryWeaponMagazine = "rhs_30Rnd_762x39mm_polymer_tracer";
             handgunWeapon = "rhs_weap_pya";
             handgunWeaponMagazine = "rhs_mag_9x19_17";
-            underBarrelMagazine = "rhs_VG40MD_White";
+            underBarrelMagazine = "rhs_GRD40_White";
             backpack = "TFAR_mr3000_rhs";
             addItemsToUniform[] = {
                 LIST_8("ACE_fieldDressing"),
@@ -197,7 +197,7 @@ class russia {
             };
             addItemsToBackpack[] = {
                 LIST_6("rhs_30Rnd_762x39mm_polymer_tracer"),
-                LIST_2("rhs_GRD40_Green"),
+                LIST_1("rhs_GRD40_Green"),
                 LIST_4("rhs_GRD40_Red"),
                 LIST_4("rhs_GRD40_White"),
                 LIST_4("rhs_30Rnd_545x39_7N10_AK")
