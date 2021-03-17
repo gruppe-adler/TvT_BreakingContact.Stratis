@@ -157,9 +157,9 @@ class USA {
                 LIST_20("ACE_morphine"),
                 LIST_20("ACE_epinephrine"),
                 LIST_20("ACE_bloodIV_250"),
-                LIST_20("ACE_bloodIV_500"),
+                LIST_10("ACE_bloodIV_500"),
                 LIST_5("ACE_tourniquet"),
-                LIST_4("SmokeShell")
+                LIST_5("SmokeShell")
             };
         };
 
@@ -182,7 +182,7 @@ class USA {
                 LIST_8("rhs_mag_30Rnd_556x45_M855A1_Stanag"),
                 LIST_2("rhs_mag_m67"),
                 LIST_2("SmokeShell"),
-                LIST_2("1Rnd_SmokeGreen_Grenade_shell"),
+                LIST_1("1Rnd_SmokeGreen_Grenade_shell"),
                 LIST_4("1Rnd_SmokeRed_Grenade_shell"),
                 LIST_4("1Rnd_Smoke_Grenade_shell")
             };
