@@ -153,12 +153,12 @@ class USA {
         class Medic_F: Soldier_F {
             backpack = "B_Kitbag_cbr";
             addItemsToBackpack[] = {
-                LIST_20("ACE_fieldDressing"),
+                LIST_5("ACE_tourniquet"),
+                LIST_40("ACE_fieldDressing"),
                 LIST_20("ACE_morphine"),
                 LIST_20("ACE_epinephrine"),
                 LIST_20("ACE_bloodIV_250"),
                 LIST_10("ACE_bloodIV_500"),
-                LIST_5("ACE_tourniquet"),
                 LIST_5("SmokeShell")
             };
         };
@@ -184,7 +184,7 @@ class USA {
                 LIST_2("SmokeShell"),
                 LIST_1("1Rnd_SmokeGreen_Grenade_shell"),
                 LIST_4("1Rnd_SmokeRed_Grenade_shell"),
-                LIST_4("1Rnd_Smoke_Grenade_shell")
+                LIST_3("1Rnd_Smoke_Grenade_shell")
             };
             addItemsToBackpack[] = {
                 LIST_10("rhs_mag_30Rnd_556x45_M855A1_Stanag")

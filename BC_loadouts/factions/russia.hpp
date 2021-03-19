@@ -160,12 +160,12 @@ class russia {
         class Medic_F: Soldier_F {
             backpack = "rhssaf_kitbag_md2camo";
             addItemsToBackpack[] = {    
-                LIST_20("ACE_fieldDressing"),
+                LIST_5("ACE_tourniquet"),
+                LIST_40("ACE_fieldDressing"),
                 LIST_20("ACE_morphine"),
                 LIST_20("ACE_epinephrine"),
                 LIST_20("ACE_bloodIV_250"),
                 LIST_10("ACE_bloodIV_500"),
-                LIST_5("ACE_tourniquet"),
                 LIST_5("rhs_mag_rdg2_white")
             };
         };
@@ -199,7 +199,7 @@ class russia {
                 LIST_6("rhs_30Rnd_762x39mm_polymer_tracer"),
                 LIST_1("rhs_GRD40_Green"),
                 LIST_4("rhs_GRD40_Red"),
-                LIST_4("rhs_GRD40_White"),
+                LIST_3("rhs_GRD40_White"),
                 LIST_4("rhs_30Rnd_545x39_7N10_AK")
             };
         };
