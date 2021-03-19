@@ -153,7 +153,7 @@ class USA {
         class Medic_F: Soldier_F {
             backpack = "B_Kitbag_cbr";
             addItemsToBackpack[] = {
-                LIST_40("ACE_fieldDressing"),
+                LIST_20("ACE_fieldDressing"),
                 LIST_20("ACE_morphine"),
                 LIST_20("ACE_epinephrine"),
                 LIST_20("ACE_bloodIV_250"),

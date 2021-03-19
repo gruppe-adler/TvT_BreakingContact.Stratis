@@ -10,3 +10,5 @@
 #include "factions\sovjetGM.hpp"
 
 #include "factions\rebels.hpp"
+
+#include "factions\referee.hpp"

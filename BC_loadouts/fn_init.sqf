@@ -15,3 +15,4 @@ diag_log format ["setting loadout to %1 vs %2", _loadoutsOpfor, _loadoutsBlufor]
 
 ["BLU_F", _loadoutsBlufor] call GRAD_Loadout_fnc_FactionSetLoadout;
 ["OPF_F", _loadoutsOpfor] call GRAD_Loadout_fnc_FactionSetLoadout;
+["CIV_F", "referee"] call GRAD_Loadout_fnc_FactionSetLoadout;

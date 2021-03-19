@@ -160,7 +160,7 @@ class russia {
         class Medic_F: Soldier_F {
             backpack = "rhssaf_kitbag_md2camo";
             addItemsToBackpack[] = {    
-                LIST_40("ACE_fieldDressing"),
+                LIST_20("ACE_fieldDressing"),
                 LIST_20("ACE_morphine"),
                 LIST_20("ACE_epinephrine"),
                 LIST_20("ACE_bloodIV_250"),
