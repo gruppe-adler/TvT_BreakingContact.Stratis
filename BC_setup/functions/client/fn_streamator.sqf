@@ -54,7 +54,7 @@ private _fncScaleIcon = {
             };
             default {
                 private _ticksRatio = GRAD_TICKS_DONE / GRAD_TICKS_NEEDED;
-                _text = format ["%1%4 | Done: %2/%3", _ticksRatio*100, GRAD_TICKS_DONE,GRAD_TICKS_NEEDED, "%."];
+                _text = format ["%1%4 | Done: %2/%3", floor(_ticksRatio*100), GRAD_TICKS_DONE,GRAD_TICKS_NEEDED, "%."];
             };
         };
     };
