@@ -5,6 +5,7 @@
 #include "factions\usa.hpp"
 #include "factions\bwTank.hpp"
 #include "factions\sovjetGM.hpp"
+#include "factions\USVN.hpp"
 
 /// OPFOR
 #include "factions\nvaGM.hpp"
@@ -12,3 +13,4 @@
 #include "factions\russiaTank.hpp"
 #include "factions\mudscha.hpp"
 #include "factions\rebels.hpp"
+#include "factions\PAVN.hpp"
