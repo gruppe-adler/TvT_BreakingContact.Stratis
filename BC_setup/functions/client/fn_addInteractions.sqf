@@ -158,6 +158,72 @@ if (!hasInterface) exitWith {};
 
             };
 
+            // hacky VN SUPPORT for radar
+            if (_type == "vn_o_wheeled_z157_03_nva65") then {
+
+                _startVehicle addAction[
+                    "<t color='#339933'>Deploy Radar</t>", 
+                    {
+                        params ["_target", "_caller", "_actionId", "_arguments"];
+
+                        _target animateSource ["antennaMast_1_1_source", 1];
+                        private _cache = fuel _target;
+                        _target setVariable ["BC_currentFuelCache", _cache, true];
+                        _target setFuel 0;
+
+                        [{
+                            params ["_target"];
+                            (_target animationSourcePhase "antennaMast_1_1_source" == 1)
+                        }, {
+                            params ["_target"];
+                            _target setVariable ["tf_range", 50000, true];
+                            _target setVariable ["grad_replay_color", {GRAD_FUNKWAGEN_RED}, true];
+                        }, [_target]] call CBA_fnc_waitUntilAndExecute;
+                    },
+                    [],
+                    1.5, 
+                    true, 
+                    true, 
+                    "",
+                    "_this == (driver _target) && _target animationSourcePhase 'antennaMast_1_1_source' == 0", // _target, _this, _originalTarget
+                    50,
+                    false,
+                    "",
+                    ""
+                ];
+
+                _startVehicle addAction[
+                    "<t color='#993333'>Retract Radar</t>", 
+                    {
+                        params ["_target", "_caller", "_actionId", "_arguments"];
+
+                        _target animateSource ["antennaMast_1_1_source", 0];
+                        _target setVariable ["tf_range", 0, true];
+                        _target setVariable ["grad_replay_color", nil, true];
+
+                        [{
+                            params ["_target"];
+                            (_target animationSourcePhase "antennaMast_1_1_source" == 0)
+                        }, {
+                            params ["_target"];
+                            private _cache = _target getVariable ["BC_currentFuelCache", 0];
+                            _target setFuel _cache;
+                        }, [_target]] call CBA_fnc_waitUntilAndExecute;
+                    },
+                    [],
+                    1.5, 
+                    true, 
+                    true, 
+                    "",
+                    "_this == (driver _target) && _target animationSourcePhase 'antennaMast_1_1_source' == 1", // _target, _this, _originalTarget
+                    50,
+                    false,
+                    "",
+                    ""
+                ];
+
+            };
+
 
 
             // RADIO TRUCK/BOX DESTROY

@@ -8,7 +8,7 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=1627;
+		nextID=1649;
 	};
 	class MarkerIDProvider
 	{
@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={1883.6348,87.348694,5588.5879};
-		dir[]={-0.7169919,-0.60624373,-0.34408289};
-		up[]={-0.54656512,0.79527891,-0.26229542};
-		aside[]={-0.43265656,5.0407834e-008,0.90156156};
+		pos[]={1508.6178,20.265368,5040.0273};
+		dir[]={0.57665384,-0.56921786,0.58605582};
+		up[]={0.39923006,0.82218671,0.40573922};
+		aside[]={0.71280134,-2.9802322e-008,-0.70136601};
 	};
 };
 binarizationWanted=0;
@@ -32,6 +32,7 @@ addons[]=
 	"A3_Characters_F",
 	"A3_Characters_F_Mark",
 	"ace_explosives",
+	"ace_nouniformrestrictions",
 	"A3_Characters_F_Tank",
 	"A3_Data_F_Curator_Virtual",
 	"A3_Weapons_F",
@@ -149,6 +150,12 @@ class DynamicSimulation
 	{
 		IsMoving=3;
 	};
+};
+dlcs[]=
+{
+	"Mark",
+	"RHS_SAF",
+	"RHS_AFRF"
 };
 randomSeed=6764181;
 class ScenarioData

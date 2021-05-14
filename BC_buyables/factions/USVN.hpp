@@ -11,10 +11,12 @@ class USVN {
     class StartVehicle {
         type = "vn_b_wheeled_m54_03";
         condition = "false";
+        driverGps = "true";
 
         class vn_b_wheeled_m54_03 {
             condition = "true";
             code = "[(_this select 0)] call BC_buyables_fnc_configureBluforStartVehicle;";
+            driverGps = "true";
         };
     };
 
@@ -113,7 +115,7 @@ class USVN {
             spawnEmpty = 1;
             wheelCargo = 2;
             condition = "true";
-            vehicleInit = "[['ch34_02',1], true]";
+            vehicleInit = "[['ch34_02',1], []]";
         };
 
         class vn_b_wheeled_m54_mg_01 {
@@ -152,7 +154,7 @@ class USVN {
             spawnEmpty = 1;
             wheelCargo = 2;
             condition = "true";
-            vehicleInit = "[['m41_01',1],true]";
+            vehicleInit = "[['m41_01',1],[]]";
         };
 
         class vn_b_air_oh6a_01 {
@@ -163,7 +165,7 @@ class USVN {
             spawnEmpty = 1;
             wheelCargo = 2;
             condition = "true";
-            vehicleInit = "[['camo1',1], true]";
+            vehicleInit = "[['camo1',1], []]";
         };
 
         class vn_b_air_uh1d_02_04 {
@@ -174,7 +176,7 @@ class USVN {
             spawnEmpty = 1;
             wheelCargo = 2;
             condition = "true";
-            vehicleInit = "[['uh1d_08',1], true]";
+            vehicleInit = "[['uh1d_08',1], []]";
         };
     };
 

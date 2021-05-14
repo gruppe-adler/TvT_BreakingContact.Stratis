@@ -18,7 +18,7 @@ class PAVN {
 
         class vn_o_wheeled_z157_03_nva65 {
             condition = "true";
-            vehicleInit = "[nil,['ClanLogo_Hide',1]]";
+            vehicleInit = "[[],['ClanLogo_Hide',1]]";
             code = "[(_this select 0)] call BC_buyables_fnc_configureOpforStartVehicle;";
         };
     };
@@ -37,7 +37,7 @@ class PAVN {
             spawnEmpty = 1;
             wheelCargo = 2;
             condition = "true";
-            vehicleInit = "[nil,['ClanLogo_Hide',1]]";
+            vehicleInit = "[[],['ClanLogo_Hide',1]]";
         };
 
         class vn_o_bicycle_01_nva65 {
@@ -48,7 +48,7 @@ class PAVN {
             spawnEmpty = 1;
             wheelCargo = 2;
             condition = "true";
-            vehicleInit = "[nil,nil]";
+            vehicleInit = "[[],[]]";
         };
     };
 
@@ -78,7 +78,7 @@ class PAVN {
             spawnEmpty = 1;
             wheelCargo = 2;
             condition = "true";
-            vehicleInit = "[nil,['ClanLogo_Hide',1]]";
+            vehicleInit = "[[],['ClanLogo_Hide',1]]";
         };
 
     };
@@ -98,7 +98,7 @@ class PAVN {
             spawnEmpty = 1;
             wheelCargo = 2;
             condition = "true";
-            vehicleInit = "[nil,['ClanLogo_Hide',1]]";
+            vehicleInit = "[[],['ClanLogo_Hide',1]]";
         };
 
         class vn_o_wheeled_z157_fuel {
@@ -108,7 +108,7 @@ class PAVN {
             spawnEmpty = 1;
             wheelCargo = 2;
             condition = "true";
-            vehicleInit = "[nil,['ClanLogo_Hide',1]]";
+            vehicleInit = "[[],['ClanLogo_Hide',1]]";
         };
     };
 
