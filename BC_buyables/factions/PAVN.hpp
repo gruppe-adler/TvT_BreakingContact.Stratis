@@ -145,29 +145,28 @@ class PAVN {
         maxBuyCount = 2;
 
         class vn_o_boat_01_mg_03 {
-            kindOf = "Boat 01";
-            displayName = "Radio Relay Terminal";
-            description = "Replaces radio truck internal module.\nIs attached to the radio truck but can be detached.\nSends with 50-100% strength depending on distance to radio truck.";
+            kindOf = "Boat";
+            displayName = "Boat";
+            description = "Boat.";
             stock = 1;
-            picturePath = "pic\terminal.paa";
             code = "diag_log str (_this); private _terminal = missionNameSpace getVariable ['GRAD_tracking_terminalObj', objNull]; [_terminal, (_this select 1)] call GRAD_tracking_fnc_terminalAttachToVeh;";
         };
 
-        class vn_o_boat_02_mg_03 {
-            kindOf = "Boat 02";
-            displayName = "Defense Pack";
-            description = "1 KORD MG, Sandbag-Fortificatons and 2 Axes for cutting vegetation in Radio Truck.";
-            stock = 1;
-            code = "diag_log str (_this);private _mg = 'rhs_KORD_high_VDV' createVehicle [0,0,0];_mg attachTo [(_this select 1), [0,0,0]];[_mg, (_this select 1)] call ace_cargo_fnc_loadItem; (_this select 1) addItemCargoGlobal ['grad_axe', 2]; [(_this select 1), 'Land_CzechHedgehog_01_new_F', 9] call grad_fortifications_fnc_addFort; [(_this select 1), 'Land_BagFence_Long_F', 9] call grad_fortifications_fnc_addFort;";
+        class vn_o_vc_spiderhole_02 {
+            kindOf = "Spiderhole and Shelter";
+            displayName = "Spiderhole + Shelter";
+            description = "Placeable Spiderhole and Shelters. 1 of each.";
+            stock = 3;
+            code = "diag_log str (_this); [(_this select 1), 'vn_o_vc_spiderhole_02', 1] call grad_fortifications_fnc_addFort; [(_this select 1), 'Land_vn_o_shelter_01', 1] call grad_fortifications_fnc_addFort; [(_this select 1), 'Land_vn_o_shelter_02', 1] call grad_fortifications_fnc_addFort; [(_this select 1), 'Land_vn_o_wallfoliage_01', 1] call grad_fortifications_fnc_addFort; [(_this select 1), 'Land_vn_o_platform_06', 1] call grad_fortifications_fnc_addFort;";
             spawnEmpty = 1;
         };
 
         class Land_WeldingTrolley_01_F {
             kindOf = "Special";
             displayName = "Radio Truck Armor";
-            description = "Selfmade armor for radio truck to protect its tires against small arms fire.";
-            stock = 2;
-            code = "diag_log str (_this); [(_this select 1)] call BC_buymenu_fnc_applyTruckArmor;";
+            description = "Selfmade armor for radio truck to shield it from discovery.";
+            stock = 1;
+            code = "diag_log str (_this); [(_this select 1)] call BC_vietnam_fnc_applyTruckCamo;";
         };
     };
 };
