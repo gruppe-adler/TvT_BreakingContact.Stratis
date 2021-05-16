@@ -59,6 +59,17 @@ class USVN {
             vehicleInit = "[['m151_07',1],['user_canopy_hide',0,'user_sparewheel_hide',0,'user_axe_hide',0,'user_shovel_hide',0,'user_refuel_can_hide',0]]";
         };
 
+        class vn_b_wheeled_m54_fuel {
+            displayName = "M54 Transport";
+            description = "Rat Patrol.";
+            price = 10;
+            stock = 1;
+            spawnEmpty = 1;
+            wheelCargo = 4;
+            condition = "true";
+            vehicleInit = "[['army',1],['user_sparewheel_hide',0,'user_canopy_front_hide',1]]";
+        };
+
     };
 
 
