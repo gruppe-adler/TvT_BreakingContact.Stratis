@@ -12,8 +12,6 @@ if ((_interactionType != 0) || {(vehicle ACE_player) != ACE_player}) exitWith {}
 //for performance only do stuff it they have a wirecutter item
 //(if they somehow get one durring keydown they'll just have to reopen)
 
-// if (!("grad_axe" in (items ace_player))) exitWith {};
-
 [{
     params ["_args", "_pfID"];
     _args params ["_setPosition", "_addedHelpers", "_treesHelped", "_helperQueue"];
