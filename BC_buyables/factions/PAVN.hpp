@@ -149,7 +149,7 @@ class PAVN {
             displayName = "Boat";
             description = "Boat.";
             stock = 1;
-            code = "diag_log str (_this); private _terminal = missionNameSpace getVariable ['GRAD_tracking_terminalObj', objNull]; [_terminal, (_this select 1)] call GRAD_tracking_fnc_terminalAttachToVeh;";
+            code = "diag_log str (_this); (_this select 1) setVariable ['grad_carryBoatCargo', 1, true];[(_this select 1), 'vn_o_boat_01_mg_03'] remoteExec ['BC_buymenu_fnc_addBoatInteraction', [0,-2] select isDedicated];";
         };
 
         class vn_o_vc_spiderhole_02 {
