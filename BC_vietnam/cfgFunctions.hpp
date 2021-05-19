@@ -14,8 +14,10 @@ class BC_vietnam {
          file = BC_vietnam\functions\server;
 
          class addFortifications;
+         class addKilledExplosionEH;
          class applyTruckCamo;
          class build;
+         class explosionServer;
          class placeTrapDoor;
     };
 };

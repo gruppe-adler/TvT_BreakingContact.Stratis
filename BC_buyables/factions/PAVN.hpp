@@ -103,12 +103,13 @@ class PAVN {
 
         class vn_o_wheeled_z157_fuel {
             displayName = "Z-157";
-            description = "Fuel Truck (rolling bomb)";
+            description = "Fuel Truck (rolling bomb). Destroy and get a huge blast.";
             stock = 1;
             spawnEmpty = 1;
             wheelCargo = 2;
             condition = "true";
             vehicleInit = "[[],['ClanLogo_Hide',1]]";
+            code = "[(_this select 1), 'vn_o_boat_01_mg_03'] remoteExec ['BC_vietnam_fnc_addKilledExplosionEH', 2];";
         };
     };
 
