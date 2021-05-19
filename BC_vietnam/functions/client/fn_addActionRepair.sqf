@@ -7,9 +7,9 @@
     },
     {
       private _repairTruck = (nearestObject [position _target, "vn_o_wheeled_z157_repair"]);
-      (!isNull _repairTruck && {_repairTruck distance _target < 5})
+      !alive _target && (!isNull _repairTruck && {_repairTruck distance _target < 10})
     }] call ace_interact_menu_fnc_createAction;
 
-    [_object, 0, ["ACE_MainActions"],_repairVehicle] call ace_interact_menu_fnc_addActionToObject;
+    [_vehicle, 0, ["ACE_MainActions"],_repairVehicle] call ace_interact_menu_fnc_addActionToObject;
 
 }] call CBA_fnc_addClassEventhandler;
