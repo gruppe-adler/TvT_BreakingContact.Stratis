@@ -12,7 +12,7 @@ if (!isServer) exitWith {};
 
         BUYABLES_OPFOR_INDEX = ["BUYABLES_OPFOR", -1] call BIS_fnc_getParamValue;
         private _factionsOpfor = "getText (_x >> 'side') == 'Opfor'" configClasses (missionConfigFile >> "CfgGradBuymenu");
-        private _buyablesOpfor = configName (_factionsOpfor select BUYABLES_OPFOR_INDEX);
+        // private _buyablesOpfor = configName (_factionsOpfor select BUYABLES_OPFOR_INDEX);
         
         private _conquerMode = ([((_factionsOpfor select BUYABLES_OPFOR_INDEX) >> "mode"), "text", "conquer"] call CBA_fnc_getConfigEntry) isEqualTo "conquer";
 
