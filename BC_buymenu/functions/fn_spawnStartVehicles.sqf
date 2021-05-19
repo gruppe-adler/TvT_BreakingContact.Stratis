@@ -8,7 +8,7 @@ BUYABLES_BLUFOR_INDEX = ["BUYABLES_BLUFOR", -1] call BIS_fnc_getParamValue;
 private _factionBlufor = "getText (_x >> 'side') == 'Blufor'" configClasses (missionConfigFile >> "CfgGradBuymenu") select BUYABLES_BLUFOR_INDEX;
 private _buyablesBlufor = configName (_factionBlufor);
 
-private _factionOpfor = "getText (_x >> 'side') == 'Opfor'" configClasses (missionConfigFile >> "CfgGradBuymenu") select BUYABLES_BLUFOR_INDEX;
+private _factionOpfor = "getText (_x >> 'side') == 'Opfor'" configClasses (missionConfigFile >> "CfgGradBuymenu") select BUYABLES_OPFOR_INDEX;
 private _buyablesOpfor = configName (_factionOpfor);
 
 private _opforPosition = [_opforSpawnPosition, 1] call BC_buymenu_fnc_getSpawnPosition;

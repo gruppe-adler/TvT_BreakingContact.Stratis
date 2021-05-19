@@ -22,6 +22,9 @@ class CfgFunctions {
     #include "BC_objectives\cfgFunctions.hpp"
     #include "BC_setup\cfgFunctions.hpp"
     #include "BC_buyables\cfgFunctions.hpp"
+
+    #include "BC_vietnam\cfgFunctions.hpp"
+
     #include "node_modules\grad-listBuymenu\cfgFunctions.hpp"
     #include "node_modules\@gruppe-adler\replay\cfgFunctions.hpp"
 

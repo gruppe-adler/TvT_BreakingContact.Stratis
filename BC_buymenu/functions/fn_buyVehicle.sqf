@@ -48,7 +48,7 @@ if (_spawnEmpty == -1) then {
 };
 
 //spawn vehicle
-private _vehicle = _itemConfigName createVehicle [0,0,0]; // create elsewhere so you dont see the rotation glitch
+private _vehicle = _itemConfigName createVehicle [0,0,1000]; // create elsewhere so you dont see the rotation glitch
 _vehicle setDir _spawnDir;
 _spawnPosition set [2,0.6]; // elevate a bit in case of bumps in the road or other shit instaploding
 

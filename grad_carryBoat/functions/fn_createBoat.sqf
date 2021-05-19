@@ -1,6 +1,6 @@
-params ["_parentObj"];
+params ["_parentObj", "_type"];
 
-private _boat = "B_Boat_Transport_01_F" createVehicle [0,0,0];
+private _boat = _type createVehicle [0,0,0];
 
 clearBackpackCargoGlobal _boat;
 clearItemCargoGlobal _boat;

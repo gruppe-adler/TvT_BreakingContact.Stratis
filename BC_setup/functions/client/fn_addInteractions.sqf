@@ -158,6 +158,58 @@ if (!hasInterface) exitWith {};
 
             };
 
+            // hacky VN SUPPORT for radar
+            if (_type == "vn_o_wheeled_z157_03_nva65") then {
+
+                _startVehicle addAction[
+                    "<t color='#339933'>Deploy Radar</t>", 
+                    {
+                        params ["_target", "_caller", "_actionId", "_arguments"];
+
+                        private _cache = fuel _target;
+                        _target setVariable ["BC_currentFuelCache", _cache, true];
+                        _target setFuel 0;
+
+                        _caller action ["ActiveSensorsOn", _target];
+                        _target setVariable ["grad_replay_color", {GRAD_FUNKWAGEN_RED}, true];
+                    },
+                    [],
+                    1.5, 
+                    true, 
+                    true, 
+                    "",
+                    "_this == (driver _target) && !(isVehicleRadarOn _target)", // _target, _this, _originalTarget
+                    50,
+                    false,
+                    "",
+                    ""
+                ];
+
+                _startVehicle addAction[
+                    "<t color='#993333'>Retract Radar</t>", 
+                    {
+                        params ["_target", "_caller", "_actionId", "_arguments"];
+
+                        _caller action ["ActiveSensorsOff", _target];
+                        _target setVariable ["grad_replay_color", nil, true];
+                        
+                        private _cache = _target getVariable ["BC_currentFuelCache", 0];
+                        _target setFuel _cache;
+                    },
+                    [],
+                    1.5, 
+                    true, 
+                    true, 
+                    "",
+                    "_this == (driver _target) && isVehicleRadarOn _target", // _target, _this, _originalTarget
+                    50,
+                    false,
+                    "",
+                    ""
+                ];
+
+            };
+
 
 
             // RADIO TRUCK/BOX DESTROY
