@@ -50,7 +50,10 @@ if (_spawnEmpty == -1) then {
 //spawn vehicle
 private _vehicle = _itemConfigName createVehicle [0,0,1000]; // create elsewhere so you dont see the rotation glitch
 _vehicle setDir _spawnDir;
-_spawnPosition set [2,0.6]; // elevate a bit in case of bumps in the road or other shit instaploding
+
+private _spawnHeight = [(missionConfigFile >> "CfgGradBuymenu" >> _baseConfigName >> _categoryConfigName >> _itemConfigName >> "spawnHeight"), "number", 0.6] call CBA_fnc_getConfigEntry;
+
+_spawnPosition set [2, _spawnHeight]; // elevate a bit in case of bumps in the road or other shit instaploding
 
 _vehicle setPos _spawnPosition;
 

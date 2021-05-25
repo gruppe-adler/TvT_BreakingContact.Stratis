@@ -125,6 +125,7 @@ class USVN {
             stock = 1;
             code = "(_this select 0) addItemCargoGlobal ['UK3CB_PVS5A', 2];(_this select 0) disableTIEquipment true; [(_this select 0)] call BC_setup_fnc_fuelDrain;";
             spawnEmpty = 1;
+            spawnHeight = 0.2;
             wheelCargo = 2;
             condition = "true";
             vehicleInit = "[['ch34_02',1], []]";
