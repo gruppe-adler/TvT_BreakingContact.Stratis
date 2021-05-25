@@ -174,6 +174,7 @@ class USVN {
             description = "Fast, reliable.";
             price = 10;
             stock = 1;
+            code = "(_this select 0) addItemCargoGlobal ['UK3CB_PVS5A', 2];(_this select 0) disableTIEquipment true; [(_this select 0)] call BC_setup_fnc_fuelDrain;";
             spawnEmpty = 1;
             wheelCargo = 2;
             condition = "true";
