@@ -81,10 +81,10 @@ class USVN {
 
         class vn_b_air_uh1d_01_04 {
             displayName = "UH-1D Medical";
-            description = "1 GPS\nUnarmed\n";
+            description = "Unarmed\n";
             price = 10;
             stock = 1;
-            code = "(_this select 0) addItemCargoGlobal ['ACE_NVG_Wide',2];(_this select 0) addItemCargoGlobal ['ItemGPS',1];(_this select 0) disableTIEquipment true; [(_this select 0)] call BC_setup_fnc_fuelDrain;";
+            code = "(_this select 0) addItemCargoGlobal ['UK3CB_PVS5A', 2];(_this select 0) addItemCargoGlobal ['ItemGPS',1];(_this select 0) disableTIEquipment true; [(_this select 0)] call BC_setup_fnc_fuelDrain;";
             spawnEmpty = 1;
             vehicleInit = "[['uh1d_26',1],true]";
         };
@@ -123,7 +123,9 @@ class USVN {
             description = "Slow but flying.";
             price = 10;
             stock = 1;
+            code = "(_this select 0) addItemCargoGlobal ['UK3CB_PVS5A', 2];(_this select 0) addItemCargoGlobal ['ItemGPS',1];(_this select 0) disableTIEquipment true; [(_this select 0)] call BC_setup_fnc_fuelDrain;";
             spawnEmpty = 1;
+            spawnHeight = 0.2;
             wheelCargo = 2;
             condition = "true";
             vehicleInit = "[['ch34_02',1], []]";
@@ -173,6 +175,7 @@ class USVN {
             description = "Fast, reliable.";
             price = 10;
             stock = 1;
+            code = "(_this select 0) addItemCargoGlobal ['UK3CB_PVS5A', 2];(_this select 0) addItemCargoGlobal ['ItemGPS',1];(_this select 0) disableTIEquipment true; [(_this select 0)] call BC_setup_fnc_fuelDrain;";
             spawnEmpty = 1;
             wheelCargo = 2;
             condition = "true";
@@ -184,6 +187,7 @@ class USVN {
             description = "Reliable, deadly.";
             price = 10;
             stock = 1;
+            code = "(_this select 0) addItemCargoGlobal ['UK3CB_PVS5A', 2];(_this select 0) addItemCargoGlobal ['ItemGPS',1];(_this select 0) disableTIEquipment true; [(_this select 0)] call BC_setup_fnc_fuelDrain;";
             spawnEmpty = 1;
             wheelCargo = 2;
             condition = "true";
