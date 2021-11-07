@@ -180,7 +180,6 @@ class russia {
             handgunWeapon = "rhs_weap_pya";
             handgunWeaponMagazine = "rhs_mag_9x19_17";
             underBarrelMagazine = "rhs_GRD40_White";
-            backpack = "TFAR_mr3000_rhs";
             addItemsToUniform[] = {
                 LIST_8("ACE_fieldDressing"),
                 LIST_2("ACE_epinephrine"),
