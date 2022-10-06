@@ -19,6 +19,7 @@ mrk_radioVeh setMarkerAlphaLocal 1;
 player setVariable ["BC_trackingMarker_pulseSize", _pulsesize];
 player setVariable ["BC_trackingMarker_pulseMaxSize", _pulseMaxSize];
 
+
 [{
      params ["_args", "_handle"];
 

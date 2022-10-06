@@ -3,6 +3,7 @@ class GRAD_tracking {
      class player {
         file = grad_tracking\functions\player;
 
+        class sendingParticles {};
         class createMarkerLastSeen {};
         class createMarkerRadioVeh {};
         class createMarkerTerminal {};

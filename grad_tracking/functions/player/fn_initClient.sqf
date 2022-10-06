@@ -15,6 +15,7 @@ _GRAD_RADIO_VEH_MARKER_HIDDEN_listener = {
 		mrk_radioVeh setMarkerAlphaLocal 0;
 	} else {
 		[] call GRAD_tracking_fnc_ensureRadioVehMarkerAnimation;
+          [getMarkerPos "mrk_radioVeh"] call grad_tracking_fnc_sendingParticles;
 	};
 };
 

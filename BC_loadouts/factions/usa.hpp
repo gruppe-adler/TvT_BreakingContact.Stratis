@@ -6,10 +6,10 @@ class USA {
         primaryWeaponOptics = "rhsusf_acc_eotech_xps3";
         handgunWeapon = "rhsusf_weap_m9";
         handgunWeaponMagazine = "rhsusf_mag_15Rnd_9x19_JHP";
-        uniform = "rhs_uniform_FROG01_wd";
+        uniform = "xmas_santa_ind_uniform";
         vest = "rhsusf_mbav_rifleman";
         backpack = "rhsusf_assault_eagleaiii_coy";
-        headgear = "rhsusf_lwh_helmet_marpatwd_headset_blk2";
+        headgear = "";
         binoculars = "Binocular";
         map = "ItemMap";
         radio = "TFAR_anprc152";

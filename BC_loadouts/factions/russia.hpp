@@ -7,10 +7,10 @@ class russia {
         primaryWeaponOptics = "rhs_acc_1p87";
         handgunWeapon = "rhs_weap_pya";
         handgunWeaponMagazine = "rhs_mag_9x19_17";
-        uniform = "rhs_uniform_flora_patchless_alt";
+        uniform = "xmas_santa_uniform";
         vest = "rhs_6b13_6sh92_vog";
         backpack = "rhs_assault_umbts";
-        headgear = "rhs_6b26";
+        headgear = "";
         binoculars = "Binocular";
         map = "ItemMap";
         radio = "TFAR_fadak";
