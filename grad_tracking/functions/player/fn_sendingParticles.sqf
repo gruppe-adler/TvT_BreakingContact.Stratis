@@ -7,11 +7,11 @@ private _particlesSources = [];
 	// _particleSource attachTo [_vehicle, [0,0,0]];
 
 	_particleSource setParticleCircle [0, [0, 0, 0]];  
-	_particleSource setParticleRandom [0, [1, 1, 0], [5, 5, 4], 0, 0.25, [0, 0, 0, 0.1], 0, 0];  
+	_particleSource setParticleRandom [0, [0, 0, 0], [5, 5, random 50], 0, 0.25, [0, 0, 0, 0.1], 0, 0];  
 	_particleSource setParticleParams [
 		[_type, 1, 0, 1], "", "SpaceObject", 0.5, 30, 
-		[0, 0, 0.3], [5, 5, (random 100) max 50], 0.5, 200, 0.2, 0.075, [.5, .5, .5], [[0.3, 0.3, 0.3, 1], [0.3, 0.3, 0.3, 0.3], [0.3, 0.3, 0.3, 0]], 
-		[0.08], 1, 0, "", "", _this,0,true,0.1
+		[0, 0, 0.3], [0, 0, 50], 0.5, 200, 0.2, 0.075, [.5, .5, .5], [[0.3, 0.3, 0.3, 1], [0.3, 0.3, 0.3, 0.3], [0.3, 0.3, 0.3, 0]], 
+		[0.08], 1, 0, "", "['ace_fastroping_thud', AGLToASL _this, 1, 10] call ace_common_fnc_playConfigSound3D;", _this,0,true,0.1
 	];  
 	_particleSource setDropInterval 0.1; 
 	_particlesSources pushBackUnique _particleSource;

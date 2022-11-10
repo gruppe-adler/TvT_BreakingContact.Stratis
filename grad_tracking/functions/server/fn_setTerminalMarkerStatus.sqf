@@ -10,11 +10,13 @@ if (
      missionnamespace getVariable ["GRAD_replay_isRunning", false]
      ) exitWith {
      GRAD_TERMINAL_MARKER_HIDDEN = true;
-     publicVariable "GRAD_TERMINAL_MARKER_HIDDEN";
+     // publicVariable "GRAD_TERMINAL_MARKER_HIDDEN";
+     ["GRAD_TERMINAL_MARKER_HIDDEN_listener", [GRAD_TERMINAL_MARKER_HIDDEN], "GRAD_TERMINAL_MARKER_HIDDEN_listener"] call CBA_fnc_globalEvent;
 };
 
 if (!([GRAD_TERMINAL_MARKER_HIDDEN, _previous] call GRAD_tracking_fnc_booleanEqual)) then {
-     publicVariable "GRAD_TERMINAL_MARKER_HIDDEN";
+     // publicVariable "GRAD_TERMINAL_MARKER_HIDDEN";
+     ["GRAD_TERMINAL_MARKER_HIDDEN_listener", [GRAD_TERMINAL_MARKER_HIDDEN]], "GRAD_TERMINAL_MARKER_HIDDEN_listener" call CBA_fnc_globalEvent;
 };
 
 _return

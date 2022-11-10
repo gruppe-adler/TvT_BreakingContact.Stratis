@@ -20,9 +20,9 @@ if (isServer) then {
      publicVariable "GRAD_TERMINAL_ACTIVE";
 
      GRAD_TERMINAL_MARKER_HIDDEN = true;
-     publicVariable "GRAD_TERMINAL_MARKER_HIDDEN";
+     // publicVariable "GRAD_TERMINAL_MARKER_HIDDEN";
      GRAD_TERMINAL_MARKER_POS = [0,0];
-     publicVariable "GRAD_TERMINAL_MARKER_POS";
+     // publicVariable "GRAD_TERMINAL_MARKER_POS";
 
      GRAD_TERMINAL_DISTANCE = 0;
      publicVariable "GRAD_TERMINAL_DISTANCE";
@@ -31,13 +31,18 @@ if (isServer) then {
 
      // radio VEHICLE related
      GRAD_RADIO_VEH_MARKER_HIDDEN = true;
-     publicVariable "GRAD_RADIO_VEH_MARKER_HIDDEN";
+     // publicVariable "GRAD_RADIO_VEH_MARKER_HIDDEN";
      GRAD_RADIO_VEH_MARKER_POS = [0,0];
-     publicVariable "GRAD_RADIO_VEH_MARKER_POS";
+     // publicVariable "GRAD_RADIO_VEH_MARKER_POS";
 
      GRAD_SIGNAL_DELAY = 1;
      publicVariable "GRAD_SIGNAL_DELAY";
 
+     // initial broadcast
+     ["GRAD_RADIO_VEH_MARKER_HIDDEN_listener", [GRAD_RADIO_VEH_MARKER_HIDDEN], "GRAD_RADIO_VEH_MARKER_HIDDEN_listener"] call CBA_fnc_globalEventJIP;
+     ["GRAD_TERMINAL_MARKER_HIDDEN_listener", [GRAD_TERMINAL_MARKER_HIDDEN], "GRAD_TERMINAL_MARKER_HIDDEN_listener"] call CBA_fnc_globalEventJIP;
+     ["GRAD_TERMINAL_MARKER_POS_listener", [GRAD_TERMINAL_MARKER_POS], "GRAD_TERMINAL_MARKER_POS_listener"] call CBA_fnc_globalEventJIP;
+     ["GRAD_RADIO_VEH_MARKER_POS_listener", [GRAD_RADIO_VEH_MARKER_POS], "GRAD_RADIO_VEH_MARKER_POS_listener"] call CBA_fnc_globalEventJIP;
      
 
      GRAD_MIN_DISTANCE_TO_RADIOPOSITION = ["GRAD_MIN_DISTANCE_TO_RADIOPOSITION", 1000] call BIS_fnc_getParamValue;;

@@ -14,4 +14,12 @@ if (!_isRunning) then {
           _animationSpeed,
           _delayBetweenPulse
      ] spawn GRAD_tracking_fnc_radioVehMarkerAnimation;
+     
+     [{
+          !isNil "mrk_radioVeh"
+     },{
+          [getMarkerPos "mrk_radioVeh"] call grad_tracking_fnc_sendingParticles;
+     }] call CBA_fnc_waitUntilAndExecute;
+     
+     diag_log format ["executing particle effect"];
 };

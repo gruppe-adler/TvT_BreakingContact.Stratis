@@ -8,7 +8,7 @@ class EditorData
 	toggles=513;
 	class ItemIDProvider
 	{
-		nextID=1710;
+		nextID=1711;
 	};
 	class MarkerIDProvider
 	{
@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={1727.9569,46.482014,5787.6577};
-		dir[]={0.48312432,-0.6623112,0.57267898};
-		up[]={0.42707232,0.74922204,0.50623608};
-		aside[]={0.76434934,-1.5554542e-007,-0.64481992};
+		pos[]={1776.4918,46.482014,5846.7583};
+		dir[]={-0.81636518,-0.51854479,-0.25428167};
+		up[]={-0.49508414,0.8550505,-0.15420897};
+		aside[]={-0.29738793,1.4901161e-008,0.95475674};
 	};
 };
 binarizationWanted=0;
@@ -32,6 +32,7 @@ addons[]=
 	"A3_Characters_F",
 	"A3_Characters_F_Mark",
 	"ace_explosives",
+	"ace_nouniformrestrictions",
 	"A3_Characters_F_Tank",
 	"A3_Data_F_Curator_Virtual",
 	"A3_Weapons_F",
@@ -43,7 +44,7 @@ class AddonsMetaData
 {
 	class List
 	{
-		items=12;
+		items=13;
 		class Item0
 		{
 			className="A3_Ui_F";
@@ -88,40 +89,47 @@ class AddonsMetaData
 		};
 		class Item6
 		{
+			className="ace_nouniformrestrictions";
+			name="ACE3 - No Uniform Restrictions";
+			author="ACE-Team";
+			url="https://ace3.acemod.org/";
+		};
+		class Item7
+		{
 			className="A3_Characters_F_Tank";
 			name="Arma 3 Tank - Characters and Clothing";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item7
+		class Item8
 		{
 			className="A3_Data_F_Curator";
 			name="Arma 3 Zeus Update - Main Configuration";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item8
+		class Item9
 		{
 			className="A3_Weapons_F";
 			name="Arma 3 Alpha - Weapons and Accessories";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item9
+		class Item10
 		{
 			className="rhssaf_c_gear";
 			name="RHS: SAF gear configuration";
 			author="Red Hammer Studios";
 			url="http://www.rhsmods.org/";
 		};
-		class Item10
+		class Item11
 		{
 			className="rhs_c_troops";
 			name="AFRF Infantry & Equipment";
 			author="Red Hammer Studios";
 			url="http://www.rhsmods.org/";
 		};
-		class Item11
+		class Item12
 		{
 			className="ace_compat_rhs_afrf3";
 			name="ACE3 - RHS AFRF Compatibility";
@@ -157,7 +165,7 @@ class ScenarioData
 };
 class CustomAttributes
 {
-	class Category1
+	class Category0
 	{
 		name="Scenario";
 		class Attribute0
