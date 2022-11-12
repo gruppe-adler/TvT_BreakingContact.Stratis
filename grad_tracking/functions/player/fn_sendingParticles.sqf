@@ -11,7 +11,7 @@ private _particlesSources = [];
 	_particleSource setParticleParams [
 		[_type, 1, 0, 1], "", "SpaceObject", 0.5, 30, 
 		[0, 0, 0.3], [0, 0, 50], 0.5, 200, 0.2, 0.075, [.5, .5, .5], [[0.3, 0.3, 0.3, 1], [0.3, 0.3, 0.3, 0.3], [0.3, 0.3, 0.3, 0]], 
-		[0.08], 1, 0, "", "[_this] call grad_tracking_fnc_particleDestroy;", _this,0,true,0.1
+		[0.08], 1, 0, "", "grad_tracking\functions\player\fn_particleDestroy.sqf", _this,0,true,0.1
 	];  
 	_particleSource setDropInterval 0.1; 
 	_particlesSources pushBackUnique _particleSource;
