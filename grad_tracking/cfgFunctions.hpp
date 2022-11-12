@@ -4,6 +4,7 @@ class GRAD_tracking {
         file = grad_tracking\functions\player;
 
         class sendingParticles {};
+        class particleDestroy {};
         class createMarkerLastSeen {};
         class createMarkerRadioVeh {};
         class createMarkerTerminal {};

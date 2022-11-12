@@ -29,7 +29,7 @@ class Russia {
         minPlayerCount = 0;
 
         class Truck_02_covered_F_Christmas {
-            displayName = "Ural";
+            displayName = "Christmas Truck";
             description = "The workhorse of your army.";
             price = 10;
             stock = 7;
@@ -48,8 +48,8 @@ class Russia {
         minPlayerCount = 20;
 
         class B_MRAP_F_Christmas {
-            displayName = "Tigr-M";
-            description = "The perfect commander limousine.";
+            displayName = "Christmas MRAP";
+            description = "Fast & Agile";
             price = 10;
             stock = 2;
             wheelCargo = 2;
@@ -72,8 +72,8 @@ class Russia {
 
         
         class Sparken_F {
-            displayName = "BRDM-2";
-            description = "Armed version of BRDM2.";
+            displayName = "Kick Sleigh";
+            description = "Sneaky sleigh.";
             stock = 1;
             spawnEmpty = 1;
             wheelCargo = 2;
@@ -89,8 +89,8 @@ class Russia {
         minPlayerCount = 60;
 
         class Sparken_F {
-            displayName = "T80-BVK";
-            description = "Heavy tank, best vehicle you can get.";
+            displayName = "Kick Sleigh";
+            description = "Sneaky sleigh.";
             stock = 1;
             spawnEmpty = 1;
             trackCargo = 2;

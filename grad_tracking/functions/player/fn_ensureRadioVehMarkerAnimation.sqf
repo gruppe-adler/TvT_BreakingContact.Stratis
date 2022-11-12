@@ -15,8 +15,9 @@ if (!_isRunning) then {
           _delayBetweenPulse
      ] spawn GRAD_tracking_fnc_radioVehMarkerAnimation;
      
+     // wait till marker is officially moved to non default position
      [{
-          !isNil "mrk_radioVeh"
+          !isNil "mrk_radioVeh" && {(getMarkerPos "mrk_radioVeh") select 0 != 0}
      },{
           [getMarkerPos "mrk_radioVeh"] call grad_tracking_fnc_sendingParticles;
      }] call CBA_fnc_waitUntilAndExecute;
