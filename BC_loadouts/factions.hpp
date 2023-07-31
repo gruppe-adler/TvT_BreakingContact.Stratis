@@ -16,3 +16,6 @@
 #include "factions\referee.hpp"
 
 #include "factions\PAVN.hpp"
+
+#include "factions\usSPE.hpp"
+#include "factions\wehrmachtSPE.hpp"
