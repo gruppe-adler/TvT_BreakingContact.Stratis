@@ -13,14 +13,9 @@ class WehrmachtSPEBlufor {
         condition = "false";
 
         class gm_ge_army_iltis_cargo {
-            condition = "BC_IS_WOODLAND";
+            condition = "true";
             vehicleInit = "[[],[]]";
             code = "[(_this select 0)] call BC_buyables_fnc_configureBluforStartVehicle;";
-        };
-
-        class gm_ge_army_iltis_cargo: gm_ge_army_iltis_cargo {
-            condition = "!BC_IS_WOODLAND";
-            vehicleInit = "[[],[]]";
         };
     };
 
@@ -37,12 +32,7 @@ class WehrmachtSPEBlufor {
             stock = 7;
             spawnEmpty = 1;
             wheelCargo = 2;
-            condition = "BC_IS_WOODLAND";
-            vehicleInit = "[[],[]]";
-        };
-
-        class SPE_OpelBlitz: SPE_OpelBlitz {
-            condition = "!BC_IS_WOODLAND";
+            condition = "true";
             vehicleInit = "[[],[]]";
         };
 
@@ -53,12 +43,7 @@ class WehrmachtSPEBlufor {
             stock = 7;
             spawnEmpty = 1;
             wheelCargo = 2;
-            condition = "BC_IS_WOODLAND";
-            vehicleInit = "[[],[]]";
-        };
-
-        class rhs_uaz_open_vdv: rhs_uaz_open_MSV_01 {
-            condition = "!BC_IS_WOODLAND";
+            condition = "true";
             vehicleInit = "[[],[]]";
         };
     };
