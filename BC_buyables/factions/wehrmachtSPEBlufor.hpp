@@ -3,22 +3,19 @@ class WehrmachtSPEBlufor {
     side = "Blufor";
     loadout = "wehrmachtSPE";
     mode = "conquer";
+    driverGps = "false";
+    crewHelmet = "gm_ge_headgear_crewhat_80_blk";
+    disableTIEquipment = "true";
     
     // needs to be in every faction
     class StartVehicle {
-        deployAction = "";
-        retractAction = "";
+        type = "gm_ge_army_iltis_cargo_oli";
         condition = "false";
-        driverGps = "true";
-        crewHelmet = "rhs_tsh4";
-        disableTIEquipment = "true";
-        terminalPositionOffset = "[0.3,-2.85,0.7]";
-        terminalVectorDirAndUp = "[[0,1,0.3],[0,0,0.7]]";
 
         class gm_ge_army_iltis_cargo {
             condition = "BC_IS_WOODLAND";
             vehicleInit = "[[],[]]";
-            code = "[(_this select 0)] call BC_buyables_fnc_configureOpforStartVehicle;";
+            code = "[(_this select 0)] call BC_buyables_fnc_configureBluforStartVehicle;";
         };
 
         class gm_ge_army_iltis_cargo: gm_ge_army_iltis_cargo {

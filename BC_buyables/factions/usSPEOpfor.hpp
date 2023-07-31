@@ -1,24 +1,29 @@
 //a different set of buyables
 class usSPEOpfor {
     side = "Opfor";
-    loadout = "usa";
+    loadout = "usSPE";
     mode = "conquer";
-    driverGps = "true";
-    crewHelmet = "";
-    disableTIEquipment = "true";
 
     // needs to be in every faction
     class StartVehicle {
-        type = "rhsusf_m998_w_4dr";
+        deployAction = "";
+        retractAction = "";
         condition = "false";
+        driverGps = "true";
+        crewHelmet = "rhs_tsh4";
+        disableTIEquipment = "true";
+        terminalPositionOffset = "[0.3,-2.85,0.7]";
+        terminalVectorDirAndUp = "[[0,1,0.3],[0,0,0.7]]";
 
-        class rhsusf_m998_w_4dr {
-            condition = "BC_IS_WOODLAND";
-            code = "[(_this select 0)] call BC_buyables_fnc_configureBluforStartVehicle;";
+        class rhs_gaz66_r142_vdv {
+            condition = "!BC_IS_WOODLAND";
+            vehicleInit = "[['rhs_sand',1], ['mast_handler',0,'cover_hide',0,'spare_hide',0,'bench_hide',0,'rear_numplate_hide',1,'light_hide',1]]";
+            code = "[(_this select 0)] call BC_buyables_fnc_configureOpforStartVehicle;";
         };
 
-        class rhsusf_m998_d_4dr {
-            condition = "!BC_IS_WOODLAND";
+        class rhs_gaz66_r142_vv: rhs_gaz66_r142_vdv {
+            condition = "BC_IS_WOODLAND";
+            vehicleInit = "[['standard',1], ['mast_handler',0,'cover_hide',0,'spare_hide',0,'bench_hide',0,'rear_numplate_hide',1,'light_hide',1]]";
         };
     };
 
@@ -28,51 +33,38 @@ class usSPEOpfor {
         maxBuyCount = 9;
         minPlayerCount = 0;
 
-        class rhsusf_M1083A1P2_WD_fmtv_usarmy {
-            displayName = "FMTV M1083";
-            description = "Carries soldiers decently armored.";
-            price = 10;
-            stock = 7;
-            spawnEmpty = 1;
-            wheelCargo = 4;
-            condition = "BC_IS_WOODLAND";
-            vehicleInit = "[['rhs_woodland',1],['hide_cover',0,'hide_spare',0,'hide_scaffold',0,'hide_bench',0]]";
-        };
-
-        class rhsusf_M1083A1P2_D_fmtv_usarmy: rhsusf_M1083A1P2_WD_fmtv_usarmy {
-            condition = "!BC_IS_WOODLAND";
-            vehicleInit = "[['rhs_desert',1],['hide_cover',0,'hide_spare',0,'hide_scaffold',0,'hide_bench',0]]";
-        };
-
-        class rhsusf_mrzr4_d {
-            displayName = "MRZR 4";
-            description = "Fast but protectionless.";
+        class RHS_Ural_MSV_01 {
+            displayName = "Ural";
+            description = "The workhorse of your army.";
             price = 10;
             stock = 7;
             spawnEmpty = 1;
             wheelCargo = 2;
-            condition = "true";
-            code = "[(_this select 0), [['mud','mud_olive'] select BC_IS_WOODLAND,1], ['tailgateHide',0,'tailgate_open',0,'cage_fold',0]] call BIS_fnc_initVehicle;";
-            vehicleInit = "[[],[]]";
-        };
-		
-		class rhsusf_M978A4_usarmy_wd{
-            displayName = "HEMMTT FUEL";
-            description = "Fuel Truck.";
-            stock = 1;
-            spawnEmpty = 1;
-            wheelCargo = 3;
             condition = "BC_IS_WOODLAND";
-            vehicleInit = "[['rhs_woodland',1],['hide_spare',0]]";
-            code = "(_this select 0) setVariable ['ace_rearm_isSupplyVehicle', false, true]; (_this select 0) setVariable ['ACE_isRepairVehicle', false, true];";
+            vehicleInit = "[['standard',1], ['light_hide',1]]";
         };
 
-        class rhsusf_M978A4_usarmy_d: rhsusf_M978A4_usarmy_wd {
+        class RHS_Ural_VV_01: RHS_Ural_MSV_01 {
             condition = "!BC_IS_WOODLAND";
-            vehicleInit = "[['rhs_desert',1],['hide_spare',0]]";
+            vehicleInit = "[['rhs_sand',1], ['light_hide',1]]";
+        };
+
+        class rhs_uaz_open_MSV_01 {
+            displayName = "UAZ";
+            description = "Faster and smaller footprint but cant transport as many.";
+            price = 10;
+            stock = 7;
+            spawnEmpty = 1;
+            wheelCargo = 2;
+            condition = "BC_IS_WOODLAND";
+            vehicleInit = "[[], ['cabinlights_hide',0,'light_hide',1]]";
+        };
+
+        class rhs_uaz_open_vdv: rhs_uaz_open_MSV_01 {
+            condition = "!BC_IS_WOODLAND";
+            vehicleInit = "[['Camo3',1], ['cabinlights_hide',0,'light_hide',1]]";
         };
     };
-
 
     class Recon {
         displayName = "Recon";
@@ -80,47 +72,51 @@ class usSPEOpfor {
         maxBuyCount = 2;
         minPlayerCount = 20;
 
-        class RHS_MELB_H6M {
-            displayName = "OH-6M";
-            description = "1 GPS\nNO Thermals\nNO Benches";
+        class rhs_tigr_m_vdv {
+            displayName = "Tigr-M";
+            description = "The perfect commander limousine.";
             price = 10;
-            stock = 1;
-            code = "(_this select 0) addItemCargoGlobal ['ACE_NVG_Wide',2];(_this select 0) addItemCargoGlobal ['ItemGPS',1];(_this select 0) disableTIEquipment true; [(_this select 0)] call BC_setup_fnc_fuelDrain;";
+            stock = 2;
+            wheelCargo = 2;
             spawnEmpty = 1;
+            condition = "BC_IS_WOODLAND";
             vehicleInit = "[[],[]]";
         };
 
-        class rhsusf_CGRCAT1A2_usmc_wd {
-            displayName = "Cougar IMV";
-            description = "Perfect commander limousine.";
+        class rhs_tigr_m_3camo_vdv: rhs_tigr_m_vdv {
+            condition = "!BC_IS_WOODLAND";
+            vehicleInit = "[[],[]]";
+        };
+
+        class rhsgref_nat_uaz_dshkm {
+            displayName = "UAZ Dshkm";
+            description = "Fast and a deadly gun against ground and air targets.";
             price = 10;
             stock = 2;
             spawnEmpty = 1;
             wheelCargo = 2;
             condition = "BC_IS_WOODLAND";
-            vehicleInit = "[['rhs_woodland',1],['DUKE_Hide',1]]";
+            vehicleInit = "[['standard', 1], ['cabinlights_hide',0,'light_hide',1]]";
         };
 
-        class rhsusf_CGRCAT1A2_usmc_d: rhsusf_CGRCAT1A2_usmc_wd {
+        class rhsgref_cdf_b_reg_uaz_dshkm: rhsgref_nat_uaz_dshkm {
             condition = "!BC_IS_WOODLAND";
-            vehicleInit = "[['rhs_desert',1],['DUKE_Hide',1]]";
+            vehicleInit = "[['Camo3',1], ['cabinlights_hide',0,'light_hide',1]]";
         };
 
-
-        class rhsusf_M1078A1R_SOV_M2_WD_fmtv_socom {
-            displayName = "FMTV M2";
-            description = "A big target with a big gun.";
+        class rhsgref_BRDM2_HQ_msv {
+            displayName = "BRDM-HQ";
+            description = "Carries a lot of meat.";
             stock = 2;
             spawnEmpty = 1;
-            wheelCargo = 3;
+            wheelCargo = 2;
             condition = "BC_IS_WOODLAND";
-            vehicleInit = "[['rhs_woodland',1],['hide_spare',0]]";
-            code = "(_this select 0) setVariable ['ace_rearm_isSupplyVehicle', false, true]; (_this select 0) setVariable ['ACE_isRepairVehicle', false, true];";
+            vehicleInit = "[['olive', 1], ['driverViewHatch',0,'commanderViewHatch',0,'hatchCommander',1]]";
         };
 
-        class rhsusf_M1078A1R_SOV_M2_D_fmtv_socom: rhsusf_M1078A1R_SOV_M2_WD_fmtv_socom {
+        class rhsgref_BRDM2_HQ_vdv: rhsgref_BRDM2_HQ_msv {
             condition = "!BC_IS_WOODLAND";
-            vehicleInit = "[['rhs_desert',1],['hide_spare',0]]";
+            vehicleInit = "[['3tone', 1], ['driverViewHatch',0,'commanderViewHatch',0,'hatchCommander',1]]";
         };
     };
 
@@ -129,68 +125,91 @@ class usSPEOpfor {
         kindOf = "Vehicles";
         maxBuyCount = 1;
         minPlayerCount = 40;
+ 
+        class rhsgref_BRDM2_msv {
+            displayName = "BRDM-2";
+            description = "Armed version of BRDM2.";
+            stock = 1;
+            spawnEmpty = 1;
+            wheelCargo = 2;
+            condition = "BC_IS_WOODLAND";
+            vehicleInit = "[['olive', 1], ['driverViewHatch',0,'commanderViewHatch',0,'hatchCommander',1]]";
+        };
 
-        class rhsusf_m1025_w_m2 {
-            displayName = "HMMWV M2";
-            description = "Fast, reliable, deadly.";
+        class rhsgref_BRDM2_vdv: rhsgref_BRDM2_msv {
+            condition = "!BC_IS_WOODLAND";
+            vehicleInit = "[['3tone', 1], ['driverViewHatch',0,'commanderViewHatch',0,'hatchCommander',1]]";
+    
+        };
+
+        class rhsgref_nat_uaz_spg9 {
+            displayName = "UAZ SPG9";
+            description = "Tank hunter with unguided AT.";
             price = 10;
             stock = 1;
             spawnEmpty = 1;
             wheelCargo = 2;
             condition = "BC_IS_WOODLAND";
-            vehicleInit = "[['standard',1],['hide_snorkel',1,'hide_CIP',1,'hide_BFT',0,'hide_Antenna',0,'hide_A2_Parts',0,'Hide_A2Bumper',0,'Hide_Brushguard',1]]";
+            vehicleInit = "[['standard',1], ['cabinlights_hide',0,'light_hide',1]]";
         };
 
-        class rhsusf_m1025_d_m2: rhsusf_m1025_w_m2 {
+        class rhsgref_ins_uaz_spg9: rhsgref_nat_uaz_spg9 {
             condition = "!BC_IS_WOODLAND";
-            vehicleInit = "[['Desert',1],['hide_snorkel',1,'hide_CIP',1,'hide_BFT',0,'hide_Antenna',0,'hide_A2_Parts',0,'Hide_A2Bumper',0,'Hide_Brushguard',1]]";
-        };
-
-        class rhsusf_m113_usarmy_M2_90 {
-            displayName = "M113 Alt";
-            description = "Versatile APC.";
-            stock = 1;
-            spawnEmpty = 1;
-            trackCargo = 3;
-            condition = "BC_IS_WOODLAND";
-            vehicleInit = "[['standard',1],['IFF_Panels_Hide',1]]";
-        };
-
-        class rhsgref_hidf_m113a3_mk19: rhsusf_m113_usarmy_M2_90 {
-            condition = "!BC_IS_WOODLAND";
-            vehicleInit = "[['Desert',1],['IFF_Panels_Hide',1]]";
+            vehicleInit = "[['Camo',1], ['cabinlights_hide',0,'light_hide',1]]";
         };
     };
 
-    class Heavy {
-        displayName = "Heavy";
+    class Armor {
+        displayName = "Armor";
         kindOf = "Vehicles";
         maxBuyCount = 1;
         minPlayerCount = 60;
 
-        class rhsusf_m1045_w {
-            displayName = "HMMWV TOW";
+        class rhs_t80bvk {
+            displayName = "T80-BVK";
+            description = "Heavy tank, best vehicle you can get.";
+            stock = 1;
+            spawnEmpty = 1;
+            trackCargo = 2;
+            condition = "BC_IS_WOODLAND";
+            vehicleInit = "[['standard',1], ['hide_com_shield',1,'sightElevationAPFSDS',0]]";
+        };
+
+        class rhs_t80bk: rhs_t80bvk {
+            condition = "!BC_IS_WOODLAND";
+            vehicleInit = "[['rhs_sand',1], ['hide_com_shield',1,'sightElevationAPFSDS',0]]";
+        };
+
+        class rhs_bmp1d_msv {
+            displayName = "BMP1-D";
+            description = "Carries more soldiers but is less protected.";
+            stock = 1;
+            spawnEmpty = 1;
+            trackCargo = 2;
+            condition = "BC_IS_WOODLAND";
+            vehicleInit = "[['standard',1], ['crate_l1_unhide',1,'crate_l2_unhide',1,'crate_l3_unhide',1,'crate_r1_unhide',1,'crate_r2_unhide',1,'crate_r3_unhide',1,'wood_1_unhide',1,'maljutka_hide_source',1,'cargoHandler1',0]]";
+        };
+
+        class rhs_bmp1d_vdv: rhs_bmp1d_msv {
+            condition = "!BC_IS_WOODLAND";
+            vehicleInit = "[['rhs_sand',1], ['crate_l1_unhide',1,'crate_l2_unhide',1,'crate_l3_unhide',1,'crate_r1_unhide',1,'crate_r2_unhide',1,'crate_r3_unhide',1,'wood_1_unhide',1,'maljutka_hide_source',1,'cargoHandler1',0]]";
+        };
+
+        class rhsgref_BRDM2_ATGM_msv {
+            displayName = "BRDM-AT";
             description = "Tank hunter with fly-by-wire AT.";
             stock = 1;
             spawnEmpty = 1;
             wheelCargo = 2;
             condition = "BC_IS_WOODLAND";
-            vehicleInit = "[['standard',1], ['hide_snorkel',1,'hide_CIP',0,'hide_BFT',0,'hide_Antenna',0,'hide_A2_Parts',0,'Hide_A2Bumper',0,'Hide_Brushguard',1]]";
+            vehicleInit = "[['olive', 1], ['driverViewHatch',0,'commanderViewHatch',0,'hatchCommander',1]]";
         };
 
-        class rhsusf_m1045_d: rhsusf_m1045_w {
+        class rhsgref_BRDM2_ATGM_vdv: rhsgref_BRDM2_ATGM_msv {
             condition = "!BC_IS_WOODLAND";
-            vehicleInit = "[['Desert',1], ['hide_snorkel',1,'hide_CIP',0,'hide_BFT',0,'hide_Antenna',0,'hide_A2_Parts',0,'Hide_A2Bumper',0,'Hide_Brushguard',1]]";
+            vehicleInit = "[['3tone', 1], ['driverViewHatch',0,'commanderViewHatch',0,'hatchCommander',1]]";
         };
 
-        class RHS_UH60M2 {
-            displayName = "UH-60M";
-            description = "1 GPS\nFRIES equipped";
-            stock = 1;
-            code = "(_this select 0) addItemCargoGlobal ['ACE_NVG_Wide',2];(_this select 0) addItemCargoGlobal ['ItemGPS',1];[(_this select 0)] call ace_fastroping_fnc_equipFRIES;[(_this select 0)] call BC_setup_fnc_fuelDrain;";
-            spawnEmpty = 1;
-            vehicleInit = "[[],[]]";
-        };
     };
 
     class Special {
@@ -198,31 +217,30 @@ class usSPEOpfor {
         kindOf = "Special";
         maxBuyCount = 2;
 
-        class I_C_Boat_Transport_01_F {
+        class Land_DataTerminal_01_F {
             kindOf = "Special";
-            displayName = "Boat + Diving Equipment inside * 4";
-            description = "Get it in the Start Vehicle (ACE Interaction).";
+            displayName = "Radio Relay Terminal";
+            description = "Replaces radio truck internal module.\nIs attached to the radio truck but can be detached.\nSends with 50-100% strength depending on distance to radio truck.";
             stock = 1;
-            code = "(_this select 1) setVariable ['grad_carryBoatCargo', 1, true];[(_this select 1), 'B_Boat_Transport_01_F'] remoteExec ['BC_buymenu_fnc_addBoatInteraction', [0,-2] select isDedicated];";
+            picturePath = "pic\terminal.paa";
+            code = "diag_log str (_this); private _terminal = missionNameSpace getVariable ['GRAD_tracking_terminalObj', objNull]; [_terminal, (_this select 1)] call GRAD_tracking_fnc_terminalAttachToVeh;";
+        };
+
+        class Land_BagFence_Round_F {
+            kindOf = "Special";
+            displayName = "Defense Pack";
+            description = "1 KORD MG, Sandbag-Fortificatons and 2 Axes for cutting vegetation in Radio Truck.";
+            stock = 1;
+            code = "diag_log str (_this);private _mg = 'rhs_KORD_high_VDV' createVehicle [0,0,0];_mg attachTo [(_this select 1), [0,0,0]];[_mg, (_this select 1)] call ace_cargo_fnc_loadItem; (_this select 1) addItemCargoGlobal ['grad_axe', 2]; [(_this select 1), 'Land_CzechHedgehog_01_new_F', 9] call grad_fortifications_fnc_addFort; [(_this select 1), 'Land_BagFence_Long_F', 9] call grad_fortifications_fnc_addFort;";
             spawnEmpty = 1;
         };
 
-        class rhsusf_explosive_m112 {
+        class Land_WeldingTrolley_01_F {
             kindOf = "Special";
-            displayName = "Breaching Equipment";
-            description = "Explosives and Wirecutter in Start Vehicle.";
-            stock = 1;
-            code = "(_this select 1) addItemCargoGlobal ['ACE_wirecutter',2];(_this select 1) addItemCargoGlobal ['ACE_Clacker',2];(_this select 1) addMagazineCargoGlobal ['DemoCharge_Remote_Mag', 2];";
-            spawnEmpty = 1;
-        };
-
-        class Land_JumpTarget_F {
-            kindOf = "Special";
-            displayName = "Hunt IR Equipment";
-            description = "Hunt IR Equipment in Start Vehicle.";
-            stock = 1;
-            code = "(_this select 1) addItemCargoGlobal ['ACE_HuntIR_monitor',2];(_this select 1) addMagazineCargoGlobal ['ACE_HuntIR_M203',4];";
-            spawnEmpty = 1;
+            displayName = "Radio Truck Armor";
+            description = "Selfmade armor for radio truck to protect its tires against small arms fire.";
+            stock = 2;
+            code = "diag_log str (_this); [(_this select 1)] call BC_buymenu_fnc_applyTruckArmor;";
         };
     };
 };

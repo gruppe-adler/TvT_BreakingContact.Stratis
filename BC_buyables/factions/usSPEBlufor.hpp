@@ -1,9 +1,9 @@
 //a different set of buyables
 class usSPEBlufor {
     side = "Blufor";
-    loadout = "usa";
+    loadout = "usSPE";
     mode = "conquer";
-    driverGps = "true";
+    driverGps = "false";
     crewHelmet = "";
     disableTIEquipment = "true";
 
