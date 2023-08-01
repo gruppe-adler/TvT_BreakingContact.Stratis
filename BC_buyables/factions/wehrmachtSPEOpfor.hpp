@@ -38,19 +38,7 @@ class WehrmachtSPEOpfor {
             condition = "true";
             vehicleInit = "[[],[]]";
         };
-
-        class rhs_uaz_open_MSV_01 {
-            displayName = "UAZ";
-            description = "Faster and smaller footprint but cant transport as many.";
-            price = 10;
-            stock = 7;
-            spawnEmpty = 1;
-            wheelCargo = 2;
-            condition = "true";
-            vehicleInit = "[[],[]]";
-        };
     };
-
 
     class Recon {
         displayName = "Recon";
@@ -69,11 +57,6 @@ class WehrmachtSPEOpfor {
             vehicleInit = "[[],[]]";
         };
 
-        class rhs_tigr_m_3camo_vdv: SPE_SdKfz250_1 {
-            condition = "!BC_IS_WOODLAND";
-            vehicleInit = "[[],[]]";
-        };
-
         class SPE_OpelBlitz_Flak38 {
             displayName = "UAZ Dshkm";
             description = "Fast and a deadly gun against ground and air targets.";
@@ -84,13 +67,7 @@ class WehrmachtSPEOpfor {
             condition = "BC_IS_WOODLAND";
             vehicleInit = "[[],[]]";
         };
-
-        class rhsgref_cdf_b_reg_uaz_dshkm: SPE_OpelBlitz_Flak38 {
-            condition = "!BC_IS_WOODLAND";
-            vehicleInit = "[[],[]]";
-        };
     };
-
 
     class Support {
         displayName = "Support";
@@ -98,47 +75,7 @@ class WehrmachtSPEOpfor {
         maxBuyCount = 1;
         minPlayerCount = 40;
 
-        
-        class rhsgref_BRDM2_msv {
-            displayName = "BRDM-2";
-            description = "Armed version of BRDM2.";
-            stock = 1;
-            spawnEmpty = 1;
-            wheelCargo = 2;
-            condition = "BC_IS_WOODLAND";
-            vehicleInit = "[[],[]]";
-        };
-
-        class rhsgref_BRDM2_vdv: rhsgref_BRDM2_msv {
-            condition = "!BC_IS_WOODLAND";
-            vehicleInit = "[[],[]]";
-    
-        };
-
-        class rhsgref_nat_uaz_spg9 {
-            displayName = "UAZ SPG9";
-            description = "Tank hunter with unguided AT.";
-            price = 10;
-            stock = 1;
-            spawnEmpty = 1;
-            wheelCargo = 2;
-            condition = "BC_IS_WOODLAND";
-            vehicleInit = "[[],[]]";
-        };
-
-        class rhsgref_ins_uaz_spg9: rhsgref_nat_uaz_spg9 {
-            condition = "!BC_IS_WOODLAND";
-            vehicleInit = "[[],[]]";
-        };
-    };
-
-    class Armor {
-        displayName = "Armor";
-        kindOf = "Vehicles";
-        maxBuyCount = 1;
-        minPlayerCount = 60;
-
-        class SPE_Pak40 {
+       class SPE_Pak40 {
             displayName = "Pak 40";
             description = "Big gun Pak";
             stock = 1;
@@ -150,6 +87,33 @@ class WehrmachtSPEOpfor {
 
         class SPE_FlaK_36 {
             displayName = "Flak 36";
+            description = "8,8cm FLAK";
+            stock = 1;
+            spawnEmpty = 1;
+            trackCargo = 2;
+            condition = "BC_IS_WOODLAND";
+            vehicleInit = "[[],[]]";
+        };
+    };
+
+    class Armor {
+        displayName = "Armor";
+        kindOf = "Vehicles";
+        maxBuyCount = 1;
+        minPlayerCount = 60;
+
+        class SPE_PzKpfwIII_J {
+            displayName = "Panzerkampfwagen III Ausf. J";
+            description = "Big gun Pak";
+            stock = 1;
+            spawnEmpty = 1;
+            trackCargo = 2;
+            condition = "BC_IS_WOODLAND";
+            vehicleInit = "[[],[]]";
+        };
+
+        class SPE_PzKpfwIII_N {
+            displayName = "Panzerkampfwagen III Ausf. N";
             description = "8,8cm FLAK";
             stock = 1;
             spawnEmpty = 1;
