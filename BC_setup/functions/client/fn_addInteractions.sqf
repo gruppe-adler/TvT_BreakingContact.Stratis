@@ -41,52 +41,54 @@ if (!hasInterface) exitWith {};
 
             // RADIO TRUCK DEPLOY
             // rhs gaz has native deploy actions
-            if (_type != "rhs_gaz66_r142_vv" && 
+            if (
+                _type != "rhs_gaz66_r142_vv" && 
                 _type != "gm_gc_army_btr60pu12_ols" &&
                 _type != "gm_gc_army_btr60pu12_oli"
-                ) then {
-                  private _deployAction = [
-                      "RusRadioDeploy",
-                      (localize "str_GRAD_radio_deploy"),
-                      "",
-                      {
-                          params ["_radiotruck"];
+            ) then {
+                private _deployAction = [
+                    "RusRadioDeploy",
+                    (localize "str_GRAD_radio_deploy"),
+                    "",
+                    {
+                        params ["_radiotruck"];
 
-                          if (!MISSION_STARTED) exitWith {
-                              hint "Please wait until Preparation Time is over.";
-                          };
+                        if (!MISSION_STARTED) exitWith {
+                            hint "Please wait until Preparation Time is over.";
+                        };
 
-                          [_radiotruck] remoteExec ["GRAD_tracking_fnc_radioTruckDeploy", 2];
-                      },
-                      {
-                          params ["_radiotruck"];
-                          _isRetracted = ! (_radiotruck getVariable ["GRAD_isDeployed", false]);
-                          _isStationary = (speed _radiotruck) == 0;
-                          _isNotAnimated = ! (_radiotruck getVariable ["GRAD_isAnimating", false]);
+                        [_radiotruck] remoteExec ["GRAD_tracking_fnc_radioTruckDeploy", 2];
+                    },
+                    {
+                        params ["_radiotruck"];
+                        _isRetracted = ! (_radiotruck getVariable ["GRAD_isDeployed", false]);
+                        _isStationary = (speed _radiotruck) == 0;
+                        _isNotAnimated = ! (_radiotruck getVariable ["GRAD_isAnimating", false]);
 
-                          (side player == east) && _isStationary && _isRetracted && _isNotAnimated
-                      }
-                  ] call ace_interact_menu_fnc_createAction;
-                  [_type, 0, ["ACE_MainActions"], _deployAction] call ace_interact_menu_fnc_addActionToClass;
+                        (side player == east) && _isStationary && _isRetracted && _isNotAnimated
+                    }
+                ] call ace_interact_menu_fnc_createAction;
 
-                  private _retractAction = [
-                      "RusRadioRetract",
-                      (localize "str_GRAD_radio_retract"),
-                      "",
-                      {
-                          params ["_radiotruck"];
-                          [_radiotruck] remoteExec ["GRAD_tracking_fnc_radioTruckRetract", 2];
-                      },
-                      {
-                          params ["_radiotruck"];
-                          _isDeployed = _radiotruck getVariable ["GRAD_isDeployed", false];
-                          _isStationary = (speed _radiotruck) == 0;
-                          _isNotAnimated = ! (_radiotruck getVariable ["GRAD_isAnimating", false]);
+                [_type, 0, ["ACE_MainActions"], _deployAction] call ace_interact_menu_fnc_addActionToClass;
 
-                          (side player == east) && _isStationary && _isDeployed && _isNotAnimated
-                      }
-                  ] call ace_interact_menu_fnc_createAction;
-                  [_type, 0, ["ACE_MainActions"], _retractAction] call ace_interact_menu_fnc_addActionToClass;
+                private _retractAction = [
+                    "RusRadioRetract",
+                    (localize "str_GRAD_radio_retract"),
+                    "",
+                    {
+                        params ["_radiotruck"];
+                        [_radiotruck] remoteExec ["GRAD_tracking_fnc_radioTruckRetract", 2];
+                    },
+                    {
+                        params ["_radiotruck"];
+                        _isDeployed = _radiotruck getVariable ["GRAD_isDeployed", false];
+                        _isStationary = (speed _radiotruck) == 0;
+                        _isNotAnimated = ! (_radiotruck getVariable ["GRAD_isAnimating", false]);
+
+                        (side player == east) && _isStationary && _isDeployed && _isNotAnimated
+                    }
+                ] call ace_interact_menu_fnc_createAction;
+                [_type, 0, ["ACE_MainActions"], _retractAction] call ace_interact_menu_fnc_addActionToClass;
 
             };
 
@@ -208,6 +210,62 @@ if (!hasInterface) exitWith {};
                     ""
                 ];
 
+            };
+
+            // hacky SPE Support
+            if (_type == "SPE_US_M3_Halftrack_Repair" || {_type == "SPE_OpelBlitz_Repair"}) then {
+
+                _startVehicle addAction[
+                    "<t color='#339933'>Deploy Radar</t>", 
+                    {
+                        params ["_target", "_caller", "_actionId", "_arguments"];
+
+                        private _cache = fuel _target;
+                        _target setVariable ["BC_currentFuelCache", _cache, true];
+                        _target setFuel 0;
+                        
+                        private _antenna = createVehicle ["Land_Antenna", (_target getPos [5, ((getDir _target +180) mod 360)]), [], 0, "CAN_COLLIDE"];
+                        _target setVariable ["BC_ww2_antenna", _antenna, true];
+
+                        _target setVariable ["grad_replay_color", {GRAD_FUNKWAGEN_RED}, true];
+                    },
+                    [],
+                    1.5, 
+                    true, 
+                    true, 
+                    "",
+                    "_this == (driver _target) && {isNull (_target getVariable ['BC_ww2_antenna', objNull])}", 
+                    50,
+                    false,
+                    "",
+                    ""
+                ];
+
+                _startVehicle addAction[
+                    "<t color='#993333'>Retract Radar</t>", 
+                    {
+                        params ["_target", "_caller", "_actionId", "_arguments"];
+
+                        private _antenna = _target getVariable 'BC_ww2_antenna';
+                        deleteVehicle _antenna;
+                        _target setVariable ["BC_ww2_antenna", objNull, true];
+
+                        _target setVariable ["grad_replay_color", nil, true];
+                        
+                        private _cache = _target getVariable ["BC_currentFuelCache", 0];
+                        _target setFuel _cache;
+                    },
+                    [],
+                    1.5, 
+                    true, 
+                    true, 
+                    "",
+                    "_this == (driver _target) && {!isNull (_target getVariable ['BC_ww2_antenna', objNull])}", 
+                    50,
+                    false,
+                    "",
+                    ""
+                ];
             };
 
 

@@ -1,5 +1,6 @@
 class BC_ww2 {
-        file = BC_ww2\functions;
+    class client {
+        file = BC_ww2\functions\client;
         
         class getPlayerByName {};
         class onButtonClick {};
@@ -7,4 +8,5 @@ class BC_ww2 {
         class openGui {};
         class planeSpawn {};
         class removeMagazine {};
+    };
 };
