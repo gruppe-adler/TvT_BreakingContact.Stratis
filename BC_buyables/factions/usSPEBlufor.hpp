@@ -72,7 +72,7 @@ class usSPEBlufor {
             spawnEmpty = 1;
             condition = "BC_IS_WOODLAND";
             vehicleInit = "[[],[]]";
-            code = "deleteVehicle (_this select 0); ['SPE_P47'] remoteExecCall ['BC_ww2_fnc_openGui', blufor_teamlead, false];"
+            code = "deleteVehicle (_this select 0); ['SPE_P47', false, ['SPE_M8_Launcher_P47','SPE_US_Timed_Short_500lb_Bomb_Mount'], ['SPE_3Rnd_M8_P47','SPE_3Rnd_M8_P47','SPE_1Rnd_US_Timed_Short_500lb','SPE_1Rnd_US_Timed_Short_500lb','SPE_1Rnd_US_Timed_Short_500lb']] remoteExecCall ['BC_ww2_fnc_openGui', blufor_teamlead, false];"
         };
     };
 

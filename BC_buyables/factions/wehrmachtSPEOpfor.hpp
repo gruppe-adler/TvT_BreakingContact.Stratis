@@ -128,7 +128,7 @@ class WehrmachtSPEOpfor {
         kindOf = "Special";
         maxBuyCount = 2;
 
-        class Land_BagFence_Round_F {
+        class SPE_MG34_Lafette_low_Deployed {
             kindOf = "Special";
             displayName = "Defense Pack";
             description = "1 MG34, Sandbag-Fortificatons, Hedghogs and 2 Axes for cutting vegetation in Radio Truck.";

@@ -13,11 +13,11 @@ if (!(ctrlEnabled (_display displayCtrl 7)) || _nameGunner == _namePilot) then {
 
 closeDialog 0;
 
-(missionNamespace getVariable "BC_ww2_planeType") params ["_planeTyp", "", "_removeWeapons", "_removeMagazines"];
+(missionNamespace getVariable "BC_ww2_planeType") params ["_planeTyp", "", "_removeWeapons", "_removeMagazines", "_addWeapon"];
 
 [{
 	MISSION_STARTED
 },
 {
 	_this remoteExecCall ["BC_ww2_fnc_planeSpawn", 2, false];
-},[_namePilot, _nameGunner, _planeTyp, _removeWeapons, _removeMagazines]] call CBA_fnc_waitUntilAndExecute;
+},[_namePilot, _nameGunner, _planeTyp, _removeWeapons, _removeMagazines, _addWeapon]] call CBA_fnc_waitUntilAndExecute;

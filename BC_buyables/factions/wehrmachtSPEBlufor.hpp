@@ -71,7 +71,7 @@ class WehrmachtSPEBlufor {
             spawnEmpty = 1;
             condition = "BC_IS_WOODLAND";
             vehicleInit = "[[],[]]";
-            code = "deleteVehicle (_this select 0); ['SPE_FW190F8'] remoteExecCall ['BC_ww2_fnc_openGui', blufor_teamlead, false];";
+            code = "deleteVehicle (_this select 0); ['SPE_FW190F8', false, ['SPE_2xMG151','SPE_2xMG131_FW190','SPE_Timed_Short_SC50_Bomb_Mount','SPE_Timed_Short_SC250_Bomb_Mount'], ['SPE_250Rnd_MG151','SPE_250Rnd_MG151','SPE_400Rnd_MG131','SPE_400Rnd_MG131','SPE_1Rnd_Timed_Short_SC50','SPE_1Rnd_Timed_Short_SC50','SPE_1Rnd_Timed_Short_SC250','SPE_1Rnd_Timed_Short_SC50','SPE_1Rnd_Timed_Short_SC50'], [['SPE_8xM2_P47',['SPE_4000Rnd_M2_P47'], [-1]]]] remoteExecCall ['BC_ww2_fnc_openGui', blufor_teamlead, false];";
         };
     };
 
@@ -99,8 +99,8 @@ class WehrmachtSPEBlufor {
         maxBuyCount = 1;
         minPlayerCount = 60;
 
-        class SPE_PzKpfwIII_L {
-            displayName = "Panzerkampfwagen III Ausf. L";
+        class SPE_Nashorn {
+            displayName = "Nashorn";
             description = "Tank hunter with fly-by-wire AT.";
             stock = 1;
             spawnEmpty = 1;

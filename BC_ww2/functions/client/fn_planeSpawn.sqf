@@ -1,4 +1,4 @@
-params ["_pilotName", "_gunnerName", "_planeTyp", "_removeWeapons", "_removeMagazines"];
+params ["_pilotName", "_gunnerName", "_planeTyp", "_removeWeapons", "_removeMagazines", "_addWeapon"];
 
 //calculate the x and y differentce
 BLUFOR_TELEPORT_TARGET params ["_initX", "_initY"];
@@ -46,13 +46,16 @@ if (!isNil "_pilot") then {
         (_velocity select 2)];
 	_plane engineOn true;
 	_pilot allowDamage false;
+
+	[_plane, _removeMagazines] call BC_ww2_fnc_removeMagazines;
+
 	_pilot moveInDriver _plane;
 
 	{
 		_plane removeWeapon _x;
 	} forEach _removeWeapons;
 
-	[_plane, _removeMagazines] call BC_ww2_fnc_removeMagazines;
+	[_plane, _addWeapon] call BC_ww2_fnc_addWeapon;
 
 	[{
 		params ["_pilot"];
