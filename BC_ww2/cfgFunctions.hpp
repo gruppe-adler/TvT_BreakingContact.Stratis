@@ -4,6 +4,8 @@ class BC_ww2 {
         
         class addWeapon {};
         class getPlayerByName {};
+        class moveInPilot {};
+        class moveInGunner {};
         class onButtonClick {};
         class onLoad {};
         class openGui {};

@@ -105,6 +105,7 @@ class usSPEBlufor {
             spawnEmpty = 1;
             condition = "BC_IS_WOODLAND";
             vehicleInit = "[[],[]]";
+            code = "[(_this select 0), ['SPE_20x_76mm_M1_HC_M62_APCBC','SPE_15x_76mm_M1_HC_M42_HE']] call BC_ww2_fnc_removeMagazines;";
         };
 
         class SPE_M10 {
@@ -113,6 +114,7 @@ class usSPEBlufor {
             stock = 1;
             spawnEmpty = 1;
             vehicleInit = "[[],[]]";
+            code = "[(_this select 0), ['SPE_18x_76mm_M7_M62_APCBC','SPE_20x_76mm_M7_M42_HE']] call BC_ww2_fnc_removeMagazines; (_this select 0) addMagazineTurret ['SPE_8x_76mm_M7_M93_APCR', [0]];";
         };
     };
 

@@ -49,7 +49,7 @@ if (!isNil "_pilot") then {
 
 	[_plane, _removeMagazines] call BC_ww2_fnc_removeMagazines;
 
-	_pilot moveInDriver _plane;
+	[_pilot, _plane] remoteExecCall ["BC_ww2_fnc_moveInPilot", _pilot];
 
 	{
 		_plane removeWeapon _x;
@@ -57,22 +57,7 @@ if (!isNil "_pilot") then {
 
 	[_plane, _addWeapon] call BC_ww2_fnc_addWeapon;
 
-	[{
-		params ["_pilot"];
-
-		[_pilot, false] call ace_medical_fnc_setUnconscious;
-		_pilot allowDamage true;
-	}, [_pilot], 1] call CBA_fnc_waitAndExecute;
-
-	if !(isNil "_gunner" && {isNull _gunner} && {_gunner isEqualTo _pilot}) then {
-		_gunner allowDamage false;
-		_gunner moveInGunner _plane;
-
-		[{
-			params ["_gunner"];
-
-			[_gunner, false] call ace_medical_fnc_setUnconscious;
-			_gunner allowDamage true;
-		}, [_gunner], 1] call CBA_fnc_waitAndExecute;
+	if (!isNil "_gunner" && {!isNull _gunner} && {_gunner isNotEqualTo _pilot}) then {
+		[_gunner, _plane] remoteExecCall ["BC_ww2_fnc_moveInGunner", _gunner];
 	};
 };

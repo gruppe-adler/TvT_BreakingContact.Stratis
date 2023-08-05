@@ -1,5 +1,4 @@
 class wehrmachtSPE {
-    
 	class AllUnits {
 		uniform = "U_SPE_GER_Soldier_camo";
         vest = "V_SPE_GER_VestKar98";

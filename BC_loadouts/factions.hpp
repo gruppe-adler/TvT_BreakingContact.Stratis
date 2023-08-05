@@ -1,3 +1,5 @@
+#include "medicItemsBase.hpp"
+
 #include "factions\russia.hpp"
 #include "factions\usa.hpp"
 
