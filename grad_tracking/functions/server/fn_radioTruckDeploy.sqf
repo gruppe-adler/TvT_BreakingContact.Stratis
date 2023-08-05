@@ -5,12 +5,18 @@ _radiotruck setVariable ["GRAD_isAnimating", true, true];
 private _fuel = fuel _radiotruck;
 private _owner = owner _radiotruck;
 private _canMove = _radiotruck getVariable ["BC_canMoveDuringTransmission", false];
+private _type = typeOf _radiotruck;
 
-if (typeOf _radiotruck == "rhs_gaz66_r142_vv") exitWith {
+if (_type == "rhs_gaz66_r142_vv") exitWith {
 	[_radiotruck, 1] spawn rhs_fnc_gaz66_radioDeploy;
     sleep 3;
     _radiotruck setVariable ["GRAD_isDeployed", true, true];
     _radiotruck setVariable ["GRAD_isAnimating", false, true];
+};
+
+if (_type == "SPE_US_M3_Halftrack_Repair" || {_type == "SPE_OpelBlitz_Repair"}) then {
+    private _antenna = createVehicle ["Land_Antenna", (_radiotruck getPos [5, ((getDir _radiotruck +180) mod 360)]), [], 0, "CAN_COLLIDE"];
+    _radiotruck setVariable ["BC_ww2_antenna", _antenna, true];
 };
 
 _radiotruck setVariable ["GRAD_fuel", _fuel, true];

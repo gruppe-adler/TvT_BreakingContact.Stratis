@@ -1,3 +1,5 @@
+#include "medicItemsBase.hpp"
+
 #include "factions\russia.hpp"
 #include "factions\usa.hpp"
 
@@ -16,3 +18,6 @@
 #include "factions\referee.hpp"
 
 #include "factions\PAVN.hpp"
+
+#include "factions\usSPE.hpp"
+#include "factions\wehrmachtSPE.hpp"

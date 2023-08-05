@@ -9,6 +9,7 @@
 #include "BC_buymenu\dialog\baseDefines.hpp"
 #include "BC_buymenu\dialog\baseRsc.hpp"
 #include "node_modules\grad-listBuymenu\grad_listBuymenu.hpp"
+#include "BC_ww2\defines\dialog.hpp"
 
 class CfgFunctions {
     #include "BC_buymenu\cfgFunctions.hpp"
@@ -24,6 +25,7 @@ class CfgFunctions {
     #include "BC_buyables\cfgFunctions.hpp"
 
     #include "BC_vietnam\cfgFunctions.hpp"
+    #include "BC_ww2\cfgFunctions.hpp"
 
     #include "node_modules\grad-listBuymenu\cfgFunctions.hpp"
     #include "node_modules\@gruppe-adler\replay\cfgFunctions.hpp"
