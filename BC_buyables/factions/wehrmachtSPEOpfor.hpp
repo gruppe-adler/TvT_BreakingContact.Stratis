@@ -66,7 +66,7 @@ class WehrmachtSPEOpfor {
             wheelCargo = 2;
             condition = "BC_IS_WOODLAND";
             vehicleInit = "[[],[]]";
-            code = "[(_this select 0), ['SPE_20x_SprGr_FlaK_38','SPE_20x_SprGr_FlaK_38','SPE_20x_SprGr_FlaK_38','SPE_20x_SprGr_FlaK_38','SPE_20x_SprGr_FlaK_38','SPE_20x_SprGr_FlaK_38','SPE_20x_SprGr_FlaK_38','SPE_20x_SprGr_FlaK_38','SPE_20x_SprGr_FlaK_38','SPE_20x_SprGr_FlaK_38','SPE_20x_SprGr_FlaK_38','SPE_20x_SprGr_FlaK_38','SPE_20x_SprGr_FlaK_38','SPE_20x_SprGr_FlaK_38','SPE_20x_SprGr_FlaK_38','SPE_20x_SprGr_FlaK_38','SPE_20x_SprGr_FlaK_38','SPE_20x_SprGr_FlaK_38','SPE_20x_SprGr_FlaK_38','SPE_20x_SprGr_FlaK_38','SPE_20x_SprGr_FlaK_38','SPE_20x_SprGr_FlaK_38','SPE_20x_SprGr_FlaK_38','SPE_20x_SprGr_FlaK_38','SPE_20x_SprGr_FlaK_38','SPE_20x_SprGr_FlaK_38','SPE_20x_SprGr_FlaK_38','SPE_20x_SprGr_FlaK_38',]] call BC_ww2_fnc_removeMagazines;";
+            code = "[(_this select 0), ['SPE_20x_SprGr_FlaK_38','SPE_20x_SprGr_FlaK_38','SPE_20x_SprGr_FlaK_38','SPE_20x_SprGr_FlaK_38','SPE_20x_SprGr_FlaK_38','SPE_20x_SprGr_FlaK_38','SPE_20x_SprGr_FlaK_38','SPE_20x_SprGr_FlaK_38','SPE_20x_SprGr_FlaK_38','SPE_20x_SprGr_FlaK_38','SPE_20x_SprGr_FlaK_38','SPE_20x_SprGr_FlaK_38','SPE_20x_SprGr_FlaK_38','SPE_20x_SprGr_FlaK_38','SPE_20x_SprGr_FlaK_38','SPE_20x_SprGr_FlaK_38','SPE_20x_SprGr_FlaK_38','SPE_20x_SprGr_FlaK_38','SPE_20x_SprGr_FlaK_38','SPE_20x_SprGr_FlaK_38','SPE_20x_SprGr_FlaK_38','SPE_20x_SprGr_FlaK_38','SPE_20x_SprGr_FlaK_38','SPE_20x_SprGr_FlaK_38','SPE_20x_SprGr_FlaK_38','SPE_20x_SprGr_FlaK_38','SPE_20x_SprGr_FlaK_38','SPE_20x_SprGr_FlaK_38']] call BC_ww2_fnc_removeMagazine;";
         };
     };
 
@@ -84,7 +84,7 @@ class WehrmachtSPEOpfor {
             trackCargo = 2;
             condition = "BC_IS_WOODLAND";
             vehicleInit = "[[],[]]";
-            code = "[(_this select 0), ['SPE_40x_PzGr39_Pak40_AP','SPE_10x_PzGr40_Pak40_APCR','SPE_50x_SprGr34_Pak40_HE']] call BC_ww2_fnc_removeMagazines;";
+            code = "[(_this select 0), ['SPE_40x_PzGr39_Pak40_AP','SPE_10x_PzGr40_Pak40_APCR','SPE_50x_SprGr34_Pak40_HE']] call BC_ww2_fnc_removeMagazine;";
         };
 
         class SPE_FlaK_36 {
@@ -95,7 +95,7 @@ class WehrmachtSPEOpfor {
             trackCargo = 2;
             condition = "BC_IS_WOODLAND";
             vehicleInit = "[[],[]]";
-            code = "[(_this select 0), ['SPE_30x_PzGr39_FLAK36_AP','SPE_21x_SprGr_FLAK36_HE']] call BC_ww2_fnc_removeMagazines;";
+            code = "[(_this select 0), ['SPE_30x_PzGr39_FLAK36_AP','SPE_21x_SprGr_FLAK36_HE']] call BC_ww2_fnc_removeMagazine;";
         };
     };
 
@@ -113,18 +113,18 @@ class WehrmachtSPEOpfor {
             trackCargo = 2;
             condition = "BC_IS_WOODLAND";
             vehicleInit = "[[],[]]";
-            code = "[(_this select 0), ['SPE_50x_Shell_50L42_PzGr_AP','SPE_34x_Shell_50L42_SprGr38_HE']] call BC_ww2_fnc_removeMagazines;";
+            code = "[(_this select 0), ['SPE_50x_Shell_50L42_PzGr_AP','SPE_34x_Shell_50L42_SprGr38_HE']] call BC_ww2_fnc_removeMagazine;";
         };
 
         class SPE_PzKpfwIII_N {
             displayName = "Panzerkampfwagen III Ausf. N";
-            description = "8,8cm FLAK";
+            description = "Tank with short canon";
             stock = 1;
             spawnEmpty = 1;
             trackCargo = 2;
             condition = "BC_IS_WOODLAND";
             vehicleInit = "[[],[]]";
-            code = "[(_this select 0), ['SPE_12x_75mm_K51_HLGr38c_HEAT','SPE_23x_75mm_K51_SprGr34_HE']] call BC_ww2_fnc_removeMagazines;";
+            code = "[(_this select 0), ['SPE_12x_75mm_K51_HLGr38c_HEAT','SPE_23x_75mm_K51_SprGr34_HE']] call BC_ww2_fnc_removeMagazine;";
         };
     };
 

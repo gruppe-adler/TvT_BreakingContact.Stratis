@@ -90,7 +90,7 @@ class WehrmachtSPEBlufor {
             wheelCargo = 2;
             condition = "BC_IS_WOODLAND";
             vehicleInit = "[[],[]]";
-            code = "[(_this select 0), ['SPE_20x_SprGr_FlaK_38','SPE_20x_SprGr_FlaK_38','SPE_20x_SprGr_FlaK_38','SPE_20x_SprGr_FlaK_38','SPE_20x_SprGr_FlaK_38','SPE_20x_SprGr_FlaK_38','SPE_20x_SprGr_FlaK_38','SPE_20x_SprGr_FlaK_38','SPE_20x_SprGr_FlaK_38','SPE_20x_SprGr_FlaK_38','SPE_20x_SprGr_FlaK_38','SPE_20x_SprGr_FlaK_38','SPE_20x_SprGr_FlaK_38','SPE_20x_SprGr_FlaK_38','SPE_20x_SprGr_FlaK_38','SPE_20x_SprGr_FlaK_38','SPE_20x_SprGr_FlaK_38','SPE_20x_SprGr_FlaK_38','SPE_20x_SprGr_FlaK_38','SPE_20x_SprGr_FlaK_38','SPE_20x_SprGr_FlaK_38','SPE_20x_SprGr_FlaK_38','SPE_20x_SprGr_FlaK_38','SPE_20x_SprGr_FlaK_38','SPE_20x_SprGr_FlaK_38','SPE_20x_SprGr_FlaK_38','SPE_20x_SprGr_FlaK_38','SPE_20x_SprGr_FlaK_38',]] call BC_ww2_fnc_removeMagazines;";
+            code = "[(_this select 0), ['SPE_20x_SprGr_FlaK_38','SPE_20x_SprGr_FlaK_38','SPE_20x_SprGr_FlaK_38','SPE_20x_SprGr_FlaK_38','SPE_20x_SprGr_FlaK_38','SPE_20x_SprGr_FlaK_38','SPE_20x_SprGr_FlaK_38','SPE_20x_SprGr_FlaK_38','SPE_20x_SprGr_FlaK_38','SPE_20x_SprGr_FlaK_38','SPE_20x_SprGr_FlaK_38','SPE_20x_SprGr_FlaK_38','SPE_20x_SprGr_FlaK_38','SPE_20x_SprGr_FlaK_38','SPE_20x_SprGr_FlaK_38','SPE_20x_SprGr_FlaK_38','SPE_20x_SprGr_FlaK_38','SPE_20x_SprGr_FlaK_38','SPE_20x_SprGr_FlaK_38','SPE_20x_SprGr_FlaK_38','SPE_20x_SprGr_FlaK_38','SPE_20x_SprGr_FlaK_38','SPE_20x_SprGr_FlaK_38','SPE_20x_SprGr_FlaK_38','SPE_20x_SprGr_FlaK_38','SPE_20x_SprGr_FlaK_38','SPE_20x_SprGr_FlaK_38','SPE_20x_SprGr_FlaK_38',]] call BC_ww2_fnc_removeMagazine;";
         };
     };
 
@@ -108,7 +108,7 @@ class WehrmachtSPEBlufor {
             wheelCargo = 2;
             condition = "BC_IS_WOODLAND";
             vehicleInit = "[[],[]]";
-            code = "[(_this select 0), ['SPE_20x_PzGr43_AP','SPE_10x_PzGr40_APCR','SPE_10x_SprGr39_HE']] call BC_ww2_fnc_removeMagazines;";
+            code = "[(_this select 0), ['SPE_20x_PzGr43_AP','SPE_10x_PzGr40_APCR','SPE_10x_SprGr39_HE']] call BC_ww2_fnc_removeMagazine;";
         };
 
         class SPE_PzKpfwIV_G {
@@ -117,7 +117,7 @@ class WehrmachtSPEBlufor {
             stock = 1;
             spawnEmpty = 1;
             vehicleInit = "[[],[]]";
-            code = "[(_this select 0), ['SPE_30x_PzGr39_KWK40_AP','SPE_40x_SprGr34_KWK40_HE']] call BC_ww2_fnc_removeMagazines;";
+            code = "[(_this select 0), ['SPE_30x_PzGr39_KWK40_AP','SPE_40x_SprGr34_KWK40_HE']] call BC_ww2_fnc_removeMagazine;";
         };
     };
 

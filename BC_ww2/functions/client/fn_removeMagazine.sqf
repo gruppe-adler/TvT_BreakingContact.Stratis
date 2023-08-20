@@ -1,8 +1,8 @@
-params ["_plane", "_removeMagazines"];
+params ["_vehicle", "_removeMagazines"];
+if !(local _vehicle) exitWith {
+	_this remoteExec [_fnc_scriptName, owner _vehicle, false];
+};
+
 {
-	params ["_typ", "_count"];
-	
-	for "_i" from 1 to _count do {
-		_plane removeMagazine _typ;
-	};
+	_vehicle removeMagazine _x;
 } forEach _removeMagazines;
