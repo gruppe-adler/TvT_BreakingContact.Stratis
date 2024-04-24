@@ -3,11 +3,11 @@
   "description": "Asymmetric TvT scenario for Arma3",
   "version": "0.0.5",
   "dependencies": {
-    "@gruppe-adler/replay": ">=1.5.0",
-    "grad-fortifications": "^0.9.3",
-    "grad-islandconfig": ">=0.3.1",
+    "@gruppe-adler/replay": "^1.6.0",
+    "grad-fortifications": "^0.9.4",
+    "grad-islandconfig": "^0.4.4",
     "grad-listbuymenu": "^0.9.0",
-    "grad-loadout": ">=4.11.4",
+    "grad-loadout": "^4.11.7",
     "grad-tvtsettings": "0.0.3",
     "shk_pos": "github:gruppe-adler/shk_pos#master"
   }
