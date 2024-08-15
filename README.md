@@ -57,10 +57,9 @@ To play on one of those islands, change the file name's terrain part (_"Stratis"
 ## Hints
 * Admin slot is Zeus to fight bugs
 * Russian Commander Slot is mandatory
-* It's highly recommended to use the predefined amount of money
+* There are different tiers of vehicles available depending on player count (param)
 * Russians might redeploy, the sum of deployed time counts for winning
-* Best played in a roughly 2:1 attacker defender ratio
-* You can eradicate the spawn cone with ace interact to hide your spawn position
+
 
 ----
 
